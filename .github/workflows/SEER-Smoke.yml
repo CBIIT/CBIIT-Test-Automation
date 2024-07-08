@@ -2,8 +2,8 @@ name: PLATFORM BUSINESS - SEER SMOKE TESTS
 
 on:
   schedule:
-    # This corresponds to 5:00 AM EDT (9:00 AM UTC)
-    - cron: '0 9 * * *'
+    # This corresponds to 6:00 AM EDT (10:00 AM UTC)
+    - cron: '0 10 * * *'
   workflow_dispatch:
     inputs:
       testBrowser:
@@ -70,7 +70,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          sed -i '1s/.*/<h1>SEER Smoke Test Results<\/h1>/' seer-smoke-test-results.html
+          if [ ! -f seer-smoke-test-results.html ]; then
+              echo '<h1>SEER Smoke Test Results</h1>' > seer-smoke-test-results.html
+          fi
           echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> seer-smoke-test-results.html
           git add seer-smoke-test-results.html
           git commit -m "Update seer-smoke-test-results.html"

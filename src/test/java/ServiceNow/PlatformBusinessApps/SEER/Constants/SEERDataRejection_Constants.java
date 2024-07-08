@@ -50,9 +50,16 @@ public class SEERDataRejection_Constants {
     public static final String THE_ORGANIZATION_FIELD_WAS_LEFT_BLANK = "The Organization field was left blank. The Institution/University/Company of the requestor must be listed.";
 
     /* REJECTION EMAIL TEXT PART 5 */
-    public static final String TO_RESUBMIT_YOUR_REQUEST = "To resubmit your request, please go to https://seerdataaccess.cancer.gov/seer-data-access.\n" +
-            "\n" +
-            "Note: If your request was rejected because of your email address, you must change the email address in your eRA Commons account. Please wait 2 days for the information to propagate to SEER and then resubmit your application. For help, refer to the FAQ for changing the email.";
+    public static final String TO_RESUBMIT_YOUR_REQUEST = "To resubmit your request, please go to";
+
+    /* REJECTION EMAIL TEXT PART 6 */
+    public static final String PLEASE_GO_TO = "https://seerdataaccess.cancer.gov/seer-data-access";
+
+    /* REJECTION EMAIL TEXT PART 7 */
+    public static final String NOTE = "Note:";
+
+    /* REJECTION EMAIL TEXT PART 8 */
+    public static final String IF_YOUR_REQUEST_WAS_REJECTED = "If your request was rejected because of your email address, you must change the email address in your eRA Commons account. Please wait 2 days for the information to propagate to SEER and then resubmit your application. For help, refer to the FAQ for changing the email.   ";
 
     /** --------------- MISC REJECTION CONSTANTS--------------- */
 
@@ -67,5 +74,4 @@ public class SEERDataRejection_Constants {
 
     /* NATIVE VIEW EMAILS UNDER SYSTEM LOGS URL */
     public static final String NATIVE_VIEW_EMAILS_UNDER_SYSTEM_LOGS_URL = "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_email_list.do%3Fsysparm_userpref_module%3D8d620b63c611227b008368697b0b8d7b%26sysparm_query%3Dsys_created_onONToday%2540javascript%253Ags.daysAgoStart%25280%2529%2540javascript%253Ags.daysAgoEnd%25280%2529%255EEQ";
-
 }

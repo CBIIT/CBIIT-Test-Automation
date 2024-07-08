@@ -10,8 +10,8 @@ public class Other_Accomplishments_Submissions_Constants {
     /* OTHER ACCOMPLISHMENTS SUBMISSION NAME */
     public static final String OTHER_ACCOMPLISHMENTS_SUBMISSION_NAME = "Other Accomplishment AutomationTest " + CommonUtils.lastNameRandomizer();
 
-    /* OTHER ACCOMPLISHMENTS DOC DROPDOWN */
-    public static final String OTHER_ACCOMPLISHMENTS_DOC_DROPDOWN = "CBIIT";
+    /* SUBMISSIONS DOC FIELD DROPDOWN */
+    public static final String SUBMISSIONS_DOC_FIELD_DROPDOWN = "CBIIT";
 
     /* OTHER ACCOMPLISHMENTS DESCRIPTION TEXT BOX */
     public static final String OTHER_ACCOMPLISHMENTS_DESCRIPTION_TEXT_BOX = "Testing Description Other Accomplishment";

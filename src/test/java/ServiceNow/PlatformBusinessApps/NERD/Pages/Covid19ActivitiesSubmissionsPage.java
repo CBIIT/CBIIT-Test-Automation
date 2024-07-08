@@ -61,8 +61,6 @@ public class Covid19ActivitiesSubmissionsPage extends CommonUtils {
     @FindBy(xpath = "(//div[contains(@class,'panel-body')])[5]//child::div//child::div[2]")
     public WebElement nerdOCovid19SubmissionItemsPerPageText;
 
-    /** ------------ CREATE NEW OTHER ACCOMPLISHMENTS SECTION ----------- */
-
     public Covid19ActivitiesSubmissionsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

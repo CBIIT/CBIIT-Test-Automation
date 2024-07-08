@@ -96,15 +96,14 @@ public class Registration_Constants {
     public static final String THANK_YOU_DATA_ACCESS_REQUEST_IS_COMPLETE_MESSAGE = "Thank you - your data access request is complete.";
 
     /* SEER VERIFYING STATE FIELD IS REQUIRED TEXT */
-    public static final String VERIFYING_STATE_FIELD_IS_REQUIRED_TEXT = "Verifying State field is required";
+    public static final String VERIFYING_STATE_FIELD_IS_NOT_REQUIRED_TEXT = "* * * * VERIFYING STATE FIELD IS NOT REQUIRED * * * *";
 
     /* SEER VERIFYING ZIP CODE FIELD IS REQUIRED TEXT */
-    public static final String VERIFYING_ZIP_CODE_FIELD_IS_REQUIRED_TEXT  = "Verifying Zip Code field is required";
+    public static final String VERIFYING_ZIP_CODE_FIELD_IS_NOT_REQUIRED_TEXT  = "* * * * VERIFYING ZIP CODE FIELD IS NOT REQUIRED * * * *";
 
     /* SEER BACK TO SEER DATABASE DETAILS BUTTON TEXT */
     public static final String BACK_TO_SEER_DATABASE_DETAILS_BUTTON_TEXT  = "← Back to SEER Database details";
 
     /* SEER ODS NATIVE VIEW CUSTOMERS UNDER SEER URL */
     public static final String SEER_ODS_NATIVE_VIEW_CUSTOMERS_UNDER_SEER_URL = "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/x_g_nci_seer_data_customer_list.do%3Fsysparm_userpref_module%3D1a5b18501b5418102701b913cc4bcbc5";
-
 }

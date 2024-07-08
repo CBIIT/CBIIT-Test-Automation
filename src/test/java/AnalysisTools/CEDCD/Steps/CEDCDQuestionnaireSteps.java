@@ -27,7 +27,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	public void a_Admin_user_adds_a_Cohort_Study_linked_to_Cohort_Owner() throws TestingException {
 		MiscUtils.sleep(3000);
 		JavascriptUtils.clickByJS(cedcdAdminPage.nihLoginBtn);
-		iTrustLoginPageImpl.shomirITrustLogin();
+		iTrustLoginPageImpl.loginToITrust();
 		MiscUtils.sleep(2000);
 		cedcdAdminPage.addNewCohortlnk.click();
 		MiscUtils.sleep(2000);
@@ -606,7 +606,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	public void the_user_is_logged_in_as_Admin() throws TestingException {
 		CommonUtils.clickOnElement(cedcdAdminPage.nihLoginBtn);
 		CommonUtils.waitForClickability(iTrustloginPage.signInButton);
-		iTrustLoginPageImpl.shomirITrustLogin();
+		iTrustLoginPageImpl.loginToITrust();
 	}
 
 	@When("user selects add new Cohort")

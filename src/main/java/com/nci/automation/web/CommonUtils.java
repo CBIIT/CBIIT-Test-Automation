@@ -786,4 +786,18 @@ public class CommonUtils extends WebDriverUtils {
         LocalDate oneMonthFromNow = LocalDate.now().plusMonths(1);
         return oneMonthFromNow.format(formatter);
     }
+
+    /**
+     * Compares two lists of elements and asserts that they are equal.
+     *
+     * @param actualValues The list of actual values.
+     * @param expectedValues The list of expected values.
+     * @throws AssertionError if the sizes of the lists are different or if any corresponding elements in the lists are not equal.
+     */
+    public static void comparingTwoLists(List<WebElement> actualValues, List<String> expectedValues){
+        Assert.assertEquals(actualValues.size(), expectedValues.size());
+        for (int i = 0; i < actualValues.size(); i++) {
+            Assert.assertEquals(actualValues.get(i).getText(), expectedValues.get(i));
+        }
+    }
 }

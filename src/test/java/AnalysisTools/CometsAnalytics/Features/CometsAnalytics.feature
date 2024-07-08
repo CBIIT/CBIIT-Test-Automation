@@ -7,7 +7,7 @@ Feature: This feature files is for Comets Analytics features
     Then Click on perform analysis button
     Then verify that user is on anaysis page
 
-  @satya @Regression @NCIATWP-4411 @NCIATWP-6292
+  @satya @Smoke @Regression @NCIATWP-4411 @NCIATWP-6292
   Scenario: Verify user is able to open footer links
     Given User navigates to comets analytics home page
     When User clicks on footer links like about comets and verify new tab is opened
@@ -20,13 +20,13 @@ Feature: This feature files is for Comets Analytics features
     When User clicks About button
     Then User should be able to view Help, Accessibility, Current Version Functionality, Acknowledgements, Citation is getting displayed
 
-  @satya @Regression @NCIATWP-4429
+  @satya @Smoke @Regression @NCIATWP-4429
   Scenario: Verify user is able to download sample input.
     Given User navigates to comets analytics home page
     When User clicks on Analysis button
     And User clicks on Download Sample Input
 
-  @satya @Regression @NCIATWP-4413
+  @satya @Smoke @Regression @NCIATWP-4413
   Scenario: Verify that user is able to view integrity check
     Given User navigates to comets analytics home page
     When User clicks on Analysis button
@@ -34,7 +34,7 @@ Feature: This feature files is for Comets Analytics features
     And User upload file and click check integrity
     Then User should be able to view the Sucess message "Integrity Check Successful"
 
-  @satya6 @Regression @NCIATWP-4444
+  @satya @Smoke @Regression @NCIATWP-4444
   Scenario: Verify that user is able to get error on uploading invalid file
     Given User navigates to comets analytics home page
     When User clicks on Analysis button
@@ -77,7 +77,7 @@ Feature: This feature files is for Comets Analytics features
     And User should select option from Model type dropdown and Model Dropdown and click run model
     Then User should be able to view the downlad button
 
-  @satya @Regression @NCIATWP-4141
+  @satya @Regression @Smoke @NCIATWP-4141
   Scenario: Verify that user is able to click custom models
     Given User navigates to comets analytics home page
     When User clicks on Analysis button
@@ -88,7 +88,7 @@ Feature: This feature files is for Comets Analytics features
     And User should fill all the custom model parameters and click run model
     Then User should be able to view the results
 
-  @satya @Smoke @Regression @NCIATWP-6345
+  @satya @Regression @NCIATWP-6345
   Scenario: Verify that user is able to view heatmap
     Given User navigates to comets analytics home page
     When User clicks on Analysis button

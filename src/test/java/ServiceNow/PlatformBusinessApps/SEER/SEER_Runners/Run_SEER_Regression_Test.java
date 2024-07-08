@@ -3,11 +3,11 @@ package ServiceNow.PlatformBusinessApps.SEER.SEER_Runners;
 import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 
-@CucumberOptions(plugin = {"html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
-        "junit:target/cucumber.xml", "rerun:target/failed.txt",
+@CucumberOptions(plugin = {"html:target/html-reports/cucumber-default-report.html",
+        "json:target/cucumber.json", "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/java/ServiceNow/PlatformBusinessApps/SEER/Features",
-        glue = "ServiceNow.PlatformBusinessApps.SEER.Steps",
+        glue = {"ServiceNow.PlatformBusinessApps.SEER.Steps", "Hooks"},
         tags = "@Regression",
         dryRun = false
 )
@@ -18,6 +18,5 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
  * 
  * @author juarezds
  */
-
 public class Run_SEER_Regression_Test extends AbstractTestNGCucumberTests {
 }

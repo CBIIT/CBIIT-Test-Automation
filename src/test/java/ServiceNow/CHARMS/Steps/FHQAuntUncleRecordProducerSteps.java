@@ -1,7 +1,6 @@
 package ServiceNow.CHARMS.Steps;
 
 import java.util.ArrayList;
-
 import org.junit.Assert;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -15,72 +14,48 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class FHQAuntUncleRecordProducerSteps extends PageInitializer {
-
 	private ArrayList<StepTestResult> scenarioReportList = new ArrayList<StepTestResult>();
 
 	@Given("user clicks the AuntUncle Grid link on FHQ Grid page to land on the FHQ AuntUncle list view page")
 	public void user_clicks_the_AuntUncle_Grid_link_on_FHQ_Grid_page_to_land_on_the_FHQ_AuntUncle_list_view_page() {
-
 		fHQSurveyPortalPage.auntUncleLinkOnFamilyGrid.click();
-
 		StepTestResult stepTestResult = new StepTestResult(
 				"User clicked the AuntUncle Grid link on FHQ Grid page to land on the FHQ AuntUncle list view page");
-
 		scenarioReportList.add(stepTestResult);
-
 	}
 
 	@Given("verifies the AuntUncle List View details")
 	public void verifies_the_AuntUncle_List_View_details() {
-
 		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(
 				fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,
 				"Family Cohort Study Management System: RASopathies");
-
 		ComponentTestResult homeButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.homeButton, "FHQ Home");
-
 		ComponentTestResult listViewButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.listViewButton, "List View");
-
 		ComponentTestResult contextMenuTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.auntUncleContextMenuButton, "");
-
 		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.auntsUnclesBanner, "Aunt/Uncles");
-
 		ComponentTestResult labelTest2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.newButtonLinkOnListView, "New");
-
 		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.rowsDetailsOnListView,
 				"The blue highlighted rows represent the incompleted family records");
-
 		ComponentTestResult labelTest6 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstNameOnListView, "First Name");
-
 		ComponentTestResult labelTest7 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstInitialOfLastNameOnListView,
 				"First Initial of LAST Name");
-
 		ComponentTestResult labelTest8 = FHQUtil.verifyLabel(fHQSurveyPortalPage.vitalStatusOnListView, "Vital Status");
-
 		ComponentTestResult labelTest9 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfBirthOnListView,
 				"Year of Birth");
-
 		ComponentTestResult labelTest10 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relationToPatientOnListView1,
 				"Relation to Patient");
-
 		ComponentTestResult labelTest11 = FHQUtil.verifyLabel(fHQSurveyPortalPage.auntUncleFirstNameOnListViewValue,
 				"Parent Sibling FN");
-
 		ComponentTestResult labelTest12 = FHQUtil
 				.verifyLabel(fHQSurveyPortalPage.auntUncleFirstInitialOfLastNameOnListViewValue, "C");
-
 		ComponentTestResult labelTest13 = FHQUtil.verifyLabel(fHQSurveyPortalPage.auntUncleVitalStatusOnListViewValue,
 				"Prefer not to answer");
-
 		ComponentTestResult labelTest14 = FHQUtil.verifyLabel(fHQSurveyPortalPage.auntUncleYearOfBirthOnListViewValue,
 				"");
-
 		ComponentTestResult labelTest15 = FHQUtil
 				.verifyLabel(fHQSurveyPortalPage.auntUncleRelationToPatientOnListViewValue, "");
-
 		StepTestResult stepTestResult = new StepTestResult(
 				"The Participant AuntUncle details on the List View page are verified");
-
 		stepTestResult.add(charmsBannerTest);
 		stepTestResult.add(homeButtonTest);
 		stepTestResult.add(listViewButtonTest);
@@ -98,71 +73,49 @@ public class FHQAuntUncleRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(labelTest13);
 		stepTestResult.add(labelTest14);
 		stepTestResult.add(labelTest15);
-
 		scenarioReportList.add(stepTestResult);
-
 	}
 
 	@When("clicks the New button on the FHQ AuntUncle list view page it lands on the New FHQ AuntUncle record producer page")
 	public void clicks_the_New_button_on_the_FHQ_AuntUncle_list_view_page_it_lands_on_the_New_FHQ_Parent_record_producer_page() {
-
 		fHQSurveyPortalPage.newButtonLinkOnListView.click();
-
 		StepTestResult stepTestResult = new StepTestResult(
 				"Clicked the New button on the FHQ AuntUncle list view page to lands on the New FHQ AuntUncle record producer page");
-
 		scenarioReportList.add(stepTestResult);
-
 	}
 
 	@Then("fills the AuntUncle information")
 	public void fills_the_AuntUncle_information() {
-
 		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(
 				fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,
 				"Family Cohort Study Management System: RASopathies");
-
 		ComponentTestResult homeButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.homeButton, "FHQ Home");
-
 		ComponentTestResult listViewButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.listView1Button, "List View");
-
 		ComponentTestResult formViewButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.formViewButton, "Form View");
-
 		ComponentTestResult headerBanner = FHQUtil.verifyLabel(fHQSurveyPortalPage.headerBanner,
 				"We know families come in various configurations. This survey is primarily meant to record health information on your biological (blood-related) relatives. It's okay not to know information about some of your relatives. You will have a chance to tell us about any non-biological relatives you would like us to add to your family tree (for example, an adopted sibling or a step-parent) at the end of the survey.");
-
 		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.auntUncleBanner, "Aunt/Uncle");
-
 		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.shortDescriptionInformationBanner,
 				"Aunts/Uncles Details");
-
 		ComponentTestResult auntUncleRelationBanner = FHQUtil.verifyLabel(fHQSurveyPortalPage.auntUncleRelationBanner,
 				"You are currently filling out information for the participants aunt/uncle.");
-
 		ComponentTestResult labelTest2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.shortDescriptionInformationBanner1,
 				"Please enter one record per each family member for whom you have knowledge: ");
-
 		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(
 				fHQSurveyPortalPage.relativeParticipantsMotherOrFatherSiblingLabel,
 				"Is this relative the participant's mother's sibling or their father's sibling");
-
 		ComponentTestResult labelTest4 = FHQUtil.verifyLabel(
 				fHQSurveyPortalPage.relativeParticipantsMotherOrFatherSiblingBanner,
 				"If you are filling out this form for your self you are the participant.");
-
 		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(
 				fHQSurveyPortalPage.relativeParticipantsMotherOrFatherSiblingDropDown,
 				FHQSurveyPageConstants.PARENT_SIBLING, 0);
-
 		ComponentTestResult labelTest5 = FHQUtil.verifyLabel(fHQSurveyPortalPage.auntUncleTypeOfSiblingToParentLabel,
 				"Please define the type of sibling?");
-
 		ComponentTestResult dropdownTest1 = FHQUtil.verifySelect2DropDowns(
 				fHQSurveyPortalPage.auntUncleTypeOfSiblingToParentDropDown, FHQSurveyPageConstants.TYPES_OF_SIBLINGS,
 				1);
-
 		StepTestResult stepTestResult = new StepTestResult("The AuntUncle information details are filled and verified");
-
 		stepTestResult.add(charmsBannerTest);
 		stepTestResult.add(headerBanner);
 		stepTestResult.add(homeButtonTest);
@@ -178,49 +131,33 @@ public class FHQAuntUncleRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(labelTest5);
 		stepTestResult.add(dropdownTest1);
 		scenarioReportList.add(stepTestResult);
-
 	}
 
 	@When("fills the First Name, First Initial of LAST name, Year of Birth, Vital Status,Year of Death, Age of Death information of the AuntUncle related to the Patient")
 	public void fills_the_First_Name_First_Initial_of_LAST_name_Year_of_Birth_Vital_Status_Year_of_Death_Age_of_Death_information_of_the_AuntUncle_related_to_the_Patient() {
-
 		MiscUtils.sleep(300);
 		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstNameLabel, "First Name");
-
 		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstNameTextBox, "");
-
 		fHQSurveyPortalPage.firstNameTextBox.sendKeys("Participant AuntUncle FN");
-
 		ComponentTestResult labelTest2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.auntUnclefirstInitialLastNameLabel,
 				"First Initial of LAST Name");
-
 		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown,
 				FHQSurveyPageConstants.firstInitialLastName1(), 4);
-
 		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfBirthLabel, "Year of Birth");
-
 		ComponentTestResult banner2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.dateLabelBanner2,
 				"An estimated age is preferred over \"Don't Know\". Examples: early 40s = 42; mid-40s = 45; late 40s = 48.");
-
 		ComponentTestResult dropdownTest1 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown,
 				FHQSurveyPageConstants.yearOfBirthOrDeathAfter1900(),58);
-
 		ComponentTestResult labelTest4 = FHQUtil.verifyLabel(fHQSurveyPortalPage.vitalStatusLabel, "Vital Status");
-
 		ComponentTestResult dropdownTest2 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown,
 				FHQSurveyPageConstants.VITAL_STATUS_LIST, 2);
-
 		ComponentTestResult labelTest5 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfDeathOrAgeLabel,
 				"Please provide the year of death or the age of death");
-
 		ComponentTestResult dropdownTest3 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown,
 				FHQSurveyPageConstants.YEAR_OR_AGE_OF_DEATH, 1);
-
 		ComponentTestResult labelTest6 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfDeathLabel, "Year of Death");
-
 		ComponentTestResult banner3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.dateLabelBanners,
 				"An estimated age is preferred over \"Don't Know\". Examples: early 40s = 42; mid-40s = 45; late 40s = 48.");
-
 		ComponentTestResult dropdownTest4 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown,
 				FHQSurveyPageConstants.yearOfBirthOrDeathAfter1900(), 98);
 
@@ -1001,12 +938,9 @@ public class FHQAuntUncleRecordProducerSteps extends PageInitializer {
 
 		ComponentTestResult labelTest5 = FHQUtil.verifyLabel(fHQSurveyPortalPage.auntUncleRemoveAllChildMRVSButton,
 				"Remove All");
-
 		fHQSurveyPortalPage.auntUncleAddChildMRVSButton.click();
-
 		StepTestResult stepTestResult = new StepTestResult(
 				"The Participant AuntUncle Total children details are filled");
-
 		stepTestResult.add(labelTest);
 		stepTestResult.add(labelTest1);
 		stepTestResult.add(dropdownTest);
@@ -1014,9 +948,7 @@ public class FHQAuntUncleRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(labelTest3);
 		stepTestResult.add(labelTest4);
 		stepTestResult.add(labelTest5);
-
 		scenarioReportList.add(stepTestResult);
-
 	}
 
 	@When("AuntUncle Child MRVS details are filled")

@@ -16,6 +16,9 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
 
     public static String newEmail282 = "seerThankYou282" + CommonUtils.email;
 
+    /**
+     * Verifies that the email address field is read-only.
+     */
     public static void validateEmailFieldReadOnly() {
         /**
          * VERIFYING EMAIL ADDRESS AND THAT EMAIL ADDRESS FIELD IS READ-ONLY
@@ -25,6 +28,9 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
                 seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
     }
 
+    /**
+     *  This method fills out the Registration Form
+     */
     public static void fillingOutRegistrationForm() {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationFirstNameField);
@@ -57,6 +63,9 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Fills out the registration form.
+     */
     public static void fillingOutRegistrationFormOrganizationNotFound() {
         MiscUtils.sleep(1000);
         CommonUtils. waitForVisibility(seerUserRegistrationPage.seerUserRegistrationFirstNameField);
@@ -88,6 +97,11 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method checks if the user is able to select an organization option and prevents it if the option is found.
+     *
+     * @param organizationOption the organization option that should not be selected
+     */
     public static void userShouldNotBeAleToSelectAsAnOrganizationOption(String organizationOption) {
         for (WebElement organization : seerUserRegistrationPage.seerUserRegistrationOrganizations){
             String org = organization.getAttribute("value");
@@ -103,6 +117,9 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         }
     }
 
+    /**
+     * This method fill the Registration form without Stats and Zip code fields
+     */
     public static void fillingOutRegistrationFormWithoutStateAndZip() {
         CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationFirstNameField);
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationFirstNameField,
@@ -121,8 +138,6 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(seerUserRegistrationPage.seerUserRegistrationAddressField,
                 Registration_Constants.STREET_ADDRESS);
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCityField, Registration_Constants.CITY_NAME);
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationPhoneField,
-                Registration_Constants.PHONE_NUMBER);
 
         /**
          * SELECTING VALUE FOR What best describes you for the purpose of requesting
@@ -134,6 +149,9 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Fills out the SEER Registration Form for Non-Institutional users.
+     */
     public static void fillsOutTheSEERRegistrationFormNonInstitutional() {
         seerUserRegistrationPage.seerUserRegistrationFirstNameField.sendKeys(Registration_Constants.NI_FIRST_NAME);
         seerUserRegistrationPage.seerUserRegistrationMiddleNameField.sendKeys(Registration_Constants.NI_MIDDLE_NAME);
@@ -160,6 +178,11 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         MiscUtils.sleep(1000);
     }
 
+    /**
+     * Submits the SEER user registration form successfully.
+     *
+     * @throws TestingException if any error occurs during the registration process
+     */
     public static void aSEERUserRegistrationHasBeenSuccessfullySubmitted() throws TestingException {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
         CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
@@ -190,7 +213,6 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         seerUserRegistrationPage.seerUserRegistrationCityField.sendKeys(Registration_Constants.NI_CITY_NAME);
         seerUserRegistrationPage.seerUserRegistrationStateField.sendKeys(Registration_Constants.NI_STATE);
         seerUserRegistrationPage.seerUserRegistrationZipcodeField.sendKeys(Registration_Constants.NI_ZIP_CODE);
-        seerUserRegistrationPage.seerUserRegistrationPhoneField.sendKeys(Registration_Constants.NI_PHONE_NUMBER);
         CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
         CommonUtils.selectDropDownValue(Registration_Constants.GENERAL_PURPOSE_FOR_USING_THE_DATA,
                 seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
@@ -204,6 +226,12 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * The user should see the "You Already Have Access To Seer Research Data" page when re-registering.
+     *
+     * @param youAlreadyHaveAccessToSeerResearchData The message that the user should see on the page when re-registering.
+     * @throws TestingException If any error occurs during the re-registration process.
+     */
     public static void theUserShouldSeePageWhenReRegistering(String youAlreadyHaveAccessToSeerResearchData) throws TestingException{
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
         SEERDataAccessRequestPageStepsImpl.enterEmailAddress349();
@@ -213,6 +241,11 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
                 seerUserRegistrationPage.seerYouAlreadyHaveAccessToSeerResearchDataHeader.getText());
     }
 
+    /**
+     * Verifies that the landing page has a link for Seer Research plus instruction.
+     *
+     * @param youAlreadyHaveAccessToSeerResearchData The message that the user should see on the page when re-registering.
+     */
     public static void theLandingPageHasLinkForSeerResearchPlusInstruction(String youAlreadyHaveAccessToSeerResearchData){
         JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerHowToRequestAccessToSeerDataLink);
         CommonUtils.assertEquals(youAlreadyHaveAccessToSeerResearchData,
