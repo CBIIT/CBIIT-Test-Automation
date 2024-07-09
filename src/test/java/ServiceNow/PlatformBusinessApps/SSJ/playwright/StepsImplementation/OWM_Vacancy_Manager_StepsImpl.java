@@ -293,7 +293,7 @@ public class OWM_Vacancy_Manager_StepsImpl {
         for (int i = 1; !flag; i++) {
             try {
                 String value = "" + i;
-                MiscUtils.sleep(2000);
+                MiscUtils.sleep(3000);
                 Playwright_Common_Utils.scrollIntoView("(//div[@class='rc-virtual-list'])[2]/div/div/div/div[" + value + "]/div");
                 for (ElementHandle c : page.querySelectorAll("(//div[@class='rc-virtual-list'])[2]/div/div/div/div/div")) {
                     String consoleMName = c.innerText();
