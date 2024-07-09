@@ -1,7 +1,7 @@
 Feature: Applicant Profile Scenarios
   Description: This Feature file contains Applicant Profile Scenarios
 
-  @juarezds @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @Regression @playwright
+  @juarezds @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @Regression @playwright @Progression
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     When User is on SCSS Landing page and user is "Maria Chaudhry" - PW
@@ -43,7 +43,7 @@ Feature: Applicant Profile Scenarios
       | Jessica   | Marianna   | Mollick   | mollickja@nih.gov  | 7018211343 | 2123323454    | Masters          | Yes             | 11 Kolls | 6         | Sausalito | CA    | USA     | 97712 |
       | Karen     | Elena      | Andrew    | andrewkl@nih.gov   | 8233212333 | 2202122234    | Bachelors        | Yes             | 11 Bells | 39        | Sacramento| CA    | USA     | 95512 |
 
-  @juarezds @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @Regression @playwright @Bug_Open
+  @juarezds @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @Regression @playwright @Bug_Open @Smoke
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     When User is on SCSS Landing page and user is "Maria Chaudhry" - PW
@@ -92,32 +92,30 @@ Feature: Applicant Profile Scenarios
     And User chooses not to share demographic details - PW
     Then User saves the updated section - PW
 
-"""
-APPTRACK-385
-APPTRACK-145
-APPTRACK-144
-APPTRACK-827
-APPTRACK-1158
-APPTRACK-134
-APPTRACK-133
-APPTRACK-370
-APPTRACK-135
-APPTRACK-360
-APPTRACK-129
-APPTRACK-128
-APPTRACK-127
-APPTRACK-928
-APPTRACK-928
-APPTRACK-927
-APPTRACK-1130
-APPTRACK-594
-APPTRACK-359
-APPTRACK-911
-APPTRACK-599
-APPTRACK-461
-APPTRACK-1106
-APPTRACK-463
-APPTRACK-1109
-APPTRACK-454
-APPTRACK-565
-"""
+#APPTRACK-385
+#APPTRACK-145
+#APPTRACK-144
+#APPTRACK-827
+#APPTRACK-1158
+#APPTRACK-134
+#APPTRACK-133
+#APPTRACK-370
+#APPTRACK-135
+#APPTRACK-360
+#APPTRACK-129
+#APPTRACK-128
+#APPTRACK-127
+#APPTRACK-928
+#APPTRACK-928
+#APPTRACK-927
+#APPTRACK-1130
+#APPTRACK-594
+#APPTRACK-359
+#APPTRACK-911
+#APPTRACK-599
+#APPTRACK-461
+#APPTRACK-1106
+#APPTRACK-463
+#APPTRACK-1109
+#APPTRACK-454
+#APPTRACK-565

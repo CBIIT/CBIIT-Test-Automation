@@ -24,7 +24,6 @@ public class ApplicantProfileSteps {
 
     @Given("User inputs {string} into first name field - PW")
     public void user_inputs_into_first_name_field_pw(String firstName) {
-        MiscUtils.sleep(4000);
         PlaywrightUtils.page.locator(Profile_Tab_Page.firstNameTextBox).fill(firstName);
     }
 
