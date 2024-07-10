@@ -16,8 +16,8 @@ public class SSJ_Constants {
             add("N/A");
             add("Research Fellow");
             add("SBRBPAS");
-            add("Science Policy Leader Tier 2");
-            add("Science Program Leader Tier 2");
+            add("Science Policy Leader - Tier 2");
+            add("Science Program Leader - Tier 2");
             add("Scientific Executive");
             add("Senior Clinical Fellow");
             add("Senior Clinician");

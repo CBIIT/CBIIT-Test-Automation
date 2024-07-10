@@ -1,7 +1,7 @@
 Feature: OWM Vacancy Manager Scenarios
   Description: This Feature file contains OWM Vacancy Manager Scenarios
 
-  @SSJ-7 @SSJ-8 @juarezds @Regression @playwright
+  @SSJ-7 @SSJ-8 @juarezds @Regression @playwright @Smoke
   Scenario: Verification of Basic Vacancy Information section while creating an NCI Vacancy
     When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -46,7 +46,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks "Save" button to save the Basic Vacancy Information
     And User confirms that User is on "Mandatory Statements" section
 
-  @SSJ-69 @juarezds @Regression @playwright
+  @SSJ-69 @juarezds @Regression @playwright @Smoke
   Scenario: Verification of Mandatory Statements section while creating an NCI Vacancy
     When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -280,3 +280,62 @@ Feature: OWM Vacancy Manager Scenarios
     And User can sort by Closed Individual Scoring
     And User can sort by Closed Committee Review
     And User can sort by Closed Voting Complete
+
+#APPTRACK-384
+#APPTRACK-386
+#APPTRACK-260
+#APPTRACK-382
+#APPTRACK-268
+#APPTRACK-388
+#APPTRACK-829
+#APPTRACK-828
+#APPTRACK-948
+#APPTRACK-374
+#APPTRACK-376
+#APPTRACK-490
+#APPTRACK-257
+#APPTRACK-377
+#APPTRACK-1004
+#APPTRACK-120
+#APPTRACK-244
+#APPTRACK-245
+#APPTRACK-366
+#APPTRACK-369
+#APPTRACK-368
+#APPTRACK-489
+#APPTRACK-808
+#APPTRACK-1131
+#APPTRACK-1134
+#APPTRACK-1136
+#APPTRACK-352
+#APPTRACK-473
+#APPTRACK-912
+#APPTRACK-356
+#APPTRACK-357
+#APPTRACK-1105
+#APPTRACK-101
+#APPTRACK-222
+#APPTRACK-460
+#APPTRACK-228
+#APPTRACK-348
+#APPTRACK-229
+#APPTRACK-103
+#APPTRACK-224
+#APPTRACK-102
+#APPTRACK-223
+#APPTRACK-347
+#APPTRACK-225
+#APPTRACK-588
+#APPTRACK-903
+#APPTRACK-452
+#APPTRACK-459
+#APPTRACK-576
+#APPTRACK-578
+#APPTRACK-577
+#APPTRACK-91
+#APPTRACK-93
+#APPTRACK-94
+#APPTRACK-440
+#APPTRACK-562
+#APPTRACK-443
+#APPTRACK-88

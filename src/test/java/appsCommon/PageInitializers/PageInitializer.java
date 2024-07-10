@@ -41,6 +41,7 @@ import GrantsApps.ChangePassword.StepsImplementation.*;
 import GrantsApps.EM.selenium.Pages.AccountDetailsPage;
 import GrantsApps.EM.selenium.Pages.CreateNewAccountPage;
 import GrantsApps.EM.selenium.Pages.ManageI2EUsersPage;
+import GrantsApps.EM.selenium.Pages.ModifyAccountPage;
 import GrantsApps.EM.selenium.StepImplementation.EMStepsImplementation;
 import ServiceNow.CHARMS.Constants.*;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
@@ -56,7 +57,9 @@ import ServiceNow.COVIDCode.StepsImplementation.DashboardStepImpl;
 import ServiceNow.COVIDDash.NativeView.Pages.*;
 import ServiceNow.COVIDDash.Pages.*;
 import ServiceNow.COVIDDash.StepsImplementation.*;
-import ServiceNow.ESR.Pages.*;
+import ServiceNow.ESR.Selenium.Pages.ESRShortDescriptionPage;
+import ServiceNow.ESR.Selenium.Pages.ESRTicketCreationPage;
+import ServiceNow.ESR.Selenium.Pages.NCINativeViewPage;
 import ServiceNow.PlatformBusinessApps.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
 import ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Pages.CTRPCTRO_NV_Page;
 import ServiceNow.PlatformBusinessApps.GDC.Pages.GDC_Workflow_NativeView_Page;
@@ -94,6 +97,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static ManageI2EUsersPage manageI2EUsersPage;
 	public static CreateNewAccountPage createNewAccountPage;
 	public static AccountDetailsPage accountDetailsPage;
+	public static ModifyAccountPage modifyAccountPage;
 
 	/** --------------- SERVICENOW INSTANCES --------------- */
 	/** COVIDDash instances */
@@ -190,6 +194,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NERDCRSTOtherAccomplishmentsPage nerdcrstOtherAccomplishmentsPage;
 	public static NERDOGCRAddNewEntryPage nERDOGCRAddNewEntryPage;
 	public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
+	public static AdHoc_Data_Call_Submissions_Page adHoc_data_call_submissions_page;
 
 	/** SSJ instances */
 	public static OWMVacancyPage owmVacancyPage;
@@ -354,7 +359,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
 
-
 	/** --------------- EGRANTS INSTANCES --------------- */
 	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;
 	public static EgrantsStepImplementation egrantsStepImplementation;
@@ -471,6 +475,7 @@ public class PageInitializer extends WebDriverUtils {
 		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
 		nerdcrstOtherAccomplishmentsPage = new NERDCRSTOtherAccomplishmentsPage();
 		covid19ActivitiesSubmissionsPage = new Covid19ActivitiesSubmissionsPage();
+		adHoc_data_call_submissions_page = new AdHoc_Data_Call_Submissions_Page();
 		nERDOGCRAddNewEntryPage = new NERDOGCRAddNewEntryPage();
 
 		/** ESR INSTANCE VARIABLES */
@@ -639,6 +644,7 @@ public class PageInitializer extends WebDriverUtils {
 		emStepsImplementation = new EMStepsImplementation();
 		manageI2EUsersPage = new ManageI2EUsersPage();
 		createNewAccountPage = new CreateNewAccountPage();
+		modifyAccountPage = new ModifyAccountPage();
 
 		/** eTracking INSTANCE VARIABLES */
 		etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
