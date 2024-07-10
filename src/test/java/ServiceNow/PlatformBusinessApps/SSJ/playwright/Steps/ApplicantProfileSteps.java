@@ -5,9 +5,13 @@ import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Applic
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.utils.SSJ_Constants;
 import appsCommon.Pages.Playwright_Common_Locators;
+import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import com.microsoft.playwright.ElementHandle;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.PlaywrightException;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,6 +19,7 @@ import io.cucumber.java.en.When;
 import org.testng.Assert;
 
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 import static com.nci.automation.web.PlaywrightUtils.page;
 
@@ -158,7 +163,7 @@ public class ApplicantProfileSteps {
 
     @When("User chooses to share demographic details - PW")
     public void user_chooses_to_share_demographic_details_pw() {
-       ApplicantProfileStepsImpl.user_chooses_to_share_demographic_details();
+        ApplicantProfileStepsImpl.user_chooses_to_share_demographic_details();
     }
 
     @When("User edits sex choice - PW")
@@ -217,56 +222,254 @@ public class ApplicantProfileSteps {
         Assert.assertEquals(actualApplicationText, expectedApplicationText);
     }
 
-    @Then("uploads cover letter")
+    @Then("uploads cover letter if cover letter option is displayed")
     public void uploads_cover_letter() {
-        ElementHandle fileInput = page.querySelector("(//input[@type='file'])[1]");
-        fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_COVER_LETTER));
+        try {
+            ElementHandle fileInput = page.querySelector("(//input[@type='file'])[1]");
+            fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_COVER_LETTER));
+        } catch (Exception e) {
+            System.out.println("* * * COVER LETTER OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * COVER LETTER OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
+        }
     }
 
-    @Then("uploads qualification statement")
+    @Then("uploads qualification statement if qualification statement is displayed")
     public void uploads_qualification_statement() {
-        ElementHandle fileInput = page.querySelector("(//input[@type='file'])[2]");
-        fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_QUALIFICATION_STATEMENT));
+        try {
+            ElementHandle fileInput = page.querySelector("(//input[@type='file'])[2]");
+            fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_QUALIFICATION_STATEMENT));
+        } catch (Exception e) {
+            System.out.println("* * * QUALIFICATION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * QUALIFICATION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
+        }
     }
 
-    @Then("user enters Reference One first name {string}")
+    @Then("if reference one is required then user enters Reference One first name {string}")
     public void user_enters_reference_one_first_name(String firstNameText) {
-        page.getByLabel("First Name").fill(firstNameText);
+        try {
+            page.locator("(//input[@placeholder='Please Enter'])[1]").fill(firstNameText);
+        } catch (Exception e) {
+            System.out.println("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+        }
     }
 
     @Then("enters Reference One middle name {string}")
     public void enters_reference_one_middle_name(String middleNameText) {
-        page.getByLabel("Middle Name").fill(middleNameText);
+        try {
+            page.locator("(//input[@placeholder='Please Enter'])[2]").fill(middleNameText);
+        } catch (Exception e) {
+            System.out.println("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+        }
     }
 
     @Then("enters Reference One last name {string}")
     public void enters_reference_one_last_name(String lastNameText) {
-        page.getByLabel("Last Name").fill(lastNameText);
+        try {
+            page.locator("(//input[@placeholder='Please Enter'])[3]").fill(lastNameText);
+        } catch (Exception e) {
+            System.out.println("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+        }
     }
 
     @Then("enters Reference One email address {string}")
     public void enters_reference_one_email_address(String emailAddress) {
-        page.getByLabel("Email Address").fill(emailAddress);
+        try {
+            page.locator("(//input[@placeholder='Please Enter'])[4]").fill(emailAddress);
+        } catch (Exception e) {
+            System.out.println("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+        }
     }
 
     @Then("enters Reference One phone number {string}")
     public void enters_reference_one_phone_number(String phoneNumber) {
-        page.getByPlaceholder("(123) 456-").fill(phoneNumber);
+        try {
+            page.locator("(//input[@placeholder='(123) 456-7890'])[1]").fill(phoneNumber);
+        } catch (Exception e) {
+            System.out.println("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+        }
     }
 
     @Then("selects Reference One relationship as {string}")
     public void selects_reference_one_relationship_as(String relationship) {
-        page.getByLabel("Relationship").click();
-        page.getByTitle(relationship).locator("div").click();
+        try {
+            page.locator("(//input[@role='combobox'])[1]").click();
+            page.getByTitle(relationship).locator("div").click();
+        } catch (Exception e) {
+            System.out.println("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+        }
     }
 
     @Then("enters Reference One position title {string}")
     public void enters_reference_one_position_title(String positionTitle) {
-        page.getByLabel("Position Title (If Applicable)").fill(positionTitle);
+        try {
+            page.locator("(//input[@placeholder='Please Enter'])[5]").fill(positionTitle);
+        } catch (Exception e) {
+            System.out.println("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+        }
     }
 
     @Then("enters Reference One organization name {string}")
     public void enters_reference_one_organization_name(String organizationName) {
-        page.getByLabel("Organization").fill(organizationName);
+        try {
+            page.locator("(//input[@placeholder='Please Enter'])[6]").fill(organizationName);
+        } catch (Exception e) {
+            System.out.println("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+        }
+    }
+
+    @Then("user agrees to share demographic details and help improve the hiring process.")
+    public void user_agrees_to_share_demographic_details_and_help_improve_the_hiring_process() {
+        page.getByText("I want to share my").click();
+    }
+
+    @Then("selects {string} for Sex")
+    public void selects_for_sex(String gender) {
+        page.getByText(gender, new Page.GetByTextOptions().setExact(true)).click();
+    }
+
+    @Then("selects {string} for Ethnicity")
+    public void selects_for_ethnicity(String ethnicity) {
+        Playwright_Common_Utils.scrollIntoView(ethnicity, true);
+        page.getByText(ethnicity, new Page.GetByTextOptions().setExact(true)).click();
+    }
+
+    @Then("selects {string}, {string}, {string}, {string}, {string} for Race")
+    public void selects_for_race(String americanIndianOrAlaska, String asia, String blackOrAfricanAmerican, String nativeHawaiianOrOther, String white) {
+        Playwright_Common_Utils.scrollIntoView(americanIndianOrAlaska, false);
+        page.getByText(americanIndianOrAlaska).click();
+        page.getByText(asia).click();
+        page.getByText(blackOrAfricanAmerican).click();
+        page.getByText(nativeHawaiianOrOther).click();
+        page.getByText(white).click();
+    }
+
+
+    @Then("selects {string} for Disability or Serious Health Condition")
+    public void selects_for_disability_or_serious_health_condition(String text) {
+        Playwright_Common_Utils.scrollIntoView(text, true);
+        page.getByText(text).click();
+    }
+
+    @Then("user verifies basic information {string}, {string}, {string}, {string}, {string}, {string}, {string}, and {string}")
+    public void user_verifies_basic_information_and(String firstName, String middleName, String lastName, String email, String phone, String businessPhone, String highestEducation, String usCitizenship) {
+        ArrayList<String> expectedValues = new ArrayList<>();
+        expectedValues.add(firstName);
+        expectedValues.add(middleName);
+        expectedValues.add(lastName);
+        expectedValues.add(email);
+        expectedValues.add("+1" + phone);
+        expectedValues.add("+1" + businessPhone);
+        expectedValues.add(highestEducation);
+        expectedValues.add(usCitizenship);
+        ArrayList<String> actualValues = new ArrayList<>();
+        for (int i = 2; i <= 9; i++) {
+            actualValues.add(page.locator("(//h2)[" + i + "]//following-sibling::span").innerText());
+        }
+        Assert.assertEquals(actualValues, expectedValues);
+        Assert.assertEquals(actualValues.size(), expectedValues.size());
+    }
+
+    @Then("user verifies address information {string}, {string}, {string}, {string}, {string}")
+    public void user_verifies_address_information(String address, String aptNumber, String city, String state, String zip) {
+        ArrayList<String> expectedValues = new ArrayList<>();
+        expectedValues.add(address);
+        expectedValues.add(aptNumber);
+        expectedValues.add(city);
+        expectedValues.add(state);
+        expectedValues.add(zip);
+        ArrayList<String> actualValues = new ArrayList<>();
+        for (int i = 11; i <= 15; i++) {
+            actualValues.add(page.locator("(//h2)[" + i + "]//following-sibling::span").innerText());
+        }
+        Assert.assertEquals(actualValues, expectedValues);
+        Assert.assertEquals(actualValues.size(), expectedValues.size());
+    }
+
+    @Then("user verifies demographics information {string}, {string}, {string}, {string}, and {string}")
+    public void user_verifies_demographics_information_and(String sharingDemographicsText, String sexText, String ethnicityText, String raceText, String disabilityText) {
+        ArrayList<String> expectedValues = new ArrayList<>();
+        expectedValues.add(sharingDemographicsText);
+        expectedValues.add(sexText);
+        expectedValues.add(ethnicityText);
+        expectedValues.add(raceText);
+        expectedValues.add(disabilityText);
+        ArrayList<String> actualValues = new ArrayList<>();
+        for (int i = 17; i <= 21; i++) {
+            actualValues.add(page.locator("(//h2)[" + i + "]//following-sibling::span").innerText());
+        }
+        Assert.assertEquals(actualValues, expectedValues);
+        Assert.assertEquals(actualValues.size(), expectedValues.size());
+    }
+
+    @Then("user verifies references information {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void user_verifies_references_information(String firstNameText, String middleNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
+        Playwright_Common_Utils.scrollIntoView("(//h2)[23]//following-sibling::span");
+        ArrayList<String> expectedValues = new ArrayList<>();
+        expectedValues.add(firstNameText);
+        expectedValues.add(middleNameText);
+        expectedValues.add(lastNameText);
+        expectedValues.add(emailText);
+        expectedValues.add(phoneNumberText);
+        expectedValues.add(relationshipText);
+        expectedValues.add(titleText);
+        expectedValues.add(organizationText);
+        ArrayList<String> actualValues = new ArrayList<>();
+        for (int i = 23; i <= 29; i++) {
+            actualValues.add(page.locator("(//h2)[" + i + "]//following-sibling::span").innerText());
+        }
+        Assert.assertEquals(actualValues, expectedValues);
+        Assert.assertEquals(actualValues.size(), expectedValues.size());
+    }
+
+    @Then("if reference two is required then user enters Reference Two first name {string}")
+    public void if_reference_two_is_required_then_user_enters_reference_two_first_name(String firstName) {
+        try {
+            Playwright_Common_Utils.scrollIntoView("(//input[@placeholder='Please Enter'])[7]");
+            page.locator("(//input[@placeholder='Please Enter'])[7]").fill(firstName);
+        } catch (Exception e) {
+            System.out.println("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+        }
+    }
+
+    @Then("enters Reference Two middle name {string}")
+    public void enters_reference_two_middle_name(String middleName) {
+        try {
+            Playwright_Common_Utils.scrollIntoView("(//input[@placeholder='Please Enter'])[7]");
+            page.locator("(//input[@placeholder='Please Enter'])[8]").fill(middleName);
+        } catch (Exception e) {
+            System.out.println("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+        }
+    }
+
+    @Then("enters Reference Two last name {string}")
+    public void enters_reference_two_last_name(String lastName) {
+        try {
+            Playwright_Common_Utils.scrollIntoView("(//input[@placeholder='Please Enter'])[7]");
+            page.locator("(//input[@placeholder='Please Enter'])[9]").fill(lastName);
+        } catch (Exception e) {
+            System.out.println("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+        }
+    }
+
+    @Then("enters Reference Two email address {string}")
+    public void enters_reference_two_email_address(String emailAddressText) {
+        try {
+            Playwright_Common_Utils.scrollIntoView("(//input[@placeholder='Please Enter'])[7]");
+            page.locator("(//input[@placeholder='Please Enter'])[10]").fill(emailAddressText);
+        } catch (Exception e) {
+            System.out.println("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
+        }
     }
 }

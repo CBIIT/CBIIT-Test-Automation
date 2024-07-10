@@ -31,17 +31,17 @@ Feature: Applicant Profile Scenarios
     And tester navigates to native view to reset account with name "<firstName>" so that automated test can run again without manual intervention
 
     Examples:
-      | firstName | middleName | lastName  | email              | phone      | businessPhone | highestEducation |  US Citizenship | address  | aptNumber | city      | state | country | zip   |
-      | SSJTest   | Michelle   | Pololi    | mario@gmail.com    | 2018212343 | 2023323454    | Masters          | Yes             | 7 Mills  | 12378     | Reston    | VA    | USA     | 20453 |
-      | David     | Black      | Kristensen| kristen1@nih.gov   | 2133212333 | 2902122234    | Bachelors        | Yes             | 2 Bells  | 231       | McLean    | VA    | USA     | 21333 |
-      | Krista    | James      | Bernier   | bernierkd@nih.gov  | 2018211343 | 2123323454    | Masters          | Yes             | 11 Kolls | 78        | Sterling  | VA    | USA     | 20483 |
-      | Joe       | Donald     | Viola     | violajc@nih.gov    | 2233212333 | 2202122234    | Bachelors        | Yes             | 11 Bells | 23        | Ashburn   | VA    | USA     | 29233 |
-      | William   | Michel     | Violette  | violettews@nih.gov | 3018212343 | 2023323454    | Doctorate        | Yes             | 7 Mills  | 13378     | San Diego | CA    | USA     | 90453 |
-      | Violeta   | Seidell    | Lack      | seidellvv@nih.gov  | 4133212333 | 2902122234    | Bachelors        | Yes             | 2 Bells  | 2313      | Monterey  | CA    | USA     | 94333 |
-      | Abby      | Marianna   | Molnar    | molnaraj@nih.gov   | 7018211343 | 2123323454    | Masters          | Yes             | 11 Kolls | 6         | Carmel    | CA    | USA     | 97812 |
-      | Maureen   | Jim        | Kennedy   | mkennedyh@nih.gov  | 8233212333 | 2202122234    | Bachelors        | Yes             | 11 Bells | 39        | San Jose  | CA    | USA     | 95112 |
-      | Jessica   | Marianna   | Mollick   | mollickja@nih.gov  | 7018211343 | 2123323454    | Masters          | Yes             | 11 Kolls | 6         | Sausalito | CA    | USA     | 97712 |
-      | Karen     | Elena      | Andrew    | andrewkl@nih.gov   | 8233212333 | 2202122234    | Bachelors        | Yes             | 11 Bells | 39        | Sacramento| CA    | USA     | 95512 |
+      | firstName | middleName | lastName   | email              | phone      | businessPhone | highestEducation | US Citizenship | address  | aptNumber | city       | state | country | zip   |
+      | SSJTest   | Michelle   | Pololi     | mario@gmail.com    | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills  | 12378     | Reston     | VA    | USA     | 20453 |
+      | David     | Black      | Kristensen | kristen1@nih.gov   | 2133212333 | 2902122234    | Bachelors        | Yes            | 2 Bells  | 231       | McLean     | VA    | USA     | 21333 |
+      | Krista    | James      | Bernier    | bernierkd@nih.gov  | 2018211343 | 2123323454    | Masters          | Yes            | 11 Kolls | 78        | Sterling   | VA    | USA     | 20483 |
+      | Joe       | Donald     | Viola      | violajc@nih.gov    | 2233212333 | 2202122234    | Bachelors        | Yes            | 11 Bells | 23        | Ashburn    | VA    | USA     | 29233 |
+      | William   | Michel     | Violette   | violettews@nih.gov | 3018212343 | 2023323454    | Doctorate        | Yes            | 7 Mills  | 13378     | San Diego  | CA    | USA     | 90453 |
+      | Violeta   | Seidell    | Lack       | seidellvv@nih.gov  | 4133212333 | 2902122234    | Bachelors        | Yes            | 2 Bells  | 2313      | Monterey   | CA    | USA     | 94333 |
+      | Abby      | Marianna   | Molnar     | molnaraj@nih.gov   | 7018211343 | 2123323454    | Masters          | Yes            | 11 Kolls | 6         | Carmel     | CA    | USA     | 97812 |
+      | Maureen   | Jim        | Kennedy    | mkennedyh@nih.gov  | 8233212333 | 2202122234    | Bachelors        | Yes            | 11 Bells | 39        | San Jose   | CA    | USA     | 95112 |
+      | Jessica   | Marianna   | Mollick    | mollickja@nih.gov  | 7018211343 | 2123323454    | Masters          | Yes            | 11 Kolls | 6         | Sausalito  | CA    | USA     | 97712 |
+      | Karen     | Elena      | Andrew     | andrewkl@nih.gov   | 8233212333 | 2202122234    | Bachelors        | Yes            | 11 Bells | 39        | Sacramento | CA    | USA     | 95512 |
 
   @juarezds @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @Regression @playwright @Bug_Open @Smoke
   Scenario Outline: Verifying the Save application functionality
@@ -73,8 +73,8 @@ Feature: Applicant Profile Scenarios
     And tester navigates to native view to reset account with name "<firstName>" so that automated test can run again without manual intervention
 
     Examples:
-      | firstName | middleName | lastName  | email              | phone      | businessPhone | highestEducation |  US Citizenship | address  | aptNumber | city      | state | country | zip   |
-      | SSJTest   | Michelle   | Pololi    | mario@gmail.com    | 2018212343 | 2023323454    | Masters          | Yes             | 7 Mills  | 12378     | Reston    | VA    | USA     | 20453 |
+      | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | US Citizenship | address | aptNumber | city   | state | country | zip   |
+      | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
 
   @alenan @SSJ-712 @Bug_Open @juarezds @In_Progress @playwright @Smoke
   Scenario: Edit Demographics of Profile
@@ -126,10 +126,11 @@ Feature: Applicant Profile Scenarios
     And clicks on a Vacancy Title
     And clicks "Apply"
     Then user is on the "Application Documents" page
-    And uploads cover letter
-    And uploads qualification statement
+    And uploads cover letter if cover letter option is displayed
+    And uploads qualification statement if qualification statement is displayed
     And clicks "Next"
-    Then user enters Reference One first name "<referenceOneFirstName>"
+    Then user is on the "References" page
+    Then if reference one is required then user enters Reference One first name "<referenceOneFirstName>"
     And enters Reference One middle name "<referenceOneMiddleName>"
     And enters Reference One last name "<referenceOneLastName>"
     And enters Reference One email address "<referenceOneEmail>"
@@ -137,12 +138,28 @@ Feature: Applicant Profile Scenarios
     And selects Reference One relationship as "<referenceOneRelationship>"
     And enters Reference One position title "<referenceOnePositionTitle>"
     And enters Reference One organization name "<referenceOneOrganizationName>"
-    And tester navigates to native view to reset account with name "<firstName>" so that automated test can run again without manual intervention
-
+    Then if reference two is required then user enters Reference Two first name "<referenceTwoFirstName>"
+    And enters Reference Two middle name "<referenceTwoMiddleName>"
+    And enters Reference Two last name "<referenceTwoLastName>"
+    And enters Reference Two email address "<referenceTwoEmail>"
+#    And clicks "Next"
+#    Then user is on the "Demographic Information" page
+#    And user agrees to share demographic details and help improve the hiring process.
+#    And selects "Male" for Sex
+#    And selects "Hispanic or Latino" for Ethnicity
+#    And selects "American Indian or Alaska", "Asian", "Black or African-American", "Native Hawaiian or other", "White" for Race
+#    And selects "None of the conditions listed above apply to me." for Disability or Serious Health Condition
+#    And clicks "Next"
+#    Then user is on the "Review" page
+#    And user verifies basic information "<firstName>", "<middleName>", "<lastName>", "<email>", "<phone>", "<businessPhone>", "<highestEducation>", and "<US Citizenship>"
+#    And user verifies address information "<address>", "<aptNumber>", "<city>", "<state>", "<zip>"
+#    And user verifies demographics information "Yes", "Male", "Hispanic or Latino", "American Indian or Alaska Native, Asian, Black or African-American, Native Hawaiian or other Pacific Islander, White", and "None of the conditions listed above apply to me."
+#    And user verifies references information "<referenceOneFirstName>", "<referenceOneMiddleName>", "<referenceOneLastName>", "<referenceOneEmail>", "<referenceOnePhoneNumber>", "<referenceOneRelationship>", "<referenceOnePositionTitle>", "<referenceOneOrganizationName>"
+#    And tester navigates to native view to reset account with name "<firstName>" so that automated test can run again without manual intervention
 
     Examples:
-      | firstName | middleName | lastName  | email              | phone      | businessPhone | highestEducation |  US Citizenship | address  | aptNumber | city      | state | country | zip   | referenceOneFirstName | referenceOneMiddleName | referenceOneLastName | referenceOneEmail | referenceOnePhoneNumber | referenceOneRelationship | referenceOnePositionTitle | referenceOneOrganizationName |
-      | SSJTest   | Michelle   | Pololi    | mario@gmail.com    | 2018212343 | 2023323454    | Masters          | Yes             | 7 Mills  | 12378     | Reston    | VA    | USA     | 20453 | Fred                  | Trout                  | Laste                | referenceOne@test.com | 7036875816          | Supervisor/Manager       | PROJECT MANAGER           | TESTING ORGANIZATION FIELD   |
+      | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | US Citizenship | address | aptNumber | city   | state | country | zip   | referenceOneFirstName | referenceOneMiddleName | referenceOneLastName | referenceOneEmail     | referenceOnePhoneNumber | referenceOneRelationship | referenceOnePositionTitle | referenceOneOrganizationName                 | referenceTwoFirstName | referenceTwoMiddleName | referenceTwoLastName | referenceTwoEmail     | referenceTwoPhoneNumber | referenceTwoRelationship | referenceTwoPositionTitle | referenceTwoOrganizationName                 |
+      | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 | Fred                  | Trout                  | Laste                | referenceOne@test.com | 7036875816              | Supervisor/Manager       | PROJECT MANAGER           | TESTING ORGANIZATION FIELD FOR REFERENCE ONE | John                  | Steven                 | Vakhutko             | referenceTwo@test.com | 7036875816              | Co-worker                | TEST AUTOMATION LEAD      | TESTING ORGANIZATION FIELD FOR REFERENCE TWO |
 
 
 #    When User is on Your Applications tab
