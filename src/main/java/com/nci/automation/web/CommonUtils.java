@@ -11,6 +11,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -790,14 +791,29 @@ public class CommonUtils extends WebDriverUtils {
     /**
      * Compares two lists of elements and asserts that they are equal.
      *
-     * @param actualValues The list of actual values.
+     * @param actualValues   The list of actual values.
      * @param expectedValues The list of expected values.
      * @throws AssertionError if the sizes of the lists are different or if any corresponding elements in the lists are not equal.
      */
-    public static void comparingTwoLists(List<WebElement> actualValues, List<String> expectedValues){
+    public static void comparingTwoLists(List<WebElement> actualValues, List<String> expectedValues) {
         Assert.assertEquals(actualValues.size(), expectedValues.size());
         for (int i = 0; i < actualValues.size(); i++) {
             Assert.assertEquals(actualValues.get(i).getText(), expectedValues.get(i));
+        }
+    }
+
+    /**
+     * Compares two ArrayLists of Strings and asserts that they have the same size and contain the same elements in the same order.
+     *
+     * @param actualValues   the first ArrayList of Strings to compare
+     * @param expectedValues the second ArrayList of Strings to compare
+     */
+    public static void comparingTwoList(ArrayList<String> actualValues, ArrayList<String> expectedValues) {
+        try {
+            Assert.assertEquals(actualValues.size(), expectedValues.size());
+            Assert.assertEquals(actualValues, expectedValues);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

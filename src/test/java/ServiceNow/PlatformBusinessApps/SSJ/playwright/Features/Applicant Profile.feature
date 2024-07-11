@@ -142,20 +142,27 @@ Feature: Applicant Profile Scenarios
     And enters Reference Two middle name "<referenceTwoMiddleName>"
     And enters Reference Two last name "<referenceTwoLastName>"
     And enters Reference Two email address "<referenceTwoEmail>"
-#    And clicks "Next"
-#    Then user is on the "Demographic Information" page
-#    And user agrees to share demographic details and help improve the hiring process.
-#    And selects "Male" for Sex
-#    And selects "Hispanic or Latino" for Ethnicity
-#    And selects "American Indian or Alaska", "Asian", "Black or African-American", "Native Hawaiian or other", "White" for Race
-#    And selects "None of the conditions listed above apply to me." for Disability or Serious Health Condition
-#    And clicks "Next"
-#    Then user is on the "Review" page
-#    And user verifies basic information "<firstName>", "<middleName>", "<lastName>", "<email>", "<phone>", "<businessPhone>", "<highestEducation>", and "<US Citizenship>"
-#    And user verifies address information "<address>", "<aptNumber>", "<city>", "<state>", "<zip>"
-#    And user verifies demographics information "Yes", "Male", "Hispanic or Latino", "American Indian or Alaska Native, Asian, Black or African-American, Native Hawaiian or other Pacific Islander, White", and "None of the conditions listed above apply to me."
-#    And user verifies references information "<referenceOneFirstName>", "<referenceOneMiddleName>", "<referenceOneLastName>", "<referenceOneEmail>", "<referenceOnePhoneNumber>", "<referenceOneRelationship>", "<referenceOnePositionTitle>", "<referenceOneOrganizationName>"
-#    And tester navigates to native view to reset account with name "<firstName>" so that automated test can run again without manual intervention
+    And enters Reference Two phone number "<referenceTwoPhoneNumber>"
+    And selects Reference Two relationship as Co-worker
+    And enters Reference Two position title "<referenceTwoPositionTitle>"
+    And enters Reference Two organization name "<referenceTwoOrganizationName>"
+    And clicks "Next"
+    Then user is on the "Demographic Information" page
+    And user agrees to share demographic details and help improve the hiring process.
+    And selects "Male" for Sex
+    And selects "Hispanic or Latino" for Ethnicity
+    And selects "American Indian or Alaska", "Asian", "Black or African-American", "Native Hawaiian or other", "White" for Race
+    And selects "None of the conditions listed above apply to me." for Disability or Serious Health Condition
+    And clicks "Next"
+    Then user is on the "Review" page
+    And user verifies basic information "<firstName>", "<middleName>", "<lastName>", "<email>", "<phone>", "<businessPhone>", "<highestEducation>", and "<US Citizenship>"
+    And user verifies address information "<address>", "<aptNumber>", "<city>", "<state>", "<zip>"
+    And user verifies demographics information "Yes", "Male", "Hispanic or Latino", "American Indian or Alaska Native, Asian, Black or African-American, Native Hawaiian or other Pacific Islander, White", and "None of the conditions listed above apply to me."
+    And user verifies references one information "<referenceOneFirstName>", "<referenceOneMiddleName>", "<referenceOneLastName>", "<referenceOneEmail>", "<referenceOnePhoneNumber>", "<referenceOneRelationship>", "<referenceOnePositionTitle>", "<referenceOneOrganizationName>"
+    And user verifies references two information "<referenceTwoFirstName>", "<referenceTwoMiddleName>", "<referenceTwoLastName>", "<referenceTwoEmail>", "<referenceTwoPhoneNumber>", "<referenceTwoRelationship>", "<referenceTwoPositionTitle>", "<referenceTwoOrganizationName>"
+    And if a Cover Letter was uploaded then user verifies that Cover Letter is displayed "✓ Cover Letter", " SSJ_COVER_LETTER_TEST.docx"
+
+  #    And tester navigates to native view to reset account with name "<firstName>" so that automated test can run again without manual intervention
 
     Examples:
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | US Citizenship | address | aptNumber | city   | state | country | zip   | referenceOneFirstName | referenceOneMiddleName | referenceOneLastName | referenceOneEmail     | referenceOnePhoneNumber | referenceOneRelationship | referenceOnePositionTitle | referenceOneOrganizationName                 | referenceTwoFirstName | referenceTwoMiddleName | referenceTwoLastName | referenceTwoEmail     | referenceTwoPhoneNumber | referenceTwoRelationship | referenceTwoPositionTitle | referenceTwoOrganizationName                 |
