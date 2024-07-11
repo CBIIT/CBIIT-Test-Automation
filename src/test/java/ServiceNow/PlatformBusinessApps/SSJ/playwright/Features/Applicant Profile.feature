@@ -128,6 +128,8 @@ Feature: Applicant Profile Scenarios
     Then user is on the "Application Documents" page
     And uploads cover letter if cover letter option is displayed
     And uploads qualification statement if qualification statement is displayed
+    And uploads a Curriculum Vitae if Curriculum Vitae option is displayed
+    And uploads a Vision Statement if Vision Statement option is displayed
     And clicks "Next"
     Then user is on the "References" page
     Then if reference one is required then user enters Reference One first name "<referenceOneFirstName>"
@@ -160,8 +162,11 @@ Feature: Applicant Profile Scenarios
     And user verifies demographics information "Yes", "Male", "Hispanic or Latino", "American Indian or Alaska Native, Asian, Black or African-American, Native Hawaiian or other Pacific Islander, White", and "None of the conditions listed above apply to me."
     And user verifies references one information "<referenceOneFirstName>", "<referenceOneMiddleName>", "<referenceOneLastName>", "<referenceOneEmail>", "<referenceOnePhoneNumber>", "<referenceOneRelationship>", "<referenceOnePositionTitle>", "<referenceOneOrganizationName>"
     And user verifies references two information "<referenceTwoFirstName>", "<referenceTwoMiddleName>", "<referenceTwoLastName>", "<referenceTwoEmail>", "<referenceTwoPhoneNumber>", "<referenceTwoRelationship>", "<referenceTwoPositionTitle>", "<referenceTwoOrganizationName>"
-    And if a Cover Letter was uploaded then user verifies that Cover Letter is displayed "✓ Cover Letter", " SSJ_COVER_LETTER_TEST.docx"
-
+    And if either a Cover Letter, Qualification Statement, Curriculum Vitae (CV), or Vision Statement (or all) were uploaded then documents are displayed in the Application Documents section
+    And clicks "Submit Application"
+    And clicks "Ok"
+    And clicks "Done"
+    And verifies "Your Applications" tab is displayed
   #    And tester navigates to native view to reset account with name "<firstName>" so that automated test can run again without manual intervention
 
     Examples:

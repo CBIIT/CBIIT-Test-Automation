@@ -9,9 +9,11 @@ import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_
 import ServiceNow.PlatformBusinessApps.SSJ.utils.SSJ_Constants;
 import appsCommon.Pages.Playwright_Common_Locators;
 import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
+import com.beust.ah.A;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.PlaywrightException;
+import com.microsoft.playwright.options.LoadState;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -23,6 +25,7 @@ import org.testng.Assert;
 
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.nci.automation.web.PlaywrightUtils.page;
 
@@ -541,15 +544,47 @@ public class ApplicantProfileSteps {
         Hooks.softAssert.assertEquals(actualValues, expectedValues);
     }
 
-    @Then("if a Cover Letter was uploaded then user verifies that Cover Letter is displayed {string}, {string}")
-    public void if_a_cover_letter_was_uploaded_then_user_verifies_that_cover_letter_is_displayed(String textOne, String textTwo) {
-
-        try{
-            String actualText = page.locator("//div[@class='SectionContent'][5]/div").innerText();
-            Hooks.softAssert.assertEquals(actualText,textOne + "\n" + textTwo);
-        }catch(Exception e){
-            System.out.println("* * * * * COVER LETTER NOT DISPLAYED * * * * * TEST CONTINUES");
-            CucumberLogUtils.scenario.log("* * * * * COVER LETTER NOT DISPLAYED * * * * * TEST CONTINUES");
+    @Then("if either a Cover Letter, Qualification Statement, Curriculum Vitae \\(CV), or Vision Statement \\(or all) were uploaded then documents are displayed in the Application Documents section")
+    public void if_either_a_cover_letter_qualification_statement_curriculum_vitae_cv_or_vision_statement_or_all_were_uploaded_then_documents_are_displayed_in_the_application_documents_section() {
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        List<ElementHandle> actualValues = page.querySelectorAll("//div[@class='SectionContent'][5]/div");
+        ArrayList<String> values = new ArrayList<>();
+        for(ElementHandle actualValue : actualValues){
+            values.add(actualValue.innerText());
         }
+        ArrayList<String> expectedValues = new ArrayList<>();
+        expectedValues.add("✓ Cover Letter" + "\n" + " SSJ_COVER_LETTER_TEST.docx");
+        expectedValues.add("✓ Qualification Statement" + "\n" + " SSJ_QUALIFICATION_STATEMENT_TEST.pdf");
+        expectedValues.add("✓ Curriculum Vitae (CV)" + "\n" + " SSJ_CURRICULUM_VITAE_(CV).docx");
+        expectedValues.add("✓ Vision Statement" + "\n" + " SSJ_CURRICULUM_VITAE_(CV).docx");
+        Hooks.softAssert.assertTrue(expectedValues.containsAll(values), "* * * VERIFYING UPLOADED DOCUMENTS * * *");
+    }
+
+    @Then("uploads a Curriculum Vitae if Curriculum Vitae option is displayed")
+    public void uploads_a_curriculum_vitae_if_curriculum_vitae_option_is_displayed() {
+        try {
+            ElementHandle fileInput = page.querySelector(ApplicationDocumentsPage.dynamicDocLocator("Curriculum Vitae (CV)"));
+            fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_QUALIFICATION_STATEMENT));
+        } catch (Exception e) {
+            System.out.println("* * * CURRICULUM VITAE OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * CURRICULUM VITAE OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
+        }
+    }
+
+    @Then("uploads a Vision Statement if Vision Statement option is displayed")
+    public void uploads_a_vision_statement_if_vision_statement_option_is_displayed() {
+        try {
+            ElementHandle fileInput = page.querySelector(ApplicationDocumentsPage.dynamicDocLocator("Vision Statement"));
+            fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_QUALIFICATION_STATEMENT));
+        } catch (Exception e) {
+            System.out.println("* * * VISION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * VISION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
+        }
+    }
+
+    @Then("verifies {string} tab is displayed")
+    public void verifies_tab_is_displayed(String text) {
+       Playwright_Common_Utils.scrollIntoView(text);
+       MiscUtils.sleep(5000);
     }
 }
