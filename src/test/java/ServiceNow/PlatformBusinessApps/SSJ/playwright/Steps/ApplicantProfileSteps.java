@@ -1,12 +1,17 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
+import Hooks.Hooks;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.*;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
+import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
+
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class ApplicantProfileSteps {
@@ -561,4 +566,38 @@ public class ApplicantProfileSteps {
     public void your_applications_tab_should_not_be_displayed() {
         ApplicantProfileStepsImpl.your_applications_tab_should_not_be_displayed();
     }
+
+    @When("verifies Vacancy Title is {string}")
+    public void verifies_vacancy_title_is(String expectedVacancyTitle) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//div[@class='TitleAndDateContainer']/h1").innerText(), expectedVacancyTitle);
+    }
+
+    @When("verifies text {string} with the date in which the Vacancy was created")
+    public void verifies_text_with_the_date_in_which_the_vacancy_was_created(String expectedVacancyDate) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//label[normalize-space()='Open Date']").innerText(), expectedVacancyDate);
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='DateItem']/span)[1]").innerText(), CommonUtils.getTodayDate());
+    }
+
+    @When("verifies text Open Until Filled {string}")
+    public void verifies_text_open_until_filled(String expectedOpenUntilFilledText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//label[normalize-space()='Open Until Filled']").innerText(), expectedOpenUntilFilledText);
+    }
+
+    @When("verifies point of contact text {string} with POC {string}")
+    public void verifies_point_of_contact_text_with_poc(String expectedPointOfContactText, String expectedPOCText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//label[normalize-space()='Point of Contact:']").innerText(), expectedPointOfContactText);
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='DateItem']/span)[3]").innerText(), expectedPOCText);
+    }
+
+    @When("verifies Vacancy Description text {string}")
+    public void verifies_vacancy_description_text(String expectedText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='ql-editor'])[1]").innerText(), expectedText);
+    }
+
+
 }

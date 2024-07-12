@@ -339,6 +339,7 @@ public class ApplicantProfileStepsImpl {
      * @param text The text value of the element to be clicked.
      */
     public static void clicks(String text) {
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
         page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
