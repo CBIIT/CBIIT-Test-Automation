@@ -13,7 +13,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 import java.util.*;
-
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -863,21 +862,6 @@ public class CommonUtils extends WebDriverUtils {
         Assert.assertEquals(actualValues.size(), expectedValues.size());
         for (int i = 0; i < actualValues.size(); i++) {
             Assert.assertEquals(actualValues.get(i).getText(), expectedValues.get(i));
-        }
-    }
-
-    /**
-     * Compares two ArrayLists of Strings and asserts that they have the same size and contain the same elements in the same order.
-     *
-     * @param actualValues   the first ArrayList of Strings to compare
-     * @param expectedValues the second ArrayList of Strings to compare
-     */
-    public static void comparingTwoList(ArrayList<String> actualValues, ArrayList<String> expectedValues) {
-        try {
-            Assert.assertEquals(actualValues.size(), expectedValues.size());
-            Assert.assertEquals(actualValues, expectedValues);
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }
