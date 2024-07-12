@@ -220,6 +220,10 @@ Feature: Applicant Profile Scenarios
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 | Fred                  | Trout                  | Laste                | referenceOne@test.com | 7036875816              | Supervisor/Manager       | PROJECT MANAGER           | TESTING ORGANIZATION FIELD FOR REFERENCE ONE | John                  | Steven                 | Vakhutko             | referenceTwo@test.com | 7036875816              | Co-worker                | TEST AUTOMATION LEAD      | TESTING ORGANIZATION FIELD FOR REFERENCE TWO |
 
 
+  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @playwright @Regression
+  Scenario: Verifying applicant does not see "Your Applications" tab if applicant has not applied to a Vacancy
+  Given a user who has not applied to a Vacancy before is on the SSJ home page
+  Then Your Applications tab should NOT be displayed
 
 #APPTRACK-145
 #APPTRACK-144

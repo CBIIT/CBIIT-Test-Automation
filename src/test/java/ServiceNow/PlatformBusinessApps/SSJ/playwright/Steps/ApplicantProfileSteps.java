@@ -551,4 +551,14 @@ public class ApplicantProfileSteps {
     public void user_verifies_the_following_columns_are_displayed_on_your_applications_page(String valueOne, String valueTwo, String valueThree, String valueFour, String valueFive) {
         ApplicantProfileStepsImpl.user_verifies_the_following_columns_are_displayed_on_your_applications_page(valueOne, valueTwo, valueThree, valueFour, valueFive);
     }
+
+    @Given("a user who has not applied to a Vacancy before is on the SSJ home page")
+    public void a_user_who_has_not_applied_to_a_vacancy_before_is_on_the_ssj_home_page() {
+        ApplicantProfileStepsImpl.a_user_who_has_not_applied_to_a_vacancy_before_is_on_the_ssj_home_page();
+    }
+
+    @Then("Your Applications tab should NOT be displayed")
+    public void your_applications_tab_should_not_be_displayed() {
+        ApplicantProfileStepsImpl.your_applications_tab_should_not_be_displayed();
+    }
 }
