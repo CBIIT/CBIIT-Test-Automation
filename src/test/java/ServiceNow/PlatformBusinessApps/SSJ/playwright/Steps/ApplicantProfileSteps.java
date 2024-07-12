@@ -1,42 +1,19 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
-import CustomBusiness.EIDP.Steps.HooksSteps;
-import Hooks.Hooks;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.*;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
-import ServiceNow.PlatformBusinessApps.SSJ.playwright.Utils.SSJ_Common_Utils;
-import ServiceNow.PlatformBusinessApps.SSJ.utils.SSJ_Constants;
-import appsCommon.Pages.Playwright_Common_Locators;
-import appsCommon.Pages.Playwright_NativeView_Dashboard_Page;
-import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
-import com.beust.ah.A;
-import com.microsoft.playwright.*;
-import com.microsoft.playwright.options.AriaRole;
-import com.microsoft.playwright.options.LoadState;
-import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.testng.Assert;
-
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class ApplicantProfileSteps {
 
     @Given("User is on SSJ Landing page and user is {string} - PW")
     public void user_is_on_ssj_landing_page_and_user_is_pw(String user) {
-        ApplicantProfileStepsImpl.ssjLogin(user);
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.user_is_on_ssj_landing_page_and_user_is_pw(user);
     }
 
     @Given("User is on Profile tab - PW")
@@ -46,32 +23,32 @@ public class ApplicantProfileSteps {
 
     @Given("User inputs {string} into first name field - PW")
     public void user_inputs_into_first_name_field_pw(String firstName) {
-        page.locator(Profile_Tab_Page.firstNameTextBox).fill(firstName);
+        ApplicantProfileStepsImpl.user_inputs_into_first_name_field_pw(firstName);
     }
 
     @Given("User inputs {string} into middle name field - PW")
     public void user_inputs_into_middle_name_field_pw(String middleName) {
-        page.locator(Profile_Tab_Page.middleNameTextBox).fill(middleName);
+        ApplicantProfileStepsImpl.user_inputs_into_middle_name_field_pw(middleName);
     }
 
     @Given("User inputs {string} into last name field - PW")
     public void user_inputs_into_last_name_field_pw(String lastName) {
-        page.locator(Profile_Tab_Page.lastNameTextBox).fill(lastName);
+        ApplicantProfileStepsImpl.user_inputs_into_last_name_field_pw(lastName);
     }
 
     @Given("User inputs {string} into email field - PW")
     public void user_inputs_into_email_field_pw(String email) {
-        page.getByLabel(Profile_Tab_Page.emailTextBox).fill(email);
+        ApplicantProfileStepsImpl.user_inputs_into_email_field_pw(email);
     }
 
     @Given("User inputs {string} into phone field - PW")
     public void user_inputs_into_phone_field_pw(String phoneNumber) {
-        page.locator(Profile_Tab_Page.phoneNumberTextBox).fill(phoneNumber);
+        ApplicantProfileStepsImpl.user_inputs_into_phone_field_pw(phoneNumber);
     }
 
     @Given("User inputs {string} into business phone field - PW")
     public void user_inputs_into_business_phone_field_pw(String businessPhone) {
-        page.locator(Profile_Tab_Page.businessPhoneNumberTextBox).fill(businessPhone);
+        ApplicantProfileStepsImpl.user_inputs_into_business_phone_field_pw(businessPhone);
     }
 
     @Given("selects highest education {string}")
@@ -81,43 +58,42 @@ public class ApplicantProfileSteps {
 
     @Given("User confirms being a US Citizen - PW")
     public void user_confirms_being_a_us_citizen_pw() {
-        page.getByLabel(Profile_Tab_Page.are_You_A_US_Citizen_Yes_Radio_Button).check();
+        ApplicantProfileStepsImpl.user_confirms_being_a_us_citizen_pw();
     }
 
     @Given("User inputs {string} into address field - PW")
     public void user_inputs_into_address_field_pw(String address) {
-        page.getByLabel(Profile_Tab_Page.addressTextBox).fill(address);
+        ApplicantProfileStepsImpl.user_inputs_into_address_field_pw(address);
     }
 
     @Given("User inputs {string} into appNumber field - PW")
     public void user_inputs_into_app_number_field_pw(String aptNumber) {
-        page.locator(Profile_Tab_Page.apartmentOrSuiteNumberTextBox).fill(aptNumber);
+        ApplicantProfileStepsImpl.user_inputs_into_app_number_field_pw(aptNumber);
     }
 
     @Given("User inputs {string} into city field - PW")
     public void user_inputs_into_city_field_pw(String city) {
-        page.getByLabel(Profile_Tab_Page.cityTextBox).fill(city);
+        ApplicantProfileStepsImpl.user_inputs_into_city_field_pw(city);
     }
 
     @Given("User inputs {string} into state field - PW")
     public void user_inputs_into_state_field_pw(String state) {
-        page.getByLabel(Profile_Tab_Page.stateTextBox).fill(state);
+        ApplicantProfileStepsImpl.user_inputs_into_state_field_pw(state);
     }
 
     @Given("User inputs {string} into country field - PW")
     public void user_inputs_into_country_field_pw(String country) {
-        page.getByLabel(Profile_Tab_Page.countryTextBox).fill(country);
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.user_inputs_into_country_field_pw(country);
     }
 
     @Given("User inputs {string} into zip field - PW")
     public void user_inputs_into_zip_field_pw(String zipCode) {
-        page.getByLabel(Profile_Tab_Page.zipCodeTextBox).fill(zipCode);
+        ApplicantProfileStepsImpl.user_inputs_into_zip_field_pw(zipCode);
     }
 
     @When("User clicks on Save Application button - PW")
     public void user_clicks_on_save_application_button_pw() {
-        page.locator(Profile_Tab_Page.saveButton).click();
+        ApplicantProfileStepsImpl.user_clicks_on_save_application_button_pw();
     }
 
     @Then("user verifies that first name {string}, middle name {string}, and last name {string} saved display as expected")
@@ -207,674 +183,372 @@ public class ApplicantProfileSteps {
 
     @When("clicks on Vacancy Title {string}")
     public void clicks_on_vacancy_title(String vacancyTitle) {
-        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle));
-        page.locator(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle)).click();
+        ApplicantProfileStepsImpl.clicks_on_vacancy_title(vacancyTitle);
     }
 
     @When("clicks {string}")
     public void clicks(String text) {
-        page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
+        ApplicantProfileStepsImpl.clicks(text);
     }
 
     @When("proceeds with completing profile by clicking {string}")
     public void proceeds_with_completing_profile_by_clicking(String text) {
-        page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
+        ApplicantProfileStepsImpl.proceeds_with_completing_profile_by_clicking(text);
     }
 
     @Then("navigates to the {string} tab to be able to apply to a vacancy after creating a profile")
     public void navigates_to_the_tab_to_be_able_to_apply_to_a_vacancy_after_creating_a_profile(String text) {
-        page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
+        ApplicantProfileStepsImpl.navigates_to_the_tab_to_be_able_to_apply_to_a_vacancy_after_creating_a_profile(text);
     }
 
     @Then("user is on the {string} page")
     public void user_is_on_the_page(String expectedApplicationText) {
-        String actualApplicationText = page.locator("(//h3)[1]").innerText();
-        Assert.assertEquals(actualApplicationText, expectedApplicationText);
+        ApplicantProfileStepsImpl.user_is_on_the_page(expectedApplicationText);
     }
 
     @Then("uploads cover letter if cover letter option is displayed")
     public void uploads_cover_letter() {
-        try {
-            ElementHandle fileInput = page.querySelector(ApplicationDocumentsPage.dynamicDocLocator("Cover Letter"));
-            fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_COVER_LETTER));
-        } catch (Exception e) {
-            System.out.println("* * * COVER LETTER OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * COVER LETTER OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.uploads_cover_letter();
     }
 
     @Then("uploads qualification statement if qualification statement is displayed")
     public void uploads_qualification_statement() {
-        try {
-            ElementHandle fileInput = page.querySelector(ApplicationDocumentsPage.dynamicDocLocator("Qualification Statement"));
-            fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_QUALIFICATION_STATEMENT));
-        } catch (Exception e) {
-            System.out.println("* * * QUALIFICATION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * QUALIFICATION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.uploads_qualification_statement();
     }
 
     @Then("if reference one is required then user enters Reference One first name {string}")
     public void user_enters_reference_one_first_name(String firstNameText) {
-        try {
-            page.locator("(//input[@placeholder='Please Enter'])[1]").fill(firstNameText);
-        } catch (Exception e) {
-            System.out.println("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.user_enters_reference_one_first_name(firstNameText);
     }
 
     @Then("enters Reference One middle name {string}")
     public void enters_reference_one_middle_name(String middleNameText) {
-        try {
-            page.locator("(//input[@placeholder='Please Enter'])[2]").fill(middleNameText);
-        } catch (Exception e) {
-            System.out.println("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.enters_reference_one_middle_name(middleNameText);
     }
 
     @Then("enters Reference One last name {string}")
     public void enters_reference_one_last_name(String lastNameText) {
-        try {
-            page.locator("(//input[@placeholder='Please Enter'])[3]").fill(lastNameText);
-        } catch (Exception e) {
-            System.out.println("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.enters_reference_one_last_name(lastNameText);
     }
 
     @Then("enters Reference One email address {string}")
     public void enters_reference_one_email_address(String emailAddress) {
-        try {
-            page.locator("(//input[@placeholder='Please Enter'])[4]").fill(emailAddress);
-        } catch (Exception e) {
-            System.out.println("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.enters_reference_one_email_address(emailAddress);
     }
 
     @Then("enters Reference One phone number {string}")
     public void enters_reference_one_phone_number(String phoneNumber) {
-        try {
-            page.locator("(//input[@placeholder='(123) 456-7890'])[1]").fill(phoneNumber);
-        } catch (Exception e) {
-            System.out.println("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.enters_reference_one_phone_number(phoneNumber);
     }
 
     @Then("selects Reference One relationship as {string}")
     public void selects_reference_one_relationship_as(String relationship) {
-        try {
-            page.locator("(//input[@role='combobox'])[1]").click();
-            page.getByTitle(relationship).locator("div").click();
-        } catch (Exception e) {
-            System.out.println("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.selects_reference_one_relationship_as(relationship);
     }
 
     @Then("enters Reference One position title {string}")
     public void enters_reference_one_position_title(String positionTitle) {
-        try {
-            page.locator("(//input[@placeholder='Please Enter'])[5]").fill(positionTitle);
-        } catch (Exception e) {
-            System.out.println("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.enters_reference_one_position_title(positionTitle);
     }
 
     @Then("enters Reference One organization name {string}")
     public void enters_reference_one_organization_name(String organizationName) {
-        try {
-            page.locator("(//input[@placeholder='Please Enter'])[6]").fill(organizationName);
-        } catch (Exception e) {
-            System.out.println("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * REFERENCE ONE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.enters_reference_one_organization_name(organizationName);
     }
 
     @Then("user agrees to share demographic details and help improve the hiring process.")
     public void user_agrees_to_share_demographic_details_and_help_improve_the_hiring_process() {
-        page.getByText("I want to share my").click();
+        ApplicantProfileStepsImpl.user_agrees_to_share_demographic_details_and_help_improve_the_hiring_process();
     }
 
     @Then("selects {string} for Sex")
     public void selects_for_sex(String gender) {
-        page.getByText(gender, new Page.GetByTextOptions().setExact(true)).click();
+        ApplicantProfileStepsImpl.selects_for_sex(gender);
     }
 
     @Then("selects {string} for Ethnicity")
     public void selects_for_ethnicity(String ethnicity) {
-        Playwright_Common_Utils.scrollIntoView(ethnicity, true);
-        page.getByText(ethnicity, new Page.GetByTextOptions().setExact(true)).click();
+        ApplicantProfileStepsImpl.selects_for_ethnicity(ethnicity);
     }
 
     @Then("selects {string}, {string}, {string}, {string}, {string} for Race")
     public void selects_for_race(String americanIndianOrAlaska, String asia, String blackOrAfricanAmerican, String nativeHawaiianOrOther, String white) {
-        Playwright_Common_Utils.scrollIntoView(americanIndianOrAlaska, false);
-        page.getByText(americanIndianOrAlaska).click();
-        page.getByText(asia).click();
-        page.getByText(blackOrAfricanAmerican).click();
-        page.getByText(nativeHawaiianOrOther).click();
-        page.getByText(white).click();
+        ApplicantProfileStepsImpl.selects_for_race(americanIndianOrAlaska, asia, blackOrAfricanAmerican, nativeHawaiianOrOther, white);
     }
 
 
     @Then("selects {string} for Disability or Serious Health Condition")
     public void selects_for_disability_or_serious_health_condition(String text) {
-        Playwright_Common_Utils.scrollIntoView(text, true);
-        page.getByText(text).click();
+        ApplicantProfileStepsImpl.selects_for_disability_or_serious_health_condition(text);
     }
 
     @Then("user verifies basic information {string}, {string}, {string}, {string}, {string}, {string}, {string}, and {string}")
     public void user_verifies_basic_information_and(String firstName, String middleName, String lastName, String email, String phone, String businessPhone, String highestEducation, String usCitizenship) {
-        ArrayList<String> expectedValues = new ArrayList<>();
-        expectedValues.add(firstName);
-        expectedValues.add(middleName);
-        expectedValues.add(lastName);
-        expectedValues.add(email);
-        expectedValues.add("+1" + phone);
-        expectedValues.add("+1" + businessPhone);
-        expectedValues.add(highestEducation);
-        expectedValues.add(usCitizenship);
-        ArrayList<String> actualValues = new ArrayList<>();
-        for (int i = 2; i <= 9; i++) {
-            actualValues.add(page.locator("(//h2)[" + i + "]//following-sibling::span").innerText());
-        }
-        Assert.assertEquals(actualValues, expectedValues);
-        Assert.assertEquals(actualValues.size(), expectedValues.size());
+        ApplicantProfileStepsImpl.user_verifies_basic_information_and(firstName, middleName, lastName, email, phone, businessPhone, highestEducation, usCitizenship);
     }
 
     @Then("user verifies address information {string}, {string}, {string}, {string}, {string}")
     public void user_verifies_address_information(String address, String aptNumber, String city, String state, String zip) {
-        ArrayList<String> expectedValues = new ArrayList<>();
-        expectedValues.add(address);
-        expectedValues.add(aptNumber);
-        expectedValues.add(city);
-        expectedValues.add(state);
-        expectedValues.add(zip);
-        ArrayList<String> actualValues = new ArrayList<>();
-        for (int i = 11; i <= 15; i++) {
-            actualValues.add(page.locator("(//h2)[" + i + "]//following-sibling::span").innerText());
-        }
-        Assert.assertEquals(actualValues, expectedValues);
-        Assert.assertEquals(actualValues.size(), expectedValues.size());
+        ApplicantProfileStepsImpl.user_verifies_address_information(address, aptNumber, city, state, zip);
     }
 
     @Then("user verifies demographics information {string}, {string}, {string}, {string}, and {string}")
     public void user_verifies_demographics_information_and(String sharingDemographicsText, String sexText, String ethnicityText, String raceText, String disabilityText) {
-        Playwright_Common_Utils.scrollIntoView("(//h2)[17]//following-sibling::span");
-        ArrayList<String> expectedValues = new ArrayList<>();
-        expectedValues.add(sharingDemographicsText);
-        expectedValues.add(sexText);
-        expectedValues.add(ethnicityText);
-        expectedValues.add(raceText);
-        expectedValues.add(disabilityText);
-        ArrayList<String> actualValues = new ArrayList<>();
-        for (int i = 17; i <= 21; i++) {
-            actualValues.add(page.locator("(//h2)[" + i + "]//following-sibling::span").innerText());
-            System.out.println("***** = " + page.locator("(//h2)[" + i + "]//following-sibling::span").innerText());
-        }
-        Assert.assertEquals(actualValues, expectedValues);
-        Assert.assertEquals(actualValues.size(), expectedValues.size());
+        ApplicantProfileStepsImpl.user_verifies_demographics_information_and(sharingDemographicsText, sexText, ethnicityText, raceText, disabilityText);
     }
 
     @Then("user verifies references one information {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
     public void user_verifies_references_information(String firstNameText, String middleNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
-        Playwright_Common_Utils.scrollIntoView("(//tbody/tr/td)[7]");
-        ArrayList<String> expectedValues = new ArrayList<>();
-        expectedValues.add(firstNameText + " " + middleNameText + " " + lastNameText);
-        expectedValues.add(emailText);
-        expectedValues.add(phoneNumberText);
-        expectedValues.add(relationshipText);
-        expectedValues.add(titleText);
-        expectedValues.add(organizationText);
-        ArrayList<String> actualValues = new ArrayList<>();
-        for (int i = 7; i <= 12; i++) {
-            actualValues.add(page.locator("(//tbody/tr/td)[" + i + "]").innerText());
-        }
-//        Assert.assertEquals(actualValues, expectedValues);
-//        Assert.assertEquals(actualValues.size(), expectedValues.size());
-        Hooks.softAssert.assertEquals(actualValues, expectedValues);
-        //CommonUtils.comparingTwoList(actualValues, expectedValues);
+        ApplicantProfileStepsImpl.user_verifies_references_information(firstNameText, middleNameText, lastNameText, emailText, phoneNumberText, relationshipText, titleText, organizationText);
     }
 
     @Then("if reference two is required then user enters Reference Two first name {string}")
     public void if_reference_two_is_required_then_user_enters_reference_two_first_name(String firstName) {
-        try {
-            Playwright_Common_Utils.scrollIntoView("(//input[@placeholder='Please Enter'])[7]");
-            page.locator("(//input[@placeholder='Please Enter'])[7]").fill(firstName);
-        } catch (Exception e) {
-            System.out.println("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.if_reference_two_is_required_then_user_enters_reference_two_first_name(firstName);
     }
 
     @Then("enters Reference Two middle name {string}")
     public void enters_reference_two_middle_name(String middleName) {
-        try {
-            Playwright_Common_Utils.scrollIntoView("(//input[@placeholder='Please Enter'])[7]");
-            page.locator("(//input[@placeholder='Please Enter'])[8]").fill(middleName);
-        } catch (Exception e) {
-            System.out.println("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.enters_reference_two_middle_name(middleName);
     }
 
     @Then("enters Reference Two last name {string}")
     public void enters_reference_two_last_name(String lastName) {
-        try {
-            Playwright_Common_Utils.scrollIntoView("(//input[@placeholder='Please Enter'])[7]");
-            page.locator("(//input[@placeholder='Please Enter'])[9]").fill(lastName);
-        } catch (Exception e) {
-            System.out.println("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.enters_reference_two_last_name(lastName);
     }
 
     @Then("enters Reference Two email address {string}")
     public void enters_reference_two_email_address(String emailAddressText) {
-        try {
-            Playwright_Common_Utils.scrollIntoView("(//input[@placeholder='Please Enter'])[7]");
-            page.locator("(//input[@placeholder='Please Enter'])[10]").fill(emailAddressText);
-        } catch (Exception e) {
-            System.out.println("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.enters_reference_two_email_address(emailAddressText);
     }
 
     @Then("enters Reference Two phone number {string}")
     public void enters_reference_two_phone_number(String phoneNumberText) {
-        try {
-            Playwright_Common_Utils.scrollIntoView("(//input[@placeholder='Please Enter'])[7]");
-            page.locator("(//input[@placeholder='(123) 456-7890'])[2]").fill(phoneNumberText);
-        } catch (Exception e) {
-            System.out.println("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.enters_reference_two_phone_number(phoneNumberText);
     }
 
     @Then("selects Reference Two relationship as Co-worker")
     public void selects_reference_two_relationship_as_co_worker() {
-        try {
-            page.locator("(//input[@role='combobox'])[2]").click();
-            page.locator("(//input[@role='combobox'])[2]").focus();
-            for (int i = 0; i < 1; i++) {
-                page.keyboard().press("ArrowDown");
-                page.waitForTimeout(200);
-            }
-            page.keyboard().press("Enter");
-        } catch (Exception e) {
-            System.out.println("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.selects_reference_two_relationship_as_co_worker();
     }
 
     @Then("enters Reference Two position title {string}")
     public void enters_reference_two_position_title(String titleText) {
-        try {
-            page.locator("(//input[@placeholder='Please Enter'])[11]").fill(titleText);
-        } catch (Exception e) {
-            System.out.println("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.enters_reference_two_position_title(titleText);
     }
 
     @Then("enters Reference Two organization name {string}")
     public void enters_reference_two_organization_name(String organizationTextBox) {
-        try {
-            page.locator("(//input[@placeholder='Please Enter'])[12]").fill(organizationTextBox);
-        } catch (Exception e) {
-            System.out.println("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.enters_reference_two_organization_name(organizationTextBox);
     }
 
     @Then("user verifies references two information {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
     public void user_verifies_references_two_information(String firstNameText, String middleNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
-        ArrayList<String> expectedValues = new ArrayList<>();
-        expectedValues.add(firstNameText + " " + middleNameText + " " + lastNameText);
-        expectedValues.add(emailText);
-        expectedValues.add(phoneNumberText);
-        expectedValues.add(relationshipText);
-        expectedValues.add(titleText);
-        expectedValues.add(organizationText);
-        ArrayList<String> actualValues = new ArrayList<>();
-        for (int i = 13; i <= 18; i++) {
-            actualValues.add(page.locator("(//tbody/tr/td)[" + i + "]").innerText());
-        }
-        Hooks.softAssert.assertEquals(actualValues, expectedValues);
+        ApplicantProfileStepsImpl.user_verifies_references_two_information(firstNameText, middleNameText, lastNameText, emailText, phoneNumberText, relationshipText, titleText, organizationText);
     }
 
     @Then("if either a Cover Letter, Qualification Statement, Curriculum Vitae \\(CV), or Vision Statement \\(or all) were uploaded then documents are displayed in the Application Documents section")
     public void if_either_a_cover_letter_qualification_statement_curriculum_vitae_cv_or_vision_statement_or_all_were_uploaded_then_documents_are_displayed_in_the_application_documents_section() {
-        page.waitForLoadState(LoadState.NETWORKIDLE);
-        MiscUtils.sleep(1000);
-        List<ElementHandle> actualValues = page.querySelectorAll("//div[@class='SectionContent'][5]/div");
-        ArrayList<String> values = new ArrayList<>();
-        for (ElementHandle actualValue : actualValues) {
-            values.add(actualValue.innerText());
-        }
-        ArrayList<String> expectedValues = new ArrayList<>();
-        expectedValues.add("✓ Cover Letter" + "\n" + " SSJ_COVER_LETTER_TEST.docx");
-        expectedValues.add("✓ Qualification Statement" + "\n" + " SSJ_QUALIFICATION_STATEMENT_TEST.pdf");
-        expectedValues.add("✓ Curriculum Vitae (CV)" + "\n" + " SSJ_CURRICULUM_VITAE_(CV).docx");
-        expectedValues.add("✓ Vision Statement" + "\n" + " SSJ_VISION_STATEMENT_TEST.pdf");
-        CucumberLogUtils.playwrightScreenshot(page);
-        Hooks.softAssert.assertTrue(expectedValues.containsAll(values), "* * * VERIFYING UPLOADED DOCUMENTS * * *");
+        ApplicantProfileStepsImpl.if_either_a_cover_letter_qualification_statement_curriculum_vitae_cv_or_vision_statement_or_all_were_uploaded_then_documents_are_displayed_in_the_application_documents_section();
     }
 
     @Then("uploads a Curriculum Vitae if Curriculum Vitae option is displayed")
     public void uploads_a_curriculum_vitae_if_curriculum_vitae_option_is_displayed() {
-        try {
-            ElementHandle fileInput = page.querySelector(ApplicationDocumentsPage.dynamicDocLocator("Curriculum Vitae (CV)"));
-            fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_CURRICULUM_VITAE_CV));
-        } catch (Exception e) {
-            System.out.println("* * * CURRICULUM VITAE OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * CURRICULUM VITAE OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.uploads_a_curriculum_vitae_if_curriculum_vitae_option_is_displayed();
     }
 
     @Then("uploads a Vision Statement if Vision Statement option is displayed")
     public void uploads_a_vision_statement_if_vision_statement_option_is_displayed() {
-        try {
-            ElementHandle fileInput = page.querySelector(ApplicationDocumentsPage.dynamicDocLocator("Vision Statement"));
-            fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_VISION_STATEMENT));
-        } catch (Exception e) {
-            System.out.println("* * * VISION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * VISION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
-        }
+        ApplicantProfileStepsImpl.uploads_a_vision_statement_if_vision_statement_option_is_displayed();
     }
 
     @Then("verifies Your Applications tab is displayed")
     public void verifies_your_applications_tab_is_displayed() {
-        page.waitForLoadState();
-        Playwright_Common_Utils.scrollIntoView("//a[normalize-space()='Your Applications']");
-        page.locator("//a[normalize-space()='Your Applications']").click();
+        ApplicantProfileStepsImpl.verifies_your_applications_tab_is_displayed();
+    }
+
+    @When("user navigates to Your Applications tab")
+    public void user_navigates_to_your_applications_tab() {
+        ApplicantProfileStepsImpl.user_navigates_to_your_applications_tab();
     }
 
     @When("clicks on {string} - PW")
     public void clicks_on_pw(String text) {
-        page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.clicks_on_pw(text);
     }
 
     @When("enters Vacancy Title name {string} - PW")
     public void enters_vacancy_title_name_pw(String vacancyName) {
-        page.getByPlaceholder("Please enter").fill(vacancyName);
+        ApplicantProfileStepsImpl.enters_vacancy_title_name_pw(vacancyName);
     }
 
     @When("enters Vacancy Description {string} - PW")
     public void enters_vacancy_description_pw(String vacancyDescription) {
-        page.locator("#BasicInfo_description div").nth(2).fill(vacancyDescription);
+        ApplicantProfileStepsImpl.enters_vacancy_description_pw(vacancyDescription);
     }
 
     @When("selects {string} for point of contact - PW")
     public void selects_for_point_of_contact_pw(String text) {
-        Playwright_Common_Utils.scrollIntoView("//input[@aria-owns='BasicInfo_isUserPoc_list']");
-        page.getByLabel("Are you the point of contact").click();
-        page.getByText(text, new Page.GetByTextOptions().setExact(true)).click();
+        ApplicantProfileStepsImpl.selects_for_point_of_contact_pw(text);
     }
 
     @When("unselects the option for cover letter")
     public void unselects_the_option_for_cover_letter() {
-        page.locator("#BasicInfo_applicationDocuments_1_isDocumentOptional").uncheck();
+        ApplicantProfileStepsImpl.unselects_the_option_for_cover_letter();
     }
 
     @When("checks {string} check box")
     public void checks_check_box(String text) {
-        page.getByText(text, new Page.GetByTextOptions().setExact(true)).click();
+        ApplicantProfileStepsImpl.checks_check_box(text);
     }
 
     @When("selects a Reference Collection Date Ten days from today")
     public void selects_a_reference_collection_date_ten_days_from_today() {
-        page.waitForLoadState();
-        page.getByLabel("Reference Collection Date").click();
-        page.locator("//div[@class='ant-picker ant-picker-focused']//input[@placeholder='Select date']").fill(CommonUtils.getDateAfterTenDaysIn_MM_DD_YYYY_format());
-        List<ElementHandle> list = page.querySelectorAll(Vacancy_Dashboard_Page.closeDateCalendarOptions);
-        for (ElementHandle day : list) {
-            if (day.getAttribute("title").trim().equals(CommonUtils.getDateAfterTenDaysIn_YYYY_MM_DD_format().trim())) {
-                page.locator("(//*[@title='" + CommonUtils.getDateAfterTenDaysIn_YYYY_MM_DD_format() + "'])[2]").click();
-                break;
-            }
-        }
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.selects_a_reference_collection_date_ten_days_from_today();
     }
 
     @When("selects {string} for Full Contact Details for References")
     public void selects_for_full_contact_details_for_references(String text) {
-        Playwright_Common_Utils.scrollIntoView("//div[@class='ant-slider Slider ant-slider-horizontal ant-slider-with-marks']//span[@class='ant-slider-mark-text ant-slider-mark-text-active'][normalize-space()='2']");
-        page.locator("//div[@class='ant-slider Slider ant-slider-horizontal ant-slider-with-marks']//span[@class='ant-slider-mark-text ant-slider-mark-text-active'][normalize-space()='2']").click();
+        ApplicantProfileStepsImpl.selects_for_full_contact_details_for_references(text);
     }
 
     @When("selects {string} for Position Classification drop down")
     public void selects_for_position_classification_drop_down(String text) {
-        page.locator(".PATSPicker > .ant-form-item > .ant-row > div:nth-child(2) > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector").first().click();
-        page.getByTitle(text, new Page.GetByTitleOptions().setExact(true)).locator("div").click();
+        ApplicantProfileStepsImpl.selects_for_position_classification_drop_down(text);
     }
 
     @When("selects {string} for Organizational Code drop down")
-    public void selects_for_organizational_code_drop_down(String string) {
-        page.locator("div:nth-child(2) > .ant-form-item > .ant-row > div:nth-child(2) > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector").first().click();
-        page.getByTitle("HNC", new Page.GetByTitleOptions().setExact(true)).locator("div").click();
+    public void selects_for_organizational_code_drop_down(String option) {
+        ApplicantProfileStepsImpl.selects_for_organizational_code_drop_down(option);
     }
 
     @When("clicks Save for Mandatory Statements")
     public void clicks_save_for_mandatory_statements() {
-        MiscUtils.sleep(5000);
-        page.locator("(//button[@class='ant-btn ant-btn-primary wider-button'])[1]").click();
+        ApplicantProfileStepsImpl.clicks_save_for_mandatory_statements();
     }
 
     @When("selects {string} for Committee Member with chair role")
     public void selects_for_committee_member_with_chair_role(String name) {
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("plus Add Member")).click();
-        page.locator(".css-yk16xz-control").click();
-        page.getByText(name, new Page.GetByTextOptions().setExact(true)).click();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("check Save")).click();
+        ApplicantProfileStepsImpl.selects_for_committee_member_with_chair_role(name);
     }
 
     @When("selects {string} for Committee Member with Executive Secretary role")
     public void selects_for_committee_member_with_executive_secretary_role(String name) {
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("plus Add Member")).click();
-        page.locator(".css-1hwfws3").click();
-        page.getByText(name, new Page.GetByTextOptions().setExact(true)).click();
-        page.getByText("Member", new Page.GetByTextOptions().setExact(true)).click();
-        page.getByTitle("Executive Secretary (non-").locator("div").click();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("check Save")).click();
+        ApplicantProfileStepsImpl.selects_for_committee_member_with_executive_secretary_role(name);
     }
 
     @When("clicks Save for Email Templates")
     public void clicks_save_for_email_templates() {
-        MiscUtils.sleep(2000);
-        Playwright_Common_Utils.scrollIntoView("//button[@class='ant-btn ant-btn-primary wider-button']");
-        page.locator("//button[@class='ant-btn ant-btn-primary wider-button']").click();
+        ApplicantProfileStepsImpl.clicks_save_for_email_templates();
     }
 
     @Then("user is able to see the Review and Finalize section with the vacancy information submitted")
     public void user_is_able_to_see_the_review_and_finalize_section_with_the_vacancy_information_submitted() {
-        Playwright_Common_Utils.scrollIntoView(("(//h3[normalize-space()='Review and Finalize'])[1]"));
-        Hooks.softAssert.assertTrue(page.locator("(//h3[normalize-space()='Review and Finalize'])[1]").isVisible(), "* * * VERIFYING REVIEW AND FINALIZE SECTION IS DISPLAYED * * *");
+        ApplicantProfileStepsImpl.user_is_able_to_see_the_review_and_finalize_section_with_the_vacancy_information_submitted();
     }
 
     @Then("verifies Vacancy Title {string}")
     public void verifies_vacancy_title(String vacancyTitle) {
-        Hooks.softAssert.assertEquals(page.locator("((//div[@class='SectionContent'])[1]/div[1]/div/p)[1]").innerText(), vacancyTitle);
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.verifies_vacancy_title(vacancyTitle);
     }
 
     @Then("verifies Utilize a Set Close Date is {string}")
     public void verifies_utilize_a_set_close_date_is(String text) {
-        Hooks.softAssert.assertEquals(page.locator("((//div[@class='SectionContent'])[1]/div[1]/div/p)[2]").innerText(), text);
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.verifies_utilize_a_set_close_date_is(text);
     }
 
     @Then("verifies Allow HR Specialist to Triage is {string}")
     public void verifies_allow_hr_specialist_to_triage_is(String text) {
-        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/div[2]/p").innerText(), text);
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.verifies_allow_hr_specialist_to_triage_is(text);
     }
 
     @Then("verifies Vacancy Description {string}")
     public void verifies_vacancy_description(String text) {
-        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/div[3]").innerText(), text);
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.verifies_vacancy_description(text);
     }
 
     @Then("verifies Vacancy Point of Contact Information is {string} with email address {string}")
     public void verifies_vacancy_point_of_contact_information_is_with_email_address(String fullNameText, String emailText) {
-        Hooks.softAssert.assertEquals(page.locator("//html/body/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div[5]/div[2]/div[4]/div/p").innerText(), fullNameText + "\n" + emailText);
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.verifies_vacancy_point_of_contact_information_is_with_email_address(fullNameText, emailText);
     }
 
     @Then("verifies Open Date is todays date")
     public void verifies_open_date_is_todays_date() {
-        Hooks.softAssert.assertEquals(page.locator("(//div[@class='DateCard']/p)[1]").innerText(), CommonUtils.getCurrentDateIn_MM_DD_YYYY_format());
+        ApplicantProfileStepsImpl.verifies_open_date_is_todays_date();
     }
 
     @Then("verifies Application Documents {string}, {string}, {string}, {string}")
     public void verifies_application_documents(String curriculumVitaeText, String coverLetterText, String visionStatementText, String qualificationStatementText) {
-        ArrayList<String> expectedValues = new ArrayList<>();
-        expectedValues.add(curriculumVitaeText);
-        expectedValues.add(coverLetterText);
-        expectedValues.add(visionStatementText);
-        expectedValues.add(qualificationStatementText);
-        List<ElementHandle> values = page.querySelectorAll("//html/body/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div[5]/div[2]/ul[1]/li");
-        for (int i = 0; i < values.size(); i++) {
-            String actualValue = values.get(i).innerText();
-            Assert.assertEquals(actualValue, expectedValues.get(i));
-        }
+        ApplicantProfileStepsImpl.verifies_application_documents(curriculumVitaeText, coverLetterText, visionStatementText, qualificationStatementText);
     }
 
     @Then("verifies Reference Collection is {string}")
     public void verifies_reference_collection_is(String text) {
-        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/div[6]/p").innerText(), text);
+        ApplicantProfileStepsImpl.verifies_reference_collection_is(text);
     }
 
     @Then("verifies Collection Date is ten days from today")
     public void verifies_collection_date_is_ten_days_from_today() {
-        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/div[7]/p").innerText(), CommonUtils.getTenDaysFromToday_In_MM_DD_YYYY_format());
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.verifies_collection_date_is_ten_days_from_today();
     }
 
     @Then("verifies {string} reference recommendations are required for this vacancy")
     public void verifies_reference_recommendations_are_required_for_this_vacancy(String text) {
-        page.waitForLoadState();
-        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/ul[2]/li").innerText(), text);
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.verifies_reference_recommendations_are_required_for_this_vacancy(text);
     }
 
     @Then("verifies {string} scoring categories are required for this vacancy")
     public void verifies_scoring_categories_are_required_for_this_vacancy(String text) {
-        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/div[8]/ul/li").innerText(), text);
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.verifies_scoring_categories_are_required_for_this_vacancy(text);
     }
 
     @Then("verifies Organizational Code is {string}")
     public void verifies_organizational_code_is(String text) {
-        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/ul[3]/p").innerText(), text);
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.verifies_organizational_code_is(text);
     }
 
     @Then("verifies Position Classification is {string}")
     public void verifies_position_classification_is(String text) {
-        Playwright_Common_Utils.scrollIntoView("(//div[@class='SectionContent'])[1]/ul[4]/p");
-        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/ul[4]/p").innerText(), text);
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.verifies_position_classification_is(text);
     }
 
     @Then("verifies Personnel Action Tracking Solution \\(PATS) Initiator is {string}")
     public void verifies_personnel_action_tracking_solution_pats_initiator_is(String text) {
-        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/div[9]/ul/p").innerText(), text);
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.verifies_personnel_action_tracking_solution_pats_initiator_is(text);
     }
 
     @Then("verifies Mandatory Statements {string}, {string}, {string}, and {string} are displayed")
     public void verifies_mandatory_statements_and_are_displayed(String valueOne, String valueTwo, String valueThree, String valueFour) {
-        ArrayList<String> expectedValues = new ArrayList<>();
-        expectedValues.add(valueOne);
-        expectedValues.add(valueTwo);
-        expectedValues.add(valueThree);
-        expectedValues.add(valueFour);
-        List<ElementHandle> values = page.querySelectorAll("(//div[@class='SectionContent'])[2]/div/ul/li");
-        for (int i = 0; i < values.size(); i++) {
-            String actualValue = values.get(i).innerText();
-            Assert.assertEquals(actualValue, expectedValues.get(i));
-        }
+        ApplicantProfileStepsImpl.verifies_mandatory_statements_and_are_displayed(valueOne, valueTwo, valueThree, valueFour);
     }
 
     @Then("verifies Committee Member {string} is displayed with role {string}")
     public void verifies_committee_member_is_displayed_with_role(String name, String role) {
-        ArrayList<String> expectedValues = new ArrayList<>();
-        expectedValues.add(name);
-        expectedValues.add(role);
-        if(name.equals("David Rampulla")){
-            List<ElementHandle> values = page.querySelectorAll("(//div[@class='SectionContent'])[3]/div/div/div/div/div/div/table/tbody/tr[1]/td");
-            Assert.assertEquals(values.stream().map(ElementHandle::innerText).collect(Collectors.toList()), expectedValues);
-        } else if (name.equals("Jay Kurani")) {
-            List<ElementHandle> values = page.querySelectorAll("(//div[@class='SectionContent'])[3]/div/div/div/div/div/div/table/tbody/tr[2]/td");
-            Assert.assertEquals(values.stream().map(ElementHandle::innerText).collect(Collectors.toList()), expectedValues);
-        }
-    }
-
-    @Then("verifies Email Templates {string}, {string}, {string}, {string}")
-    public void verifies_email_templates(String valueOne, String valueTwo, String valueThree, String valueFour) {
-        ArrayList<String> expectedValues = new ArrayList<>();
-        expectedValues.add(valueOne);
-        expectedValues.add(valueTwo);
-        expectedValues.add(valueThree);
-        expectedValues.add(valueFour);
-        List<ElementHandle> values = page.querySelectorAll("(//div[@class='SectionContent'])[4]/div/ul/li");
-        Assert.assertEquals(values.stream().map(ElementHandle::innerText).collect(Collectors.toList()), expectedValues);
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.verifies_committee_member_is_displayed_with_role(name, role);
     }
 
     @Then("verifies Email Templates {string}, {string}, {string}, {string}, {string}")
     public void verifies_email_templates(String valueOne, String valueTwo, String valueThree, String valueFour, String valueFive) {
-        ArrayList<String> expectedValues = new ArrayList<>();
-        expectedValues.add(valueOne);
-        expectedValues.add(valueTwo);
-        expectedValues.add(valueThree);
-        expectedValues.add(valueFour);
-        expectedValues.add(valueFive);
-        List<ElementHandle> values = page.querySelectorAll("(//div[@class='SectionContent'])[4]/div/ul/li");
-        Assert.assertEquals(values.stream().map(ElementHandle::innerText).collect(Collectors.toList()), expectedValues);
-        CucumberLogUtils.playwrightScreenshot(page);
+        ApplicantProfileStepsImpl.verifies_email_templates(valueOne, valueTwo, valueThree, valueFour, valueFive);
     }
 
     @Given("a test vacancy {string} is reset before creating a vacancy")
     public void a_test_vacancy_is_reset_before_creating_a_vacancy(String text) {
-        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
-        Playwright_ServiceNow_Common_Methods.searchFilterNavigatorAndClickOption("SCSS", "Vacancies");
-        MiscUtils.sleep(2000);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(text);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
-        CucumberLogUtils.playwrightScreenshot(page);
-        MiscUtils.sleep(3000);
-        try{
-            if(page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: " + text).isVisible()){
-                page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: " + text).click();
-                CucumberLogUtils.playwrightScreenshot(page);
-                page.waitForLoadState();
-                MiscUtils.sleep(1000);
-                page.frameLocator("iframe[name=\"gsft_main\"]").locator("#sysverb_delete").click();
-                CucumberLogUtils.playwrightScreenshot(page);
-                page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Confirmation Help").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Delete")).click();
-                MiscUtils.sleep(2000);
-            }
-            Playwright_ServiceNow_Common_Methods.logOutOfNativeView();
-        }
-        catch (Exception e){
-            System.out.println("* * * VACANCY DOES NOT EXIST - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * VACANCY DOES NOT EXIST - TEST CONTINUES * * *");
-            Playwright_ServiceNow_Common_Methods.logOutOfNativeView();
-        }
+        ApplicantProfileStepsImpl.a_test_vacancy_is_reset_before_creating_a_vacancy(text);
     }
 
     @Given("OWM Vacancy Manager logs out")
     public void owm_vacancy_manager_logs_out() {
-       Playwright_ServiceNow_Common_Methods.logOutOfNativeView();
+        Playwright_ServiceNow_Common_Methods.logOutOfNativeView();
+    }
+
+    @When("user verifies {string} page title is displayed")
+    public void user_verifies_page_title_is_displayed(String text) {
+        ApplicantProfileStepsImpl.user_verifies_page_title_is_displayed(text);
+    }
+
+    @Then("user verifies the following columns are displayed on Your Applications page {string}, {string}, {string}, {string}, {string}")
+    public void user_verifies_the_following_columns_are_displayed_on_your_applications_page(String valueOne, String valueTwo, String valueThree, String valueFour, String valueFive) {
+        ApplicantProfileStepsImpl.user_verifies_the_following_columns_are_displayed_on_your_applications_page(valueOne, valueTwo, valueThree, valueFour, valueFive);
     }
 }
