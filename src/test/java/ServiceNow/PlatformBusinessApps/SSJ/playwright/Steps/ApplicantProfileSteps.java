@@ -4,15 +4,9 @@ import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.*;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
-import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.EnvUtils;
-import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.testng.Assert;
-
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class ApplicantProfileSteps {
