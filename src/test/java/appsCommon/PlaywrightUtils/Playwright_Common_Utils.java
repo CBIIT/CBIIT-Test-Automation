@@ -20,6 +20,17 @@ public class Playwright_Common_Utils {
     }
 
     /**
+     * Scrolls the element into view on the page.
+     *
+     * @param text the text to be located on the element
+     * @param exact indicates whether the text should be an exact match
+     */
+    public static void scrollIntoView(String text, boolean exact){
+        Locator element = PlaywrightUtils.page.getByText(text, new Page.GetByTextOptions().setExact(exact));
+        element.evaluate("element => element.scrollIntoView()");
+    }
+
+    /**
      * asserting and click on the new page link and footer.
      *
      * @param name
