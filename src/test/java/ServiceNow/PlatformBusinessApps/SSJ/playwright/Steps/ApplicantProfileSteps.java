@@ -4,9 +4,15 @@ import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.*;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
+import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
+
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class ApplicantProfileSteps {
@@ -550,5 +556,15 @@ public class ApplicantProfileSteps {
     @Then("user verifies the following columns are displayed on Your Applications page {string}, {string}, {string}, {string}, {string}")
     public void user_verifies_the_following_columns_are_displayed_on_your_applications_page(String valueOne, String valueTwo, String valueThree, String valueFour, String valueFive) {
         ApplicantProfileStepsImpl.user_verifies_the_following_columns_are_displayed_on_your_applications_page(valueOne, valueTwo, valueThree, valueFour, valueFive);
+    }
+
+    @Given("a user who has not applied to a Vacancy before is on the SSJ home page")
+    public void a_user_who_has_not_applied_to_a_vacancy_before_is_on_the_ssj_home_page() {
+        ApplicantProfileStepsImpl.a_user_who_has_not_applied_to_a_vacancy_before_is_on_the_ssj_home_page();
+    }
+
+    @Then("Your Applications tab should NOT be displayed")
+    public void your_applications_tab_should_not_be_displayed() {
+        ApplicantProfileStepsImpl.your_applications_tab_should_not_be_displayed();
     }
 }

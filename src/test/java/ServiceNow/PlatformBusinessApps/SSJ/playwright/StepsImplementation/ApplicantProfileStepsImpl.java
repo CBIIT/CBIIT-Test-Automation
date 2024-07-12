@@ -1280,7 +1280,6 @@ public class ApplicantProfileStepsImpl {
         ArrayList<String> actualValues = new ArrayList<>();
         for (int i = 17; i <= 21; i++) {
             actualValues.add(page.locator("(//h2)[" + i + "]//following-sibling::span").innerText());
-            System.out.println("***** = " + page.locator("(//h2)[" + i + "]//following-sibling::span").innerText());
         }
         CucumberLogUtils.playwrightScreenshot(page);
         Assert.assertEquals(actualValues, expectedValues);
@@ -1444,5 +1443,29 @@ public class ApplicantProfileStepsImpl {
         CucumberLogUtils.playwrightScreenshot(page);
         Assert.assertEquals(actualValues, expectedValues);
         Assert.assertEquals(actualValues.size(), expectedValues.size());
+    }
+
+    /**
+     * This method represents the scenario where a user who has not applied to a vacancy before
+     * is on the SSJ home page. It performs the following steps:
+     * 1. Logs in using a side door test account.
+     * 2. Navigates to the SSJ portal view.
+     * 3. Takes a screenshot of the page using Playwright.
+     *
+     * @throws IOException if an I/O error occurs
+     */
+    public static void a_user_who_has_not_applied_to_a_vacancy_before_is_on_the_ssj_home_page() {
+        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
+        PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("SSJPortalView"));
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Checks if the "Your Applications" tab is not displayed.
+     * Takes a screenshot using Playwright and asserts that the tab is not visible.
+     */
+    public static void your_applications_tab_should_not_be_displayed() {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Assert.assertFalse(page.locator("//h1[normalize-space()='Your Applications']").isVisible(), "*** VERIFYING YOUR APPLICATIONS TAB IS NOT DISPLAYED ***");
     }
 }
