@@ -5,7 +5,6 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.testng.asserts.SoftAssert;
@@ -63,15 +62,5 @@ public class Hooks {
         if (assertionError != null) {
             throw assertionError;  // re-throw the assertion error after tearDown()
         }
-    }
-
-    @AfterStep("@selenium")
-    public void takeScreenshotSelenium() {
-        CucumberLogUtils.logScreenshot();
-    }
-
-    @AfterStep("@playwright")
-    public void takeScreenshotPlaywright() {
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 }

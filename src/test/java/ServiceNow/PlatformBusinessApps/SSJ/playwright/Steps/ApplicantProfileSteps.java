@@ -1,18 +1,19 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
+import CustomBusiness.EIDP.Steps.HooksSteps;
 import Hooks.Hooks;
-import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.ApplicationDocumentsPage;
-import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_Page;
-import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Vacancy_Committee_Page;
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.*;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.Utils.SSJ_Common_Utils;
 import ServiceNow.PlatformBusinessApps.SSJ.utils.SSJ_Constants;
 import appsCommon.Pages.Playwright_Common_Locators;
+import appsCommon.Pages.Playwright_NativeView_Dashboard_Page;
 import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
+import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.beust.ah.A;
-import com.microsoft.playwright.ElementHandle;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.PlaywrightException;
+import com.microsoft.playwright.*;
+import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.LoadState;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -26,14 +27,16 @@ import org.testng.Assert;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class ApplicantProfileSteps {
 
-    @Given("User is on SCSS Landing page and user is {string} - PW")
-    public void user_is_on_scss_landing_page_and_user_is_pw(String user) {
+    @Given("User is on SSJ Landing page and user is {string} - PW")
+    public void user_is_on_ssj_landing_page_and_user_is_pw(String user) {
         ApplicantProfileStepsImpl.ssjLogin(user);
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     @Given("User is on Profile tab - PW")
@@ -202,9 +205,10 @@ public class ApplicantProfileSteps {
         page.locator(Profile_Tab_Page.SaveDemographicsSection).click();
     }
 
-    @When("clicks on a Vacancy Title")
-    public void clicks_on_a_vacancy_title() {
-        page.locator("//tbody/tr[2]/td/a").click();
+    @When("clicks on Vacancy Title {string}")
+    public void clicks_on_vacancy_title(String vacancyTitle) {
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle));
+        page.locator(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle)).click();
     }
 
     @When("clicks {string}")
@@ -547,16 +551,18 @@ public class ApplicantProfileSteps {
     @Then("if either a Cover Letter, Qualification Statement, Curriculum Vitae \\(CV), or Vision Statement \\(or all) were uploaded then documents are displayed in the Application Documents section")
     public void if_either_a_cover_letter_qualification_statement_curriculum_vitae_cv_or_vision_statement_or_all_were_uploaded_then_documents_are_displayed_in_the_application_documents_section() {
         page.waitForLoadState(LoadState.NETWORKIDLE);
+        MiscUtils.sleep(1000);
         List<ElementHandle> actualValues = page.querySelectorAll("//div[@class='SectionContent'][5]/div");
         ArrayList<String> values = new ArrayList<>();
-        for(ElementHandle actualValue : actualValues){
+        for (ElementHandle actualValue : actualValues) {
             values.add(actualValue.innerText());
         }
         ArrayList<String> expectedValues = new ArrayList<>();
         expectedValues.add("✓ Cover Letter" + "\n" + " SSJ_COVER_LETTER_TEST.docx");
         expectedValues.add("✓ Qualification Statement" + "\n" + " SSJ_QUALIFICATION_STATEMENT_TEST.pdf");
         expectedValues.add("✓ Curriculum Vitae (CV)" + "\n" + " SSJ_CURRICULUM_VITAE_(CV).docx");
-        expectedValues.add("✓ Vision Statement" + "\n" + " SSJ_CURRICULUM_VITAE_(CV).docx");
+        expectedValues.add("✓ Vision Statement" + "\n" + " SSJ_VISION_STATEMENT_TEST.pdf");
+        CucumberLogUtils.playwrightScreenshot(page);
         Hooks.softAssert.assertTrue(expectedValues.containsAll(values), "* * * VERIFYING UPLOADED DOCUMENTS * * *");
     }
 
@@ -564,7 +570,7 @@ public class ApplicantProfileSteps {
     public void uploads_a_curriculum_vitae_if_curriculum_vitae_option_is_displayed() {
         try {
             ElementHandle fileInput = page.querySelector(ApplicationDocumentsPage.dynamicDocLocator("Curriculum Vitae (CV)"));
-            fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_QUALIFICATION_STATEMENT));
+            fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_CURRICULUM_VITAE_CV));
         } catch (Exception e) {
             System.out.println("* * * CURRICULUM VITAE OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
             CucumberLogUtils.scenario.log("* * * CURRICULUM VITAE OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
@@ -575,16 +581,300 @@ public class ApplicantProfileSteps {
     public void uploads_a_vision_statement_if_vision_statement_option_is_displayed() {
         try {
             ElementHandle fileInput = page.querySelector(ApplicationDocumentsPage.dynamicDocLocator("Vision Statement"));
-            fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_QUALIFICATION_STATEMENT));
+            fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_VISION_STATEMENT));
         } catch (Exception e) {
             System.out.println("* * * VISION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
             CucumberLogUtils.scenario.log("* * * VISION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
         }
     }
 
-    @Then("verifies {string} tab is displayed")
-    public void verifies_tab_is_displayed(String text) {
-       Playwright_Common_Utils.scrollIntoView(text);
-       MiscUtils.sleep(5000);
+    @Then("verifies Your Applications tab is displayed")
+    public void verifies_your_applications_tab_is_displayed() {
+        page.waitForLoadState();
+        Playwright_Common_Utils.scrollIntoView("//a[normalize-space()='Your Applications']");
+        page.locator("//a[normalize-space()='Your Applications']").click();
+    }
+
+    @When("clicks on {string} - PW")
+    public void clicks_on_pw(String text) {
+        page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @When("enters Vacancy Title name {string} - PW")
+    public void enters_vacancy_title_name_pw(String vacancyName) {
+        page.getByPlaceholder("Please enter").fill(vacancyName);
+    }
+
+    @When("enters Vacancy Description {string} - PW")
+    public void enters_vacancy_description_pw(String vacancyDescription) {
+        page.locator("#BasicInfo_description div").nth(2).fill(vacancyDescription);
+    }
+
+    @When("selects {string} for point of contact - PW")
+    public void selects_for_point_of_contact_pw(String text) {
+        Playwright_Common_Utils.scrollIntoView("//input[@aria-owns='BasicInfo_isUserPoc_list']");
+        page.getByLabel("Are you the point of contact").click();
+        page.getByText(text, new Page.GetByTextOptions().setExact(true)).click();
+    }
+
+    @When("unselects the option for cover letter")
+    public void unselects_the_option_for_cover_letter() {
+        page.locator("#BasicInfo_applicationDocuments_1_isDocumentOptional").uncheck();
+    }
+
+    @When("checks {string} check box")
+    public void checks_check_box(String text) {
+        page.getByText(text, new Page.GetByTextOptions().setExact(true)).click();
+    }
+
+    @When("selects a Reference Collection Date Ten days from today")
+    public void selects_a_reference_collection_date_ten_days_from_today() {
+        page.waitForLoadState();
+        page.getByLabel("Reference Collection Date").click();
+        page.locator("//div[@class='ant-picker ant-picker-focused']//input[@placeholder='Select date']").fill(CommonUtils.getDateAfterTenDaysIn_MM_DD_YYYY_format());
+        List<ElementHandle> list = page.querySelectorAll(Vacancy_Dashboard_Page.closeDateCalendarOptions);
+        for (ElementHandle day : list) {
+            if (day.getAttribute("title").trim().equals(CommonUtils.getDateAfterTenDaysIn_YYYY_MM_DD_format().trim())) {
+                page.locator("(//*[@title='" + CommonUtils.getDateAfterTenDaysIn_YYYY_MM_DD_format() + "'])[2]").click();
+                break;
+            }
+        }
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @When("selects {string} for Full Contact Details for References")
+    public void selects_for_full_contact_details_for_references(String text) {
+        Playwright_Common_Utils.scrollIntoView("//div[@class='ant-slider Slider ant-slider-horizontal ant-slider-with-marks']//span[@class='ant-slider-mark-text ant-slider-mark-text-active'][normalize-space()='2']");
+        page.locator("//div[@class='ant-slider Slider ant-slider-horizontal ant-slider-with-marks']//span[@class='ant-slider-mark-text ant-slider-mark-text-active'][normalize-space()='2']").click();
+    }
+
+    @When("selects {string} for Position Classification drop down")
+    public void selects_for_position_classification_drop_down(String text) {
+        page.locator(".PATSPicker > .ant-form-item > .ant-row > div:nth-child(2) > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector").first().click();
+        page.getByTitle(text, new Page.GetByTitleOptions().setExact(true)).locator("div").click();
+    }
+
+    @When("selects {string} for Organizational Code drop down")
+    public void selects_for_organizational_code_drop_down(String string) {
+        page.locator("div:nth-child(2) > .ant-form-item > .ant-row > div:nth-child(2) > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector").first().click();
+        page.getByTitle("HNC", new Page.GetByTitleOptions().setExact(true)).locator("div").click();
+    }
+
+    @When("clicks Save for Mandatory Statements")
+    public void clicks_save_for_mandatory_statements() {
+        MiscUtils.sleep(5000);
+        page.locator("(//button[@class='ant-btn ant-btn-primary wider-button'])[1]").click();
+    }
+
+    @When("selects {string} for Committee Member with chair role")
+    public void selects_for_committee_member_with_chair_role(String name) {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("plus Add Member")).click();
+        page.locator(".css-yk16xz-control").click();
+        page.getByText(name, new Page.GetByTextOptions().setExact(true)).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("check Save")).click();
+    }
+
+    @When("selects {string} for Committee Member with Executive Secretary role")
+    public void selects_for_committee_member_with_executive_secretary_role(String name) {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("plus Add Member")).click();
+        page.locator(".css-1hwfws3").click();
+        page.getByText(name, new Page.GetByTextOptions().setExact(true)).click();
+        page.getByText("Member", new Page.GetByTextOptions().setExact(true)).click();
+        page.getByTitle("Executive Secretary (non-").locator("div").click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("check Save")).click();
+    }
+
+    @When("clicks Save for Email Templates")
+    public void clicks_save_for_email_templates() {
+        MiscUtils.sleep(2000);
+        Playwright_Common_Utils.scrollIntoView("//button[@class='ant-btn ant-btn-primary wider-button']");
+        page.locator("//button[@class='ant-btn ant-btn-primary wider-button']").click();
+    }
+
+    @Then("user is able to see the Review and Finalize section with the vacancy information submitted")
+    public void user_is_able_to_see_the_review_and_finalize_section_with_the_vacancy_information_submitted() {
+        Playwright_Common_Utils.scrollIntoView(("(//h3[normalize-space()='Review and Finalize'])[1]"));
+        Hooks.softAssert.assertTrue(page.locator("(//h3[normalize-space()='Review and Finalize'])[1]").isVisible(), "* * * VERIFYING REVIEW AND FINALIZE SECTION IS DISPLAYED * * *");
+    }
+
+    @Then("verifies Vacancy Title {string}")
+    public void verifies_vacancy_title(String vacancyTitle) {
+        Hooks.softAssert.assertEquals(page.locator("((//div[@class='SectionContent'])[1]/div[1]/div/p)[1]").innerText(), vacancyTitle);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @Then("verifies Utilize a Set Close Date is {string}")
+    public void verifies_utilize_a_set_close_date_is(String text) {
+        Hooks.softAssert.assertEquals(page.locator("((//div[@class='SectionContent'])[1]/div[1]/div/p)[2]").innerText(), text);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @Then("verifies Allow HR Specialist to Triage is {string}")
+    public void verifies_allow_hr_specialist_to_triage_is(String text) {
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/div[2]/p").innerText(), text);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @Then("verifies Vacancy Description {string}")
+    public void verifies_vacancy_description(String text) {
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/div[3]").innerText(), text);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @Then("verifies Vacancy Point of Contact Information is {string} with email address {string}")
+    public void verifies_vacancy_point_of_contact_information_is_with_email_address(String fullNameText, String emailText) {
+        Hooks.softAssert.assertEquals(page.locator("//html/body/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div[5]/div[2]/div[4]/div/p").innerText(), fullNameText + "\n" + emailText);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @Then("verifies Open Date is todays date")
+    public void verifies_open_date_is_todays_date() {
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='DateCard']/p)[1]").innerText(), CommonUtils.getCurrentDateIn_MM_DD_YYYY_format());
+    }
+
+    @Then("verifies Application Documents {string}, {string}, {string}, {string}")
+    public void verifies_application_documents(String curriculumVitaeText, String coverLetterText, String visionStatementText, String qualificationStatementText) {
+        ArrayList<String> expectedValues = new ArrayList<>();
+        expectedValues.add(curriculumVitaeText);
+        expectedValues.add(coverLetterText);
+        expectedValues.add(visionStatementText);
+        expectedValues.add(qualificationStatementText);
+        List<ElementHandle> values = page.querySelectorAll("//html/body/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div[5]/div[2]/ul[1]/li");
+        for (int i = 0; i < values.size(); i++) {
+            String actualValue = values.get(i).innerText();
+            Assert.assertEquals(actualValue, expectedValues.get(i));
+        }
+    }
+
+    @Then("verifies Reference Collection is {string}")
+    public void verifies_reference_collection_is(String text) {
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/div[6]/p").innerText(), text);
+    }
+
+    @Then("verifies Collection Date is ten days from today")
+    public void verifies_collection_date_is_ten_days_from_today() {
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/div[7]/p").innerText(), CommonUtils.getTenDaysFromToday_In_MM_DD_YYYY_format());
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @Then("verifies {string} reference recommendations are required for this vacancy")
+    public void verifies_reference_recommendations_are_required_for_this_vacancy(String text) {
+        page.waitForLoadState();
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/ul[2]/li").innerText(), text);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @Then("verifies {string} scoring categories are required for this vacancy")
+    public void verifies_scoring_categories_are_required_for_this_vacancy(String text) {
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/div[8]/ul/li").innerText(), text);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @Then("verifies Organizational Code is {string}")
+    public void verifies_organizational_code_is(String text) {
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/ul[3]/p").innerText(), text);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @Then("verifies Position Classification is {string}")
+    public void verifies_position_classification_is(String text) {
+        Playwright_Common_Utils.scrollIntoView("(//div[@class='SectionContent'])[1]/ul[4]/p");
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/ul[4]/p").innerText(), text);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @Then("verifies Personnel Action Tracking Solution \\(PATS) Initiator is {string}")
+    public void verifies_personnel_action_tracking_solution_pats_initiator_is(String text) {
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='SectionContent'])[1]/div[9]/ul/p").innerText(), text);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @Then("verifies Mandatory Statements {string}, {string}, {string}, and {string} are displayed")
+    public void verifies_mandatory_statements_and_are_displayed(String valueOne, String valueTwo, String valueThree, String valueFour) {
+        ArrayList<String> expectedValues = new ArrayList<>();
+        expectedValues.add(valueOne);
+        expectedValues.add(valueTwo);
+        expectedValues.add(valueThree);
+        expectedValues.add(valueFour);
+        List<ElementHandle> values = page.querySelectorAll("(//div[@class='SectionContent'])[2]/div/ul/li");
+        for (int i = 0; i < values.size(); i++) {
+            String actualValue = values.get(i).innerText();
+            Assert.assertEquals(actualValue, expectedValues.get(i));
+        }
+    }
+
+    @Then("verifies Committee Member {string} is displayed with role {string}")
+    public void verifies_committee_member_is_displayed_with_role(String name, String role) {
+        ArrayList<String> expectedValues = new ArrayList<>();
+        expectedValues.add(name);
+        expectedValues.add(role);
+        if(name.equals("David Rampulla")){
+            List<ElementHandle> values = page.querySelectorAll("(//div[@class='SectionContent'])[3]/div/div/div/div/div/div/table/tbody/tr[1]/td");
+            Assert.assertEquals(values.stream().map(ElementHandle::innerText).collect(Collectors.toList()), expectedValues);
+        } else if (name.equals("Jay Kurani")) {
+            List<ElementHandle> values = page.querySelectorAll("(//div[@class='SectionContent'])[3]/div/div/div/div/div/div/table/tbody/tr[2]/td");
+            Assert.assertEquals(values.stream().map(ElementHandle::innerText).collect(Collectors.toList()), expectedValues);
+        }
+    }
+
+    @Then("verifies Email Templates {string}, {string}, {string}, {string}")
+    public void verifies_email_templates(String valueOne, String valueTwo, String valueThree, String valueFour) {
+        ArrayList<String> expectedValues = new ArrayList<>();
+        expectedValues.add(valueOne);
+        expectedValues.add(valueTwo);
+        expectedValues.add(valueThree);
+        expectedValues.add(valueFour);
+        List<ElementHandle> values = page.querySelectorAll("(//div[@class='SectionContent'])[4]/div/ul/li");
+        Assert.assertEquals(values.stream().map(ElementHandle::innerText).collect(Collectors.toList()), expectedValues);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @Then("verifies Email Templates {string}, {string}, {string}, {string}, {string}")
+    public void verifies_email_templates(String valueOne, String valueTwo, String valueThree, String valueFour, String valueFive) {
+        ArrayList<String> expectedValues = new ArrayList<>();
+        expectedValues.add(valueOne);
+        expectedValues.add(valueTwo);
+        expectedValues.add(valueThree);
+        expectedValues.add(valueFour);
+        expectedValues.add(valueFive);
+        List<ElementHandle> values = page.querySelectorAll("(//div[@class='SectionContent'])[4]/div/ul/li");
+        Assert.assertEquals(values.stream().map(ElementHandle::innerText).collect(Collectors.toList()), expectedValues);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @Given("a test vacancy {string} is reset before creating a vacancy")
+    public void a_test_vacancy_is_reset_before_creating_a_vacancy(String text) {
+        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
+        Playwright_ServiceNow_Common_Methods.searchFilterNavigatorAndClickOption("SCSS", "Vacancies");
+        MiscUtils.sleep(2000);
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(text);
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
+        CucumberLogUtils.playwrightScreenshot(page);
+        MiscUtils.sleep(3000);
+        try{
+            if(page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: " + text).isVisible()){
+                page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: " + text).click();
+                CucumberLogUtils.playwrightScreenshot(page);
+                page.waitForLoadState();
+                MiscUtils.sleep(1000);
+                page.frameLocator("iframe[name=\"gsft_main\"]").locator("#sysverb_delete").click();
+                CucumberLogUtils.playwrightScreenshot(page);
+                page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Confirmation Help").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Delete")).click();
+                MiscUtils.sleep(2000);
+            }
+            Playwright_ServiceNow_Common_Methods.logOutOfNativeView();
+        }
+        catch (Exception e){
+            System.out.println("* * * VACANCY DOES NOT EXIST - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * VACANCY DOES NOT EXIST - TEST CONTINUES * * *");
+            Playwright_ServiceNow_Common_Methods.logOutOfNativeView();
+        }
+    }
+
+    @Given("OWM Vacancy Manager logs out")
+    public void owm_vacancy_manager_logs_out() {
+       Playwright_ServiceNow_Common_Methods.logOutOfNativeView();
     }
 }

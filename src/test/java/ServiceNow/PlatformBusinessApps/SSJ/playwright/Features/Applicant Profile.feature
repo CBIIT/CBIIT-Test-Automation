@@ -4,7 +4,7 @@ Feature: Applicant Profile Scenarios
   @juarezds @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @Regression @playwright
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
-    When User is on SCSS Landing page and user is "Maria Chaudhry" - PW
+    When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
     And User is on Profile tab - PW
     And User inputs "<firstName>" into first name field - PW
     And User inputs "<middleName>" into middle name field - PW
@@ -46,7 +46,7 @@ Feature: Applicant Profile Scenarios
   @juarezds @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @Regression @playwright @Bug_Open @Smoke
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
-    When User is on SCSS Landing page and user is "Maria Chaudhry" - PW
+    When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
     And User is on Profile tab - PW
     And User inputs "<firstName>" into first name field - PW
     And User inputs "<middleName>" into middle name field - PW
@@ -79,7 +79,7 @@ Feature: Applicant Profile Scenarios
   @alenan @SSJ-712 @Bug_Open @juarezds @In_Progress @playwright @Smoke
   Scenario: Edit Demographics of Profile
     Given a test account "Maria Chaudhry" is reset before executing a test
-    When User is on SCSS Landing page and user is "Maria Chaudhry" - PW
+    When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
     When User is on Profile tab - PW
     And User clicks Edit for Demographics section - PW
     And User chooses to share demographic details - PW
@@ -94,80 +94,123 @@ Feature: Applicant Profile Scenarios
 
   @APPTRACK-38 @Progression @playwright
   Scenario Outline: Your Applications tab
-#    Given an Okta user "" is on the SSJ home page and logs in
-    Given a test account "<firstName>" is reset before executing a test
-    When User is on SCSS Landing page and user is "Maria Chaudhry" - PW
-    And clicks on a Vacancy Title
-    And clicks "Apply"
-    And proceeds with completing profile by clicking "Finish Profile"
-    And User inputs "<firstName>" into first name field - PW
-    And User inputs "<middleName>" into middle name field - PW
-    And User inputs "<lastName>" into last name field - PW
-    And User inputs "<email>" into email field - PW
-    And User inputs "<phone>" into phone field - PW
-    And User inputs "<businessPhone>" into business phone field - PW
-    And selects highest education "<highestEducation>"
-    And User confirms being a US Citizen - PW
-    And User inputs "<address>" into address field - PW
-    And User inputs "<aptNumber>" into appNumber field - PW
-    And User inputs "<city>" into city field - PW
-    And User inputs "<state>" into state field - PW
-    And User inputs "<country>" into country field - PW
-    And User inputs "<zip>" into zip field - PW
-    When User clicks on Save Application button - PW
-    Then user verifies that first name "<firstName>", middle name "<middleName>", and last name "<lastName>" saved display as expected
-    And verifies that the saved address displays with "<address>", "<aptNumber>", "<city>", "<state>", "<country>", "<zip>"
-    And verifies that the saved email address displays as "<email>"
-    And verifies that the saved phone number displays as "<phone>"
-    And verifies that the saved business phone number displays as "<businessPhone>"
-    And verifies that the saved highest education displays as "<highestEducation>"
-    And verifies that the saved US Citizenship displays as "<US Citizenship>"
-    And navigates to the "Home" tab to be able to apply to a vacancy after creating a profile
-    And clicks on a Vacancy Title
-    And clicks "Apply"
-    Then user is on the "Application Documents" page
-    And uploads cover letter if cover letter option is displayed
-    And uploads qualification statement if qualification statement is displayed
-    And uploads a Curriculum Vitae if Curriculum Vitae option is displayed
-    And uploads a Vision Statement if Vision Statement option is displayed
-    And clicks "Next"
-    Then user is on the "References" page
-    Then if reference one is required then user enters Reference One first name "<referenceOneFirstName>"
-    And enters Reference One middle name "<referenceOneMiddleName>"
-    And enters Reference One last name "<referenceOneLastName>"
-    And enters Reference One email address "<referenceOneEmail>"
-    And enters Reference One phone number "<referenceOnePhoneNumber>"
-    And selects Reference One relationship as "<referenceOneRelationship>"
-    And enters Reference One position title "<referenceOnePositionTitle>"
-    And enters Reference One organization name "<referenceOneOrganizationName>"
-    Then if reference two is required then user enters Reference Two first name "<referenceTwoFirstName>"
-    And enters Reference Two middle name "<referenceTwoMiddleName>"
-    And enters Reference Two last name "<referenceTwoLastName>"
-    And enters Reference Two email address "<referenceTwoEmail>"
-    And enters Reference Two phone number "<referenceTwoPhoneNumber>"
-    And selects Reference Two relationship as Co-worker
-    And enters Reference Two position title "<referenceTwoPositionTitle>"
-    And enters Reference Two organization name "<referenceTwoOrganizationName>"
-    And clicks "Next"
-    Then user is on the "Demographic Information" page
-    And user agrees to share demographic details and help improve the hiring process.
-    And selects "Male" for Sex
-    And selects "Hispanic or Latino" for Ethnicity
-    And selects "American Indian or Alaska", "Asian", "Black or African-American", "Native Hawaiian or other", "White" for Race
-    And selects "None of the conditions listed above apply to me." for Disability or Serious Health Condition
-    And clicks "Next"
-    Then user is on the "Review" page
-    And user verifies basic information "<firstName>", "<middleName>", "<lastName>", "<email>", "<phone>", "<businessPhone>", "<highestEducation>", and "<US Citizenship>"
-    And user verifies address information "<address>", "<aptNumber>", "<city>", "<state>", "<zip>"
-    And user verifies demographics information "Yes", "Male", "Hispanic or Latino", "American Indian or Alaska Native, Asian, Black or African-American, Native Hawaiian or other Pacific Islander, White", and "None of the conditions listed above apply to me."
-    And user verifies references one information "<referenceOneFirstName>", "<referenceOneMiddleName>", "<referenceOneLastName>", "<referenceOneEmail>", "<referenceOnePhoneNumber>", "<referenceOneRelationship>", "<referenceOnePositionTitle>", "<referenceOneOrganizationName>"
-    And user verifies references two information "<referenceTwoFirstName>", "<referenceTwoMiddleName>", "<referenceTwoLastName>", "<referenceTwoEmail>", "<referenceTwoPhoneNumber>", "<referenceTwoRelationship>", "<referenceTwoPositionTitle>", "<referenceTwoOrganizationName>"
-    And if either a Cover Letter, Qualification Statement, Curriculum Vitae (CV), or Vision Statement (or all) were uploaded then documents are displayed in the Application Documents section
-    And clicks "Submit Application"
-    And clicks "Ok"
-    And clicks "Done"
-    And verifies "Your Applications" tab is displayed
-  #    And tester navigates to native view to reset account with name "<firstName>" so that automated test can run again without manual intervention
+#    Given an Okta user "" is on the SSJ home page and logs in - PLEASE LEAVE THIS HERE! NEED TO CONNECT WITH OKTA TEAM
+    Given a test vacancy "DIEGO TEST" is reset before creating a vacancy
+    When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
+#    And clicks on "Vacancy Dashboard" - PW
+#    And clicks on "+ Create Vacancy" - PW
+#    And enters Vacancy Title name "DIEGO TEST" - PW
+#    And enters Vacancy Description "THIS IS A TEST AUTOMATION TEST" - PW
+#    And selects "Yes" for point of contact - PW
+#    And User sets an "Open Date" entry as today's date
+#    And unselects the option for cover letter
+#    And checks "Enable Reference Collection" check box
+#    And selects a Reference Collection Date Ten days from today
+#    And selects "2" for Full Contact Details for References
+#    And selects "Research Fellow" for Position Classification drop down
+#    And selects "HNC" for Organizational Code drop down
+#    And clicks "Save"
+#    And clicks Save for Mandatory Statements
+#    And selects "David Rampulla" for Committee Member with chair role
+#    And selects "Jay Kurani" for Committee Member with Executive Secretary role
+#    And clicks "Save"
+#    And clicks Save for Email Templates
+#    Then user is able to see the Review and Finalize section with the vacancy information submitted
+#    And verifies Vacancy Title "DIEGO TEST"
+#    And verifies Utilize a Set Close Date is "No"
+#    And verifies Allow HR Specialist to Triage is "No"
+#    And verifies Vacancy Description "THIS IS A TEST AUTOMATION TEST"
+#    And verifies Vacancy Point of Contact Information is "Holly Gemar-Griffith" with email address "holly.gemar-griffith@nih.gov"
+#    And verifies Open Date is todays date
+#    And verifies Application Documents "Curriculum Vitae (CV)", "Cover Letter", "Vision Statement", "Qualification Statement"
+#    And verifies Reference Collection is "Yes"
+#    And verifies Collection Date is ten days from today
+#    And verifies "2 recommendation(s)" reference recommendations are required for this vacancy
+#    And verifies "4 categories" scoring categories are required for this vacancy
+#    And verifies Organizational Code is "HNC"
+#    And verifies Position Classification is "Research Fellow"
+#    And verifies Personnel Action Tracking Solution (PATS) Initiator is "Holly Gemar-Griffith"
+#    And verifies Mandatory Statements "Equal Opportunity Employment", "Standards of Conduct/Financial Disclosure", "Foreign Education", and "Reasonable Accomodation" are displayed
+#    And verifies Committee Member "David Rampulla" is displayed with role "Chair"
+#    And verifies Committee Member "Jay Kurani" is displayed with role "Executive Secretary (non-voting)"
+#    And verifies Email Templates "Application saved", "Application submitted confirmation", "Applicant Reference Request", "Applicant Reference Received", "Applicant Reference Received - Applicant"
+#    And clicks "Save and Finalize"
+#    And clicks "OK"
+#    And clicks "Close"
+#    And OWM Vacancy Manager logs out
+#    Given a test account "<firstName>" is reset before executing a test
+#    When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
+#    And clicks on Vacancy Title "DIEGO TEST"
+#    And clicks "Apply"
+#    And proceeds with completing profile by clicking "Finish Profile"
+#    And User inputs "<firstName>" into first name field - PW
+#    And User inputs "<middleName>" into middle name field - PW
+#    And User inputs "<lastName>" into last name field - PW
+#    And User inputs "<email>" into email field - PW
+#    And User inputs "<phone>" into phone field - PW
+#    And User inputs "<businessPhone>" into business phone field - PW
+#    And selects highest education "<highestEducation>"
+#    And User confirms being a US Citizen - PW
+#    And User inputs "<address>" into address field - PW
+#    And User inputs "<aptNumber>" into appNumber field - PW
+#    And User inputs "<city>" into city field - PW
+#    And User inputs "<state>" into state field - PW
+#    And User inputs "<country>" into country field - PW
+#    And User inputs "<zip>" into zip field - PW
+#    When User clicks on Save Application button - PW
+#    Then user verifies that first name "<firstName>", middle name "<middleName>", and last name "<lastName>" saved display as expected
+#    And verifies that the saved address displays with "<address>", "<aptNumber>", "<city>", "<state>", "<country>", "<zip>"
+#    And verifies that the saved email address displays as "<email>"
+#    And verifies that the saved phone number displays as "<phone>"
+#    And verifies that the saved business phone number displays as "<businessPhone>"
+#    And verifies that the saved highest education displays as "<highestEducation>"
+#    And verifies that the saved US Citizenship displays as "<US Citizenship>"
+#    And navigates to the "Home" tab to be able to apply to a vacancy after creating a profile
+#    And clicks on Vacancy Title "DIEGO TEST"
+#    And clicks "Apply"
+#    Then user is on the "Application Documents" page
+#    And uploads cover letter if cover letter option is displayed
+#    And uploads qualification statement if qualification statement is displayed
+#    And uploads a Curriculum Vitae if Curriculum Vitae option is displayed
+#    And uploads a Vision Statement if Vision Statement option is displayed
+#    And clicks "Next"
+#    Then user is on the "References" page
+#    Then if reference one is required then user enters Reference One first name "<referenceOneFirstName>"
+#    And enters Reference One middle name "<referenceOneMiddleName>"
+#    And enters Reference One last name "<referenceOneLastName>"
+#    And enters Reference One email address "<referenceOneEmail>"
+#    And enters Reference One phone number "<referenceOnePhoneNumber>"
+#    And selects Reference One relationship as "<referenceOneRelationship>"
+#    And enters Reference One position title "<referenceOnePositionTitle>"
+#    And enters Reference One organization name "<referenceOneOrganizationName>"
+#    Then if reference two is required then user enters Reference Two first name "<referenceTwoFirstName>"
+#    And enters Reference Two middle name "<referenceTwoMiddleName>"
+#    And enters Reference Two last name "<referenceTwoLastName>"
+#    And enters Reference Two email address "<referenceTwoEmail>"
+#    And enters Reference Two phone number "<referenceTwoPhoneNumber>"
+#    And selects Reference Two relationship as Co-worker
+#    And enters Reference Two position title "<referenceTwoPositionTitle>"
+#    And enters Reference Two organization name "<referenceTwoOrganizationName>"
+#    And clicks "Next"
+#    Then user is on the "Demographic Information" page
+#    And user agrees to share demographic details and help improve the hiring process.
+#    And selects "Male" for Sex
+#    And selects "Hispanic or Latino" for Ethnicity
+#    And selects "American Indian or Alaska", "Asian", "Black or African-American", "Native Hawaiian or other", "White" for Race
+#    And selects "None of the conditions listed above apply to me." for Disability or Serious Health Condition
+#    And clicks "Next"
+#    Then user is on the "Review" page
+#    And user verifies basic information "<firstName>", "<middleName>", "<lastName>", "<email>", "<phone>", "<businessPhone>", "<highestEducation>", and "<US Citizenship>"
+#    And user verifies address information "<address>", "<aptNumber>", "<city>", "<state>", "<zip>"
+#    And user verifies demographics information "Yes", "Male", "Hispanic or Latino", "American Indian or Alaska Native, Asian, Black or African-American, Native Hawaiian or other Pacific Islander, White", and "None of the conditions listed above apply to me."
+#    And user verifies references one information "<referenceOneFirstName>", "<referenceOneMiddleName>", "<referenceOneLastName>", "<referenceOneEmail>", "<referenceOnePhoneNumber>", "<referenceOneRelationship>", "<referenceOnePositionTitle>", "<referenceOneOrganizationName>"
+#    And user verifies references two information "<referenceTwoFirstName>", "<referenceTwoMiddleName>", "<referenceTwoLastName>", "<referenceTwoEmail>", "<referenceTwoPhoneNumber>", "<referenceTwoRelationship>", "<referenceTwoPositionTitle>", "<referenceTwoOrganizationName>"
+#    And if either a Cover Letter, Qualification Statement, Curriculum Vitae (CV), or Vision Statement (or all) were uploaded then documents are displayed in the Application Documents section
+#    And clicks "Submit Application"
+#    And clicks "Ok"
+#    And clicks "Done"
+#    And verifies Your Applications tab is displayed
+#    And tester navigates to native view to reset account with name "<firstName>" so that automated test can run again without manual intervention
 
     Examples:
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | US Citizenship | address | aptNumber | city   | state | country | zip   | referenceOneFirstName | referenceOneMiddleName | referenceOneLastName | referenceOneEmail     | referenceOnePhoneNumber | referenceOneRelationship | referenceOnePositionTitle | referenceOneOrganizationName                 | referenceTwoFirstName | referenceTwoMiddleName | referenceTwoLastName | referenceTwoEmail     | referenceTwoPhoneNumber | referenceTwoRelationship | referenceTwoPositionTitle | referenceTwoOrganizationName                 |

@@ -20,7 +20,7 @@ public class Vacancy_Dashboard_Page {
     /**
      * CLOSE DATE CALENDAR OPTIONS
      */
-    public static String closeDateCalendarOptions = "//html/body/div[*]/div/div/div/div/div[1]/div[2]/table/tbody/tr/td";
+     public static String closeDateCalendarOptions = "//html/body/div[*]/div/div/div/div/div[1]/div[2]/table/tbody/tr/td";
 
     /**
      * SCORING DUE BY DATE CALENDAR

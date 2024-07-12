@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 import java.util.*;
 
 import org.openqa.selenium.*;
@@ -775,6 +777,68 @@ public class CommonUtils extends WebDriverUtils {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate today = LocalDate.now();
         return today.format(formatter);
+    }
+
+    /**
+     * Returns the current date in the format MM-DD-YYYY.
+     *
+     * This method uses the Java LocalDate and DateTimeFormatter classes to format the current date
+     * using the pattern "MM-DD-YYYY". The date components (month, day, and year) are extracted from the
+     * LocalDate object and are formatted as two-digit month, two-digit day, and four-digit year.
+     *
+     * The returned date string will always have two digits for the month and day, and four digits for the year.
+     *
+     * @return the current date formatted as MM-DD-YYYY
+     */
+    public static String getCurrentDateIn_MM_DD_YYYY_format() {
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .appendValue(ChronoField.MONTH_OF_YEAR)
+                .appendLiteral('/')
+                .appendValue(ChronoField.DAY_OF_MONTH, 2)
+                .appendLiteral('/')
+                .appendValue(ChronoField.YEAR, 4)
+                .toFormatter();
+        LocalDate today = LocalDate.now();
+        return today.format(formatter);
+    }
+
+    /**
+     * Retrieves the date that is 10 days from today in the format MM/DD/YYYY.
+     *
+     * @return the date that is 10 days from today in the format MM/DD/YYYY
+     */
+    public static String getTenDaysFromToday_In_MM_DD_YYYY_format() {
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .appendValue(ChronoField.MONTH_OF_YEAR)
+                .appendLiteral('/')
+                .appendValue(ChronoField.DAY_OF_MONTH, 2)
+                .appendLiteral('/')
+                .appendValue(ChronoField.YEAR, 4)
+                .toFormatter();
+        LocalDate dateAfterTenDays = LocalDate.now().plusDays(10);
+        return dateAfterTenDays.format(formatter);
+    }
+
+    /**
+     * Returns the date after ten days in the format "yyyy-MM-dd".
+     *
+     * @return the date after ten days in the format "yyyy-MM-dd".
+     */
+    public static String getDateAfterTenDaysIn_YYYY_MM_DD_format() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate dateAfterDays = LocalDate.now().plusDays(10);
+        return dateAfterDays.format(formatter);
+    }
+
+    /**
+     * Returns the date after ten days from the current date in the format MM/DD/YYYY.
+     *
+     * @return The date after ten days in the format MM/DD/YYYY.
+     */
+    public static String getDateAfterTenDaysIn_MM_DD_YYYY_format() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        LocalDate dateAfterDays = LocalDate.now().plusDays(10);
+        return dateAfterDays.format(formatter);
     }
 
     /**
