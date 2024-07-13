@@ -259,6 +259,7 @@ Feature: Applicant Profile Scenarios
     And verifies text Open Until Filled "Open Until Filled"
     And verifies point of contact text "Point of Contact:" with POC "Holly Gemar-Griffith"
     And verifies Vacancy Description text "THIS IS A TEST AUTOMATION TEST"
+    And new step
 
 
 #APPTRACK-145
