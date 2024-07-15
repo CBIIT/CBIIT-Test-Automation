@@ -237,11 +237,6 @@ public class ApplicantFlowSteps extends PageInitializer {
         Assert.assertNotNull(closeDateLiveVacancyVacDetailsView);
     }
 
-    @Given("User verifies that a close date has {string} end period specified")
-    public void user_verifies_that_a_close_date_has_end_period_specified(String endPeriod) {
-        Assert.assertTrue(applicantFlowStepsImplementation.verifyCloseDateContent(endPeriod));
-    }
-
     @Given("User verifies that Point of Contact is displayed")
     public void user_verifies_that_point_of_contact_is_displayed() {
         String pocVacDetailsView = applicantFlowPage.pocVacDetailsView.getText();

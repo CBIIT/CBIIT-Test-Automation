@@ -78,7 +78,7 @@ Feature: Applicant Profile Scenarios
 
   @alenan @SSJ-712 @Bug_Open @juarezds @In_Progress @playwright @Smoke
   Scenario: Edit Demographics of Profile
-    Given a test account "Maria Chaudhry" is reset before executing a test
+    Given a test account "SSJTest" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
     When User is on Profile tab - PW
     And User clicks Edit for Demographics section - PW
