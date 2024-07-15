@@ -10,8 +10,8 @@ public class FanconiSurveyBackgroundInformationSteps {
         FanconiSurveyStepsImpl.login();
     }
 
-    @Given("fills the Background Information section")
-    public void fills_the_background_information_section() {
-        FanconiSurveyStepsImpl.backgroundInformationSection();
+    @Given("fills the Background Information section for scenario 1")
+    public void fills_the_background_information_section_for_scenario_1() {
+        FanconiSurveyStepsImpl.backgroundInformationSectionScenario1();
     }
 }

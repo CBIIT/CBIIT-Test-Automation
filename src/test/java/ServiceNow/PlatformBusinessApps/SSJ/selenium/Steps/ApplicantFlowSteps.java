@@ -271,7 +271,7 @@ public class ApplicantFlowSteps extends PageInitializer {
     public void user_can_see_the_following_columns_displayed_on_your_applications_page(io.cucumber.datatable.DataTable data) {
         Map<String, String> columns = CommonUtil.getMapFromDataTable(data);
         Assert.assertTrue(columns.get("column1"), applicantFlowPage.columnVacTitleYourApplicationsPage.isDisplayed());
-        Assert.assertTrue(columns.get("column2"), applicantFlowPage.columnStateYourApplicationsPage.isDisplayed());
+        Assert.assertTrue(columns.get("column2"), applicantFlowPage.columnStatusYourApplicationsPage.isDisplayed());
         Assert.assertTrue(columns.get("column3"), applicantFlowPage.columnVacClosesYourApplicationsPage.isDisplayed());
         Assert.assertTrue(columns.get("column4"), applicantFlowPage.columnApplicationSubmittedYourApplicationsPage.isDisplayed());
         Assert.assertTrue(columns.get("column5"), applicantFlowPage.columnActionsYourApplicationsPage.isDisplayed());

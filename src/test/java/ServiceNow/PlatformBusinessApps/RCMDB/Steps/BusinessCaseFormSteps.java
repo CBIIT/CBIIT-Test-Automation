@@ -94,16 +94,16 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.needMoreInfoOnRequest();
 	}
 
-	@Then("Click on Approve request")
-	public void approveRequest() {
-		businessCaseFormPage.approveRequest();
-	}
+//	@Then("Click on Approve request")
+//	public void approveRequest() {
+//		businessCaseFormPage.approveRequest();
+//	}
 
-	@Then("Open latest Business Case")
-	public void openLatestBusinessCase() {
-		businessCaseFormPage.sortCreatedDateForBusinessCasesInDecendingOrder();
-		businessCaseFormPage.clickOnFirstBusinessCase();
-	}
+//	@Then("Open latest Business Case")
+//	public void openLatestBusinessCase() {
+//		businessCaseFormPage.sortCreatedDateForBusinessCasesInDecendingOrder();
+//		businessCaseFormPage.clickOnFirstBusinessCase();
+//	}
 
 	@Then("Open latest Idea Case")
 	public void openLatestIdeaCase() {

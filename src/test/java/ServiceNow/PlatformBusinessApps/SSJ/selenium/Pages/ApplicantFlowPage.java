@@ -571,8 +571,8 @@ public class ApplicantFlowPage extends CommonUtils {
     public WebElement columnApplicationSubmittedYourApplicationsPage;
 
     /*** Column State Your Applications Page*/
-    @FindBy(xpath = "//th[.='State']")
-    public WebElement columnStateYourApplicationsPage;
+    @FindBy(xpath = "//th[.='Status']")
+    public WebElement columnStatusYourApplicationsPage;
 
     /*** Column Actions Your Applications Page*/
     @FindBy(xpath = "//th[.='Actions']")
@@ -725,7 +725,7 @@ public class ApplicantFlowPage extends CommonUtils {
     public WebElement columnVacancyTitle;
 
     /*** Column Institue **/
-    @FindBy(xpath = "//div//span[.='Institute/Office/Program']")
+    @FindBy(xpath = "//div//span[.='Institute']")
     public WebElement columnInstituteOfficeProgram;
 
     /*** Column Application Period **/
