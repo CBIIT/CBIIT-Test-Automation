@@ -1,11 +1,14 @@
 package CustomBusiness.CCR.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
+
+import java.awt.*;
 
 public class InternalUserSteps extends PageInitializer {
 
@@ -31,6 +34,7 @@ public class InternalUserSteps extends PageInitializer {
     @Given("User clicks {string} button")
     public void user_clicks_button(String button) {
         cCRStepsImplementation.clickButton(button);
+        MiscUtils.sleep(3000);
     }
 
     @Given("User enters {string} into a first name field")
@@ -72,7 +76,7 @@ public class InternalUserSteps extends PageInitializer {
     @Given("User selects {string} from a degree dropdown")
     public void user_selects_from_a_degree_dropdown(String  MDPhD) {
         CommonUtils.clickOnElement(cCRApplicationPage.degreeDropdown);
-        CommonUtils.clickOnElement(cCRApplicationPage.degreeMDPhD);
+        CommonUtils.clickOnElement(cCRApplicationPage.degreeOther);
 
 
     }
@@ -172,7 +176,7 @@ public class InternalUserSteps extends PageInitializer {
     }
 
     @Given("User uploads {string} document")
-    public void user_uploads_document(String document) throws TestingException {
+    public void user_uploads_document(String document) throws  AWTException {
         cCRStepsImplementation.uploadDocuments(document);
     }
 

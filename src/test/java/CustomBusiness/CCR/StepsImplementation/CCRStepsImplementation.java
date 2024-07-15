@@ -10,8 +10,15 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 
 public class CCRStepsImplementation extends PageInitializer {
 
@@ -54,28 +61,36 @@ public class CCRStepsImplementation extends PageInitializer {
         }
     }
 
-    public void uploadDocuments(String document){
+    public void uploadDocuments(String document) throws AWTException {
         switch (document) {
             case "CV":
-                MiscUtils.sleep(2000);
-             //   CommonUtils.clickOnElement(cCRApplicationPage.do);
-                WebElement fileInput = webDriver.findElement(By.xpath("(//input[@placeholder='No file chosen'])[1]"));
-                fileInput.sendKeys("/src/test/java/CustomBusiness/CCR/Resources/CV.docx");
+                CommonUtils.clickOnElement(cCRApplicationPage.uploadFileCV);
+                MiscUtils.sleep(3000);
+                //JavascriptUtils.uploadFileToHiddenFieldWithInputTag(cCRApplicationPage.chooseFileCV,CCR_CONSTANTS.CV);
+//                Robot robot = new Robot();
+//                robot.keyPress(KeyEvent.VK_ENTER);
+//                robot.keyRelease(KeyEvent.VK_ENTER);
+//                robot.keyPress(KeyEvent.VK_CONTROL);
+//                robot.keyPress(KeyEvent.VK_V);
+//                robot.keyRelease(KeyEvent.VK_V);
+//                robot.keyRelease(KeyEvent.VK_CONTROL);
+//                robot.keyPress(KeyEvent.VK_ENTER);
+//                robot.keyRelease(KeyEvent.VK_ENTER);
+                cCRApplicationPage.chooseFileCV.sendKeys(CCR_CONSTANTS.CV);
+                MiscUtils.sleep(9000);
                 break;
             case "Research Goals":
-                WebElement fileInput2 = webDriver.findElement(By.xpath("(//input[@placeholder='No file chosen'])[2]"));
-                fileInput2.sendKeys("/src/test/java/CustomBusiness/CCR/Resources/ResearchGoals.docx");
+                JavascriptUtils.uploadFileToHiddenFieldWithInputTag(cCRApplicationPage.chooseFileResearchGoals,CCR_CONSTANTS.RESEARCH_GOALS);
+                MiscUtils.sleep(5000);
                 break;
             case "Letter of Interest":
-                MiscUtils.sleep(2000);
-                WebElement fileInput3 = webDriver.findElement(By.xpath("(//input[@placeholder='No file chosen'])[3]"));
-                fileInput3.sendKeys("/src/test/java/CustomBusiness/CCR/Resources/LetterOfInterest.docx");
+                JavascriptUtils.uploadFileToHiddenFieldWithInputTag(cCRApplicationPage.chooseFileLetterOfInterest,CCR_CONSTANTS.LETTER_OF_INTEREST);
+                MiscUtils.sleep(5000);
                 break;
             case "Upload Diversity Statement":
-                WebElement fileInput4 = webDriver.findElement(By.xpath("(//input[@placeholder='No file chosen'])[4]"));
-                fileInput4.sendKeys("/src/test/java/CustomBusiness/CCR/Resources/DiversityStatement.docx");
+                JavascriptUtils.uploadFileToHiddenFieldWithInputTag(cCRApplicationPage.chooseFileDiversityStatement,CCR_CONSTANTS.DIVERSITY_STATEMENT);
+                MiscUtils.sleep(5000);
                 break;
-
         }
     }
 

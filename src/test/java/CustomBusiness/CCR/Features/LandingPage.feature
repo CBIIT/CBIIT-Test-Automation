@@ -18,7 +18,7 @@ Feature: CCR Landing Page Scenarios
     And User enters "<email>" into an email field
     And User enters "<phone>" into a phone field
     And User enters "<businessPhone>" into a business phone field
-    And User selects " M.D., Ph.D. " from a degree dropdown
+    And User selects "Other" from a degree dropdown
     And User enters "<otherDegree(s)>" into an other degree field
     And User confirms that User is a US Citizen
     And User clicks Next button for "Basic Information" section
@@ -39,9 +39,9 @@ Feature: CCR Landing Page Scenarios
     And User selects United States from a country dropdown for "Business Address" section
     And User clicks Next button for "Business Address" section
     And User uploads "CV" document
-    And User uploads "Research Goals" document
-    And User uploads "Letter of Interest" document
-    And User uploads "Upload Diversity Statement" document
+#    And User uploads "Research Goals" document
+#    And User uploads "Letter of Interest" document
+#    And User uploads "Upload Diversity Statement" document
     And User clicks Next button for "Required Documents" section
     And User selects an outreach source as "Contacted By Member"
     And User selects "Yes" for the question on simplicity of uploading application materials

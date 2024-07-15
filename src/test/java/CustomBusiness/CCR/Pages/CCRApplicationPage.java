@@ -176,7 +176,23 @@ public class CCRApplicationPage extends CommonUtils {
     @FindBy(xpath = "//option[contains(text(),' M.D., Ph.D.')]")
     public WebElement degreeMDPhD;
 
-    /** choose file Letter of Interest**/
-    @FindBy(xpath = "(//div[@class='input-group-btn'])[1]")
+    /** Other**/
+    @FindBy(xpath = "//option[contains(text(),'Other')]")
+    public WebElement degreeOther;
+
+    /** choose file CV**/
+    @FindBy(xpath = "(//input[@aria-label='File name'])[1]")
+    public WebElement chooseFileCV;
+
+    @FindBy(xpath = "(//input[@aria-label='File name'])[2]")
+    public WebElement chooseFileResearchGoals;
+
+    @FindBy(xpath = "(//input[@aria-label='File name'])[3]")
     public WebElement chooseFileLetterOfInterest;
+
+    @FindBy(xpath = "(//input[@aria-label='File name'])[4]")
+    public WebElement chooseFileDiversityStatement;
+
+    @FindBy(xpath = "(//div[@class='input-group-btn']//button[.=' Choose File '])[1]")
+    public WebElement uploadFileCV;
 }
