@@ -5,14 +5,21 @@ import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.*;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
+import com.beust.ah.A;
+import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+import groovyjarjarantlr4.v4.codegen.model.decl.ElementListDecl;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import static com.nci.automation.web.PlaywrightUtils.page;
 
@@ -571,54 +578,41 @@ public class ApplicantProfileSteps {
 
     @When("verifies Vacancy Title is {string}")
     public void verifies_vacancy_title_is(String expectedVacancyTitle) {
-        CucumberLogUtils.playwrightScreenshot(page);
-        Hooks.softAssert.assertEquals(page.locator("//div[@class='TitleAndDateContainer']/h1").innerText(), expectedVacancyTitle);
+        ApplicantProfileStepsImpl.verifies_vacancy_title_is(expectedVacancyTitle);
     }
 
     @When("verifies text {string} with the date in which the Vacancy was created")
     public void verifies_text_with_the_date_in_which_the_vacancy_was_created(String expectedVacancyDate) {
-        CucumberLogUtils.playwrightScreenshot(page);
-        Hooks.softAssert.assertEquals(page.locator("//label[normalize-space()='Open Date']").innerText(), expectedVacancyDate);
-        Hooks.softAssert.assertEquals(page.locator("(//div[@class='DateItem']/span)[1]").innerText(), CommonUtils.getTodayDate());
+        ApplicantProfileStepsImpl.verifies_text_with_the_date_in_which_the_vacancy_was_created(expectedVacancyDate);
     }
 
     @When("verifies text Open Until Filled {string}")
     public void verifies_text_open_until_filled(String expectedOpenUntilFilledText) {
-        CucumberLogUtils.playwrightScreenshot(page);
-        Hooks.softAssert.assertEquals(page.locator("//label[normalize-space()='Open Until Filled']").innerText(), expectedOpenUntilFilledText);
+        ApplicantProfileStepsImpl.verifies_text_open_until_filled(expectedOpenUntilFilledText);
     }
 
     @When("verifies point of contact text {string} with POC {string}")
     public void verifies_point_of_contact_text_with_poc(String expectedPointOfContactText, String expectedPOCText) {
-        CucumberLogUtils.playwrightScreenshot(page);
-        Hooks.softAssert.assertEquals(page.locator("//label[normalize-space()='Point of Contact:']").innerText(), expectedPointOfContactText);
-        Hooks.softAssert.assertEquals(page.locator("(//div[@class='DateItem']/span)[3]").innerText(), expectedPOCText);
+        ApplicantProfileStepsImpl.verifies_point_of_contact_text_with_poc(expectedPointOfContactText, expectedPOCText);
     }
 
     @When("verifies Vacancy Description text {string}")
     public void verifies_vacancy_description_text(String expectedText) {
-        CucumberLogUtils.playwrightScreenshot(page);
-        Hooks.softAssert.assertEquals(page.locator("(//div[@class='ql-editor'])[1]").innerText(), expectedText);
+        ApplicantProfileStepsImpl.verifies_vacancy_description_text(expectedText);
     }
 
-    @Given("the test application {string} is also deleted to re-run automated tests")
+    @Given("the test application {string} is deleted to re-run automated tests")
     public void the_test_application_is_also_deleted_to_re_run_automated_tests(String userName) {
-        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
-        Playwright_ServiceNow_Common_Methods.searchFilterNavigatorAndClickOption("SCSS", "Applications");
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search column: vacancy").fill("DIEGO TEST");
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search column: vacancy").press("Enter");
-
-        try{
-            page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel(userName + " - Open record:").click();
-            page.frameLocator("iframe[name=\"gsft_main\"]").locator("#sysverb_delete").click();
-            page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Confirmation Help").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Delete")).click();
-        }catch (Exception e){
-            System.out.println("* * * APPLICATION DOES NOT EXIST - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * APPLICATION DOES NOT EXIST - TEST CONTINUES * * *");
-        }
-        Playwright_ServiceNow_Common_Methods.logOutOfNativeView();
-        MiscUtils.sleep(5000);
+        ApplicantProfileStepsImpl.the_test_application_is_also_deleted_to_re_run_automated_tests(userName);
     }
 
+    @When("verifies Application Documents text {string}")
+    public void verifies_application_documents_text(String expectedText) {
+        ApplicantProfileStepsImpl.verifies_application_documents_text(expectedText);
+    }
 
+    @When("verifies required documents with required references needed to apply to this test Vacancy")
+    public void verifies_required_documents_with_required_references_needed_to_apply_to_this_test_vacancy() {
+        ApplicantProfileStepsImpl.verifies_required_documents_with_required_references_needed_to_apply_to_this_test_vacancy();
+    }
 }

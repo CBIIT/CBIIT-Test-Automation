@@ -23,6 +23,7 @@ import com.nci.automation.web.PlaywrightUtils;
 import org.testng.Assert;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import static com.nci.automation.web.PlaywrightUtils.page;
@@ -176,12 +177,15 @@ public class ApplicantProfileStepsImpl {
         page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(text);
         page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
         CucumberLogUtils.playwrightScreenshot(page);
+        page.reload();
         MiscUtils.sleep(3000);
         try {
             if (page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: " + text).isVisible()) {
                 page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: " + text).click();
                 CucumberLogUtils.playwrightScreenshot(page);
                 page.waitForLoadState();
+                MiscUtils.sleep(1000);
+                page.reload();
                 MiscUtils.sleep(1000);
                 page.frameLocator("iframe[name=\"gsft_main\"]").locator("#sysverb_delete").click();
                 CucumberLogUtils.playwrightScreenshot(page);
@@ -1468,5 +1472,119 @@ public class ApplicantProfileStepsImpl {
     public static void your_applications_tab_should_not_be_displayed() {
         CucumberLogUtils.playwrightScreenshot(page);
         Assert.assertFalse(page.locator("//h1[normalize-space()='Your Applications']").isVisible(), "*** VERIFYING YOUR APPLICATIONS TAB IS NOT DISPLAYED ***");
+    }
+
+    /**
+     * Verifies if the vacancy title is as expected.
+     *
+     * @param expectedVacancyTitle The expected vacancy title to be verified.
+     *
+     * @throws AssertionError If the actual vacancy title does not match the expected vacancy title.
+     */
+    public static void verifies_vacancy_title_is(String expectedVacancyTitle) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//div[@class='TitleAndDateContainer']/h1").innerText(), expectedVacancyTitle);
+    }
+
+    /**
+     * Verifies if the displayed vacancy creation date matches the expected date.
+     *
+     * @param expectedVacancyDate The expected vacancy creation date in the format "dd-MM-yyyy".
+     */
+    public static void verifies_text_with_the_date_in_which_the_vacancy_was_created(String expectedVacancyDate) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//label[normalize-space()='Open Date']").innerText(), expectedVacancyDate);
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='DateItem']/span)[1]").innerText(), CommonUtils.getTodayDate());
+    }
+
+    /**
+     * Verifies that the text displayed for "Open Until Filled" matches the expected text.
+     *
+     * @param expectedOpenUntilFilledText The expected text for "Open Until Filled"
+     */
+    public static void verifies_text_open_until_filled(String expectedOpenUntilFilledText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//label[normalize-space()='Open Until Filled']").innerText(), expectedOpenUntilFilledText);
+    }
+
+    /**
+     * Verifies the Point of Contact text with the expected Point of Contact text.
+     *
+     * @param expectedPointOfContactText the expected text of the Point of Contact
+     * @param expectedPOCText the expected text of the POC
+     */
+    public static void verifies_point_of_contact_text_with_poc(String expectedPointOfContactText, String expectedPOCText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//label[normalize-space()='Point of Contact:']").innerText(), expectedPointOfContactText);
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='DateItem']/span)[3]").innerText(), expectedPOCText);
+    }
+
+    /**
+     * Verifies if the vacancy description text matches the expected text.
+     * Takes a string parameter representing the expected text.
+     * Takes a screenshot using Playwright before performing the verification.
+     * Uses a soft assertion to compare the actual text with the expected text.
+     *
+     * @param expectedText the expected text to be compared with the actual text
+     */
+    public static void verifies_vacancy_description_text(String expectedText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='ql-editor'])[1]").innerText(), expectedText);
+    }
+
+    /**
+     * Verifies the text of the application documents on the current web page.
+     *
+     * @param expectedText the expected text of the application documents
+     */
+    public static void verifies_application_documents_text(String expectedText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//h2[normalize-space()='APPLICATION DOCUMENTS']").innerText(), expectedText);
+    }
+
+    /**
+     * Verifies the required documents with required references needed to apply to this test vacancy.
+     */
+    public static void verifies_required_documents_with_required_references_needed_to_apply_to_this_test_vacancy() {
+        ArrayList<String> expectedValues = new ArrayList<>();
+        MiscUtils.sleep(1000);
+        page.waitForSelector("//ul[@class='DocumentsList']/li");
+        expectedValues.add("Vision Statement");
+        expectedValues.add("Curriculum Vitae (CV)");
+        expectedValues.add("Cover Letter");
+        expectedValues.add("Qualification Statement");
+        expectedValues.add("Full Contact Details for Two (2) References");
+        Collections.sort(expectedValues);
+        List<ElementHandle> values = page.querySelectorAll("//ul[@class='DocumentsList']/li");
+        ArrayList<String> actualValues = new ArrayList<>();
+        for (ElementHandle value : values) {
+            System.out.println(value.innerText());
+            actualValues.add(value.innerText());
+        }
+        Collections.sort(actualValues);
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(actualValues, expectedValues);
+    }
+
+    /**
+     * The test application is also deleted to re-run automated tests.
+     *
+     * @param userName The username of the user.
+     */
+    public static void the_test_application_is_also_deleted_to_re_run_automated_tests(String userName) {
+        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
+        Playwright_ServiceNow_Common_Methods.searchFilterNavigatorAndClickOption("SCSS", "Applications");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search column: vacancy").fill("DIEGO TEST");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search column: vacancy").press("Enter");
+
+        try {
+            page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel(userName + " - Open record:").click();
+            page.frameLocator("iframe[name=\"gsft_main\"]").locator("#sysverb_delete").click();
+            page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Confirmation Help").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Delete")).click();
+        } catch (Exception e) {
+            System.out.println("* * * APPLICATION DOES NOT EXIST - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * APPLICATION DOES NOT EXIST - TEST CONTINUES * * *");
+        }
+        Playwright_ServiceNow_Common_Methods.logOutOfNativeView();
     }
 }

@@ -92,7 +92,7 @@ Feature: Applicant Profile Scenarios
     And User chooses not to share demographic details - PW
     Then User saves the updated section - PW
 
-  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright  @Progression
+  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright
   Scenario Outline: Verifying applicant is able to see "Your Applications" tab and page content after applying to a Vacancy
 #    Given an Okta user "" is on the SSJ home page and logs in - PLEASE LEAVE THIS HERE! NEED TO CONNECT WITH OKTA TEAM
     Given a test vacancy "DIEGO TEST" is reset before creating a vacancy
@@ -225,41 +225,43 @@ Feature: Applicant Profile Scenarios
     Given a user who has not applied to a Vacancy before is on the SSJ home page
     Then Your Applications tab should NOT be displayed
 
-  @TC_APPTRACK-145 @JUAREZDS @playwright
+  @TC_APPTRACK-145 @JUAREZDS @playwright @Regression
   Scenario: Verifying Vacancy details
-    Given the test application "SSJTest" is also deleted to re-run automated tests
+    Given the test application "SSJTest" is deleted to re-run automated tests
     Given a test vacancy "DIEGO TEST" is reset before creating a vacancy
-#    When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
-#    And clicks on "Vacancy Dashboard" - PW
-#    And clicks on "+ Create Vacancy" - PW
-#    And enters Vacancy Title name "DIEGO TEST" - PW
-#    And enters Vacancy Description "THIS IS A TEST AUTOMATION TEST" - PW
-#    And selects "Yes" for point of contact - PW
-#    And User sets an "Open Date" entry as today's date
-#    And unselects the option for cover letter
-#    And checks "Enable Reference Collection" check box
-#    And selects a Reference Collection Date Ten days from today
-#    And selects "2" for Full Contact Details for References
-#    And selects "Research Fellow" for Position Classification drop down
-#    And selects "HNC" for Organizational Code drop down
-#    And clicks "Save"
-#    And clicks Save for Mandatory Statements
-#    And selects "David Rampulla" for Committee Member with chair role
-#    And selects "Jay Kurani" for Committee Member with Executive Secretary role
-#    And clicks "Save"
-#    And clicks Save for Email Templates
-#    Then user is able to see the Review and Finalize section with the vacancy information submitted
-#    And clicks "Save and Finalize"
-#    And clicks "OK"
-#    And clicks "Close"
-#    And OWM Vacancy Manager logs out
-#    When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
-#    And clicks on Vacancy Title "DIEGO TEST"
-#    And verifies Vacancy Title is "DIEGO TEST"
-#    And verifies text "Open Date" with the date in which the Vacancy was created
-#    And verifies text Open Until Filled "Open Until Filled"
-#    And verifies point of contact text "Point of Contact:" with POC "Holly Gemar-Griffith"
-#    And verifies Vacancy Description text "THIS IS A TEST AUTOMATION TEST"
+    When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
+    And clicks on "Vacancy Dashboard" - PW
+    And clicks on "+ Create Vacancy" - PW
+    And enters Vacancy Title name "DIEGO TEST" - PW
+    And enters Vacancy Description "THIS IS A TEST AUTOMATION TEST" - PW
+    And selects "Yes" for point of contact - PW
+    And User sets an "Open Date" entry as today's date
+    And unselects the option for cover letter
+    And checks "Enable Reference Collection" check box
+    And selects a Reference Collection Date Ten days from today
+    And selects "2" for Full Contact Details for References
+    And selects "Research Fellow" for Position Classification drop down
+    And selects "HNC" for Organizational Code drop down
+    And clicks "Save"
+    And clicks Save for Mandatory Statements
+    And selects "David Rampulla" for Committee Member with chair role
+    And selects "Jay Kurani" for Committee Member with Executive Secretary role
+    And clicks "Save"
+    And clicks Save for Email Templates
+    Then user is able to see the Review and Finalize section with the vacancy information submitted
+    And clicks "Save and Finalize"
+    And clicks "OK"
+    And clicks "Close"
+    And OWM Vacancy Manager logs out
+    When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
+    And clicks on Vacancy Title "DIEGO TEST"
+    And verifies Vacancy Title is "DIEGO TEST"
+    And verifies text "Open Date" with the date in which the Vacancy was created
+    And verifies text Open Until Filled "Open Until Filled"
+    And verifies point of contact text "Point of Contact:" with POC "Holly Gemar-Griffith "
+    And verifies Vacancy Description text "THIS IS A TEST AUTOMATION TEST"
+    And verifies Application Documents text "APPLICATION DOCUMENTS"
+    And verifies required documents with required references needed to apply to this test Vacancy
 
 
 #APPTRACK-145
