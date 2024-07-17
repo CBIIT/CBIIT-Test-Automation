@@ -21,11 +21,13 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import org.testng.Assert;
+
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class ApplicantProfileStepsImpl {
@@ -1116,12 +1118,12 @@ public class ApplicantProfileStepsImpl {
 
     /**
      * Selects the "Reference Two" relationship as a co-worker.
-     *
+     * <p>
      * This method selects the "Reference Two" relationship as a co-worker by clicking on the input field,
      * focusing on it and using the arrow keys to navigate to the desired option. Then, it presses the Enter key
      * to make the selection. If the "Reference Two" option is not required, the method continues the test without
      * selecting it and logs the message "REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES".
-     *
+     * <p>
      * After making the selection, a screenshot of the page is taken using Playwright and logged using Cucumber logging.
      *
      * @throws Exception if any error occurs during the execution of the method
@@ -1208,10 +1210,10 @@ public class ApplicantProfileStepsImpl {
      * This method is used to select options for a race.
      *
      * @param americanIndianOrAlaska Specify the option for American Indian or Alaska.
-     * @param asia Specify the option for Asia.
+     * @param asia                   Specify the option for Asia.
      * @param blackOrAfricanAmerican Specify the option for Black or African American.
-     * @param nativeHawaiianOrOther Specify the option for Native Hawaiian or Other.
-     * @param white Specify the option for White.
+     * @param nativeHawaiianOrOther  Specify the option for Native Hawaiian or Other.
+     * @param white                  Specify the option for White.
      */
     public static void selects_for_race(String americanIndianOrAlaska, String asia, String blackOrAfricanAmerican, String nativeHawaiianOrOther, String white) {
         Playwright_Common_Utils.scrollIntoView(americanIndianOrAlaska, false);
@@ -1237,14 +1239,14 @@ public class ApplicantProfileStepsImpl {
     /**
      * Verifies the basic information of a user.
      *
-     * @param firstName       The first name of the user.
-     * @param middleName      The middle name of the user.
-     * @param lastName        The last name of the user.
-     * @param email           The email of the user.
-     * @param phone           The phone number of the user.
-     * @param businessPhone   The business phone number of the user.
+     * @param firstName        The first name of the user.
+     * @param middleName       The middle name of the user.
+     * @param lastName         The last name of the user.
+     * @param email            The email of the user.
+     * @param phone            The phone number of the user.
+     * @param businessPhone    The business phone number of the user.
      * @param highestEducation The highest education level of the user.
-     * @param usCitizenship   The US citizenship status of the user.
+     * @param usCitizenship    The US citizenship status of the user.
      */
     public static void user_verifies_basic_information_and(String firstName, String middleName, String lastName, String email, String phone, String businessPhone, String highestEducation, String usCitizenship) {
         ArrayList<String> expectedValues = new ArrayList<>();
@@ -1269,10 +1271,10 @@ public class ApplicantProfileStepsImpl {
      * Verifies the demographics information provided by the user.
      *
      * @param sharingDemographicsText The expected value of the sharing demographics text.
-     * @param sexText The expected value of the sex text.
-     * @param ethnicityText The expected value of the ethnicity text.
-     * @param raceText The expected value of the race text.
-     * @param disabilityText The expected value of the disability text.
+     * @param sexText                 The expected value of the sex text.
+     * @param ethnicityText           The expected value of the ethnicity text.
+     * @param raceText                The expected value of the race text.
+     * @param disabilityText          The expected value of the disability text.
      */
     public static void user_verifies_demographics_information_and(String sharingDemographicsText, String sexText, String ethnicityText, String raceText, String disabilityText) {
         Playwright_Common_Utils.scrollIntoView("(//h2)[17]//following-sibling::span");
@@ -1323,14 +1325,14 @@ public class ApplicantProfileStepsImpl {
     /**
      * Verifies that the user's references contain the expected information.
      *
-     * @param firstNameText     The first name of the user's reference.
-     * @param middleNameText    The middle name of the user's reference.
-     * @param lastNameText      The last name of the user's reference.
-     * @param emailText         The email of the user's reference.
-     * @param phoneNumberText   The phone number of the user's reference.
-     * @param relationshipText  The relationship of the user's reference.
-     * @param titleText         The title of the user's reference.
-     * @param organizationText  The organization of the user's reference.
+     * @param firstNameText    The first name of the user's reference.
+     * @param middleNameText   The middle name of the user's reference.
+     * @param lastNameText     The last name of the user's reference.
+     * @param emailText        The email of the user's reference.
+     * @param phoneNumberText  The phone number of the user's reference.
+     * @param relationshipText The relationship of the user's reference.
+     * @param titleText        The title of the user's reference.
+     * @param organizationText The organization of the user's reference.
      */
     public static void user_verifies_references_two_information(String firstNameText, String middleNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
         ArrayList<String> expectedValues = new ArrayList<>();
@@ -1382,7 +1384,7 @@ public class ApplicantProfileStepsImpl {
 
     /**
      * This method allows the user to navigate to the "Your Applications" tab in the application.
-     *
+     * <p>
      * It clicks on the "Your Applications" link and captures a screenshot using Playwright.
      */
     public static void user_navigates_to_your_applications_tab() {
@@ -1396,7 +1398,7 @@ public class ApplicantProfileStepsImpl {
      * @param text the expected page title to verify
      */
     public static void user_verifies_page_title_is_displayed(String text) {
-        Hooks.softAssert.assertEquals(page.locator("//h1[normalize-space()='"+ text + "']").innerText(), text);
+        Hooks.softAssert.assertEquals(page.locator("//h1[normalize-space()='" + text + "']").innerText(), text);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -1428,11 +1430,11 @@ public class ApplicantProfileStepsImpl {
     /**
      * Verifies the address information provided by the user.
      *
-     * @param address The user's street address.
+     * @param address   The user's street address.
      * @param aptNumber The user's apartment number.
-     * @param city The user's city.
-     * @param state The user's state.
-     * @param zip The user's ZIP code.
+     * @param city      The user's city.
+     * @param state     The user's state.
+     * @param zip       The user's ZIP code.
      */
     public static void user_verifies_address_information(String address, String aptNumber, String city, String state, String zip) {
         ArrayList<String> expectedValues = new ArrayList<>();
@@ -1478,7 +1480,6 @@ public class ApplicantProfileStepsImpl {
      * Verifies if the vacancy title is as expected.
      *
      * @param expectedVacancyTitle The expected vacancy title to be verified.
-     *
      * @throws AssertionError If the actual vacancy title does not match the expected vacancy title.
      */
     public static void verifies_vacancy_title_is(String expectedVacancyTitle) {
@@ -1511,7 +1512,7 @@ public class ApplicantProfileStepsImpl {
      * Verifies the Point of Contact text with the expected Point of Contact text.
      *
      * @param expectedPointOfContactText the expected text of the Point of Contact
-     * @param expectedPOCText the expected text of the POC
+     * @param expectedPOCText            the expected text of the POC
      */
     public static void verifies_point_of_contact_text_with_poc(String expectedPointOfContactText, String expectedPOCText) {
         CucumberLogUtils.playwrightScreenshot(page);
@@ -1576,7 +1577,6 @@ public class ApplicantProfileStepsImpl {
         Playwright_ServiceNow_Common_Methods.searchFilterNavigatorAndClickOption("SCSS", "Applications");
         page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search column: vacancy").fill("DIEGO TEST");
         page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search column: vacancy").press("Enter");
-
         try {
             page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel(userName + " - Open record:").click();
             page.frameLocator("iframe[name=\"gsft_main\"]").locator("#sysverb_delete").click();
