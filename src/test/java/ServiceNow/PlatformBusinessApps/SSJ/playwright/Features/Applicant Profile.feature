@@ -213,7 +213,7 @@ Feature: Applicant Profile Scenarios
     When user navigates to Your Applications tab
     And user verifies "Your Applications" page title is displayed
     Then user verifies the following columns are displayed on Your Applications page "Vacancy Title", "Status", "Vacancy Closes", "Application Submitted", "Actions"
-#    And tester navigates to native view to reset account with name "<firstName>" so that automated test can run again without manual intervention
+    And tester navigates to native view to reset account with name "<firstName>" so that automated test can run again without manual intervention
 
     Examples:
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | US Citizenship | address | aptNumber | city   | state | country | zip   | referenceOneFirstName | referenceOneMiddleName | referenceOneLastName | referenceOneEmail     | referenceOnePhoneNumber | referenceOneRelationship | referenceOnePositionTitle | referenceOneOrganizationName                 | referenceTwoFirstName | referenceTwoMiddleName | referenceTwoLastName | referenceTwoEmail     | referenceTwoPhoneNumber | referenceTwoRelationship | referenceTwoPositionTitle | referenceTwoOrganizationName                 |
