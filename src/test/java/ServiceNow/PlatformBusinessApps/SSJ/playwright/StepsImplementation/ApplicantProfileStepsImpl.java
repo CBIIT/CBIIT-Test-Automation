@@ -21,13 +21,11 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import org.testng.Assert;
-
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class ApplicantProfileStepsImpl {
