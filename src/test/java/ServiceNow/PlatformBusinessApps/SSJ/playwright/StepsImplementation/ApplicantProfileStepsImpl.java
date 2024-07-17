@@ -1457,7 +1457,6 @@ public class ApplicantProfileStepsImpl {
      * 2. Navigates to the SSJ portal view.
      * 3. Takes a screenshot of the page using Playwright.
      *
-     * @throws IOException if an I/O error occurs
      */
     public static void a_user_who_has_not_applied_to_a_vacancy_before_is_on_the_ssj_home_page() {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
