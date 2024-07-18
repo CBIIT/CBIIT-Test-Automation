@@ -276,7 +276,6 @@ public class ApplicantProfileSteps {
         ApplicantProfileStepsImpl.selects_for_race(americanIndianOrAlaska, asia, blackOrAfricanAmerican, nativeHawaiianOrOther, white);
     }
 
-
     @Then("selects {string} for Disability or Serious Health Condition")
     public void selects_for_disability_or_serious_health_condition(String text) {
         ApplicantProfileStepsImpl.selects_for_disability_or_serious_health_condition(text);
