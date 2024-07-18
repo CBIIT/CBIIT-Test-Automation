@@ -3,7 +3,7 @@ Feature: OWM Vacancy Manager Scenarios
 
   @SSJ-7 @SSJ-8 @juarezds @Regression @playwright @Smoke
   Scenario: Verification of Basic Vacancy Information section while creating an NCI Vacancy
-    When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
+    When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
     And User clicks button "+ Create Vacancy" - PW
     And User clicks button "Save" - PW
