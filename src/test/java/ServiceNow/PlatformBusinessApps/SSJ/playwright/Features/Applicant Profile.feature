@@ -43,7 +43,7 @@ Feature: Applicant Profile Scenarios
       | Jessica   | Marianna   | Mollick    | mollickja@nih.gov  | 7018211343 | 2123323454    | Masters          | Yes            | 11 Kolls | 6         | Sausalito  | CA    | USA     | 97712 |
       | Karen     | Elena      | Andrew     | andrewkl@nih.gov   | 8233212333 | 2202122234    | Bachelors        | Yes            | 11 Bells | 39        | Sacramento | CA    | USA     | 95512 |
 
-  @juarezds @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @Regression @playwright @Bug_Open @Smoke
+  @juarezds @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @Regression @playwright @Bug_Open @Smoke @Progression
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
@@ -70,6 +70,15 @@ Feature: Applicant Profile Scenarios
     And verifies that the saved business phone number displays as "<businessPhone>"
     And verifies that the saved highest education displays as "<highestEducation>"
     And verifies that the saved US Citizenship displays as "<US Citizenship>"
+    And User clicks Edit for Demographics section - PW
+    And User chooses to share demographic details - PW
+    And User edits sex choice - PW
+    And User edits ethnicity choice - PW
+    And User edits race choice - PW
+    And User edits disability choice - PW
+    And User saves the updated section - PW
+    And User clicks Edit for Demographics section - PW
+    And User chooses not to share demographic details - PW
     And tester navigates to native view to reset account with name "<firstName>" so that automated test can run again without manual intervention
 
     Examples:
