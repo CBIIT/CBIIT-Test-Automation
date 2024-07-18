@@ -276,7 +276,6 @@ public class ApplicantProfileSteps {
         ApplicantProfileStepsImpl.selects_for_race(americanIndianOrAlaska, asia, blackOrAfricanAmerican, nativeHawaiianOrOther, white);
     }
 
-
     @Then("selects {string} for Disability or Serious Health Condition")
     public void selects_for_disability_or_serious_health_condition(String text) {
         ApplicantProfileStepsImpl.selects_for_disability_or_serious_health_condition(text);
@@ -560,5 +559,45 @@ public class ApplicantProfileSteps {
     @Then("Your Applications tab should NOT be displayed")
     public void your_applications_tab_should_not_be_displayed() {
         ApplicantProfileStepsImpl.your_applications_tab_should_not_be_displayed();
+    }
+
+    @When("verifies Vacancy Title is {string}")
+    public void verifies_vacancy_title_is(String expectedVacancyTitle) {
+        ApplicantProfileStepsImpl.verifies_vacancy_title_is(expectedVacancyTitle);
+    }
+
+    @When("verifies text {string} with the date in which the Vacancy was created")
+    public void verifies_text_with_the_date_in_which_the_vacancy_was_created(String expectedVacancyDate) {
+        ApplicantProfileStepsImpl.verifies_text_with_the_date_in_which_the_vacancy_was_created(expectedVacancyDate);
+    }
+
+    @When("verifies text Open Until Filled {string}")
+    public void verifies_text_open_until_filled(String expectedOpenUntilFilledText) {
+        ApplicantProfileStepsImpl.verifies_text_open_until_filled(expectedOpenUntilFilledText);
+    }
+
+    @When("verifies point of contact text {string} with POC {string}")
+    public void verifies_point_of_contact_text_with_poc(String expectedPointOfContactText, String expectedPOCText) {
+        ApplicantProfileStepsImpl.verifies_point_of_contact_text_with_poc(expectedPointOfContactText, expectedPOCText);
+    }
+
+    @When("verifies Vacancy Description text {string}")
+    public void verifies_vacancy_description_text(String expectedText) {
+        ApplicantProfileStepsImpl.verifies_vacancy_description_text(expectedText);
+    }
+
+    @Given("the test application {string} is deleted to re-run automated tests")
+    public void the_test_application_is_also_deleted_to_re_run_automated_tests(String userName) {
+        ApplicantProfileStepsImpl.the_test_application_is_also_deleted_to_re_run_automated_tests(userName);
+    }
+
+    @When("verifies Application Documents text {string}")
+    public void verifies_application_documents_text(String expectedText) {
+        ApplicantProfileStepsImpl.verifies_application_documents_text(expectedText);
+    }
+
+    @When("verifies required documents with required references needed to apply to this test Vacancy")
+    public void verifies_required_documents_with_required_references_needed_to_apply_to_this_test_vacancy() {
+        ApplicantProfileStepsImpl.verifies_required_documents_with_required_references_needed_to_apply_to_this_test_vacancy();
     }
 }
