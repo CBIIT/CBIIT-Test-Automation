@@ -1,20 +1,30 @@
 Feature: These are the scenarios that are under the Run Scenario tab on Cervical Cancer Prevention
 
-  @Smoke @matakevin @NCIATWP-6681 @attemptWithPW @playwright
-  Scenario: Implement translation to Spanish
+  @Smoke @matakevin @NCIATWP-6681 @playwright
+  Scenario: Implement translation to Spanish - PW
     Given the user is on the CCP home page
     Then the translation drop down is displayed
 
-  @Progression @matakevin @NCIATWP-6966
-    Scenario: About page
-    Given the user is on the Cervical CP home page
+  @Smoke @matakevin @NCIATWP-6966 @playwright
+    Scenario: About page - PW
+    Given the user is on the CCP home page
     Then the navbar reads "Home", "About", "Run Scenario", "Compare Scenario" in order
 
-  @Progression @matakevin @NCIATWP-6996
-  Scenario: Dynamic content
+  @Smoke1 @matakevin @NCIATWP-6996 @playwright
+  Scenario: Dynamic content on the Run Scenario tab - PW
     Given the user is on the Run Scenario tab on Cervical CP
-    When the user inputs 10000 for the target population, move the percentages to 10% each
-    Then the results section displays "Approximately 200 screening tests, N/A triage tests, and N/A diagnostic tests will be required. 20 women will require treatment. 1.0% of women are possibly overtreated."
+    When the user inputs "10000" for the target population
+    And move the Percent screening coverage to ten percent
+    Then the results section displays "Approximately 200 (Pap test) screening tests, NA triage tests, and 0 diagnostic tests will be required. 0 women will require treatment. 0.0% of women are possibly overtreated."
+
+  @Progression @matakevin @NCIATWP-6596 @playwright
+    Scenario: Test Cervical CP - Add a second pie chart - PW
+    Given the user is on the Run Scenario tab on Cervical CP
+    When the user enters 10000 for number of people in the target population
+    Then the first pie chart is named "Population with Precancer" is displayed
+    When clicks on Triage checkbox
+    And clicks Diagnosis checkbox
+    Then the "Impact on Cervical Precancer and Impact on the Population Targeted for Screening" is displayed
 
   @forCoverage @NEEDTOCREATEONJIRA
   Scenario: Ensure the CIN and NIC values are present in English and Spanish

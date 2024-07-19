@@ -8,8 +8,8 @@ import io.cucumber.testng.CucumberOptions;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = {"src/test/java/AnalysisTools/CervicalCP/playwright/Features", "src/test/java/AnalysisTools/CervicalCP/selenium/Features"},
         glue = {"AnalysisTools.CervicalCP.playwright.Steps", "AnalysisTools.CervicalCP.selenium.Steps", "Hooks"},
-        tags = "@Smoke1",
-        dryRun = false
+        tags = "@Progression",
+        dryRun = true
 )
 
 /*
@@ -18,5 +18,5 @@ import io.cucumber.testng.CucumberOptions;
  *
  * @author sohilz2
  */
-public class RunCervicalCPSmokeTest extends AbstractTestNGCucumberTests{
+public class RunCervicalCPProgressionTest extends AbstractTestNGCucumberTests{
 }
