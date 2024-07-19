@@ -264,7 +264,6 @@ Feature: Applicant Profile Scenarios
     And verifies required documents with required references needed to apply to this test Vacancy
 
 
-#APPTRACK-145
 #APPTRACK-144
 #APPTRACK-827
 #APPTRACK-1158
