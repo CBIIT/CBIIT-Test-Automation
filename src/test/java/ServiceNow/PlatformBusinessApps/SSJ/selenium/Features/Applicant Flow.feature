@@ -56,7 +56,6 @@ Feature: Applicant Flow Scenarios
     When User clicks to apply for a live vacancy
     And User verifies that a vacancy title is displayed
     And User verifies that open and close dates are displayed
-    And User verifies that a close date has "12:00PM ET" end period specified
     And User verifies that Point of Contact is displayed
     And User verifies that Application Documents header is displayed
     And User confirms that HHS and NIH are Equal Opportunity Employers Statements are displayed

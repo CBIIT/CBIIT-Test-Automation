@@ -5,4 +5,4 @@ Feature: Demographic section of the Fanconi Survey on the Fanconi Longitudinal C
   @jains @Demographic @CP2-3178 @CP2-3133 @playwright @In-Progress
   Scenario: Participant fills and submit the Demographic section for scenario 1
     Given a Participant is on the Fanconi Study login page and logs with user credentials via Okta
-    And fills the Demographic section
+    And fills the Demographic section for scenario 1
