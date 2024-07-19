@@ -184,7 +184,7 @@ public class ApplicantProfileStepsImpl {
                 page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: " + text).click();
                 CucumberLogUtils.playwrightScreenshot(page);
                 page.waitForLoadState();
-                MiscUtils.sleep(1000);
+                MiscUtils.sleep(2000);
                 page.reload();
                 MiscUtils.sleep(1000);
                 page.frameLocator("iframe[name=\"gsft_main\"]").locator("#sysverb_delete").click();
