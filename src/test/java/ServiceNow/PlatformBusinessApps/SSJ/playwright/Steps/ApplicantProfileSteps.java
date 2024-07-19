@@ -4,6 +4,7 @@ import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.*;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
+import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -144,6 +145,11 @@ public class ApplicantProfileSteps {
     @When("User clicks Edit for Demographics section - PW")
     public void user_clicks_edit_for_demographics_section_pw() {
         ApplicantProfileStepsImpl.user_clicks_edit_for_demographics_section();
+    }
+
+    @Then("User clicks Demographics section - PW")
+    public void user_clicks_demographics_section_pw() {
+        PlaywrightUtils.page.locator(Profile_Tab_Page.demographicsOptionalTab).click();
     }
 
     @When("User chooses to share demographic details - PW")

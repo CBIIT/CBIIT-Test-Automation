@@ -152,7 +152,6 @@ public class ApplicantProfileStepsImpl {
      * USE THIS METHOD TO EDIT DEMOGRAPHICS SECTION
      */
     public static void user_clicks_edit_for_demographics_section() {
-        PlaywrightUtils.page.locator(Profile_Tab_Page.demographicsOptionalTab).click();
         PlaywrightUtils.page.locator(Profile_Tab_Page.demographicsEditButton).click();
     }
 
