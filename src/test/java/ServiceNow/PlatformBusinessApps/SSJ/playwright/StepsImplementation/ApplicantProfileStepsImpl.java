@@ -23,6 +23,7 @@ import com.nci.automation.web.PlaywrightUtils;
 import org.testng.Assert;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import static com.nci.automation.web.PlaywrightUtils.page;
@@ -151,7 +152,6 @@ public class ApplicantProfileStepsImpl {
      * USE THIS METHOD TO EDIT DEMOGRAPHICS SECTION
      */
     public static void user_clicks_edit_for_demographics_section() {
-        PlaywrightUtils.page.locator(Profile_Tab_Page.demographicsOptionalTab).click();
         PlaywrightUtils.page.locator(Profile_Tab_Page.demographicsEditButton).click();
     }
 
@@ -176,12 +176,15 @@ public class ApplicantProfileStepsImpl {
         page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(text);
         page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
         CucumberLogUtils.playwrightScreenshot(page);
+        page.reload();
         MiscUtils.sleep(3000);
         try {
             if (page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: " + text).isVisible()) {
                 page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: " + text).click();
                 CucumberLogUtils.playwrightScreenshot(page);
                 page.waitForLoadState();
+                MiscUtils.sleep(1000);
+                page.reload();
                 MiscUtils.sleep(1000);
                 page.frameLocator("iframe[name=\"gsft_main\"]").locator("#sysverb_delete").click();
                 CucumberLogUtils.playwrightScreenshot(page);
@@ -339,6 +342,7 @@ public class ApplicantProfileStepsImpl {
      * @param text The text value of the element to be clicked.
      */
     public static void clicks(String text) {
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
         page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -1111,12 +1115,12 @@ public class ApplicantProfileStepsImpl {
 
     /**
      * Selects the "Reference Two" relationship as a co-worker.
-     *
+     * <p>
      * This method selects the "Reference Two" relationship as a co-worker by clicking on the input field,
      * focusing on it and using the arrow keys to navigate to the desired option. Then, it presses the Enter key
      * to make the selection. If the "Reference Two" option is not required, the method continues the test without
      * selecting it and logs the message "REFERENCE TWO OPTION IS NOT REQUIRED - TEST CONTINUES".
-     *
+     * <p>
      * After making the selection, a screenshot of the page is taken using Playwright and logged using Cucumber logging.
      *
      * @throws Exception if any error occurs during the execution of the method
@@ -1203,10 +1207,10 @@ public class ApplicantProfileStepsImpl {
      * This method is used to select options for a race.
      *
      * @param americanIndianOrAlaska Specify the option for American Indian or Alaska.
-     * @param asia Specify the option for Asia.
+     * @param asia                   Specify the option for Asia.
      * @param blackOrAfricanAmerican Specify the option for Black or African American.
-     * @param nativeHawaiianOrOther Specify the option for Native Hawaiian or Other.
-     * @param white Specify the option for White.
+     * @param nativeHawaiianOrOther  Specify the option for Native Hawaiian or Other.
+     * @param white                  Specify the option for White.
      */
     public static void selects_for_race(String americanIndianOrAlaska, String asia, String blackOrAfricanAmerican, String nativeHawaiianOrOther, String white) {
         Playwright_Common_Utils.scrollIntoView(americanIndianOrAlaska, false);
@@ -1232,14 +1236,14 @@ public class ApplicantProfileStepsImpl {
     /**
      * Verifies the basic information of a user.
      *
-     * @param firstName       The first name of the user.
-     * @param middleName      The middle name of the user.
-     * @param lastName        The last name of the user.
-     * @param email           The email of the user.
-     * @param phone           The phone number of the user.
-     * @param businessPhone   The business phone number of the user.
+     * @param firstName        The first name of the user.
+     * @param middleName       The middle name of the user.
+     * @param lastName         The last name of the user.
+     * @param email            The email of the user.
+     * @param phone            The phone number of the user.
+     * @param businessPhone    The business phone number of the user.
      * @param highestEducation The highest education level of the user.
-     * @param usCitizenship   The US citizenship status of the user.
+     * @param usCitizenship    The US citizenship status of the user.
      */
     public static void user_verifies_basic_information_and(String firstName, String middleName, String lastName, String email, String phone, String businessPhone, String highestEducation, String usCitizenship) {
         ArrayList<String> expectedValues = new ArrayList<>();
@@ -1264,10 +1268,10 @@ public class ApplicantProfileStepsImpl {
      * Verifies the demographics information provided by the user.
      *
      * @param sharingDemographicsText The expected value of the sharing demographics text.
-     * @param sexText The expected value of the sex text.
-     * @param ethnicityText The expected value of the ethnicity text.
-     * @param raceText The expected value of the race text.
-     * @param disabilityText The expected value of the disability text.
+     * @param sexText                 The expected value of the sex text.
+     * @param ethnicityText           The expected value of the ethnicity text.
+     * @param raceText                The expected value of the race text.
+     * @param disabilityText          The expected value of the disability text.
      */
     public static void user_verifies_demographics_information_and(String sharingDemographicsText, String sexText, String ethnicityText, String raceText, String disabilityText) {
         Playwright_Common_Utils.scrollIntoView("(//h2)[17]//following-sibling::span");
@@ -1318,14 +1322,14 @@ public class ApplicantProfileStepsImpl {
     /**
      * Verifies that the user's references contain the expected information.
      *
-     * @param firstNameText     The first name of the user's reference.
-     * @param middleNameText    The middle name of the user's reference.
-     * @param lastNameText      The last name of the user's reference.
-     * @param emailText         The email of the user's reference.
-     * @param phoneNumberText   The phone number of the user's reference.
-     * @param relationshipText  The relationship of the user's reference.
-     * @param titleText         The title of the user's reference.
-     * @param organizationText  The organization of the user's reference.
+     * @param firstNameText    The first name of the user's reference.
+     * @param middleNameText   The middle name of the user's reference.
+     * @param lastNameText     The last name of the user's reference.
+     * @param emailText        The email of the user's reference.
+     * @param phoneNumberText  The phone number of the user's reference.
+     * @param relationshipText The relationship of the user's reference.
+     * @param titleText        The title of the user's reference.
+     * @param organizationText The organization of the user's reference.
      */
     public static void user_verifies_references_two_information(String firstNameText, String middleNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
         ArrayList<String> expectedValues = new ArrayList<>();
@@ -1377,7 +1381,7 @@ public class ApplicantProfileStepsImpl {
 
     /**
      * This method allows the user to navigate to the "Your Applications" tab in the application.
-     *
+     * <p>
      * It clicks on the "Your Applications" link and captures a screenshot using Playwright.
      */
     public static void user_navigates_to_your_applications_tab() {
@@ -1391,7 +1395,7 @@ public class ApplicantProfileStepsImpl {
      * @param text the expected page title to verify
      */
     public static void user_verifies_page_title_is_displayed(String text) {
-        Hooks.softAssert.assertEquals(page.locator("//h1[normalize-space()='"+ text + "']").innerText(), text);
+        Hooks.softAssert.assertEquals(page.locator("//h1[normalize-space()='" + text + "']").innerText(), text);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -1423,11 +1427,11 @@ public class ApplicantProfileStepsImpl {
     /**
      * Verifies the address information provided by the user.
      *
-     * @param address The user's street address.
+     * @param address   The user's street address.
      * @param aptNumber The user's apartment number.
-     * @param city The user's city.
-     * @param state The user's state.
-     * @param zip The user's ZIP code.
+     * @param city      The user's city.
+     * @param state     The user's state.
+     * @param zip       The user's ZIP code.
      */
     public static void user_verifies_address_information(String address, String aptNumber, String city, String state, String zip) {
         ArrayList<String> expectedValues = new ArrayList<>();
@@ -1452,7 +1456,6 @@ public class ApplicantProfileStepsImpl {
      * 2. Navigates to the SSJ portal view.
      * 3. Takes a screenshot of the page using Playwright.
      *
-     * @throws IOException if an I/O error occurs
      */
     public static void a_user_who_has_not_applied_to_a_vacancy_before_is_on_the_ssj_home_page() {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
@@ -1467,5 +1470,117 @@ public class ApplicantProfileStepsImpl {
     public static void your_applications_tab_should_not_be_displayed() {
         CucumberLogUtils.playwrightScreenshot(page);
         Assert.assertFalse(page.locator("//h1[normalize-space()='Your Applications']").isVisible(), "*** VERIFYING YOUR APPLICATIONS TAB IS NOT DISPLAYED ***");
+    }
+
+    /**
+     * Verifies if the vacancy title is as expected.
+     *
+     * @param expectedVacancyTitle The expected vacancy title to be verified.
+     * @throws AssertionError If the actual vacancy title does not match the expected vacancy title.
+     */
+    public static void verifies_vacancy_title_is(String expectedVacancyTitle) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//div[@class='TitleAndDateContainer']/h1").innerText(), expectedVacancyTitle);
+    }
+
+    /**
+     * Verifies if the displayed vacancy creation date matches the expected date.
+     *
+     * @param expectedVacancyDate The expected vacancy creation date in the format "dd-MM-yyyy".
+     */
+    public static void verifies_text_with_the_date_in_which_the_vacancy_was_created(String expectedVacancyDate) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//label[normalize-space()='Open Date']").innerText(), expectedVacancyDate);
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='DateItem']/span)[1]").innerText(), CommonUtils.getTodayDate());
+    }
+
+    /**
+     * Verifies that the text displayed for "Open Until Filled" matches the expected text.
+     *
+     * @param expectedOpenUntilFilledText The expected text for "Open Until Filled"
+     */
+    public static void verifies_text_open_until_filled(String expectedOpenUntilFilledText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//label[normalize-space()='Open Until Filled']").innerText(), expectedOpenUntilFilledText);
+    }
+
+    /**
+     * Verifies the Point of Contact text with the expected Point of Contact text.
+     *
+     * @param expectedPointOfContactText the expected text of the Point of Contact
+     * @param expectedPOCText            the expected text of the POC
+     */
+    public static void verifies_point_of_contact_text_with_poc(String expectedPointOfContactText, String expectedPOCText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//label[normalize-space()='Point of Contact:']").innerText(), expectedPointOfContactText);
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='DateItem']/span)[3]").innerText(), expectedPOCText);
+    }
+
+    /**
+     * Verifies if the vacancy description text matches the expected text.
+     * Takes a string parameter representing the expected text.
+     * Takes a screenshot using Playwright before performing the verification.
+     * Uses a soft assertion to compare the actual text with the expected text.
+     *
+     * @param expectedText the expected text to be compared with the actual text
+     */
+    public static void verifies_vacancy_description_text(String expectedText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("(//div[@class='ql-editor'])[1]").innerText(), expectedText);
+    }
+
+    /**
+     * Verifies the text of the application documents on the current web page.
+     *
+     * @param expectedText the expected text of the application documents
+     */
+    public static void verifies_application_documents_text(String expectedText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//h2[normalize-space()='APPLICATION DOCUMENTS']").innerText(), expectedText);
+    }
+
+    /**
+     * Verifies the required documents with required references needed to apply to this test vacancy.
+     */
+    public static void verifies_required_documents_with_required_references_needed_to_apply_to_this_test_vacancy() {
+        ArrayList<String> expectedValues = new ArrayList<>();
+        MiscUtils.sleep(1000);
+        page.waitForSelector("//ul[@class='DocumentsList']/li");
+        expectedValues.add("Vision Statement");
+        expectedValues.add("Curriculum Vitae (CV)");
+        expectedValues.add("Cover Letter");
+        expectedValues.add("Qualification Statement");
+        expectedValues.add("Full Contact Details for Two (2) References");
+        Collections.sort(expectedValues);
+        List<ElementHandle> values = page.querySelectorAll("//ul[@class='DocumentsList']/li");
+        ArrayList<String> actualValues = new ArrayList<>();
+        for (ElementHandle value : values) {
+            System.out.println(value.innerText());
+            actualValues.add(value.innerText());
+        }
+        Collections.sort(actualValues);
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(actualValues, expectedValues);
+    }
+
+    /**
+     * The test application is also deleted to re-run automated tests.
+     *
+     * @param userName The username of the user.
+     */
+    public static void the_test_application_is_also_deleted_to_re_run_automated_tests(String userName) {
+        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
+        Playwright_ServiceNow_Common_Methods.searchFilterNavigatorAndClickOption("SCSS", "Applications");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search column: vacancy").fill("DIEGO TEST");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search column: vacancy").press("Enter");
+        try {
+            page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel(userName + " - Open record:").click();
+            page.frameLocator("iframe[name=\"gsft_main\"]").locator("#sysverb_delete").click();
+            page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Confirmation Help").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Delete")).click();
+        } catch (Exception e) {
+            System.out.println("* * * APPLICATION DOES NOT EXIST - TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * APPLICATION DOES NOT EXIST - TEST CONTINUES * * *");
+        }
+        Playwright_ServiceNow_Common_Methods.logOutOfNativeView();
     }
 }
