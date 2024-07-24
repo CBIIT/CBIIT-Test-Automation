@@ -3,7 +3,7 @@ Feature: CCR Landing Page Scenarios
   Background: common steps
     Given User is on CCR Landing page and user is "internal user"
 
-  @Nekrashevich @Regression  @landingPage
+  @Nekrashevich @Regression  @landingPage @Smoke
   Scenario: Verify CCR Landing Page items
     And User can see "Home" tab displayed
     And User can see "Positions" tab displayed
