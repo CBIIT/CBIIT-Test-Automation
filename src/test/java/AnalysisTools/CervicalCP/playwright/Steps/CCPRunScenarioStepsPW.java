@@ -16,7 +16,7 @@ public class CCPRunScenarioStepsPW extends PlaywrightUtils {
 
     @Given("the user is on the Run Scenario tab on Cervical CP")
     public void the_user_is_on_the_run_scenario_tab_on_cervical_cp() {
-        PlaywrightUtils.page.navigate("https://globalcxca-qa.cancer.gov/#/run-scenario");
+        PlaywrightUtils.page.navigate("https://globalcxca-stage.cancer.gov/#/run-scenario");
     }
     @When("the user inputs {string} for the target population")
     public void the_user_inputs_for_the_target_population(String targetPopulation) {

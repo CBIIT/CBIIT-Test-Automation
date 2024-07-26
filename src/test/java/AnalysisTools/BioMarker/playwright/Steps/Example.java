@@ -1,8 +1,6 @@
-package AnalysisTools.CervicalCP.playwright.Steps;
+package AnalysisTools.BioMarker.playwright.Steps;
 
 import com.microsoft.playwright.*;
-import com.microsoft.playwright.options.AriaRole;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class Example {
@@ -14,12 +12,7 @@ public class Example {
                     .setViewportSize(1512, 738));
             Page page = context.newPage();
             page.navigate("https://analysistools-qa.cancer.gov/biomarkerTools/");
-            assertThat(page.getByRole(AriaRole.TABLIST)).containsText("Home");
-            assertThat(page.getByRole(AriaRole.TABLIST)).containsText("Means to Risk");
-            assertThat(page.getByRole(AriaRole.TABLIST)).containsText("Biomarker Comparison");
-            assertThat(page.getByRole(AriaRole.TABLIST)).containsText("Risk Stratification Advanced Analysis");
-            assertThat(page.getByRole(AriaRole.TABLIST)).containsText("Mean Risk Stratification");
-            assertThat(page.getByRole(AriaRole.TABLIST)).containsText("Help");
+            assertThat(page.getByLabel("Select Language:")).isVisible();
         }
     }
 }

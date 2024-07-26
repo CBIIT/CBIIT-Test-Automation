@@ -911,7 +911,7 @@
         </db>
     </application>
 
-    <!-- Application ID for JPsurv-->
+    <!-- Application ID for JPSurv-->
     <application id="JPSurv">
         <login_url>https://analysistools-qa.cancer.gov/jpsurv/
         </login_url> <!-- add test url -->
