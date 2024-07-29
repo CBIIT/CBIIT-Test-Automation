@@ -127,7 +127,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static ProbandScreenerPage probandScreenerPage;
 	public static MyRASLoginPage myRASLoginPage;
 	public static MyRASHomePage myRASHomePage;
-	public static RASopathyQuestionnairePage rasopathyQuestionnairePage;
+	public static RAS_Screener_Page rasopathyQuestionnairePage;
 	public static MyRASIIQFormPage myRASIIQFormPage;
 	public static RAS_Scenario_One_StepsImpl ras_scenario_one_stepsImpl;
 	public static RasScenario2StepsImpl rasScenario2StepsImpl;
@@ -166,6 +166,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static MelanomaLoginPage melanomaLoginPage;
 	public static MelanomaHomePage melanomaHomePage;
 	public static MelanomaQuestionnairePage melanomaQuestionnairePage;
+	public static RAS_Screener_Submissions_StepsImpl ras_screener_submissions_steps_impl;
 
 	/** CICDBuild instances */
 	// ServiceNow DevOps instances
@@ -201,7 +202,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static UnauthenticatedApplicantPage unauthenticatedApplicantPage;
 	public static StadtmanVacancyPage stadtmanVacancyPage;
 	public static ApplicantFlowPage applicantFlowPage;
-
 	public static StadtmanVacancyStepsImplementation stadtmanVacancyStepsImplementation;
 	public static OWMVacancyStepsImplementation oWMVacancyStepsImplementation;
 	public static SSJLoginStepsImplementation sSJLoginStepsImplementation;
@@ -415,7 +415,7 @@ public class PageInitializer extends WebDriverUtils {
 		rasScenario3StepsImpl = new RasScenario3StepsImpl();
 		rasScenario4StepsImpl = new RasScenario4StepsImpl();
 		ras_scenario_five_stepsImpl = new RAS_Scenario_Five_StepsImpl();
-		rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
+		rasopathyQuestionnairePage = new RAS_Screener_Page();
 		ras_Screener_Constants = new RAS_Screener_Constants();
 		ras_Survey_Constants = new RAS_Survey_Constants();
 		iiq_Constants = new IIQ_Constants();
@@ -448,6 +448,7 @@ public class PageInitializer extends WebDriverUtils {
 		melanomaLoginPage = new MelanomaLoginPage();
 		melanomaHomePage = new MelanomaHomePage();
 		melanomaQuestionnairePage = new MelanomaQuestionnairePage();
+		ras_screener_submissions_steps_impl = new RAS_Screener_Submissions_StepsImpl();
 
 		/** CICDBuild Instance Variables */
 		// ServiceNow DevOps instances
