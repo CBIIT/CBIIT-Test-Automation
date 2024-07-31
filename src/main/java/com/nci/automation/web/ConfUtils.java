@@ -7,7 +7,7 @@ import com.nci.automation.utils.LocalConfUtils;
 
 /**
  * The class contains methods to interact with properties file.
- * 
+ *
  * @author sohilz2
  */
 public class ConfUtils {

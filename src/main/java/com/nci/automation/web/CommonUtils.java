@@ -8,6 +8,10 @@ import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 import java.util.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -335,6 +339,7 @@ public class CommonUtils extends WebDriverUtils {
      * json format - for passing REST payloads
      */
     static String jsonFile;
+
     public static String readJson(String fileName) {
         try {
             jsonFile = new String(Files.readAllBytes(Paths.get(fileName)));
@@ -736,7 +741,127 @@ public class CommonUtils extends WebDriverUtils {
      * @param input
      * @return
      */
-    public static String fixPhoneFormat(String input){
-        return input.replaceFirst("(\\d{3})(\\d{3})(\\d+)","+1 ($1) $2 - $3");
+    public static String fixPhoneFormat(String input) {
+        return input.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "+1 ($1) $2 - $3");
+    }
+
+    /**
+     * Returns the current date in the format "MM/dd/yyyy".
+     *
+     * @return the current date formatted as "MM/dd/yyyy"
+     */
+    public static String getTodayDate() {
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        return date.format(formatter);
+    }
+
+    /**
+     * Returns the date one month from today in the format "dd/MM/yyyy".
+     *
+     * @return the date one month from today in the format "dd/MM/yyyy"
+     */
+    public static String getOneMonthFromTodayDatein_DD_MM_YYY_format() {
+        LocalDate oneMonthFromToday = LocalDate.now().plusMonths(1);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        return oneMonthFromToday.format(formatter);
+    }
+
+    /**
+     * Returns the current date in the format "yyyy-MM-dd".
+     *
+     * @return the current date
+     */
+    public static String getCurrentDateIn_YYYY_MM_DD_format() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate today = LocalDate.now();
+        return today.format(formatter);
+    }
+
+    /**
+     * Returns the current date in the format MM-DD-YYYY.
+     *
+     * This method uses the Java LocalDate and DateTimeFormatter classes to format the current date
+     * using the pattern "MM-DD-YYYY". The date components (month, day, and year) are extracted from the
+     * LocalDate object and are formatted as two-digit month, two-digit day, and four-digit year.
+     *
+     * The returned date string will always have two digits for the month and day, and four digits for the year.
+     *
+     * @return the current date formatted as MM-DD-YYYY
+     */
+    public static String getCurrentDateIn_MM_DD_YYYY_format() {
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .appendValue(ChronoField.MONTH_OF_YEAR)
+                .appendLiteral('/')
+                .appendValue(ChronoField.DAY_OF_MONTH, 2)
+                .appendLiteral('/')
+                .appendValue(ChronoField.YEAR, 4)
+                .toFormatter();
+        LocalDate today = LocalDate.now();
+        return today.format(formatter);
+    }
+
+    /**
+     * Retrieves the date that is 10 days from today in the format MM/DD/YYYY.
+     *
+     * @return the date that is 10 days from today in the format MM/DD/YYYY
+     */
+    public static String getTenDaysFromToday_In_MM_DD_YYYY_format() {
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .appendValue(ChronoField.MONTH_OF_YEAR)
+                .appendLiteral('/')
+                .appendValue(ChronoField.DAY_OF_MONTH, 2)
+                .appendLiteral('/')
+                .appendValue(ChronoField.YEAR, 4)
+                .toFormatter();
+        LocalDate dateAfterTenDays = LocalDate.now().plusDays(10);
+        return dateAfterTenDays.format(formatter);
+    }
+
+    /**
+     * Returns the date after ten days in the format "yyyy-MM-dd".
+     *
+     * @return the date after ten days in the format "yyyy-MM-dd".
+     */
+    public static String getDateAfterTenDaysIn_YYYY_MM_DD_format() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate dateAfterDays = LocalDate.now().plusDays(10);
+        return dateAfterDays.format(formatter);
+    }
+
+    /**
+     * Returns the date after ten days from the current date in the format MM/DD/YYYY.
+     *
+     * @return The date after ten days in the format MM/DD/YYYY.
+     */
+    public static String getDateAfterTenDaysIn_MM_DD_YYYY_format() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        LocalDate dateAfterDays = LocalDate.now().plusDays(10);
+        return dateAfterDays.format(formatter);
+    }
+
+    /**
+     * Returns the date one month from the current date in the format "YYYY-MM-DD".
+     *
+     * @return the date one month from the current date in "YYYY-MM-DD" format
+     */
+    public static String getDateOneMonthFromNowIn_YYYY_MM_DD_format() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate oneMonthFromNow = LocalDate.now().plusMonths(1);
+        return oneMonthFromNow.format(formatter);
+    }
+
+    /**
+     * Compares two lists of elements and asserts that they are equal.
+     *
+     * @param actualValues   The list of actual values.
+     * @param expectedValues The list of expected values.
+     * @throws AssertionError if the sizes of the lists are different or if any corresponding elements in the lists are not equal.
+     */
+    public static void comparingTwoLists(List<WebElement> actualValues, List<String> expectedValues) {
+        Assert.assertEquals(actualValues.size(), expectedValues.size());
+        for (int i = 0; i < actualValues.size(); i++) {
+            Assert.assertEquals(actualValues.get(i).getText(), expectedValues.get(i));
+        }
     }
 }

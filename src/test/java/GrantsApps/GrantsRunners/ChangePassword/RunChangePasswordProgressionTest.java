@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
         , "junit:target/cucumber.xml"
         , "rerun:target/failed.txt", "pretty"}
         , features = "src/test/java/GrantsApps/ChangePassword/Features"
-        , glue = "GrantsApps.ChangePassword.Steps"
+        , glue = {"GrantsApps.ChangePassword.Steps", "Hooks"}
         , tags = "@Progression"
         , dryRun = false
 )

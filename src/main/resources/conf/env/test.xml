@@ -47,7 +47,7 @@
 
     <!-- CADSR Application-->
     <application id="cadsrTestUrl">
-        <login_url>https://service-sandbox.nci.nih.gov/login.do
+        <login_url>https://service-test.nci.nih.gov/ncisp
         </login_url>
         <!-- <login_url>https://service-test.nci.nih.gov/login.do
         </login_url>-->
@@ -996,7 +996,7 @@
 
     <!-- Application ID for SCSS Portal View-->
     <application id="SSJPortalView">
-        <login_url>https://service-test.nci.nih.gov/nci-scss.do#/
+        <login_url>https://service-test.nci.nih.gov/nih-ssj.do
         </login_url> <!-- add test url -->
         <role name="Role">
             <user id="regular">
@@ -1060,6 +1060,69 @@
     <!-- Application ID for ThreeDVizSNP-->
     <application id="ThreeDVizSNP">
         <login_url>https://analysistools-qa.cancer.gov/3dvizsnp
+        </login_url> <!-- add test url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+    
+    <!-- Application ID for CometsAnalystics-->
+    <application id="CometsAnalystics">
+        <login_url>https://www.comets-analytics-test.org/analysis
+        </login_url> <!-- add test url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+
+    <!-- Application ID for Soccer-->
+    <application id="Soccer">
+        <login_url>https://soccer-qa.nci.nih.gov/
+        </login_url> <!-- add test url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+
+    <!-- Application ID for NIFESubmit-->
+    <application id="NIFESubmit">
+        <login_url>https://nife-qa.cancer.gov/
         </login_url> <!-- add test url -->
         <role name="Role">
             <user id="regular">

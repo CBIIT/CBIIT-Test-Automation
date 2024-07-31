@@ -2,7 +2,6 @@ package AnalysisTools.MCAExplorer.Steps;
 
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
-import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
@@ -44,6 +43,11 @@ public class MCAExplorer_steps extends PageInitializer {
 	@Then("verify that there are some rows in the result")
 	public void verify_that_there_are_rows_in_the_result() {
 		mcaExplorerStepImp.validateNumberOfRows();
+	}
+	
+	@Then("Verify there is alert on the screen")
+	public void verify_there_is_alert_present_on_screen() {
+		mcaExplorerStepImp.verifyIfAlertIsPresent();
 	}
 
 	@Then("Zoom in in the circle")

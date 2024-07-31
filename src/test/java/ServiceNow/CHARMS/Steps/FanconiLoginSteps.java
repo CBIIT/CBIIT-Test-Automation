@@ -1,7 +1,6 @@
 package ServiceNow.CHARMS.Steps;
 
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -13,7 +12,6 @@ public class FanconiLoginSteps extends PageInitializer {
 	@Given("a Participant is on the Fanconi Study login page")
 	public void a_Participant_is_on_the_Fanconi_Study_login_page() {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("fanconiLogin"));
-		MiscUtils.sleep(1000);
 	}
 	@Given("logs in Fanconi page via Okta with username {string} and password {string}")
 	public void logs_in_Fanconi_page_via_Okta_with_username_and_password(String username, String password) {

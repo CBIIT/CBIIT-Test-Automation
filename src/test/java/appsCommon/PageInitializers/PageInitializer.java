@@ -4,6 +4,8 @@ import AnalysisTools.ACT24.Pages.*;
 import AnalysisTools.ACT24.StepsImpl.ACT24ParticipantStepImpl;
 import AnalysisTools.ACT24.StepsImpl.ACT24ResearcherStepImpl;
 import AnalysisTools.Comets2.Pages.*;
+import AnalysisTools.CometsAnalytics.Pages.*;
+import AnalysisTools.CometsAnalytics.StepsImplementation.*;
 import AnalysisTools.GDSTracking.Pages.*;
 import AnalysisTools.GWASExplorer.Pages.*;
 import AnalysisTools.GWASTarget.Pages.*;
@@ -18,7 +20,6 @@ import AnalysisTools.LDLink.Pages.*;
 import AnalysisTools.MCAExplorer.Pages.MCAExplorerPage;
 import AnalysisTools.MCAExplorer.StepsImplementations.MCAExplorerStepImp;
 import AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage;
-import AnalysisTools.ThreeDVizSNP.StepsImplementations.ThreeDVizSNPStepImp;
 import AnalysisTools.mSigPortal.Pages.*;
 import CloudAndSystemEngineering.IAMRedesign.Pages.ADConsoleLocatorsPage;
 import CloudAndSystemEngineering.IAMRedesign.Pages.AWSDashboardPage;
@@ -43,6 +44,7 @@ import GrantsApps.ChangePassword.StepsImplementation.*;
 import GrantsApps.EM.selenium.Pages.AccountDetailsPage;
 import GrantsApps.EM.selenium.Pages.CreateNewAccountPage;
 import GrantsApps.EM.selenium.Pages.ManageI2EUsersPage;
+import GrantsApps.EM.selenium.Pages.ModifyAccountPage;
 import GrantsApps.EM.selenium.StepImplementation.EMStepsImplementation;
 import ServiceNow.CHARMS.Constants.*;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
@@ -58,14 +60,16 @@ import ServiceNow.COVIDCode.StepsImplementation.DashboardStepImpl;
 import ServiceNow.COVIDDash.NativeView.Pages.*;
 import ServiceNow.COVIDDash.Pages.*;
 import ServiceNow.COVIDDash.StepsImplementation.*;
-import ServiceNow.ESR.Pages.*;
+import ServiceNow.ESR.Selenium.Pages.ESRShortDescriptionPage;
+import ServiceNow.ESR.Selenium.Pages.ESRTicketCreationPage;
+import ServiceNow.ESR.Selenium.Pages.NCINativeViewPage;
 import ServiceNow.PlatformBusinessApps.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
 import ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Pages.CTRPCTRO_NV_Page;
 import ServiceNow.PlatformBusinessApps.GDC.Pages.GDC_Workflow_NativeView_Page;
 import ServiceNow.PlatformBusinessApps.GCP.Pages.GCPNotifications_NativeViewPage;
-import ServiceNow.PlatformBusinessApps.NERD.selenium.Pages.*;
-import ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation.NERDLoginStepsImplementation;
-import ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation.NativeViewImpersonateUser;
+import ServiceNow.PlatformBusinessApps.NERD.Pages.*;
+import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERDLoginStepsImplementation;
+import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
@@ -96,6 +100,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static ManageI2EUsersPage manageI2EUsersPage;
 	public static CreateNewAccountPage createNewAccountPage;
 	public static AccountDetailsPage accountDetailsPage;
+	public static ModifyAccountPage modifyAccountPage;
 
 	/** --------------- SERVICENOW INSTANCES --------------- */
 	/** COVIDDash instances */
@@ -192,6 +197,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NERDCRSTOtherAccomplishmentsPage nerdcrstOtherAccomplishmentsPage;
 	public static NERDOGCRAddNewEntryPage nERDOGCRAddNewEntryPage;
 	public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
+	public static AdHoc_Data_Call_Submissions_Page adHoc_data_call_submissions_page;
 
 	/** SSJ instances */
 	public static OWMVacancyPage owmVacancyPage;
@@ -319,9 +325,7 @@ public class PageInitializer extends WebDriverUtils {
 	/** ACT24 instances **/
 	public static ACT24ParticipantPortalPage act24ParticipantPortalPage;
 	public static ACT24ResearcherPortalPage act24ResearcherPortalPage;
-
 	public static ACT24ResearcherStepImpl act24ResearcherStepImpl;
-
 	public static ACT24ParticipantStepImpl act24ParticipantStepImpl;
 
 	/** GWAS Target instances **/
@@ -358,7 +362,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
 
-
 	/** --------------- EGRANTS INSTANCES --------------- */
 	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;
 	public static EgrantsStepImplementation egrantsStepImplementation;
@@ -376,7 +379,10 @@ public class PageInitializer extends WebDriverUtils {
 
 	/** --------------- THREEDVIZSNP INSTANCES --------*/
 	public static ThreeDVizSNPPage threeDVizSNPPage;
-	public static ThreeDVizSNPStepImp threeDVizSNPStepImp;
+
+	/** ----------------- COMETS ANALYTICS INSTANCES -----*/
+	public static CometsAnalyticsPage cometsAnalyticsPage;
+	public static CometsAnalyticsStepImp cometsAnalyticsStepImp;
 
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -685,8 +691,10 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** THREEDVIZSNP INSTANCE VARIABLES  */
 		threeDVizSNPPage =  new ThreeDVizSNPPage();
-		threeDVizSNPStepImp = new ThreeDVizSNPStepImp();
 
+		/** COMETS ANALYTICS INSTANCE VARIABLES */
+		cometsAnalyticsPage = new CometsAnalyticsPage();
+		cometsAnalyticsStepImp = new CometsAnalyticsStepImp();
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
 }

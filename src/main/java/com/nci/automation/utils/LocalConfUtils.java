@@ -31,6 +31,9 @@ public class LocalConfUtils {
 		 */
 		String localConfResourcesPath = System.getProperty("isCloud");
 
+		// Adding println() to output the value of 'isCloud'.
+		System.out.println("isCloud Property Value: " + localConfResourcesPath);
+
 		if (StringUtils.isBlank(localConfResourcesPath)) {
 			localConfResourcesPath = "/conf/localEnv.properties";
 		} else if (localConfResourcesPath.equalsIgnoreCase("true")) {
@@ -48,7 +51,6 @@ public class LocalConfUtils {
 		}
 
 		return localConf;
-
 	}
 
 	private static Properties loadSystemProperties(Properties localProps) {
