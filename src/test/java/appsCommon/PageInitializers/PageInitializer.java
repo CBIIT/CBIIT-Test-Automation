@@ -1,19 +1,30 @@
 package appsCommon.PageInitializers;
 
+import AnalysisTools.ACT24.Pages.*;
+import AnalysisTools.ACT24.StepsImpl.ACT24ParticipantStepImpl;
+import AnalysisTools.ACT24.StepsImpl.ACT24ResearcherStepImpl;
+import AnalysisTools.Comets2.Pages.*;
+import AnalysisTools.GDSTracking.Pages.*;
+import AnalysisTools.GWASExplorer.Pages.*;
+import AnalysisTools.GWASTarget.Pages.*;
+import AnalysisTools.ICRP.Pages.*;
+import AnalysisTools.ezQTL.Pages.*;
+import AnalysisTools.cProSite.Pages.*;
 import AnalysisTools.CEDCD.Pages.*;
 import AnalysisTools.CEDCD.Steps.*;
 import AnalysisTools.CEDCD.StepsImplementation.*;
-import AnalysisTools.Comets2.Pages.*;
-import AnalysisTools.ICRP.Pages.*;
 import AnalysisTools.JPSurv.Pages.*;
 import AnalysisTools.LDLink.Pages.*;
 import AnalysisTools.MCAExplorer.Pages.MCAExplorerPage;
 import AnalysisTools.MCAExplorer.StepsImplementations.MCAExplorerStepImp;
-import AnalysisTools.PLCO.Pages.*;
-import AnalysisTools.cProSite.Pages.*;
+import AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage;
+import AnalysisTools.ThreeDVizSNP.StepsImplementations.ThreeDVizSNPStepImp;
 import AnalysisTools.mSigPortal.Pages.*;
 import CloudAndSystemEngineering.IAMRedesign.Pages.ADConsoleLocatorsPage;
+import CloudAndSystemEngineering.IAMRedesign.Pages.AWSDashboardPage;
 import CloudAndSystemEngineering.ShutdownBanner.Pages.ShutdownBannerLocatorsPage;
+import AnalysisTools.scAtlas.Pages.SCAtlasCohortsPage;
+import AnalysisTools.scAtlas.Pages.SCAtlasHomePage;
 import CustomBusiness.CCR.Pages.*;
 import CustomBusiness.CCR.StepsImplementation.*;
 import CustomBusiness.DCEG.Pages.*;
@@ -29,8 +40,10 @@ import CustomBusiness.Egrants.Pages.EgrantsSearchAndFileManagementScenariosPage;
 import CustomBusiness.Egrants.StepsImplementation.EgrantsStepImplementation;
 import GrantsApps.ChangePassword.Pages.*;
 import GrantsApps.ChangePassword.StepsImplementation.*;
-import GrantsApps.EM.Pages.*;
-import GrantsApps.EM.StepImplementation.*;
+import GrantsApps.EM.selenium.Pages.AccountDetailsPage;
+import GrantsApps.EM.selenium.Pages.CreateNewAccountPage;
+import GrantsApps.EM.selenium.Pages.ManageI2EUsersPage;
+import GrantsApps.EM.selenium.StepImplementation.EMStepsImplementation;
 import ServiceNow.CHARMS.Constants.*;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Pages.*;
@@ -45,17 +58,19 @@ import ServiceNow.COVIDCode.StepsImplementation.DashboardStepImpl;
 import ServiceNow.COVIDDash.NativeView.Pages.*;
 import ServiceNow.COVIDDash.Pages.*;
 import ServiceNow.COVIDDash.StepsImplementation.*;
-import ServiceNow.ETracking.Pages.*;
-import ServiceNow.GCP.Pages.*;
 import ServiceNow.ESR.Pages.*;
-import ServiceNow.GDC.Pages.GDC_Workflow_NativeView_Page;
-import ServiceNow.NERD.Pages.*;
-import ServiceNow.NERD.StepsImplementation.*;
-import ServiceNow.SCSS.Pages.*;
-import ServiceNow.SCSS.StepsImplementation.*;
-import ServiceNow.SEER.Pages.*;
-import ServiceNow.SEER.StepsImplementation.*;
+import ServiceNow.PlatformBusinessApps.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
+import ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Pages.CTRPCTRO_NV_Page;
+import ServiceNow.PlatformBusinessApps.GDC.Pages.GDC_Workflow_NativeView_Page;
+import ServiceNow.PlatformBusinessApps.GCP.Pages.GCPNotifications_NativeViewPage;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Pages.*;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation.NERDLoginStepsImplementation;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation.NativeViewImpersonateUser;
+import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
+import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.*;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.*;
 import appsCommon.Pages.ITrustLoginPage;
 import appsCommon.Pages.NativeViewHomePage;
 import appsCommon.Pages.ServiceNow_NCISP_Page;
@@ -178,17 +193,23 @@ public class PageInitializer extends WebDriverUtils {
 	public static NERDOGCRAddNewEntryPage nERDOGCRAddNewEntryPage;
 	public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
 
-	/** SCSS instances */
+	/** SSJ instances */
 	public static OWMVacancyPage owmVacancyPage;
+	public static UnauthenticatedApplicantPage unauthenticatedApplicantPage;
 	public static StadtmanVacancyPage stadtmanVacancyPage;
 	public static ApplicantFlowPage applicantFlowPage;
+
 	public static StadtmanVacancyStepsImplementation stadtmanVacancyStepsImplementation;
 	public static OWMVacancyStepsImplementation oWMVacancyStepsImplementation;
-	public static SCSSLoginStepsImplementation sCCSLoginStepsImplementation;
+	public static SSJLoginStepsImplementation sSJLoginStepsImplementation;
 	public static ApplicantFlowStepsImplementation applicantFlowStepsImplementation;
+	public static UnauthenticatedApplicantFlowStepsImplementation unauthenticatedApplicantFlowStepsImplementation;
 
 	/** eTracking instances */
 	public static EtrackAssetsRecords_NativeViewPage etrackAssetsRecords_NativeViewPage;
+
+	/** CTRP/CTRO instances */
+	public static CTRPCTRO_NV_Page ctrpCTRO_NativeViewPage;
 
 	/** GCP instances */
 	public static GCPNotifications_NativeViewPage gCPNotifications_NativeViewPage;
@@ -235,14 +256,32 @@ public class PageInitializer extends WebDriverUtils {
 	public static ETDBasePage etdBasePage;
 
 	/** --------------- ANALYSIS TOOLS INSTANCES --------------- */
+
+	/** Analysis Tools Landing Page instances */
+	public static AnalysisToolsLandingPage analysisToolsLandingPage;
+
+	/** GDS Tracking instances **/
+	public static GDSLoginPage gdsLoginPage;
+
 	/** LDLink instances **/
 	public static LDLinkHomePage ldLinkHomePage;
-	public static LDLinkLandingPage ldLinkLandingPage;
+	public static LDAssocPage ldAssocPage;
+	public static LDExpressPage ldExpressPage;
+	public static LDLinkAPIAccessPage ldLinkAPIAccessPage;
 
-	/** PLCO instances **/
+	/** scAtlas instances **/
+	public static SCAtlasHomePage scAtlasHomePage;
+	public static SCAtlasCohortsPage scAtlasCohortsPage;
+
+	/** ezQTL instances **/
+	public static EZQTLHomePage ezQTLHomePage;
+	public static EZQTLAnalysesPage ezQTLAnalysesPage;
+	public static EZQTLDocumentationPage ezQTLDocumentationPage;
+	public static EZQTLPublicDataSourcePage ezQTLPublicDataSourcePage;
+	/** GWAS Explorer instances **/
 	public static ExploreGWASPage exploreGWASPage;
-	public static BrowsePhenotypePage browsePhenotypePage;
-	public static InformationPage informationPage;
+	public static BrowsePhenotypesPage browsePhenotypesPage;
+	public static GwasExplorerHomePage gwasExplorerHomePage;
 
 	/** CEDCD instances */
 	public static CEDCDCohortPage cedcdCohortPage;
@@ -277,6 +316,18 @@ public class PageInitializer extends WebDriverUtils {
 	/** CProSite instances **/
 	public static CProSiteExplorePage cProSiteExplorePage;
 
+	/** ACT24 instances **/
+	public static ACT24ParticipantPortalPage act24ParticipantPortalPage;
+	public static ACT24ResearcherPortalPage act24ResearcherPortalPage;
+
+	public static ACT24ResearcherStepImpl act24ResearcherStepImpl;
+
+	public static ACT24ParticipantStepImpl act24ParticipantStepImpl;
+
+	/** GWAS Target instances **/
+	public static GWASTargetHomePages gwasTargetHomePages;
+	public static GWASTargetAnalysisPages gwasTargetAnalysisPages;
+
 	/** CCR instances **/
 	public static CCRLandingPage cCRLandingPage;
 	public static CCRStepsImplementation cCRStepsImplementation;
@@ -295,6 +346,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
 	public static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
 	public static NativeViewStepsImpl nativeViewStepsImpl;
+	public static NativeViewSSJReportsPage nativeViewSSJReportsPage;
 	public static NativeViewCustomersPage nativeViewCustomersPage;
 	public static NativeViewSentViewPage nativeViewSentViewPage;
 	public static NativeViewAccessRequestPage nativeViewAccessRequestPage;
@@ -305,7 +357,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
-	public static NativeViewSCSSReportsPage nativeViewSCSSReportsPage;
+
 
 	/** --------------- EGRANTS INSTANCES --------------- */
 	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;
@@ -319,6 +371,12 @@ public class PageInitializer extends WebDriverUtils {
 	/** ------------ CLOUD AND SYSTEMS ENGINEERING INSTANCES ------------*/
 	public static ShutdownBannerLocatorsPage shutdownBannerLocatorsPage;
 	public static ADConsoleLocatorsPage aDConsoleLocatorsPage;
+	public static AWSDashboardPage aWSDashboardPage;
+
+
+	/** --------------- THREEDVIZSNP INSTANCES --------*/
+	public static ThreeDVizSNPPage threeDVizSNPPage;
+	public static ThreeDVizSNPStepImp threeDVizSNPStepImp;
 
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -427,14 +485,16 @@ public class PageInitializer extends WebDriverUtils {
 		esrTicketCreationPage = new ESRTicketCreationPage();
 		esrShortDescriptionPage = new ESRShortDescriptionPage();
 
-		/** SCSS Instance Variables */
+		/** SSJ Instance Variables */
 		owmVacancyPage = new OWMVacancyPage();
 		stadtmanVacancyPage = new StadtmanVacancyPage();
 		applicantFlowPage = new ApplicantFlowPage();
+		unauthenticatedApplicantPage = new UnauthenticatedApplicantPage();
 		oWMVacancyStepsImplementation = new OWMVacancyStepsImplementation();
 		stadtmanVacancyStepsImplementation = new StadtmanVacancyStepsImplementation();
-		sCCSLoginStepsImplementation = new SCSSLoginStepsImplementation();
+		sSJLoginStepsImplementation = new SSJLoginStepsImplementation();
 		applicantFlowStepsImplementation = new ApplicantFlowStepsImplementation();
+		unauthenticatedApplicantFlowStepsImplementation = new UnauthenticatedApplicantFlowStepsImplementation();
 
 		/** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
 		/** EIDP Instance Variables */
@@ -476,13 +536,42 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** --------------- ANALYSIS TOOLS INSTANCE VARIABLES --------------- */
 		/** LDLink Instance Variables **/
-		ldLinkLandingPage = new LDLinkLandingPage();
 		ldLinkHomePage = new LDLinkHomePage();
 
-		/** PLCO Instance Variables **/
+		/** --------------- ANALYSIS TOOLS INSTANCE VARIABLES --------------- */
+
+		/** Analysis Tools Landing Page Variables **/
+		analysisToolsLandingPage = new AnalysisToolsLandingPage();
+
+		/** GDS Tracking Instance Variables **/
+		gdsLoginPage = new GDSLoginPage();
+
+		/** LDLink Instance Variables **/
+		ldLinkHomePage = new LDLinkHomePage();
+		ldExpressPage = new LDExpressPage();
+		ldAssocPage = new LDAssocPage();
+		ldLinkAPIAccessPage = new LDLinkAPIAccessPage();
+
+		/** scAtlas Instance Variables **/
+		scAtlasHomePage = new SCAtlasHomePage();
+		scAtlasCohortsPage = new SCAtlasCohortsPage();
+
+		/** ezQTL Instance Variables **/
+		ezQTLHomePage = new EZQTLHomePage();
+		ezQTLAnalysesPage = new EZQTLAnalysesPage();
+		ezQTLDocumentationPage = new EZQTLDocumentationPage();
+		ezQTLPublicDataSourcePage = new EZQTLPublicDataSourcePage();
+
+		/** ACT24 Instance Variables **/
+		act24ParticipantPortalPage = new ACT24ParticipantPortalPage();
+		act24ResearcherPortalPage = new ACT24ResearcherPortalPage();
+		act24ResearcherStepImpl = new ACT24ResearcherStepImpl();
+		act24ParticipantStepImpl = new ACT24ParticipantStepImpl();
+
+		/** GWAS Explorer Instance Variables **/
 		exploreGWASPage = new ExploreGWASPage();
-		browsePhenotypePage = new BrowsePhenotypePage();
-		informationPage = new InformationPage();
+		browsePhenotypesPage = new BrowsePhenotypesPage();
+		gwasExplorerHomePage = new GwasExplorerHomePage();
 
 		/** CEDCD Instance Variables */
 		cedcdCohortPage = new CEDCDCohortPage();
@@ -517,6 +606,10 @@ public class PageInitializer extends WebDriverUtils {
 		/** CProSite Instance Variables **/
 		cProSiteExplorePage = new CProSiteExplorePage();
 
+		/** GWS Target Instance Variables **/
+		gwasTargetHomePages = new GWASTargetHomePages();
+		gwasTargetAnalysisPages = new GWASTargetAnalysisPages();
+
 		/** CCR Instance Variables **/
 		cCRLandingPage = new CCRLandingPage();
 		cCRStepsImplementation = new CCRStepsImplementation();
@@ -541,7 +634,7 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSParticipantDetailsPage = new NativeViewCHARMSParticipantDetailsPage();
 		nativeViewCHARMSParticipantConsentPage = new NativeViewCHARMSParticipantConsentPage();
 		nativeViewCHARMSParticipantStudyPage = new NativeViewCHARMSParticipantStudyPage();
-		nativeViewSCSSReportsPage = new NativeViewSCSSReportsPage();
+		nativeViewSSJReportsPage = new NativeViewSSJReportsPage();
 
 		/****** GRANTS INSTANCES *******/
 		/** Grants ChangePassword app **/
@@ -557,6 +650,18 @@ public class PageInitializer extends WebDriverUtils {
 		/** eTracking INSTANCE VARIABLES */
 		etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
 
+		/** CTRP/CTRO INSTANCE VARIABLES */
+		ctrpCTRO_NativeViewPage = new CTRPCTRO_NV_Page();
+
+		/** Grants ChangePassword app **/
+		changePasswordPage = new ChangePasswordPage();
+		changePasswordStepsImpl = new ChangePasswordStepsImpl();
+		emStepsImplementation = new EMStepsImplementation();
+		manageI2EUsersPage = new ManageI2EUsersPage();
+
+		/** eTracking INSTANCE VARIABLES */
+		etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
+
 		/** GCP INSTANCE VARIABLES */
 		gCPNotifications_NativeViewPage = new GCPNotifications_NativeViewPage();
 
@@ -567,8 +672,7 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GDC INSTANCE VARIABLES */
 		gDC_Workflow_NativeView_Page = new GDC_Workflow_NativeView_Page();
-		
-		
+
 		/** MCAEXPLORER INSTANCE VARIABLES */
 		mcaExplorerPage = new MCAExplorerPage();
 		mcaExplorerStepImp = new MCAExplorerStepImp();
@@ -576,6 +680,12 @@ public class PageInitializer extends WebDriverUtils {
 		/** CLOUD AND SYSTEMS ENGINEERING INSTANCE VARIABLES */
 		shutdownBannerLocatorsPage = new ShutdownBannerLocatorsPage();
 		aDConsoleLocatorsPage = new ADConsoleLocatorsPage();
+		aWSDashboardPage = new AWSDashboardPage();
+
+
+		/** THREEDVIZSNP INSTANCE VARIABLES  */
+		threeDVizSNPPage =  new ThreeDVizSNPPage();
+		threeDVizSNPStepImp = new ThreeDVizSNPStepImp();
 
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}

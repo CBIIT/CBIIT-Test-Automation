@@ -8,22 +8,19 @@ import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
 
-public class CEDCDStartUps extends PageInitializer{
-	
-	/** This method takes you to the CEDCD homepage and logs a screenshot */
+public class CEDCDStartUps extends PageInitializer {
+
 	public void startUpCEDCDBrowser() {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenshot();
 	}
-	
-	
+
 	public void setUpOnSearchCohortsTabPage() throws TestingException {
 		startUpCEDCDBrowser();
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.searchCohortTab);
-
 	}
-	
+
 	public void setUpOnBiospecimenTabPage() {
 		startUpCEDCDBrowser();
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.biospecimenTab);

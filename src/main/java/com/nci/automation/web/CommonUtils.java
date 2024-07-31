@@ -27,6 +27,15 @@ import com.nci.automation.utils.MiscUtils;
 public class CommonUtils extends WebDriverUtils {
 
     /**
+     * Use this String to pass an email concatenated with current date and time into
+     * an email text box and you can pass same value (email+date+time) in another
+     * steps.
+     */
+
+    public static String email = getEmail();
+    public static String date = getDateAsString();
+
+    /**
      * Use this method in need of entering keyboard keys into a WebElement by
      * selenium WebDriver.
      *
@@ -326,7 +335,6 @@ public class CommonUtils extends WebDriverUtils {
      * json format - for passing REST payloads
      */
     static String jsonFile;
-
     public static String readJson(String fileName) {
         try {
             jsonFile = new String(Files.readAllBytes(Paths.get(fileName)));
@@ -389,14 +397,6 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * Use this String to pass an email concatenated with current date and time into
-     * an email text box and you can pass same value (email+date+time) in another
-     * steps.
-     */
-
-    public static String email = getEmail();
-
-    /**
      * Use this method to pass a random LaastName as a String
      *
      * @return
@@ -415,7 +415,6 @@ public class CommonUtils extends WebDriverUtils {
         return generatedLastName;
     }
 
-
     /**
      * Use this method to pass date as a string. You can concatinate with any String
      * and get unique name
@@ -428,8 +427,6 @@ public class CommonUtils extends WebDriverUtils {
         dateAsString = dateAsString.replaceAll("[^A-Za-z0-9]", "");
         return dateAsString;
     }
-
-    public static String date = getDateAsString();
 
     /**
      * Use this method to select a checkbox value
@@ -561,7 +558,8 @@ public class CommonUtils extends WebDriverUtils {
 
     /*
      *
-     * Use below method to assert expected String value with an actual String value with a message
+     * Use below method to assert expected String value with an actual String value
+     * with a message
      */
     public static void assertEqualsWithMessage(String actual, String expected, String message) {
 
@@ -660,6 +658,7 @@ public class CommonUtils extends WebDriverUtils {
 
     /***
      * USE THIS METHOD TO GET THE ATTRIBUTE VALUE OF THE VALUE ATTRIBUTE
+     *
      * @param element
      * @return
      */
@@ -690,7 +689,10 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /***
-     * USE THIS METHOD TO VERIFY IF A VALUE HAS BEEN SELECTED IN A DROP DOWN, IF IT IS NOT SELECTED, A NoSuchElementException IS THROWN THAT IS ALSO HANDLED WITH THIS METHOD
+     * USE THIS METHOD TO VERIFY IF A VALUE HAS BEEN SELECTED IN A DROP DOWN, IF IT
+     * IS NOT SELECTED, A NoSuchElementException IS THROWN THAT IS ALSO HANDLED WITH
+     * THIS METHOD
+     *
      * @param element
      * @param expectedValue
      * @param message
@@ -718,13 +720,23 @@ public class CommonUtils extends WebDriverUtils {
         element.sendKeys(value);
     }
 
-    public static void hoverOverElement(WebElement e){
+    public static void hoverOverElement(WebElement e) {
         Actions actions = new Actions(WebDriverUtils.webDriver);
         actions.moveToElement(e).build().perform();
     }
 
-    public static void hoverAndClickElement(int x, int y){
+    public static void hoverAndClickElement(int x, int y) {
         Actions actions = new Actions(WebDriverUtils.webDriver);
         actions.moveToLocation(x, y).build().perform();
+    }
+
+    /**
+     * Use this method to format a phone number into example +1 (201) 821 - 2343
+     *
+     * @param input
+     * @return
+     */
+    public static String fixPhoneFormat(String input){
+        return input.replaceFirst("(\\d{3})(\\d{3})(\\d+)","+1 ($1) $2 - $3");
     }
 }

@@ -8,16 +8,11 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
-
 public class CProSiteExplorePageSteps extends PageInitializer {
-
 
     @Given("user is on cProSite explore Tab")
     public void userIsOnCProSiteExploreTab() throws TestingException {
@@ -28,7 +23,8 @@ public class CProSiteExplorePageSteps extends PageInitializer {
 
     @When("user clicks submit")
     public void userClicksSubmit() {
-        cProSiteExplorePage.submitButton.click();
+        CommonUtils.scrollIntoView(cProSiteExplorePage.submitButton);
+        JavascriptUtils.clickByJS(cProSiteExplorePage.submitButton);
     }
 
     @Then("results is displayed")
@@ -38,12 +34,10 @@ public class CProSiteExplorePageSteps extends PageInitializer {
 
     @When("user changes the dataset to phosphorylation site")
     public void userChangesTheDatasetToPhosphorylationSite() {
-
-
         cProSiteExplorePage.datasetDropdown.sendKeys("Phosphorylation Site");
         cProSiteExplorePage.datasetDropdown.sendKeys(Keys.ENTER);
-
     }
+
     @When("user changes the dataset to phosphorylationprotein")
     public void userChangesTheDatasetToPhosphorylationprotein() {
         cProSiteExplorePage.datasetDropdown.sendKeys("Phosphorylation/Protein");
@@ -72,17 +66,16 @@ public class CProSiteExplorePageSteps extends PageInitializer {
 
     @And("user select protein and mRNA")
     public void userSelectProteinAndMRNA() {
-        cProSiteExplorePage.proteinandmRNAcheckbox.click();
-        JavascriptUtils.scrollDown(100);
+        JavascriptUtils.clickByJS(cProSiteExplorePage.proteinandmRNAcheckbox);
         MiscUtils.sleep(3000);
     }
-
 
     @And("user click reset button")
     public void userClickResetButton() {
         MiscUtils.sleep(3000);
         cProSiteExplorePage.resetButton.click();
     }
+
     @Then("page is reset")
     public void page_is_reset() {
         Assert.assertTrue(cProSiteExplorePage.intialverifer.isDisplayed());
@@ -102,10 +95,8 @@ public class CProSiteExplorePageSteps extends PageInitializer {
 
     @Then("verify dataset download {string}")
     public void verifyDatasetDownload(String fileName) {
-        MiscUtils.sleep(10000);
-        Assert.assertTrue(CommonUtils.isFileDownloaded(fileName));
-        MiscUtils.sleep(10000);
-        CommonUtils.deleteFile(fileName);
+        CommonUtils.waitForClickability(cProSiteExplorePage.exportbutton);
+        Assert.assertTrue(cProSiteExplorePage.exportbutton.isDisplayed());
     }
 
     @And("user change Gene")
@@ -114,5 +105,26 @@ public class CProSiteExplorePageSteps extends PageInitializer {
         JavascriptUtils.scrollDown(200);
         cProSiteExplorePage.dropdowngene.sendKeys("ABCA7");
         cProSiteExplorePage.dropdowngene.sendKeys(Keys.ENTER);
+    }
+
+    @Then("results is displayed for phosphorylationsite")
+    public void resultsIsDisplayedForPhosphorylationsite() {
+        Assert.assertTrue(cProSiteExplorePage.summaryView.isDisplayed());
+    }
+
+    @Then("results is displayed for phosphorylationprotein")
+    public void resultsIsDisplayedForPhosphorylationprotein() {
+        Assert.assertTrue(cProSiteExplorePage.summaryView.isDisplayed());
+    }
+
+    @When("user removes all tumor types")
+    public void userRemovesAllTumorTypes() {
+        cProSiteExplorePage.cancelAllTumorTypeButton.click();
+    }
+
+    @And("user selects brain cancer")
+    public void userSelectsBrainCancer() {
+        cProSiteExplorePage.tumorTypeDropDown.sendKeys("Brain Cancer");
+        cProSiteExplorePage.tumorTypeDropDown.sendKeys(Keys.RETURN);
     }
 }

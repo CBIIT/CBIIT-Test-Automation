@@ -22,4 +22,14 @@ public class IAMRedesignSteps {
         IAMRedesignStepImpl.retrieveAllConsoleUsers();
         IAMRedesignStepImpl.verifyMannagedNonProdAccount();
     }
+    @Given("a user is on the console page")
+    public void a_user_is_on_the_console_page() {
+        IAMRedesignStepImpl.goToAWSUrl();
+        IAMRedesignStepImpl.retrieveAllAWSAccounts();
+    }
+    @Then("the user should see all the aws accounts")
+    public void the_user_should_see_all_the_aws_accounts() {
+
+    }
+
 }

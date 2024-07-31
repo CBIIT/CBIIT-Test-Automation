@@ -17,19 +17,16 @@ public class CEDCDSearchFemaleCohortsStepImp extends PageInitializer {
 		cedcdSearchCohortsPage.searchCohortSelectAllCheckbox.click();
 		cedcdSearchCohortsPage.viewSelectedCohortDataButton.click();
 	}
-	public void comparingResultsReturnedtoFemaleAndAllValues() {
 
+	public void comparingResultsReturnedtoFemaleAndAllValues() {
 		List<WebElement> listOfWebElements = cedcdSearchCohortsPage.returnedResultsFilter;
 		System.out.println(listOfWebElements.size());
 		for (WebElement webElement : listOfWebElements) {
 			String locator = webElement.getText();
 			if (locator.endsWith("All")) {
-			} 
-			else if (locator.endsWith("Female")) {
+			} else if (locator.endsWith("Female")) {
 			}
 			System.out.println("Returned result: " + locator);
 		}
-		
 	}
-
 }

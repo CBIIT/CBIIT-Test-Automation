@@ -65,6 +65,15 @@ public class IAMRedesignStepImpl extends PageInitializer {
     }
 
     /**
+     * This method will open the login page for AWS dashboard and wait for 20 sec to input login credentials
+     *
+     */
+    public static void goToAWSUrl() {
+        WebDriverUtils.webDriver.get(IAMRedesignConstants.AWS_URL);
+        MiscUtils.sleep(20000);
+    }
+
+    /**
      * This method will validate the prod accounts
      *
      */
@@ -968,6 +977,7 @@ public class IAMRedesignStepImpl extends PageInitializer {
             try {
                 String value = "" + i;
                 String consoleMemberName = ADConsoleLocatorsPage.consoleUserMemberName(value).getText();
+                MiscUtils.sleep(2000);
                 JavascriptUtils.scrollIntoView(ADConsoleLocatorsPage.consoleUserMemberName(value));
                 for (WebElement c:aDConsoleLocatorsPage.allConsoleUsersNamesText){
                     String consoleMName = c.getText();
@@ -980,5 +990,26 @@ public class IAMRedesignStepImpl extends PageInitializer {
                 allMembers = true;
             }
         }
+    }
+    /**
+     * This method will retrieve all Console Users Group Members
+     *
+     */
+    public static void retrieveAllAWSAccounts() {
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(aWSDashboardPage.aWSCloudOneIdentityCenterButton);
+        MiscUtils.sleep(3000);
+//        CommonUtils.waitForVisibility(aWSDashboardPage.firstAccountNumberText);
+        JavascriptUtils.clickByJS(aWSDashboardPage.firstAccountNummerButton);
+//        HashSet<String> allAWSAccounts = new HashSet<>();
+//        for (WebElement c:aWSDashboardPage.allaccountNumbers){
+//            String accountName = c.getAttribute("xpath");
+//            allAWSAccounts.add(accountName);
+//            }
+//        for (String a:allAWSAccounts){
+//            System.out.println(a);
+//        }
+//        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(3000);
     }
 }

@@ -1,18 +1,15 @@
 package AnalysisTools.CEDCD.Pages;
 
 import java.util.List;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
 public class CEDCDBiospecimenCountsPage extends CommonUtils {
 
 	/** ======================= Biospecimen WebElements ==================== */
-
 	/** This element selects the Biospecimen tab on the home page */
 	@FindBy(xpath = "(//span[contains(text(),'Biospecimen Counts')])[2]")
 	public WebElement biospecimenTab;
