@@ -59,7 +59,7 @@ public class RAS_Screener_Submission_Steps extends PageInitializer {
 
     @Given("a RAS Screener has been submitted")
     public void a_ras_screener_has_been_submitted() {
-
+        ras_scenario_one_stepsImpl.clicksOnEligibilityQuestionnaireToBeginQuestionnaire();
     }
 
 }

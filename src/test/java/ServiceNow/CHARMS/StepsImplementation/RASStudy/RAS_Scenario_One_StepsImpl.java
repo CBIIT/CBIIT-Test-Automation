@@ -300,32 +300,6 @@ public class RAS_Scenario_One_StepsImpl extends PageInitializer {
 
 
 
-
-
-
-
-
-//        try {
-//            dynamicLocator(ras_Screener_TestDataManager.areYouAdoptedOption).click();
-//            CucumberLogUtils.logScreenshot();
-//        } catch (NoSuchElementException e) {
-//            CucumberLogUtils.scenario.log("* * * NEXT BUTTON UNRESPONSIVE - - CLICKING AGAIN * * *");
-//            ras_scenario_one_stepsImpl.clickOnScreenerNextButton();
-//            dynamicLocator(ras_Screener_TestDataManager.areYouAdoptedOption).click();
-//            CucumberLogUtils.logScreenshot();
-//        }
-//        ras_scenario_one_stepsImpl.clickOnScreenerNextButton();
-
-//        try {
-//            CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.countryOption, rasopathyQuestionnairePage.whatCountryDoesParticipantCurrentlyLiveInDropDown);
-//            CucumberLogUtils.logScreenshot();
-//        } catch (NoSuchElementException e) {
-//            CucumberLogUtils.scenario.log("* * * NEXT BUTTON UNRESPONSIVE - - CLICKING AGAIN * * *");
-//            ras_scenario_one_stepsImpl.clickOnScreenerNextButton();
-//            CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.countryOption, rasopathyQuestionnairePage.whatCountryDoesParticipantCurrentlyLiveInDropDown);
-//            CucumberLogUtils.logScreenshot();
-//        }
-//        ras_scenario_one_stepsImpl.clickOnScreenerNextButton();
 //        try {
 //            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.STREET_ADDRESS).sendKeys(ras_Screener_TestDataManager.street);
 //            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.STREET_2_ADDRESS).sendKeys(ras_Screener_TestDataManager.street2);

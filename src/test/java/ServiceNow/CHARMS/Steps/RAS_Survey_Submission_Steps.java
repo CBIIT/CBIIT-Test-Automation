@@ -36,4 +36,10 @@ public class RAS_Survey_Submission_Steps extends PageInitializer {
 	public void the_participant_submits_a_ras_survey_from_excel_sheet(String rasSurveySheet) {
 		ras_scenario_one_stepsImpl.rasSurveyScenarioSelector(rasSurveySheet);
 	}
+
+	@Given("clicks on {string} to begin survey")
+	public void clicks_on_to_begin_survey(String text) {
+
+	}
+
 }
