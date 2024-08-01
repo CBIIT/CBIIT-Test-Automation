@@ -6,7 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.WebDriverUtils;
 
-public class RASopathyQuestionnairePage {
+import static com.nci.automation.web.WebDriverUtils.webDriver;
+
+public class RAS_Screener_Page {
+
+    /* LOCATOR FOR ALL QUESTIONS ON RAS SCREENER */
+    @FindBy(xpath = "//*[@class='QuestionText BorderColor']")
+    public WebElement question;
 
     /* ----- BEGINNING OF RASopathy Eligibility Questionnaire PAGE ---- */
 
@@ -419,8 +425,12 @@ public class RASopathyQuestionnairePage {
     /*
         USE THIS METHOD TO DYNAMICALLY LOCATE ELEMENTS WITH RAS SCREENER
      */
-    public WebElement dynamicLocator(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']"));
+    public static WebElement dynamicLocator(String text) {
+        return webDriver.findElement(By.xpath("//*[text()='" + text + "']"));
+    }
+
+    public static WebElement dynamicDateOfBirthCalendarLocator(String text){
+        return webDriver.findElement(By.xpath("//span[@aria-label='"+ text + "']"));
     }
 
     /**
@@ -430,7 +440,7 @@ public class RASopathyQuestionnairePage {
      * @return
      */
     public WebElement dynamicTextBoxLocator(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::label//parent::span//parent::td/following-sibling::td/input"));
+        return webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::label//parent::span//parent::td/following-sibling::td/input"));
     }
 
     /***
@@ -439,7 +449,7 @@ public class RASopathyQuestionnairePage {
      * @return
      */
     public WebElement dynamicTextBoxLocatorForPhoneNumbers(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::label/following-sibling::input"));
+        return webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::label/following-sibling::input"));
     }
 
     /***
@@ -448,7 +458,7 @@ public class RASopathyQuestionnairePage {
      * @return
      */
     public WebElement dynamicPhoneNumberCheckBox(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::label//parent::div//parent::span//parent::th/following-sibling::td/label"));
+        return webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::label//parent::div//parent::span//parent::th/following-sibling::td/label"));
     }
 
     /***
@@ -457,7 +467,7 @@ public class RASopathyQuestionnairePage {
      * @return
      */
     public WebElement dynamicEmailAddressTextBox(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::legend/following-sibling::div/div/input"));
+        return webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::legend/following-sibling::div/div/input"));
     }
 
     /***
@@ -466,7 +476,7 @@ public class RASopathyQuestionnairePage {
      * @return
      */
     public WebElement dynamicClickOnCheckboxesScreener(int index) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='Questions']//child::div[2]//child::div[3]//child::div[1]//child::fieldset//child::legend/following-sibling::div//child::ul//child::li[" + index + "]//child::span//child::label"));
+        return webDriver.findElement(By.xpath("//*[@id='Questions']//child::div[2]//child::div[3]//child::div[1]//child::fieldset//child::legend/following-sibling::div//child::ul//child::li[" + index + "]//child::span//child::label"));
     }
 
     /***
@@ -475,7 +485,7 @@ public class RASopathyQuestionnairePage {
      * @return
      */
     public WebElement dynamicClickOnCheckboxesIiqTable(int indexOne, int indexTwo) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='SkinContent']//child::div//child::div[2]//child::div[3]//child::div[1]//child::fieldset//child::legend/following-sibling::div//child::table//child::tbody//child::tr[" + indexOne + "]//child::td[" + indexTwo + "]//child::span//child::label"));
+        return webDriver.findElement(By.xpath("//*[@id='SkinContent']//child::div//child::div[2]//child::div[3]//child::div[1]//child::fieldset//child::legend/following-sibling::div//child::table//child::tbody//child::tr[" + indexOne + "]//child::td[" + indexTwo + "]//child::span//child::label"));
     }
 
     /***
@@ -484,7 +494,7 @@ public class RASopathyQuestionnairePage {
      * @return
      */
     public WebElement dynamicEnterTextOnCheckboxesScreener(int index) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='Questions']//child::div[2]//child::div[3]//child::div[1]//child::fieldset//child::legend/following-sibling::div//child::ul//child::li[" + index + "]//child::span//child::input"));
+        return webDriver.findElement(By.xpath("//*[@id='Questions']//child::div[2]//child::div[3]//child::div[1]//child::fieldset//child::legend/following-sibling::div//child::ul//child::li[" + index + "]//child::span//child::input"));
     }
 
     /***
@@ -493,7 +503,7 @@ public class RASopathyQuestionnairePage {
      * @return
      */
     public WebElement dynamicLocatorForHowDidYouHearAboutStudyTextBoxes(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::label//parent::span/input"));
+        return webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::label//parent::span/input"));
     }
 
     /***
@@ -502,10 +512,10 @@ public class RASopathyQuestionnairePage {
      * @return
      */
     public WebElement dynamicLocatorForMainReasonForParticipatingInStudy(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::span//parent::label/following-sibling::input"));
+        return webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::span//parent::label/following-sibling::input"));
     }
 
-    public RASopathyQuestionnairePage() {
-        PageFactory.initElements(WebDriverUtils.webDriver, this);
+    public RAS_Screener_Page() {
+        PageFactory.initElements(webDriver, this);
     }
 }
