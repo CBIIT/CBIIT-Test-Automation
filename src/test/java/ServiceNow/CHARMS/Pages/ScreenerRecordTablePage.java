@@ -1,22 +1,12 @@
 package ServiceNow.CHARMS.Pages;
 
-import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import static com.nci.automation.web.WebDriverUtils.webDriver;
 
 public class ScreenerRecordTablePage {
-
-    /* REFERRAL PREVIEW BUTTON */
-    @FindBy(xpath = "//button[@id='viewr.x_naci_family_coho_family_history_details.proband_screener']")
-    public WebElement referralPreviewButton;
-
-    /* CONTACT INFORMATION BUTTON */
-    @FindBy(xpath = "//span[contains(text(),'Contact Information')]")
-    public WebElement contactInformationTab;
 
     /* SCREENER PREVIEW FAMILY MEMBER RECORD FIELD */
     @FindBy(xpath = "//input[@id='x_naci_family_coho_ras_referral.family_member_record_label']")
