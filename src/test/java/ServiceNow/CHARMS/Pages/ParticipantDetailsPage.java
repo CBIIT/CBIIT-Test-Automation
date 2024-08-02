@@ -46,15 +46,15 @@ public class ParticipantDetailsPage {
     public WebElement nameTextBox;
 
     /* FIRST NAME TEXT BOX*/
-    @FindBy(xpath = "//input[@aria-label='First Name']")
+    @FindBy(xpath = "(//input[@name='x_naci_family_coho_family_history_details.first_name'])[1]")
     public WebElement firstNameTextBox;
 
     /* MIDDLE INITIAL TEXT BOX */
-    @FindBy(xpath = "//input[@aria-label='Middle Name']")
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.middle_name']")
     public WebElement middleInitialTextBox;
 
     /* LAST NAME TEXT BOX */
-    @FindBy(xpath = "//input[@aria-label='Last Name']")
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.last_name']")
     public WebElement lastNameTextBox;
 
     /**
@@ -93,19 +93,19 @@ public class ParticipantDetailsPage {
     public WebElement contactInfoTab;
 
     /* CONTACT STREET ADDRESS */
-    @FindBy(xpath = "//input[@aria-label='Contact Street Address']")
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.street_address']")
     public WebElement contactStreetAddress;
 
     /* CONTACT STATE */
-    @FindBy(xpath = "//input[@aria-label='Contact State']")
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.state']")
     public WebElement contactState;
 
     /* CONTACT CITY */
-    @FindBy(xpath = "//input[@aria-label='Contact City']")
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.city']")
     public WebElement contactCity;
 
     /* CONTACT ZIP CODE */
-    @FindBy(xpath = "//input[@aria-label='Contact Zip Code']")
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.zipcode']")
     public WebElement contactZipCode;
 
     /* CONTACT COUNTRY DROP DOWN */

@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 		features = "src/test/java/ServiceNow/CHARMS/Features",
 		glue = {"ServiceNow.CHARMS.Steps", "Hooks"},
 		tags = "@Progression",
-		dryRun = true
+		dryRun = false
 )
 public class Run_CHARMS_Progression_Test extends AbstractTestNGCucumberTests{
 }

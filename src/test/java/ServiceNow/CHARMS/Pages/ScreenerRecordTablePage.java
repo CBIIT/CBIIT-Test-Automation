@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static com.nci.automation.web.WebDriverUtils.webDriver;
+
 public class ScreenerRecordTablePage {
 
     /* REFERRAL PREVIEW BUTTON */
@@ -14,7 +16,7 @@ public class ScreenerRecordTablePage {
 
     /* CONTACT INFORMATION BUTTON */
     @FindBy(xpath = "//span[contains(text(),'Contact Information')]")
-    public WebElement contactInformationButton;
+    public WebElement contactInformationTab;
 
     /* SCREENER PREVIEW FAMILY MEMBER RECORD FIELD */
     @FindBy(xpath = "//input[@id='x_naci_family_coho_ras_referral.family_member_record_label']")
@@ -143,7 +145,17 @@ public class ScreenerRecordTablePage {
      * @return
      */
     public WebElement dynamicLocatorForTabs(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//span[contains(text(),'" + text + "')]"));
+        return webDriver.findElement(By.xpath("//span[contains(text(),'" + text + "')]"));
+    }
+
+    /**
+     * Finds a web element representing a dynamic tab in the ScreenerRecordTablePage using exact text.
+     *
+     * @param text The exact text of the tab to locate.
+     * @return The web element representing the dynamic tab with the specified text.
+     */
+    public static WebElement dynamicTabLocatorUsingExactText(String text){
+        return webDriver.findElement(By.xpath("//span[text()='" + text + "']"));
     }
 
     /***
@@ -152,10 +164,10 @@ public class ScreenerRecordTablePage {
      * @return
      */
     public WebElement dynamicLocatorForStudyButtons(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//button[contains(text(),'" + text + "')])[1]"));
+        return webDriver.findElement(By.xpath("(//button[contains(text(),'" + text + "')])[1]"));
     }
 
     public ScreenerRecordTablePage() {
-        PageFactory.initElements(WebDriverUtils.webDriver, this);
+        PageFactory.initElements(webDriver, this);
     }
 }

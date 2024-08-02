@@ -11,6 +11,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoField;
 import java.util.*;
 import org.openqa.selenium.*;
@@ -713,6 +714,11 @@ public class CommonUtils extends WebDriverUtils {
         }
     }
 
+    public static String getTextOfSelectedDropDownOption(WebElement element){
+        Select select = new Select(element);
+        return select.getFirstSelectedOption().getText();
+    }
+
     /**
      * Use this method in need of entering value to a text box through selenium
      * WebDriver.
@@ -862,6 +868,25 @@ public class CommonUtils extends WebDriverUtils {
         Assert.assertEquals(actualValues.size(), expectedValues.size());
         for (int i = 0; i < actualValues.size(); i++) {
             Assert.assertEquals(actualValues.get(i).getText(), expectedValues.get(i));
+        }
+    }
+
+    /**
+     * Converts a given date string from the format "MMMM d, yyyy" to "MM/dd/yyyy" format.
+     *
+     * @param inputDate the date string to be converted
+     * @return the converted date string in "MM/dd/yyyy" format, or null if the input date is invalid
+     */
+    public static String convertDate(String inputDate) {
+        try {
+            DateTimeFormatter inputFormat = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+            DateTimeFormatter outputFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+
+            LocalDate date = LocalDate.parse(inputDate, inputFormat);
+            return date.format(outputFormat);
+        } catch (DateTimeParseException e) {
+            System.out.println("Unable to parse date: " + e.getMessage());
+            return null;
         }
     }
 }

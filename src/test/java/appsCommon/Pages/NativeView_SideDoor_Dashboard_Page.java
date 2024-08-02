@@ -75,10 +75,14 @@ public class NativeView_SideDoor_Dashboard_Page {
     /* ASSETS MENU BUTTON */
     @FindElementBy(xpath = "//*[text()='Assets'][1]")
     public static WebElement assetsMenuButton;
-    
+
+    /* ALL PARTICIPANT DETAILS */
+    @FindElementBy(xpath = "//*[text()='All Participant Details'][1]")
+    public static WebElement allParticipantDetailsLink;
+
 	/* NV: FHQ Patients Menu Link In NV Navigator */
 	@FindBy(css = "a[class='nested-item item-label keyboard-navigatable highlighted-item']")
-	public static  WebElement nVFHQFilterMatchLink;
+	public static WebElement nVFHQFilterMatchLink;
 	
     /* USE THIS METHOD TO SEARCH ANY TEXT USING THE NATIVE VIEW FILTER NAVIGATOR @param text @return */
     public static WebElement dynamicFilterNavigatorTextSearch(String text) {
