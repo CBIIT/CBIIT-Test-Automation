@@ -146,37 +146,13 @@ public class ParticipantDetailsPage {
     /***
      * MEDICAL INFORMATION SECTION
      */
-    /* MEDICAL INFORMATION TAB */
-    @FindBy(xpath = "//span[contains(text(),'Medical Information')]")
-    public WebElement medicalInformationTab;
-
-    /* HAS A PHYSICIAN EVER DIAGNOSED THIS PARTICIPANT WITH CANCER? DROP DOWN*/
-    @FindBy(xpath = "//select[@id='x_naci_family_coho_family_history_details.has_cancer']")
-    public WebElement hasAPhysicianEverDiagnosedThisParticipantWithCancerDropDown;
-
     /* VITAL STATUS YES DROP DOWN OPTION */
     @FindBy(xpath = "//*[@id='x_naci_family_coho_ras_referral.family_member_record.person_alive']")
     public WebElement vitalStatusYesDropDownOption;
 
-    /* HAS THE PARTICIPANT EVER HAD GENETIC TESTING? DROP DOWN */
-    @FindBy(xpath = "//select[@id='x_naci_family_coho_family_history_details.genetic_testing']")
-    public WebElement hasTheParticipantEverHadGeneticTestingDropDown;
-
     /***
      * RASOPATHY HISTORY SECTION
      */
-
-    /* RASOPATHY HISTORY TAB*/
-    @FindBy(xpath = "//span[contains(text(),'RASopathy History')]")
-    public WebElement rasopathyHistoryTab;
-
-    /* HAVE YOU BEEN DIAGNOSED WITH A RASOPATHY? DROP DOWN */
-    @FindBy(xpath = "//*[@id='x_naci_family_coho_ras_referral.rasopathy_diagnosis']")
-    public WebElement haveYouBeenDiagnosedWithARasopathyDropDown;
-
-    /* HAVE ANY OF YOUR BIOLOGICAL RELATIVES BEEN DIAGNOSED WITH A RASOPATHY? DROP DOWN */
-    @FindBy(xpath = "//*[@id='x_naci_family_coho_ras_referral.realtives_rasopathy_diagnosis']")
-    public WebElement haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathyDropDown;
 
     /* CONSENT STATUS TEXT */
     @FindBy(xpath = "//td[normalize-space()='Consent Call Pending']")
