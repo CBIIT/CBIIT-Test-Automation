@@ -17,7 +17,7 @@ public class NativeView_SideDoor_Dashboard_Page {
     public static WebElement allTab;
   
     /* FILTER NAVIGATOR TEXT BOX */
-    @FindElementBy(xpath = "//*[@class='sn-polaris-nav-header-filter can-animate']//child::input")
+    @FindElementBy(xpath = "//*[@class='sn-polaris-nav-header-filter can-animate']/input")
     public static WebElement filterNavigatorTextBox;
  
     /* FILTER NAVIGATOR TEXT BOX */
