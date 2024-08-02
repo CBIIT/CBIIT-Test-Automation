@@ -1,7 +1,7 @@
 Feature: RAS Screener Scenarios
   Description: This feature file contains scenarios which submit myRAS Screeners, Consent Flows, IIQ Forms and the RAS Surveys. No data verification in Native View
 
-  @JUAREZDS @RAS_STUDY @2CP2-2332 @selenium @Smoke
+  @JUAREZDS @RAS_STUDY @2CP2-2332 @Smoke @Regression @selenium
   Scenario Outline: This scenario outline is completing the myRAS Screeners, Consent Flows, IIQ Forms and the RAS Surveys
     Given test automation account has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
