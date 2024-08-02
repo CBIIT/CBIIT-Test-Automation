@@ -101,6 +101,8 @@ public class WebDriverUtils {
         } else if (osName.contains("Linux")) {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--headless=new");
+            chromeOptions.addArguments("---no-sandbox");
+            chromeOptions.addArguments("--disable-dev-shm-usage");
             webDriver = new ChromeDriver(chromeOptions);
             webDriver.manage().window().maximize();
             webDriver.manage().deleteAllCookies();
