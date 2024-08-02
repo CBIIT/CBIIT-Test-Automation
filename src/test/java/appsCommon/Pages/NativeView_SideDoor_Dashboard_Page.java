@@ -9,7 +9,6 @@ import io.github.sukgu.Shadow;
 import io.github.sukgu.support.ElementFieldDecorator;
 import io.github.sukgu.support.FindElementBy;
 
-/*THIS CLASS CONTAINS NATIVE VIEW DASHBOARD ELEMENTS*/
 public class NativeView_SideDoor_Dashboard_Page {   
     public static Shadow shadow = new Shadow(WebDriverUtils.webDriver); 
     /* ALL TAB */
@@ -19,15 +18,7 @@ public class NativeView_SideDoor_Dashboard_Page {
     /* FILTER NAVIGATOR TEXT BOX */
     @FindElementBy(xpath = "//*[@class='sn-polaris-nav-header-filter can-animate']/input")
     public static WebElement filterNavigatorTextBox;
- 
-    /* FILTER NAVIGATOR TEXT BOX */
-    @FindBy(css = ".super-filter-header.all-results-toggle.no-interaction")
-    public static WebElement filterNavigatorResultsTextBox;
-   
-    /* PIN */
-    @FindElementBy(xpath = "//*[@class='sn-polaris-nav-header-controls pin']//child::button")
-    public static WebElement sideMenuPin;
- 
+
     /* iFrame */
     @FindElementBy(css = "iframe[title='Main Content']")
     public static WebElement nativeViewiFrame;
@@ -56,17 +47,9 @@ public class NativeView_SideDoor_Dashboard_Page {
     @FindElementBy(xpath = "//div[@class='now-modal-footer']/now-button[2]")
     public static WebElement impersonateUserWindowButton;
 
-    /* NV POP UP CANCEL BUTTON  */
-    @FindElementBy(xpath = "//div[@class='now-button -primary -md']")
-    public static WebElement NVPopUpDiscardCancelButton;
-
     /* FILTER NAVIGATION EMAILS BUTTON  */
     @FindElementBy(xpath = "//div[@class='sn-polaris-nav-body']/sn-collapsible-list[2]")
     public static WebElement filterNavigationEmailsButton;
-
-    /* FILTER NAVIGATION NOTIFICATIONS BUTTON  */
-    @FindElementBy(xpath = "//div[@class='sn-polaris-nav-body']/sn-collapsible-list[2]/div/div/ul/li[2]/span")
-    public static WebElement filterNavigationNotificationButton;
 
     /* FILTER NAVIGATION MEMBERS OF CONGRESS */
     @FindElementBy(xpath = "//span[@class='menu-item-row highlighted-menu-item-row']")
