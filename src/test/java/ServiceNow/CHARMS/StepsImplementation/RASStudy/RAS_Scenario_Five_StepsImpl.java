@@ -29,13 +29,11 @@ public class RAS_Scenario_Five_StepsImpl extends PageInitializer {
             ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         }
         try {
-            // rasopathyQuestionnairePage.iAmCompletingThisFormForMyselfOption.click();
             rasopathyQuestionnairePage.dynamicLocator(ras_Screener_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);
             CucumberLogUtils.logScreenshot();
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
-            // rasopathyQuestionnairePage.iAmCompletingThisFormForMyselfOption.click();
             rasopathyQuestionnairePage.dynamicLocator(ras_Screener_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);
             CucumberLogUtils.logScreenshot();
         }
