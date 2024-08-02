@@ -26,8 +26,3 @@ Feature: RAS Screener Scenarios
 #      | charmsras2@yahoo.com | RASTest2023$$ | screenerScenario2 | IIQScenario2 | RASSurveyScenario2 |
 #      | charmsras3@yahoo.com | RASTest2023$$ | screenerScenario3 | IIQScenario3 | RASSurveyScenario3 |
 #      | charmsras5@yahoo.com | RASTest2023$$ | screenerScenario4 | IIQScenario4 | RASSurveyScenario4 |
-
-
-  @playwright
-    Scenario: RAS Screener Submissions + Assertions
-    Given a RAS Screener has been submitted
