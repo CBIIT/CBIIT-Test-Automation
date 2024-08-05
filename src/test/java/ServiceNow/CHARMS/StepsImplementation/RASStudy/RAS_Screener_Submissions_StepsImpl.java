@@ -1816,17 +1816,12 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
 
-    public void verifyingDropDownOption(WebElement element, String message) {
-        CommonUtils.assertEqualsWithMessage(element.getAttribute("selected"), "true", message);
-    }
-
     /***
      * THIS METHOD VERIFIES RAS SCREENER SCENARIO 1 DATA IN NATIVE VIEW
      */
     public void verifying_RAS_Screener_Scenario_1_Data(String sheetName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         MiscUtils.sleep(2000);
-
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
         MiscUtils.sleep(3000);
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
