@@ -505,7 +505,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
     }
 
     /***
-     * USE THIS METHOD TO CLICK ON RAS IIF FORM
+     * USE THIS METHOD TO CLICK ON RAS IIQ FORM
      */
     public void clicksOnTheIiqForm() {
         CommonUtils.waitForVisibility(myRASHomePage.rasoptathyIiqButton);
@@ -575,13 +575,10 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
     public void nativeViewConsentFlowProcessScenario1(String sheetName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         MiscUtils.sleep(2000);
-
-       // ServiceNow_Common_Methods.filterNavigatorSearch("All Participant Details");
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
         MiscUtils.sleep(3000);
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
         MiscUtils.sleep(3000);
-
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
