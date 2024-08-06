@@ -17,10 +17,10 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import io.cucumber.messages.types.Hook;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import static ServiceNow.CHARMS.Pages.RAS_Screener_Page.dynamicLocator;
+import static ServiceNow.CHARMS.studyQuestions.RAS_Screener_Questions.*;
 
 public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
     /***
@@ -99,7 +99,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * ARE YOU COMPLETING THIS FORM FOR SOMEONE ELSE OR FOR YOURSELF? * * * *
                  */
-                if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("Are you completing this form for someone else or for yourself?")) {
+                if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_FOR_YOURSELF)) {
                     CucumberLogUtils.scenario.log("* * * * ARE YOU COMPLETING THIS FORM FOR SOMEONE ELSE OR FOR YOURSELF? * * * *");
                     dynamicLocator(ras_Screener_TestDataManager.areYouCompletingThisFormForSomeoneElseOrYourself).click();
                     CucumberLogUtils.logScreenshot();
@@ -108,7 +108,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * WHAT IS YOUR NAME? * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("What is your name?")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(WHAT_IS_YOUR_NAME)) {
                     CucumberLogUtils.scenario.log("* * * * * ENTERING FIRST NAME, MIDDLE INITIAL, LAST NAME * * * * *");
                     rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.FIRST_NAME).sendKeys(ras_Screener_TestDataManager.firstName);
                     rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.MIDDLE_INITIAL).sendKeys(ras_Screener_TestDataManager.middleInitial);
@@ -119,7 +119,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * THE NEXT SET OF QUESTIONS WILL COLLECT BASIC INFORMATION ABOUT YOU. * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("The next set of questions will collect basic information about you.")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(THE_NEXT_SET_OF_QUESTIONS_WILL_COLLECT_BASIC_INFORMATION_ABOUT_YOU)) {
                     CucumberLogUtils.scenario.log("* * * * * THE NEXT SET OF QUESTIONS WILL COLLECT BASIC INFORMATION ABOUT YOU. * * * * *");
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
@@ -127,7 +127,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * WHAT IS YOUR DATE OF BIRTH? * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("What is your date of birth?")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(WHAT_IS_YOUR_DATE_OF_BIRTH)) {
                     CucumberLogUtils.scenario.log("* * * * * WHAT IS YOUR DATE OF BIRTH? * * * * *");
                     CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.dateOfBirthMonth, rasopathyQuestionnairePage.calendarMonthDropDown);
                     rasopathyQuestionnairePage.calendarYearTextBox.clear();
@@ -139,7 +139,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * WHAT WAS YOUR SEX ASSIGNED AT BIRTH? * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("What was your sex assigned at birth?")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(WHAT_WAS_YOUR_SEX_ASSIGNED_AT_BIRTH)) {
                     CucumberLogUtils.scenario.log("* * * * * WHAT WAS YOUR SEX ASSIGNED AT BIRTH? * * * * *");
                     dynamicLocator(ras_Screener_TestDataManager.sexAssignedAtBirthOption).click();
                     CucumberLogUtils.logScreenshot();
@@ -148,7 +148,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * ARE YOU ADOPTED? * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("Are you adopted?")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(ARE_YOU_ADOPTED)) {
                     CucumberLogUtils.scenario.log("* * * * * ARE YOU ADOPTED? * * * * *");
                     dynamicLocator(ras_Screener_TestDataManager.areYouAdoptedOption).click();
                     CucumberLogUtils.logScreenshot();
@@ -157,7 +157,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * IN WHICH COUNTRY DO YOU CURRENTLY LIVE? * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("In which country do you currently live?")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(IN_WHICH_COUNTRY_DO_YOU_CURRENTLY_LIVE)) {
                     CucumberLogUtils.scenario.log("* * * * * IN WHICH COUNTRY DO YOU CURRENTLY LIVE? * * * * *");
                     CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.countryOption, rasopathyQuestionnairePage.whatCountryDoesParticipantCurrentlyLiveInDropDown);
                     CucumberLogUtils.logScreenshot();
@@ -166,7 +166,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * PLEASE PROVIDE THE MAILING ADDRESS WHERE STUDY MATERIALS CAN BE SENT, AS NEEDED. * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("Please provide the mailing address where study materials can be sent, as needed.")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(PLEASE_PROVIDE_THE_MAILING_ADDRESS_WHERE_STUDY_MATERIALS_CAN_BE_SENT_AS_NEEDED)) {
                     CucumberLogUtils.scenario.log("* * * * * PLEASE PROVIDE THE MAILING ADDRESS WHERE STUDY MATERIALS CAN BE SENT, AS NEEDED. * * * * *");
                     rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.STREET_ADDRESS).sendKeys(ras_Screener_TestDataManager.street);
                     rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.STREET_2_ADDRESS).sendKeys(ras_Screener_TestDataManager.street2);
@@ -179,7 +179,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * WHAT IS YOUR EMAIL ADDRESS? * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("What is your email address?")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(WHAT_IS_YOUR_EMAIL_ADDRESS)) {
                     CucumberLogUtils.scenario.log("* * * * * WHAT IS YOUR EMAIL ADDRESS? * * * * *");
                     rasopathyQuestionnairePage.dynamicEmailAddressTextBox(ras_Screener_Constants.EMAIL_ADDRESS).sendKeys(ras_Screener_TestDataManager.emailAddress);
                     CucumberLogUtils.logScreenshot();
@@ -188,7 +188,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * PLEASE CONFIRM YOUR EMAIL ADDRESS * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("Please confirm your email address")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(PLEASE_CONFIRM_YOUR_EMAIL_ADDRESS)) {
                     CucumberLogUtils.scenario.log("* * * * * PLEASE CONFIRM YOUR EMAIL ADDRESS * * * * *");
                     rasopathyQuestionnairePage.dynamicEmailAddressTextBox(ras_Screener_Constants.CONFIRM_EMAIL_ADDRESS).sendKeys(ras_Screener_TestDataManager.emailAddressConfirm);
                     CucumberLogUtils.logScreenshot();
@@ -197,7 +197,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * PLEASE LIST YOUR PHONE NUMBERS BELOW.  PLEASE ALSO SELECT YOUR PREFERRED CONTACT NUMBER.  * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("Please list your phone numbers below.  Please also select your preferred contact number. ")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(PLEASE_LIST_YOUR_PHONE_NUMBERS_BELOW_PLEASE_ALSO_SELECT_YOUR_PREFERRED_CONTACT_NUMBER)) {
                     CucumberLogUtils.scenario.log("* * * * * PLEASE LIST YOUR PHONE NUMBERS BELOW.  PLEASE ALSO SELECT YOUR PREFERRED CONTACT NUMBER.  * * * * *");
                     rasopathyQuestionnairePage.dynamicTextBoxLocatorForPhoneNumbers(ras_Screener_Constants.HOME_PHONE_NUMBER).sendKeys(ras_Screener_TestDataManager.homePhoneNumber);
                     rasopathyQuestionnairePage.dynamicTextBoxLocatorForPhoneNumbers(ras_Screener_Constants.CELL_PHONE_NUMBER).sendKeys(ras_Screener_TestDataManager.cellPhoneNumber);
@@ -209,7 +209,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * WHAT IS YOUR ETHNICITY?  * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("What is your ethnicity?")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(WHAT_IS_YOUR_ETHNICITY)) {
                     CucumberLogUtils.scenario.log("* * * * * WHAT IS YOUR ETHNICITY?  * * * * *");
                     dynamicLocator(ras_Screener_TestDataManager.whatIsYourEthnicity).click();
                     CucumberLogUtils.logScreenshot();
@@ -218,7 +218,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * WHAT IS YOUR RACE? PLEASE SELECT ALL THAT APPLY.  * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("What is your race? Please select all that apply.")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(WHAT_IS_YOUR_RACE_PLEASE_SELECT_ALL_THAT_APPLY)) {
                     CucumberLogUtils.scenario.log("* * * * * WHAT IS YOUR RACE? PLEASE SELECT ALL THAT APPLY.  * * * * *");
                     dynamicLocator(ras_Screener_TestDataManager.whatIsYourRace).click();
                     CucumberLogUtils.logScreenshot();
@@ -227,7 +227,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * ARE YOU A PARTICIPANT IN ANY OTHER RESEARCH STUDY OR REGISTRY GROUP?  PLEASE SPECIFY.  * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("Are you a participant in any other research study or registry group?  Please specify.")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(ARE_YOU_A_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP_PLEASE_SPECIFY)) {
                     CucumberLogUtils.scenario.log("* * * * * ARE YOU A PARTICIPANT IN ANY OTHER RESEARCH STUDY OR REGISTRY GROUP?  PLEASE SPECIFY.  * * * * *");
                     dynamicLocator(ras_Screener_TestDataManager.areYouAParticipantInOtherStudyGroup).click();
                     CucumberLogUtils.logScreenshot();
@@ -236,7 +236,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * TO DETERMINE ELIGIBILITY FOR THIS STUDY, WE NEED TO COLLECT INFORMATION ABOUT MEDICAL DIAGNOSES.  THESE QUESTIONS ASK ABOUT GENERAL MEDICAL CONDITIONS, CANCER AND ANY PRIOR DIAGNOSIS OF A RASOPATHY.  PLEASE COMPLETE THIS INFORMATION TO THE BEST OF YOUR KNOWLEDGE.   * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("To determine eligibility for this study, we need to collect information about medical diagnoses.  These questions ask about general medical conditions, cancer and any prior diagnosis of a RASopathy.  Please complete this information to the best of your knowledge. ")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(TO_DETERMINE_ELIGIBILITY_FOR_THIS_STUDY_WE_NEED_TO_COLLECT_INFORMATION_ABOUT_MEDICAL_DIAGNOSES_THESE_QUESTIONS_ASK_ABOUT_GENERAL_MEDICAL_CONDITIONS_CANCER_AND_ANY_PRIOR_DIAGNOSIS_OF_A_RASOPATHY)) {
                     CucumberLogUtils.scenario.log("* * * * * TO DETERMINE ELIGIBILITY FOR THIS STUDY, WE NEED TO COLLECT INFORMATION ABOUT MEDICAL DIAGNOSES.  THESE QUESTIONS ASK ABOUT GENERAL MEDICAL CONDITIONS, CANCER AND ANY PRIOR DIAGNOSIS OF A RASOPATHY.  PLEASE COMPLETE THIS INFORMATION TO THE BEST OF YOUR KNOWLEDGE.  * * * * *");
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
@@ -244,7 +244,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * HAVE YOU EVER BEEN DIAGNOSED WITH THE FOLLOWING CONDITIONS?  SELECT ALL THAT APPLY.  IF YOU DO NOT SEE THE EXACT CONDITION DIAGNOSED, PLEASE SELECT THE CLOSEST ANSWER.   * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer.")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS)) {
                     CucumberLogUtils.scenario.log("* * * * * HAVE YOU EVER BEEN DIAGNOSED WITH THE FOLLOWING CONDITIONS?  SELECT ALL THAT APPLY.  IF YOU DO NOT SEE THE EXACT CONDITION DIAGNOSED, PLEASE SELECT THE CLOSEST ANSWER.   * * * * *");
                     dynamicLocator(ras_Screener_TestDataManager.haveYouBeenDiagnosedWithFollowingConditions).click();
                     CucumberLogUtils.logScreenshot();
@@ -253,7 +253,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * HAVE YOU EVER BEEN DIAGNOSED WITH CANCER? * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("Have you ever been diagnosed with cancer?")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_CANCER)) {
                     CucumberLogUtils.scenario.log("* * * * * HAVE YOU EVER BEEN DIAGNOSED WITH CANCER? * * * * *");
                     dynamicLocator(ras_Screener_TestDataManager.haveYouBeenDiagnosedWithCancer).click();
                     CucumberLogUtils.logScreenshot();
@@ -262,7 +262,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * HAVE YOU BEEN DIAGNOSED WITH A RASOPATHY SUCH AS NOONAN SYNDROME, NOONAN SYNDROME WITH MULTIPLE LENTIGINES, COSTELLO SYNDROME, CARDIOFACIOCUTANEOUS SYNDROME, LEGIUS SYNDROME, CAPILLARY ARTERIOVENOUS MALFORMATION SYNDROME, HEREDITARY GINGIVAL FIBROMATOSIS OR SYNGAP1 SYNDROME? * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("Have you been diagnosed with a RASopathy such as Noonan syndrome, Noonan syndrome with multiple lentigines, Costello syndrome, cardiofaciocutaneous syndrome, Legius syndrome, capillary arteriovenous malformation syndrome, hereditary gingival fibromatosis or SYNGAP1 syndrome?")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(HAVE_YOU_BEEN_DIAGNOSED_WITH_A_RASOPATHY)) {
                     CucumberLogUtils.scenario.log("* * * * * HAVE YOU BEEN DIAGNOSED WITH A RASOPATHY SUCH AS NOONAN SYNDROME, NOONAN SYNDROME WITH MULTIPLE LENTIGINES, COSTELLO SYNDROME, CARDIOFACIOCUTANEOUS SYNDROME, LEGIUS SYNDROME, CAPILLARY ARTERIOVENOUS MALFORMATION SYNDROME, HEREDITARY GINGIVAL FIBROMATOSIS OR SYNGAP1 SYNDROME? * * * * *");
                     dynamicLocator(ras_Screener_TestDataManager.haveYouBeenDiagnosedWithARasopathy).click();
                     CucumberLogUtils.logScreenshot();
@@ -279,7 +279,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * HAVE ANY OF YOUR BIOLOGICAL RELATIVES BEEN DIAGNOSED WITH A RASOPATHY? * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(" Have any of your biological relatives been diagnosed with a RASopathy?")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(HAVE_ANY_OF_YOUR_BIOLOGICAL_RELATIVES_BEEN_DIAGNOSED_WITH_A_RASOPATHY)) {
                     CucumberLogUtils.scenario.log("* * * * * HAVE ANY OF YOUR BIOLOGICAL RELATIVES BEEN DIAGNOSED WITH A RASOPATHY? * * * * *");
                     dynamicLocator(ras_Screener_TestDataManager.haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathy).click();
                     CucumberLogUtils.logScreenshot();
@@ -289,7 +289,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                  * * * * *
                  * HAVE YOU EVER HAD GENETIC TESTING? * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("Have you ever had genetic testing?")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(HAVE_YOU_EVER_HAD_GENETIC_TESTING)) {
                     CucumberLogUtils.scenario.log("* * * * * HAVE YOU EVER HAD GENETIC TESTING? * * * * *");
                     dynamicLocator(ras_Screener_TestDataManager.haveYouEverHadGeneticTesting).click();
                     CucumberLogUtils.logScreenshot();
@@ -298,7 +298,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * WE WILL NOW ASK A FEW REMAINING QUESTIONS REGARDING THIS STUDY. * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("We will now ask a few remaining questions regarding this study.")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(WE_WILL_NOW_ASK_A_FEW_REMAINING_QUESTIONS_REGARDING_THIS_STUDY)) {
                     CucumberLogUtils.scenario.log("* * * * * WE WILL NOW ASK A FEW REMAINING QUESTIONS REGARDING THIS STUDY. * * * * *");
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
@@ -306,7 +306,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * HOW DID YOU HEAR ABOUT THIS STUDY?  IF A SPECIFIC HEALTH CARE PROVIDER REFERRED YOU TO THIS STUDY, PLEASE INCLUDE THEIR NAME IN THE CORRESPONDING TEXT BOX. * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("How did you hear about this study?  If a specific health care provider referred you to this study, please include their name in the corresponding text box.")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY)) {
                     CucumberLogUtils.scenario.log("* * * * * HOW DID YOU HEAR ABOUT THIS STUDY?  IF A SPECIFIC HEALTH CARE PROVIDER REFERRED YOU TO THIS STUDY, PLEASE INCLUDE THEIR NAME IN THE CORRESPONDING TEXT BOX. * * * * *");
                     CommonUtils.scrollIntoView(dynamicLocator(ras_Screener_TestDataManager.howDidYouHearAboutThisStudy));
                     dynamicLocator(ras_Screener_TestDataManager.howDidYouHearAboutThisStudy);
@@ -317,7 +317,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * HAVE YOU OR OTHER FAMILY MEMBERS EVER PARTICIPATED IN ANOTHER STUDY ON RASOPATHY AT ANOTHER MEDICAL INSTITUTION, UNIVERSITY, GOVERNMENT AGENCY OR OTHER SITE? * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("Have you or other family members ever participated in another study on RASopathy at another medical institution, university, government agency or other site?")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(HAVE_YOU_OR_OTHER_FAMILY_MEMBERS_EVER_PARTICIPATED_IN_ANOTHER_STUDY_ON_RASOPATHY_AT_ANOTHER_MEDICAL_INSTITUTION_UNIVERSITY_GOVERNMENT_AGENCY_OR_OTHER_SITE)) {
                     CucumberLogUtils.scenario.log("* * * * * HAVE YOU OR OTHER FAMILY MEMBERS EVER PARTICIPATED IN ANOTHER STUDY ON RASOPATHY AT ANOTHER MEDICAL INSTITUTION, UNIVERSITY, GOVERNMENT AGENCY OR OTHER SITE? * * * * *");
                     dynamicLocator(ras_Screener_TestDataManager.haveYouOrOtherFamilyMembersParticipatedInOtherStudy).click();
                     CucumberLogUtils.logScreenshot();
@@ -326,7 +326,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * WHAT ARE THE MAIN REASONS FOR PARTICIPATING IN THIS STUDY?  SELECT ALL THAT APPLY.  PLEASE ELABORATE ON THE REASON IN THE CORRESPONDING TEXTBOX. * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox.")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY)) {
                     CucumberLogUtils.scenario.log("* * * * * WHAT ARE THE MAIN REASONS FOR PARTICIPATING IN THIS STUDY?  SELECT ALL THAT APPLY.  PLEASE ELABORATE ON THE REASON IN THE CORRESPONDING TEXTBOX. * * * * *");
                     CommonUtils.scrollIntoView(dynamicLocator(ras_Screener_TestDataManager.whatAreMainReasonsForParticipatingInStudy));
                     dynamicLocator(ras_Screener_TestDataManager.whatAreMainReasonsForParticipatingInStudy).click();
@@ -337,7 +337,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * YOU ARE ALMOST DONE! * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contains("You are almost done!")) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contains(YOU_ARE_ALMOST_DONE)) {
                     CucumberLogUtils.scenario.log("* * * * * YOU ARE ALMOST DONE! * * * * *");
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                     MiscUtils.sleep(3000);

@@ -1491,7 +1491,6 @@ public class ApplicantProfileStepsImpl {
      */
     public static void verifies_vacancy_title_is(String expectedVacancyTitle) {
         CucumberLogUtils.playwrightScreenshot(page);
-//        Hooks.softAssert.assertEquals(page.locator("//div[@class='TitleAndDateContainer']/h1").innerText(), expectedVacancyTitle);
         Hooks.softAssert.assertEquals(page.locator("//*[normalize-space()='" + expectedVacancyTitle + " " + timestamp + "']").innerText(), expectedVacancyTitle + " " + timestamp);
     }
 

@@ -714,6 +714,12 @@ public class CommonUtils extends WebDriverUtils {
         }
     }
 
+    /**
+     * This method returns the text of the selected option in a drop-down list.
+     *
+     * @param element the web element representing the drop-down list
+     * @return the text of the selected option in the drop-down list
+     */
     public static String getTextOfSelectedDropDownOption(WebElement element){
         Select select = new Select(element);
         return select.getFirstSelectedOption().getText();
