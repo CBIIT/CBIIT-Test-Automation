@@ -19,6 +19,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.*;
 import org.testng.Assert;
+
 import static ServiceNow.CHARMS.Pages.RAS_Screener_Page.dynamicLocator;
 import static ServiceNow.CHARMS.studyQuestions.RAS_Screener_Questions.*;
 
@@ -55,10 +56,11 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
     public void rasScreenerScenarioSelector(String sheetName) {
         if (sheetName.contentEquals("screenerScenario1")) {
             ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScreenerSubmissions();
+            rasScreenerSubmissions(sheetName);
         } else if (sheetName.contentEquals("screenerScenario2")) {
             ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScenario2StepsImpl.rasScreenerSubmissionScenario2();
+            rasScreenerSubmissions(sheetName);
+//             rasScenario2StepsImpl.rasScreenerSubmissionScenario2();
         } else if (sheetName.contentEquals("screenerScenario3")) {
             ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
             rasScenario3StepsImpl.rasScreenerSubmissionScenario3();
@@ -71,7 +73,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         }
     }
 
-    public static void rasScreenerSubmissions() {
+    public static void rasScreenerSubmissions(String sheetName) {
         CommonUtils.switchToNextWindow();
         MiscUtils.sleep(2000);
         CommonUtils.waitForVisibility(myRASSurveyPage.rasSurveyThisCopyText);
@@ -220,7 +222,14 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                  */
                 else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(WHAT_IS_YOUR_RACE_PLEASE_SELECT_ALL_THAT_APPLY)) {
                     CucumberLogUtils.scenario.log("* * * * * WHAT IS YOUR RACE? PLEASE SELECT ALL THAT APPLY.  * * * * *");
-                    dynamicLocator(ras_Screener_TestDataManager.whatIsYourRace).click();
+
+                    if (sheetName.contentEquals("screenerScenario1")) {
+                        dynamicLocator(ras_Screener_TestDataManager.whatIsYourRace).click();
+                    }
+                    if (sheetName.contentEquals("screenerScenario2")) {
+                        dynamicLocator(ras_Screener_TestDataManager.whatIsYourRace).click();
+                        CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicPleaseSpecifyTextBox(ras_Screener_TestDataManager.whatIsYourRace), ras_Screener_TestDataManager.whatIsYourRaceOther);
+                    }
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
@@ -229,7 +238,19 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                  */
                 else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(ARE_YOU_A_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP_PLEASE_SPECIFY)) {
                     CucumberLogUtils.scenario.log("* * * * * ARE YOU A PARTICIPANT IN ANY OTHER RESEARCH STUDY OR REGISTRY GROUP?  PLEASE SPECIFY.  * * * * *");
-                    dynamicLocator(ras_Screener_TestDataManager.areYouAParticipantInOtherStudyGroup).click();
+
+                    if(sheetName.contentEquals("screenerScenario1")){
+                        dynamicLocator(ras_Screener_TestDataManager.areYouAParticipantInOtherStudyGroup).click();
+                    }
+                    if(sheetName.contentEquals("screenerScenario2")){
+                        CommonUtils.waitForClickability(dynamicLocator(ras_Screener_TestDataManager.isTheProbandAParticipantInAnyOtherResearchStudyOrRegistryGroupOption1));
+                        JavascriptUtils.clickByJS(dynamicLocator(ras_Screener_TestDataManager.isTheProbandAParticipantInAnyOtherResearchStudyOrRegistryGroupOption1));
+                        JavascriptUtils.clickByJS(dynamicLocator(ras_Screener_TestDataManager.isTheProbandAParticipantInAnyOtherResearchStudyOrRegistryGroupOption2));
+                        JavascriptUtils.clickByJS(dynamicLocator(ras_Screener_TestDataManager.isTheProbandAParticipantInAnyOtherResearchStudyOrRegistryGroupOption3));
+                        JavascriptUtils.clickByJS(dynamicLocator(ras_Screener_TestDataManager.isTheProbandAParticipantInAnyOtherResearchStudyOrRegistryGroupOption4));
+                        CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicPleaseSpecifyTextBox(ras_Screener_TestDataManager.isTheProbandAParticipantInAnyOtherResearchStudyOrRegistryGroupOption2), ras_Screener_TestDataManager.isTheProbandAParticipantInAnyOtherResearchStudyOrRegistryGroupOption2Other);
+                        CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicPleaseSpecifyTextBox(ras_Screener_TestDataManager.isTheProbandAParticipantInAnyOtherResearchStudyOrRegistryGroupOption3), ras_Screener_TestDataManager.isTheProbandAParticipantInAnyOtherResearchStudyOrRegistryGroupOption3Other);
+                    }
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
@@ -1869,7 +1890,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CommonUtils.clickOnElement(participantDetailsPage.demographicsTab);
         Hooks.softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.biologicalGenderDropDown), ras_Screener_TestDataManager.sexAssignedAtBirthOption, "-- VERIFYING BIOLOGICAL GENDER --");
         Hooks.softAssert.assertEquals(participantDetailsPage.participantRacePreferNotToAnswerOption.getText(), ras_Screener_TestDataManager.whatIsYourRace, "-- VERIFYING RACE --");
-        Hooks.softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.ethnicityDropDownOption),ras_Screener_TestDataManager.whatIsYourEthnicity, "-- VERIFYING ETHNICITY --");
+        Hooks.softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.ethnicityDropDownOption), ras_Screener_TestDataManager.whatIsYourEthnicity, "-- VERIFYING ETHNICITY --");
         Hooks.softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.isParticipantAdoptedDropDown), ras_Screener_TestDataManager.areYouAdoptedOption, "-- VERIFYING IF THE PARTICIPANT IS ADOPTED --");
         Hooks.softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.dateOfBirthTextBox), CommonUtils.convertDate(ras_Screener_TestDataManager.whatIsYourDateOfBirth), "-- VERIFYING DATE OF BIRTH --");
         CucumberLogUtils.logScreenshot();
@@ -1916,7 +1937,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
 
         CucumberLogUtils.scenario.log("---- VERIFYING SCREENER RECORD NAME AND CONTACT INFORMATION DATA ----");
-        Hooks.softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.vitalStatusYesDropDownOption), "Alive","-- VERIFYING VITAL STATUS --" );
+        Hooks.softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.vitalStatusYesDropDownOption), "Alive", "-- VERIFYING VITAL STATUS --");
         CommonUtils.clickOnElement(ScreenerRecordTablePage.dynamicTabLocatorUsingExactText("Contact Information"));
         Hooks.softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerStudyField), ras_Screener_Constants.RAS_STUDY, "-- VERIFYING STUDY FIELD --");
         Hooks.softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.familyMemberRecordField), ras_Screener_TestDataManager.firstName + ras_Screener_Constants.SPACE + ras_Screener_TestDataManager.lastName, "-- VERIFYING FAMILY MEMBER RECORD FIELD --");
@@ -1958,7 +1979,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
 
         CucumberLogUtils.scenario.log("---- VERIFYING RAS SCREENER TABLE FINAL INFORMATION ----");
         CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForTabs("Final Information"));
-        Hooks.softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.finalInformationHowDidYouHearAboutThisStudyDropDown),  ras_Screener_TestDataManager.howDidYouHearAboutThisStudy, "-- VERIFYING HOW DID PARTICIPANT HEAR ABOUT THE STUDY --");
+        Hooks.softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.finalInformationHowDidYouHearAboutThisStudyDropDown), ras_Screener_TestDataManager.howDidYouHearAboutThisStudy, "-- VERIFYING HOW DID PARTICIPANT HEAR ABOUT THE STUDY --");
         Hooks.softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.finalInformationHowDidYouHearAboutThisStudyPleaseSpecifyTextBox), ras_Screener_TestDataManager.howDidYouHearAboutThisStudyOtherReason, "-- VERIFYING HOW DID YOU PARTICIPANT HEAR ABOUT THE STUDY OTHER REASONS --");
         Hooks.softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.finalInformationHasParticipantOrAnyFamilyMemberParticipatedInAnyCancerStudyDropDown), ras_Screener_TestDataManager.haveYouOrOtherFamilyMembersParticipatedInOtherStudy, "-- VERIFYING IF PARTICIPANT OR FAMILY MEMBER HAVE PARTICIPATED IN CANCER STUDY --");
         Hooks.softAssert.assertEquals(screenerRecordTablePage.finalInformationMainReasonsForParticipatingInThisStudyOtherOption.getText(), ras_Screener_TestDataManager.whatAreMainReasonsForParticipatingInStudy, "-- VERIFYING MAIN REASONS FOR PARTICIPATING IN STUDY --");

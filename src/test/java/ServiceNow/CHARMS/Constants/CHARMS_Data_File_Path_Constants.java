@@ -4,7 +4,7 @@ public class CHARMS_Data_File_Path_Constants {
     public static final String RAS_SURVEY = System.getProperty("user.dir") + "/src/test/java/ServiceNow/CHARMS/Resources/RasSurveySelfSubmission.xlsx";
     public static final String RAS_SURVEY_DATA = System.getProperty("user.dir") + "/src/test/java/ServiceNow/CHARMS/Resources/RasSurveyDataVerificationTableData.xlsx";
     public static final String RAS_SCENARIO_ONE_DATA = "src/test/java/ServiceNow/CHARMS/Resources/RASScenario1.xlsx";
-    public static final String RAS_SCENARIO_TWO_DATA = "ServiceNow/CHARMS/Resources/RASScenario2.xlsx";
+    public static final String RAS_SCENARIO_TWO_DATA = "src/test/java/ServiceNow/CHARMS/Resources/RASScenario2.xlsx";
     public static final String RAS_SCENARIO_THREE_DATA = "ServiceNow/CHARMS/Resources/RASScenario3.xlsx";
     public static final String RAS_SCENARIO_FOUR_DATA = System.getProperty("user.dir") + "/src/test/java/ServiceNow/CHARMS/Resources/RASScenario4.xlsx";
     public static final String RAS_SCENARIO_FIVE_DATA =  System.getProperty("user.dir") + "/src/test/java/ServiceNow/CHARMS/GenAIData/Gen_AI_Data_Set_1.xlsx";
