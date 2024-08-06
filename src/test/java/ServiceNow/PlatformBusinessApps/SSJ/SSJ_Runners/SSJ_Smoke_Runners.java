@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
         , features = {"src/test/java/ServiceNow/PlatformBusinessApps/SSJ/playwright/Features", "src/test/java/ServiceNow/PlatformBusinessApps/SSJ/selenium/Features"}
         , glue = {"ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps", "ServiceNow.PlatformBusinessApps.SSJ.selenium.Steps", "Hooks"}
-        , tags = "@Smoke"
+        , tags = "@check"
         , dryRun = false
 )
 
