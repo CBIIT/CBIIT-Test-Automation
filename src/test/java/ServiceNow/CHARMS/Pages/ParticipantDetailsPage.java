@@ -46,15 +46,15 @@ public class ParticipantDetailsPage {
     public WebElement nameTextBox;
 
     /* FIRST NAME TEXT BOX*/
-    @FindBy(xpath = "//input[@aria-label='First Name']")
+    @FindBy(xpath = "(//input[@name='x_naci_family_coho_family_history_details.first_name'])[1]")
     public WebElement firstNameTextBox;
 
     /* MIDDLE INITIAL TEXT BOX */
-    @FindBy(xpath = "//input[@aria-label='Middle Name']")
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.middle_name']")
     public WebElement middleInitialTextBox;
 
     /* LAST NAME TEXT BOX */
-    @FindBy(xpath = "//input[@aria-label='Last Name']")
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.last_name']")
     public WebElement lastNameTextBox;
 
     /**
@@ -93,19 +93,19 @@ public class ParticipantDetailsPage {
     public WebElement contactInfoTab;
 
     /* CONTACT STREET ADDRESS */
-    @FindBy(xpath = "//input[@aria-label='Contact Street Address']")
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.street_address']")
     public WebElement contactStreetAddress;
 
     /* CONTACT STATE */
-    @FindBy(xpath = "//input[@aria-label='Contact State']")
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.state']")
     public WebElement contactState;
 
     /* CONTACT CITY */
-    @FindBy(xpath = "//input[@aria-label='Contact City']")
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.city']")
     public WebElement contactCity;
 
     /* CONTACT ZIP CODE */
-    @FindBy(xpath = "//input[@aria-label='Contact Zip Code']")
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.zipcode']")
     public WebElement contactZipCode;
 
     /* CONTACT COUNTRY DROP DOWN */
@@ -146,37 +146,13 @@ public class ParticipantDetailsPage {
     /***
      * MEDICAL INFORMATION SECTION
      */
-    /* MEDICAL INFORMATION TAB */
-    @FindBy(xpath = "//span[contains(text(),'Medical Information')]")
-    public WebElement medicalInformationTab;
-
-    /* HAS A PHYSICIAN EVER DIAGNOSED THIS PARTICIPANT WITH CANCER? DROP DOWN*/
-    @FindBy(xpath = "//select[@id='x_naci_family_coho_family_history_details.has_cancer']")
-    public WebElement hasAPhysicianEverDiagnosedThisParticipantWithCancerDropDown;
-
     /* VITAL STATUS YES DROP DOWN OPTION */
     @FindBy(xpath = "//*[@id='x_naci_family_coho_ras_referral.family_member_record.person_alive']")
     public WebElement vitalStatusYesDropDownOption;
 
-    /* HAS THE PARTICIPANT EVER HAD GENETIC TESTING? DROP DOWN */
-    @FindBy(xpath = "//select[@id='x_naci_family_coho_family_history_details.genetic_testing']")
-    public WebElement hasTheParticipantEverHadGeneticTestingDropDown;
-
     /***
      * RASOPATHY HISTORY SECTION
      */
-
-    /* RASOPATHY HISTORY TAB*/
-    @FindBy(xpath = "//span[contains(text(),'RASopathy History')]")
-    public WebElement rasopathyHistoryTab;
-
-    /* HAVE YOU BEEN DIAGNOSED WITH A RASOPATHY? DROP DOWN */
-    @FindBy(xpath = "//*[@id='x_naci_family_coho_ras_referral.rasopathy_diagnosis']")
-    public WebElement haveYouBeenDiagnosedWithARasopathyDropDown;
-
-    /* HAVE ANY OF YOUR BIOLOGICAL RELATIVES BEEN DIAGNOSED WITH A RASOPATHY? DROP DOWN */
-    @FindBy(xpath = "//*[@id='x_naci_family_coho_ras_referral.realtives_rasopathy_diagnosis']")
-    public WebElement haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathyDropDown;
 
     /* CONSENT STATUS TEXT */
     @FindBy(xpath = "//td[normalize-space()='Consent Call Pending']")

@@ -1,5 +1,7 @@
 package ServiceNow.CHARMS.StepsImplementation;
 
+import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
+import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -43,5 +45,36 @@ public class TestAccountResetImpl extends PageInitializer {
             testAccountResetPage.nativeViewProceedInBackgroundButton.click();
             MiscUtils.sleep(10000);
         }
+    }
+
+    /**
+     * Resets the RASopathy Study Test Account by performing the following steps:
+     * 1. Calls the nativeViewSideDoorLogin method from ServiceNow_Login_Methods class to log in using the side door test account.
+     * 2. Navigates to the specified URL (https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3D6b09648c877fc6507e87a8a60cbb35f2%26sysparm
+     * _view%3D%26sysparm_domain%3Dnull%26sysparm_domain_scope%3Dnull) in the web driver.
+     * 3. Sleeps for 2000 milliseconds.
+     * 4. Waits for the visibility of the nativeViewRunFixScriptButton on the testAccountResetPage.
+     * 5. Sleeps for 2000 milliseconds.
+     * 6. Clicks on the nativeViewRunFixScriptButton.
+     * 7. Sleeps for 1000 milliseconds.
+     * 8. Waits for the visibility of the nativeViewProceedInBackgroundButton on the testAccountResetPage.
+     * 9. Clicks on the nativeViewProceedInBackgroundButton.
+     * 10. Sleeps for 10000 milliseconds.
+     * 11. Calls the logOutOfNativeView method from ServiceNow_Common_Methods class to log out of native view.
+     */
+    public static void charmsRasOneTestAccountReset(){
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        WebDriverUtils.webDriver.get(
+                "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3D6b09648c877fc6507e87a8a60cbb35f2%26sysparm_view%3D%26sysparm_domain%3Dnull%26sysparm_domain_scope%3Dnull");
+        MiscUtils.sleep(2000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
+        MiscUtils.sleep(2000);
+        testAccountResetPage.nativeViewRunFixScriptButton.click();
+        MiscUtils.sleep(1000);
+        CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
+        testAccountResetPage.nativeViewProceedInBackgroundButton.click();
+        MiscUtils.sleep(3000);
+        ServiceNow_Common_Methods.logOutOfNativeView();
     }
 }
