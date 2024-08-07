@@ -21,14 +21,6 @@ Feature: Unauthenticated applicant Scenarios
     And User clicks "Employee/Contractor Only" option
     Then User is redirected to NIH Login Page
 
-  @Regression @Nekrashevich @SSJ-298 @selenium
-  Scenario: Okta error registration
-    And User clicks on Login Dropdown
-    And User clicks "Not Registered" option
-    Then User is redirected to Okta registration page
-    And User enters all the registration details
-    Then User can verify that Okta account was not created
-
   @Regression @Nekrashevich @SSJ-27 @selenium
   Scenario: Okta registration error
     And User clicks on Login Dropdown

@@ -68,3 +68,11 @@ Feature: DEPRECATED TESTS
     And User can verify the description of "STANDARDS OF CONDUCT/FINANCIAL DISCLOSURE" statement
     And User can verify the description of "FOREIGN EDUCATION" statement
     Then User can verify the description of "REASONABLE ACCOMODATION" statement
+
+  @SSJ-298
+  Scenario: Okta error registration
+    And User clicks on Login Dropdown
+    And User clicks "Not Registered" option
+    Then User is redirected to Okta registration page
+    And User enters all the registration details
+    Then User can verify that Okta account was not created
