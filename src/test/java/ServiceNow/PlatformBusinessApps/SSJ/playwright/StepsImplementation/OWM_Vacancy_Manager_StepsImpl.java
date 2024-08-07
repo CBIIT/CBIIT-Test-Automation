@@ -150,7 +150,7 @@ public class OWM_Vacancy_Manager_StepsImpl {
     public static void user_sets_a_entry_a_month_from_the_open_date(String text) {
         Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
         page.locator(Vacancy_Dashboard_Page.closeDateCalendar).click();
-        page.locator(Vacancy_Dashboard_Page.closeDateCalendar).fill(CommonUtils.getOneMonthFromTodayDatein_DD_MM_YYY_format());
+        page.locator(Vacancy_Dashboard_Page.closeDateCalendar).fill(CommonUtils.getOneMonthFromTodayDate_In_DD_MM_YYY_format());
         List<ElementHandle> list = page.querySelectorAll(Vacancy_Dashboard_Page.closeDateCalendarOptions);
         for (ElementHandle day : list) {
             if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format().trim())) {
@@ -168,7 +168,7 @@ public class OWM_Vacancy_Manager_StepsImpl {
      */
     public static void user_sets_entry(String text) {
         page.getByLabel(text).click();
-        page.locator(Vacancy_Dashboard_Page.scoringDueByDateCalendar).fill(CommonUtils.getOneMonthFromTodayDatein_DD_MM_YYY_format());
+        page.locator(Vacancy_Dashboard_Page.scoringDueByDateCalendar).fill(CommonUtils.getOneMonthFromTodayDate_In_DD_MM_YYY_format());
         List<ElementHandle> list = page.querySelectorAll(Vacancy_Dashboard_Page.calendarOptions);
         for (ElementHandle day : list) {
             if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format().trim())) {

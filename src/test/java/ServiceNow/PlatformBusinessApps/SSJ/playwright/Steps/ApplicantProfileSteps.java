@@ -4,7 +4,6 @@ import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.*;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
-import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -149,7 +148,7 @@ public class ApplicantProfileSteps {
 
     @Then("User clicks Demographics section - PW")
     public void user_clicks_demographics_section_pw() {
-        PlaywrightUtils.page.locator(Profile_Tab_Page.demographicsOptionalTab).click();
+        page.locator(Profile_Tab_Page.demographicsOptionalTab).click();
     }
 
     @When("User chooses to share demographic details - PW")
@@ -281,6 +280,7 @@ public class ApplicantProfileSteps {
     public void selects_for_race(String americanIndianOrAlaska, String asia, String blackOrAfricanAmerican, String nativeHawaiianOrOther, String white) {
         ApplicantProfileStepsImpl.selects_for_race(americanIndianOrAlaska, asia, blackOrAfricanAmerican, nativeHawaiianOrOther, white);
     }
+
 
     @Then("selects {string} for Disability or Serious Health Condition")
     public void selects_for_disability_or_serious_health_condition(String text) {
@@ -605,5 +605,125 @@ public class ApplicantProfileSteps {
     @When("verifies required documents with required references needed to apply to this test Vacancy")
     public void verifies_required_documents_with_required_references_needed_to_apply_to_this_test_vacancy() {
         ApplicantProfileStepsImpl.verifies_required_documents_with_required_references_needed_to_apply_to_this_test_vacancy();
+    }
+
+    @Given("an unauthenticated applicant is on the SSJ homepage {string}")
+    public void an_unauthenticated_applicant_is_on_the_ssj_homepage(String ssjHomePage) {
+        ApplicantProfileStepsImpl.an_unauthenticated_applicant_is_on_the_ssj_homepage(ssjHomePage);
+    }
+
+    @Given("verifies that the drop drown text is {string}")
+    public void verifies_that_the_drop_drown_text_is(String expectedDropDownText) {
+        ApplicantProfileStepsImpl.verifies_that_the_drop_drown_text_is(expectedDropDownText);
+    }
+
+    @Given("clicks on the first vacancy")
+    public void clicks_on_the_first_vacancy() {
+        ApplicantProfileStepsImpl.clicks_on_the_first_vacancy();
+    }
+
+    @Given("verifies that Sign In and Apply button text is {string}")
+    public void verifies_that_sign_in_and_apply_button_text_is(String expectedSignInButtonText) {
+        ApplicantProfileStepsImpl.verifies_that_sign_in_and_apply_button_text_is(expectedSignInButtonText);
+    }
+
+    @Given("verifies that the pop up header text is {string}")
+    public void verifies_that_the_pop_up_header_text_is(String expectedModalHeaderText) {
+        ApplicantProfileStepsImpl.verifies_that_the_pop_up_header_text_is(expectedModalHeaderText);
+    }
+
+    @Given("verifies that the pop up body text is")
+    public void verifies_that_the_pop_up_body_text_is(String expectedModalBodyText) {
+        ApplicantProfileStepsImpl.verifies_that_the_pop_up_body_text_is(expectedModalBodyText);
+    }
+
+    @Given("verifies that the text on the buttons is {string} {string} {string}")
+    public void verifies_that_the_button_text_is(String expectedCreatedAnAccountText, String expectedLogInText, String expectedGoBackText) {
+        ApplicantProfileStepsImpl.verifies_that_the_button_text_is(expectedCreatedAnAccountText, expectedLogInText, expectedGoBackText);
+    }
+
+    @Given("clicks {string} and is redirected to the Okta Login Portal")
+    public void clicks_and_is_redirected_to_the_login_portal(String logInButton) {
+        ApplicantProfileStepsImpl.clicks_and_is_redirected_to_the_login_portal(logInButton);
+    }
+
+    @Given("verifies that the PIV CAC card button text is {string}")
+    public void verifies_that_the_piv_cac_card_button_text_is(String pivCacCardButtonText) {
+        ApplicantProfileStepsImpl.verifies_that_the_piv_cac_card_button_text_is(pivCacCardButtonText);
+    }
+
+    @Then("User sees there is no question that reads {string}")
+    public void user_sees_there_is_no_question_that_reads(String expectedQuestionText) {
+        ApplicantProfileStepsImpl.user_sees_there_is_no_question_that_reads(expectedQuestionText);
+    }
+
+    @Then("User sees there is a statement that reads {string} at the top of the screen")
+    public void user_sees_there_is_a_statement_that_reads_at_the_top_of_the_screen(String expectedStatementText) {
+        ApplicantProfileStepsImpl.user_sees_there_is_a_statement_that_reads_at_the_top_of_the_screen(expectedStatementText);
+    }
+
+    @When("User clicks on Save Application button")
+    public void user_clicks_on_save_application_button() {
+        ApplicantProfileStepsImpl.user_clicks_on_save_application_button();
+    }
+
+    @When("verifies that successful save alert is displayed {string}")
+    public void verifies_that_successful_save_alert_is_displayed(String expectedSuccessfulText) {
+        ApplicantProfileStepsImpl.verifies_that_successful_save_alert_is_displayed(expectedSuccessfulText);
+    }
+
+    @Then("verifies that the application became a draft {string}")
+    public void verifies_that_the_application_became_a_draft(String expectedDraftText) {
+        ApplicantProfileStepsImpl.verifies_that_the_application_became_a_draft(expectedDraftText);
+    }
+
+    @Then("clicks the application {string}")
+    public void clicks_the_application(String vacancyTitle) {
+        ApplicantProfileStepsImpl.clicks_the_application(vacancyTitle);
+    }
+
+    @Then("clicks Edit vacancy {string}")
+    public void clicks_edit_vacancy(String applicationName) {
+        ApplicantProfileStepsImpl.clicks_edit_vacancy(applicationName);
+    }
+
+    @Then("verifies that Reference One {string}, {string}, {string}, {string}, {string}, {string}, {string} is updated")
+    public void verifies_that_reference_one_is_updated(String expectedUpdatedReferenceOneFirstName, String expectedUpdatedReferenceOneMiddleName, String expectedUpdatedReferenceOneLastName, String expectedUpdatedReferenceOneEmail, String expectedUpdatedReferenceOnePhoneNumber, String expectedUpdatedReferenceOnePositionTitle, String expectedUpdatedReferenceOneOrganizationName) {
+        ApplicantProfileStepsImpl.verifies_that_reference_one_is_updated(expectedUpdatedReferenceOneFirstName, expectedUpdatedReferenceOneMiddleName, expectedUpdatedReferenceOneLastName, expectedUpdatedReferenceOneEmail, expectedUpdatedReferenceOnePhoneNumber, expectedUpdatedReferenceOnePositionTitle, expectedUpdatedReferenceOneOrganizationName);
+    }
+
+    @Then("verifies tha Reference Two {string}, {string}, {string}, {string}, {string}, {string}, {string} is updated")
+    public void verifies_tha_reference_two_is_updated(String expectedUpdatedReferenceTwoFirstName, String expectedUpdatedReferenceTwoMiddleName, String expectedUpdatedReferenceTwoLastName, String expectedUpdatedReferenceTwoEmail, String expectedUpdatedReferenceTwoPhoneNumber, String expectedUpdatedReferenceTwoPositionTitle, String expectedUpdatedReferenceTwoOrganizationName) {
+        ApplicantProfileStepsImpl.verifies_tha_reference_two_is_updated(expectedUpdatedReferenceTwoFirstName, expectedUpdatedReferenceTwoMiddleName, expectedUpdatedReferenceTwoLastName, expectedUpdatedReferenceTwoEmail, expectedUpdatedReferenceTwoPhoneNumber, expectedUpdatedReferenceTwoPositionTitle, expectedUpdatedReferenceTwoOrganizationName);
+    }
+
+    @Then("clicks on Remove button")
+    public void clicks_on_remove_button() {
+        ApplicantProfileStepsImpl.clicks_on_remove_button();
+    }
+
+    @Then("{string} that the draft was removed")
+    public void that_the_draft_was_removed(String confirm) {
+        ApplicantProfileStepsImpl.that_the_draft_was_removed(confirm);
+    }
+
+    @Then("verifies that the draft is no longer showing under Your Application tab")
+    public void verifies_that_the_draft_is_no_longer_showing_under_your_application_tab() {
+        ApplicantProfileStepsImpl.verifies_that_the_draft_is_no_longer_showing_under_your_application_tab();
+    }
+
+    @Then("user withdraws the application")
+    public void user_withdraws_the_application() {
+        ApplicantProfileStepsImpl.user_withdraws_the_application();
+    }
+
+    @Then("{string} withdrawing the application")
+    public void withdrawing_the_application(String withdraw) {
+        ApplicantProfileStepsImpl.withdrawing_the_application(withdraw);
+    }
+
+    @Then("verifies that the application status is {string}")
+    public void verifies_that_the_application_status_is(String withdrawnText) {
+        ApplicantProfileStepsImpl.verifies_that_the_application_status_is(withdrawnText);
     }
 }
