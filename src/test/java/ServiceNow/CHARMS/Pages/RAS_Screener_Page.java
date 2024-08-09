@@ -98,6 +98,10 @@ public class RAS_Screener_Page {
         return webDriver.findElement(By.xpath("//*[text()='" + text + "']"));
     }
 
+    public static WebElement dynamicContainsLabelAndTextLocator(String text){
+        return webDriver.findElement(By.xpath("//span[contains(@class,'LabelWrapper')]//label[contains(.,'"+ text + "')]"));
+    }
+
     /**
      * Locates the dynamic date of birth calendar element on the RAS Screener page.
      *
