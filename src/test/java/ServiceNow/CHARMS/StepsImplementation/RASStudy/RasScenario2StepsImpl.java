@@ -42,14 +42,14 @@ public class RasScenario2StepsImpl extends PageInitializer {
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         try {
             CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(2));
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.FIRST_NAME).sendKeys(ras_Screener_TestDataManager.firstName);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.FIRST_NAME).sendKeys(ras_Screener_TestDataManager.FIRST_NAME);
             rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.MIDDLE_INITIAL).sendKeys(ras_Screener_TestDataManager.middleInitial);
             rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.LAST_NAME).sendKeys(ras_Screener_TestDataManager.lastName);
             CucumberLogUtils.logScreenshot();
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.FIRST_NAME).sendKeys(ras_Screener_TestDataManager.firstName);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.FIRST_NAME).sendKeys(ras_Screener_TestDataManager.FIRST_NAME);
             rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.MIDDLE_INITIAL).sendKeys(ras_Screener_TestDataManager.middleInitial);
             rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.LAST_NAME).sendKeys(ras_Screener_TestDataManager.lastName);
             CucumberLogUtils.logScreenshot();
@@ -263,11 +263,11 @@ public class RasScenario2StepsImpl extends PageInitializer {
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         try {
             CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(125));
-            rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.howWouldYouLikeToProvideTheGeneticTest).click();
+//            rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.howWouldYouLikeToProvideTheGeneticTest).click();
             CucumberLogUtils.logScreenshot();
         } catch (NoSuchElementException e) {
             ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
-            rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.howWouldYouLikeToProvideTheGeneticTest).click();
+//            rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.howWouldYouLikeToProvideTheGeneticTest).click();
             CucumberLogUtils.logScreenshot();
         }
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
@@ -335,10 +335,10 @@ public class RasScenario2StepsImpl extends PageInitializer {
         for(int b = 1; b < 5 ; b++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(b));
         }
-        CommonUtils.sendKeysToElement(myRASSurveyPage.screenerDynamicOtherTextBox(ras_Screener_TestDataManager.whatAreTheMainReasonsForParticipatingOptin1), ras_Screener_TestDataManager.whatAreTheMainReasonsForParticipatingOptin1Other);
-        CommonUtils.sendKeysToElement(myRASSurveyPage.screenerDynamicOtherTextBox(ras_Screener_TestDataManager.whatAreTheMainReasonsForParticipatingOptin2), ras_Screener_TestDataManager.whatAreTheMainReasonsForParticipatingOptin2Other);
-        CommonUtils.sendKeysToElement(myRASSurveyPage.screenerDynamicOtherTextBox(ras_Screener_TestDataManager.whatAreTheMainReasonsForParticipatingOptin3), ras_Screener_TestDataManager.whatAreTheMainReasonsForParticipatingOptin3Other);
-        CommonUtils.sendKeysToElement(myRASSurveyPage.screenerDynamicOtherTextBox(ras_Screener_TestDataManager.whatAreTheMainReasonsForParticipatingOptin4), ras_Screener_TestDataManager.whatAreTheMainReasonsForParticipatingOptin4Other);
+//        CommonUtils.sendKeysToElement(myRASSurveyPage.screenerDynamicOtherTextBox(ras_Screener_TestDataManager.whatAreTheMainReasonsForParticipatingOptin1), ras_Screener_TestDataManager.whatAreTheMainReasonsForParticipatingOptin1Other);
+//        CommonUtils.sendKeysToElement(myRASSurveyPage.screenerDynamicOtherTextBox(ras_Screener_TestDataManager.whatAreTheMainReasonsForParticipatingOptin2), ras_Screener_TestDataManager.whatAreTheMainReasonsForParticipatingOptin2Other);
+//        CommonUtils.sendKeysToElement(myRASSurveyPage.screenerDynamicOtherTextBox(ras_Screener_TestDataManager.whatAreTheMainReasonsForParticipatingOptin3), ras_Screener_TestDataManager.whatAreTheMainReasonsForParticipatingOptin3Other);
+//        CommonUtils.sendKeysToElement(myRASSurveyPage.screenerDynamicOtherTextBox(ras_Screener_TestDataManager.whatAreTheMainReasonsForParticipatingOptin4), ras_Screener_TestDataManager.whatAreTheMainReasonsForParticipatingOptin4Other);
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(91));

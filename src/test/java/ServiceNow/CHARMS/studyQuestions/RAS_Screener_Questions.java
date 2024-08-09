@@ -32,4 +32,10 @@ public class RAS_Screener_Questions {
     public static final String PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_WERE_DIAGNOSED = "Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred.  If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread.";
     public static final String YOU_ARE_ALMOST_DONE = "You are almost done!";
     public static final String FOR_WHICH_SPECIFIC_RASOPATHY_HAVE_YOU_BEEN_DIAGNOSED = "For which specific RASopathy have you been diagnosed?";
+    public static final String AGE_IN_YEARS_AT_DIAGNOSIS = "Age (in years) at diagnosis";
+    public static final String YEAR_OF_DIAGNOSIS_YYYY = "Year of diagnosis (yyyy)";
+    public static final String DO_YOU_HAVE_A_COPY_OF_THE_GENETIC_TEST_RESULTS = "Do you have a copy of the genetic test results?";
+    public static final String HOW_WOULD_YOU_LIKE_TO_PROVIDE_THE_GENETIC_TEST_RESULTS_TO_US = "How would you like to provide the genetic test results to us?  Please select one.  On the next page, you will be provided with where to send the information.";
+    public static final String IF_YOU_WOULD_LIKE_TO_UPLOAD_THE_GENETIC_TEST_RESULTS_PLEASE_DO_SO_HERE = "If you would like to upload the genetic test results, please do so here.  Note: Only pdf files are accepted.";
+    public static final String PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_IN_OTHER_RASOPATHY_STUDIES_IN_THE_BOX_BELOW = "Please provide the information regarding previous participation in other RASopathy studies in the box below.";
 }

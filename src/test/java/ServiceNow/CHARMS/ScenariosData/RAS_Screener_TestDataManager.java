@@ -12,7 +12,7 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
      */
     public Map<String, String> TEST_DATA_FOR_RAS_SCREENER;
     public String ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_YOURSELF;
-    public String firstName;
+    public String FIRST_NAME;
     public String middleInitial;
     public String lastName;
     public String whatIsYourDateOfBirth;
@@ -56,10 +56,7 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
     public String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_LYMPHEDEMA_OPTION;
     public String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_OTHER_OPTION;
     public String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_OTHER_OPTION_TEXT_BOX;
-
-
     public String pleaseCompleteTheBoxBelowBySelectingWhichPrimaryCancersColumn1Option1;
-
     public String pleaseCompleteTheBoxBelowBySelectingWhichPrimaryCancersColumn1Option2;
     public String pleaseCompleteTheBoxBelowBySelectingWhichPrimaryCancersColumn1Option3;
     public String pleaseCompleteTheBoxBelowBySelectingWhichPrimaryCancersColumn1Option4;
@@ -99,7 +96,7 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
     public String whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyMi;
     public String whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyLast;
     public String doYouHaveACopyOfTheGenetic;
-    public String howWouldYouLikeToProvideTheGeneticTest;
+    public String howWouldYouLikeToProvideTheGeneticTestResults;
     public String weWillNowAskAFewRemainingQuestionsRegarding;
     public String pleaseProvideTheInformationRegardingPreviousParticipationColumn1Option1;
     public String pleaseProvideTheInformationRegardingPreviousParticipationColumn1Option2;
@@ -125,14 +122,14 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
     public String pleaseProvideTheInformationRegardingPreviousParticipationColumn6Option2;
     public String pleaseProvideTheInformationRegardingPreviousParticipationColumn6Option3;
     public String pleaseProvideTheInformationRegardingPreviousParticipationColumn6Option4;
-    public String whatAreTheMainReasonsForParticipatingOptin1Other;
-    public String whatAreTheMainReasonsForParticipatingOptin2Other;
-    public String whatAreTheMainReasonsForParticipatingOptin3Other;
-    public String whatAreTheMainReasonsForParticipatingOptin4Other;
-    public String whatAreTheMainReasonsForParticipatingOptin1;
-    public String whatAreTheMainReasonsForParticipatingOptin2;
-    public String whatAreTheMainReasonsForParticipatingOptin3;
-    public String whatAreTheMainReasonsForParticipatingOptin4;
+    public String whatAreTheMainReasonsForParticipatingOption1Other;
+    public String whatAreTheMainReasonsForParticipatingOption2Other;
+    public String whatAreTheMainReasonsForParticipatingOption3Other;
+    public String whatAreTheMainReasonsForParticipatingOption4Other;
+    public String whatAreTheMainReasonsForParticipatingOption1;
+    public String whatAreTheMainReasonsForParticipatingOption2;
+    public String whatAreTheMainReasonsForParticipatingOption3;
+    public String whatAreTheMainReasonsForParticipatingOption4;
     public String youAreAlmostDone;
 
     public void dataInitializerRasScreener(String sheetName) {
@@ -147,7 +144,7 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
                 TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_TWO_DATA, sheetName);
             }
             ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_YOURSELF = TEST_DATA_FOR_RAS_SCREENER.get("Are you completing this form for someone else or for yourself?");
-            firstName = TEST_DATA_FOR_RAS_SCREENER.get("First name");
+            FIRST_NAME = TEST_DATA_FOR_RAS_SCREENER.get("First name");
             middleInitial = TEST_DATA_FOR_RAS_SCREENER.get("Middle Initial");
             lastName = TEST_DATA_FOR_RAS_SCREENER.get("Last name");
             whatIsYourDateOfBirth = TEST_DATA_FOR_RAS_SCREENER.get("What is your date of birth?");
@@ -223,61 +220,43 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
             pleaseCompleteTheBoxBelowBySelectingWhichPrimaryCancersColumn4Option4 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Currently receiving treatment Option 4");
             forWhichSpecificRASopathy = TEST_DATA_FOR_RAS_SCREENER.get("For which specific RASopathy have you been diagnosed?");
             forWhichSpecificRASopathyOther = TEST_DATA_FOR_RAS_SCREENER.get("For which specific RASopathy have you been diagnosed? Other text box");
-//        }else if (sheetName.equals("screenerScenario2")) {
+            ageAtDiagnosis = TEST_DATA_FOR_RAS_SCREENER.get("Age at diagnosis");
+            yearOfDiagnosisRas = TEST_DATA_FOR_RAS_SCREENER.get("Year of diagnosis");
+            haveYouEverHadGeneticTesting = TEST_DATA_FOR_RAS_SCREENER.get("Do you have a copy of the genetic test results?");
+            howWouldYouLikeToProvideTheGeneticTestResults = TEST_DATA_FOR_RAS_SCREENER.get("How would you like to provide the genetic test results to us?  Please select one.  On the next page, you will be provided with where to send the information.");
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn1Option1 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_1_OPTION_1);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn2Option1 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_2_OPTION_1);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn3Option1 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_3_OPTION_1);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn4Option1 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_4_OPTION_1);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn5Option1 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_5_OPTION_1);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn6Option1 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_6_OPTION_1);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn1Option2 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_1_OPTION_2);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn2Option2 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_2_OPTION_2);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn3Option2 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_3_OPTION_2);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn4Option2 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_4_OPTION_2);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn5Option2 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_5_OPTION_2);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn6Option2 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_6_OPTION_2);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn1Option3 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_1_OPTION_3);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn2Option3 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_2_OPTION_3);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn3Option3 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_3_OPTION_3);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn4Option3 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_4_OPTION_3);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn5Option3 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_5_OPTION_3);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn6Option3 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_6_OPTION_3);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn1Option4 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_1_OPTION_4);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn2Option4 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_2_OPTION_4);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn3Option4 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_3_OPTION_4);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn4Option4 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_4_OPTION_4);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn5Option4 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_5_OPTION_4);
+            pleaseProvideTheInformationRegardingPreviousParticipationColumn6Option4 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_6_OPTION_4);
+            whatAreTheMainReasonsForParticipatingOption1Other = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION_1);
+            whatAreTheMainReasonsForParticipatingOption1 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_1);
+            whatAreTheMainReasonsForParticipatingOption2Other = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION_2);
+            whatAreTheMainReasonsForParticipatingOption2 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_2);
+            whatAreTheMainReasonsForParticipatingOption3Other = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION_3);
+            whatAreTheMainReasonsForParticipatingOption3 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_3);
+            whatAreTheMainReasonsForParticipatingOption4Other = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION_4);
+            whatAreTheMainReasonsForParticipatingOption4 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_4);
 
-
-
-         //   pleaseCompleteTheBoxBelowBySelectingWhichPrimaryCancersColumn5Option1 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN_5_OPTION_1);
-//            pleaseCompleteTheBoxBelowBySelectingWhichPrimaryCancersColumn5Option2 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN_5_OPTION_2);
-//            pleaseCompleteTheBoxBelowBySelectingWhichPrimaryCancersColumn5Option3 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN_5_OPTION_3);
-//            pleaseCompleteTheBoxBelowBySelectingWhichPrimaryCancersColumn5Option4 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN_5_OPTION_4);
-//            haveYouBeenDiagnosedWithARasopathy = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.HAVE_YOU_BEEN_DIAGNOSED_WITH_A_RASOPATHY);
-//            forWhichSpecificRASopathy = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.FOR_WHICH_SPECIFIC_RASOPATHY);
-            //forWhichSpecificRASopathyOther = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.FOR_WHICH_SPECIFIC_RASOPATHY_OTHER);
-//            ageAtDiagnosis = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.AGE_AT_DIAGNOSIS);
-//            yearOfDiagnosisRas = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.YEAR_OF_DIAGNOSIS_RAS);
-//            weKnowThatRASopathiesAreAGroup = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WE_KNOW_THAT_RASOPATHIES_ARE_A_GROUP);
-//            haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathy = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.HAVE_ANY_BIOLOGICAL_RELATIVES_BEEN_DIAGNOSED_WITH_ARASOPATHY);
-//            haveYouEverHadGeneticTesting = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.HAVE_YOU_EVER_HAD_GENETIC_TESTING);
-//            howDidYouHearAboutThisStudy = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY);
-//            howDidYouHearAboutThisStudyOtherReason = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY_OTHER_REASON);
-//            haveYouOrOtherFamilyMembersParticipatedInOtherStudy = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.HAVE_YOU_OR_OTHER_FAMILY_MEMBERS_PARTICIPATED_IN_OTHER_STUDY);
-//            doYouHaveACopyOfTheGenetic = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.DO_YOU_HAVE_A_COPY_OF_THE_GENETIC);
-//            howWouldYouLikeToProvideTheGeneticTest = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.HOW_WOULD_YOU_LIKE_TO_PROVIDE_THE_GENETIC_TEST);
-//            weWillNowAskAFewRemainingQuestionsRegarding = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WE_WILL_NOW_ASK_A_FEW_REMAINING_QUESTIONS_REGARDING);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn1Option1 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_1_OPTION_1);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn1Option2 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_1_OPTION_2);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn1Option3 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_1_OPTION_3);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn1Option4 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_1_OPTION_4);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn2Option1 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_2_OPTION_1);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn2Option2 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_2_OPTION_2);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn2Option3 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_2_OPTION_3);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn2Option4 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_2_OPTION_4);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn3Option1 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_3_OPTION_1);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn3Option2 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_3_OPTION_2);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn3Option3 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_3_OPTION_3);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn3Option4 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_3_OPTION_4);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn4Option1 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_4_OPTION_1);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn4Option2 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_4_OPTION_2);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn4Option3 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_4_OPTION_3);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn4Option4 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_4_OPTION_4);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn5Option1 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_5_OPTION_1);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn5Option2 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_5_OPTION_2);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn5Option3 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_5_OPTION_3);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn5Option4 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_5_OPTION_4);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn6Option1 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_6_OPTION_1);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn6Option2 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_6_OPTION_2);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn6Option3 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_6_OPTION_3);
-//            pleaseProvideTheInformationRegardingPreviousParticipationColumn6Option4 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN_6_OPTION_4);
-//            whatAreTheMainReasonsForParticipatingOptin1Other = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION_1);
-//            whatAreTheMainReasonsForParticipatingOptin2Other = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION_2);
-//            whatAreTheMainReasonsForParticipatingOptin3Other = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION_3);
-//            whatAreTheMainReasonsForParticipatingOptin4Other = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION_4);
-//            whatAreTheMainReasonsForParticipatingOptin1 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_1);
-//            whatAreTheMainReasonsForParticipatingOptin2 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_2);
-//            whatAreTheMainReasonsForParticipatingOptin3 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_3);
-//            whatAreTheMainReasonsForParticipatingOptin4 = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_4);
-//            youAreAlmostDone = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.YOU_ARE_ALMOST_DONE);
 //        }else if (sheetName.equals("screenerScenario3")) {
 //            TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_THREE_DATA, sheetName);
 //            areYouCompletingThisFormForSomeoneElseOrYourself = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);
