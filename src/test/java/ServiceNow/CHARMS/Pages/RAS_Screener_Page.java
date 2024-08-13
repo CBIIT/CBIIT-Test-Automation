@@ -98,6 +98,12 @@ public class RAS_Screener_Page {
         return webDriver.findElement(By.xpath("//*[text()='" + text + "']"));
     }
 
+    /**
+     * Locates an element using a dynamic locator based on the provided text.
+     *
+     * @param text The text to search for in the element.
+     * @return The WebElement representing the located element.
+     */
     public static WebElement dynamicContainsLabelAndTextLocator(String text){
         return webDriver.findElement(By.xpath("//span[contains(@class,'LabelWrapper')]//label[contains(.,'"+ text + "')]"));
     }
