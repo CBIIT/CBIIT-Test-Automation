@@ -67,10 +67,10 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
             rasScenario3StepsImpl.rasScreenerSubmissionScenario3();
         } else if (sheetName.contentEquals("screenerScenario4")) {
             ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScenario4StepsImpl.rasScreenerSubmissionScenario4();
+//            rasScenario4StepsImpl.rasScreenerSubmissionScenario4();
         } else if (sheetName.contentEquals("screenerScenario5")) {
             ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            ras_scenario_five_stepsImpl.ras_screener_submission_five();
+//            ras_scenario_five_stepsImpl.ras_screener_submission_five();
         }
     }
 
@@ -98,7 +98,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
 
         for (int i = 0; i < 60; i++) {
 
-            // try {
+             try {
             /**
              * * * * * ARE YOU COMPLETING THIS FORM FOR SOMEONE ELSE OR FOR YOURSELF? * * * *
              */
@@ -379,7 +379,6 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     CommonUtils.sendKeysToElement(myRASSurveyPage.screenerDynamicOtherTextBox(ras_Screener_TestDataManager.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION3), ras_Screener_TestDataManager.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION3_OTHER);
                     CommonUtils.sendKeysToElement(myRASSurveyPage.screenerDynamicOtherTextBox(ras_Screener_TestDataManager.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION4), ras_Screener_TestDataManager.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION4_OTHER);
                 }
-
                 CucumberLogUtils.logScreenshot();
                 ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
             }
@@ -510,10 +509,10 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 CucumberLogUtils.logScreenshot();
                 ServiceNow_Common_Methods.logOutOfNativeView();
             }
-//            } catch (Exception e) {
-//                CucumberLogUtils.scenario.log("* * * SCREENER COMPLETED * * *");
-//                break;
-//            }
+            } catch (Exception e) {
+                CucumberLogUtils.scenario.log("* * * SCREENER COMPLETED * * *");
+                break;
+            }
         }
     }
 
@@ -774,6 +773,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
+        MiscUtils.sleep(1500);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);

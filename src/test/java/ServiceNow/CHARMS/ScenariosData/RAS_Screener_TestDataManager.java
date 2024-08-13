@@ -222,7 +222,7 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
             FOR_WHICH_SPECIFIC_RASOPATHY_OTHER = TEST_DATA_FOR_RAS_SCREENER.get("For which specific RASopathy have you been diagnosed? Other text box");
             AGE_AT_DIAGNOSIS = TEST_DATA_FOR_RAS_SCREENER.get("Age at diagnosis");
             YEAR_OF_DIAGNOSIS_RAS = TEST_DATA_FOR_RAS_SCREENER.get("Year of diagnosis");
-            HAVE_YOU_EVER_HAD_GENETIC_TESTING = TEST_DATA_FOR_RAS_SCREENER.get("Do you have a copy of the genetic test results?");
+            DO_YOU_HAVE_A_COPY_OF_THE_GENETIC = TEST_DATA_FOR_RAS_SCREENER.get("Do you have a copy of the genetic test results?");
             HOW_WOULD_YOU_LIKE_TO_PROVIDE_THE_GENETIC_TEST_RESULTS = TEST_DATA_FOR_RAS_SCREENER.get("How would you like to provide the genetic test results to us?  Please select one.  On the next page, you will be provided with where to send the information.");
             PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN1_OPTION1 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 1 Option 1");
             PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN2_OPTION1 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 2 Option 1");
