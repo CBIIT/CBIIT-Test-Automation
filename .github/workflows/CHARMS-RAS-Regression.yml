@@ -77,8 +77,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          sed -i '1s/.*/<h1>CHARMS RAS Test Results<\/h1>/' charms-ras-test-results.html
-          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> charms-ras-test-results.html
-          git add charms-ras-test-results.html
-          git commit -m "Update charms-ras-test-results.html"
-          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+          if [[ -f "charms-ras-test-results.html" ]]; then
+              sed -i '1s/.*/<h1>CHARMS RAS Test Results<\/h1>/' charms-ras-test-results.html
+              echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> charms-ras-test-results.html
+              git add charms-ras-test-results.html
+              git commit -m "Update charms-ras-test-results.html"
+          else
+              echo "<h1>CHARMS RAS Test Results</h1>" > charms-ras-test-results.html
+              echo "<h
