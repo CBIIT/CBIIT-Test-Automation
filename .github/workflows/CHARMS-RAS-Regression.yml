@@ -84,4 +84,8 @@ jobs:
               git commit -m "Update charms-ras-test-results.html"
           else
               echo "<h1>CHARMS RAS Test Results</h1>" > charms-ras-test-results.html
-              echo "<h
+              echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> charms-ras-test-results.html
+              git add charms-ras-test-results.html
+              git commit -m "Create and update charms-ras-test-results.html"
+          fi
+          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
