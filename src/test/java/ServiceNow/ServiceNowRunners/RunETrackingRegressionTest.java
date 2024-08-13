@@ -3,11 +3,11 @@ package ServiceNow.ServiceNowRunners;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(plugin= {"html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
+@CucumberOptions(plugin= {"html:target/etrack-regression-reports/etrack-regression-report.html",
         "junit:target/cucumber.xml", "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
         , features="src/test/java/ServiceNow/PlatformBusinessApps/ETracking/Features"
-        , glue="ServiceNow.PlatformBusinessApps.ETracking.Steps"
+        , glue={"ServiceNow.PlatformBusinessApps.ETracking.Steps", "Hooks"}
         , tags="@Regression"
         , dryRun = false
 )

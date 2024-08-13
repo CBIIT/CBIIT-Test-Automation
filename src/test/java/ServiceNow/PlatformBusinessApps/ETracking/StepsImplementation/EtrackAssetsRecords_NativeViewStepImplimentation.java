@@ -44,6 +44,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_NATIVE_VIEW_ASSETS_ALL_RECORD_SEARCH_DROP_DOWN);
         CommonUtils.sendKeysToElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, Keys.ENTER);
+        CommonUtils.hoverOverElement(etrackAssetsRecords_NativeViewPage.eTrackAssetLocator(EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX));
         JavascriptUtils.clickByJS(etrackAssetsRecords_NativeViewPage.eTrackAssetLocator(EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX));
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsOpenRecordButton);
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsOpenRecordButton);

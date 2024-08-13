@@ -153,7 +153,6 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     @Then("they are able to return the submission to a Program Staff in the same DOC")
     public void they_are_able_to_return_the_submission_to_a_Program_Staff_in_the_same_DOC() throws TestingException {
         NERDApplicationStepsImplementation.returningOfSubmissionToTheProgramStaffInSameDOC(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT);
-        NERD_NCI_StaffMemberStepsImplementation.deletingOfSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT);
     }
 
     @Given("a Collaboration has been returned to a Program Staff")
@@ -166,7 +165,6 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     @Then("the Collaboration shows as {string} in the Submission page")
     public void the_Collaboration_shows_as_in_the_Submission_page(String ReturnedToStaffMember) throws TestingException {
         NERDApplicationStepsImplementation.verifyingReturnedToStaffMemberStatus(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_RETURN_TO_STUFF, ReturnedToStaffMember);
-        NERDApplicationStepsImplementation.deleteCreatedSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_RETURN_TO_STUFF);
     }
 
     @Given("a published Collaboration started by a Program Staff has been returned to the DOC Planning Contact")

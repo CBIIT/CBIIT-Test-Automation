@@ -644,6 +644,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         MiscUtils.sleep(5000);
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.deleteButtonReturnedToStaffMember(submissionName));
+        MiscUtils.sleep(1000);
         nerdDynamicXpaths.deleteButtonReturnedToStaffMember(submissionName).click();
         MiscUtils.sleep(1000);
         JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmDeleteYesButton);
