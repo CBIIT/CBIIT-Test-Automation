@@ -566,6 +566,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
             CucumberLogUtils.logScreenshot();
         }
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
+        MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(84));
         MiscUtils.sleep(2000);
         CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.hasProbandEverConsultedADoctorInGettingPregnant));
