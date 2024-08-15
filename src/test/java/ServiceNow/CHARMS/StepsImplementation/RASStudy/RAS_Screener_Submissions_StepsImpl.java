@@ -29,6 +29,8 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
      * USE THIS METHOD TO CLICK ON SCREENER NEXT BUTTON
      */
     public void clickOnScreenerNextButton() {
+        MiscUtils.sleep(1000);
+        CommonUtils.waitForClickability(rasopathyQuestionnairePage.studyNextButton);
         JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.studyNextButton);
         MiscUtils.sleep(1000);
         CommonUtils.clickOnElement(rasopathyQuestionnairePage.studyNextButton);
