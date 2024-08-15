@@ -3,7 +3,7 @@ Feature: OWM Vacancy Manager Scenarios
 
   @SSJ-7 @SSJ-8 @juarezds @Regression @playwright @Smoke
   Scenario: Verification of Basic Vacancy Information section while creating an NCI Vacancy
-    When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
+    When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
     And User clicks button "+ Create Vacancy" - PW
     And User clicks button "Save" - PW
@@ -48,7 +48,7 @@ Feature: OWM Vacancy Manager Scenarios
 
   @SSJ-69 @juarezds @Regression @playwright @Smoke
   Scenario: Verification of Mandatory Statements section while creating an NCI Vacancy
-    When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
+    When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
     And User clicks button "+ Create Vacancy" - PW
     And User fills in "Vacancy Title" field with title "Testing Automation Title"
@@ -80,7 +80,7 @@ Feature: OWM Vacancy Manager Scenarios
 
   @SSJ-185 @SSJ-306 @juarezds @Regression @playwright
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Positive Flow
-    When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
+    When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
     And User clicks button "+ Create Vacancy" - PW
     And User fills in "Vacancy Title" field with title "Testing Automation Title"
@@ -115,7 +115,7 @@ Feature: OWM Vacancy Manager Scenarios
 
   @SSJ-11 @Regression @playwright @carberalf
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Negative Flow
-    When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
+    When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
     And User clicks button "+ Create Vacancy" - PW
     And User fills in "Vacancy Title" field with title "Testing Automation Title SSJ"

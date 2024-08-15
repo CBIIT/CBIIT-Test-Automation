@@ -3,13 +3,15 @@ package com.nci.automation.web;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoField;
 import java.util.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -21,8 +23,8 @@ import com.nci.automation.utils.MiscUtils;
 
 /**
  * This is a utility class which contains all common methods that will be used
- * through out any application. New methods can be added at any time. Modifying
- * the existing methods may result in build failure. - Please
+ * throughout any application. New methods can be added at any time. Modifying
+ * the existing methods may result in build failure. - Please notify CBIIT QA Team for modifications
  *
  * @author juarezds
  */
@@ -30,41 +32,37 @@ public class CommonUtils extends WebDriverUtils {
 
     /**
      * Use this String to pass an email concatenated with current date and time into
-     * an email text box and you can pass same value (email+date+time) in another
+     * an email text box, and you can pass same value (email+date+time) in another
      * steps.
      */
-
     public static String email = getEmail();
     public static String date = getDateAsString();
 
     /**
-     * Use this method in need of entering keyboard keys into a WebElement by
-     * selenium WebDriver.
+     * Sends a keyboard key to the specified web element.
      *
-     * @param element     Pass the element to which the key needs to be entered.
-     * @param keyboardKey Pass the desired keyboardKey to be entered to an element.
+     * @param element the web element to send keys to
+     * @param keyboardKey the keyboard key to be sent
      */
     public static void sendKeys(WebElement element, Keys keyboardKey) {
         element.sendKeys(keyboardKey);
     }
 
     /**
-     * Use this method in need of retrieving the text of an element through selenium
-     * WebDriver.
+     * Retrieves the visible text of the given web element.
      *
-     * @param element Pass the element from which the text to be retrieved.
-     * @return This method returns a string object.
+     * @param element The WebElement to retrieve the text from.
+     * @return The visible text of the web element.
      */
     public static String getText(WebElement element) {
         return element.getText();
     }
 
     /**
-     * Use this over loaded method in need of selecting an element of dropDown by
-     * VisbleText.
+     * Selects a value in a dropdown by its visible text.
      *
-     * @param //dropDownElement Pass the WebElement of the desired dropDown.
-     * @param //ValueOfDropDown Pass the Visible text of DropDown to be selected.
+     * @param VisibleTextOfDD the visible text of the option to be selected
+     * @param dropDownWebEl the WebElement representing the dropdown
      */
     public static void selectDropDownValue(String VisibleTextOfDD, WebElement dropDownWebEl) {
         Select select = new Select(dropDownWebEl);
@@ -72,11 +70,10 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * Use this over loaded method in need of selecting an element of dropDown by
-     * Value.
+     * Selects a value from a dropdown list based on the provided value.
      *
-     * @param //dropDownElement Pass the value to be selected.
-     * @param //ValueOfDropDown Pass the WebElement of the dropDown.
+     * @param element the {@link WebElement} representing the dropdown list
+     * @param value   the value to be selected from the dropdown list
      */
     public static void selectDropDownValue(WebElement element, String value) {
         Select select = new Select(element);
@@ -84,11 +81,10 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * Use this over loaded method in need of selecting an element of dropDown by
-     * index.
+     * Selects a value from a dropdown list based on the index position.
      *
-     * @param dropDownElement        WebElement of the dropDown.
-     * @param //indexOfDropDownValue Pass the index
+     * @param dropDownElement the dropdown element to select a value from
+     * @param index the index position of the value to be selected
      */
     public static void selectDropDownValue(WebElement dropDownElement, int index) {
         Select select = new Select(dropDownElement);
@@ -96,13 +92,12 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * this method will accept the alert
+     * Accepts and closes the alert dialog box if present.
+     * If there is no alert dialog box, then a message is displayed indicating that no alert is present.
      *
-     * @throws //will throw NoAlertExeption if alert is not present.
+     * @throws NoAlertPresentException if no alert dialog box is present
      */
-
     public static void acceptAlert() {
-
         try {
             Alert alert = webDriver.switchTo().alert();
             alert.accept();
@@ -112,13 +107,10 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * this method will dismiss the alert
-     *
-     * @throws //will throw NoAlertExeption if alert is not present.
+     * Dismisses the currently displayed alert.
+     * If there is no alert present, it prints a message.
      */
-
     public static void dismissAlert() {
-
         try {
             Alert alert = webDriver.switchTo().alert();
             alert.dismiss();
@@ -128,13 +120,12 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * this method will get the alert text
+     * Retrieves the text content of an alert displayed on the current web page.
      *
-     * @throws //will throw NoAlertExeption if alert is not present.
+     * @return the alert text content as a String, or null if no alert is present.
+     * @throws NoAlertPresentException if no alert is present on the web page.
      */
-
     public static String getAlertText() {
-
         try {
             Alert alert = webDriver.switchTo().alert();
             return alert.getText();
@@ -145,13 +136,11 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * This method will switch to the frame
+     * Switches the focus to a frame with the specified name or id.
      *
-     * @param nameOrId
+     * @param nameOrId the name or id of the frame to switch to
      */
-
     public static void switchToFrame(String nameOrId) {
-
         try {
             webDriver.switchTo().frame(nameOrId);
         } catch (NoSuchFrameException e) {
@@ -160,9 +149,9 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * use this method in need of switching to the frame
+     * Switches the focus to a specified frame.
      *
-     * @param element
+     * @param element the element representing the frame to switch to
      */
     public static void switchToFrame(WebElement element) {
         try {
@@ -173,12 +162,11 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * This method will switch to the frame
+     * Switches the focus to a frame identified by index.
      *
-     * @param index
+     * @param index the index of the frame to switch to
      */
     public static void switchToFrame(int index) {
-
         try {
             webDriver.switchTo().frame(index);
         } catch (NoSuchFrameException e) {
@@ -187,11 +175,10 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * This method will switch to default frame
+     * Switches the focus of the driver to the default content, i.e., the top-level browsing context.
+     * If the default content is not found, a message will be printed to the console indicating that the frame is not present.
      */
-
     public static void switchToDefaultContent() {
-
         try {
             webDriver.switchTo().defaultContent();
         } catch (NoSuchFrameException e) {
@@ -200,10 +187,10 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * This method will determine if element is present on ui or not.
+     * Check if the given WebElement is displayed on the page.
      *
-     * @param element
-     * @return
+     * @param element the WebElement to be checked for visibility
+     * @return true if the element is displayed, false if the element is not displayed or an exception occurs
      */
     public static boolean isElementDisplayed(WebElement element) {
         try {
@@ -213,6 +200,12 @@ public class CommonUtils extends WebDriverUtils {
         }
     }
 
+    /**
+     * Checks if the element identified by the given locator is displayed on the current web page.
+     *
+     * @param locator the locator used to identify the element
+     * @return true if the element is displayed, false otherwise
+     */
     public static boolean isElementDisplayed(By locator) {
         try {
             return webDriver.findElement(locator).isDisplayed();
@@ -222,10 +215,10 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * This method will determine if the element is enabled or disabled.
+     * Determines whether a given web element is enabled or not.
      *
-     * @param element
-     * @return
+     * @param element the web element to check
+     * @return true if the element is enabled, false if not or if an exception occurs during the check
      */
     public static boolean isElementEnabled(WebElement element) {
         try {
@@ -233,26 +226,6 @@ public class CommonUtils extends WebDriverUtils {
         } catch (Exception e) {
             return false;
         }
-    }
-
-    /**
-     * This method will block until the element corresponding to the given
-     * {@code id} can be clicked in the page or {@code timeOut} whichever is
-     * earlier.
-     */
-    public static void waitUntilElemtTobeClickableById(Duration timeOut, String id) {
-        WebDriverWait webDriverWait = new WebDriverWait(webDriver, timeOut);
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.id(id)));
-    }
-
-    /**
-     * This method will block until the element corresponding to the given
-     * {@code id} can be clicked in the page or {@code timeOut} whichever is
-     * earlier.
-     */
-    public static void waitUntilElemtTobeClickableByXpath(Duration timeOut, String xpathExcpression) {
-        WebDriverWait webDriverWait = new WebDriverWait(webDriver, timeOut);
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpathExcpression)));
     }
 
     /**
@@ -268,9 +241,9 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * This method will create an Object of WebDriverWait
+     * Creates and returns a WebDriverWait object with a default timeout of 30 seconds.
      *
-     * @return WebDriverWait
+     * @return the WebDriverWait object.
      */
     public static WebDriverWait getWaitObject() {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(30));
@@ -278,63 +251,25 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * This method will wait until element becomes clickable
+     * Waits until the given web element is clickable.
      *
-     * @param element
+     * @param element The web element to wait for clickability.
      */
     public static void waitForClickability(WebElement element) {
         getWaitObject().until(ExpectedConditions.elementToBeClickable(element));
     }
 
     /**
-     * This method will wait until element becomes visible
+     * Waits for the visibility of the given web element.
      *
-     * @param element
+     * @param element The web element to wait for visibility.
      */
     public static void waitForVisibility(WebElement element) {
         getWaitObject().until(ExpectedConditions.visibilityOf(element));
     }
 
     /**
-     * This method will wait until element becomes invisible
-     *
-     * @param element
-     */
-    public static void waitForInvisibility(WebElement element) {
-        getWaitObject().until(ExpectedConditions.invisibilityOf(element));
-    }
-
-    /**
-     * This method will select the specified day from the specified calendar table
-     *
-     * @param table
-     * @param day
-     */
-    public static void selectDateFromTable(WebElement table, String day) {
-        List<WebElement> rows = table.findElements(By.xpath("./tbody/tr"));
-        List<WebElement> cells = new ArrayList<>();
-        boolean daySelected = false;
-        for (WebElement row : rows) {
-            if (row.getText().contains(day)) {
-                cells = row.findElements(By.xpath("./td/a"));
-                break;
-            }
-        }
-        for (WebElement cell : cells) {
-            if (cell.getText().equals(day)) {
-                JavascriptUtils.clickByJS(cell);
-                daySelected = true;
-                break;
-            }
-        }
-        if (!daySelected) {
-            System.out.println("The specified day could not be selected from the calendar.");
-        }
-    }
-
-    /**
-     * This method will read a .json file and return it in a String type written in
-     * json format - for passing REST payloads
+     * This variable represents the name or path of a JSON file.
      */
     static String jsonFile;
 
@@ -348,34 +283,12 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * Use this method in need of removing all characters except Alphabets
-     *
-     * @param yourValue
-     * @return Will return the updated value
-     */
-    public static String getAlphabiticCharactersOnly(String yourValue) {
-        return yourValue.replaceAll("[^a-zA-Z]", "");
-    }
-
-    /**
-     * Use this method in need of removing all characters except Numbers
-     *
-     * @param yourValue
-     * @return Will return the updated value
-     */
-    public static String getNumChrtr(String yourValue) {
-        return yourValue.replaceAll("[^0-9]", "");
-    }
-
-    /**
-     * Use this method to select a drop down value from a ServiceNow drop down menu
+     * Use this method to select a drop-down value from a ServiceNow drop down menu
      * when Select class will not work NOTE: Before using, first you must click on
-     * the drop down, then store elements in a list
+     * the drop-down, then store elements in a list
      */
     public static void selectValueFromBootStrapDropDown(List<WebElement> values, String value) {
-
         for (WebElement dropDownValues : values) {
-
             if (dropDownValues.getText().contentEquals(value)) {
                 dropDownValues.click();
                 break;
@@ -385,10 +298,10 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * Use this method to pass an email concatenated with current date and time into
-     * an email text box
+     * Returns a formatted email string based on the current timestamp.
+     *
+     * @return the formatted email string
      */
-
     public static String getEmail() {
         Date date = new Date();
         Timestamp ts = new Timestamp(date.getTime());
@@ -400,27 +313,27 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * Use this method to pass a random LaastName as a String
+     * Generates a random last name with 10 characters consisting of lowercase letters.
      *
-     * @return
+     * @return a random last name
      */
     public static String lastNameRandomizer() {
         int leftLimit = 97; // letter 'a'
         int rightLimit = 122; // letter 'z'
         int targetStringLength = 10;
         Random random = new Random();
-
         String generatedString = random.ints(leftLimit, rightLimit + 1)
                 .limit(targetStringLength)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
-        String generatedLastName = generatedString.substring(0, 1).toUpperCase() + generatedString.substring(1);
-        return generatedLastName;
+        return generatedString.substring(0, 1).toUpperCase() + generatedString.substring(1);
     }
 
     /**
-     * Use this method to pass date as a string. You can concatinate with any String
-     * and get unique name
+     * Returns the current date and time as a formatted string.
+     * The date and time are formatted according to the pattern "yyyy-MM-dd HH:mm:ss".
+     *
+     * @return the formatted date and time as a string.
      */
     public static String getDateAsString() {
         Date date = new Date();
@@ -432,7 +345,11 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * Use this method to select a checkbox value
+     * Selects the checkbox based on the given attribute and value.
+     *
+     * @param checkboxList the list of web elements representing the checkboxes
+     * @param attribute the attribute to match against
+     * @param value the value to match
      */
     public static void selectCheckbox(List<WebElement> checkboxList, String attribute, String value) {
         for (WebElement checkbox : checkboxList) {
@@ -448,13 +365,14 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * Use this method to select a checkbox value & to check that checkbox is
-     * displayed
+     * Selects a checkbox from a list of checkboxes based on specified attribute and value.
+     *
+     * @param checkboxList the list of checkboxes to select from
+     * @param attribute the attribute of the checkboxes to compare against
+     * @param value the value of the attribute to match
      */
-
     public static void selectCheckboxDisplayed(List<WebElement> checkboxList, String attribute, String value) {
         for (WebElement checkbox : checkboxList) {
-
             if (checkbox.isEnabled() && checkbox.isDisplayed()) {
                 String checkboxText = checkbox.getAttribute(attribute);
                 if (checkboxText.equals(value)) {
@@ -467,25 +385,16 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * Use this method to open new tab
-     */
-
-    public static void openNewTab() {
-        JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;
-        js.executeScript("window.open('about:blank','_blank');");
-    }
-
-    /**
-     * @Author @SonikaJain
-     * Switch to new tab opened by clicking a link
+     * This method is used to switch to another tab window in the current session.
+     * It gets the current window handle of the parent window and then iterates
+     * through all the window handles. If a window handle is not equal to the parent
+     * window handle, then it switches the driver context to that window handle.
+     * This is useful when working with multiple tabbed windows within a single browser instance.
      */
     public static void switchToAnotherTabWindow() {
         String parent = WebDriverUtils.webDriver.getWindowHandle();
         Set<String> s = WebDriverUtils.webDriver.getWindowHandles();
-        Iterator<String> I1 = s.iterator();
-
-        while (I1.hasNext()) {
-            String child_window = I1.next();
+        for (String child_window : s) {
             if (!parent.equals(child_window)) {
                 WebDriverUtils.webDriver.switchTo().window(child_window);
             }
@@ -493,16 +402,10 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * @Author @SonikaJain
-     * Click browser back button
-     */
-    public static void clickBrowserBackButton() {
-        WebDriverUtils.webDriver.navigate().back();
-    }
-
-    /**
-     * @Author @SonikaJain
-     * To maximize the window
+     * Maximizes the current window.
+     * This method is used to maximize the window of the current WebDriver instance.
+     * If the window is already maximized, this method has no effect.
+     * The behavior of this method may vary based on the WebDriver implementation.
      */
     public static void maximizeWindow() {
         WebDriverUtils.webDriver.manage().window().maximize();
@@ -518,92 +421,79 @@ public class CommonUtils extends WebDriverUtils {
         }
     }
 
-    /*
-     * Use this method to scroll into an element
+    /**
+     * Scrolls the webpage until the specified element is in view.
+     *
+     * @param locator the locator to identify the element to scroll into view
      */
     public static void scrollIntoView(By locator) {
-        try {
             WebElement element = WebDriverUtils.webDriver.findElement(locator);
             Actions action = new Actions(WebDriverUtils.webDriver);
             action.moveToElement(element);
             action.perform();
-        } catch (Exception e) {
-            throw e;
-        }
     }
 
-    /*
-     * Use this method to scroll into an element
+    /**
+     * Scrolls the web page to bring the specified web element into view.
+     *
+     * @param element the web element to scroll into view
      */
     public static void scrollIntoView(WebElement element) {
-        try {
             Actions action = new Actions(WebDriverUtils.webDriver);
             action.moveToElement(element);
             action.perform();
-        } catch (Exception e) {
-            throw e;
-        }
     }
 
-    /*
+    /**
+     * Compares the actual and expected strings and throws an AssertionError if they are not equal.
      *
-     * Use below method to assert expected String value with an actual String value
+     * @param actual   the actual string value
+     * @param expected the expected string value
+     * @throws AssertionError if the actual string is not equal to the expected string
      */
     public static void assertEquals(String actual, String expected) {
-
         try {
             Assert.assertEquals(actual, expected);
         } catch (AssertionError e) {
-
             e.printStackTrace();
         }
     }
 
-    /*
+    /**
+     * Compares the actual and expected strings using the Assert.assertEquals() method from the JUnit framework.
+     * If the comparison fails, an AssertionError is caught and printed out.
      *
-     * Use below method to assert expected String value with an actual String value
-     * with a message
+     * @param actual   The actual string value to be compared.
+     * @param expected The expected string value to be compared against.
+     * @param message  An optional message to be printed if the comparison fails.
      */
     public static void assertEqualsWithMessage(String actual, String expected, String message) {
-
         try {
             Assert.assertEquals(actual, expected, message);
         } catch (AssertionError e) {
-
             e.printStackTrace();
         }
     }
 
-    /*
+    /**
+     * This method checks if a given boolean condition is true. If the condition is false,
+     * it throws an AssertionError, which can be caught and handled using try-catch.
      *
-     * Use below method to assert actual String value with an expected String value
-     * using assertTrue() method
+     * @param flag the boolean flag to be checked
      */
     public static void assertTrue(boolean flag) {
-
         try {
             Assert.assertTrue(flag);
         } catch (AssertionError e) {
-
             e.printStackTrace();
         }
     }
 
-    /*
-     * Use this method to assert a boolean condition using JUnit assertion
-     */
-    public static void assertTrueJUNIT(String message, boolean flag) {
-        try {
-            org.junit.Assert.assertTrue(message, flag);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    /*
-     * Use this method to assert a boolean condition using TestNG assertion
-     * -- INCLUDE A STRING MESSAGE SPECIFYING THE ASSERTION --
+    /**
+     * Asserts that a given boolean flag is true as per TestNG framework.
+     *
+     * @param flag    the boolean flag to be asserted
+     * @param message the error message to be displayed if the assertion fails
      */
     public static void assertTrueTestNG(boolean flag, String message) {
         try {
@@ -613,8 +503,12 @@ public class CommonUtils extends WebDriverUtils {
         }
     }
 
-    /*
-     * Use this method to switch to switch to a following window
+    /**
+     * Switches the WebDriver to the next window.
+     * This method retrieves all the window handles and switches the WebDriver to each window one by one.
+     * This allows the WebDriver to interact with multiple windows.
+     *
+     * @throws NoSuchWindowException if the next window handle does not exist
      */
     public static void switchToNextWindow() {
         Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
@@ -624,15 +518,15 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * USE THIS METHOD TO CLICK ON STALE ELEMENTS
+     * Clicks on the given web element.
      *
-     * @param ele
+     * @param element the web element to be clicked
      */
-    public static void clickOnElement(WebElement ele) {
+    public static void clickOnElement(WebElement element) {
         int count = 0;
         while (count < 10) {
             try {
-                ele.click();
+                element.click();
                 break;
             } catch (WebDriverException ex) {
                 MiscUtils.sleep(2000);
@@ -642,15 +536,16 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * USE THIS METHOD TO SEND KEYS TO STALE ELEMENTS
+     * Sends the specified text to the given web element.
      *
-     * @param ele
+     * @param element the web element to send keys to
+     * @param text the text to send
      */
-    public static void sendKeysToElement(WebElement ele, String text) {
+    public static void sendKeysToElement(WebElement element, String text) {
         int count = 0;
         while (count < 5) {
             try {
-                ele.sendKeys(text);
+                element.sendKeys(text);
                 break;
             } catch (WebDriverException ex) {
                 MiscUtils.sleep(2000);
@@ -659,31 +554,21 @@ public class CommonUtils extends WebDriverUtils {
         }
     }
 
-    /***
-     * USE THIS METHOD TO GET THE ATTRIBUTE VALUE OF THE VALUE ATTRIBUTE
+    /**
+     * Retrieves the value of the "value" attribute of a given web element.
      *
-     * @param element
-     * @return
+     * @param element The web element from which to retrieve the attribute value.
+     * @return The value of the "value" attribute of the specified web element.
      */
     public static String getAttributeValueOfValueAttribute(WebElement element) {
         return element.getAttribute("value");
     }
 
-    public static boolean isFileDownloaded(String fileName) {
-        boolean temp = false;
-        Path path = Paths.get(System.getProperty("user.dir") + "/" + fileName + "*" + "xlsx");
-        System.out.println("Download Path is" + path);
-        if (Files.exists(path) == true) {
-            if (Files.isRegularFile(path)) {
-                System.out.println("File is found");
-                temp = true;
-            }
-        } else {
-            System.out.println("File is not found");
-        }
-        return temp;
-    }
-
+    /**
+     * Deletes a file with the given fileName from the current directory.
+     *
+     * @param fileName the name of the file to be deleted
+     */
     public static void deleteFile(String fileName) {
         File file = new File(System.getProperty("user.dir") + "/" + fileName);
         if (file.delete()) {
@@ -691,14 +576,12 @@ public class CommonUtils extends WebDriverUtils {
         }
     }
 
-    /***
-     * USE THIS METHOD TO VERIFY IF A VALUE HAS BEEN SELECTED IN A DROP DOWN, IF IT
-     * IS NOT SELECTED, A NoSuchElementException IS THROWN THAT IS ALSO HANDLED WITH
-     * THIS METHOD
+    /**
+     * Verifies if the specified expected value is selected in the given drop-down element.
      *
-     * @param element
-     * @param expectedValue
-     * @param message
+     * @param element       The drop-down WebElement that needs to be checked.
+     * @param expectedValue The expected value that should be selected in the drop-down.
+     * @param message       The failure message to be logged if the assertion fails.
      */
     public static void verifyingDropDownValueIsSelected(WebElement element, String expectedValue, String message) {
         Select select = new Select(element);
@@ -709,6 +592,17 @@ public class CommonUtils extends WebDriverUtils {
         } catch (WebDriverException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * This method returns the text of the selected option in a drop-down list.
+     *
+     * @param element the web element representing the drop-down list
+     * @return the text of the selected option in the drop-down list
+     */
+    public static String getTextOfSelectedDropDownOption(WebElement element){
+        Select select = new Select(element);
+        return select.getFirstSelectedOption().getText();
     }
 
     /**
@@ -723,14 +617,14 @@ public class CommonUtils extends WebDriverUtils {
         element.sendKeys(value);
     }
 
+    /**
+     * Hover over the specified WebElement.
+     *
+     * @param e the WebElement to hover over
+     */
     public static void hoverOverElement(WebElement e) {
         Actions actions = new Actions(WebDriverUtils.webDriver);
         actions.moveToElement(e).build().perform();
-    }
-
-    public static void hoverAndClickElement(int x, int y) {
-        Actions actions = new Actions(WebDriverUtils.webDriver);
-        actions.moveToLocation(x, y).build().perform();
     }
 
     /**
@@ -759,7 +653,7 @@ public class CommonUtils extends WebDriverUtils {
      *
      * @return the date one month from today in the format "dd/MM/yyyy"
      */
-    public static String getOneMonthFromTodayDatein_DD_MM_YYY_format() {
+    public static String getOneMonthFromTodayDate_In_DD_MM_YYY_format() {
         LocalDate oneMonthFromToday = LocalDate.now().plusMonths(1);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         return oneMonthFromToday.format(formatter);
@@ -777,6 +671,68 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
+     * Returns the current date in the format MM-DD-YYYY.
+     *
+     * This method uses the Java LocalDate and DateTimeFormatter classes to format the current date
+     * using the pattern "MM-DD-YYYY". The date components (month, day, and year) are extracted from the
+     * LocalDate object and are formatted as two-digit month, two-digit day, and four-digit year.
+     *
+     * The returned date string will always have two digits for the month and day, and four digits for the year.
+     *
+     * @return the current date formatted as MM-DD-YYYY
+     */
+    public static String getCurrentDateIn_MM_DD_YYYY_format() {
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .appendValue(ChronoField.MONTH_OF_YEAR)
+                .appendLiteral('/')
+                .appendValue(ChronoField.DAY_OF_MONTH, 2)
+                .appendLiteral('/')
+                .appendValue(ChronoField.YEAR, 4)
+                .toFormatter();
+        LocalDate today = LocalDate.now();
+        return today.format(formatter);
+    }
+
+    /**
+     * Retrieves the date that is 10 days from today in the format MM/DD/YYYY.
+     *
+     * @return the date that is 10 days from today in the format MM/DD/YYYY
+     */
+    public static String getTenDaysFromToday_In_MM_DD_YYYY_format() {
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .appendValue(ChronoField.MONTH_OF_YEAR)
+                .appendLiteral('/')
+                .appendValue(ChronoField.DAY_OF_MONTH, 2)
+                .appendLiteral('/')
+                .appendValue(ChronoField.YEAR, 4)
+                .toFormatter();
+        LocalDate dateAfterTenDays = LocalDate.now().plusDays(10);
+        return dateAfterTenDays.format(formatter);
+    }
+
+    /**
+     * Returns the date after ten days in the format "yyyy-MM-dd".
+     *
+     * @return the date after ten days in the format "yyyy-MM-dd".
+     */
+    public static String getDateAfterTenDaysIn_YYYY_MM_DD_format() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate dateAfterDays = LocalDate.now().plusDays(10);
+        return dateAfterDays.format(formatter);
+    }
+
+    /**
+     * Returns the date after ten days from the current date in the format MM/DD/YYYY.
+     *
+     * @return The date after ten days in the format MM/DD/YYYY.
+     */
+    public static String getDateAfterTenDaysIn_MM_DD_YYYY_format() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        LocalDate dateAfterDays = LocalDate.now().plusDays(10);
+        return dateAfterDays.format(formatter);
+    }
+
+    /**
      * Returns the date one month from the current date in the format "YYYY-MM-DD".
      *
      * @return the date one month from the current date in "YYYY-MM-DD" format
@@ -790,14 +746,33 @@ public class CommonUtils extends WebDriverUtils {
     /**
      * Compares two lists of elements and asserts that they are equal.
      *
-     * @param actualValues The list of actual values.
+     * @param actualValues   The list of actual values.
      * @param expectedValues The list of expected values.
      * @throws AssertionError if the sizes of the lists are different or if any corresponding elements in the lists are not equal.
      */
-    public static void comparingTwoLists(List<WebElement> actualValues, List<String> expectedValues){
+    public static void comparingTwoLists(List<WebElement> actualValues, List<String> expectedValues) {
         Assert.assertEquals(actualValues.size(), expectedValues.size());
         for (int i = 0; i < actualValues.size(); i++) {
             Assert.assertEquals(actualValues.get(i).getText(), expectedValues.get(i));
+        }
+    }
+
+    /**
+     * Converts a given date string from the format "MMMM d, yyyy" to "MM/dd/yyyy" format.
+     *
+     * @param inputDate the date string to be converted
+     * @return the converted date string in "MM/dd/yyyy" format, or null if the input date is invalid
+     */
+    public static String convertDate(String inputDate) {
+        try {
+            DateTimeFormatter inputFormat = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+            DateTimeFormatter outputFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+
+            LocalDate date = LocalDate.parse(inputDate, inputFormat);
+            return date.format(outputFormat);
+        } catch (DateTimeParseException e) {
+            System.out.println("Unable to parse date: " + e.getMessage());
+            return null;
         }
     }
 }

@@ -5,6 +5,7 @@ import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -235,11 +236,6 @@ public class ApplicantFlowSteps extends PageInitializer {
         String closeDateLiveVacancyVacDetailsView = applicantFlowPage.closeDateLiveVacancyVacDetailsView.getText();
         Assert.assertNotNull(openDateLiveVacancyVacDetailsView);
         Assert.assertNotNull(closeDateLiveVacancyVacDetailsView);
-    }
-
-    @Given("User verifies that a close date has {string} end period specified")
-    public void user_verifies_that_a_close_date_has_end_period_specified(String endPeriod) {
-        Assert.assertTrue(applicantFlowStepsImplementation.verifyCloseDateContent(endPeriod));
     }
 
     @Given("User verifies that Point of Contact is displayed")
