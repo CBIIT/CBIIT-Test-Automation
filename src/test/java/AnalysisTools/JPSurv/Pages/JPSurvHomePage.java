@@ -74,6 +74,10 @@ public class JPSurvHomePage extends CommonUtils {
 	@FindBy(xpath = "//label[normalize-space()='Workspace']")
 	public WebElement WorkspaceRadiobtn;
 
+	/** Collapse Icon Btn **/
+	@FindBy (xpath = "//i[@id='icon']")
+	public  WebElement collapseIcon;
+
 	/* ====== Cohort Model and Specification ======= */
 
 	/** Year of Diagnosis drop down **/

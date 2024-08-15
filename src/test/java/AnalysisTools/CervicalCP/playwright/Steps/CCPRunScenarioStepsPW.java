@@ -36,6 +36,18 @@ public class CCPRunScenarioStepsPW extends PlaywrightUtils {
         assertThat(page.locator("#root")).containsText("Approximately 200 (Pap test) screening tests, NA triage tests, and 0 diagnostic tests will be required. 0 women will require treatment. 0.0% of women are possibly overtreated.");
     }
 
+    @When("sets all sliders to {int} percent")
+    public void sets_all_sliders_to_percent(int oneHundredPercentage) {
+    }
+
+    @When("the Triage slider is moved to {int}")
+    public void the_triage_slider_is_moved_to(int zeroPercent) {
+    }
+
+    @Then("the Colposcopy value is still {int}")
+    public void the_colposcopy_value_is_still(int colposcopyTableValue) {
+    }
+
     @When("the user enters {int} for number of people in the target population")
         public void enterNumberOfPeople(int num) {
             // Code to enter number of people

@@ -11,6 +11,7 @@ import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.*;
+import org.openqa.selenium.support.FindBy;
 
 public class JPSurvHomePageSteps extends PageInitializer {
 
@@ -339,4 +340,28 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	public void userClickOnYearOfDiagnosed() {
 		jpsurvHomePage.yearOfDiagnosed.click();
 	}
+
+
+	@Then("the user submits {int} jobs with diagnosis start {string}, diagnosis end {string} and maximum number of years from diagnosis {string}")
+	public void the_user_submits_jobs_with_diagnosis_start_diagnosis_end_and_maximum_number_of_years_from_diagnosis(int iterations, String valueToSelect, String valueToSelect2, String valueToSelect3) {
+		for(int i=0; i<iterations;i++) {
+			File dicFile = new File(jpsurvHomePage.dicFilePath);
+			File txtFile = new File(jpsurvHomePage.txtFilePath);
+			jpsurvHomePage.fileInputTextbox.sendKeys(dicFile.getAbsolutePath());
+			jpsurvHomePage.fileInputTextbox.sendKeys(txtFile.getAbsolutePath());
+			JavascriptUtils.clickByJS(jpsurvHomePage.fileUploadBtn);
+			CommonUtils.waitForVisibility(jpsurvHomePage.yearOfDiagnosisStartDropdown);
+			MiscUtils.sleep(1500);
+//			CommonUtils.selectDropDownValue(valueToSelect, jpsurvHomePage.yearOfDiagnosisStartDropdown);
+//			CommonUtils.selectDropDownValue(valueToSelect2, jpsurvHomePage.yearOfDiagnosisEndDropdown);
+//			CommonUtils.selectDropDownValue(valueToSelect3, jpsurvHomePage.maxnumOfYearsFromDiagnosisDropdown);
+			jpsurvHomePage.nonhodgkinlymphonmaCheckbox.click();
+			MiscUtils.sleep(1500);
+			CommonUtils.clickOnElement(jpsurvHomePage.calculateButton);
+			MiscUtils.sleep(2000);
+			JavascriptUtils.clickByJS(jpsurvHomePage.collapseIcon);
+			JavascriptUtils.clickByJS(jpsurvHomePage.resetButton);
+		}
+	}
 }
+

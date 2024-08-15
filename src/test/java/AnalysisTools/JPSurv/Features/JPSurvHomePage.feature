@@ -99,3 +99,8 @@ Feature: These are the scenarios for the Home page on the JPSurv Application
         When user selects non-example workspace
         And user clicks import
         Then workspace results display
+
+    @Progression @matakevin @selenium @manualLoadTest
+    Scenario: User Uploads example Dic and Txt File
+        Given the user is on the JPSurv homepage
+        Then the user submits 30 jobs with diagnosis start "1976", diagnosis end "2007" and maximum number of years from diagnosis "<= 9"
