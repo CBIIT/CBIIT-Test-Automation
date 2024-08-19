@@ -1693,9 +1693,9 @@ public class ApplicantProfileStepsImpl {
      * @param pivCacCardButtonText the expected text of the PIV/CAC card button
      */
     public static void verifies_that_the_piv_cac_card_button_text_is(String pivCacCardButtonText) {
-        newPage.waitForSelector("(//a[@class='piv-button link-button'])[1]");
+        newPage.waitForSelector("//a[normalize-space()='Sign in with PIV / CAC card']");
         CucumberLogUtils.playwrightScreenshot(newPage);
-        Hooks.softAssert.assertEquals(newPage.locator("(//a[@class='piv-button link-button'])[1]").innerText(), pivCacCardButtonText);
+        Hooks.softAssert.assertEquals(newPage.locator("//a[normalize-space()='Sign in with PIV / CAC card']").innerText(), pivCacCardButtonText);
     }
 
     /**

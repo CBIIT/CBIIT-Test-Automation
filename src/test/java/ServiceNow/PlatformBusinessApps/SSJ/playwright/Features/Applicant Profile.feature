@@ -86,7 +86,7 @@ Feature: Applicant Profile Scenarios
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | US Citizenship | address | aptNumber | city   | state | country | zip   |
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
 
-  @alenan @SSJ-712 @Bug_Open @JUAREZDS @In_Progress @playwright @Smoke
+  @SSJ-712 @BUG_OPEN @JUAREZDS @In_Progress @playwright @Smoke
   Scenario: Edit Demographics of Profile
     Given a test account "SSJTest" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
