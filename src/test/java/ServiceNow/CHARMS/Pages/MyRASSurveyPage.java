@@ -214,7 +214,7 @@ public class MyRASSurveyPage {
     /*
     USE THIS METHOD TO DYNAMICALLY ENTER TEXT IN OPTIONS SELECTED
     */
-    public WebElement dynamicOtheriPleaseSpecifyTextBox(String text) {
+    public WebElement dynamicOtherPleaseSpecifyTextBox(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//span[contains(text(),'" + text + "')]//parent::label//parent::span//child::input"));
     }
 
