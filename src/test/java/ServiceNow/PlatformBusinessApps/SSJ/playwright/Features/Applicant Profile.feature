@@ -1,7 +1,7 @@
 Feature: Applicant Profile Scenarios
   Description: This Feature file contains Applicant Profile Scenarios
 
-  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @JUAREZDS @Regression @playwright @SSJRegression_Part_1
+  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @JUAREZDS @Regression @playwright
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
@@ -43,7 +43,7 @@ Feature: Applicant Profile Scenarios
       | SSJTest   | Marianna   | Mollick    | mollickja@nih.gov  | 7018211343 | 2123323454           | Masters          | Yes            | 11 Kolls | 6         | Sausalito  | CA    | USA     | 97712 |
       | SSJTest   | Elena      | Andrew     | andrewkl@nih.gov   | 8233212333 | 2202122234           | Bachelors        | Yes            | 11 Bells | 39        | Sacramento | CA    | USA     | 95512 |
 
-  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @SSJ-712 @JUAREZDS @Regression @playwright @SSJRegression_Part_1
+  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @SSJ-712 @JUAREZDS @Regression @playwright
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
@@ -86,7 +86,7 @@ Feature: Applicant Profile Scenarios
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | US Citizenship | address | aptNumber | city   | state | country | zip   |
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
 
-  @SSJ-712 @BUG_OPEN @JUAREZDS @In_Progress @playwright @Smoke @SSJRegression_Part_2
+  @SSJ-712 @BUG_OPEN @JUAREZDS @In_Progress @playwright @Smoke
   Scenario: Edit Demographics of Profile
     Given a test account "SSJTest" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
@@ -102,7 +102,7 @@ Feature: Applicant Profile Scenarios
     And User chooses not to share demographic details - PW
     Then User saves the updated section - PW
 
-  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright @SSJRegression_Part_1
+  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright
   Scenario Outline: Verifying applicant is able to see "Your Applications" tab and page content after applying to a Vacancy
 #    Given an Okta user "" is on the SSJ home page and logs in - PLEASE LEAVE THIS HERE! NEED TO CONNECT WITH OKTA TEAM
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
@@ -229,12 +229,12 @@ Feature: Applicant Profile Scenarios
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 | Fred                  | Trout                  | Laste                | referenceOne@test.com | 7036875816              | Supervisor/Manager       | PROJECT MANAGER           | TESTING ORGANIZATION FIELD FOR REFERENCE ONE | John                  | Steven                 | Vakhutko             | referenceTwo@test.com | 7036875816              | Co-worker                | TEST AUTOMATION LEAD      | TESTING ORGANIZATION FIELD FOR REFERENCE TWO |
 
 
-  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright @SSJRegression_Part_2
+  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright
   Scenario: Verifying applicant does not see "Your Applications" tab if applicant has not applied to a Vacancy
     Given a user who has not applied to a Vacancy before is on the SSJ home page
     Then Your Applications tab should NOT be displayed
 
-  @TC_APPTRACK-145 @JUAREZDS @Regression @playwright @SSJRegression_Part_2
+  @TC_APPTRACK-145 @JUAREZDS @Regression @playwright
   Scenario: Verifying Vacancy details
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And clicks on "Vacancy Dashboard" - PW
@@ -270,7 +270,7 @@ Feature: Applicant Profile Scenarios
     And verifies Application Documents text "APPLICATION DOCUMENTS"
     And verifies required documents with required references needed to apply to this test Vacancy
 
-  @TC_APPTRACK-144 @JUAREZDS @Regression @playwright @SSJRegression_Part_2
+  @TC_APPTRACK-144 @JUAREZDS @Regression @playwright
   Scenario: Applying for vacancy as unauthenticated applicant
     Given an unauthenticated applicant is on the SSJ homepage "SSJPortalView"
     And verifies that the drop drown text is "Login"
@@ -287,7 +287,7 @@ Would you like to log in now or go back to the home page?
     And clicks "Log in" and is redirected to the Okta Login Portal
     And verifies that the PIV CAC card button text is "Sign in with PIV / CAC card"
 
-  @TC_APPTRACK-128 @JUAREZDS @Regression @playwright @SSJRegression_Part_2
+  @TC_APPTRACK-128 @JUAREZDS @Regression @playwright
   Scenario Outline: Verification of the Save application functionality
     Given a test account "SSJTest" is reset before executing a test
     And a test vacancy "DIEGO TEST" is reset before creating a vacancy
@@ -355,7 +355,7 @@ Would you like to log in now or go back to the home page?
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | address | aptNumber | city   | state | country | zip   |
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
 
-  @TC_APPTRACK-360 @JUAREZDS @Regression @playwright @SSJRegression_Part_2
+  @TC_APPTRACK-360 @JUAREZDS @Regression @playwright
   Scenario Outline: Verification of the Save application functionality
     Given a test account "SSJTest" is reset before executing a test
     And User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
