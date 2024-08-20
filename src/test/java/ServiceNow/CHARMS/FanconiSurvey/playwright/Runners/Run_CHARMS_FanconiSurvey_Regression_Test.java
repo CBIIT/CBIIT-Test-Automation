@@ -7,8 +7,8 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(plugin = {"html:target/html-reports/cucumber-default-report.html", "json:target/cucumber.json",
         "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
-        features = "src/test/java/ServiceNow/CHARMS/FanconiSurvey/playwright/Features",
-        glue = "ServiceNow.CHARMS.FanconiSurvey.playwright.Steps",
+        features = "src/test/java/ServiceNow/CHARMS/FanconiSurvey/Playwright/Features",
+        glue = {"ServiceNow.CHARMS.FanconiSurvey.Playwright.Steps","Hooks"},
         tags = "@Regression",
         dryRun = false
 )

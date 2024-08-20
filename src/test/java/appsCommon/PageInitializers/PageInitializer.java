@@ -41,6 +41,7 @@ import GrantsApps.ChangePassword.StepsImplementation.*;
 import GrantsApps.EM.selenium.Pages.AccountDetailsPage;
 import GrantsApps.EM.selenium.Pages.CreateNewAccountPage;
 import GrantsApps.EM.selenium.Pages.ManageI2EUsersPage;
+import GrantsApps.EM.selenium.Pages.ModifyAccountPage;
 import GrantsApps.EM.selenium.StepImplementation.EMStepsImplementation;
 import ServiceNow.CHARMS.Constants.*;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
@@ -56,7 +57,9 @@ import ServiceNow.COVIDCode.StepsImplementation.DashboardStepImpl;
 import ServiceNow.COVIDDash.NativeView.Pages.*;
 import ServiceNow.COVIDDash.Pages.*;
 import ServiceNow.COVIDDash.StepsImplementation.*;
-import ServiceNow.ESR.Pages.*;
+import ServiceNow.ESR.Selenium.Pages.ESRShortDescriptionPage;
+import ServiceNow.ESR.Selenium.Pages.ESRTicketCreationPage;
+import ServiceNow.ESR.Selenium.Pages.NCINativeViewPage;
 import ServiceNow.PlatformBusinessApps.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
 import ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Pages.CTRPCTRO_NV_Page;
 import ServiceNow.PlatformBusinessApps.GDC.Pages.GDC_Workflow_NativeView_Page;
@@ -95,6 +98,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static ManageI2EUsersPage manageI2EUsersPage;
 	public static CreateNewAccountPage createNewAccountPage;
 	public static AccountDetailsPage accountDetailsPage;
+	public static ModifyAccountPage modifyAccountPage;
 
 	/** --------------- SERVICENOW INSTANCES --------------- */
 	/** COVIDDash instances */
@@ -124,9 +128,9 @@ public class PageInitializer extends WebDriverUtils {
 	public static ProbandScreenerPage probandScreenerPage;
 	public static MyRASLoginPage myRASLoginPage;
 	public static MyRASHomePage myRASHomePage;
-	public static RASopathyQuestionnairePage rasopathyQuestionnairePage;
+	public static RAS_Screener_Page rasopathyQuestionnairePage;
 	public static MyRASIIQFormPage myRASIIQFormPage;
-	public static RAS_Scenario_One_StepsImpl ras_scenario_one_stepsImpl;
+	public static RAS_Screener_Submissions_StepsImpl ras_screenerSubmissions_stepsImpl;
 	public static RasScenario2StepsImpl rasScenario2StepsImpl;
 	public static RasScenario3StepsImpl rasScenario3StepsImpl;
 	public static RasScenario4StepsImpl rasScenario4StepsImpl;
@@ -199,7 +203,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static UnauthenticatedApplicantPage unauthenticatedApplicantPage;
 	public static StadtmanVacancyPage stadtmanVacancyPage;
 	public static ApplicantFlowPage applicantFlowPage;
-
 	public static StadtmanVacancyStepsImplementation stadtmanVacancyStepsImplementation;
 	public static OWMVacancyStepsImplementation oWMVacancyStepsImplementation;
 	public static SSJLoginStepsImplementation sSJLoginStepsImplementation;
@@ -357,7 +360,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
 
-
 	/** --------------- EGRANTS INSTANCES --------------- */
 	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;
 	public static EgrantsStepImplementation egrantsStepImplementation;
@@ -412,12 +414,12 @@ public class PageInitializer extends WebDriverUtils {
 		probandScreenerPage = new ProbandScreenerPage();
 		myRASLoginPage = new MyRASLoginPage();
 		myRASHomePage = new MyRASHomePage();
-		ras_scenario_one_stepsImpl = new RAS_Scenario_One_StepsImpl();
+		ras_screenerSubmissions_stepsImpl = new RAS_Screener_Submissions_StepsImpl();
 		rasScenario2StepsImpl = new RasScenario2StepsImpl();
 		rasScenario3StepsImpl = new RasScenario3StepsImpl();
 		rasScenario4StepsImpl = new RasScenario4StepsImpl();
 		ras_scenario_five_stepsImpl = new RAS_Scenario_Five_StepsImpl();
-		rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
+		rasopathyQuestionnairePage = new RAS_Screener_Page();
 		ras_Screener_Constants = new RAS_Screener_Constants();
 		ras_Survey_Constants = new RAS_Survey_Constants();
 		iiq_Constants = new IIQ_Constants();
@@ -646,6 +648,7 @@ public class PageInitializer extends WebDriverUtils {
 		emStepsImplementation = new EMStepsImplementation();
 		manageI2EUsersPage = new ManageI2EUsersPage();
 		createNewAccountPage = new CreateNewAccountPage();
+		modifyAccountPage = new ModifyAccountPage();
 
 		/** eTracking INSTANCE VARIABLES */
 		etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
