@@ -80,8 +80,28 @@ public class CCRApplicantPage extends CommonUtils {
     @FindBy(xpath = "(//div//button[contains(text(),' Next ')])[3]")
     public WebElement nextButtonBusinessAddressSection;
 
-    /** Next Button Required Documents Section **/
+    /** Next Button Reference Section **/
     @FindBy(xpath = "(//div//button[contains(text(),' Next ')])[4]")
+    public WebElement nextButtonReferenceSection;
+
+    /** Reference First Name Field **/
+    @FindBy(xpath = "//input[@id='reference_0_first_name']")
+    public WebElement refFirstNameField;
+
+    /** Reference Last Name Field **/
+    @FindBy(xpath = "//input[@id='reference_0_last_name']")
+    public WebElement refLastNameField;
+
+    /** Reference Email Field **/
+    @FindBy(xpath = "//input[@id='reference_0_email']")
+    public WebElement refEmailField;
+
+    /** Reference Phone Number Field **/
+    @FindBy(xpath = "//input[@id='reference_0_phone']")
+    public WebElement refPhoneNumberField;
+
+    /** Next Button Required Documents Section **/
+    @FindBy(xpath = "(//div//button[contains(text(),' Next ')])[5]")
     public WebElement nextButtonRequiredDocumentsSection;
 
     /** Department Field **/

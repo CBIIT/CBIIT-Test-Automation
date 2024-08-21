@@ -40,6 +40,12 @@ Feature: CCR Landing Page Scenarios
     And User enters "<businessZip>" into a business zip field
     And User selects United States from a country dropdown for "Business Address" section
     And User clicks Next button for "Business Address" section
+    And User enters "<referenceFirstName>" into a reference First name field
+    And User enters "<referenceLastName>" into a reference Last name field
+    And User enters "<referenceEmail>" into a reference Email field
+    And User enters "<referencePhoneNumber>" into a reference Phone Number field
+    And User selects "Other" from a degree dropdown
+    And User clicks Next button for "Reference" section
     And User uploads "CV" document
     And User uploads "Research Goals" document
     And User clicks Next button for "Required Documents" section
@@ -53,6 +59,6 @@ Feature: CCR Landing Page Scenarios
     And Admin User deletes a newly created vacancy
 
     Examples:
-      | firstName | middleName | lastName | email           | phone      | businessPhone | otherDegree(s) | address   | address2 | city  | state | zip   | department | institution | businessAddress |  businessAddress2 | businessCity | businessState | businessZip |
-      | Elena     | Maria      | Beloli   | elena@gmail.com | 2012212343 | 2023323454    | MBA            |  7 Mills  | Drive    | Reston| VA    | 20453 | Research   |  NCI        | 43 Cal Dr       |  Full Circuit     | Mclean       | VA            | 20567       |
+      | firstName | middleName | lastName | email           | phone      | businessPhone | referenceFirstName| referenceLastName| referenceEmail|referencePhoneNumber |  otherDegree(s) | address   | address2 | city  | state | zip   | department | institution | businessAddress |  businessAddress2 | businessCity | businessState | businessZip |
+      | Elena     | Maria      | Beloli   | elena@gmail.com | 2012212343 | 2023323454    |  John             |    Molls         | test@gmail.com| 2123345678          | MBA            |  7 Mills  | Drive    | Reston| VA    | 20453 | Research   |  NCI        | 43 Cal Dr       |  Full Circuit     | Mclean       | VA            | 20567       |
 

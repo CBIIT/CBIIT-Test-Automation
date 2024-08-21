@@ -15,6 +15,7 @@ import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -45,6 +46,10 @@ public class CCRStepsImplementation extends PageInitializer {
             case "Address":
                 CommonUtils.waitForVisibility(cCRApplicantPage.nextButtonAddressSection);
                 CommonUtils.clickOnElement(cCRApplicantPage.nextButtonAddressSection);
+                break;
+            case "Reference":
+                CommonUtils.waitForVisibility(cCRApplicantPage.nextButtonReferenceSection);
+                CommonUtils.clickOnElement(cCRApplicantPage.nextButtonReferenceSection);
                 break;
             case "Business Address":
                 CommonUtils.waitForVisibility(cCRApplicantPage.nextButtonBusinessAddressSection);
@@ -210,8 +215,11 @@ public class CCRStepsImplementation extends PageInitializer {
         WebDriverUtils.webDriver.switchTo().defaultContent();
         JavascriptUtils.scrollIntoView(cCRAdminUserPage.openDateCalendar);
         CommonUtils.clickOnElement(cCRAdminUserPage.openDateCalendar);
-        MiscUtils.sleep(2000);
         CommonUtils.clickOnElement(cCRAdminUserPage.todaysDateActiveField);
+        MiscUtils.sleep(2000);
+        Select s = new Select(webDriver.findElement(By.id("number_of_references")));
+        s.selectByVisibleText("1");
+        clickOutside();
         MiscUtils.sleep(2000);
         CommonUtils.clickOnElement(cCRAdminUserPage.buttonSaveNewPosition);
     }
@@ -226,5 +234,10 @@ public class CCRStepsImplementation extends PageInitializer {
         Assert.assertTrue("Position was NOT removed",cCRAdminUserPage.confirmationMessagePositionWasRemoved.isDisplayed());
         CommonUtils.waitForVisibility(cCRAdminUserPage.acknowledgeConfirmationModalPositionWasRemoved);
         CommonUtils.clickOnElement(cCRAdminUserPage.acknowledgeConfirmationModalPositionWasRemoved);
+    }
+
+    public void clickOutside(){
+        Actions action = new Actions(webDriver);
+        action.moveByOffset(0, 0).click().build().perform();
     }
 }

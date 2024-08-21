@@ -80,7 +80,7 @@ public class ApplicantUserSteps extends PageInitializer {
     }
 
     @Given("User selects {string} from a degree dropdown")
-    public void user_selects_from_a_degree_dropdown(String  MDPhD) {
+    public void user_selects_from_a_degree_dropdown() {
         CommonUtils.clickOnElement(cCRApplicantPage.degreeDropdown);
         CommonUtils.clickOnElement(cCRApplicantPage.degreeOther);
     }
@@ -211,8 +211,24 @@ public class ApplicantUserSteps extends PageInitializer {
         cCRStepsImplementation.logOutOfCCRCareersApp();
     }
 
-    @Given("Admin User creates a new vacancy")
-    public void admin_user_creates_a_new_vacancy() {
-        cCRStepsImplementation.adminUserCreatesNewVacancy();
+    @Given("User enters {string} into a reference First name field")
+    public void user_enters_into_a_reference_first_name_field(String referenceFirstName) {
+        CommonUtils.waitForVisibility(cCRApplicantPage.refFirstNameField);
+        CommonUtils.sendKeys(cCRApplicantPage.refFirstNameField, referenceFirstName);
+    }
+    @Given("User enters {string} into a reference Last name field")
+    public void user_enters_into_a_reference_last_name_field(String referenceLastName) {
+        CommonUtils.waitForVisibility(cCRApplicantPage.refLastNameField);
+        CommonUtils.sendKeys(cCRApplicantPage.refLastNameField, referenceLastName);
+    }
+    @Given("User enters {string} into a reference Email field")
+    public void user_enters_into_a_reference_email_field(String referenceEmail) {
+        CommonUtils.waitForVisibility(cCRApplicantPage.refEmailField);
+        CommonUtils.sendKeys(cCRApplicantPage.refEmailField, referenceEmail);
+    }
+    @Given("User enters {string} into a reference Phone Number field")
+    public void user_enters_into_a_reference_phone_number_field(String referencePhoneNumber) {
+        CommonUtils.waitForVisibility(cCRApplicantPage.refPhoneNumberField);
+        CommonUtils.sendKeys(cCRApplicantPage.refPhoneNumberField, referencePhoneNumber);
     }
 }
