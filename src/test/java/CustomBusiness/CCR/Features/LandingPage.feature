@@ -3,14 +3,14 @@ Feature: CCR Landing Page Scenarios
   Background: common steps
     Given User is on CCR Landing page and user is "internal user"
 
-  @Nekrashevich @Regression  @landingPage @Smoke
+  @Nekrashevich  @landingPage @Smoke
   Scenario: Verify CCR Landing Page items
     And User can see "Home" tab displayed
     And User can see "Positions" tab displayed
 
   @Nekrashevich @Regression @Smoke @fillApplication @CAMS-9
   Scenario Outline: Fill In An Application As An Internal User
-    And User navigates to "Senior Investigator - Basic/Translational Cancer Research - Focus Area in Cancer Health Disparities" open vacancy
+    And User navigates to "Scientific Director, Center for Cancer Research, National Cancer Institute" open vacancy
     And User clicks "Apply Now" button
     And User enters "<firstName>" into a first name field
     And User enter "<middleName>" into a middle name field
@@ -38,10 +38,10 @@ Feature: CCR Landing Page Scenarios
     And User enters "<businessZip>" into a business zip field
     And User selects United States from a country dropdown for "Business Address" section
     And User clicks Next button for "Business Address" section
-    And User uploads "CV" document
-#    And User uploads "Research Goals" document
-#    And User uploads "Letter of Interest" document
-#    And User uploads "Upload Diversity Statement" document
+    And User uploads "CV" document as ".src/test/java/CustomBusiness/CCR/Resources/CV.docx"
+    And User uploads "Research Goals" document as ".src/test/java/CustomBusiness/CCR/Resources/ResearchGoals.docx"
+    And User uploads "Letter of Interest" document as ".src/test/java/CustomBusiness/CCR/Resources/LetterOfInterest.docx"
+    And User uploads "Upload Diversity Statement" document as ".src/test/java/CustomBusiness/CCR/Resources/DiversityStatement.docx"
     And User clicks Next button for "Required Documents" section
     And User selects an outreach source as "Contacted By Member"
     And User selects "Yes" for the question on simplicity of uploading application materials

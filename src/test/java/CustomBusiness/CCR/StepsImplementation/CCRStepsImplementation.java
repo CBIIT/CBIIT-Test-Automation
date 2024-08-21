@@ -19,6 +19,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.File;
 
 public class CCRStepsImplementation extends PageInitializer {
 
@@ -61,35 +62,25 @@ public class CCRStepsImplementation extends PageInitializer {
         }
     }
 
-    public void uploadDocuments(String document) throws AWTException {
+    public void uploadDocuments(String document, String path) {
         switch (document) {
             case "CV":
-                CommonUtils.clickOnElement(cCRApplicationPage.uploadFileCV);
-                MiscUtils.sleep(3000);
-                //JavascriptUtils.uploadFileToHiddenFieldWithInputTag(cCRApplicationPage.chooseFileCV,CCR_CONSTANTS.CV);
-//                Robot robot = new Robot();
-//                robot.keyPress(KeyEvent.VK_ENTER);
-//                robot.keyRelease(KeyEvent.VK_ENTER);
-//                robot.keyPress(KeyEvent.VK_CONTROL);
-//                robot.keyPress(KeyEvent.VK_V);
-//                robot.keyRelease(KeyEvent.VK_V);
-//                robot.keyRelease(KeyEvent.VK_CONTROL);
-//                robot.keyPress(KeyEvent.VK_ENTER);
-//                robot.keyRelease(KeyEvent.VK_ENTER);
-                cCRApplicationPage.chooseFileCV.sendKeys(CCR_CONSTANTS.CV);
-                MiscUtils.sleep(9000);
+                File pathInput = new File(path);
+                JavascriptUtils.sendKeysByJS(cCRApplicationPage.chooseFileCV, pathInput.getAbsolutePath());
+                MiscUtils.sleep(2000);
                 break;
             case "Research Goals":
-                JavascriptUtils.uploadFileToHiddenFieldWithInputTag(cCRApplicationPage.chooseFileResearchGoals,CCR_CONSTANTS.RESEARCH_GOALS);
-                MiscUtils.sleep(5000);
-                break;
+                File pathInput1 = new File(path);
+                JavascriptUtils.sendKeysByJS(cCRApplicationPage.chooseFileResearchGoals, pathInput1.getAbsolutePath());
+                MiscUtils.sleep(2000);
             case "Letter of Interest":
-                JavascriptUtils.uploadFileToHiddenFieldWithInputTag(cCRApplicationPage.chooseFileLetterOfInterest,CCR_CONSTANTS.LETTER_OF_INTEREST);
-                MiscUtils.sleep(5000);
-                break;
+                File pathInput2 = new File(path);
+                JavascriptUtils.sendKeysByJS(cCRApplicationPage.chooseFileLetterOfInterest, pathInput2.getAbsolutePath());
+                MiscUtils.sleep(2000);
             case "Upload Diversity Statement":
-                JavascriptUtils.uploadFileToHiddenFieldWithInputTag(cCRApplicationPage.chooseFileDiversityStatement,CCR_CONSTANTS.DIVERSITY_STATEMENT);
-                MiscUtils.sleep(5000);
+                File pathInput3 = new File(path);
+                JavascriptUtils.sendKeysByJS(cCRApplicationPage.chooseFileDiversityStatement, pathInput3.getAbsolutePath());
+                MiscUtils.sleep(2000);
                 break;
         }
     }

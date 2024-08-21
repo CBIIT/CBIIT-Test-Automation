@@ -175,9 +175,9 @@ public class InternalUserSteps extends PageInitializer {
         CommonUtils.sendKeys(cCRApplicationPage.businessZipField, businessZip);
     }
 
-    @Given("User uploads {string} document")
-    public void user_uploads_document(String document) throws  AWTException {
-        cCRStepsImplementation.uploadDocuments(document);
+    @Given("User uploads {string} document as {string}")
+    public void user_uploads_document_as(String document, String path) throws AWTException {
+        cCRStepsImplementation.uploadDocuments(document, path);
     }
 
     @Given("User selects an outreach source as {string}")

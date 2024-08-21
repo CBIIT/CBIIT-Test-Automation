@@ -193,6 +193,4 @@ public class CCRApplicationPage extends CommonUtils {
     @FindBy(xpath = "(//input[@aria-label='File name'])[4]")
     public WebElement chooseFileDiversityStatement;
 
-    @FindBy(xpath = "(//div[@class='input-group-btn']//button[.=' Choose File '])[1]")
-    public WebElement uploadFileCV;
 }
