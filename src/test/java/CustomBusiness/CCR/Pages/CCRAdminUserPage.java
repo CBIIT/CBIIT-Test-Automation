@@ -44,5 +44,21 @@ import org.openqa.selenium.support.PageFactory;
         @FindBy(xpath = "(//div[@class='text-center']//button[.=' Save '])[1]")
         public WebElement buttonSaveNewPosition;
 
+        /**  button Remove newly created position**/
+        @FindBy(xpath = "(//button[@class='btn btn-sm btn-danger m-0'])[1]")
+        public WebElement buttonRemoveNewlyCreatedPosition;
+
+        /**  button Ok Removing Position Modal**/
+        @FindBy(xpath = "(//button[@ng-click='buttonClicked(button)'])[2]")
+        public WebElement buttonOkRemovingPositionModal;
+
+        /**  Position was removed Confirmation Message**/
+        @FindBy(xpath = "//p[.='The position and all associated applicant data have been removed from the system.']")
+        public WebElement confirmationMessagePositionWasRemoved;
+
+        /**  Acknowledge Position was removed Confirmation Modal**/
+        @FindBy(xpath = "//button[@ng-click='buttonClicked(button)']")
+        public WebElement acknowledgeConfirmationModalPositionWasRemoved;
+
 
 }

@@ -215,4 +215,16 @@ public class CCRStepsImplementation extends PageInitializer {
         MiscUtils.sleep(2000);
         CommonUtils.clickOnElement(cCRAdminUserPage.buttonSaveNewPosition);
     }
+
+    public void adminUserDeletesNewVacancy(){
+        CommonUtils.waitForVisibility(cCRAdminUserPage.tabPositions);
+        CommonUtils.clickOnElement(cCRAdminUserPage.tabPositions);
+        CommonUtils.waitForVisibility(cCRAdminUserPage.buttonRemoveNewlyCreatedPosition);
+        CommonUtils.clickOnElement(cCRAdminUserPage.buttonRemoveNewlyCreatedPosition);
+        CommonUtils.waitForVisibility(cCRAdminUserPage.buttonOkRemovingPositionModal);
+        CommonUtils.clickOnElement(cCRAdminUserPage.buttonOkRemovingPositionModal);
+        Assert.assertTrue("Position was NOT removed",cCRAdminUserPage.confirmationMessagePositionWasRemoved.isDisplayed());
+        CommonUtils.waitForVisibility(cCRAdminUserPage.acknowledgeConfirmationModalPositionWasRemoved);
+        CommonUtils.clickOnElement(cCRAdminUserPage.acknowledgeConfirmationModalPositionWasRemoved);
+    }
 }

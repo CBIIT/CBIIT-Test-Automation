@@ -12,7 +12,7 @@ Feature: CCR Landing Page Scenarios
     And Admin User creates a new vacancy
     And User logs out of CCR application
     And User is on CCR Landing page and user is "internal user"
-    And User navigates to "CTO" open vacancy
+    And User navigates to "Chief Technical Officer" open vacancy
     And User applies for that vacancy
     And User enters "<firstName>" into a first name field
     And User enter "<middleName>" into a middle name field

@@ -7,7 +7,7 @@ import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import java.awt.*;
 
-public class InternalUserSteps extends PageInitializer {
+public class ApplicantUserSteps extends PageInitializer {
 
     @Given("User is on CCR Landing page and user is {string}")
     public void user_is_on_ccr_landing_page_and_user_is(String user) {
