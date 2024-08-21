@@ -156,6 +156,7 @@ public class CCRStepsImplementation extends PageInitializer {
         CommonUtils.clickOnElement(cCRApplicantPage.submitButton);
         CommonUtils.waitForVisibility(cCRApplicantPage.submitConfirmationButton);
         CommonUtils.clickOnElement(cCRApplicantPage.submitConfirmationButton);
+        MiscUtils.sleep(1000);
         Assert.assertTrue(" User failed to submit application", cCRApplicantPage.msgApplicationSubmitted.isDisplayed());
         CommonUtils.waitForVisibility(cCRApplicantPage.closeApplicationSubmittedButton);
         CommonUtils.clickOnElement(cCRApplicantPage.closeApplicationSubmittedButton);
@@ -229,10 +230,11 @@ public class CCRStepsImplementation extends PageInitializer {
         CommonUtils.clickOnElement(cCRAdminUserPage.tabPositions);
         CommonUtils.waitForVisibility(cCRAdminUserPage.buttonRemoveNewlyCreatedPosition);
         CommonUtils.clickOnElement(cCRAdminUserPage.buttonRemoveNewlyCreatedPosition);
-        CommonUtils.waitForVisibility(cCRAdminUserPage.buttonOkRemovingPositionModal);
+        MiscUtils.sleep(2000);
         CommonUtils.clickOnElement(cCRAdminUserPage.buttonOkRemovingPositionModal);
+        MiscUtils.sleep(2000);
         Assert.assertTrue("Position was NOT removed",cCRAdminUserPage.confirmationMessagePositionWasRemoved.isDisplayed());
-        CommonUtils.waitForVisibility(cCRAdminUserPage.acknowledgeConfirmationModalPositionWasRemoved);
+        MiscUtils.sleep(2000);
         CommonUtils.clickOnElement(cCRAdminUserPage.acknowledgeConfirmationModalPositionWasRemoved);
     }
 

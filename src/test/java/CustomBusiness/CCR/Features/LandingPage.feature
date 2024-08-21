@@ -1,12 +1,12 @@
 Feature: CCR Landing Page Scenarios
 
-  @Nekrashevich  @landingPage @Smoke
+  @Nekrashevich @Regression @Smoke @CAMS-7
   Scenario: Verify CCR Landing Page items
     Given User is on CCR Landing page and user is "internal user"
     And User can see "Home" tab displayed
     And User can see "Positions" tab displayed
 
-  @Nekrashevich @Regression @Smoke @fillApplication @CAMS-9
+  @Nekrashevich @Regression @Smoke @fillApplication @CAMS-9 @CAMS-5  @CAMS-17 @CAMS-38
   Scenario Outline: Fill In An Application As An Internal User
     Given User is on CCR Landing page and user is "admin user"
     And Admin User creates a new vacancy
@@ -20,7 +20,7 @@ Feature: CCR Landing Page Scenarios
     And User enters "<email>" into an email field
     And User enters "<phone>" into a phone field
     And User enters "<businessPhone>" into a business phone field
-    And User selects "Other" from a degree dropdown
+    And User selects Other from a degree dropdown
     And User enters "<otherDegree(s)>" into an other degree field
     And User confirms that User is a US Citizen
     And User clicks Next button for "Basic Information" section
@@ -44,7 +44,7 @@ Feature: CCR Landing Page Scenarios
     And User enters "<referenceLastName>" into a reference Last name field
     And User enters "<referenceEmail>" into a reference Email field
     And User enters "<referencePhoneNumber>" into a reference Phone Number field
-    And User selects "Other" from a degree dropdown
+    And User selects  M.D., Ph.D.  from a reference degree dropdown
     And User clicks Next button for "Reference" section
     And User uploads "CV" document
     And User uploads "Research Goals" document

@@ -79,10 +79,16 @@ public class ApplicantUserSteps extends PageInitializer {
         CommonUtils.sendKeys(cCRApplicantPage.businessPhoneField, businessPhone);
     }
 
-    @Given("User selects {string} from a degree dropdown")
-    public void user_selects_from_a_degree_dropdown() {
+    @Given("User selects Other from a degree dropdown")
+    public void user_selects_Other_from_a_degree_dropdown() {
         CommonUtils.clickOnElement(cCRApplicantPage.degreeDropdown);
         CommonUtils.clickOnElement(cCRApplicantPage.degreeOther);
+    }
+
+    @Given("User selects  M.D., Ph.D.  from a reference degree dropdown")
+    public void user_selects_MD_PhD_from_a_reference_degree_dropdown() {
+        CommonUtils.clickOnElement(cCRApplicantPage.referenceDegreeDropdown);
+        CommonUtils.clickOnElement(cCRApplicantPage.referenceDegreeMDPhD);
     }
 
     @Given("User enters {string} into an other degree field")
