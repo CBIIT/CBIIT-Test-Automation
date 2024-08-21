@@ -749,7 +749,7 @@ public class ApplicantFlowPage extends CommonUtils {
     public WebElement closeDateLiveVacancyVacDetailsView;
 
     /***POC Vacancy Details View **/
-    @FindBy(xpath = "(//div[@class='DateItem'])[2]")
+    @FindBy(xpath = "(//div[@class='DateItem']//span)[3]")
     public WebElement pocVacDetailsView;
 
     /***Application Documents Header **/
