@@ -59,6 +59,4 @@ import org.openqa.selenium.support.PageFactory;
         /**  Acknowledge Position was removed Confirmation Modal**/
         @FindBy(xpath = "//button[@ng-click='buttonClicked(button)']")
         public WebElement acknowledgeConfirmationModalPositionWasRemoved;
-
-
-}
+       }
