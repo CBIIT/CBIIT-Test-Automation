@@ -1,17 +1,19 @@
 Feature: CCR Landing Page Scenarios
 
-  Background: common steps
-    Given User is on CCR Landing page and user is "internal user"
-
   @Nekrashevich  @landingPage @Smoke
   Scenario: Verify CCR Landing Page items
+    Given User is on CCR Landing page and user is "internal user"
     And User can see "Home" tab displayed
     And User can see "Positions" tab displayed
 
   @Nekrashevich @Regression @Smoke @fillApplication @CAMS-9
   Scenario Outline: Fill In An Application As An Internal User
-    And User navigates to "Scientific Director, Center for Cancer Research, National Cancer Institute" open vacancy
-    And User clicks "Apply Now" button
+    Given User is on CCR Landing page and user is "admin user"
+    And Admin User creates a new vacancy
+    And User logs out of CCR application
+    And User is on CCR Landing page and user is "internal user"
+    And User navigates to "CTO" open vacancy
+    And User applies for that vacancy
     And User enters "<firstName>" into a first name field
     And User enter "<middleName>" into a middle name field
     And User enters "<lastName>" into a last name field
@@ -38,16 +40,17 @@ Feature: CCR Landing Page Scenarios
     And User enters "<businessZip>" into a business zip field
     And User selects United States from a country dropdown for "Business Address" section
     And User clicks Next button for "Business Address" section
-    And User uploads "CV" document as ".src/test/java/CustomBusiness/CCR/Resources/CV.docx"
-    And User uploads "Research Goals" document as ".src/test/java/CustomBusiness/CCR/Resources/ResearchGoals.docx"
-    And User uploads "Letter of Interest" document as ".src/test/java/CustomBusiness/CCR/Resources/LetterOfInterest.docx"
-    And User uploads "Upload Diversity Statement" document as ".src/test/java/CustomBusiness/CCR/Resources/DiversityStatement.docx"
+    And User uploads "CV" document
+    And User uploads "Research Goals" document
     And User clicks Next button for "Required Documents" section
     And User selects an outreach source as "Contacted By Member"
     And User selects "Yes" for the question on simplicity of uploading application materials
     And User selects "Yes" for the question on whether the ad posted on the website contains enough information to decide on applying for a job
     And User inputs "No suggestions at the moment" in the changing process text field
-    And User clicks "Submit" button
+    And User submits CCR Careers application
+    And User logs out of CCR application
+    Given User is on CCR Landing page and user is "admin user"
+    And Admin User deletes a newly created vacancy
 
     Examples:
       | firstName | middleName | lastName | email           | phone      | businessPhone | otherDegree(s) | address   | address2 | city  | state | zip   | department | institution | businessAddress |  businessAddress2 | businessCity | businessState | businessZip |

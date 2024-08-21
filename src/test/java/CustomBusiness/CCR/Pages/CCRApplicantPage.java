@@ -6,9 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CCRApplicationPage extends CommonUtils {
+public class CCRApplicantPage extends CommonUtils {
 
-    public CCRApplicationPage() {
+    public CCRApplicantPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
 
@@ -137,28 +137,12 @@ public class CCRApplicationPage extends CommonUtils {
     public WebElement submitButton;
 
     /** Submit Confirmation Button **/
-    @FindBy(xpath = "//button[@class='btn btn-primary mx-2']")
+    @FindBy(xpath = "(//button[@ng-click='buttonClicked(button)'])[2]")
     public WebElement submitConfirmationButton;
 
     /** Close Application Submitted Button **/
-    @FindBy(xpath = "//button[@class='btn btn-primary mx-2']")
+    @FindBy(xpath = "//button[@ng-repeat='button in options.buttons track by button.label']")
     public WebElement closeApplicationSubmittedButton;
-
-    /** Upload File1 **/
-    @FindBy(xpath = "//label[normalize-space()='Upload Letter of Interest']//parent::div//child::div[1]//child::input")
-    public WebElement uploadFile1;
-
-    /** Upload File2 **/
-    @FindBy(xpath = "(//input[@placeholder='No file chosen'])[2]")
-    public WebElement uploadFile2;
-
-    /** Upload File3 **/
-    @FindBy(xpath = "(//input[@placeholder='No file chosen'])[3]")
-    public WebElement uploadFile3;
-
-    /** Outreach Source Dropdown **/
-    @FindBy(xpath = "//select[@id='outreach_source']")
-    public WebElement outreachSourceDropdown;
 
     /** Country Dropdown **/
     @FindBy(xpath = "//select[@id='country']")
@@ -176,21 +160,27 @@ public class CCRApplicationPage extends CommonUtils {
     @FindBy(xpath = "//option[contains(text(),' M.D., Ph.D.')]")
     public WebElement degreeMDPhD;
 
-    /** Other**/
+    /** Other Degree option**/
     @FindBy(xpath = "//option[contains(text(),'Other')]")
     public WebElement degreeOther;
 
-    /** choose file CV**/
-    @FindBy(xpath = "(//input[@aria-label='File name'])[1]")
-    public WebElement chooseFileCV;
+    /** upload Button for CV **/
+    @FindBy(xpath = "(//div[@class='input-group-btn']//button[.=' Choose File '])[1]")
+    public WebElement uploadFileCV;
 
-    @FindBy(xpath = "(//input[@aria-label='File name'])[2]")
-    public WebElement chooseFileResearchGoals;
+    /** upload Button for ResearchGoals **/
+    @FindBy(xpath = "(//div[@class='input-group-btn']//button[.=' Choose File '])[2]")
+    public WebElement uploadFileResearchGoals;
 
-    @FindBy(xpath = "(//input[@aria-label='File name'])[3]")
-    public WebElement chooseFileLetterOfInterest;
+    /** Confirmation message "The application has been submitted." **/
+    @FindBy(xpath = "//p[.='The application has been submitted.']")
+    public WebElement msgApplicationSubmitted;
 
-    @FindBy(xpath = "(//input[@aria-label='File name'])[4]")
-    public WebElement chooseFileDiversityStatement;
+    /** CCR user dropdpown menu" **/
+    @FindBy(xpath = "//li[@class='dropdown ng-scope']")
+    public WebElement userDropdownMenu;
 
+    /** Log out option" **/
+    @FindBy(xpath = "//ul[@class='dropdown-menu px-3 shadow-md']")
+    public WebElement optionLogOut;
 }
