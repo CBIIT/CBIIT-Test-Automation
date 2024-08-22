@@ -1,9 +1,10 @@
 package ServiceNow.CHARMS.Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.nci.automation.web.WebDriverUtils;
+import static com.nci.automation.web.WebDriverUtils.webDriver;
 
 public class MyRASHomePage {
 
@@ -12,10 +13,6 @@ public class MyRASHomePage {
 	/* Warning Agree button */
 	@FindBy(xpath = "//button[normalize-space()='Agree']")
 	public WebElement warningAgreeButton;
-
-	/* RASopathy Eligibility Questionnaire */
-	@FindBy(xpath = "(//span[normalize-space()='Eligibility Questionnaire'])[2]")
-	public WebElement rasoptathyEligibilityQuestionnaire;
 
 	/* RASopathy RAS Survey Button */
 	@FindBy(xpath = "(//span[normalize-space()='RAS Survey'])[2]")
@@ -41,34 +38,20 @@ public class MyRASHomePage {
 	@FindBy(xpath = "//div[@class='custom-card-image']//a[@aria-label='Consent']")
 	public WebElement rasopathyStudyConsent;
 
-	/* RASopathy CHARMSAutomatedTestTwo link */
-	@FindBy(xpath = "//button[@aria-label='User Information']")
-	public WebElement charmsAutomatedTestTwoLink;
-
-	/* RASopathy CHARMSAutomatedTestTwo Sign Out link */
-	@FindBy(xpath = "//a[normalize-space()='Sign Out']")
-	public WebElement charmsAutomatedTestTwoSignOutLink;
-
-	/* RASopathy Individual Information Questionnaire */
-	@FindBy(xpath = "//div[@class='custom-card-title']//a[@aria-label='Review Individual Information Questionnaire']")
-	public WebElement rasoptathyIndividualInformationQuestionnaire;
-
-	/* RASopathy Individual Information Questionnaire Pin text */
-	@FindBy(xpath = "//h3[@ng-show='c.showCode']")
-	public WebElement rasoptathyIndividualInformationQuestionnairePinText;
-
-	/* RASopathy Individual Information Questionnaire One Time Pin Go button */
-	@FindBy(xpath = "//button[normalize-space()='Go']")
-	public WebElement rasoptathyIndividualInformationQuestionnaireOneTimePinGoButton;
-
-	/* RAS Survey */
-	@FindBy(xpath = "(//span[normalize-space()='RAS Survey'])[2]")
-	public WebElement rasSurvey;
+	/**
+	 * Locates a dynamic module based on the given text.
+	 *
+	 * @param text The text of the module to locate.
+	 * @return The WebElement representing the dynamic module.
+	 */
+	public static WebElement dynamicModuleLocator(String text){
+		return webDriver.findElement(By.xpath("//span[text()='" + text + "']//parent::a"));
+	}
 
 	/** --------------- END OF myRAS Home PAGE --------------- */
 
 	public MyRASHomePage() {
-		PageFactory.initElements(WebDriverUtils.webDriver, this);
+		PageFactory.initElements(webDriver, this);
 	}
 
 }

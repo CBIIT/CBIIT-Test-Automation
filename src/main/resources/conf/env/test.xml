@@ -953,6 +953,27 @@
         </db>
     </application>
 
+    <!-- Application ID for HP Visuals-->
+    <application id="HPVisuals">
+        <login_url>https://hpvvisuals-qa.cancer.gov/
+        </login_url> <!-- add test url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+
     <!-- Application ID for ChangePassword-->
     <application id="ChangePassword">
         <login_url>https://i2e-test.nci.nih.gov/changepassword/
