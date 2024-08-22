@@ -1,7 +1,7 @@
 Feature: Applicant Profile Scenarios
   Description: This Feature file contains Applicant Profile Scenarios
 
-  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @JUAREZDS @Regression @playwright
+  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @JUAREZDS @Regression @playwright @SNOW_UPDATED
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
@@ -254,7 +254,7 @@ Feature: Applicant Profile Scenarios
     And verifies Application Documents text "APPLICATION DOCUMENTS"
     And verifies required documents with required references needed to apply to this test Vacancy
 
-  @TC_APPTRACK-144 @JUAREZDS @Regression @playwright @in-prog @Progression
+  @TC_APPTRACK-144 @JUAREZDS @Regression @playwright
   Scenario: Applying for vacancy as unauthenticated applicant
     Given an unauthenticated applicant is on the SSJ homepage "SSJPortalView"
     And verifies that the drop drown text is "Login"
