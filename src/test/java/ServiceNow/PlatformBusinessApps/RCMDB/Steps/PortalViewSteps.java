@@ -55,10 +55,10 @@ public class PortalViewSteps {
 		portalViewPage.clickOnAllIdeas();
 	}
 
-//	@Then("Go to All Business Case")
-//	public void clickOnAllBusinessCase() {
-//		portalViewPage.clickOnAllBusiness();
-//	}
+	@Then("Go to All Business Case")
+	public void clickOnAllBusinessCase() {
+		portalViewPage.clickOnAllBusiness();
+	}
 
 	@Then("start a new idea case")
 	public void startIdea() {
