@@ -6,7 +6,7 @@ Feature: Collaboration Scenerios
     When the DOC Planning Contact locates the record in their Collaboration queue
     And clicks the Edit button for the record
     And lands on the submission edit page for author "CBIIT Test Account"
-    Then the Rank field is not visible and collaboration is deleted for Automation Testing
+    Then the Rank field is not visible
 
   @SS-4264 @juarezds @Regression @selenium
   Scenario: NIH strategic alignment (Secondary Optional) and HHS Strategic Plan Alignment (Secondary Optional) field should not be visible

@@ -25,7 +25,7 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
         public static void publishingOfSubmissionByCRSReviewer(String submissionName) throws TestingException {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser("Grace Liou");
+                ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
@@ -91,7 +91,7 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
         public static void crsReviewerIsOnSubmissionsPage(String submissionType) throws TestingException {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser("Grace Liou");
+                ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
@@ -126,14 +126,15 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
                 nerdCRSTCollaborationsPage.cancelButton.click();
                 CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown.click();
-                MiscUtils.sleep(2000);
+                MiscUtils.sleep(3000);
                 nerdDynamicXpaths.deleteButton(collaborationName).click();
-                CommonUtils.waitForVisibility(
-                                nerdCRSTCollaborationsPage.yesPopUpButton);
+                CucumberLogUtils.logScreenshot();
+                CommonUtils.waitForVisibility(nerdCRSTCollaborationsPage.yesPopUpButton);
                 nerdCRSTCollaborationsPage.yesPopUpButton.click();
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
+                CucumberLogUtils.logScreenshot();
         }
 
         /**

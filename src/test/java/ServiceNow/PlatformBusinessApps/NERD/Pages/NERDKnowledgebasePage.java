@@ -31,7 +31,7 @@ public class NERDKnowledgebasePage {
      * @return
      */
     public static WebElement dynamicAccordion(String value) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'" + value + "')]"));
+        return WebDriverUtils.webDriver.findElement(By.xpath("//div[contains(text(),'" + value + "')]//parent::span//parent::a//parent::h4"));
     }
 
     /***

@@ -14,7 +14,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import java.util.ArrayList;
@@ -102,10 +101,8 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.clickOnElement(nativeViewImpersonateUserPage.nativeViewLogOutButton);
         MiscUtils.sleep(1000);
-        Alert alt = WebDriverUtils.webDriver.switchTo().alert();
-        alt.accept();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(5000);
         CucumberLogUtils.logScreenshot();
         if(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.getAttribute("class").equals("sn-global-typeahead-input -global")){
             CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allTab);
@@ -123,7 +120,6 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
             CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
             MiscUtils.sleep(2000);
         }
-
         MiscUtils.sleep(2000);
         CommonUtils.waitForClickability(nativeViewMembersOfCongressPage.membersOfCongressFilterIcon);
         CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongressFilterIcon);

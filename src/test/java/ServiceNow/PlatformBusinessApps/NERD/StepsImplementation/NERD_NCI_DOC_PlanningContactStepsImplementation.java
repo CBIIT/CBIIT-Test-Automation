@@ -44,7 +44,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
         public static void submittingOfSubmissionToCRSReviewer(String submissionName) throws TestingException {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+                ServiceNow_Common_Methods.impersonateAnyUser("Abigail Joyce");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
@@ -148,9 +148,8 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                 WebDriverUtils.webDriver.navigate().refresh();
                 MiscUtils.sleep(6000);
                 CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
-                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink
-                                .click();
-                                MiscUtils.sleep(2000);
+                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
+                MiscUtils.sleep(2000);
                 JavascriptUtils.scrollIntoView(nerdDynamicXpaths.deleteButton(submissionName));
                 MiscUtils.sleep(1000);
                 nerdDynamicXpaths.deleteButton(submissionName).click();
@@ -175,7 +174,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                         String FiscalYear) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+                ServiceNow_Common_Methods.impersonateAnyUser("Abigail Joyce");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 MiscUtils.sleep(7000);
                 CommonUtils.waitForVisibility(
@@ -215,7 +214,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                         String PleaseSpecify, String FiscalYear) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+                ServiceNow_Common_Methods.impersonateAnyUser("Abigail Joyce");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
                 MiscUtils.sleep(7000);
@@ -388,13 +387,13 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                 nerdCrsKnowledgeDatabaseSubmissionsPage.saveButtonNewSubmissionDOCplanning.click();
                 MiscUtils.sleep(2000);
                 createNewSubmissionPage.informationDialogPopUpOKbutton.click();
-                MiscUtils.sleep(3000);
+                MiscUtils.sleep(30000);
                 JavascriptUtils.refreshBrowserByJS(WebDriverUtils.webDriver);
                 JavascriptUtils.scrollIntoView(nerdDynamicXpaths.returnButtonToStaff(submissionName));
                 MiscUtils.sleep(2000);
         }
 
-        public static void verifyingRankFieldIsNotDisplayedOnCollaborationForm(String collaborationName) throws TestingException {
+        public static void verifyingRankFieldIsNotDisplayedOnCollaborationForm() {
                 /*
                  * VERIFYING RANK FIELD IS NOT DISPLAYED
                  * NOTE - FIELD IS HIDDEN
@@ -405,7 +404,5 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                                 element.getDomAttribute("aria-hidden").contentEquals("true"));
                 CucumberLogUtils.logScreenshot();
                 ServiceNow_Common_Methods.logOutOfNativeView();
-                NERD_NCI_DOC_PlanningContactStepsImplementation
-                                .deleteCreatedSubmissionByDocPlanningContact(collaborationName);
         }
 }

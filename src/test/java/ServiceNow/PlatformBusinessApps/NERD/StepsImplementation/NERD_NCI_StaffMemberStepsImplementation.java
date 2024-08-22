@@ -171,7 +171,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsAccordionButton.click();
-        MiscUtils.sleep(2000);
+        MiscUtils.sleep(4000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(nerdDynamicXpaths.underReviewText(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
@@ -186,7 +186,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      */
     public static void doc_planning_contact_returning_the_top_accomplishments_submission_back_to_nci_staff_member(String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+        ServiceNow_Common_Methods.impersonateAnyUser("Abigail joyce");
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();
@@ -298,7 +298,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         nerdcrstOtherAccomplishmentsPage.nerdOtherAccomplishmentsAccordionButton.click();
-        MiscUtils.sleep(2000);
+        MiscUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(nerdDynamicXpaths.underReviewText(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_NAME));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_NAME));
@@ -316,7 +316,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      */
     public static void doc_planning_contact_returning_the_other_accomplishments_submission_back_to_nci_staff_member(String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+        ServiceNow_Common_Methods.impersonateAnyUser("Abigail joyce");
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();
@@ -416,7 +416,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      */
     public static void doc_planning_contact_returning_the_collaborations_submission_back_to_nci_staff_member(String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+        ServiceNow_Common_Methods.impersonateAnyUser("Abigail joyce");
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();
@@ -553,7 +553,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      */
     public static void doc_planning_contact_returning_the_covid19_activities_submission_back_to_nci_staff_member(String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+        ServiceNow_Common_Methods.impersonateAnyUser("Abigail joyce");
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();
@@ -692,7 +692,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      */
     public static void doc_planning_contact_returning_the_ad_hoc_data_call_submission_back_to_nci_staff_member(String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+        ServiceNow_Common_Methods.impersonateAnyUser("Abigail joyce");
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();

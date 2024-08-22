@@ -67,8 +67,7 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
     }
 
     @When("the DOC Planning Contact locates the record in their Collaboration queue")
-    public void the_doc_planning_contact_locates_the_record_in_their_collaboration_queue()
-             throws TestingException {
+    public void the_doc_planning_contact_locates_the_record_in_their_collaboration_queue() {
             NERDCollaborationSubmissionStepImpl.theDOCPlanningContactLocatesTheRecordInTheirCollaborationQueue(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
         }
 
@@ -82,9 +81,9 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
         NERDCollaborationSubmissionStepImpl.landsOnTheSubmissionEditPageForAuthor(author);
     }
 
-    @Then("the Rank field is not visible and collaboration is deleted for Automation Testing")
-    public void the_rank_field_is_not_visible_and_collaboration_is_deleted_for_automation_testing() throws TestingException {
-        NERDCollaborationSubmissionStepImpl.theRankFieldIsNotVisibleAndCollaborationIsDeletedForAutomationTesting(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
+    @Then("the Rank field is not visible")
+    public void the_rank_field_is_not_visible() {
+        NERD_NCI_DOC_PlanningContactStepsImplementation.verifyingRankFieldIsNotDisplayedOnCollaborationForm();
     }
 
     @Given("a DOC Planning Contact clicks the Submit to CRS button for a Collaboration")
@@ -99,7 +98,6 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
 
     @Then("the Rank field is not visible and collaboration is deleted")
     public void the_rank_field_is_not_visible_and_collaboration_is_deleted() {
-        NERD_NCI_CRSReviewerStepsImplementation
-                .verifyingRankFieldIsNotDisplayedAndDeletingSubmission();
+        NERD_NCI_CRSReviewerStepsImplementation.verifyingRankFieldIsNotDisplayedAndDeletingSubmission();
     }
 }

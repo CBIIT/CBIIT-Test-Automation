@@ -67,7 +67,7 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
      */
     public static void nerduserIsOnTheKnowledgeBasePageAsSuperUser() throws TestingException {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("Grace Liou");
+        ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");
         NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
     }
 

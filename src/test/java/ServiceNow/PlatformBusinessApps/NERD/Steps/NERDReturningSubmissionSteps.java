@@ -38,13 +38,11 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
             throws TestingException {
         NERDApplicationStepsImplementation.openingNewTabToEditSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
         NERD_NCI_DOC_PlanningContactStepsImplementation.verifyingByDOCContactThatFieldsOfSubmissionAreClearedAndRequired(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER, PleaseSpecify, FiscalYear);
-        NERDApplicationStepsImplementation.deletingOfSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
     }
 
     @Then("the Collaboration shows as {string} in the Submissions page")
     public void the_Collaboration_shows_as_in_the_Submissions_page(String ReturnedToDOC) throws TestingException {
         NERD_NCI_DOC_PlanningContactStepsImplementation.theCollaborationShowsAsInTheSubmissionsPage(ReturnedToDOC);
-        NERD_NCI_DOC_PlanningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
     }
 
     @When("the DOC Planning Contact fills out the {string} and {string} field")
@@ -65,7 +63,6 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.openingNewTabToEditSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
         NERDApplicationStepsImplementation.verifyingThatFieldsOfSubmissionAreClearedAndRequired(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER, PleaseSpecify, FiscalYear);
-        NERDApplicationStepsImplementation.deletingOfSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
     }
 
     @Then("the options available for the {string} field are {string}, {string}, {string}, and {string}")
