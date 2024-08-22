@@ -72,7 +72,6 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.verifyingAvailableOptionsOfSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER, PleaseSpecify, Edited, NocChange, Ended, NotLedByNCI);
-        NERDApplicationStepsImplementation.deletingOfSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
     }
 
     @Given("a Collaboration has been submitted to the DOC Planning Contact")
@@ -82,10 +81,8 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     }
 
     @Then("the submitted Collaboration shows as {string} in the Submissions page")
-    public void the_submitted_Collaboration_shows_as_in_the_Submissions_page(String UnderReview)
-            throws TestingException {
+    public void the_submitted_Collaboration_shows_as_in_the_Submissions_page(String UnderReview) {
         NERDApplicationStepsImplementation.verifyingSubmissionIsUnderReview(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_UNDER_REVIEW_TEXT, UnderReview);
-        NERD_NCI_DOC_PlanningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_UNDER_REVIEW_TEXT);
     }
 
     @Given("a published Collaboration has been returned to the Program Staff with the article version number as {string}")
@@ -111,7 +108,6 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         NERDApplicationStepsImplementation.verifyingIncrementedArticleVersionNumber(versionNumber);
         NERDApplicationStepsImplementation.returningOfSubmissionToDOCPlaningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
         NERDApplicationStepsImplementation.checkingEmailWasNotReceived();
-        NERD_NCI_DOC_PlanningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
     }
 
     @Given("a published Collaboration is returned to the DOC Planning Contact")
@@ -137,8 +133,6 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     public void a_notification_is_sent_to_the_DOC_Planning_Contact() throws TestingException {
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToDOCText(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION));
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(1000);
-        NERD_NCI_DOC_PlanningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
     }
 
     @Given("a DOC Planning Contact creates a Collaboration submission")

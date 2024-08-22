@@ -6,6 +6,7 @@ import ServiceNow.PlatformBusinessApps.NERD.Constants.NCI_Staff_Members_Constant
 import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.TopAccomplishmentsSubmission_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Pages.NERDDynamicXPATHS;
+import ServiceNow.PlatformBusinessApps.SEER.Constants.SEERDataRejection_Constants;
 import ServiceNow.PlatformBusinessApps.SEER.Constants.SEERNativeView_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
@@ -279,22 +280,16 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
     public static void checkingEmailWasNotReceived() throws TestingException {
         ServiceNow_Common_Methods.logOutOfNativeView();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        if(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.getAttribute("class").equals("sn-global-typeahead-input -global")){
-            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allTab);
-            NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("Emails");
-            MiscUtils.sleep(3000);
-            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.filterNavigationEmailsButton);
-            MiscUtils.sleep(3000);
-            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-            MiscUtils.sleep(2000);
-        }else {
-            NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("Emails");
-            MiscUtils.sleep(3000);
-            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.filterNavigationEmailsButton);
-            MiscUtils.sleep(3000);
-            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-            MiscUtils.sleep(2000);
-        }
+        MiscUtils.sleep(2000);
+        ServiceNow_Common_Methods.filterNavigatorSearch("Emails");
+        MiscUtils.sleep(2000);
+        WebDriverUtils.webDriver.get(ReturningSubmissions_Constants.NATIVE_VIEW_EMAILS_UNDER_SYSTEM_LOGS_URL);
+        MiscUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        MiscUtils.sleep(1000);
+        CommonUtils.assertTrue(nativeViewEmailsPage.emailsMenu.getText()
+                .contentEquals("Emails"));
+        CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(3000);
         CommonUtils.waitForVisibility(nativeViewSentViewPage.nativeViewSearchDropDown);
         CommonUtils.selectDropDownValue(nativeViewSentViewPage.nativeViewSearchDropDown, "recipients");

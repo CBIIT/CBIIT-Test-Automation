@@ -55,7 +55,7 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
         public static void returningOfSubmissionByCRSReviewer(String submissionName) throws TestingException {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser("Grace Liou");
+                ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
@@ -65,11 +65,9 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
                                 "Submissions");
                 MiscUtils.sleep(2000);
                 JavascriptUtils.clickByJS( nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
-                CommonUtils.waitForVisibility(
-                                nerdDynamicXpaths.publishedCollaboration(submissionName));
+                CommonUtils.waitForVisibility(nerdDynamicXpaths.publishedCollaboration(submissionName));
                 nerdDynamicXpaths.returnButton(submissionName).click();
-                CommonUtils.waitForVisibility(
-                                nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField);
+                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField.click();
                 nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField
                                 .sendKeys("Returning to Doc - Automated Test");

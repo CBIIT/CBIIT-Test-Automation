@@ -76,7 +76,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
         public static void resubmittingOfSubmissionByDOCContactToCRSREviewer(String submissionName) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+                ServiceNow_Common_Methods.impersonateAnyUser("Abigail Joyce");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
@@ -263,7 +263,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
         public static void editingAndReturningSubmissionToProgramStaff(String submissionName) throws TestingException {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+                ServiceNow_Common_Methods.impersonateAnyUser("Abigail Joyce");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
                 MiscUtils.sleep(5000);
