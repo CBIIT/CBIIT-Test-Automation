@@ -14,6 +14,5 @@ import io.cucumber.testng.CucumberOptions;
 		, tags = "@Progression"
 		, dryRun = false
 		)
-	
-public class RunAppETDProgressionTest extends AbstractTestNGCucumberTests{ 
+public class RunAppETDProgressionTest extends AbstractTestNGCucumberTests{
 }
