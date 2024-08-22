@@ -70,17 +70,6 @@ Feature: Applicant Profile Scenarios
     And verifies that the saved business phone number displays as "<businessPhone>"
     And verifies that the saved highest education displays as "<highestEducation>"
     And verifies that the saved US Citizenship displays as "<US Citizenship>"
-    And tester navigates to native view to reset account with name "<firstName>" so that automated test can run again without manual intervention
-
-    Examples:
-      | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | US Citizenship | address | aptNumber | city   | state | country | zip   |
-      | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
-
-  @alenan @SSJ-712 @Bug_Open @juarezds @In_Progress @playwright @Smoke
-  Scenario: Edit Demographics of Profile
-    Given a test account "Maria Chaudhry" is reset before executing a test
-    When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
-    When User is on Profile tab - PW
     And User clicks Demographics section - PW
     And User chooses to share demographic details - PW
     And User edits sex choice - PW
