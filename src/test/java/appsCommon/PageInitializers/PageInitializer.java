@@ -335,7 +335,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static CCRApplicantPage cCRApplicantPage;
 	public static CCRAdminUserPage cCRAdminUserPage;
 
-
 	/** ESR INSTANCES */
 	public static NCINativeViewPage nciNativeViewPage;
 	public static ESRTicketCreationPage esrTicketCreationPage;
