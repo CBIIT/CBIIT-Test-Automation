@@ -47,7 +47,7 @@ public class EIDP_All_Steps {
     @When("checks Trainees without IDP")
     public void checks_trainees_without_idp() {
         page.waitForLoadState();
-        page.getByText("Trainees with IDP").click();
+        page.getByText("Trainees without IDP").click();
     }
 
     @When("selects Fellow for Classification Type")
