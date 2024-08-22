@@ -33,7 +33,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void resetTestAccountSignIn() throws TestingException {
         if (LocalConfUtils.getProperty("env").equals("test")) {
             WebDriverUtils.webDriver.get(
-                    "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Dcde8001587f64a107e87a8a60cbb3598%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D1%26sysparm_record_rows%3D1173%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
+                    "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3D796a23158708d6d07e87a8a60cbb35b8%26sysparm_view%3D%26sysparm_domain%3Dnull%26sysparm_domain_scope%3Dnull");
             MiscUtils.sleep(2000);
         } else if (LocalConfUtils.getProperty("env").equals("dev2")) {
             WebDriverUtils.webDriver.get(
