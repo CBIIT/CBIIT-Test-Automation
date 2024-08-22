@@ -86,22 +86,6 @@ Feature: Applicant Profile Scenarios
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | US Citizenship | address | aptNumber | city   | state | country | zip   |
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
 
-  @alenan @SSJ-712 @Bug_Open @JUAREZDS @In_Progress @playwright @Smoke @outdated
-  Scenario: Edit Demographics of Profile
-    Given a test account "SSJTest" is reset before executing a test
-    When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
-    When User is on Profile tab - PW
-    And User clicks Edit for Demographics section - PW
-    And User chooses to share demographic details - PW
-    And User edits sex choice - PW
-    And User edits ethnicity choice - PW
-    And User edits race choice - PW
-    And User edits disability choice - PW
-    And User saves the updated section - PW
-    And User clicks Edit for Demographics section - PW
-    And User chooses not to share demographic details - PW
-    Then User saves the updated section - PW
-
   @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright @SNOW_UPDATED
   Scenario Outline: Verifying applicant is able to see "Your Applications" tab and page content after applying to a Vacancy
 #    Given an Okta user "" is on the SSJ home page and logs in - PLEASE LEAVE THIS HERE! NEED TO CONNECT WITH OKTA TEAM
@@ -355,7 +339,7 @@ Would you like to log in now or go back to the home page?
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | address | aptNumber | city   | state | country | zip   |
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
 
-  @TC_APPTRACK-360 @JUAREZDS @Regression @playwright
+  @TC_APPTRACK-360 @JUAREZDS @Regression @playwright @SNOW_UPDATED
   Scenario Outline: Verification of the Save application functionality
     Given a test account "SSJTest" is reset before executing a test
     And User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
@@ -429,87 +413,87 @@ Would you like to log in now or go back to the home page?
     And User clicks on Save Application button
     And verifies that successful save alert is displayed "Application successfully saved Back to Applications Home?x"
     And user navigates to Your Applications tab
-#    Then verifies that the application became a draft "Draft"
-#    And clicks Edit vacancy "DIEGO TEST"
-#    And uploads cover letter if cover letter option is displayed
-#    And uploads qualification statement if qualification statement is displayed
-#    And uploads a Curriculum Vitae if Curriculum Vitae option is displayed
-#    And uploads a Vision Statement if Vision Statement option is displayed
-#    And clicks "Next"
-#    And user is on the "References" page
-#    Then if reference one is required then user enters Reference One first name "<updatedReferenceOneFirstName>"
-#    And enters Reference One middle name "<updatedReferenceOneMiddleName>"
-#    And enters Reference One last name "<updatedReferenceOneLastName>"
-#    And enters Reference One email address "<updatedReferenceOneEmail>"
-#    And enters Reference One phone number "<updatedReferenceOnePhoneNumber>"
-#    And selects Reference One relationship as "<updatedReferenceOneRelationship>"
-#    And enters Reference One position title "<updatedReferenceOnePositionTitle>"
-#    And enters Reference One organization name "<updatedReferenceOneOrganizationName>"
-#    Then if reference two is required then user enters Reference Two first name "<updatedReferenceTwoFirstName>"
-#    And enters Reference Two middle name "<updatedReferenceTwoMiddleName>"
-#    And enters Reference Two last name "<updatedReferenceTwoLastName>"
-#    And enters Reference Two email address "<updatedReferenceTwoEmail>"
-#    And enters Reference Two phone number "<updatedReferenceTwoPhoneNumber>"
-#    And enters Reference Two position title "<updatedReferenceTwoPositionTitle>"
-#    And enters Reference Two organization name "<updatedReferenceTwoOrganizationName>"
-#    And clicks " Save Application"
-#    And verifies that successful save alert is displayed "Application successfully saved Back to Applications Home?x"
-#    And user navigates to Your Applications tab
-#    And clicks on Vacancy Title "DIEGO TEST"
-#    And uploads cover letter if cover letter option is displayed
-#    And uploads qualification statement if qualification statement is displayed
-#    And uploads a Curriculum Vitae if Curriculum Vitae option is displayed
-#    And uploads a Vision Statement if Vision Statement option is displayed
-#    And clicks "Next"
-#    And verifies that Reference One "<updatedReferenceOneFirstName>", "<updatedReferenceOneMiddleName>", "<updatedReferenceOneLastName>", "<updatedReferenceOneEmail>", "<updatedReferenceOnePhoneNumber>", "<updatedReferenceOnePositionTitle>", "<updatedReferenceOneOrganizationName>" is updated
-#    And verifies tha Reference Two "<updatedReferenceTwoFirstName>", "<updatedReferenceTwoMiddleName>", "<updatedReferenceTwoLastName>", "<updatedReferenceTwoEmail>", "<updatedReferenceTwoPhoneNumber>", "<updatedReferenceTwoPositionTitle>", "<updatedReferenceTwoOrganizationName>" is updated
-#    And clicks " Save Application"
-#    And verifies that successful save alert is displayed "Application successfully saved Back to Applications Home?x"
-#    And user navigates to Your Applications tab
-#    And clicks on Remove button
-#    And "Confirm" that the draft was removed
-#    And verifies that the draft is no longer showing under Your Application tab
-#    And navigates to the "Home" tab to be able to apply to a vacancy after creating a profile
-#    And clicks on Vacancy Title "DIEGO TEST"
-#    And clicks "Apply"
-#    Then user is on the "Application Documents" page
-#    And uploads cover letter if cover letter option is displayed
-#    And uploads qualification statement if qualification statement is displayed
-#    And uploads a Curriculum Vitae if Curriculum Vitae option is displayed
-#    And uploads a Vision Statement if Vision Statement option is displayed
-#    And clicks "Next"
-#    Then user is on the "References" page
-#    Then if reference one is required then user enters Reference One first name "<referenceOneFirstName>"
-#    And enters Reference One middle name "<referenceOneMiddleName>"
-#    And enters Reference One last name "<referenceOneLastName>"
-#    And enters Reference One email address "<referenceOneEmail>"
-#    And enters Reference One phone number "<referenceOnePhoneNumber>"
-#    And selects Reference One relationship as "<referenceOneRelationship>"
-#    And enters Reference One position title "<referenceOnePositionTitle>"
-#    And enters Reference One organization name "<referenceOneOrganizationName>"
-#    Then if reference two is required then user enters Reference Two first name "<referenceTwoFirstName>"
-#    And enters Reference Two middle name "<referenceTwoMiddleName>"
-#    And enters Reference Two last name "<referenceTwoLastName>"
-#    And enters Reference Two email address "<referenceTwoEmail>"
-#    And enters Reference Two phone number "<referenceTwoPhoneNumber>"
-#    And enters Reference Two position title "<referenceTwoPositionTitle>"
-#    And enters Reference Two organization name "<referenceTwoOrganizationName>"
-#    And clicks "Next"
-#    Then user is on the "Demographic Information" page
-#    And user agrees to share demographic details and help improve the hiring process.
-#    And selects "Male" for Sex
-#    And selects "Hispanic or Latino" for Ethnicity
-#    And selects "American Indian or Alaska", "Asian", "Black or African-American", "Native Hawaiian or other", "White" for Race
-#    And selects "None of the conditions listed above apply to me." for Disability or Serious Health Condition
-#    And clicks "Next"
-#    Then user is on the "Review" page
-#    And clicks "Submit Application"
-#    And clicks "Ok"
-#    And clicks "Done"
-#    And user navigates to Your Applications tab
-#    And user withdraws the application
-#    And "Confirm" withdrawing the application
-#    Then verifies that the application status is "Withdrawn"
+    Then verifies that the application became a draft "Draft"
+    And clicks Edit vacancy "DIEGO TEST"
+    And uploads cover letter if cover letter option is displayed
+    And uploads qualification statement if qualification statement is displayed
+    And uploads a Curriculum Vitae if Curriculum Vitae option is displayed
+    And uploads a Vision Statement if Vision Statement option is displayed
+    And clicks "Next"
+    And user is on the "References" page
+    Then if reference one is required then user enters Reference One first name "<updatedReferenceOneFirstName>"
+    And enters Reference One middle name "<updatedReferenceOneMiddleName>"
+    And enters Reference One last name "<updatedReferenceOneLastName>"
+    And enters Reference One email address "<updatedReferenceOneEmail>"
+    And enters Reference One phone number "<updatedReferenceOnePhoneNumber>"
+    And selects Reference One relationship as "<updatedReferenceOneRelationship>"
+    And enters Reference One position title "<updatedReferenceOnePositionTitle>"
+    And enters Reference One organization name "<updatedReferenceOneOrganizationName>"
+    Then if reference two is required then user enters Reference Two first name "<updatedReferenceTwoFirstName>"
+    And enters Reference Two middle name "<updatedReferenceTwoMiddleName>"
+    And enters Reference Two last name "<updatedReferenceTwoLastName>"
+    And enters Reference Two email address "<updatedReferenceTwoEmail>"
+    And enters Reference Two phone number "<updatedReferenceTwoPhoneNumber>"
+    And enters Reference Two position title "<updatedReferenceTwoPositionTitle>"
+    And enters Reference Two organization name "<updatedReferenceTwoOrganizationName>"
+    And clicks " Save Application"
+    And verifies that successful save alert is displayed "Application successfully saved Back to Applications Home?x"
+    And user navigates to Your Applications tab
+    And clicks on Vacancy Title "DIEGO TEST"
+    And uploads cover letter if cover letter option is displayed
+    And uploads qualification statement if qualification statement is displayed
+    And uploads a Curriculum Vitae if Curriculum Vitae option is displayed
+    And uploads a Vision Statement if Vision Statement option is displayed
+    And clicks "Next"
+    And verifies that Reference One "<updatedReferenceOneFirstName>", "<updatedReferenceOneMiddleName>", "<updatedReferenceOneLastName>", "<updatedReferenceOneEmail>", "<updatedReferenceOnePhoneNumber>", "<updatedReferenceOnePositionTitle>", "<updatedReferenceOneOrganizationName>" is updated
+    And verifies tha Reference Two "<updatedReferenceTwoFirstName>", "<updatedReferenceTwoMiddleName>", "<updatedReferenceTwoLastName>", "<updatedReferenceTwoEmail>", "<updatedReferenceTwoPhoneNumber>", "<updatedReferenceTwoPositionTitle>", "<updatedReferenceTwoOrganizationName>" is updated
+    And clicks " Save Application"
+    And verifies that successful save alert is displayed "Application successfully saved Back to Applications Home?x"
+    And user navigates to Your Applications tab
+    And clicks on Remove button
+    And "Confirm" that the draft was removed
+    And verifies that the draft is no longer showing under Your Application tab
+    And navigates to the "Home" tab to be able to apply to a vacancy after creating a profile
+    And clicks on Vacancy Title "DIEGO TEST"
+    And clicks "Apply"
+    Then user is on the "Application Documents" page
+    And uploads cover letter if cover letter option is displayed
+    And uploads qualification statement if qualification statement is displayed
+    And uploads a Curriculum Vitae if Curriculum Vitae option is displayed
+    And uploads a Vision Statement if Vision Statement option is displayed
+    And clicks "Next"
+    Then user is on the "References" page
+    Then if reference one is required then user enters Reference One first name "<referenceOneFirstName>"
+    And enters Reference One middle name "<referenceOneMiddleName>"
+    And enters Reference One last name "<referenceOneLastName>"
+    And enters Reference One email address "<referenceOneEmail>"
+    And enters Reference One phone number "<referenceOnePhoneNumber>"
+    And selects Reference One relationship as "<referenceOneRelationship>"
+    And enters Reference One position title "<referenceOnePositionTitle>"
+    And enters Reference One organization name "<referenceOneOrganizationName>"
+    Then if reference two is required then user enters Reference Two first name "<referenceTwoFirstName>"
+    And enters Reference Two middle name "<referenceTwoMiddleName>"
+    And enters Reference Two last name "<referenceTwoLastName>"
+    And enters Reference Two email address "<referenceTwoEmail>"
+    And enters Reference Two phone number "<referenceTwoPhoneNumber>"
+    And enters Reference Two position title "<referenceTwoPositionTitle>"
+    And enters Reference Two organization name "<referenceTwoOrganizationName>"
+    And clicks "Next"
+    Then user is on the "Demographic Information" page
+    And user agrees to share demographic details and help improve the hiring process.
+    And selects "Male" for Sex
+    And selects "Hispanic or Latino" for Ethnicity
+    And selects "American Indian or Alaska", "Asian", "Black or African-American", "Native Hawaiian or other", "White" for Race
+    And selects "None of the conditions listed above apply to me." for Disability or Serious Health Condition
+    And clicks "Next"
+    Then user is on the "Review" page
+    And clicks "Submit Application"
+    And clicks "Ok"
+    And clicks "Done"
+    And user navigates to Your Applications tab
+    And user withdraws the application
+    And "Confirm" withdrawing the application
+    Then verifies that the application status is "Withdrawn"
 
     Examples:
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | address | aptNumber | city   | state | country | zip   | referenceOneFirstName | referenceOneMiddleName | referenceOneLastName | referenceOneEmail     | referenceOnePhoneNumber | referenceOneRelationship | referenceOnePositionTitle | referenceOneOrganizationName                 | referenceTwoFirstName | referenceTwoMiddleName | referenceTwoLastName | referenceTwoEmail     | referenceTwoPhoneNumber | referenceTwoPositionTitle | referenceTwoOrganizationName                 | updatedReferenceOneFirstName | updatedReferenceOneMiddleName | updatedReferenceOneLastName | updatedReferenceOneEmail     | updatedReferenceOnePhoneNumber | updatedReferenceOneRelationship | updatedReferenceOnePositionTitle | updatedReferenceOneOrganizationName                  | updatedReferenceTwoFirstName | updatedReferenceTwoMiddleName | updatedReferenceTwoLastName | updatedReferenceTwoEmail     | updatedReferenceTwoPhoneNumber | updatedReferenceTwoPositionTitle | updatedReferenceTwoOrganizationName                  |

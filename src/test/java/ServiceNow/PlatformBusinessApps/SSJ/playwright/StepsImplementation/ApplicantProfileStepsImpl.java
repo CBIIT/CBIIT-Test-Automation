@@ -1681,7 +1681,8 @@ public class ApplicantProfileStepsImpl {
      * @param logInButton the locator of the login button element to click
      */
     public static void clicks_and_is_redirected_to_the_login_portal(String logInButton) {
-        page.locator("//span[normalize-space()='Log in']").click();
+        page.locator("//span[normalize-space()='"+logInButton+"']").click();
+        MiscUtils.sleep(4000);
         List<Page> pages = page.context().pages();
         newPage = pages.get(pages.size() - 1);
         if (ConfUtils.getProperty("env").equals("test")){
@@ -1689,7 +1690,7 @@ public class ApplicantProfileStepsImpl {
         } else if (ConfUtils.getProperty("env").equals("sandbox")) {
             Hooks.softAssert.assertEquals(newPage.url(), "https://iam-stage.cancer.gov/app/servicenow_ud/exk13dplx1oy5d1pZ0h8/sso/saml?RelayState=https://specializedscientificjobs-sandbox.nih.gov/nih-ssj.do#/");
         }
-        CucumberLogUtils.playwrightScreenshot(page);
+
     }
 
     /**
@@ -1699,8 +1700,23 @@ public class ApplicantProfileStepsImpl {
      */
     public static void verifies_that_the_piv_cac_card_button_text_is(String pivCacCardButtonText) {
 //        newPage.waitForSelector("(//a[@class='piv-button link-button'])[1]");
-        CucumberLogUtils.playwrightScreenshot(newPage);
-        Hooks.softAssert.assertEquals(newPage.locator("(//a[@class='piv-button link-button'])[1]").innerText(), pivCacCardButtonText);
+//        CucumberLogUtils.playwrightScreenshot(newPage);
+//        Hooks.softAssert.assertEquals(newPage.locator("(//a[@class='piv-button link-button'])[1]").innerText(), pivCacCardButtonText);
+
+        Page[] popup = {null};
+        page.context().onPage(p -> popup[0] = p);
+
+        page.click("text=Log in");
+
+        // Waiting for new page
+        while (popup[0] == null) {
+            /* Add delay if you need */
+            MiscUtils.sleep(2000);
+        }
+
+        // Perform action on popup page
+        String text = popup[0].textContent("#form19");
+        assert text.contains("Sign in with PIV / CAC card");
     }
 
     /**

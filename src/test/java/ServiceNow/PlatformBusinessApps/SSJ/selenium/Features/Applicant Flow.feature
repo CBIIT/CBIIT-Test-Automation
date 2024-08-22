@@ -3,10 +3,9 @@ Feature: Applicant Flow Scenarios
   Background: common steps
     Given User is on SSJ Landing page and user is "Okta Verified Applicant"
 
-  @Regression @Nekrashevich @APPTRACK-758 @selenium @Smoke
+  @Regression @Nekrashevich @APPTRACK-758 @selenium @Smoke @SNOW_UPDATED
   Scenario Outline: Edit Basic Information of Profile
     And User is on Profile tab
-    And User clicks Edit for Basic Information section
     And User inputs "<firstName>" into first name field
     And User inputs "<middleName>" into middle name field
     And User inputs "<lastName>" into last name field
@@ -26,21 +25,7 @@ Feature: Applicant Flow Scenarios
       | firstName | middleName | lastName | email           | phone      | businessPhone | address | appNumber | city   | state | country | zip   |
       | Mario     | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
 
-  @Regression @Nekrashevich @APPTRACK-712 @selenium @Smoke
-  Scenario: Edit Demographics of Profile
-    When User is on Profile tab
-    And User clicks Edit for Demographics section
-    And User chooses to share demographic details
-    And User edits sex choice
-    And User edits ethnicity choice
-    And User edits race choice
-    And User edits disability choice
-    And User saves the updated section
-    And User clicks Edit for Demographics section
-    And User chooses not to share demographic details
-    Then User saves the updated section
-
-  @Regression @Nekrashevich @SSJ-948 @selenium @Smoke
+  @Regression @Nekrashevich @SSJ-948 @selenium @Smoke @SNOW_UPDATED
   Scenario: Applicant view of SSJ Landing page
     And User can see SSJ landing page title "Specialized Scientific Jobs"
     And User can navigate via hyperlink to learn more about NIH
@@ -50,7 +35,7 @@ Feature: Applicant Flow Scenarios
       | column1       | column2   | column3            |
       | Vacancy Title | Institute | Application Period |
 
-  @Regression @Nekrashevich @selenium @Smoke
+  @Regression @Nekrashevich @selenium @Smoke @SNOW_UPDATED
   Scenario: Vacancy Details View for an Applicant
     And User is on SSJ landing page
     When User clicks to apply for a live vacancy
@@ -66,7 +51,7 @@ Feature: Applicant Flow Scenarios
     And User can verify the description of "FOREIGN EDUCATION" statement
     Then User can verify the description of "REASONABLE ACCOMODATION" statement
 
-  @Regression @Nekrashevich @selenium @Smoke
+  @Regression @Nekrashevich @selenium @Smoke @SNOW_UPDATED
   Scenario: Your Applications tab
     When User is on Your Applications tab
     And User can verify "Your Applications" page title

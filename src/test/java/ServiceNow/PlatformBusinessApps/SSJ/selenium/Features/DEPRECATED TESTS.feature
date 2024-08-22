@@ -76,3 +76,33 @@ Feature: DEPRECATED TESTS
     Then User is redirected to Okta registration page
     And User enters all the registration details
     Then User can verify that Okta account was not created
+
+  @SSJ-712
+  Scenario: Edit Demographics of Profile
+    Given a test account "SSJTest" is reset before executing a test
+    When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
+    When User is on Profile tab - PW
+    And User clicks Edit for Demographics section - PW
+    And User chooses to share demographic details - PW
+    And User edits sex choice - PW
+    And User edits ethnicity choice - PW
+    And User edits race choice - PW
+    And User edits disability choice - PW
+    And User saves the updated section - PW
+    And User clicks Edit for Demographics section - PW
+    And User chooses not to share demographic details - PW
+    Then User saves the updated section - PW
+
+  @APPTRACK-712
+  Scenario: Edit Demographics of Profile
+    When User is on Profile tab
+    And User clicks Edit for Demographics section
+    And User chooses to share demographic details
+    And User edits sex choice
+    And User edits ethnicity choice
+    And User edits race choice
+    And User edits disability choice
+    And User saves the updated section
+    And User clicks Edit for Demographics section
+    And User chooses not to share demographic details
+    Then User saves the updated section
