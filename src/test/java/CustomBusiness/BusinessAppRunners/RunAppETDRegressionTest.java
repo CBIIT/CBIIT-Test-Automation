@@ -14,5 +14,4 @@ import io.cucumber.testng.CucumberOptions;
 		, tags = "@Regression"
 		, dryRun = false
 		)
-public class RunAppETDRegressionTest extends AbstractTestNGCucumberTests{
-}
+public class RunAppETDRegressionTest extends AbstractTestNGCucumberTests{ }
