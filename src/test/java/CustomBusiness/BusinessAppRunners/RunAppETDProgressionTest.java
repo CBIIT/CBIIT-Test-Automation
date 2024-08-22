@@ -13,7 +13,7 @@ import io.cucumber.testng.CucumberOptions;
 		, glue="CustomBusiness.ETD.Steps"
 		, tags = "@Progression"
 		, dryRun = false
-		)
+)
 
 public class RunAppETDProgressionTest extends AbstractTestNGCucumberTests{
 }

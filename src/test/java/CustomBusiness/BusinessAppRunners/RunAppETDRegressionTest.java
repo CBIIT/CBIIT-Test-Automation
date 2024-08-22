@@ -13,5 +13,6 @@ import io.cucumber.testng.CucumberOptions;
 		, glue="CustomBusiness.ETD.Steps"
 		, tags = "@Regression"
 		, dryRun = false
-		)
-public class RunAppETDRegressionTest extends AbstractTestNGCucumberTests{ }
+)
+public class RunAppETDRegressionTest extends AbstractTestNGCucumberTests{
+}
