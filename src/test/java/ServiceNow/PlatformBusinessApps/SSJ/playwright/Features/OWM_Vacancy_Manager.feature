@@ -18,10 +18,6 @@ Feature: OWM Vacancy Manager Scenarios
     And User sets an "Open Date" entry as today's date
     And User sets a "Close Date" entry a month from the Open Date
     And User sets "Scoring Due By Date" entry
-    And User verifies "Cover Letter" application document is marked as optional by default
-    And "Add More" button is displayed for Application Documents section
-    And User can add another application document
-    And User confirms that Enable Reference Collection option is displayed
 #    #REVIEW ABOVE STEP WITH BA
     And User verifies "Cover Letter" application document is checked as optional by default
     And " Add More" button is displayed for Application Documents section
