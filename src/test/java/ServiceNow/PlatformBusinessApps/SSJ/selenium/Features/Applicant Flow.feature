@@ -64,7 +64,7 @@ Feature: Applicant Flow Scenarios
     And User can verify the description of "EQUAL OPPORTUNITY EMPLOYMENT" statement
     And User can verify the description of "STANDARDS OF CONDUCT/FINANCIAL DISCLOSURE" statement
     And User can verify the description of "FOREIGN EDUCATION" statement
-    Then User can verify the description of "REASONABLE ACCOMMODATION" statement
+    Then User can verify the description of "REASONABLE ACCOMODATION" statement
 
   @Regression @Nekrashevich @selenium @Smoke
   Scenario: Your Applications tab
