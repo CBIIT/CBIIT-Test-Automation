@@ -16,6 +16,7 @@ import io.cucumber.java.en.When;
 
 public class PortalViewSteps {
 
+
 	private PortalViewPage portalViewPage;
 	private LoginStepsImpl loginStepsImpl;
 
