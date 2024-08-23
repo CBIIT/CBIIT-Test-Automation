@@ -53,8 +53,6 @@ jobs:
         with:
           name: cucumber-report-${{ github.run_number }}
           path: target/ssj-regression-reports/*
-      - name: Remove Google Chrome installation file
-        run: rm google-chrome-stable_current_x86_64.rpm
       - name: Push HTML Report
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
