@@ -307,7 +307,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                         throws TestingException {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+                ServiceNow_Common_Methods.impersonateAnyUser("Abigail Joyce");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
                 MiscUtils.sleep(7000);
@@ -333,9 +333,8 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          *
          * @param submissionName
          */
-        public static void creatingOfCollaborationSubmissionByDOCPlaningContact(WebElement SubmissionType,
-                        String submissionName) throws TestingException {
-                ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+        public static void creatingOfCollaborationSubmissionByDOCPlaningContact(WebElement SubmissionType, String submissionName) {
+                ServiceNow_Common_Methods.impersonateAnyUser("Abigail Joyce");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 MiscUtils.sleep(1000);
                 CommonUtils.waitForClickability(SubmissionType);

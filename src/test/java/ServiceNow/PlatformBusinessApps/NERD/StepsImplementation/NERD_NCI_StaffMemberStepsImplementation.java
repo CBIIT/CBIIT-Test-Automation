@@ -298,7 +298,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         nerdcrstOtherAccomplishmentsPage.nerdOtherAccomplishmentsAccordionButton.click();
-        MiscUtils.sleep(3000);
+        MiscUtils.sleep(5000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(nerdDynamicXpaths.underReviewText(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_NAME));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_NAME));

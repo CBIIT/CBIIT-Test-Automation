@@ -233,8 +233,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         MiscUtils.sleep(2000);
         nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
         MiscUtils.sleep(2000);
-        JavascriptUtils
-                .drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(4000);
     }
@@ -630,7 +629,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      *
      * @param submissionName
      */
-    public static void deleteCreatedSubmissionByProgramStaff(String submissionName) throws TestingException {
+    public static void deleteCreatedSubmissionByProgramStaff(String submissionName) {
         ServiceNow_Common_Methods.logOutOfNativeView();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         MiscUtils.sleep(5000);

@@ -175,7 +175,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     @Then("the author will show as the Program Staff user who originally created the Submission")
     public void the_author_will_show_as_the_Program_Staff_user_who_originally_created_the_Submission() throws TestingException {
         NERDApplicationStepsImplementation.verifyingTheAuthorOfCreatedSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
-        NERDApplicationStepsImplementation.deleteCreatedSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
+//        NERDApplicationStepsImplementation.deleteCreatedSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
     }
 
     @Given("a DOC Planning Contact creates a Collaboration")
@@ -187,7 +187,6 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     @Then("they are able to return the Collaboration to a Program Staff user")
     public void they_are_able_to_return_the_Collaboration_to_a_Program_Staff_user() throws TestingException {
         NERDApplicationStepsImplementation.returningOfSubmissionToTheProgramStaffInSameDOC(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT_SUBMISSION);
-        NERDApplicationStepsImplementation.deleteCreatedSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT_SUBMISSION);
     }
 
     @Given("a DOC Planning Contact is on the CRS Knowledge Management System home page")
