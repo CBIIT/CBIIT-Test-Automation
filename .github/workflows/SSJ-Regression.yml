@@ -14,6 +14,7 @@ jobs:
     env:
       DISPLAY: ".99"
       SCREEN_RESOLUTION: "1280x1024x24"
+      CI: 'true'  # <-- added CI environment variable here
     steps:
       - uses: actions/checkout@v2
         with:
