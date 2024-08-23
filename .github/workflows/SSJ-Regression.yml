@@ -30,8 +30,8 @@ jobs:
       - name: Install Google Chrome
         run: |
           sudo yum install -y wget
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo yum install -y ./google-chrome-stable_current_amd64.deb
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+          sudo yum install -y ./google-chrome-stable_current_x86_64.rpm
       - name: Replace variables in cloudEnv.properties
         run: |
           sed -i "s/SIDE_DOOR_USERNAME/${{ secrets.SIDEDOORUSERNAME }}/g" src/main/resources/conf/cloudEnv.properties
@@ -54,7 +54,7 @@ jobs:
           name: cucumber-report-${{ github.run_number }}
           path: target/ssj-regression-reports/*
       - name: Remove Google Chrome installation file
-        run: rm google-chrome-stable_current_amd64.deb
+        run: rm google-chrome-stable_current_x86_64.rpm
       - name: Push HTML Report
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
