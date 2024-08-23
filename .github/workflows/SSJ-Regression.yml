@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       DISPLAY: ".99"
       SCREEN_RESOLUTION: "1280x1024x24"

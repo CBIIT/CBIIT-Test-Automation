@@ -3,7 +3,7 @@ Feature: Applicant Flow Scenarios
   Background: common steps
     Given User is on SSJ Landing page and user is "Okta Verified Applicant"
 
-  @Regression @Nekrashevich @APPTRACK-758 @selenium @Smoke
+  @Regression @Nekrashevich @APPTRACK-758 @selenium @Smoke @GHTest
   Scenario Outline: Edit Basic Information of Profile
     And User is on Profile tab
     And User clicks Edit for Basic Information section
