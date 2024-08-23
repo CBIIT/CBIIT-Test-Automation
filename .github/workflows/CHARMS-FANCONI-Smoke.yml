@@ -2,7 +2,6 @@ name: CHARMS - FANCONI STUDY SMOKE TESTS
 
 on:
   schedule:
-    # This corresponds to 7:30 AM EST (12:30 PM UTC)
     - cron: '30 12 * * *'
   workflow_dispatch:
     inputs:
@@ -31,6 +30,14 @@ jobs:
           sudo apt-get install -y wget
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
+      - name: Check and remove Chromedriver if exists
+        run: |
+          if type chromedriver >/dev/null 2>&1; then
+            echo "Chromedriver found, removing..."
+            sudo rm -f $(which chromedriver)
+          else
+            echo "Chromedriver not found, proceeding..."
+          fi
       - name: Replace variables in cloudEnv.properties
         run: |
           sed -i "s/SIDE_DOOR_USERNAME/${{ secrets.SIDEDOORUSERNAME }}/g" src/main/resources/conf/cloudEnv.properties
