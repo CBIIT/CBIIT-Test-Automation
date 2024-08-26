@@ -67,7 +67,10 @@ public class EIDP_All_Steps {
         page.waitForLoadState();
         Playwright_Common_Utils.scrollIntoView("//th[@aria-label='Trainee Name: activate to sort column ascending']");
         Assert.assertTrue(page.locator("//th[@aria-label='Trainee Name: activate to sort column ascending']").isVisible(), "- - - VERIFYING IDP SEARCH RESULTS DISPLAY - - -");
+    }
 
+    @When("a user clicks on a Trainee record where the Initiate Action button is enabled")
+    public void user_clicks_on_any_trainee_record_with_the_initiate_action_button_enabled() {
         boolean isEnabledButtonFound = false; // Flag to identify when we've found a clickable button
         do {
             List<ElementHandle> buttons = page.querySelectorAll("//tbody/tr[*]/td[24]/button[1]");
@@ -90,7 +93,17 @@ public class EIDP_All_Steps {
             // Wait until page loads
             page.waitForLoadState(); // delay for 2 seconds
         } while (true); // continue the loop until a button is clicked or no more "next" pages exist
+    }
 
-        MiscUtils.sleep(3000);
+    @When("selects {string} value for NCI Training Organization")
+    public void selects_value_for_nci_training_organization(String text) {
+    page.selectOption("(//select[@class='input-block-level'])[1]", text);
+    }
+
+    String traineeName;
+    @When("gets the text of the Trainee's name")
+    public void gets_the_text_of_the_trainee_s_name() {
+        traineeName = page.locator("//*[contains(text(),'Initiate IDP for')]").innerText();
+        System.out.println("Trainee Name: " + traineeName);
     }
 }
