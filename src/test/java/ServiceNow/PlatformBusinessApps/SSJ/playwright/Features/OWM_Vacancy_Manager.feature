@@ -1,7 +1,7 @@
 Feature: OWM Vacancy Manager Scenarios
   Description: This Feature file contains OWM Vacancy Manager Scenarios
 
-  @SSJ-7 @SSJ-8 @juarezds @Regression @playwright @Smoke
+  @SSJ-7 @SSJ-8 @juarezds @Regression @playwright @Smoke @SNOW_UPDATED
   Scenario: Verification of Basic Vacancy Information section while creating an NCI Vacancy
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -46,7 +46,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks "Save" button to save the Basic Vacancy Information
     And User confirms that User is on "Mandatory Statements" section
 
-  @SSJ-69 @juarezds @Regression @playwright @Smoke
+  @SSJ-69 @juarezds @Regression @playwright @Smoke @SNOW_UPDATED
   Scenario: Verification of Mandatory Statements section while creating an NCI Vacancy
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -78,7 +78,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks button "Save" - PW
     Then User confirms that User is on "Vacancy Committee" section
 
-  @SSJ-185 @SSJ-306 @juarezds @Regression @playwright
+  @SSJ-185 @SSJ-306 @juarezds @Regression @playwright @SNOW_UPDATED
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Positive Flow
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -113,7 +113,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks button "Save" - PW
     Then User is directed to "Email Templates" section
 
-  @SSJ-11 @Regression @playwright @carberalf
+  @SSJ-11 @Regression @playwright @carberalf @SNOW_UPDATED
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Negative Flow
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
