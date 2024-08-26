@@ -154,7 +154,8 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * @param submissionName
      */
     public static void returningOfSubmission(String submissionName) {
-        MiscUtils.sleep(3000);
+        MiscUtils.sleep(5000);
+        CommonUtils.waitForVisibility(nerdDynamicXpaths.returnButton(submissionName));
         JavascriptUtils.clickByJS(nerdDynamicXpaths.returnButton(submissionName));
         MiscUtils.sleep(5000);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField.sendKeys(submissionName);
