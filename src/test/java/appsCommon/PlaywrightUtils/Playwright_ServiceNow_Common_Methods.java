@@ -37,7 +37,7 @@ public class Playwright_ServiceNow_Common_Methods {
         page.waitForLoadState();
         page.reload();
         MiscUtils.sleep(2000);
-        page.getByLabel(Playwright_NativeView_Dashboard_Page.profileButton).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CBIIT Test Account: available")).click();
         page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName(Playwright_NativeView_Dashboard_Page.impersonateUserOption)).click();
         MiscUtils.sleep(3000);
         page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName(Playwright_NativeView_Dashboard_Page.impersonateUserDropDown)).click();
