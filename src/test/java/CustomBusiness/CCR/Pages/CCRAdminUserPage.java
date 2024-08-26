@@ -28,7 +28,7 @@ import org.openqa.selenium.support.PageFactory;
         @FindBy(xpath = "//body[@data-id='description']//p")
         public WebElement fieldDescription;
 
-        /**  Todays Date Actiev Datepicker Choice**/
+        /**  Todays Date Active Datepicker Choice**/
         @FindBy(xpath = "//button[@class='btn btn-default btn-sm active']")
         public WebElement todaysDateActiveField;
 

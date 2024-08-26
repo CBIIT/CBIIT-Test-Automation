@@ -172,7 +172,7 @@ public class CCRApplicantPage extends CommonUtils {
     @FindBy(xpath = "//select[@id='business_country']")
     public WebElement countryBusinessDropdown;
 
-    /** Applicant Degree Degree Dropdown **/
+    /** Applicant Degree Dropdown **/
     @FindBy(xpath = "//select[@id='degree']")
     public WebElement degreeDropdown;
 
