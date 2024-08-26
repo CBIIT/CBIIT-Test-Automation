@@ -332,7 +332,8 @@ public class PageInitializer extends WebDriverUtils {
 	public static CCRLandingPage cCRLandingPage;
 	public static CCRStepsImplementation cCRStepsImplementation;
 	public static CCRDynamicXpaths cCRDynamicXpaths;
-	public static CCRApplicationPage cCRApplicationPage;
+	public static CCRApplicantPage cCRApplicantPage;
+	public static CCRAdminUserPage cCRAdminUserPage;
 
 	/** ESR INSTANCES */
 	public static NCINativeViewPage nciNativeViewPage;
@@ -612,7 +613,8 @@ public class PageInitializer extends WebDriverUtils {
 		cCRStepsImplementation = new CCRStepsImplementation();
 		cCRStepsImplementation = new CCRStepsImplementation();
 		cCRDynamicXpaths = new CCRDynamicXpaths();
-		cCRApplicationPage = new CCRApplicationPage();
+		cCRApplicantPage = new CCRApplicantPage();
+		cCRAdminUserPage = new CCRAdminUserPage();
 
 		/** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
 		nativeViewHomePage = new NativeViewHomePage();
