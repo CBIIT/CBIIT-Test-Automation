@@ -176,7 +176,7 @@ public class CCRApplicantPage extends CommonUtils {
     @FindBy(xpath = "//select[@id='degree']")
     public WebElement degreeDropdown;
 
-    /** Reference Degree Degree Dropdown **/
+    /** Reference Degree Dropdown **/
     @FindBy(xpath = "//select[@id='reference_0_degree']")
     public WebElement referenceDegreeDropdown;
 
