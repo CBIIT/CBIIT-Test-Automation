@@ -17,8 +17,7 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 	}
 
 	@Given("user verifies email address by clicking on the email verification link that is sent to the user after submitting a SEER User registration form")
-	public void user_verifies_email_address_by_clicking_on_the_email_verification_link_that_is_sent_to_the_user_after_submitting_a_SEER_User_registration_form()
-			throws TestingException {
+	public void user_verifies_email_address_by_clicking_on_the_email_verification_link_that_is_sent_to_the_user_after_submitting_a_SEER_User_registration_form() {
 		SEERDataAccessRequestPageStepsImpl.userVerifiesEmailAddressByClickingOnTheEmailVerificationLinkThatIsSentToTheUserAfterSubmittingASEERUserRegistrationForm();
 	}
 

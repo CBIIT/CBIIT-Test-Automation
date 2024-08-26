@@ -223,6 +223,7 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CommonUtils.assertEquals(Registration_Constants.SEER_DATA_CONFIRMATION_ODS_DATA_ACCESS_REQUEST, seerRegistrationIsCompletePage);
         CommonUtils.assertEquals(Registration_Constants.THANK_YOU_REGISTRATION_IS_COMPLETE_MESSAGE,
                 seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader.getText());
+        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader);
         CucumberLogUtils.logScreenshot();
     }
 
