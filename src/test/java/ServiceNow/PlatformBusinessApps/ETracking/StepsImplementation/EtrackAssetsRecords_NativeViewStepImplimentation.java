@@ -78,7 +78,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.sendKeysToElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, Keys.ENTER);
         CommonUtils.assertTrue(nativeViewAccessRequestPage.nativeViewAccessRequestNewNoRecordsToDisplayText.getText().contentEquals(SEERNativeView_Constants.NATIVE_VIEW_NO_RECORD_TO_DISPLAY_TEXT));
-        CommonUtils.assertEqualsWithMessage(nativeViewAccessRequestPage.nativeViewAccessRequestNewNoRecordsToDisplayText.getText(),SEERNativeView_Constants.NATIVE_VIEW_NO_RECORD_TO_DISPLAY_TEXT, "Verify there are no records to display created by Automation");
+        CommonUtils.assertEqualsWithMessage(nativeViewAccessRequestPage.nativeViewAccessRequestNewNoRecordsToDisplayText.getText(),SEERNativeView_Constants.NATIVE_VIEW_NO_RECORD_TO_DISPLAY_TEXT, "--VERIFY THERE ARE NO RECORDS TO DISPLAY CREATED BY AUTOMATION--");
         JavascriptUtils.drawBlueBorder(nativeViewAccessRequestPage.nativeViewAccessRequestNewNoRecordsToDisplayText);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
@@ -114,7 +114,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
      */
     public static void thereIsAFreeTextFieldCalled(String AssetInformation) {
         CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformation);
-        CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformation.getText(), AssetInformation, "--Verifying the Asset information field--");
+        CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformation.getText(), AssetInformation, "--VERIFYING THE ASSET INFORMATION FIELD--");
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformation);
         CucumberLogUtils.logScreenshot();
     }
@@ -130,7 +130,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformationTextBox, numOfCharacters);
         System.out.println("Print Characters real lenght:::: " + numOfCharacters.length());
         CommonUtils.assertEqualsWithMessage(Integer.toString(numOfCharacters.length()), EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_ASSET_INFORMATION_TEXT_BOX_EXPECTED_LENGTH,
-                "--Verify the Asset Information Text Box Characters count--" );
+                "--VERIFY THE ASSET INFORMATION TEXT BOX CHARACTERS COUNT--" );
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformationTextBox);
         CucumberLogUtils.logScreenshot();
         CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_STATUS_DROP_DOWN);
@@ -172,7 +172,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionField);
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionField);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionField.getText(), description, "--verifying Description field");
+        CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionField.getText(), description, "--VERIFYING DESCRIPTION FIELD--");
     }
 
     /**
@@ -190,7 +190,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         theUserOpensTheModelRecord();
         CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionTextBox.getText(),
                 EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_MODEL_RECORD_DESCRIPTION_TEXT_BOX,
-                "--Verifying the updated Description Text Field --");
+                "--VERIFYING THE UPDATED DESCRIPTION TEXT FIELD --");
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionTextBox);
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordBackButton);
         CucumberLogUtils.logScreenshot();
@@ -208,7 +208,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateField);
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateField);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateField.getText(), expirationDate, "--Verify the Expiration date field--");
+        CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateField.getText(), expirationDate, "--VERIFY THE EXPIRATION DATE FIELD--");
     }
 
     /**
@@ -244,7 +244,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberLabel);
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberLabel);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberLabel.getText(), decalNumber, "--Verify the Decal number field--");
+        CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberLabel.getText(), decalNumber, "--VERIFY THE DECAL NUMBER FIELD--");
     }
 
     /**
@@ -292,9 +292,9 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(inTransfer));
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(inTransfer));
         CucumberLogUtils.logScreenshot();
-        CommonUtils.assertEqualsWithMessage(checkedOut,etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(checkedOut).getText(),"verify the checked Out drop down option" );
-        CommonUtils.assertEqualsWithMessage(inStockroom,etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(inStockroom).getText(),"verify the In Stockroom drop down option" );
-        CommonUtils.assertEqualsWithMessage(inTransfer,etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(inTransfer).getText(),"verify the In Transfer drop down option" );
+        CommonUtils.assertEqualsWithMessage(checkedOut,etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(checkedOut).getText(),"VERIFY THE CHECKED OUT DROP DOWN OPTION" );
+        CommonUtils.assertEqualsWithMessage(inStockroom,etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(inStockroom).getText(),"VERIFY THE IN STOCKROOM DROP DOWN OPTION" );
+        CommonUtils.assertEqualsWithMessage(inTransfer,etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(inTransfer).getText(),"VERIFY THE IN TRANSFER DROP DOWN OPTION" );
         CucumberLogUtils.logScreenshot();
     }
 }
