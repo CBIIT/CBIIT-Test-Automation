@@ -22,6 +22,35 @@ Given User is logged in the application and is on the landing page
     Then verifies the success message "Done! New document has been created"
     And clicks on uploaded document
 
+  @UpdateDocumentCategory @nesarh2 @Progression1
+  Scenario: Test updating document category
+    And searches for grant "125123"
+    And selects grant year 18
+    When clicks on update icon
+    And selects "Funding" from Category dropdown
+    And selects "Transition Approval" as Subcategory
+    Then clicks on update icon to submit the changes
+    And verifies the updated category and subcategory for the selected document
+
+  @ReplaceExistingFile @nesarh2 @Progression1
+  Scenario: Test replacing an existing file
+    And searches for grant "125123"
+    And selects grant year 18
+    When clicks on Upload icon
+    And clicks on Locate File and Upload tab
+    And uploads a file
+    Then verifies the success message "Done! New document has been created"
+    And clicks on Check Document button to verify the uploaded document
+
+
+  @DeleteUploadedFile @nesarh2 @Progression1
+  Scenario: Test deletion of an uploaded file
+    And searches for grant "125123"
+    And selects grant year 18
+    And clicks on "+" icon to expand the document details
+    And clicks on Delete button
+    Then User clicks on OK button to confirm Deletion
+
   @InstitutionalFileUpload @nesarh2 @Regression
   Scenario: Test Institutional file upload
     And clicks on Institutional Files menu

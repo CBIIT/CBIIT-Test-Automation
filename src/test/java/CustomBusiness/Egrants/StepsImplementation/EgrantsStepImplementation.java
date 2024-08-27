@@ -201,9 +201,58 @@ public class EgrantsStepImplementation extends PageInitializer {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.checkDocumentButton);
 		CommonUtils.switchToNextWindow();
 		MiscUtils.sleep(3000);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.webDriver.close();
 		MiscUtils.sleep(3000);
 	}
+
+	/***
+	 * THIS METHOD CLICKS ON UPDATE ICON WITHIN A GRANT FOLDER
+	 */
+	public static void clicks_on_update_icon() {
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.updateIcon);
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/***
+	 * THIS METHOD SELECTS DOCUMENT CATEGORY
+	 */
+	public static void select_from_category() {
+		CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.categoryDropdown, 12);
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/***
+	 * THIS METHOD SELECTS DOCUMENT SUB CATEGORY
+	 */
+	public static void select_from_subcategory() {
+		CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.subCategoryforFunding, 5);
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/***
+	 * THIS METHOD CLICKS ON CATEGORY UPDATE BUTTON
+	 */
+	public static void click_on_update_button() {
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.updateButton);
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/***
+	 * THIS METHOD VERIFIES THE UPDATED CATEGORY AND SUB CATEGORY FOR A SELECTED DOCUMENT
+	 */
+	public static void verify_updated_document_category_and_subcategory() {
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.expandButton);
+		MiscUtils.sleep(2000);
+   // GET THE TEXT FOR ASSERTION
+		CucumberLogUtils.logScreenshot();
+	}
+
+
 
 	/***
 	 * THIS METHOD CLICKS ON INSTITUTIONAL FILES MENU

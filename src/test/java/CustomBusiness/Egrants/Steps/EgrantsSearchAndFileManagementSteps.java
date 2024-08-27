@@ -4,6 +4,7 @@ import CustomBusiness.Egrants.StepsImplementation.EgrantsStepImplementation;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
 
@@ -75,6 +76,60 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     @Given("clicks on uploaded document")
     public void clicks_on_uploaded_document() {
         EgrantsStepImplementation.clicks_on_uploaded_document();
+    }
+
+    @When("clicks on update icon")
+    public void clicks_on_update_icon() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @When("selects {string} from Category dropdown")
+    public void selects_from_category_dropdown(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @When("selects {string} as Subcategory")
+    public void selects_as_subcategory(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("clicks on update icon to submit the changes")
+    public void clicks_on_update_icon_to_submit_the_changes() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("verifies the updated category and subcategory for the selected document")
+    public void verifies_the_updated_category_and_subcategory_for_the_selected_document() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @When("clicks on Upload icon")
+    public void clicks_on_upload_icon() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("clicks on Check Document button to verify the uploaded document")
+    public void clicks_on_check_document_button_to_verify_the_uploaded_document() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Given("clicks on {string} icon to expand the document details")
+    public void clicks_on_icon_to_expand_the_document_details(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Given("clicks on Delete button")
+    public void clicks_on_delete_button() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("User clicks on OK button to confirm Deletion")
+    public void user_clicks_on_ok_button_to_confirm_deletion() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
 
     @Given("clicks on Institutional Files menu")

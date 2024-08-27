@@ -157,6 +157,36 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     @FindBy (xpath = "//button[@id='btnFileUpload']")
     public WebElement createNewButton;
 
+    /**
+     * Update icon
+     */
+    @FindBy (xpath = "/(//*[@title='Update Document'])[1]")
+    public WebElement updateIcon;
+
+    /**
+     * Subcategory for funding
+     */
+    @FindBy (xpath = "//select[@id='D_37']")
+    public WebElement subCategoryforFunding;
+
+    /**
+     * Update button
+     */
+    @FindBy (xpath = "//button[@title='Click here to update document index [shift + alt + U]']")
+    public WebElement updateButton;
+
+    /**
+     * Expand button
+     */
+    @FindBy (xpath = "//img[@name='show_qc_all']")
+    public WebElement expandButton;
+
+    /**
+     * Get text for an updated document
+     */
+    @FindBy (xpath = "(//*[contains(text(),'Updated On')])[1]")
+    public WebElement updateText;
+
     public EgrantsSearchAndFileManagementScenariosPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
