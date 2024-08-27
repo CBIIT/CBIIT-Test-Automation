@@ -8,7 +8,6 @@ import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import io.cucumber.java.et.Ja;
 import org.openqa.selenium.Keys;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;

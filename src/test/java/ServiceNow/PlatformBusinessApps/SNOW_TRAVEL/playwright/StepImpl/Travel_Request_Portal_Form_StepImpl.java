@@ -9,7 +9,6 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;
 import org.testng.Assert;
-
 import java.util.regex.Pattern;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
@@ -286,9 +285,13 @@ public class Travel_Request_Portal_Form_StepImpl {
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * This method verifies that the header on the form is not visible.
+     *
+     * @param travelCashAdvance the travel cash advance value
+     */
     public static void i_will_not_see_the_header_on_the_form(String travelCashAdvance) {
         assertThat(page.locator("#catItemTop div").filter(new Locator.FilterOptions().setHasText("Travel QuestionsDo you have a")).nth(1)).isVisible();
         MiscUtils.sleep(5000);
-
     }
 }

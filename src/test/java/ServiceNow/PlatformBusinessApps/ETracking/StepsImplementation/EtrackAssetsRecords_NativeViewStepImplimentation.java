@@ -51,6 +51,9 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method verifies the delete button
+     */
     public static void thereIsDeleteButton() {
         CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsOpenRecordDeleteButton);
         CommonUtils.assertTrue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsOpenRecordDeleteButton.getText().contentEquals(EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_OPEN_RECORD_DELETE_BUTTON));
@@ -58,11 +61,17 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method represents the action of a user clicking on the delete button.
+     */
     public static void theUserClicksTheDeleteButton() {
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsOpenRecordDeleteButton);
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method represents the action of deleting a record.
+     */
     public static void theRecordIsDeleted() {
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown);
         CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_NATIVE_VIEW_ASSETS_ALL_RECORD_SEARCH_DROP_DOWN);
@@ -75,12 +84,14 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
 
-    public static void anEtrackingUserIsOnAnAssetRecord() throws TestingException {
+    /**
+     * This method represents the action of when an Etracking User is on an Asset Record
+     */
+    public static void anEtrackingUserIsOnAnAssetRecord() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser("Jeffrey Alderdice");
         MiscUtils.sleep(3000);
         ServiceNow_Common_Methods.filterNavigatorSearch("Assets");
-        //CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(2000);
         etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewButton.click();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberTextBox);
@@ -96,6 +107,11 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Verifies the existence and properties of a free text field.
+     *
+     * @param AssetInformation The expected value of the asset information field.
+     */
     public static void thereIsAFreeTextFieldCalled(String AssetInformation) {
         CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformation);
         CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformation.getText(), AssetInformation, "--Verifying the Asset information field--");
@@ -103,6 +119,9 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method verifies that the user is able to enter at least one thousand characters.
+     */
     public static void theUserIsAbleToEnterAtLeastOneThousandCharacters() {
         String numOfCharacters = "";
         for (int i = 0; i < 50; i++) {
@@ -132,6 +151,9 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         theRecordIsDeleted();
     }
 
+    /**
+     * This method represents the action of the user opening the model record.
+     */
     public static void theUserOpensTheModelRecord() {
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelOpenRecordButton);
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelOpenRecordButton);
@@ -141,6 +163,11 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This metha verifies the "Description" field.
+     *
+     * @param description The expected description of the field.
+     */
     public static void thereIsFieldCalled(String description) {
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionField);
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionField);
@@ -148,6 +175,9 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionField.getText(), description, "--verifying Description field");
     }
 
+    /**
+     * The user is able to make text changes to the description field.
+     */
     public static void theUserIsAbleToMakeTextChangesToTheDescriptionField() {
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionTextBox,
                 EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_MODEL_RECORD_DESCRIPTION_TEXT_BOX);
@@ -169,6 +199,11 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         theRecordIsDeleted();
     }
 
+    /**
+     * This metha verifies a date picker "Expiration Date" field.
+     *
+     * @param expirationDate The expected expiration date value.
+     */
     public static void thereIsADatePickerFieldCalled(String expirationDate) {
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateField);
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateField);
@@ -176,6 +211,9 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateField.getText(), expirationDate, "--Verify the Expiration date field--");
     }
 
+    /**
+     * This method represents the action of the user clicking on the expiration date calendar icon field.
+     */
     public static void theUserClicksTheExpirationDateCalendarIconField() {
         CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateCalendarIcon);
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateCalendarIcon);
@@ -184,6 +222,9 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method represents the action of the user being able to select any date.
+     */
     public static void theUserIsAbleToSelectAnyDate() {
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateCalendar);
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateSelectGoToTodayDate);
@@ -194,6 +235,11 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method verifies the field "Decal Number".
+     *
+     * @param decalNumber The expected decal number of the field.
+     */
     public static void thereIsAFieldCalled(String decalNumber) {
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberLabel);
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberLabel);
@@ -201,22 +247,40 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberLabel.getText(), decalNumber, "--Verify the Decal number field--");
     }
 
+    /**
+     * Verifies if there is no field called "barcode".
+     *
+     * @param barcode The barcode value to check.
+     */
     public static void thereIsNoFieldCalled(String barcode) {
         CommonUtils.assertTrue(!barcode.equals(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberLabel.getText()));
     }
 
+    /**
+     * This method verifies the field called "Status".
+     */
     public static void thereIsAFieldCalledStatus(){
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusField);
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusField);
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Represents the action of the user clicking on the status field.
+     */
     public static void theUserClicksTheStatusField(){
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDown);
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDown);
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Sets the options for the field in the page and verifies the selected options.
+     *
+     * @param checkedOut     The value of the "Checked Out" option.
+     * @param inStockroom    The value of the "In Stockroom" option.
+     * @param inTransfer     The value of the "In Transfer" option.
+     */
     public static void theFollowingFieldOptionsAreAvailable(String checkedOut,String inStockroom,String inTransfer){
         CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDown);
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(checkedOut));

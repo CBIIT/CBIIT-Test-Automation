@@ -9,7 +9,6 @@ import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -175,7 +174,6 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     @Then("the author will show as the Program Staff user who originally created the Submission")
     public void the_author_will_show_as_the_Program_Staff_user_who_originally_created_the_Submission() throws TestingException {
         NERDApplicationStepsImplementation.verifyingTheAuthorOfCreatedSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
-//        NERDApplicationStepsImplementation.deleteCreatedSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
     }
 
     @Given("a DOC Planning Contact creates a Collaboration")

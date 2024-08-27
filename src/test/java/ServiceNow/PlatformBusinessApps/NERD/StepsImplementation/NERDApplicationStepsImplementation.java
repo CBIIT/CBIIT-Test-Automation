@@ -6,7 +6,6 @@ import ServiceNow.PlatformBusinessApps.NERD.Constants.NCI_Staff_Members_Constant
 import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.TopAccomplishmentsSubmission_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Pages.NERDDynamicXPATHS;
-import ServiceNow.PlatformBusinessApps.SEER.Constants.SEERDataRejection_Constants;
 import ServiceNow.PlatformBusinessApps.SEER.Constants.SEERNativeView_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
