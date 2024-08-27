@@ -39,7 +39,7 @@ Feature: CBIIT Off-boarding form Scenarios
     And select "Yes" for "Hardware Return Ticket Already Created" field
     Then "Hardware Return Ticket Number(s)" should be required only for departure Request
 
-  @OFFBOARD-56 @chaudhryma @Regression @Smoke @playwright @Progression
+  @OFFBOARD-56 @chaudhryma @Regression @Smoke @playwright
   Scenario:Test 2: Offboarding Form Changes
     Given I am an authenticated user with NCI credential
     When I fill out an offboarding form for "Transfer" under the "Departure or Transfer Request" field
