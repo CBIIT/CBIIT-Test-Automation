@@ -1,6 +1,6 @@
 Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
 
-  @SNOWTRAVEL-125 @Chaudhryma @Smoke @Regression @selenium @IN-Progress
+  @SNOWTRAVEL-125 @Chaudhryma @selenium @IN-Progress
   Scenario: Test 3: CGH Field Enhancements on Travel Request Form
     Given I am a authenticated Travel Request User under the DOC CGH
     When I am on the "Travel Planning System" Portal form

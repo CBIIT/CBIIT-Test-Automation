@@ -34,7 +34,7 @@ Feature: SNOWTRAVEL Portal Form Scenarios
     When I am on the "Travel Planning System" form
     Then I will not see the following help text language under the field "Destination Type" under the "Event" section:"Local needs to be submitted 2 weeks before event date."
 
-  @SNOWTRAVEL-125 @Chaudhryma @Smoke @Regression @playwright @IN-Progress
+  @SNOWTRAVEL-125 @Chaudhryma @playwright @IN-Progress
   Scenario: Test 3: CGH Field Enhancements on Travel Request Form
     Given I am an authenticated DOC CGH Travel Request User
     When I am on the "Travel Planning System" form
