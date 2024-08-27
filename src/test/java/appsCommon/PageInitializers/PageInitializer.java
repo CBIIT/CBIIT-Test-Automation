@@ -197,7 +197,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
 	public static AdHoc_Data_Call_Submissions_Page adHoc_data_call_submissions_page;
 
-
 	/** SSJ instances */
 	public static OWMVacancyPage owmVacancyPage;
 	public static UnauthenticatedApplicantPage unauthenticatedApplicantPage;

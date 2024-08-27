@@ -15,11 +15,6 @@ import org.openqa.selenium.Keys;
 public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitializer {
 
     /**
-     * This method will log in as a eTracking user
-     *
-     */
-
-    /**
      * All Etracking Asset methods needs Screenshots once the issues is resolved
      */
     public static void aEtrackingUserOpensAnAssetRecord() throws TestingException {

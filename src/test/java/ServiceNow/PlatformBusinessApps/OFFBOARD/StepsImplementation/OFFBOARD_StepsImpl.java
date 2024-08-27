@@ -33,13 +33,6 @@ public class OFFBOARD_StepsImpl {
     }
 
     /**
-     * Executes the offboarding requester action by logging into the native view using the side door test account.
-     */
-    public static void i_am_an_offboarding_requester() {
-        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
-    }
-
-    /**
      * This method navigates to the offboarding request form and fills in Requester For fields.
      */
     public static void i_open_the_offboarding_request_form() {

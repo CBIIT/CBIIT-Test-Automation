@@ -19,6 +19,11 @@ public class Travel_Requests_Form_StepImpl extends PageInitializer {
         WebDriverUtils.webDriver.get(Trava_Request_Form_Constants.GSNOWTRAVEL_FORM_URL);
     }
 
+    /**
+     * This method verifies that user is on travel planning system page
+     *
+     * @param travelPlanningSystem The travel planning system.
+     */
     public static void i_am_on_the_portal_form(String travelPlanningSystem) {
         CommonUtils.waitForVisibility(travel_Request_Form_Page.travelPlanningSystemPageHeaderText);
         JavascriptUtils.drawBlueBorder(travel_Request_Form_Page.travelPlanningSystemPageHeaderText);

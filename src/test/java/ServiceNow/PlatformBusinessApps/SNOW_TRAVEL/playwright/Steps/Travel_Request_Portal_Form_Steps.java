@@ -98,8 +98,16 @@ public class Travel_Request_Portal_Form_Steps {
         Travel_Request_Portal_Form_StepImpl.i_will_not_see_the_following_help_text_language_under_the_field_under_the_section(destinationType, event, helpText);
     }
 
+    @When("I am completing the Travel Planning System form,")
+    public void i_am_completing_the_travel_planning_system_form() {
+    }
+
     @Then("I will not see the Header on the form {string},")
     public void i_will_not_see_the_header_on_the_form(String travelCashAdvance) {
         Travel_Request_Portal_Form_StepImpl.i_will_not_see_the_header_on_the_form(travelCashAdvance);
+    }
+
+    @Then("the following fields under {string} section will be removed:")
+    public void the_following_fields_under_section_will_be_removed(String string, String docString) {
     }
 }

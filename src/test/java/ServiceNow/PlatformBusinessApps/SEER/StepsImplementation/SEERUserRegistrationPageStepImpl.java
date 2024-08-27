@@ -20,10 +20,6 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
      * Verifies that the email address field is read-only.
      */
     public static void validateEmailFieldReadOnly() {
-        /**
-         * VERIFYING EMAIL ADDRESS AND THAT EMAIL ADDRESS FIELD IS READ-ONLY
-         */
-
         Assert.assertTrue(
                 seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
     }

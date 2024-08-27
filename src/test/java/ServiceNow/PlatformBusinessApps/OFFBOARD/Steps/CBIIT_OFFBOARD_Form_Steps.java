@@ -28,7 +28,7 @@ public class CBIIT_OFFBOARD_Form_Steps {
 
     @Given("I am an Offboarding requester")
     public void i_am_an_offboarding_requester() {
-        OFFBOARD_StepsImpl.i_am_an_offboarding_requester();
+        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
     }
 
     @When("I open the Offboarding request form")
