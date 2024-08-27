@@ -75,7 +75,6 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
             JavascriptUtils.drawBlueBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDDvalues.get(j));
             CommonUtils.assertEquals(expectedValues[j], actualValue[j]);
         }
-        MiscUtils.sleep(5000);
         CucumberLogUtils.logScreenshot();
     }
 
