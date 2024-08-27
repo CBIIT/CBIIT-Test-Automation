@@ -524,7 +524,6 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.locator("#blood_bone_marrow_conditions")).containsText("Age in");
         assertThat(page.locator("#blood_bone_marrow_conditions")).containsText("No data to display");
         page.getByLabel("Add a row for Blood/Bone").click();
-     //   assertThat(page.getByRole(AriaRole.HEADING)).containsText("Add Row");
         assertThat(page.locator("#fa_has_hematologic_abnormality")).containsText("Did you/the participant have this hematologic abnormality?");
         page.locator("#s2id_sp_formfield_fa_has_hematologic_abnormality a").click();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Abnormal chromosome clone(s)"))).isVisible();
@@ -625,7 +624,6 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.locator("#fa_antibiotics_mrvs")).containsText("Length of time In");
         assertThat(page.locator("#fa_antibiotics_mrvs")).containsText("No data to display");
         page.getByLabel("Add a row for Antibiotics").click();
-     //   assertThat(page.getByRole(AriaRole.HEADING)).containsText("Add Row");
         assertThat(page.locator("#fa_name")).containsText("Name of antibiotic");
         page.getByLabel("Name of antibiotic").click();
         page.getByLabel("Name of antibiotic").fill("Test Antibiotics");
@@ -679,7 +677,6 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.locator("#fa_transfusion_mrvs")).containsText("Approximately how many times have you/the participant received this type of transfusion?");
         assertThat(page.locator("#fa_transfusion_mrvs")).containsText("No data to display");
         page.getByLabel("Add a row for Transfusion").click();
-     //   assertThat(page.getByRole(AriaRole.HEADING)).containsText("Add Row");
         assertThat(page.locator("#fa_transfusion_type")).containsText("Type of Transfusion");
         page.locator("#s2id_sp_formfield_fa_transfusion_type a").click();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Red Cells (PRBCs)"))).isVisible();
@@ -734,7 +731,6 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.locator("#fa_transfusion_mrvs")).containsText("December");
         assertThat(page.locator("#fa_transfusion_mrvs")).containsText("1996");
         assertThat(page.locator("#fa_transfusion_mrvs")).containsText("104");
-
         assertThat(page.locator("#fa_bmf_treatment_recieved")).containsText("Have you/the participant ever received medical treatment for bone marrow failure?");
         assertThat(page.locator("#fa_bmf_treatment_recieved")).containsText("ex. Androgen, Growth factors (G-CSF), Erythropoietin (Epo, Procrit), Eltrombopag (Promacta), Metformin, Quercetin, etc.");
         page.locator("#s2id_sp_formfield_fa_bmf_treatment_recieved a").click();
@@ -760,7 +756,6 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.locator("#fa_bone_marrow_failure_medication_mrvs")).containsText("Reason for stopping (if medication stopped)");
         assertThat(page.locator("#fa_bone_marrow_failure_medication_mrvs")).containsText("No data to display");
         page.getByLabel("Add a row for Bone Marrow").click();
-     //   assertThat(page.getByRole(AriaRole.HEADING)).containsText("Add Row");
         assertThat(page.locator("#bmf_blood_bone_marrow_condition")).containsText("Bone Marrow Medication");
         page.locator("#s2id_sp_formfield_bmf_blood_bone_marrow_condition a").click();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Androgen (Specify name or"))).isVisible();
@@ -856,7 +851,6 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.locator("#fa_transplant_mrvs")).containsText("What was the HLA Match?");
         assertThat(page.locator("#fa_transplant_mrvs")).containsText("No data to display");
         page.getByLabel("Add a row for Transplant").click();
-     //   assertThat(page.getByRole(AriaRole.HEADING)).containsText("Add Row");
         assertThat(page.locator("#transplant_type")).containsText("Transplant type");
         page.locator("#s2id_sp_formfield_transplant_type a").click();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Bone Marrow Transplant"))).isVisible();
@@ -1047,7 +1041,6 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.locator("#fa_dental_visit_details")).containsText("Year of last dentist visit");
         assertThat(page.locator("#fa_dental_visit_details")).containsText("No data to display");
         page.getByLabel("Add a row for Dental Visit").click();
-     //   assertThat(page.getByRole(AriaRole.HEADING)).containsText("Add Row");
         assertThat(page.locator("#dentist_report_date_or_age")).containsText("Please select date or age for reporting.");
         assertThat(page.locator("#dentist_report_date_or_age")).containsText("Select Unknown/Unsure if you don't know the date or age of Dental visit");
         page.locator("#s2id_sp_formfield_dentist_report_date_or_age a").click();
@@ -1074,8 +1067,6 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.locator("#fa_dental_visit_details")).containsText("Date");
         assertThat(page.locator("#fa_dental_visit_details")).containsText("April");
         assertThat(page.locator("#fa_dental_visit_details")).containsText("1985");
-
-
         assertThat(page.locator("#fa_reason_for_last_dental_visit")).containsText("What was the main reason for your/the participant's last dental visit?");
         page.locator("#s2id_sp_formfield_fa_reason_for_last_dental_visit a").click();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Cleaning"))).isVisible();
@@ -1126,9 +1117,6 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.locator("#fa_oral_lesion_label")).containsText("When did the visible oral lesion (white or red patches) first appear in your/the participant's mouth?");
         assertThat(page.locator("#fa_first_oral_lesion_date_age")).containsText("Please select date or age for reporting.");
         page.locator("#s2id_sp_formfield_fa_first_oral_lesion_date_age a").click();
-
-
-
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Age"))).isVisible();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Date"))).isVisible();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Unknown/Unsure"))).isVisible();
@@ -1180,9 +1168,8 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("1").setExact(true))).isVisible();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("106"))).isVisible();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("90")).click();
-
         assertThat(page.locator("#fa_oral_lesion_sites")).containsText("What is/are the site/s of lesions in your/the participant's mouth? Please select all that apply.");
-        page.getByLabel("form", new Page.GetByLabelOptions().setExact(true)).getByLabel("What is/are the site/s of").click();
+        page.locator("#s2id_autogen41").click();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Dorsal tongue"))).isVisible();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Floor of the mouth"))).isVisible();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Hard palate"))).isVisible();
@@ -1193,9 +1180,7 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Right tonge border"))).isVisible();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Upper gum"))).isVisible();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Hard palate")).click();
-
-
-         assertThat(page.locator("#fa_oral_lesion_had_brush_biopsy")).containsText("Have you/the participant had a brush biopsy?");
+        assertThat(page.locator("#fa_oral_lesion_had_brush_biopsy")).containsText("Have you/the participant had a brush biopsy?");
         page.locator("#s2id_sp_formfield_fa_oral_lesion_had_brush_biopsy a").click();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Yes"))).isVisible();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("No").setExact(true))).isVisible();
@@ -1218,12 +1203,15 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("No").setExact(true))).isVisible();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Unknown/Unsure"))).isVisible();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Yes")).click();
-        assertThat(page.locator("#fa_g_or_gj_tube_current")).containsText("Do you/the participant currently have a G-tube or G-J tube for feeding?");
+        assertThat(page.locator("#fa_g_or_gj_tube_used")).containsText("Have you/the participant had a gastrostomy/G-tube or gastrostomy-jejunostomy/GJ-tube to help with feeding?");
+        page.locator("#s2id_sp_formfield_fa_g_or_gj_tube_used a").click();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Yes"))).isVisible();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("No").setExact(true))).isVisible();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Unknown/Unsure"))).isVisible();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Yes")).click();
         assertThat(page.locator("#fa_g_or_gj_tube_current")).containsText("Do you/the participant currently have a G-tube or G-J tube for feeding?");
+        page.locator("#s2id_sp_formfield_fa_g_or_gj_tube_current a").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Yes")).click();
         assertThat(page.locator("#fa_please_complete_the_table_for_gi_symptoms")).containsText("Please select the \"Add\" button below to fill in past or current experience with the following GI Symptoms.");
         assertThat(page.getByText("Symptoms of interest: choking")).isVisible();
         assertThat(page.locator("#fa_please_complete_the_table_for_gi_symptoms")).containsText("Symptoms of interest: choking; gagging; difficulty swallowing; painful swallowing; food getting stuck with swallowing; reflux; heartburn.");
@@ -1402,6 +1390,9 @@ public class FanconiSurveyStepsImpl {
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("35")).click();
         assertThat(page.locator("#fa_endocrine_disorder_treatment_received")).containsText("Have you/the participant received treatment?");
         page.locator("#s2id_sp_formfield_fa_endocrine_disorder_treatment_received a").click();
+        assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Yes"))).isVisible();
+        assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("No").setExact(true))).isVisible();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Yes")).click();
         page.locator("#fa_endocrine_disorder_treatment").getByText("Treatment received").click();
         assertThat(page.locator("#fa_endocrine_disorder_treatment")).containsText("Treatment received");
         page.getByLabel("Treatment received").click();
@@ -1409,9 +1400,9 @@ public class FanconiSurveyStepsImpl {
         page.getByLabel("Treatment received").press("Enter");
         assertThat(page.locator("#fa_endocrine_disorder_treatment_stop_age_or_date")).containsText("Please select date or age for reporting when treatment stopped");
         assertThat(page.locator("#fa_endocrine_disorder_treatment_stop_age_or_date")).containsText("Select Unknown/Unsure if you don't know the date or age of when treatment stopped");
+        page.locator("#s2id_sp_formfield_fa_endocrine_disorder_treatment_stop_age_or_date a").click();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Age"))).isVisible();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Date"))).isVisible();
-        assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Still receiving treatment"))).isVisible();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Still receiving treatment"))).isVisible();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Still receiving treatment")).click();
         assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Cancel"))).isVisible();
@@ -1423,11 +1414,5 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.locator("#fa_endocrine_disorder_mrvs")).containsText("Yes");
         assertThat(page.locator("#fa_endocrine_disorder_mrvs")).containsText("Test treatment received");
         assertThat(page.locator("#fa_endocrine_disorder_mrvs")).containsText("Still receiving treatment");
-
-
-
-
-
-
     }
 }

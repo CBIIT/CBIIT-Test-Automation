@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/java/ServiceNow/CHARMS/Features/FanconiStudy",
         glue = {"ServiceNow.CHARMS.Steps", "Hooks"},
-        tags = "@Smoke",
+        tags = "@Smoke1",
         dryRun = false
 )
 public class Run_CHARMS_Fanconi_Smoke_Test extends AbstractTestNGCucumberTests {

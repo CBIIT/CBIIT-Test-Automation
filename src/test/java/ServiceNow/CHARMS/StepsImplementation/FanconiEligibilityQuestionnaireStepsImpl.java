@@ -33,11 +33,11 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void resetTestAccountSignIn() throws TestingException {
         if (LocalConfUtils.getProperty("env").equals("test")) {
             WebDriverUtils.webDriver.get(
-                    "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Dcde8001587f64a107e87a8a60cbb3598%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D1%26sysparm_record_rows%3D1173%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
+                    "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Db1cf5c0087d0d610ad46326d3fbb3507%26sysparm_view%3D%26sysparm_domain%3Dnull%26sysparm_domain_scope%3Dnull%26sysparm_record_row%3D1%26sysparm_record_rows%3D12%26sysparm_record_list%3DnameCONTAINSreset%255eORDERBYname");
             MiscUtils.sleep(2000);
         } else if (LocalConfUtils.getProperty("env").equals("dev2")) {
             WebDriverUtils.webDriver.get(
-                    "https://service-dev2.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Dcde8001587f64a107e87a8a60cbb3598%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D1%26sysparm_record_rows%3D1173%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
+                    "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Db1cf5c0087d0d610ad46326d3fbb3507%26sysparm_view%3D%26sysparm_domain%3Dnull%26sysparm_domain_scope%3Dnull%26sysparm_record_row%3D1%26sysparm_record_rows%3D12%26sysparm_record_list%3DnameCONTAINSreset%255eORDERBYname");
             MiscUtils.sleep(2000);
         }
     }
@@ -50,9 +50,12 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             MiscUtils.sleep(100);
             CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
             CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
+            MiscUtils.sleep(500);
             testAccountResetPage.nativeViewRunFixScriptButton.click();
+            MiscUtils.sleep(500);
             CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
             testAccountResetPage.nativeViewProceedInBackgroundButton.click();
+            MiscUtils.sleep(500);
             CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCloseButton);
             testAccountResetPage.nativeViewCloseButton.click();
             MiscUtils.sleep(300);
