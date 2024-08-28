@@ -195,7 +195,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
     }
 
     /**
-     * This metha verifies a date picker "Expiration Date" field.
+     * This method verifies a date picker "Expiration Date" field.
      *
      * @param expirationDate The expected expiration date value.
      */

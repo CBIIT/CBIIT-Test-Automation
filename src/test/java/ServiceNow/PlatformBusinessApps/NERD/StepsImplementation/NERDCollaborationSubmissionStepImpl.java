@@ -40,7 +40,7 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
 
     public static void theDOCPlanningContactLocatesTheRecordInTheirCollaborationQueue(String nameOfRecord) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("Abigail joyce");
+        ServiceNow_Common_Methods.impersonateAnyUser("Abigail Joyce");
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.clickingOnCollaborationsLink();
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration(nameOfRecord));
@@ -72,7 +72,7 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
         NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
         ServiceNow_Common_Methods.logOutOfNativeView();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("Abigail joyce");
+        ServiceNow_Common_Methods.impersonateAnyUser("Abigail Joyce");
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.clickingOnCollaborationsLink();
         MiscUtils.sleep(1000);

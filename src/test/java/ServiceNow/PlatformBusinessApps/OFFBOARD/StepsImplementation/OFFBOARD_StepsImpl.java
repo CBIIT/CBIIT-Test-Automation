@@ -296,11 +296,20 @@ public class OFFBOARD_StepsImpl {
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * User logs in and access to Off Boarding Form
+     */
     public static void i_am_an_authenticated_user_with_nci_credential() {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
         i_open_the_offboarding_request_form();
     }
 
+    /**
+     * Fills out an offboarding form for a "Departure" request under the "Departure or Transfer Request" field.
+     *
+     * @param departure                 the departure value
+     * @param departureOrTransferRequest the text of the departure or transfer field
+     */
     public static void i_fill_out_an_offboarding_form_for_request_under_the_field(String departure, String departureOrTransferRequest) {
         page.waitForSelector(OFFBOARD_Page.cbiit_OffBoardingRequestFormDepartureOrTransferFieldTextLocator);
         assertThat(page.locator(OFFBOARD_Page.cbiit_OffBoardingRequestFormDepartureOrTransferFieldTextLocator)).containsText(departureOrTransferRequest);
@@ -322,6 +331,12 @@ public class OFFBOARD_StepsImpl {
         if_user_select_yes_for_the_answer_to_isTheEmployeeLocatedOnSite_field_show_onsiteLocation_field();
     }
 
+    /**
+     * This method selects "Yes" for a field "Hardware Return Ticket Already created" in the Off Boarding form.
+     *
+     * @param yes                              the option to be selected
+     * @param hardwareReturnTicketAlreadyCreated the value of the hardware return ticket already created field
+     */
     public static void select_for_field(String yes, String hardwareReturnTicketAlreadyCreated) {
         assertThat(page.locator(OFFBOARD_Page.cbiit_SpanLocator).filter(new Locator.FilterOptions().setHasText(Pattern.compile(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_ALREADY_CREATED_FIELD_TEXT)))).isVisible();
         assertThat(page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_Already_CreatedFieldLocator)).containsText(hardwareReturnTicketAlreadyCreated);
@@ -330,6 +345,11 @@ public class OFFBOARD_StepsImpl {
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * Verifies that the 'Hardware Return Ticket Number(s)' field is required only for departure request.
+     *
+     * @param hardwareReturnTicketNumbers the value of the hardware return ticket number(s) field
+     */
     public static void should_be_required_only_for_departure_request(String hardwareReturnTicketNumbers) {
         assertThat(page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberFieldLocator).getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_TEXT)).isVisible();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_SUBMIT_BUTTON)).scrollIntoViewIfNeeded();
@@ -349,6 +369,12 @@ public class OFFBOARD_StepsImpl {
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * Fills out an offboarding form for a "Transfer" request under the "Departure or Transfer Request" field.
+     *
+     * @param transfer                  the value to be selected for the "Transfer" option
+     * @param departureOrTransferRequest the text of the departure or transfer field
+     */
     public static void i_fill_out_an_offboarding_form_for_under_the_field(String transfer, String departureOrTransferRequest) {
         page.waitForSelector(OFFBOARD_Page.cbiit_OffBoardingRequestFormDepartureOrTransferFieldTextLocator);
         assertThat(page.locator(OFFBOARD_Page.cbiit_OffBoardingRequestFormDepartureOrTransferFieldTextLocator)).containsText(departureOrTransferRequest);
@@ -371,6 +397,11 @@ public class OFFBOARD_StepsImpl {
         if_user_select_yes_for_the_answer_to_isTheEmployeeLocatedOnSite_field_show_onsiteLocation_field();
     }
 
+    /**
+     * Verifies that the 'Hardware Return Ticket Number(s)' field is not required for a transfer request.
+     *
+     * @param hardwareReturnTicketNumbers the value of the hardware return ticket number(s) field
+     */
     public static void should_not_be_required_for_transfer_request(String hardwareReturnTicketNumbers) {
         assertThat(page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberFieldLocator).getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_TEXT)).isVisible();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_SUBMIT_BUTTON)).scrollIntoViewIfNeeded();
