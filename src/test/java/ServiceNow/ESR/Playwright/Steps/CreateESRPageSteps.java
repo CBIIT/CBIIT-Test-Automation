@@ -18,8 +18,13 @@ public class CreateESRPageSteps {
         CreateESRPageStepsImplementation.navigateToCreateESRPage();
     }
 
-    @Then("user sees the create ESR page where {string} and {string} are displayed")
-    public void user_sees_the_create_esr_page_where_and_are_displayed(String customerDetailsText, String projectDetailsText) {
-        CreateESRPageStepsImplementation.verifyTextOnCreateESRPage(customerDetailsText, projectDetailsText);
+    @Then("user sees the create ESR page where {string}, {string} and {string} are displayed")
+    public void user_sees_the_create_esr_page_where_and_are_displayed(String customerDetailsText, String projectDetailsText, String teamDetailsText) {
+        CreateESRPageStepsImplementation.verifyTextOnCreateESRPage(customerDetailsText, projectDetailsText, teamDetailsText);
     }
+
+//    @Then("user sees the create ESR page where {string} and {string} are displayed")
+//    public void user_sees_the_create_esr_page_where_and_are_displayed(String customerDetailsText, String projectDetailsText) {
+//        CreateESRPageStepsImplementation.verifyTextOnCreateESRPage(customerDetailsText, projectDetailsText);
+//    }
 }
