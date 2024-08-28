@@ -1,5 +1,6 @@
 package ServiceNow.PlatformBusinessApps.NERD.StepsImplementation;
 
+import ServiceNow.PlatformBusinessApps.NERD.Constants.CRSReviewers_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.Covid19ActivitiesSubmissions_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.Other_Accomplishments_Submissions_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
@@ -65,7 +66,7 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
      */
     public static void nerduserIsOnTheKnowledgeBasePageAsSuperUser() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");
+        ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.CRS_REVIEWER);
         NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
     }
 

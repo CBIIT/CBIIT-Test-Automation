@@ -291,7 +291,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         MiscUtils.sleep(3000);
         CommonUtils.waitForVisibility(nativeViewSentViewPage.nativeViewSearchDropDown);
         CommonUtils.selectDropDownValue(nativeViewSentViewPage.nativeViewSearchDropDown, "recipients");
-        CommonUtils.sendKeysToElement(nativeViewSentViewPage.nativeViewSentSearchField, CRSReviewers_Constants.CRS_DOC_PLANNING_CONTACT_REVIEWER_EMAIL);
+        CommonUtils.sendKeysToElement(nativeViewSentViewPage.nativeViewSentSearchField, CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         nativeViewSentViewPage.nativeViewSentSearchField.sendKeys(Keys.ENTER);
@@ -1129,7 +1129,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      */
    public static void aDocPlanningContactIsOnTheCrsKnowledgeManagementSystemHomePage() {
        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-       ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+       ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
        CucumberLogUtils.logScreenshot();
        CommonUtils.waitForVisibility(

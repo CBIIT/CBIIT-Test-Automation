@@ -56,7 +56,7 @@ public class NativeViewImpersonateUser extends PageInitializer {
         MiscUtils.sleep(2000);
         nativeViewDashPage.clickImpersonateSearchDD();
         MiscUtils.sleep(3000);
-        nativeViewDashPage.enterTextImpersntSearchBox(CRSReviewers_Constants.CRS_DOC_PLANNING_CONTACT_REVIEWER_NAME);
+        nativeViewDashPage.enterTextImpersntSearchBox(CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
         MiscUtils.sleep(5000);
         CucumberLogUtils.logScreenshot();
     }

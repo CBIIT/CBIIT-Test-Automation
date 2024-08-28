@@ -9,7 +9,7 @@ public class CRSReviewers_Constants {
     public static final String CBIIT_TEST_ACCOUNT_NAME = "CBIIT Test Account";
 
     /* CRS DOC PLANNING CONTACT REVIEWER NAME  */
-    public static final String CRS_DOC_PLANNING_CONTACT_REVIEWER_NAME = "Karen Ortner";
+    public static final String DOC_PLANNING_CONTACT_NAME = "Abigail Joyce";
 
     /* CRS DOC PLANNING CONTACT REVIEWER EMAIL  */
     public static final String CRS_DOC_PLANNING_CONTACT_REVIEWER_EMAIL = "ortnerk@nih.gov";
@@ -24,10 +24,10 @@ public class CRSReviewers_Constants {
     public static final String CRS_REVIEWER_NAME = "Elizabeth Hoffman";
 
     /* CRS REVIEWER EMAIL */
-    public static final String CRS_REVIEWER_EMAIL = "hoffmanela@nih.gov";
+    public static final String CRS_REVIEWER = "hoffmanela@nih.gov";
 
     /* OGCR REVIEWER NAME */
-    public static final String OGCR_REVIEWER_NAME = "Sonia Hawkins";
+    public static final String OGCR_USER = "Sonia Hawkins";
 
     /* OGCR REVIEWER EMAIL */
     public static final String OGCR_REVIEWER_EMAIL = "calcagnosl@nih.gov";

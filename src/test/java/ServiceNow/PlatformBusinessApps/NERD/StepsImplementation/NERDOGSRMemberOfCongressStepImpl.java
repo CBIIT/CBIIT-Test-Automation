@@ -1,5 +1,6 @@
 package ServiceNow.PlatformBusinessApps.NERD.StepsImplementation;
 
+import ServiceNow.PlatformBusinessApps.NERD.Constants.CRSReviewers_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.NERDOGSRMemberOfCongress_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Pages.NERDOGCRAddNewEntryPage;
 import ServiceNow.PlatformBusinessApps.NERD.Pages.NativeViewMembersOfCongressPage;
@@ -28,7 +29,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
      */
     public static void aUserIsInTheOgcrAdminGroup() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("Sonia Hawkins");
+        ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.OGCR_USER);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
     }
 
