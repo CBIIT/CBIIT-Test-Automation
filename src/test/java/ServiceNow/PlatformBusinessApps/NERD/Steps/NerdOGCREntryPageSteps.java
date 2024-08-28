@@ -5,7 +5,6 @@ import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NerdOGCREntryPag
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -35,12 +34,12 @@ public class NerdOGCREntryPageSteps extends PageInitializer {
     }
 
     @Then("All Drop Down field options are same as the Add New Entry form page for the Member of Congress field.")
-    public void all_drop_down_field_options_are_same_as_the_add_new_entry_form_page_for_the_member_of_congress_field() throws TestingException {
+    public void all_drop_down_field_options_are_same_as_the_add_new_entry_form_page_for_the_member_of_congress_field() {
         NerdOGCREntryPageStepsImplementation.allDropDownFieldOptionsAreSameAsTheAddNewEntryFormPageForTheField();
     }
 
     @Given("I am an authenticated NCI NERD OGCR user,")
-    public void i_am_an_authenticated_nci_nerd_ogcr_user() throws TestingException{
+    public void i_am_an_authenticated_nci_nerd_ogcr_user() {
         NERDOGSRMemberOfCongressStepImpl.aUserIsInTheOgcrAdminGroup();
     }
     @When("I am on the NERD OGCR portal page")
@@ -50,7 +49,7 @@ public class NerdOGCREntryPageSteps extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
     @Then("I should be able to see the the same date, calendar format on the OGCR portal page as the Add New Entry form page for the {string} field.")
-    public void i_should_be_able_to_see_the_the_same_date_calendar_format_on_the_ogcr_portal_page_as_the_add_new_entry_form_page_for_the_field(String string) {
+    public void i_should_be_able_to_see_the_the_same_date_calendar_format_on_the_ogcr_portal_page_as_the_add_new_entry_form_page_for_the_field() {
         NERDOGSRMemberOfCongressStepImpl.theOgcrUserClicksTheButton();
     }
 }

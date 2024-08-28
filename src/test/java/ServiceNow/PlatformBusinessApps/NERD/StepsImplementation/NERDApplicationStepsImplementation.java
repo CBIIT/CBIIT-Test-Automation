@@ -17,7 +17,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -276,7 +275,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * This method verifies that email is not received in system Logs
      *
      */
-    public static void checkingEmailWasNotReceived() throws TestingException {
+    public static void checkingEmailWasNotReceived() {
         ServiceNow_Common_Methods.logOutOfNativeView();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         MiscUtils.sleep(2000);
@@ -308,7 +307,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      *
      * @param applicationName
      */
-    public static void userIsOnSubmissionsPage(String applicationName) throws TestingException {
+    public static void userIsOnSubmissionsPage(String applicationName) {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(applicationName));
         WebDriverUtils.webDriver.navigate().refresh();
         MiscUtils.sleep(5000);
@@ -1023,8 +1022,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      *
      * @param submissionName
      */
-    public static void editAndResubmittingOfSubmissionByDOCContactToCRSREviewer(String submissionName)
-            throws TestingException {
+    public static void editAndResubmittingOfSubmissionByDOCContactToCRSREviewer(String submissionName) {
         JavascriptUtils.scrollIntoView(
                 nerdDynamicXpaths.editButton(submissionName));
         MiscUtils.sleep(2000);
@@ -1081,8 +1079,6 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
 
     /**
      * This method will submit the Collaboration to CRS Reviewer
-     *
-     * @param submissionName
      */
     public static void submittingOfCollaborationToCRSReviewer(String submissionName) {
         CommonUtils.waitForVisibility(
@@ -1131,7 +1127,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * This method will log in as a DOC Planing contact and will click on the submission in the hamburger menu
      *
      */
-   public static void aDocPlanningContactIsOnTheCrsKnowledgeManagementSystemHomePage() throws TestingException {
+   public static void aDocPlanningContactIsOnTheCrsKnowledgeManagementSystemHomePage() {
        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
        ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));

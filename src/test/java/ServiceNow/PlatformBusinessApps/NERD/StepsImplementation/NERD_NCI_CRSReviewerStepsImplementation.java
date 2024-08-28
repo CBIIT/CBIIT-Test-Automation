@@ -10,7 +10,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -22,7 +21,7 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
          *
          * @param submissionName
          */
-        public static void publishingOfSubmissionByCRSReviewer(String submissionName) throws TestingException {
+        public static void publishingOfSubmissionByCRSReviewer(String submissionName) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
                 ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");
@@ -52,7 +51,7 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
          *
          * @param submissionName
          */
-        public static void returningOfSubmissionByCRSReviewer(String submissionName) throws TestingException {
+        public static void returningOfSubmissionByCRSReviewer(String submissionName) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
                 ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");
@@ -86,7 +85,7 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
          *
          * @param submissionType
          */
-        public static void crsReviewerIsOnSubmissionsPage(String submissionType) throws TestingException {
+        public static void crsReviewerIsOnSubmissionsPage(String submissionType) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
                 ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");

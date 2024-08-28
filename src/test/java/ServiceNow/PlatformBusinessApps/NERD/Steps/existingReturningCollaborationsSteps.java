@@ -28,7 +28,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
      */
 
     @Given("a CRS Reviewer is on the Submissions page")
-    public void a_CRS_Reviewer_is_on_the_Submissions_page() throws TestingException {
+    public void a_CRS_Reviewer_is_on_the_Submissions_page() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         NERD_NCI_CRSReviewerStepsImplementation.crsReviewerIsOnSubmissionsPage(ReturningSubmissions_Constants.BOOTSTRAP_DROPDOWN_SELECT_SUBMISSIONS);
     }
@@ -132,7 +132,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     }
 
     @Then("the user is redirected to the Submissions page")
-    public void the_user_is_redirected_to_the_Submissions_page() throws TestingException {
+    public void the_user_is_redirected_to_the_Submissions_page() {
         NERDApplicationStepsImplementation.redirectingToSubmissionsPage();
         NERDApplicationStepsImplementation.submittingOfCollaborationToCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");

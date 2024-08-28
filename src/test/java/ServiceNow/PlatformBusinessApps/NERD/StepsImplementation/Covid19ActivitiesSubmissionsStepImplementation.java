@@ -13,7 +13,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
@@ -63,9 +62,8 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
 
     /**
      * This method is used to perform the necessary steps for a Super User to navigate to the Knowledge Base page in the NERD application.
-     * @throws TestingException if there is an error during the test automation process
      */
-    public static void nerduserIsOnTheKnowledgeBasePageAsSuperUser() throws TestingException {
+    public static void nerduserIsOnTheKnowledgeBasePageAsSuperUser() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");
         NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
@@ -75,7 +73,7 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
      * This method submits the COVID-19 Activities submission by Super User and
      * when the user is on COVID-19 Activities Submission then Category is 'COVID-19 Activities'
      */
-    public static void selectTheCovid19ActivitiesCategory() throws TestingException {
+    public static void selectTheCovid19ActivitiesCategory() {
         NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.superUserCovid19CreateNewSubmissionButton);
         CommonUtils.waitForVisibility(createNewSubmissionPage.titleTextBox);
         CommonUtils.sendKeys(createNewSubmissionPage.titleTextBox, Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX);
@@ -168,7 +166,7 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
     /**
      * This method is used to display only the Covid19 Activities category submissions results.
      */
-    public static void onlyCovid19ActivitiesCategoryResultsAreDisplayed() throws TestingException {
+    public static void onlyCovid19ActivitiesCategoryResultsAreDisplayed() {
         webDriver.switchTo().window(parentWindow);
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(nerdcrstOtherAccomplishmentsPage.nerdOtherAccomplishmentsAccordionButton);

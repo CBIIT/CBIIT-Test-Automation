@@ -10,7 +10,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import org.testng.Assert;
 import java.util.Set;
 
@@ -48,7 +47,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      *
      * @param submissionName
      */
-    public static void editingAndSubmittingOfCollaborationToDOCPlaningContact(String submissionName) throws TestingException {
+    public static void editingAndSubmittingOfCollaborationToDOCPlaningContact(String submissionName) {
         nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         CommonUtils.waitForVisibility(
@@ -116,7 +115,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      *
      * @param applicationName
      */
-    public static void locatingProgramStaffMemberToSubmissionsPage(String applicationName) throws TestingException {
+    public static void locatingProgramStaffMemberToSubmissionsPage(String applicationName)  {
         nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(applicationName));
         CucumberLogUtils.logScreenshot();

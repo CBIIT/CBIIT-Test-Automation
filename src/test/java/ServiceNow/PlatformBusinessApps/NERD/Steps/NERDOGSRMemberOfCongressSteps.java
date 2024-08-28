@@ -11,7 +11,7 @@ import io.cucumber.java.en.When;
 public class NERDOGSRMemberOfCongressSteps extends PageInitializer {
 
     @Given("a user is in the OGCR Admin Group")
-    public void a_user_is_in_the_ogcr_admin_group() throws TestingException {
+    public void a_user_is_in_the_ogcr_admin_group() {
         NERDOGSRMemberOfCongressStepImpl.aUserIsInTheOgcrAdminGroup();
     }
 

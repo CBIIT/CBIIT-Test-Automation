@@ -7,7 +7,6 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import java.util.ArrayList;
@@ -74,7 +73,7 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    public static void newEntryMemberOfCongressInfoDropDownValues() throws TestingException {
+    public static void newEntryMemberOfCongressInfoDropDownValues() {
         CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown);
         CommonUtils.sendKeys(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown, Keys.ENTER);
         MiscUtils.sleep(1000);
@@ -107,7 +106,7 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
         MiscUtils.sleep(1000);
     }
 
-    public static void allDropDownFieldOptionsAreSameAsTheAddNewEntryFormPageForTheField() throws TestingException {
+    public static void allDropDownFieldOptionsAreSameAsTheAddNewEntryFormPageForTheField() {
         CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressFilter);
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();

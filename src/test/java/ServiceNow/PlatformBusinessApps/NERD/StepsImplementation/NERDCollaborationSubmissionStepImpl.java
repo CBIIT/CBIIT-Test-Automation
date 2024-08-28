@@ -12,7 +12,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 
 public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
 
@@ -21,15 +20,14 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
     }
 
-    public static void theCreatedCollaborationsSubmissionIsDisplayInTheCollaborationsCategorySectionWithTheStatus(
-            String underReview) throws TestingException {
+    public static void theCreatedCollaborationsSubmissionIsDisplayInTheCollaborationsCategorySectionWithTheStatus(String underReview)  {
         NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME);
         NERDApplicationStepsImplementation.verifyingSubmissionIsUnderReview(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME, underReview);
         NERD_NCI_DOC_PlanningContactStepsImplementation
                 .deleteCreatedSubmissionByDocPlanningContact(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME);
     }
 
-    public static void aRegularUserHasSubmittedACollaboration() throws TestingException {
+    public static void aRegularUserHasSubmittedACollaboration() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.creatingNewSubmission(
@@ -63,8 +61,7 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    public static void aDOCPlanningContactClicksTheSubmitToCRSButtonForACollaboration()
-            throws TestingException {
+    public static void aDOCPlanningContactClicksTheSubmitToCRSButtonForACollaboration() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.creatingNewSubmission(
@@ -86,8 +83,7 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
         nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
     }
 
-    public static void theCRSReviewerLocatesTheRecordInTheSubmissionsPage()
-            throws TestingException {
+    public static void theCRSReviewerLocatesTheRecordInTheSubmissionsPage() {
         NERD_NCI_CRSReviewerStepsImplementation.crsReviewerIsOnSubmissionsPage(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
         CommonUtils.waitForVisibility(nerdDynamicXpaths.publishedCollaboration(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION));
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION));

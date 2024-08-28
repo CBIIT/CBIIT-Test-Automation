@@ -1,9 +1,6 @@
 package ServiceNow.PlatformBusinessApps.NERD.StepsImplementation;
 
 import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
-import ServiceNow.PlatformBusinessApps.ETracking.Constants.EtrackAssetsRecords_NativeView_Constants;
-import ServiceNow.PlatformBusinessApps.GCP.Constants.GCPNotifications_NativeView_Constants;
-import ServiceNow.PlatformBusinessApps.GDC.Constants.GDC_WorkFlow_NV_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.CRSReviewers_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -11,11 +8,10 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 
 public class NativeViewImpersonateUser extends PageInitializer {
 
-    public void impersonateToCRSReviewer() throws TestingException {
+    public void impersonateToCRSReviewer() {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
         MiscUtils.sleep(2000);
         nativeViewImpersonateUserPage.nativeViewLink.click();
@@ -31,7 +27,7 @@ public class NativeViewImpersonateUser extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    public void impersonateToAnyCRSReviewerNerd(String approver, String approverEmail) throws TestingException {
+    public void impersonateToAnyCRSReviewerNerd(String approver, String approverEmail) {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
         MiscUtils.sleep(2000);
         nativeViewImpersonateUserPage.nativeViewLink.click();
@@ -49,7 +45,7 @@ public class NativeViewImpersonateUser extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    public void impersonateToDocPlanningContact() throws TestingException {
+    public void impersonateToDocPlanningContact() {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
         MiscUtils.sleep(2000);
         nativeViewImpersonateUserPage.nativeViewLink.click();
@@ -65,7 +61,7 @@ public class NativeViewImpersonateUser extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    public void impersonateToStaffMemberCBIIT() throws TestingException {
+    public void impersonateToStaffMemberCBIIT() {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
         MiscUtils.sleep(2000);
         nativeViewImpersonateUserPage.nativeViewLink.click();
@@ -78,78 +74,6 @@ public class NativeViewImpersonateUser extends PageInitializer {
         MiscUtils.sleep(3000);
         nativeViewDashPage.enterTextImpersntSearchBox(CRSReviewers_Constants.CBIIT_TEST_ACCOUNT_NAME);
         MiscUtils.sleep(5000);
-        CucumberLogUtils.logScreenshot();
-    }
-
-    public void impersonateOGCRUser() throws TestingException {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
-        MiscUtils.sleep(2000);
-        nativeViewImpersonateUserPage.nativeViewLink.click();
-        MiscUtils.sleep(5000);
-        nativeViewDashPage.clickUserDropDown();
-        MiscUtils.sleep(2000);
-        nativeViewDashPage.clickImpersonateUserLink();
-        MiscUtils.sleep(2000);
-        nativeViewDashPage.clickImpersonateSearchDD();
-        MiscUtils.sleep(3000);
-        nativeViewDashPage.enterTextImpersntSearchBox(CRSReviewers_Constants.OGCR_REVIEWER_NAME);
-        MiscUtils.sleep(5000);
-        CucumberLogUtils.logScreenshot();
-    }
-
-    public void impersonateEtrackingUser() throws TestingException {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
-        MiscUtils.sleep(2000);
-        nativeViewImpersonateUserPage.nativeViewLink.click();
-        MiscUtils.sleep(5000);
-        nativeViewDashPage.clickUserDropDown();
-        MiscUtils.sleep(2000);
-        nativeViewDashPage.clickImpersonateUserLink();
-        MiscUtils.sleep(2000);
-        nativeViewDashPage.clickImpersonateSearchDD();
-        MiscUtils.sleep(3000);
-        nativeViewDashPage.enterTextImpersntSearchBox(EtrackAssetsRecords_NativeView_Constants.ETRACKING_USER_NAME);
-        MiscUtils.sleep(5000);
-        nativeViewImpersonateUserPage.nativeViewLink.click();
-        MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenshot();
-    }
-
-    public void impersonateAdminUser() throws TestingException {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
-        MiscUtils.sleep(2000);
-        nativeViewImpersonateUserPage.nativeViewLink.click();
-        MiscUtils.sleep(5000);
-        nativeViewDashPage.clickUserDropDown();
-        MiscUtils.sleep(2000);
-        nativeViewDashPage.clickImpersonateUserLink();
-        MiscUtils.sleep(2000);
-        nativeViewDashPage.clickImpersonateSearchDD();
-        MiscUtils.sleep(3000);
-        nativeViewDashPage.enterTextImpersntSearchBox(GCPNotifications_NativeView_Constants.ADMIN_USER_EMAIL);
-        MiscUtils.sleep(5000);
-        CucumberLogUtils.logScreenshot();
-        nativeViewImpersonateUserPage.nativeViewLink.click();
-        MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenshot();
-    }
-
-    public void impersonateGDCFulfillerUser() throws TestingException {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
-        MiscUtils.sleep(2000);
-        nativeViewImpersonateUserPage.nativeViewLink.click();
-        MiscUtils.sleep(5000);
-        nativeViewDashPage.clickUserDropDown();
-        MiscUtils.sleep(2000);
-        nativeViewDashPage.clickImpersonateUserLink();
-        MiscUtils.sleep(2000);
-        nativeViewDashPage.clickImpersonateSearchDD();
-        MiscUtils.sleep(3000);
-        nativeViewDashPage.enterTextImpersntSearchBox(GDC_WorkFlow_NV_Constants.GDC_FULFILLER_USER_EMAIL);
-        MiscUtils.sleep(5000);
-        CucumberLogUtils.logScreenshot();
-        nativeViewImpersonateUserPage.nativeViewLink.click();
-        MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
     }
 }

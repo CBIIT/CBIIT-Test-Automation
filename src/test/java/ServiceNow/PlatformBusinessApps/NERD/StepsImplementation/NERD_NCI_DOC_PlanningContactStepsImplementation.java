@@ -10,7 +10,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -23,7 +22,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          *
          * @param submissionType
          */
-        public static void docPlaningContactIsOnSubmissionsPage(String submissionType) throws TestingException {
+        public static void docPlaningContactIsOnSubmissionsPage(String submissionType) {
                 nativeViewImpersonateUser.impersonateToDocPlanningContact();
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
@@ -41,7 +40,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          *
          * @param submissionName
          */
-        public static void submittingOfSubmissionToCRSReviewer(String submissionName) throws TestingException {
+        public static void submittingOfSubmissionToCRSReviewer(String submissionName) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
                 ServiceNow_Common_Methods.impersonateAnyUser("Abigail Joyce");
@@ -126,7 +125,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          * This method will check if the collaboration shows as in the Submission page
          *
          */
-        public static void theCollaborationShowsAsInTheSubmissionsPage(String ReturnedToDOC) throws TestingException {
+        public static void theCollaborationShowsAsInTheSubmissionsPage(String ReturnedToDOC) {
                 MiscUtils.sleep(1000);
                 Assert.assertTrue(
                         nerdDynamicXpaths.returnedToDOCText(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER).getText().contentEquals(ReturnedToDOC));
@@ -140,7 +139,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          *
          * @param submissionName
          */
-        public static void deleteCreatedSubmissionByDocPlanningContact(String submissionName) throws TestingException {
+        public static void deleteCreatedSubmissionByDocPlanningContact(String submissionName)  {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
                 ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
@@ -260,7 +259,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          *
          * @param submissionName
          */
-        public static void editingAndReturningSubmissionToProgramStaff(String submissionName) throws TestingException {
+        public static void editingAndReturningSubmissionToProgramStaff(String submissionName) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
                 ServiceNow_Common_Methods.impersonateAnyUser("Abigail Joyce");
@@ -303,8 +302,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          *
          * @param submissionName
          */
-        public static void returningSubmissionToProgramStaffByDOCContact(String submissionName)
-                        throws TestingException {
+        public static void returningSubmissionToProgramStaffByDOCContact(String submissionName) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
                 ServiceNow_Common_Methods.impersonateAnyUser("Abigail Joyce");
@@ -392,11 +390,10 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                 MiscUtils.sleep(2000);
         }
 
+        /**
+         * Verifies that the rank field is not displayed on the collaboration form.
+         */
         public static void verifyingRankFieldIsNotDisplayedOnCollaborationForm() {
-                /*
-                 * VERIFYING RANK FIELD IS NOT DISPLAYED
-                 * NOTE - FIELD IS HIDDEN
-                 */
                 WebElement element = WebDriverUtils.webDriver
                                 .findElement(By.xpath("//*[@id='crs-article']/div/div/div/div[1]/div[4]/div[1]/i"));
                 Assert.assertTrue("VERIFYING RANK FIELD IS NOT DISPLAYED",

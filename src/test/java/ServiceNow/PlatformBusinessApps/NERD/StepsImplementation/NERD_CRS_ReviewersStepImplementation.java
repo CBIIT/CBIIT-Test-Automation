@@ -11,13 +11,12 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 
 public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
 
     public String topAccomplishmentsAccordion;
 
-    public static void aCRSReviewerIsLoggedIntoNERDsCRSKnowledgeManagementSystem() throws TestingException {
+    public static void aCRSReviewerIsLoggedIntoNERDsCRSKnowledgeManagementSystem() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");
         NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
@@ -37,7 +36,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         NERDApplicationStepsImplementation.verifyingOfOM_CheckBox(covid19LeadershipMessages);
     }
 
-    public static void aCRSReviewerIsOnTheNERDKnowledgeBasePage() throws TestingException {
+    public static void aCRSReviewerIsOnTheNERDKnowledgeBasePage() {
         nerdLoginStepsImplementation.loginToNerd();
         nativeViewImpersonateUser.impersonateToCRSReviewer();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
@@ -60,8 +59,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
 
     public static void theFieldOptionsAre(String all ,String bigDataDataSharing, String covid19, String communications, String earlyDetection,
                                           String metastatic, String minorityHealthHealthDisparities, String moonshot, String partnerships, String pediatric,
-                                          String rare, String reportGuidancePolicy, String sexGenderDifferences, String trainingWorkforceDevelopment, String womensHealth, String workforce)
-    {
+                                          String rare, String reportGuidancePolicy, String sexGenderDifferences, String trainingWorkforceDevelopment, String womensHealth, String workforce) {
         String[] expectedValues = {all, bigDataDataSharing, covid19, communications, earlyDetection,
                 metastatic, minorityHealthHealthDisparities, moonshot, partnerships, pediatric, rare,
                 reportGuidancePolicy, sexGenderDifferences, trainingWorkforceDevelopment, womensHealth, workforce};
@@ -78,7 +76,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    public static void aCRSReviewerAndEmailIOnTheNERDHomePage(String crsReviewer, String approvedEmail) throws TestingException {
+    public static void aCRSReviewerAndEmailIOnTheNERDHomePage(String crsReviewer, String approvedEmail)  {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         nativeViewImpersonateUser.impersonateToAnyCRSReviewerNerd(crsReviewer, approvedEmail);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
@@ -86,7 +84,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();;
     }
 
-    public static void aCRSReviewerIsOnTheNERDHomePage() throws TestingException {
+    public static void aCRSReviewerIsOnTheNERDHomePage() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");
         MiscUtils.sleep(1500);
@@ -151,7 +149,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();;
     }
 
-    public void aCRSReviewerIsViewingTheListOfThePublished(String topAccomplishmentsAccordion) throws TestingException {
+    public void aCRSReviewerIsViewingTheListOfThePublished(String topAccomplishmentsAccordion) {
         this.topAccomplishmentsAccordion = topAccomplishmentsAccordion;
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");

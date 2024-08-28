@@ -13,7 +13,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
      * This method will log in a OGSR user
      *
      */
-    public static void aUserIsInTheOgcrAdminGroup() throws TestingException {
+    public static void aUserIsInTheOgcrAdminGroup() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser("Sonia Hawkins");
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
@@ -57,7 +56,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
      * This method will retrieve all Congress People from the OGSR new entry form and store them in a list
      *
      */
-    public static void newEntryMemberOfCongressDropDownValues() throws TestingException {
+    public static void newEntryMemberOfCongressDropDownValues() {
         CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown);
         CommonUtils.sendKeys(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown, Keys.ENTER);
         MiscUtils.sleep(1000);
@@ -94,7 +93,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
      * This method will compare the active Congress People from native view with the list of Congress People from OGCR new entry form
      *
      */
-    public static void newEntryMemberOfCongressNativeViewVerification(String active) throws TestingException {
+    public static void newEntryMemberOfCongressNativeViewVerification(String active) {
         CommonUtils.waitForVisibility(nativeViewImpersonateUserPage.nativeViewNameButton);
         CommonUtils.clickOnElement(nativeViewImpersonateUserPage.nativeViewNameButton);
         CommonUtils.waitForVisibility(nativeViewImpersonateUserPage.nativeViewLogOutButton);

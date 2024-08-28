@@ -4,7 +4,6 @@ import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Const
 import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.*;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,7 +12,7 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
     public static String title = "Title" + CommonUtils.getDateAsString();
 
     @Given("user is on the COVID19 Activities submissions page")
-    public void user_is_on_the_COVID19_Activities_submissions_page() throws TestingException {
+    public void user_is_on_the_COVID19_Activities_submissions_page() {
         Covid19ActivitiesSubmissionsStepImplementation.userIsOnTheCOVID19ActivitiesSubmissionsPage();
     }
 
@@ -41,7 +40,7 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
     }
 
     @Given("a Program Staff member is on the CRS Knowledge Management System {string} page")
-    public void a_program_staff_member_is_on_the_crs_knowledge_management_system_page(String submissionsPage) throws TestingException{
+    public void a_program_staff_member_is_on_the_crs_knowledge_management_system_page(String submissionsPage) {
         NERD_NCI_StaffMemberStepsImplementation.aProgramStaffMemberIsOnTheCRSKnowledgeManagementSystemPage(submissionsPage);
     }
 
@@ -56,13 +55,12 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
     }
 
     @Then("the created Collaborations submission is displayed in the Collaborations category section with the status {string}")
-    public void the_created_Collaborations_submission_is_display_in_the_Collaborations_category_section_with_the_status(
-            String underReview) throws TestingException {
+    public void the_created_Collaborations_submission_is_display_in_the_Collaborations_category_section_with_the_status(String underReview) {
         NERDCollaborationSubmissionStepImpl.theCreatedCollaborationsSubmissionIsDisplayInTheCollaborationsCategorySectionWithTheStatus(underReview);
     }
 
     @Given("a Regular User has submitted a Collaboration")
-    public void a_Regular_User_has_submitted_a_Collaboration() throws TestingException {
+    public void a_Regular_User_has_submitted_a_Collaboration() {
         NERDCollaborationSubmissionStepImpl.aRegularUserHasSubmittedACollaboration();
     }
 
@@ -87,12 +85,12 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
     }
 
     @Given("a DOC Planning Contact clicks the Submit to CRS button for a Collaboration")
-    public void a_doc_planning_contact_clicks_the_submit_to_crs_button_for_a_collaboration()throws TestingException {
+    public void a_doc_planning_contact_clicks_the_submit_to_crs_button_for_a_collaboration() {
         NERDCollaborationSubmissionStepImpl.aDOCPlanningContactClicksTheSubmitToCRSButtonForACollaboration();
     }
 
     @When("the CRS Reviewer locates the record in the Submissions page")
-    public void the_crs_reviewer_locates_the_record_in_the_submissions_page()  throws TestingException {
+    public void the_crs_reviewer_locates_the_record_in_the_submissions_page() {
         NERDCollaborationSubmissionStepImpl.theCRSReviewerLocatesTheRecordInTheSubmissionsPage();
     }
 
