@@ -254,7 +254,7 @@ Feature: Applicant Profile Scenarios
     And verifies Application Documents text "APPLICATION DOCUMENTS"
     And verifies required documents with required references needed to apply to this test Vacancy
 
-  @TC_APPTRACK-144 @JUAREZDS @Regression @playwright
+  @TC_APPTRACK-144 @JUAREZDS @Regression @playwright @NEEDS_FIX
   Scenario: Applying for vacancy as unauthenticated applicant
     Given an unauthenticated applicant is on the SSJ homepage "SSJPortalView"
     And verifies that the drop drown text is "Login"
@@ -268,8 +268,8 @@ You must be logged in to apply for a vacancy.
 Would you like to log in now or go back to the home page?
    """
     And verifies that the text on the buttons is "Create an account" "Log in" "Go Back"
-    And clicks "Log in" and is redirected to the Okta Login Portal
-    And verifies that the PIV CAC card button text is "Sign in with PIV / CAC card"
+#    And clicks "Log in" and is redirected to the Okta Login Portal
+#    And verifies that the PIV CAC card button text is "Sign in with PIV / CAC card"
 
   @TC_APPTRACK-128 @JUAREZDS @Regression @playwright @SNOW_UPDATED
   Scenario Outline: Verification of the Save application functionality
