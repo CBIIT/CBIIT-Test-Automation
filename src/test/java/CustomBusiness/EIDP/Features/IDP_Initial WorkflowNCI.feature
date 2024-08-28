@@ -17,8 +17,6 @@ Feature: NCI Initial workflow Regression testing
       And selects "CBIIT" value for NCI Training Organization
       And gets the text of the Trainee's name
 
-
-
   @InitiatesIDPNCI @Regression @Smoke @Zamant2
   Scenario: TC01 IDP request creates and decline and approve
     When Logged in user changes the user to "Ginsburg,Erika"
