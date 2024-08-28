@@ -24,7 +24,6 @@ import java.util.Set;
 
 public class NERDApplicationStepsImplementation extends PageInitializer {
 
-     /**
     /**
      * This method will create new Submission by Staff Member
      *
@@ -760,8 +759,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * @param Ended
      * @param NotLedByNCI
      */
-    public static void verifyingAvailableOptionsOfSubmission(String submissionName, String PleaseSpecify, String Edited,
-            String NocChange,
+    public static void verifyingAvailableOptionsOfSubmission(String submissionName, String PleaseSpecify, String Edited, String NocChange,
             String Ended, String NotLedByNCI) {
         WebDriverUtils.webDriver.navigate().refresh();
         MiscUtils.sleep(5000);
@@ -840,8 +838,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
     public static void verifyingReturnedDOCStatus(String submissionName, String ReturnedToDOCPlaningContact) {
         WebDriverUtils.refreshPage(WebDriverUtils.webDriver);
         MiscUtils.sleep(2000);
-        JavascriptUtils.scrollIntoView(
-                nerdDynamicXpaths.returnedToDOCText(submissionName));
+        JavascriptUtils.scrollIntoView(nerdDynamicXpaths.returnedToDOCText(submissionName));
         CommonUtils.waitForVisibility(nerdDynamicXpaths.returnedToDOCTextCRS(ReturnedToDOCPlaningContact));
         MiscUtils.sleep(2000);
         CommonUtils.assertTrue(
@@ -1007,7 +1004,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
     }
 
     /**
-     * This method will click on Collaborations Link
+     * This method clicks on Collaborations Link
      *
      */
     public static void clickingOnCollaborationsLink() {
