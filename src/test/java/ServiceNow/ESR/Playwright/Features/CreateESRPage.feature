@@ -7,14 +7,16 @@ Feature: Create ESR Page
     And navigates to create ESR
     Then user sees the create ESR page where "Customer Details", "Project Details" and "Team Details" are displayed
 
-  @ESR-??? @ESR-??? @sarwarahmed1 @Progression @Smoke @playwright
+  @ESR-??? @ESR-??? @sarwarahmed1 @Progression @playwright
   Scenario: Test creating an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
-    Then user sees the create ESR page where "Customer Details", "Project Details" and "Team Details" are displayed
+    And fills out all required information including {string} and clicks submit
+    Then user sees an ESR-Q ticket was created
 
-  @ESR-??? @ESR-??? @sarwarahmed1 @Regression @Smoke @playwright
+  @ESR-??? @ESR-??? @sarwarahmed1 @Progression @playwright
   Scenario: Test creating an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
-    Then user sees the create ESR page where "Customer Details", "Project Details" and "Team Details" are displayed
+    And fills out all required information including {string} and clicks submit
+    Then user sees an ESR-I ticket was created
