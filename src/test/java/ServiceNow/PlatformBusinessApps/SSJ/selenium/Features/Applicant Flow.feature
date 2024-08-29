@@ -28,7 +28,7 @@ Feature: Applicant Flow Scenarios
     And User can verify the description of "FOREIGN EDUCATION" statement
     Then User can verify the description of "REASONABLE ACCOMODATION" statement
 
-  @Regression @Nekrashevich @selenium @Smoke @SNOW_UPDATED @Test
+  @Regression @Nekrashevich @selenium @Smoke @SNOW_UPDATED
   Scenario: Your Applications tab
     Given User is on SSJ Landing page and user is "Okta Verified Applicant"
     When User is on Your Applications tab
