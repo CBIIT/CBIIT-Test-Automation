@@ -132,4 +132,37 @@ public class NERD_Returning_Submission_StepImpl {
         NERDApplicationStepsImplementation.returningOfSubmissionToDOCPlaningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
         NERDApplicationStepsImplementation.checkingEmailWasNotReceived();
     }
+
+    /**
+     * Executes the process of returning a published collaboration to the DOC planning contact by the CRS reviewer.
+     *
+     * @param docPlanningContact The contact person for the DOC planning
+     * @param crsReviewer The CRS reviewer who is returning the collaboration
+     */
+    public static void a_published_collaboration_is_returned_to_the_doc_planning_contact_by_crs_reviewer(String docPlanningContact, String crsReviewer) {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
+        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer(docPlanningContact, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
+        NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer(crsReviewer, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
+        NERDApplicationStepsImplementation.returningOfSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
+    }
+
+    /**
+     * Executes the process of returning a published collaboration to the program staff by the DOC planning contact.
+     *
+     * @param docPlanningContact The contact person for the DOC planning
+     */
+    public static void a_collaboration_has_been_returned_to_a_program_staff_by_doc_planning_contact(String docPlanningContact) {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_RETURN_TO_STUFF);
+        NERD_NCI_DOC_PlanningContactStepsImplementation.returningSubmissionToProgramStaffByDOCContact(docPlanningContact, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_RETURN_TO_STUFF);
+    }
+
+    public static void a_published_collaboration_started_by_a_program_staff_has_been_returned_to_the_doc_planning_contact_by_crs_reviewer(String docPlanningContact, String crsReviewer) {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
+        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer(docPlanningContact, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
+        NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer(crsReviewer, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
+        NERDApplicationStepsImplementation.returningOfSubmissionToDOCPlaningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
+    }
 }

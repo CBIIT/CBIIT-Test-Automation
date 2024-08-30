@@ -90,23 +90,19 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         NERD_Returning_Submission_StepImpl.the_article_is_incremented_one_major_version_number_as(versionNumber);
     }
 
-    @Given("a published Collaboration is returned to the DOC Planning Contact")
-    public void a_published_Collaboration_is_returned_to_the_DOC_Planning_Contact() {
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
-        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
-        NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
-        NERDApplicationStepsImplementation.returningOfSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
+    @Given("a published Collaboration is returned to the DOC Planning Contact {string} by CRS Reviewer {string}")
+    public void a_published_collaboration_is_returned_to_the_doc_planning_contact_by_crs_reviewer(String docPlanningContact, String crsReviewer) {
+        NERD_Returning_Submission_StepImpl.a_published_collaboration_is_returned_to_the_doc_planning_contact_by_crs_reviewer(docPlanningContact, crsReviewer);
     }
 
-    @Given("the DOC Planning Contact resubmits the submission")
-    public void the_DOC_Planning_Contact_resubmits_the_submission() {
-        NERD_NCI_DOC_PlanningContactStepsImplementation.resubmittingOfSubmissionByDOCContactToCRSREviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
+    @Given("the DOC Planning Contact {string} resubmits the submission")
+    public void the_doc_planning_contact_resubmits_the_submission(String docPlanningContact) {
+        NERD_NCI_DOC_PlanningContactStepsImplementation.resubmittingOfSubmissionByDOCContactToCRSREviewer(docPlanningContact, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
     }
 
-    @When("the CRS Reviewer returns the submission once more")
-    public void the_CRS_Reviewer_returns_the_submission_once_more() {
-        NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
+    @When("the CRS Reviewer {string} returns the submission once more")
+    public void the_crs_reviewer_returns_the_submission_once_more(String crsReviewer) {
+        NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer(crsReviewer, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
     }
 
     @Then("a notification is sent to the DOC Planning Contact")
@@ -115,10 +111,10 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    @Given("a DOC Planning Contact creates a Collaboration submission")
-    public void a_DOC_Planning_Contact_creates_a_Collaboration_submission() {
+    @Given("a DOC Planning Contact {string} creates a Collaboration submission")
+    public void a_doc_planning_contact_creates_a_collaboration_submission(String docPlanningContact) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        NERD_NCI_DOC_PlanningContactStepsImplementation.creatingOfCollaborationSubmissionByDOCPlaningContact(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT);
+        NERD_NCI_DOC_PlanningContactStepsImplementation.creatingOfCollaborationSubmissionByDOCPlaningContact(docPlanningContact, nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT);
     }
 
     @Then("they are able to return the submission to a Program Staff in the same DOC")
@@ -126,11 +122,9 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         NERDApplicationStepsImplementation.returningOfSubmissionToTheProgramStaffInSameDOC(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT);
     }
 
-    @Given("a Collaboration has been returned to a Program Staff")
-    public void a_Collaboration_has_been_returned_to_a_Program_Staff() {
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_RETURN_TO_STUFF);
-        NERD_NCI_DOC_PlanningContactStepsImplementation.returningSubmissionToProgramStaffByDOCContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_RETURN_TO_STUFF);
+    @Given("a Collaboration has been returned to a Program Staff by DOC Planning Contact {string}")
+    public void a_collaboration_has_been_returned_to_a_program_staff_by_doc_planning_contact(String docPlanningContact) {
+        NERD_Returning_Submission_StepImpl.a_collaboration_has_been_returned_to_a_program_staff_by_doc_planning_contact(docPlanningContact);
     }
 
     @Then("the Collaboration shows as {string} in the Submission page")
@@ -138,18 +132,14 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         NERDApplicationStepsImplementation.verifyingReturnedToStaffMemberStatus(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_RETURN_TO_STUFF, ReturnedToStaffMember);
     }
 
-    @Given("a published Collaboration started by a Program Staff has been returned to the DOC Planning Contact")
-    public void a_published_Collaboration_started_by_a_Program_Staff_has_been_returned_to_the_DOC_Planning_Contact() {
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
-        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
-        NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
-        NERDApplicationStepsImplementation.returningOfSubmissionToDOCPlaningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
+    @Given("a published Collaboration started by a Program Staff has been returned to the DOC Planning Contact {string} by CRS Reviewer {string}")
+    public void a_published_collaboration_started_by_a_program_staff_has_been_returned_to_the_doc_planning_contact_by_crs_reviewer(String docPlanningContact, String crsReviewer) {
+        NERD_Returning_Submission_StepImpl.a_published_collaboration_started_by_a_program_staff_has_been_returned_to_the_doc_planning_contact_by_crs_reviewer(docPlanningContact, crsReviewer);
     }
 
-    @Given("the DOC Planning Contact returns the Collaboration to the Program Staff")
-    public void the_DOC_Planning_Contact_returns_the_Collaboration_to_the_Program_Staff() {
-        NERD_NCI_DOC_PlanningContactStepsImplementation.returningSubmissionToProgramStaffByDOCContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
+    @Given("the DOC Planning Contact {string} returns the Collaboration to the Program Staff")
+    public void the_doc_planning_contact_returns_the_collaboration_to_the_program_staff(String docPlanningContact) {
+        NERD_NCI_DOC_PlanningContactStepsImplementation.returningSubmissionToProgramStaffByDOCContact(docPlanningContact, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
     }
 
     @Then("the author will show as the Program Staff user who originally created the Submission")
@@ -157,10 +147,10 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         NERDApplicationStepsImplementation.verifyingTheAuthorOfCreatedSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
     }
 
-    @Given("a DOC Planning Contact creates a Collaboration")
-    public void a_DOC_Planning_Contact_creates_a_Collaboration() {
+    @Given("DOC Planning Contact {string} creates a Collaboration")
+    public void doc_planning_contact_creates_a_collaboration(String docPlanningContact) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        NERD_NCI_DOC_PlanningContactStepsImplementation.creatingOfCollaborationSubmissionByDOCPlaningContact(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT_SUBMISSION);
+        NERD_NCI_DOC_PlanningContactStepsImplementation.creatingOfCollaborationSubmissionByDOCPlaningContact(docPlanningContact, nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT_SUBMISSION);
     }
 
     @Then("they are able to return the Collaboration to a Program Staff user")
@@ -168,9 +158,9 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         NERDApplicationStepsImplementation.returningOfSubmissionToTheProgramStaffInSameDOC(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT_SUBMISSION);
     }
 
-    @Given("a DOC Planning Contact is on the CRS Knowledge Management System home page")
-    public void a_doc_planning_contact_is_on_the_crs_knowledge_management_system_home_page() {
-       NERDApplicationStepsImplementation.aDocPlanningContactIsOnTheCrsKnowledgeManagementSystemHomePage();
+    @Given("a DOC Planning Contact {string} is on the CRS Knowledge Management System home page")
+    public void a_doc_planning_contact_is_on_the_crs_knowledge_management_system_home_page(String docPlanningContact) {
+        NERDApplicationStepsImplementation.aDocPlanningContactIsOnTheCrsKnowledgeManagementSystemHomePage(docPlanningContact);
     }
 
     @When("selecting the Published Only checkbox")

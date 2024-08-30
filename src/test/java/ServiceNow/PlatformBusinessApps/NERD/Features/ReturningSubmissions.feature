@@ -40,34 +40,34 @@ Feature: Returning published Collaboration by the CRS Reviewer/DOC Planning Cont
 
   @SS-3939 @SS-3894 @bucurgb @Regression @selenium
   Scenario: Verifying the notification is send to the DOC Planning Contact
-    Given a published Collaboration is returned to the DOC Planning Contact
-    And the DOC Planning Contact resubmits the submission
-    When the CRS Reviewer returns the submission once more
+    Given a published Collaboration is returned to the DOC Planning Contact "Abigail Joyce" by CRS Reviewer "hoffmanela@nih.gov"
+    And the DOC Planning Contact "Abigail Joyce" resubmits the submission
+    When the CRS Reviewer "hoffmanela@nih.gov" returns the submission once more
     Then a notification is sent to the DOC Planning Contact
 
   @SS-3939 @SS-3894 @bucurgb @Regression @selenium
   Scenario: Verifying the Collaboration submission return to Program Staff in the same DOC
-    Given a DOC Planning Contact creates a Collaboration submission
+    Given a DOC Planning Contact "Abigail Joyce" creates a Collaboration submission
     Then they are able to return the submission to a Program Staff in the same DOC
 
   @SS-3939 @SS-3894 @bucurgb @Regression @selenium
   Scenario: Verifying the Collaboration "Returned to Staff Member" in the Submission page
-    Given a Collaboration has been returned to a Program Staff
+    Given a Collaboration has been returned to a Program Staff by DOC Planning Contact "Abigail Joyce"
     Then the Collaboration shows as "Returned to Staff Member" in the Submission page
 
   @SS-3939 @SS-3894 @bucurgb @Regression @selenium
   Scenario: Verifying the author will show as the Program Staff user who originally created the Submission
-    Given a published Collaboration started by a Program Staff has been returned to the DOC Planning Contact
-    And the DOC Planning Contact returns the Collaboration to the Program Staff
+    Given a published Collaboration started by a Program Staff has been returned to the DOC Planning Contact "Abigail Joyce" by CRS Reviewer "hoffmanela@nih.gov"
+    And the DOC Planning Contact "Abigail Joyce" returns the Collaboration to the Program Staff
     Then the author will show as the Program Staff user who originally created the Submission
 
   @SS-3939 @SS-3894 @bucurgb @Regression @selenium
   Scenario: Verifying the DOC Planning Contact are able to return the Collaboration to a Program Staff user
-    Given a DOC Planning Contact creates a Collaboration
+    Given DOC Planning Contact "Abigail Joyce" creates a Collaboration
     Then they are able to return the Collaboration to a Program Staff user
 
   @SS-3454 @SS-3362 @bucurgb @Regression @selenium
   Scenario: Verifying Publish only filter
-    Given a DOC Planning Contact is on the CRS Knowledge Management System home page
+    Given a DOC Planning Contact "Abigail Joyce" is on the CRS Knowledge Management System home page
     When selecting the Published Only checkbox
     Then the DOC Planning Contact is able to see only published submissions

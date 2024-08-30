@@ -1123,9 +1123,9 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * This method will log in as a DOC Planing contact and will click on the submission in the hamburger menu
      *
      */
-   public static void aDocPlanningContactIsOnTheCrsKnowledgeManagementSystemHomePage() {
+   public static void aDocPlanningContactIsOnTheCrsKnowledgeManagementSystemHomePage(String docPlanningContact) {
        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-       ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
+       ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
        CucumberLogUtils.logScreenshot();
        CommonUtils.waitForVisibility(

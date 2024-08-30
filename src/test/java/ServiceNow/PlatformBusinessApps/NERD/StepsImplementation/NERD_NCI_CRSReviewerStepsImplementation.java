@@ -69,15 +69,15 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
         }
 
         /**
-         * This method will return existing submission by CRS Reviewer to DOC Planing
-         * Contact
+         * Returns a submission by a CRS Reviewer.
          *
-         * @param submissionName
+         * @param crsReviewer the CRS Reviewer's username
+         * @param submissionName the name of the submission to return
          */
-        public static void returningOfSubmissionByCRSReviewer(String submissionName) {
+        public static void returningOfSubmissionByCRSReviewer(String crsReviewer,String submissionName) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.CRS_REVIEWER);
+                ServiceNow_Common_Methods.impersonateAnyUser(crsReviewer);
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
@@ -107,21 +107,24 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
          * This method will bring CRS Reviewer to a Submissions Page
          *
          * @param crsReviewer     the CRS reviewer's username
-         * @param submissionType the type of submission (not used in the method)
+         * @param submissionType the type of submission
          */
         public static void crsReviewerIsOnSubmissionsPage(String crsReviewer,String submissionType) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
                 ServiceNow_Common_Methods.impersonateAnyUser(crsReviewer);
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-                CommonUtils.waitForVisibility(
-                        nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
+                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu.click();
                 WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'Submissions')]")).click();
                 CucumberLogUtils.logScreenshot();
                 CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown.click();
                 MiscUtils.sleep(2000);
+                CommonUtils.waitForVisibility(nerdDynamicXpaths.publishedCollaboration(submissionType));
+                JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration(submissionType));
+                JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.publishedCollaboration(submissionType));
+                MiscUtils.sleep(9000);
         }
 
         /**

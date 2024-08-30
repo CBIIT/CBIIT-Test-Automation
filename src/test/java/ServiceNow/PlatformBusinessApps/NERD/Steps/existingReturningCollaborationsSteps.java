@@ -51,9 +51,9 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     }
 
     @Then("the status of the Collaboration reads {string}")
-    public void the_status_of_the_Collaboration_reads(String returnedToDoc) {
+    public void the_status_of_the_Collaboration_reads(String docPlanningContact, String returnedToDoc) {
         NERDApplicationStepsImplementation.verifyingReturnedDOCStatus("NCI Cancer Data Standards Repository and Registry (caDSR)", returnedToDoc);
-        NERD_NCI_DOC_PlanningContactStepsImplementation.resubmittingOfSubmissionByDOCContactToCRSREviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.resubmittingOfSubmissionByDOCContactToCRSREviewer(docPlanningContact,"NCI Cancer Data Standards Repository and Registry (caDSR)");
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
     }
 
@@ -68,9 +68,9 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
      */
 
     @Given("a DOC Planning Contact is on the Submissions page")
-    public void a_DOC_Planning_Contact_is_on_the_Submissions_page() {
+    public void a_DOC_Planning_Contact_is_on_the_Submissions_page(String crsReviewer) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
+        NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer(crsReviewer, "NCI Cancer Data Standards Repository and Registry (caDSR)");
         NERD_NCI_DOC_PlanningContactStepsImplementation.docPlaningContactIsOnSubmissionsPage("Submissions");
     }
 
@@ -103,10 +103,10 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
      */
 
     @Given("DOC Planning Contact is on the edit submission page for the Collaboration titled {string}")
-    public void doc_Planning_Contact_is_on_the_edit_submission_page_for_the_Collaboration_titled(
+    public void doc_Planning_Contact_is_on_the_edit_submission_page_for_the_Collaboration_titled( String crsReviewer,
             String nCICancerDataStandardsRepositoryAndRegistrycaDSR) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer(nCICancerDataStandardsRepositoryAndRegistrycaDSR);
+        NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer(crsReviewer, nCICancerDataStandardsRepositoryAndRegistrycaDSR);
         NERD_NCI_DOC_PlanningContactStepsImplementation.docPlaningContactIsOnSubmissionsPage(ReturningSubmissions_Constants.BOOTSTRAP_DROPDOWN_SELECT_SUBMISSIONS);
         NERDApplicationStepsImplementation.locatingOfCollaboration(nCICancerDataStandardsRepositoryAndRegistrycaDSR);
         NERDApplicationStepsImplementation.clickingOnEditButtonWhenReturningCollaboration(nCICancerDataStandardsRepositoryAndRegistrycaDSR, "Edit");
@@ -174,9 +174,9 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
      */
 
     @Given("a Program Staff is on the Submissions page")
-    public void a_Program_Staff_is_on_the_Submissions_page(String docPlanningContact) {
+    public void a_Program_Staff_is_on_the_Submissions_page(String crsReviewer, String docPlanningContact) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
+        NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer(crsReviewer, "NCI Cancer Data Standards Repository and Registry (caDSR)");
         NERD_NCI_DOC_PlanningContactStepsImplementation.editingAndReturningSubmissionToProgramStaff(docPlanningContact,"NCI Cancer Data Standards Repository and Registry (caDSR)");
         NERD_NCI_StaffMemberStepsImplementation.locatingProgramStaffMemberToSubmissionsPage("NERD");
     }
@@ -290,9 +290,9 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
      */
 
     @Given("a CRS Reviewer has navigated to the Submissions page")
-    public void a_CRS_Reviewer_has_navigated_to_the_Submissions_page() {
+    public void a_CRS_Reviewer_has_navigated_to_the_Submissions_page(String crsReviewer) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
+        NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer(crsReviewer, "NCI Cancer Data Standards Repository and Registry (caDSR)");
         nativeViewImpersonateUser.impersonateToDocPlanningContact();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         CommonUtils.waitForVisibility(

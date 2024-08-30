@@ -85,7 +85,5 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
 
     public static void theCRSReviewerLocatesTheRecordInTheSubmissionsPage(String crsReviewer) {
         NERD_NCI_CRSReviewerStepsImplementation.crsReviewerIsOnSubmissionsPage(crsReviewer, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
-        CommonUtils.waitForVisibility(nerdDynamicXpaths.publishedCollaboration(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION));
-        JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION));
     }
 }

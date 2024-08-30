@@ -86,15 +86,15 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
         }
 
         /**
-         * This method will resubmit the existing Submission by DOC Planing Contact to
-         * CRS Reviewer
+         * Resubmits a submission by a DOC Planning Contact to a CRS Reviewer.
          *
-         * @param submissionName
+         * @param docPlanningContact The DOC Planning Contact who will resubmit the submission.
+         * @param submissionName     The name of the submission to be resubmitted.
          */
-        public static void resubmittingOfSubmissionByDOCContactToCRSREviewer(String submissionName) {
+        public static void resubmittingOfSubmissionByDOCContactToCRSREviewer(String docPlanningContact, String submissionName) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
+                ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
@@ -320,14 +320,15 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
         }
 
         /**
-         * This method will return Submission to Program Staff Member
+         * Returns a submission to the program staff by the DOC contact.
          *
-         * @param submissionName
+         * @param docPlanningContact The DOC Planning Contact who will return the submission.
+         * @param submissionName The name of the submission to be returned.
          */
-        public static void returningSubmissionToProgramStaffByDOCContact(String submissionName) {
+        public static void returningSubmissionToProgramStaffByDOCContact(String docPlanningContact, String submissionName) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
+                ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
                 MiscUtils.sleep(7000);
@@ -346,15 +347,18 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                 nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
                 nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
                 MiscUtils.sleep(1000);
+                CucumberLogUtils.logScreenshot();
         }
 
         /**
-         * This method will create new Collaboration Submission by DOC Planing Contact
+         * Creates a collaboration submission by a DOC Planning Contact.
          *
-         * @param submissionName
+         * @param docPlanningContact The DOC Planning Contact who will create the submission.
+         * @param SubmissionType     The WebElement representing the submission type.
+         * @param submissionName     The name of the submission to be created.
          */
-        public static void creatingOfCollaborationSubmissionByDOCPlaningContact(WebElement SubmissionType, String submissionName) {
-                ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
+        public static void creatingOfCollaborationSubmissionByDOCPlaningContact(String docPlanningContact, WebElement SubmissionType, String submissionName) {
+                ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 MiscUtils.sleep(1000);
                 CommonUtils.waitForClickability(SubmissionType);
