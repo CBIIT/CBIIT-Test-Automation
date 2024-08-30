@@ -4,6 +4,7 @@ import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
@@ -37,10 +38,10 @@ public class GPMATS_All_Steps {
     }
 
     @Given("for the Action Status drop-down selects {string} option")
-    public void for_the_action_status_drop_down_selects_option(String string) {
+    public void for_the_action_status_drop_down_selects_option(String text) {
         Playwright_Common_Utils.scrollIntoView("(//span[@role='combobox'])[20]");
         page.locator("app-action-status-dropdown").getByRole(AriaRole.LIST).click();
-        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("New")).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(text)).click();
     }
 
     @Given("clicks on the Search button")
@@ -48,22 +49,19 @@ public class GPMATS_All_Steps {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Search")).nth(1).click();
     }
 
-    @Then("search results with the New Actions status display")
-    public void search_results_with_the_new_actions_status_display() {
-        page.waitForSelector("//div[normalize-space()='New']");
-
-        List<ElementHandle> values = page.querySelectorAll("//div[normalize-space()='New']");
-
-
-    }
-
-    @When("test step")
+    @When("test step with all code for this test case")
     public void test_step() {
 
-        page.waitForSelector("(//div[@class='grant-icons']/div/div/span)[1]");
-        page.locator("(//div[@class='dropdown']/button)[1]").click();
+        // Constants
+        String processDropDownMenuItems = "//div[@class='dropdown-menu dropdown-menu-right show']/a";
+        String processDropDownButton = "(//div[@class='dropdown']/button)[1]";
+        String assignOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Assign']";
+
+        page.waitForSelector(processDropDownButton);
+        // click on the Process button
+        page.locator(processDropDownButton).click();
         MiscUtils.sleep(2000);
-        List<ElementHandle> actualProcessOptions = page.querySelectorAll("//div[@class='dropdown-menu dropdown-menu-right show']/a");
+        List<ElementHandle> actualProcessOptions = page.querySelectorAll(processDropDownMenuItems);
         List<String> expectedProcessOptions = new ArrayList<>();
         expectedProcessOptions.add("Assign");
         expectedProcessOptions.add("Cancel");
@@ -73,20 +71,22 @@ public class GPMATS_All_Steps {
         for (ElementHandle processOption : actualProcessOptions) {
             valuesToBeComparedWith.add(processOption.innerText());
         }
+        // Verify Process drop down options
         Assert.assertEquals(valuesToBeComparedWith, expectedProcessOptions, "- - - VERIFYING PROCESS OPTIONS - - -");
         page.waitForSelector("(//i[contains(@class,'bi bi-dash-circle')])[1]");
         page.locator("(//i[contains(@class,'bi bi-dash-circle')])[1]").click();
         MiscUtils.sleep(1000);
 
         // Retrieve the name of the action specialist for the first action
-        String actionSpecialistName = page.locator("(//*[@id=\"gDt\"]/tbody/tr/td[15])[1]").innerText();
+        String actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();
 
         // Retrieve the grant number for the first action
         String grantNumber = page.locator("(//div//a[@ngbtooltip='Click to View Grant Details'])[1]").innerText();
 
+        // Perform the following if action does not have a specialist assigned
         if (actionSpecialistName.isEmpty()) {
             page.locator("(//div[@class='dropdown']/button)[1]").click();
-            page.locator("//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Assign']").click();
+            page.locator(assignOption).click();
             Assert.assertEquals(page.locator("//div[contains(@class,'text-center')]").innerText().trim(), "Please select GMS before proceeding.", "- - - VERIFYING PLEASE SELECT GMS BEFORE PROCEEDING. TEXT IF ACTION DID NOT HAVE AN ACTION SPECIALIST ASSIGNED  - - -");
             page.locator("//button[normalize-space()='OK']").click();
             page.waitForLoadState();
@@ -97,25 +97,32 @@ public class GPMATS_All_Steps {
             page.locator("//button[normalize-space()='OK']").click();
         }
 
+        // Retrieve the actual class attribute value of the View Notes bubble for the first action
         String actualClassAttributeValueOfViewNotes = page.locator("(//div[@class='grant-icons']/div/div/span)[1]").getAttribute("class");
 
+        String baseString = "THIS IS AN AUTOMATED TEST FOR BOUNDARY TESTING ";
+        String repeatedString = baseString.repeat((2001 / baseString.length()) + 1);
+        String inputString = repeatedString.substring(0, 2001);
+        // Perform the following if the View Notes bubble has a red check mark with or without a green dot
         if (actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked")) {
             page.locator("(//div[@class='dropdown']/button)[1]").click();
-            page.locator("//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Assign']").click();
+            page.locator(assignOption).click();
+
             Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
             page.locator("//button[normalize-space()='Acknowledge']").click();
             Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Assign this action?']").innerText().trim(), "Are you sure you want to Assign this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO ASSIGN THIS ACTION? TEXT - - -");
-            // click cancel
+            // click cancel to perform previous steps again
             page.locator("//button[normalize-space()='Cancel']").click();
             page.waitForLoadState();
 
-            // do again
+            // Performing previous steps again
             page.locator("(//div[@class='dropdown']/button)[1]").click();
-            page.locator("//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Assign']").click();
+            page.locator(assignOption).click();
             Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
             page.locator("//button[normalize-space()='Acknowledge']").click();
             Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Assign this action?']").innerText().trim(), "Are you sure you want to Assign this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO ASSIGN THIS ACTION? TEXT - - -");
-            String inputString = "a".repeat(2001);
+
+            // Verifying that the text box allows only 2000 characters
             page.waitForSelector("//textarea");
             page.locator("//textarea").fill(inputString);
             String actualValue = page.inputValue("//textarea");
@@ -123,24 +130,153 @@ public class GPMATS_All_Steps {
             page.locator("//input[@value='OK']").click();
             page.waitForLoadState();
 
+            // Verifying success message with grants number, status and date
             Assert.assertTrue(page.locator("//div[@id='submitMessage']/span").innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER IS INCLUDED IN THE SUCCESS MESSAGE TEXT.- - -");
             Assert.assertEquals(page.locator("//div[normalize-space()='Awaiting GM Review']").innerText().trim(), "Awaiting GM Review", "- - - VERIFYING THE STATUS OF THE ACTION AFTER ASSIGNING IT - - -");
             Assert.assertEquals(page.locator("(//td[@class='sorting_3']/app-current-status)[1]/div[2]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING THE DATE OF THE ACTION AFTER ASSIGNING IT - - -");
         }
 
+        // Perform the following if the View Notes bubble is blank with or without green dot
         if (actualClassAttributeValueOfViewNotes.contentEquals("note-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-blank")) {
             page.locator("(//div[@class='dropdown']/button)[1]").click();
-            page.locator("//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Assign']").click();
-            String inputString = "a".repeat(2001);
+            page.locator(assignOption).click();
+
+            // Verifying that the text box allows only 2000 characters
             page.waitForSelector("//textarea");
             page.locator("//textarea").fill(inputString);
             String actualValue = page.inputValue("//textarea");
             Assert.assertTrue(actualValue.length() <= 2000, "- - - TEXTBOX ALLOWS MORE THAN 2000 CHARACTERS. - - -");
             page.locator("//input[@value='OK']").click();
             page.waitForLoadState();
+
+            // Verifying success message with grants number, status and date
             Assert.assertTrue(page.locator("//div[@id='submitMessage']/span").innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER IS INCLUDED IN THE SUCCESS MESSAGE TEXT.- - -");
             Assert.assertEquals(page.locator("//div[normalize-space()='Awaiting GM Review']").innerText().trim(), "Awaiting GM Review", "- - - VERIFYING THE STATUS OF THE ACTION AFTER ASSIGNING IT - - -");
             Assert.assertEquals(page.locator("(//td[@class='sorting_3']/app-current-status)[1]/div[2]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING THE DATE OF THE ACTION AFTER ASSIGNING IT - - -");
         }
+        // And the changes will be reflected in the "Change History" section along with any comments provided
+        page.waitForSelector("(//i[@ngbtooltip='View Change History'])[1]");
+        page.locator("(//i[@ngbtooltip='View Change History'])[1]").click();
+        page.waitForLoadState();
+        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING CHANGE HISTORY DATE OF ASSIGNING ACTION IS TODAY - - -");
+        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]").innerText(), "Awaiting GM Review", "- - - VERIFYING CHANGE HISTORY STATUS OF ASSIGNING ACTION IS AWAITING GM REVIEW - - -");
+        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[3]").innerText(), "Baker, Bryan", "- - - VERIFYING CHANGE HISTORY ACTION SPECIALIST OF ASSIGNING ACTION IS BAKER, BRYAN [OD OM OGA] - - -");
+        String changeHistoryComments = page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[4]").innerText();
+        Assert.assertTrue(changeHistoryComments.length() <= 2000, "- - - VERIFYING CHANGE HISTORY COMMENTS OF ASSIGNING ACTION HAS NO MORE THAN 2000 CHARACTERS - - -");
+    }
+
+    @Then("search results with the New Actions status display")
+    public void search_results_with_the_new_actions_status_display() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("automated test retrieves the Action Specialist Name, Grant Number, and the attribute value of the View Notes bubble of the first action for testing")
+    public void automated_test_retrieves_the_action_specialist_name_grant_number_and_the_attribute_value_of_the_view_notes_bubble_of_the_first_action_for_testing() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("clicks on the Process button for any Action")
+    public void clicks_on_the_process_button_for_any_action() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("the following options are displayed:")
+    public void the_following_options_are_displayed(io.cucumber.datatable.DataTable dataTable) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("* * PERFORM THE FOLLOWING STEPS ONLY IF AN ACTION HAS NO SPECIALIST ASSIGNED * * *")
+    public void perform_the_following_steps_only_if_an_action_has_no_specialist_assigned() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @When("if the user clicks on Assign option to an action that has no specialist assigned")
+    public void if_the_user_clicks_on_assign_option_to_an_action_that_has_no_specialist_assigned() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("the following message displays if no GMS is selected: {string}")
+    public void the_following_message_displays_if_no_gms_is_selected(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("in order to proceed with assigning an action for an action that had no specialist assigned, the user has to edit the action by selecting an Action specialist from the Action Specialist drop-down and saves")
+    public void in_order_to_proceed_with_assigning_an_action_for_an_action_that_had_no_specialist_assigned_the_user_has_to_edit_the_action_by_selecting_an_action_specialist_from_the_action_specialist_drop_down_and_saves() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("* * PERFORM THE FOLLOWING STEPS ONLY IF AN ACTION HAS A SPECIALIST ASSIGNED AND THE VIEW NOTES BUBBLE HAS A RED CHECK MARK WITH OUR WITHOUT A GREEN DOT * * *")
+    public void perform_the_following_steps_only_if_an_action_has_a_specialist_assigned_and_the_view_notes_bubble_has_a_red_check_mark_with_our_without_a_green_dot() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @When("if the user clicks on Assign option to an action that has a specialist assigned and the View Notes bubble has a red check mark with or without a green dot")
+    public void if_the_user_clicks_on_assign_option_to_an_action_that_has_a_specialist_assigned_and_the_view_notes_bubble_has_a_red_check_mark_with_or_without_a_green_dot() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("the user sees message {string} and cancels the acknowledgement to verify that the previous step can be performed again with the same action")
+    public void the_user_sees_message_and_cancels_the_acknowledgement_to_verify_that_the_previous_step_can_be_performed_again_with_the_same_action(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @When("if the user clicks on Assign option to an action that has a specialist assigned and the View Notes bubble has a red check mark with or without a green dot again")
+    public void if_the_user_clicks_on_assign_option_to_an_action_that_has_a_specialist_assigned_and_the_view_notes_bubble_has_a_red_check_mark_with_or_without_a_green_dot_again() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("the user sees message {string}")
+    public void the_user_sees_message(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @When("the user acknowledges then user sees message {string}")
+    public void the_user_acknowledges_then_user_sees_message(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("user can enter comments in the Status Comments field and verifies that the field does not allow more than {int} characters and clicks OK")
+    public void user_can_enter_comments_in_the_status_comments_field_and_verifies_that_the_field_does_not_allow_more_than_characters_and_clicks_ok(Integer int1) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("verifies the confirmation message displays: Success! Workflow has been successfully processed for 'GPMATS action's grant number'")
+    public void verifies_the_confirmation_message_displays_success_workflow_has_been_successfully_processed_for_gpmats_action_s_grant_number() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("verifies the Status changes from New to {string} for the action")
+    public void verifies_the_status_changes_from_new_to_for_the_action(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("verifies the date stamp of the action is today's date")
+    public void verifies_the_date_stamp_of_the_action_is_today_s_date() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("* * PERFORM THE FOLLOWING STEPS ONLY IF AN ACTION HAS A SPECIALIST ASSIGNED AND THE VIEW NOTES BUBBLE IS BLANK OR JUST HAS A GREEN DOT * * *")
+    public void perform_the_following_steps_only_if_an_action_has_a_specialist_assigned_and_the_view_notes_bubble_is_blank_or_just_has_a_green_dot() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @When("if the user clicks on Assign option to an action that has a specialist assigned and the View Notes bubble is blank or just has a green dot")
+    public void if_the_user_clicks_on_assign_option_to_an_action_that_has_a_specialist_assigned_and_the_view_notes_bubble_is_blank_or_just_has_a_green_dot() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("optional comments can be entered in the Status Comments field which should not allow more than {int} characters and clicks ok")
+    public void optional_comments_can_be_entered_in_the_status_comments_field_which_should_not_allow_more_than_characters_and_clicks_ok(Integer int1) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("* * THE FOLLOWING STEPS APPLY TO ALL SCENARIOS ABOVE * * *")
+    public void the_following_steps_apply_to_all_scenarios_above() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("the changes will be reflected in the {string} section along with any comments provided")
+    public void the_changes_will_be_reflected_in_the_section_along_with_any_comments_provided(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
     }
 }
