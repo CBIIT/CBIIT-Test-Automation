@@ -41,7 +41,6 @@ Feature: Process Actions Scenarios
     And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
     And the assigned GM Specialist will see the action on "My Specialist Queue" tab, when logged in
 
-
   @Regression @playwright @JUAREZDS
   Scenario: new test
     Given a user is logged in with the role of GM Action Manager
