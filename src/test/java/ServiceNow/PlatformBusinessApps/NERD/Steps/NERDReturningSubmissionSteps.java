@@ -1,18 +1,12 @@
 package ServiceNow.PlatformBusinessApps.NERD.Steps;
 
 import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERDApplicationStepsImplementation;
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERD_NCI_DOC_PlanningContactStepsImplementation;
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERD_NCI_StaffMemberStepsImplementation;
+import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.*;
 import appsCommon.PageInitializers.PageInitializer;
-import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,19 +15,14 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 
     public static String newEmailNerd3895 = "nerdEmail3895" + CommonUtils.email;
 
-    @Given("a published Collaboration has been returned to the DOC Planning Contact by the CRS Reviewer")
-    public void a_published_Collaboration_has_been_returned_to_the_DOC_Planning_Contact_by_the_CRS_Reviewer() {
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
-        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
-        NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
-        NERDApplicationStepsImplementation.returningOfSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
+    @Given("a published Collaboration has been returned to the DOC Planning Contact {string} by the CRS Reviewer {string}")
+    public void a_published_collaboration_has_been_returned_to_the_doc_planning_contact_by_the_crs_reviewer(String docPlanningContact, String crsReviewer) {
+        NERD_Returning_Submission_StepImpl.published_collaboration_has_been_returned_to_the_doc_planning_contact_by_the_crs_reviewer(docPlanningContact, crsReviewer);
     }
 
     @Then("the {string} and {string} field values are cleared and are required")
     public void the_and_field_values_are_cleared_and_are_required(String PleaseSpecify, String FiscalYear) {
-        NERDApplicationStepsImplementation.openingNewTabToEditSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
-        NERD_NCI_DOC_PlanningContactStepsImplementation.verifyingByDOCContactThatFieldsOfSubmissionAreClearedAndRequired(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER, PleaseSpecify, FiscalYear);
+        NERD_Returning_Submission_StepImpl.the_and_field_values_are_cleared_and_are_required(PleaseSpecify, FiscalYear);
     }
 
     @Then("the Collaboration shows as {string} in the Submissions page")
@@ -41,9 +30,9 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         NERD_NCI_DOC_PlanningContactStepsImplementation.theCollaborationShowsAsInTheSubmissionsPage(ReturnedToDOC);
     }
 
-    @When("the DOC Planning Contact fills out the {string} and {string} field")
-    public void the_DOC_Planning_Contact_fills_out_the_and_field(String PleaseSpecify, String FiscalYear) {
-        NERD_NCI_DOC_PlanningContactStepsImplementation.fillingOutRequiredFieldsByDOCPlaningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER, PleaseSpecify, FiscalYear);
+    @When("the DOC Planning Contact {string} fills out the {string} and {string} field")
+    public void the_doc_planning_contact_fills_out_the_and_field(String DocPlanningContact, String PleaseSpecify, String FiscalYear) {
+        NERD_NCI_DOC_PlanningContactStepsImplementation.fillingOutRequiredFieldsByDOCPlaningContact(DocPlanningContact, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER, PleaseSpecify, FiscalYear);
     }
 
     @When("returns the Collaboration to the Program Staff")
@@ -53,26 +42,17 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 
     @Then("the {string} and {string} field values are not cleared and are required")
     public void the_and_field_values_are_not_cleared_and_are_required(String PleaseSpecify, String FiscalYear) {
-        ServiceNow_Common_Methods.logOutOfNativeView();
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        NERDApplicationStepsImplementation.openingNewTabToEditSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
-        NERDApplicationStepsImplementation.verifyingThatFieldsOfSubmissionAreClearedAndRequired(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER, PleaseSpecify, FiscalYear);
+        NERD_Returning_Submission_StepImpl.the_and_field_values_are_not_cleared_and_are_required(PleaseSpecify, FiscalYear);
     }
 
     @Then("the options available for the {string} field are {string}, {string}, {string}, and {string}")
-    public void the_options_available_for_the_field_are_and(String PleaseSpecify, String Edited, String NocChange,
-                                                            String Ended, String NotLedByNCI) {
-        ServiceNow_Common_Methods.logOutOfNativeView();
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        NERDApplicationStepsImplementation.verifyingAvailableOptionsOfSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER, PleaseSpecify, Edited, NocChange, Ended, NotLedByNCI);
+    public void the_options_available_for_the_field_are_and(String PleaseSpecify, String Edited, String NocChange, String Ended, String NotLedByNCI) {
+        NERD_Returning_Submission_StepImpl.the_options_available_for_the_field_are_and(PleaseSpecify, Edited, NocChange, Ended, NotLedByNCI);
     }
 
     @Given("a Collaboration has been submitted to the DOC Planning Contact")
     public void a_Collaboration_has_been_submitted_to_the_DOC_Planning_Contact() {
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_UNDER_REVIEW_TEXT);
+       NERD_Returning_Submission_StepImpl.a_Collaboration_has_been_submitted_to_the_DOC_Planning_Contact();
     }
 
     @Then("the submitted Collaboration shows as {string} in the Submissions page")
@@ -80,29 +60,34 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         NERDApplicationStepsImplementation.verifyingSubmissionIsUnderReview(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_UNDER_REVIEW_TEXT, UnderReview);
     }
 
-    @Given("a published Collaboration has been returned to the Program Staff with the article version number as {string}")
-    public void a_published_Collaboration_has_been_returned_to_the_Program_Staff_with_the_article_version_number_as(String versionNumber) {
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
-        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
-        NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
-        NERDApplicationStepsImplementation.returningOfSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
-        NERDApplicationStepsImplementation.verifyingArticleVersionNumber(versionNumber);
-        NERD_NCI_DOC_PlanningContactStepsImplementation.editingAndReturningSubmissionToProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
+    @Given("a Collaboration has been submitted by the Program Staff Member to the DOC Planning Contact {string} who submits to CRS Reviewer {string} for publishing")
+    public void a_collaboration_has_been_submitted_by_the_program_staff_member_to_the_doc_planning_contact_who_submits_to_crs_reviewer_for_publishing(String docPlanningContact, String crsReviewer) {
+        NERD_Returning_Submission_StepImpl.a_collaboration_has_been_submitted_by_the_program_staff_member_to_the_doc_planning_contact_who_submits_to_crs_reviewer_for_publishing(docPlanningContact, crsReviewer);
+    }
+
+    @When("a published Collaboration has been returned to the Doc Planning Contact")
+    public void a_published_collaboration_has_been_returned_to_the_doc_planning_contact() {
+        NERD_Returning_Submission_StepImpl.a_published_collaboration_has_been_returned_to_the_doc_planning_contact();
+    }
+
+    @When("a published Collaboration has been returned to the Program Staff by Doc Planning Contact {string} with the article version number as {string}")
+    public void a_published_collaboration_has_been_returned_to_the_program_staff_by_doc_planning_contact_with_the_article_version_number_as(String docPlanningContact, String versionNumber) {
+        NERD_Returning_Submission_StepImpl.a_published_collaboration_has_been_returned_to_the_program_staff_by_doc_planning_contact_with_the_article_version_number_as(docPlanningContact, versionNumber);
     }
 
     @When("the Program Staff resubmits the article to the DOC Planning Contact")
     public void the_Program_Staff_resubmits_the_article_to_the_DOC_Planning_Contact() {
         NERD_NCI_StaffMemberStepsImplementation.submittingOfApplicationToDocPlaningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
-        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
+    }
+
+    @When("the DOC Planning Contact {string} resubmits the article to the CRS Reviewer {string}")
+    public void the_doc_planning_contact_resubmits_the_article_to_the_crs_reviewer(String docPlanningContact, String crsReviewer) {
+        NERD_Returning_Submission_StepImpl.the_doc_planning_contact_resubmits_the_article_to_the_crs_reviewer(docPlanningContact, crsReviewer);
     }
 
     @Then("the article is incremented one major version number as {string}")
     public void the_article_is_incremented_one_major_version_number_as(String versionNumber) {
-        NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
-        NERDApplicationStepsImplementation.verifyingIncrementedArticleVersionNumber(versionNumber);
-        NERDApplicationStepsImplementation.returningOfSubmissionToDOCPlaningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
-        NERDApplicationStepsImplementation.checkingEmailWasNotReceived();
+        NERD_Returning_Submission_StepImpl.the_article_is_incremented_one_major_version_number_as(versionNumber);
     }
 
     @Given("a published Collaboration is returned to the DOC Planning Contact")
@@ -187,10 +172,12 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     public void a_doc_planning_contact_is_on_the_crs_knowledge_management_system_home_page() {
        NERDApplicationStepsImplementation.aDocPlanningContactIsOnTheCrsKnowledgeManagementSystemHomePage();
     }
+
     @When("selecting the Published Only checkbox")
     public void selecting_the_published_only_checkbox() {
         NERDApplicationStepsImplementation.selectingThePublishedOnlyCheckbox();
     }
+
     @Then("the DOC Planning Contact is able to see only published submissions")
     public void the_doc_planning_contact_is_able_to_see_only_published_submissions() {
         NERDApplicationStepsImplementation.theDocPlanningContactIsAbleToSeeOnlyPublishedSubmissions();

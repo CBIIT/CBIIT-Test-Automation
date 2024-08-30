@@ -1,6 +1,5 @@
 package ServiceNow.PlatformBusinessApps.NERD.StepsImplementation;
 
-import ServiceNow.PlatformBusinessApps.NERD.Constants.CRSReviewers_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.Covid19ActivitiesSubmissions_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.Other_Accomplishments_Submissions_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
@@ -64,9 +63,9 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
     /**
      * This method is used to perform the necessary steps for a Super User to navigate to the Knowledge Base page in the NERD application.
      */
-    public static void nerduserIsOnTheKnowledgeBasePageAsSuperUser() {
+    public static void nerduserIsOnTheKnowledgeBasePageAsSuperUser(String superUser) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.CRS_REVIEWER);
+        ServiceNow_Common_Methods.impersonateAnyUser(superUser);
         NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
     }
 

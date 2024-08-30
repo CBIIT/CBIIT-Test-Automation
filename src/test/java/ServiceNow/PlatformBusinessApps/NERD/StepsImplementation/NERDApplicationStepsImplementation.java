@@ -252,8 +252,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
                 ReturningSubmissions_Constants.BOOTSTRAP_DROPDOWN_SELECT_SUBMISSIONS);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
         nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown.click();
-        CommonUtils.waitForVisibility(
-                nerdDynamicXpaths.publishedCollaboration(submissionName));
+        CommonUtils.waitForVisibility(nerdDynamicXpaths.publishedCollaboration(submissionName));
         nerdDynamicXpaths.returnButton(submissionName).click();
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField.click();

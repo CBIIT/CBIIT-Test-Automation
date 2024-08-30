@@ -2,25 +2,25 @@ Feature: Returning published Collaboration by the CRS Reviewer/DOC Planning Cont
 
   @SS-3893 @SS-3937 @bucurgb @Regression @selenium
   Scenario: Verifying "Please Specify" and "Fiscal Year" field values
-    Given a published Collaboration has been returned to the DOC Planning Contact by the CRS Reviewer
+    Given a published Collaboration has been returned to the DOC Planning Contact "Abigail Joyce" by the CRS Reviewer "hoffmanela@nih.gov"
     Then the "Please specify" and "Fiscal Year" field values are cleared and are required
 
   @SS-3893 @SS-3937 @bucurgb @Regression @selenium
   Scenario: Verifying status of Returned Collaboration in the Submissions page
-    Given a published Collaboration has been returned to the DOC Planning Contact by the CRS Reviewer
+    Given a published Collaboration has been returned to the DOC Planning Contact "Abigail Joyce" by the CRS Reviewer "hoffmanela@nih.gov"
     Then the Collaboration shows as "Returned to DOC" in the Submissions page
 
   @SS-3895 @SS-3936 @bucurgb @Regression @selenium
   Scenario: Verifying "Please Specify" and "Fiscal Year" field values by the Program Staff
-    Given a published Collaboration has been returned to the DOC Planning Contact by the CRS Reviewer
-    When the DOC Planning Contact fills out the "Please specify" and "Fiscal Year" field
+    Given a published Collaboration has been returned to the DOC Planning Contact "Abigail Joyce" by the CRS Reviewer "hoffmanela@nih.gov"
+    When the DOC Planning Contact "Abigail Joyce" fills out the "Please specify" and "Fiscal Year" field
     And returns the Collaboration to the Program Staff
     Then the "Please specify" and "Fiscal Year" field values are not cleared and are required
 
   @SS-3895 @SS-3936 @bucurgb @Regression @selenium
   Scenario: Verifying the options for "Please Specify" field
-    Given a published Collaboration has been returned to the DOC Planning Contact by the CRS Reviewer
-    When the DOC Planning Contact fills out the "Please specify" and "Fiscal Year" field
+    Given a published Collaboration has been returned to the DOC Planning Contact "Abigail Joyce" by the CRS Reviewer "hoffmanela@nih.gov"
+    When the DOC Planning Contact "Abigail Joyce" fills out the "Please specify" and "Fiscal Year" field
     And returns the Collaboration to the Program Staff
     Then the options available for the "Please specify" field are "Edited", "No change", "Ended", and "Not led by NCI"
 
@@ -31,8 +31,11 @@ Feature: Returning published Collaboration by the CRS Reviewer/DOC Planning Cont
 
   @SS-3895 @SS-3936 @SS-3944 @SS-3982 @SS-3943 @SS-3986 @bucurgb @Regression @selenium
   Scenario: Verifying the article is incremented one major version number
-    Given a published Collaboration has been returned to the Program Staff with the article version number as "Version 1.0 - DOC Version"
-    When the Program Staff resubmits the article to the DOC Planning Contact
+    Given a Collaboration has been submitted by the Program Staff Member to the DOC Planning Contact "Abigail Joyce" who submits to CRS Reviewer "hoffmanela@nih.gov" for publishing
+    When a published Collaboration has been returned to the Doc Planning Contact
+    And a published Collaboration has been returned to the Program Staff by Doc Planning Contact "Abigail Joyce" with the article version number as "Version 1.0 - DOC Version"
+    And the Program Staff resubmits the article to the DOC Planning Contact
+    And the DOC Planning Contact "Abigail Joyce" resubmits the article to the CRS Reviewer "hoffmanela@nih.gov"
     Then the article is incremented one major version number as "Version 2.0 -"
 
   @SS-3939 @SS-3894 @bucurgb @Regression @selenium

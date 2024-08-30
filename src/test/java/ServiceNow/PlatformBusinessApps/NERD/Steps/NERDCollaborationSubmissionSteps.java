@@ -64,10 +64,10 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
         NERDCollaborationSubmissionStepImpl.aRegularUserHasSubmittedACollaboration();
     }
 
-    @When("the DOC Planning Contact locates the record in their Collaboration queue")
-    public void the_doc_planning_contact_locates_the_record_in_their_collaboration_queue() {
-            NERDCollaborationSubmissionStepImpl.theDOCPlanningContactLocatesTheRecordInTheirCollaborationQueue(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
-        }
+    @When("the DOC Planning Contact {string} locates the record in their Collaboration queue")
+    public void the_doc_planning_contact_locates_the_record_in_their_collaboration_queue(String docPlanningContact) {
+        NERDCollaborationSubmissionStepImpl.theDOCPlanningContactLocatesTheRecordInTheirCollaborationQueue(docPlanningContact, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
+    }
 
     @When("clicks the Edit button for the record")
     public void clicks_the_edit_button_for_the_record() {
@@ -84,14 +84,14 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
         NERD_NCI_DOC_PlanningContactStepsImplementation.verifyingRankFieldIsNotDisplayedOnCollaborationForm();
     }
 
-    @Given("a DOC Planning Contact clicks the Submit to CRS button for a Collaboration")
-    public void a_doc_planning_contact_clicks_the_submit_to_crs_button_for_a_collaboration() {
-        NERDCollaborationSubmissionStepImpl.aDOCPlanningContactClicksTheSubmitToCRSButtonForACollaboration();
+    @Given("a DOC Planning Contact {string} clicks the Submit to CRS button for a Collaboration")
+    public void a_doc_planning_contact_clicks_the_submit_to_crs_button_for_a_collaboration(String docPlanningContact) {
+        NERDCollaborationSubmissionStepImpl.aDOCPlanningContactClicksTheSubmitToCRSButtonForACollaboration(docPlanningContact);
     }
 
-    @When("the CRS Reviewer locates the record in the Submissions page")
-    public void the_crs_reviewer_locates_the_record_in_the_submissions_page() {
-        NERDCollaborationSubmissionStepImpl.theCRSReviewerLocatesTheRecordInTheSubmissionsPage();
+    @When("the CRS Reviewer {string} locates the record in the Submissions page")
+    public void the_crs_reviewer_locates_the_record_in_the_submissions_page(String crsReviewer) {
+        NERDCollaborationSubmissionStepImpl.theCRSReviewerLocatesTheRecordInTheSubmissionsPage(crsReviewer);
     }
 
     @Then("the Rank field is not visible and collaboration is deleted")

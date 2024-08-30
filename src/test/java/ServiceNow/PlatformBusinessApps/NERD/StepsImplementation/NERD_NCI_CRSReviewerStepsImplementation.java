@@ -27,16 +27,38 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
                 ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.CRS_REVIEWER);
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-                CommonUtils.waitForVisibility(
-                                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
+                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu.click();
-                CommonUtils.selectValueFromBootStrapDropDown(
-                                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenuValues,
-                                "Submissions");
+                CommonUtils.selectValueFromBootStrapDropDown(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenuValues, "Submissions");
                 CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown.click();
-                CommonUtils.waitForVisibility(nerdDynamicXpaths
-                                .publishedCollaboration(submissionName));
+                CommonUtils.waitForVisibility(nerdDynamicXpaths.publishedCollaboration(submissionName));
+                nerdDynamicXpaths.publishToNERDButton(submissionName).click();
+                MiscUtils.sleep(5000);
+                CucumberLogUtils.logScreenshot();
+                JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbuttonCRS);
+                MiscUtils.sleep(1000);
+                CucumberLogUtils.logScreenshot();
+                JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
+        }
+
+        /**
+         * Publishes a submission by a CRS Reviewer.
+         *
+         * @param crsReviewer the CRS Reviewer's username
+         * @param submissionName the name of the submission to publish
+         */
+        public static void publishingOfSubmissionByCRSReviewer(String crsReviewer, String submissionName) {
+                ServiceNow_Common_Methods.logOutOfNativeView();
+                ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+                ServiceNow_Common_Methods.impersonateAnyUser(crsReviewer);
+                WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
+                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu.click();
+                CommonUtils.selectValueFromBootStrapDropDown(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenuValues, "Submissions");
+                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
+                nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown.click();
+                CommonUtils.waitForVisibility(nerdDynamicXpaths.publishedCollaboration(submissionName));
                 nerdDynamicXpaths.publishToNERDButton(submissionName).click();
                 MiscUtils.sleep(5000);
                 CucumberLogUtils.logScreenshot();
@@ -84,15 +106,16 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
         /**
          * This method will bring CRS Reviewer to a Submissions Page
          *
-         * @param submissionType
+         * @param crsReviewer     the CRS reviewer's username
+         * @param submissionType the type of submission (not used in the method)
          */
-        public static void crsReviewerIsOnSubmissionsPage(String submissionType) {
+        public static void crsReviewerIsOnSubmissionsPage(String crsReviewer,String submissionType) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.CRS_REVIEWER);
+                ServiceNow_Common_Methods.impersonateAnyUser(crsReviewer);
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
-                                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
+                        nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu.click();
                 WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'Submissions')]")).click();
                 CucumberLogUtils.logScreenshot();

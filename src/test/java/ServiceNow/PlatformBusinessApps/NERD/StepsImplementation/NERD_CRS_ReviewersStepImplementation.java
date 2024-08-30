@@ -1,6 +1,5 @@
 package ServiceNow.PlatformBusinessApps.NERD.StepsImplementation;
 
-import ServiceNow.PlatformBusinessApps.NERD.Constants.CRSReviewers_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Pages.NERDCRSTOtherAccomplishmentsPage;
 import ServiceNow.PlatformBusinessApps.NERD.Pages.NERDKnowledgebasePage;
 import appsCommon.PageInitializers.PageInitializer;
@@ -17,9 +16,9 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
 
     public String topAccomplishmentsAccordion;
 
-    public static void aCRSReviewerIsLoggedIntoNERDsCRSKnowledgeManagementSystem() {
+    public static void aCRSReviewerIsLoggedIntoNERDsCRSKnowledgeManagementSystem(String crsReviewer) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.CRS_REVIEWER);
+        ServiceNow_Common_Methods.impersonateAnyUser(crsReviewer);
         NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
     }
 
@@ -85,9 +84,9 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();;
     }
 
-    public static void aCRSReviewerIsOnTheNERDHomePage() {
+    public static void aCRSReviewerIsOnTheNERDHomePage(String crsReviewer) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.CRS_REVIEWER);
+        ServiceNow_Common_Methods.impersonateAnyUser(crsReviewer);
         MiscUtils.sleep(1500);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         MiscUtils.sleep(1500);
@@ -150,10 +149,10 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();;
     }
 
-    public void aCRSReviewerIsViewingTheListOfThePublished(String topAccomplishmentsAccordion) {
+    public void aCRSReviewerIsViewingTheListOfThePublished(String crsReviewer, String topAccomplishmentsAccordion) {
         this.topAccomplishmentsAccordion = topAccomplishmentsAccordion;
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.CRS_REVIEWER);
+        ServiceNow_Common_Methods.impersonateAnyUser(crsReviewer);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         MiscUtils.sleep(1500);
         CucumberLogUtils.logScreenshot();
@@ -180,8 +179,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    public static void theUserClicksTheTitleOfTheRecord(String titleOfPublishedArticle)
-            throws InterruptedException {
+    public static void theUserClicksTheTitleOfTheRecord(String titleOfPublishedArticle) {
         MiscUtils.sleep(5000);
         CommonUtils.waitForVisibility(NERDKnowledgebasePage
                 .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(titleOfPublishedArticle));

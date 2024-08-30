@@ -1,6 +1,5 @@
 package ServiceNow.PlatformBusinessApps.NERD.StepsImplementation;
 
-import ServiceNow.PlatformBusinessApps.NERD.Constants.CRSReviewers_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.TopAccomplishmentsSubmission_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Pages.NERDDOCCollaborationsPage;
@@ -37,9 +36,9 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
 
-    public static void theDOCPlanningContactLocatesTheRecordInTheirCollaborationQueue(String nameOfRecord) {
+    public static void theDOCPlanningContactLocatesTheRecordInTheirCollaborationQueue(String docPlanningContact,String nameOfRecord) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
+        ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.clickingOnCollaborationsLink();
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration(nameOfRecord));
@@ -62,7 +61,7 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    public static void aDOCPlanningContactClicksTheSubmitToCRSButtonForACollaboration() {
+    public static void aDOCPlanningContactClicksTheSubmitToCRSButtonForACollaboration(String docPlanningContact) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.creatingNewSubmission(
@@ -70,7 +69,7 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
         NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
         ServiceNow_Common_Methods.logOutOfNativeView();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
+        ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.clickingOnCollaborationsLink();
         MiscUtils.sleep(1000);
@@ -84,8 +83,8 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
         nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
     }
 
-    public static void theCRSReviewerLocatesTheRecordInTheSubmissionsPage() {
-        NERD_NCI_CRSReviewerStepsImplementation.crsReviewerIsOnSubmissionsPage(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
+    public static void theCRSReviewerLocatesTheRecordInTheSubmissionsPage(String crsReviewer) {
+        NERD_NCI_CRSReviewerStepsImplementation.crsReviewerIsOnSubmissionsPage(crsReviewer, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
         CommonUtils.waitForVisibility(nerdDynamicXpaths.publishedCollaboration(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION));
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION));
     }

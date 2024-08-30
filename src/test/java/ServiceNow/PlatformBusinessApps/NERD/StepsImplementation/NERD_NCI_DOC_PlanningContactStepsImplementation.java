@@ -37,7 +37,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
         }
 
         /**
-         * This method will return existing submission to CRS Reviewer
+         * This method will submit existing submission to CRS Reviewer
          *
          * @param submissionName
          */
@@ -46,24 +46,42 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
                 ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-                CommonUtils.waitForVisibility(
-                                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
-                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink
-                                .click();
-                JavascriptUtils.scrollIntoView(
-                                nerdDynamicXpaths.submitToCRSButton(submissionName));
+                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
+                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
+                JavascriptUtils.scrollIntoView(nerdDynamicXpaths.submitToCRSButton(submissionName));
                 CucumberLogUtils.logScreenshot();
-                CommonUtils.assertTrue(
-                                nerdDynamicXpaths.submitToCRSButton(submissionName)
-                                                .getText().equals("Submit to CRS"));
+                CommonUtils.assertTrue(nerdDynamicXpaths.submitToCRSButton(submissionName).getText().equals("Submit to CRS"));
                 CucumberLogUtils.logScreenshot();
                 MiscUtils.sleep(2000);
                 nerdDynamicXpaths.submitToCRSButton(submissionName).click();
-                CommonUtils.waitForVisibility(
-                                nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
+                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton.click();
-                CommonUtils.waitForVisibility(
-                                nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
+                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
+                nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
+        }
+
+        /**
+         * Submits a submission to the CRS reviewer.
+         *
+         * @param docPlanningContact The DOC (Department of Commerce) planning contact who will submit the submission.
+         * @param submissionName The name of the submission to be submitted.
+         */
+        public static void submittingOfSubmissionToCRSReviewer(String docPlanningContact, String submissionName) {
+                ServiceNow_Common_Methods.logOutOfNativeView();
+                ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+                ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
+                WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
+                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
+                JavascriptUtils.scrollIntoView(nerdDynamicXpaths.submitToCRSButton(submissionName));
+                CucumberLogUtils.logScreenshot();
+                CommonUtils.assertTrue(nerdDynamicXpaths.submitToCRSButton(submissionName).getText().equals("Submit to CRS"));
+                CucumberLogUtils.logScreenshot();
+                MiscUtils.sleep(2000);
+                nerdDynamicXpaths.submitToCRSButton(submissionName).click();
+                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
+                nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton.click();
+                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
         }
 
@@ -164,23 +182,24 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
         }
 
         /**
-         * This method will fill out required fields of Submission
+         * Fills out the required fields of a submission by DOC Planning Contact.
          *
-         * @param submissionName
-         * @param PleaseSpecify
-         * @param FiscalYear
+         * @param docPlanningContact The DOC Planning Contact who will fill out the submission.
+         * @param submissionName     The name of the submission to be filled out.
+         * @param PleaseSpecify      The value for the "Please Specify" field.
+         * @param FiscalYear         The value for the "Fiscal Year" field.
          */
-        public static void fillingOutRequiredFieldsByDOCPlaningContact(String submissionName, String PleaseSpecify,
-                        String FiscalYear) {
+        public static void fillingOutRequiredFieldsByDOCPlaningContact(String docPlanningContact,String submissionName, String PleaseSpecify,
+                                                                       String FiscalYear) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
+                ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 MiscUtils.sleep(7000);
                 CommonUtils.waitForVisibility(
-                                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
+                        nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink
-                                .click();
+                        .click();
                 nerdDynamicXpaths.editButton(submissionName).click();
                 MiscUtils.sleep(2000);
                 Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
@@ -202,6 +221,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                 nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
                 MiscUtils.sleep(3000);
         }
+
 
         /**
          * This method will verify required fields of Submission
@@ -256,14 +276,15 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
         }
 
         /**
-         * This method will edit and return Submission to Program Staff Member
+         * This method edits a submission and returns it to the program staff.
          *
-         * @param submissionName
+         * @param docPlanningContact The DOC Planning Contact who will edit and return the submission.
+         * @param submissionName     The name of the submission to be edited and returned.
          */
-        public static void editingAndReturningSubmissionToProgramStaff(String submissionName) {
+        public static void editingAndReturningSubmissionToProgramStaff(String docPlanningContact, String submissionName) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
+                ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
                 MiscUtils.sleep(5000);

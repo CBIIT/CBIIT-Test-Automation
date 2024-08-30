@@ -2,7 +2,7 @@ Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
 
   @NERDSNOW-209 @SS-5261 @SS-4636 @SS-4637 @bucurgb @Regression @Smoke @selenium
   Scenario Outline: CRS Reviewer Sees Published Top Accomplishments, Other accomplishments and Collaborations
-    Given a CRS Reviewer is on the NERD Home Page
+    Given a CRS Reviewer "hoffmanela@nih.gov" is on the NERD Home Page
     Then there are three knowledge bases called "<knowledgeBaseOne>", "<knowledgeBaseTwo>", and "<knowledgeBaseThree>"
     When the user clicks the NERD Knowledge Base
     Then the user is redirected to the Knowledge Base view page
@@ -19,7 +19,7 @@ Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
 
   @NERDSNOW-209 @bucurgb @Regression @Smoke @selenium
   Scenario Outline: CRS Reviewer Sees Top Accomplishment Fields
-    Given a CRS Reviewer is viewing the list of the published "Top Accomplishments"
+    Given a CRS Reviewer "hoffmanela@nih.gov" is viewing the list of the published "Top Accomplishments"
     Then there is a record called "<recordName>"
     When the user clicks the title of the record "<recordName>"
     Then the user is redirected to the Article View of the "<recordName>" record
@@ -31,7 +31,7 @@ Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
 
   @NERDSNOW-140 @bucurgb @Regression @Smoke @selenium
   Scenario Outline: CRS Reviewer Sees Other Accomplishment Fields
-    Given a CRS Reviewer is viewing the list of the published "Other Accomplishments"
+    Given a CRS Reviewer "hoffmanela@nih.gov" is viewing the list of the published "Other Accomplishments"
     Then there is a record called "<recordName>"
     When the user clicks the title of the record "<recordName>"
     Then the user is redirected to the Article View of the "<recordName>" record
@@ -43,7 +43,7 @@ Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
 
   @SS-4636 @bucurgb @Regression @Smoke @selenium
   Scenario Outline: CRS Reviewer Sees Collaborations
-    Given a CRS Reviewer is viewing the list of the published "Collaborations"
+    Given a CRS Reviewer "hoffmanela@nih.gov" is viewing the list of the published "Collaborations"
     Then there is a record called "<recordName>"
     When the user clicks the title of the record "<recordName>"
     Then the user is redirected to the Article View of the "<recordName>" record

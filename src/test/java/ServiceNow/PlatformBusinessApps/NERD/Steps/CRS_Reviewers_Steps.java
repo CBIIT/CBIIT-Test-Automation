@@ -3,7 +3,6 @@ package ServiceNow.PlatformBusinessApps.NERD.Steps;
 import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERDApplicationStepsImplementation;
 import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERD_CRS_ReviewersStepImplementation;
 import appsCommon.PageInitializers.PageInitializer;
-import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,9 +11,9 @@ public class CRS_Reviewers_Steps extends PageInitializer {
 
     NERD_CRS_ReviewersStepImplementation nerdCrsRevuewerStepImplementation = new NERD_CRS_ReviewersStepImplementation();
 
-    @Given("a CRS reviewer is logged into NERDs CRS Knowledge Management System")
-    public void a_CRS_reviewer_is_logged_into_NERDs_CRS_Knowledge_Management_System() throws TestingException {
-        NERD_CRS_ReviewersStepImplementation.aCRSReviewerIsLoggedIntoNERDsCRSKnowledgeManagementSystem();
+    @Given("a CRS reviewer {string} is logged into NERDs CRS Knowledge Management System")
+    public void a_crs_reviewer_is_logged_into_ner_ds_crs_knowledge_management_system(String crsReviewer) {
+        NERD_CRS_ReviewersStepImplementation.aCRSReviewerIsLoggedIntoNERDsCRSKnowledgeManagementSystem(crsReviewer);
     }
 
     @When("adding a new OM entry")
@@ -43,17 +42,17 @@ public class CRS_Reviewers_Steps extends PageInitializer {
     }
 
     @Then("the If Other is selected above, please specify {string} field displays")
-    public void the_If_Other_is_selected_above_please_specify_field_displays(
-            String omContentTypeOtherPleaseSpecify) {
+    public void the_If_Other_is_selected_above_please_specify_field_displays(String omContentTypeOtherPleaseSpecify) {
         NERDApplicationStepsImplementation.pleaseSpecifyFieldIsDisplayed(omContentTypeOtherPleaseSpecify);
     }
+
     @Then("the following check box option is displayed as COVID19 Leadership Messages {string}")
     public void the_following_check_box_option_is_displayed_as_covid_leadership_messages( String covid19LeadershipMessages) {
         NERD_CRS_ReviewersStepImplementation.theFollowingCheckBoxOptionIsDisplayed(covid19LeadershipMessages);
     }
 
     @Given("a CRS Reviewer is on the NERD Knowledge Base page")
-    public void a_CRS_Reviewer_is_on_the_NERD_Knowledge_Base_page() throws TestingException {
+    public void a_CRS_Reviewer_is_on_the_NERD_Knowledge_Base_page() {
         NERD_CRS_ReviewersStepImplementation.aCRSReviewerIsOnTheNERDKnowledgeBasePage();
     }
 
@@ -72,13 +71,13 @@ public class CRS_Reviewers_Steps extends PageInitializer {
    }
 
     @Given("a CRS Reviewer {string} and email {string} is on the NERD Home Page")
-    public void a_CRS_Reviewer_and_email_is_on_the_NERD_Home_Page(String crsReviewer, String approvedEmail) throws TestingException {
+    public void a_CRS_Reviewer_and_email_is_on_the_NERD_Home_Page(String crsReviewer, String approvedEmail) {
         NERD_CRS_ReviewersStepImplementation.aCRSReviewerAndEmailIOnTheNERDHomePage(crsReviewer, approvedEmail);
     }
 
-    @Given("a CRS Reviewer is on the NERD Home Page")
-    public void a_CRS_Reviewer_is_on_the_NERD_Home_Page() throws TestingException {
-        NERD_CRS_ReviewersStepImplementation.aCRSReviewerIsOnTheNERDHomePage();
+    @Given("a CRS Reviewer {string} is on the NERD Home Page")
+    public void a_crs_reviewer_is_on_the_nerd_home_page(String crsReviewer) {
+        NERD_CRS_ReviewersStepImplementation.aCRSReviewerIsOnTheNERDHomePage(crsReviewer);
     }
 
     @Then("there are three knowledge bases called {string}, {string}, and {string}")
@@ -116,9 +115,9 @@ public class CRS_Reviewers_Steps extends PageInitializer {
         NERD_CRS_ReviewersStepImplementation.aListOfAllPublishedRecordsIsVisible(topAccomplishments);
     }
 
-    @Given("a CRS Reviewer is viewing the list of the published {string}")
-    public void a_CRS_Reviewer_is_viewing_the_list_of_the_published(String topAccomplishmentsAccordion) throws TestingException {
-        nerdCrsRevuewerStepImplementation.aCRSReviewerIsViewingTheListOfThePublished(topAccomplishmentsAccordion);
+    @Given("a CRS Reviewer {string} is viewing the list of the published {string}")
+    public void a_crs_reviewer_is_viewing_the_list_of_the_published(String crsReviewer, String topAccomplishmentsAccordion) {
+        nerdCrsRevuewerStepImplementation.aCRSReviewerIsViewingTheListOfThePublished(crsReviewer, topAccomplishmentsAccordion);
     }
 
     @Then("there is a record called {string}")
@@ -127,8 +126,7 @@ public class CRS_Reviewers_Steps extends PageInitializer {
     }
 
     @When("the user clicks the title of the record {string}")
-    public void the_user_clicks_the_title_of_the_record(String titleOfPublishedArticle)
-            throws InterruptedException {
+    public void the_user_clicks_the_title_of_the_record(String titleOfPublishedArticle) {
         NERD_CRS_ReviewersStepImplementation.theUserClicksTheTitleOfTheRecord(titleOfPublishedArticle);
     }
 

@@ -1,6 +1,5 @@
 package ServiceNow.PlatformBusinessApps.NERD.StepsImplementation;
 
-import ServiceNow.PlatformBusinessApps.NERD.Constants.CRSReviewers_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.NERDOGSRMemberOfCongress_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Pages.NERDOGCRAddNewEntryPage;
 import ServiceNow.PlatformBusinessApps.NERD.Pages.NativeViewMembersOfCongressPage;
@@ -24,12 +23,13 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
     public static List<String> formCongressPeopleList = new ArrayList<>();
 
     /**
-     * This method will log in a OGSR user
+     * This method logs in as OGCR admin group user.
      *
+     * @param oGCRUser The username of the user to log in.
      */
-    public static void aUserIsInTheOgcrAdminGroup() {
+    public static void aUserIsInTheOgcrAdminGroup(String oGCRUser) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.OGCR_USER);
+        ServiceNow_Common_Methods.impersonateAnyUser(oGCRUser);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
     }
 

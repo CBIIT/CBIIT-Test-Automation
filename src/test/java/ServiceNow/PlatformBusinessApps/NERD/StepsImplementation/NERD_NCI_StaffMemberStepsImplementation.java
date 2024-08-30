@@ -183,9 +183,9 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      * This method documents the process of doc planning contact returning the top accomplishments submission back to nci staff member.
      * @param submissionName The name of the submission to be returned.
      */
-    public static void doc_planning_contact_returning_the_top_accomplishments_submission_back_to_nci_staff_member(String submissionName) {
+    public static void doc_planning_contact_returning_the_top_accomplishments_submission_back_to_nci_staff_member(String docPlanningContact, String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
+        ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();
@@ -309,13 +309,15 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     }
 
     /**
-     * This method documents the process of doc planning contact returning the other accomplishments submission back to nci staff member.
+     * This method is used to document the process of the doc planning contact returning the other accomplishments
+     * submission back to the NCI staff member.
      *
-     * @param submissionName
+     * @param docPlanningContact The name of the doc planning contact.
+     * @param submissionName The name of the submission to be returned.
      */
-    public static void doc_planning_contact_returning_the_other_accomplishments_submission_back_to_nci_staff_member(String submissionName) {
+    public static void doc_planning_contact_returning_the_other_accomplishments_submission_back_to_nci_staff_member(String docPlanningContact, String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
+        ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();
@@ -409,13 +411,14 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     }
 
     /**
-     * This method documents the process of doc planning contact returning the collaborations submission back to nci staff member.
+     * This method documents the process of the doc planning contact returning the collaborations submission back to an NCI staff member.
      *
+     * @param docPlanningContact The name of the doc planning contact.
      * @param submissionName The name of the submission to be returned.
      */
-    public static void doc_planning_contact_returning_the_collaborations_submission_back_to_nci_staff_member(String submissionName) {
+    public static void doc_planning_contact_returning_the_collaborations_submission_back_to_nci_staff_member(String docPlanningContact, String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
+        ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();
@@ -546,13 +549,14 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     }
 
     /**
-     * This method documents the process of planning contact returning the COVID-19 activities submission back to an NCI staff member.
+     * This method documents the process of the doc planning contact returning the COVID-19 activities submission back to the NCI staff member.
      *
+     * @param docPlanningContact The name of the doc planning contact.
      * @param submissionName The name of the submission to be returned.
      */
-    public static void doc_planning_contact_returning_the_covid19_activities_submission_back_to_nci_staff_member(String submissionName) {
+    public static void doc_planning_contact_returning_the_covid19_activities_submission_back_to_nci_staff_member(String docPlanningContact, String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
+        ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();
@@ -685,13 +689,14 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     }
 
     /**
-     * This method is used to return the ad hoc data call submission back to an NCI staff member by the doc planning contact.
+     * This method documents the process of the doc planning contact returning the ad hoc data call submission back to NCI staff member.
      *
-     * @param submissionName The name of the submission to be returned.
+     * @param docPlanningContact  The name of the doc planning contact.
+     * @param submissionName      The name of the submission to be returned.
      */
-    public static void doc_planning_contact_returning_the_ad_hoc_data_call_submission_back_to_nci_staff_member(String submissionName) {
+    public static void doc_planning_contact_returning_the_ad_hoc_data_call_submission_back_to_nci_staff_member(String docPlanningContact, String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.DOC_PLANNING_CONTACT_NAME);
+        ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();
