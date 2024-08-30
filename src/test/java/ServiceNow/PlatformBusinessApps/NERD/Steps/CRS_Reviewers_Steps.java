@@ -51,11 +51,6 @@ public class CRS_Reviewers_Steps extends PageInitializer {
         NERD_CRS_ReviewersStepImplementation.theFollowingCheckBoxOptionIsDisplayed(covid19LeadershipMessages);
     }
 
-    @Given("a CRS Reviewer is on the NERD Knowledge Base page")
-    public void a_CRS_Reviewer_is_on_the_NERD_Knowledge_Base_page() {
-        NERD_CRS_ReviewersStepImplementation.aCRSReviewerIsOnTheNERDKnowledgeBasePage();
-    }
-
     @Given("clicks the {string} filter")
     public void clicks_the_filter(String specialTopic) {
         NERD_CRS_ReviewersStepImplementation.clicksTheFilter(specialTopic);
@@ -69,11 +64,6 @@ public class CRS_Reviewers_Steps extends PageInitializer {
                 metastatic, minorityHealthHealthDisparities, moonshot, partnerships, pediatric, rare,
                 reportGuidancePolicy, sexGenderDifferences, trainingWorkforceDevelopment, womensHealth, workforce);
    }
-
-    @Given("a CRS Reviewer {string} and email {string} is on the NERD Home Page")
-    public void a_CRS_Reviewer_and_email_is_on_the_NERD_Home_Page(String crsReviewer, String approvedEmail) {
-        NERD_CRS_ReviewersStepImplementation.aCRSReviewerAndEmailIOnTheNERDHomePage(crsReviewer, approvedEmail);
-    }
 
     @Given("a CRS Reviewer {string} is on the NERD Home Page")
     public void a_crs_reviewer_is_on_the_nerd_home_page(String crsReviewer) {

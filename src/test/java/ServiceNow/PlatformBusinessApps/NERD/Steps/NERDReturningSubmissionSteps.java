@@ -20,9 +20,9 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         NERD_Returning_Submission_StepImpl.published_collaboration_has_been_returned_to_the_doc_planning_contact_by_the_crs_reviewer(docPlanningContact, crsReviewer);
     }
 
-    @Then("the {string} and {string} field values are cleared and are required")
-    public void the_and_field_values_are_cleared_and_are_required(String PleaseSpecify, String FiscalYear) {
-        NERD_Returning_Submission_StepImpl.the_and_field_values_are_cleared_and_are_required(PleaseSpecify, FiscalYear);
+    @Then("the DOC Planning Contact {string} verifies that the {string} and {string} field values are cleared and are required")
+    public void the_doc_planning_contact_verifies_that_the_and_field_values_are_cleared_and_are_required(String docPlanningContact, String PleaseSpecify, String FiscalYear) {
+        NERD_Returning_Submission_StepImpl.the_and_field_values_are_cleared_and_are_required(docPlanningContact, PleaseSpecify, FiscalYear);
     }
 
     @Then("the Collaboration shows as {string} in the Submissions page")
@@ -90,6 +90,11 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         NERD_Returning_Submission_StepImpl.the_article_is_incremented_one_major_version_number_as(versionNumber);
     }
 
+    @Then("check that email is not received by Doc Planning Contact {string}")
+    public void check_that_email_is_not_received_by_doc_planning_contact(String docPlanningContact) {
+        NERDApplicationStepsImplementation.checkingEmailWasNotReceived(docPlanningContact);
+    }
+
     @Given("a published Collaboration is returned to the DOC Planning Contact {string} by CRS Reviewer {string}")
     public void a_published_collaboration_is_returned_to_the_doc_planning_contact_by_crs_reviewer(String docPlanningContact, String crsReviewer) {
         NERD_Returning_Submission_StepImpl.a_published_collaboration_is_returned_to_the_doc_planning_contact_by_crs_reviewer(docPlanningContact, crsReviewer);
@@ -97,7 +102,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 
     @Given("the DOC Planning Contact {string} resubmits the submission")
     public void the_doc_planning_contact_resubmits_the_submission(String docPlanningContact) {
-        NERD_NCI_DOC_PlanningContactStepsImplementation.resubmittingOfSubmissionByDOCContactToCRSREviewer(docPlanningContact, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
+        NERD_NCI_DOC_PlanningContactStepsImplementation.resubmittingOfSubmissionByDOCContactToCRSReviewer(docPlanningContact, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
     }
 
     @When("the CRS Reviewer {string} returns the submission once more")

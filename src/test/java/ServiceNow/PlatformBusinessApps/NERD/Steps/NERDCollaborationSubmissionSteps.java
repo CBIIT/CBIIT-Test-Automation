@@ -54,11 +54,6 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
         NERDApplicationStepsImplementation.theCreatedCollaborationsSubmissionIsDisplaysInTheCollaborationsCategorySectionWithTheStatus(expectedUnderReviewText);
     }
 
-    @Then("the created Collaborations submission is displayed in the Collaborations category section with the status {string}")
-    public void the_created_Collaborations_submission_is_display_in_the_Collaborations_category_section_with_the_status(String underReview) {
-        NERDCollaborationSubmissionStepImpl.theCreatedCollaborationsSubmissionIsDisplayInTheCollaborationsCategorySectionWithTheStatus(underReview);
-    }
-
     @Given("a Regular User has submitted a Collaboration")
     public void a_Regular_User_has_submitted_a_Collaboration() {
         NERDCollaborationSubmissionStepImpl.aRegularUserHasSubmittedACollaboration();

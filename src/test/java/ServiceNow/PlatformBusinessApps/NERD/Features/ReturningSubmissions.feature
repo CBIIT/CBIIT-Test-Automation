@@ -3,7 +3,7 @@ Feature: Returning published Collaboration by the CRS Reviewer/DOC Planning Cont
   @SS-3893 @SS-3937 @bucurgb @Regression @selenium
   Scenario: Verifying "Please Specify" and "Fiscal Year" field values
     Given a published Collaboration has been returned to the DOC Planning Contact "Abigail Joyce" by the CRS Reviewer "hoffmanela@nih.gov"
-    Then the "Please specify" and "Fiscal Year" field values are cleared and are required
+    Then the DOC Planning Contact "Abigail Joyce" verifies that the "Please specify" and "Fiscal Year" field values are cleared and are required
 
   @SS-3893 @SS-3937 @bucurgb @Regression @selenium
   Scenario: Verifying status of Returned Collaboration in the Submissions page
@@ -37,6 +37,7 @@ Feature: Returning published Collaboration by the CRS Reviewer/DOC Planning Cont
     And the Program Staff resubmits the article to the DOC Planning Contact
     And the DOC Planning Contact "Abigail Joyce" resubmits the article to the CRS Reviewer "hoffmanela@nih.gov"
     Then the article is incremented one major version number as "Version 2.0 -"
+    And check that email is not received by Doc Planning Contact "Abigail Joyce"
 
   @SS-3939 @SS-3894 @bucurgb @Regression @selenium
   Scenario: Verifying the notification is send to the DOC Planning Contact

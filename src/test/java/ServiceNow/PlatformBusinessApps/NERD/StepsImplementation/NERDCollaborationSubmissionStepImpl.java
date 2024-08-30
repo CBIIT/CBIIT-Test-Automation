@@ -1,7 +1,6 @@
 package ServiceNow.PlatformBusinessApps.NERD.StepsImplementation;
 
 import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.Constants.TopAccomplishmentsSubmission_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Pages.NERDDOCCollaborationsPage;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;
@@ -15,18 +14,17 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
 
+    /**
+     * Creates a new submission for the Collaboration category.
+     */
     public static void createsANewSubmissionForCollaborationCategory() {
         NERDApplicationStepsImplementation.creatingNewCollaborationSubmission(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
     }
 
-    public static void theCreatedCollaborationsSubmissionIsDisplayInTheCollaborationsCategorySectionWithTheStatus(String underReview)  {
-        NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME);
-        NERDApplicationStepsImplementation.verifyingSubmissionIsUnderReview(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME, underReview);
-        NERD_NCI_DOC_PlanningContactStepsImplementation
-                .deleteCreatedSubmissionByDocPlanningContact(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME);
-    }
-
+    /**
+     * This method represents the submission process for a collaboration submission.
+     */
     public static void aRegularUserHasSubmittedACollaboration() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
@@ -36,6 +34,12 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
 
+    /**
+     * The method allows the DOC planning contact to locate and view a record in their collaboration queue.
+     *
+     * @param docPlanningContact The DOC planning contact who will view the record.
+     * @param nameOfRecord The name/id of the record to be located.
+     */
     public static void theDOCPlanningContactLocatesTheRecordInTheirCollaborationQueue(String docPlanningContact,String nameOfRecord) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
@@ -45,6 +49,11 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Clicks the edit button for a specific record.
+     *
+     * @param nameOfRecord The name/id of the record to be edited.
+     */
     public static void clicksTheEditButtonForTheRecord(String nameOfRecord) {
         MiscUtils.sleep(1000);
         CommonUtils.waitForClickability(nerdDynamicXpaths.editButton(nameOfRecord));
@@ -52,6 +61,11 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method navigates to the submission edit page for a specific author.
+     *
+     * @param author The name of the author for whom the submission edit page needs to be opened.
+     */
     public static void landsOnTheSubmissionEditPageForAuthor(String author) {
         CommonUtils.switchToAnotherWindow();
         MiscUtils.sleep(3000);
@@ -61,6 +75,11 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method represents the behavior of a DOC planning contact clicking the Submit to CRS button for a collaboration.
+     *
+     * @param docPlanningContact The name of the DOC planning contact.
+     */
     public static void aDOCPlanningContactClicksTheSubmitToCRSButtonForACollaboration(String docPlanningContact) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
@@ -83,6 +102,11 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
         nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
     }
 
+    /**
+     * This` method is used to navigate the CRS Reviewer to locate the record on the Submissions page.
+     *
+     * @param crsReviewer the username of the CRS Reviewer
+     */
     public static void theCRSReviewerLocatesTheRecordInTheSubmissionsPage(String crsReviewer) {
         NERD_NCI_CRSReviewerStepsImplementation.crsReviewerIsOnSubmissionsPage(crsReviewer, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
     }

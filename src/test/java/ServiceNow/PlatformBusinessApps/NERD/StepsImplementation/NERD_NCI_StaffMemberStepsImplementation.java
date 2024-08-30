@@ -11,7 +11,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.testng.Assert;
-import java.util.Set;
 
 public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
 
@@ -40,42 +39,6 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(submissionName));
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(5000);
-    }
-
-    /**
-     * This method will edit and submit Collaboration to DOC Planing Contact
-     *
-     * @param submissionName
-     */
-    public static void editingAndSubmittingOfCollaborationToDOCPlaningContact(String submissionName) {
-        nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        CommonUtils.waitForVisibility(
-                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
-        JavascriptUtils.scrollIntoView(
-                nerdDynamicXpaths.eiditCRSButton(submissionName));
-        nerdDynamicXpaths.eiditCRSButton(submissionName).click();
-        MiscUtils.sleep(2000);
-        Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
-        for (String currentWindow1 : allWindowHandles1) {
-            WebDriverUtils.webDriver.switchTo().window(currentWindow1);
-        }
-        CommonUtils.waitForVisibility(createNewSubmissionPage.pleaseSpecifyDropDown);
-        CommonUtils.selectDropDownValue("Edited", createNewSubmissionPage.pleaseSpecifyDropDown);
-        CommonUtils.selectDropDownValue("2022", createNewSubmissionPage.fiscalYearDropDown);
-        JavascriptUtils.scrollIntoView(createNewSubmissionPage.editedStaffMemberSubmissionSaveButton);
-        createNewSubmissionPage.editedStaffMemberSubmissionSaveButton.click();
-        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
-        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
-        JavascriptUtils.scrollIntoView(nerdDynamicXpaths.submitButtonToDOCPlanningContact(submissionName));
-        nerdDynamicXpaths.submitButtonToDOCPlanningContact(submissionName).click();
-        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton.click();
-        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
     }
 
     /**
@@ -108,19 +71,6 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
         NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember(submissionName);
-    }
-
-    /**
-     * This method will locate Staff Member to Submissions Page
-     *
-     * @param applicationName
-     */
-    public static void locatingProgramStaffMemberToSubmissionsPage(String applicationName)  {
-        nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(applicationName));
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
     }
 
     /**

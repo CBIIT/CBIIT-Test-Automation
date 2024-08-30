@@ -28,9 +28,9 @@ public class NERD_Returning_Submission_StepImpl {
      * @param PleaseSpecify The value of the PleaseSpecify field
      * @param FiscalYear The value of the FiscalYear field
      */
-    public static void the_and_field_values_are_cleared_and_are_required(String PleaseSpecify, String FiscalYear) {
+    public static void the_and_field_values_are_cleared_and_are_required(String docPlanningContact, String PleaseSpecify, String FiscalYear) {
         NERDApplicationStepsImplementation.openingNewTabToEditSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
-        NERD_NCI_DOC_PlanningContactStepsImplementation.verifyingByDOCContactThatFieldsOfSubmissionAreClearedAndRequired(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER, PleaseSpecify, FiscalYear);
+        NERD_NCI_DOC_PlanningContactStepsImplementation.verifyingByDOCContactThatFieldsOfSubmissionAreClearedAndRequired(docPlanningContact, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER, PleaseSpecify, FiscalYear);
     }
 
     /**
@@ -130,7 +130,6 @@ public class NERD_Returning_Submission_StepImpl {
     public static void the_article_is_incremented_one_major_version_number_as(String versionNumber) {
         NERDApplicationStepsImplementation.verifyingIncrementedArticleVersionNumber(versionNumber);
         NERDApplicationStepsImplementation.returningOfSubmissionToDOCPlaningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
-        NERDApplicationStepsImplementation.checkingEmailWasNotReceived();
     }
 
     /**

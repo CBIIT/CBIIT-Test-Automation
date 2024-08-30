@@ -1,6 +1,5 @@
 package ServiceNow.PlatformBusinessApps.NERD.StepsImplementation;
 
-import ServiceNow.PlatformBusinessApps.NERD.Constants.CRSReviewers_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;
@@ -16,31 +15,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
-
-        /**
-         * This method will publish existing submission by CRS Reviewer
-         *
-         * @param submissionName
-         */
-        public static void publishingOfSubmissionByCRSReviewer(String submissionName) {
-                ServiceNow_Common_Methods.logOutOfNativeView();
-                ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser(CRSReviewers_Constants.CRS_REVIEWER);
-                WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
-                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu.click();
-                CommonUtils.selectValueFromBootStrapDropDown(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenuValues, "Submissions");
-                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
-                nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown.click();
-                CommonUtils.waitForVisibility(nerdDynamicXpaths.publishedCollaboration(submissionName));
-                nerdDynamicXpaths.publishToNERDButton(submissionName).click();
-                MiscUtils.sleep(5000);
-                CucumberLogUtils.logScreenshot();
-                JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbuttonCRS);
-                MiscUtils.sleep(1000);
-                CucumberLogUtils.logScreenshot();
-                JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
-        }
 
         /**
          * Publishes a submission by a CRS Reviewer.
