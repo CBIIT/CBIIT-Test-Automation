@@ -2,8 +2,8 @@ Feature: Process Actions Scenarios
 
   Description: This feature file is to test the Process Actions functionality in GPMATS application
 
-  @Progression @playwright
-  Scenario: Test Process/GM Reviewer/Returned to Reviewer to Reviewed, Ready for Release
+  @Regression @playwright @JUAREZDS
+  Scenario: Process_Action Manager moves action from New to Awaiting GM Review
     Given a user is logged in with the role of GM Action Manager
     And clicks on Show Advanced Filters link
     And for the Action Status drop-down selects "New" option
@@ -38,7 +38,8 @@ Feature: Process Actions Scenarios
     And verifies the Status changes from New to "Awaiting GM Review" for the action
     And verifies the date stamp of the action is today's date
     * * * THE FOLLOWING STEPS APPLY TO ALL SCENARIOS ABOVE * * *
-    And the changes will be reflected in the "Change History" section along with any comments provided
+    And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
+    And the assigned GM Specialist will see the action on "My Specialist Queue" tab, when logged in
 
 
 

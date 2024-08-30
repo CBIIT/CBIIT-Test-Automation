@@ -57,6 +57,7 @@ public class GPMATS_All_Steps {
         String processDropDownButton = "(//div[@class='dropdown']/button)[1]";
         String assignOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Assign']";
 
+
         page.waitForSelector(processDropDownButton);
         // click on the Process button
         page.locator(processDropDownButton).click();
@@ -163,6 +164,28 @@ public class GPMATS_All_Steps {
         Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[3]").innerText(), "Baker, Bryan", "- - - VERIFYING CHANGE HISTORY ACTION SPECIALIST OF ASSIGNING ACTION IS BAKER, BRYAN [OD OM OGA] - - -");
         String changeHistoryComments = page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[4]").innerText();
         Assert.assertTrue(changeHistoryComments.length() <= 2000, "- - - VERIFYING CHANGE HISTORY COMMENTS OF ASSIGNING ACTION HAS NO MORE THAN 2000 CHARACTERS - - -");
+
+        // And the assigned GM Specialist will see the action on their tab, when logged in
+        page.click("//span[@aria-hidden='true'][normalize-space()='×']");
+        page.waitForLoadState();
+        actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();
+        page.locator("#change-user-dropdown").click();
+        page.getByText("Enter Last Name, First Name").click();
+        System.out.println("NAME IS:" + actionSpecialistName);
+        page.locator("(//input[@role='searchbox'])[11]").fill(actionSpecialistName);
+        page.waitForSelector("//li[@role='option']");
+        page.locator("(//li[@role='option'])[1]").click();
+
+        // Clicking on My Specialist Que and verifying that the action assigned is displayed in the results table
+        page.waitForSelector("//button[contains(@class,'btn btn-info')]");
+        page.locator("//button[contains(@class,'btn btn-info')]").click();
+        page.waitForLoadState();
+        List<ElementHandle> grantNumbers = page.querySelectorAll("//div/a[@ngbtooltip='Click to View Grant Details']");
+        for(ElementHandle grantNumberInSpecialistQue : grantNumbers) {
+            Assert.assertTrue(grantNumberInSpecialistQue.innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER OF THE ACTION ASSIGNED TO THE SPECIALIST IS DISPLAYED IN THE RESULTS TABLE - - -");
+        }
+        page.waitForLoadState();
+
     }
 
     @Then("search results with the New Actions status display")
@@ -275,8 +298,13 @@ public class GPMATS_All_Steps {
         CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
     }
 
-    @Then("the changes will be reflected in the {string} section along with any comments provided")
-    public void the_changes_will_be_reflected_in_the_section_along_with_any_comments_provided(String string) {
+    @Then("the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step")
+    public void the_changes_will_be_reflected_in_the_section_along_with_any_comments_provided() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("the assigned GM Specialist will see the action on {string} tab, when logged in")
+    public void the_assigned_gm_specialist_will_see_the_action_on_tab_when_logged_in(String string) {
         CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
     }
 }
