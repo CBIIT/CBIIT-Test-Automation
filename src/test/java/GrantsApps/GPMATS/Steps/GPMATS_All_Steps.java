@@ -13,10 +13,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class GPMATS_All_Steps {
@@ -49,6 +47,151 @@ public class GPMATS_All_Steps {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Search")).nth(1).click();
     }
 
+    @Given("* * THIS TEST STEP INCLUDES ALL CODE FOR THIS TEST CASE - * * *")
+    public void this_test_step_includes_all_code_for_this_test_case() {
+        // Constants
+        String processDropDownMenuItems = "//div[@class='dropdown-menu dropdown-menu-right show']/a";
+        String processDropDownButton = "(//div[@class='dropdown']/button)[1]";
+        String preAssignOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Pre-assign']";
+
+        // click on the Process button
+        page.waitForSelector(processDropDownButton);
+        page.locator(processDropDownButton).click();
+        MiscUtils.sleep(2000);
+
+        // Verify Process drop down options
+        List<ElementHandle> actualProcessOptions = page.querySelectorAll(processDropDownMenuItems);
+        List<String> expectedProcessOptions = new ArrayList<>();
+        expectedProcessOptions.add("Assign");
+        expectedProcessOptions.add("Cancel");
+        expectedProcessOptions.add("Pre-assign");
+        expectedProcessOptions.add("Put on Hold");
+        List<String> valuesToBeComparedWith = new ArrayList<>();
+        for (ElementHandle processOption : actualProcessOptions) {
+            valuesToBeComparedWith.add(processOption.innerText());
+        }
+        Assert.assertEquals(valuesToBeComparedWith, expectedProcessOptions, "- - - VERIFYING PROCESS OPTIONS - - -");
+        page.waitForSelector("(//i[contains(@class,'bi bi-dash-circle')])[1]");
+        page.locator("(//i[contains(@class,'bi bi-dash-circle')])[1]").click();
+        MiscUtils.sleep(1000);
+
+        // Retrieve the name of the action specialist for the first action
+        String actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();
+
+        // Retrieve the grant number for the first action
+        String grantNumber = page.locator("(//div//a[@ngbtooltip='Click to View Grant Details'])[1]").innerText();
+
+        // Retrieve the actual class attribute value of the View Notes bubble for the first action
+        String actualClassAttributeValueOfViewNotes = page.locator("(//div[@class='grant-icons']/div/div/span)[1]").getAttribute("class");
+
+        String baseString = "THIS IS AN AUTOMATED TEST FOR BOUNDARY TESTING ";
+        String repeatedString = baseString.repeat((2001 / baseString.length()) + 1);
+        String inputString = repeatedString.substring(0, 2001);
+
+        if (actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked")) {
+            page.locator("(//div[@class='dropdown']/button)[1]").click();
+            page.locator(preAssignOption).click();
+
+            Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
+            page.locator("//button[normalize-space()='Acknowledge']").click();
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Pre-assign this action?']").innerText().trim(), "Are you sure you want to Pre-assign this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO ASSIGN THIS ACTION? TEXT - - -");
+            // click cancel to perform previous steps again
+            page.locator("//button[normalize-space()='Cancel']").click();
+            page.waitForLoadState();
+
+            // Performing previous steps again
+            page.locator("(//div[@class='dropdown']/button)[1]").click();
+            page.locator(preAssignOption).click();
+            Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
+            page.locator("//button[normalize-space()='Acknowledge']").click();
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Pre-assign this action?']").innerText().trim(), "Are you sure you want to Pre-assign this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO ASSIGN THIS ACTION? TEXT - - -");
+
+            // Verifying that the text box allows only 2000 characters
+            page.waitForSelector("//textarea");
+            page.locator("//textarea").fill(inputString);
+            String actualValue = page.inputValue("//textarea");
+            Assert.assertTrue(actualValue.length() <= 2000, "- - - TEXTBOX ALLOWS MORE THAN 2000 CHARACTERS. - - -");
+            page.locator("//input[@value='OK']").click();
+            page.waitForLoadState();
+
+            // Verifying success message with grants number, status and date
+            Assert.assertTrue(page.locator("//div[@id='submitMessage']/span").innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER IS INCLUDED IN THE SUCCESS MESSAGE TEXT.- - -");
+            Assert.assertEquals(page.locator("//div[normalize-space()='Pre-Assigned']").innerText().trim(), "Pre-Assigned", "- - - VERIFYING THE STATUS OF THE ACTION AFTER ASSIGNING IT - - -");
+            Assert.assertEquals(page.locator("(//td[@class='sorting_3']/app-current-status)[1]/div[2]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING THE DATE OF THE ACTION AFTER ASSIGNING IT - - -");
+        }
+
+        // Perform the following if the View Notes bubble is blank with or without green dot
+        if (actualClassAttributeValueOfViewNotes.contentEquals("note-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-blank")) {
+            // click on pre-assign option
+            page.locator(processDropDownButton).click();
+            page.click(preAssignOption);
+
+            //  And the system will display warning message "Are you sure you want to Pre-assign this action?" with optional comments box (2000 char max)
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Pre-assign this action?']").innerText().trim(), "Are you sure you want to Pre-assign this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO PRE-ASSIGN THIS ACTION? TEXT - - -");
+
+            // Verifying that the text box allows only 2000 characters
+            page.waitForSelector("//textarea");
+            page.locator("//textarea").fill(inputString);
+            String actualValue = page.inputValue("//textarea");
+            Assert.assertTrue(actualValue.length() <= 2000, "- - - TEXTBOX ALLOWS MORE THAN 2000 CHARACTERS. - - -");
+
+            // And the user will be able to click "Cancel" on the warning message pop-up -
+            // the warning message will be closed, no changes will be made
+            page.locator("//button[normalize-space()='Cancel']").click();
+
+            // Performing previous steps again
+            page.locator(processDropDownButton).click();
+            page.click(preAssignOption);
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Pre-assign this action?']").innerText().trim(), "Are you sure you want to Pre-assign this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO PRE-ASSIGN THIS ACTION? TEXT - - -");
+
+            // Verifying that the text box allows only 2000 characters
+            page.waitForSelector("//textarea");
+            page.locator("//textarea").fill(inputString);
+            actualValue = page.inputValue("//textarea");
+            Assert.assertTrue(actualValue.length() <= 2000, "- - - TEXTBOX ALLOWS MORE THAN 2000 CHARACTERS. - - -");
+            // Clicks OK
+            page.locator("//input[@value='OK']").click();
+
+            // Verifying success message with grants number, status and date
+            Assert.assertTrue(page.locator("//div[@id='submitMessage']/span").innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER IS INCLUDED IN THE SUCCESS MESSAGE TEXT.- - -");
+            Assert.assertEquals(page.locator("//div[normalize-space()='Pre-Assigned']").innerText().trim(), "Pre-Assigned", "- - - VERIFYING THE STATUS OF THE ACTION AFTER PRE-ASSIGNING IT - - -");
+            Assert.assertEquals(page.locator("(//td[@class='sorting_3']/app-current-status)[1]/div[2]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING THE DATE OF THE ACTION AFTER PRE-ASSIGNING IT - - -");
+
+        }
+
+        // And the changes will be reflected in the "Change History" section along with any comments provided
+        page.waitForSelector("(//i[@ngbtooltip='View Change History'])[1]");
+        page.locator("(//i[@ngbtooltip='View Change History'])[1]").click();
+        page.waitForLoadState();
+        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING CHANGE HISTORY DATE OF PRE-ASSIGNING ACTION IS TODAY - - -");
+        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]").innerText(), "Pre-Assigned", "- - - VERIFYING CHANGE HISTORY STATUS OF PRE-ASSIGN - - -");
+        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[3]").innerText(), "Baker, Bryan", "- - - VERIFYING CHANGE HISTORY ACTION SPECIALIST OF PRE-ASSIGN - - -");
+        String changeHistoryComments = page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[4]").innerText();
+        Assert.assertTrue(changeHistoryComments.length() <= 2000, "- - - VERIFYING CHANGE HISTORY COMMENTS OF PRE-ASSIGN HAS NO MORE THAN 2000 CHARACTERS - - -");
+
+        // And the assigned GM Specialist will NOT see the action on their tab, when logged in
+        page.click("//span[@aria-hidden='true'][normalize-space()='×']");
+        page.waitForLoadState();
+
+        if(!actionSpecialistName.isEmpty()) {
+            actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();
+            page.locator("#change-user-dropdown").click();
+            page.getByText("Enter Last Name, First Name").click();
+            System.out.println("NAME IS:" + actionSpecialistName);
+            page.locator("(//input[@role='searchbox'])[11]").fill(actionSpecialistName);
+            page.waitForSelector("//li[@role='option']");
+            page.locator("(//li[@role='option'])[1]").click();
+            page.waitForSelector("(//button[contains(@class,'btn btn-info')])[1]");
+            page.locator("(//button[contains(@class,'btn btn-info')])[1]").click();
+            page.waitForLoadState();
+            List<ElementHandle> grantNumbers = page.querySelectorAll("//div/a[@ngbtooltip='Click to View Grant Details']");
+            for(ElementHandle grantNumberInSpecialistQue : grantNumbers) {
+                Assert.assertFalse(grantNumberInSpecialistQue.innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER OF THE ACTION PRE-ASSIGNED IS NOT DISPLAYED IN THE RESULTS TABLE - - -");
+            }
+            page.waitForLoadState();
+        }
+    }
+
     @When("test step with all code for this test case")
     public void test_step() {
 
@@ -56,7 +199,6 @@ public class GPMATS_All_Steps {
         String processDropDownMenuItems = "//div[@class='dropdown-menu dropdown-menu-right show']/a";
         String processDropDownButton = "(//div[@class='dropdown']/button)[1]";
         String assignOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Assign']";
-
 
         page.waitForSelector(processDropDownButton);
         // click on the Process button
@@ -185,7 +327,6 @@ public class GPMATS_All_Steps {
             Assert.assertTrue(grantNumberInSpecialistQue.innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER OF THE ACTION ASSIGNED TO THE SPECIALIST IS DISPLAYED IN THE RESULTS TABLE - - -");
         }
         page.waitForLoadState();
-
     }
 
     @Then("search results with the New Actions status display")
@@ -305,6 +446,51 @@ public class GPMATS_All_Steps {
 
     @Then("the assigned GM Specialist will see the action on {string} tab, when logged in")
     public void the_assigned_gm_specialist_will_see_the_action_on_tab_when_logged_in(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("* * PERFORM THE FOLLOWING STEPS ONLY IF AN ACTION HAS NO SPECIALIST ASSIGNED OR IF THE VIEW NOTES BUBBLE IS BLANK OR JUST HAS A GREEN DOT  * * *")
+    public void perform_the_following_steps_only_if_an_action_has_no_specialist_assigned_or_if_the_view_notes_bubble_is_blank_or_just_has_a_green_dot() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @Then("the user is able to select {string} option")
+    public void the_user_is_able_to_select_option(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @Then("the system will display warning message {string} with optional comments box \\({int} char max)")
+    public void the_system_will_display_warning_message_with_optional_comments_box_char_max(String string, Integer int1) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @Then("the user will be able to click {string} on the warning message pop-up - the warning message will be closed, no changes will be made")
+    public void the_user_will_be_able_to_click_on_the_warning_message_pop_up_the_warning_message_will_be_closed_no_changes_will_be_made(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @When("the user clicks on the {string} option again")
+    public void the_user_clicks_on_the_option_again(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @Then("the user will be able to click {string} on the warning message pop-up")
+    public void the_user_will_be_able_to_click_on_the_warning_message_pop_up(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @Then("the assigned GM Specialist \\(if any) will NOT see the action on {string} tab, when logged in")
+    public void the_assigned_gm_specialist_if_any_will_not_see_the_action_on_tab_when_logged_in(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @When("the user clicks on the {string} option for an action, and the {string} bubble has a red check mark, either with or without a green dot.")
+    public void the_user_clicks_on_the_option_for_an_action_and_the_bubble_has_a_red_check_mark_either_with_or_without_a_green_dot(String string, String string2) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @When("the user clicks on the {string} option for an action, and the {string} bubble has a red check mark, either with or without a green dot. again")
+    public void the_user_clicks_on_the_option_for_an_action_and_the_bubble_has_a_red_check_mark_either_with_or_without_a_green_dot_again(String string, String string2) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @When("the user acknowledges and sees message {string}")
+    public void the_user_acknowledges_and_sees_message(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @Then("verifies that the following confirmation message is displayed: 'Success! The workflow for the 'GPMATS action's grant number' has been successfully processed.'")
+    public void verifies_that_the_following_confirmation_message_is_displayed_success_the_workflow_for_the_gpmats_action_s_grant_number_has_been_successfully_processed() {
         CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
     }
 }
