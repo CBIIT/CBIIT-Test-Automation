@@ -79,6 +79,58 @@ Feature: Process Actions Scenarios
     And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
     And the assigned GM Specialist (if any) will NOT see the action on "My Specialist Queue" tab, when logged in
 
+  @Regression @playwright @JUAREZDS
+  Scenario: Next test
+    Given a user is logged in with the role of GM Action Manager
+    And clicks on Show Advanced Filters link
+    And for the Action Status drop-down selects "New" option
+    And clicks on the Search button
+    * * * THIS TEST STEP INCLUDES ALL CODE FOR THIS TEST CASEE * * *
+    And clicks on the Process button for any Action
+    Then the following options are displayed:
+      | Assign      |
+      | Cancel      |
+      | Pre-assign  |
+      | Put on Hold |
+    * * * PERFORM THE FOLLOWING STEPS ONLY IF AN ACTION HAS NO SPECIALIST ASSIGNED OR IF THE VIEW NOTES BUBBLE IS BLANK OR JUST HAS A GREEN DOT  * * *
+    And the user is able to select "Put on Hold" option
+    And the system will display warning message "Are you sure you want to put this action on Hold?"
+    And the user will be able to click "Cancel" on the warning message pop-up - the warning message will be closed, no changes will be made
+    When the user clicks on "Put on Hold" option again for the same action again
+    Then the system will display warning message "Are you sure you want to put this action on Hold?"
+    And user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters and clicks OK
+    And verifies the confirmation message displays: Success! Workflow has been successfully processed for 'GPMATS action's grant number'
+    And verifies the Status changes from New to "Hold" for the action
+    And verifies the date stamp of the action is today's date
+    And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
+    When the user selects the 'View Notes' bubble for an action that was put on hold
+    Then the user should see a header in the Notes section that contains the grant number of the current action
+    And the "Special Instruction" header is visible to the user
+    And the user observes that the latest note header displays the date when the note was added
+    And the user observes that the latest note header shows the name of the user who contributed the note
+    And an indication that an action was put on hold is shown to the user via a "HOLD" label next to the author's name in the most recent note header.
+    * * * PERFORM THE FOLLOWING STEPS ONLY IF AN ACTION HAS A SPECIALIST ASSIGNED AND THE VIEW NOTES BUBBLE HAS A RED CHECK MARK WITH OUR WITHOUT A GREEN DOT * * *
+    When the user clicks on the 'Put on Hold' option for an action, and the 'View Notes' bubble has a red check mark, either with or without a green dot.
+    Then the user sees message "Please acknowledge all Special Instruction(s) before processing the action." and cancels the acknowledgement to verify that the previous step can be performed again with the same action
+    When the user clicks on the 'Put on Hold' option for an action, and the 'View Notes' bubble has a red check mark, either with or without a green dot. again
+    Then the user sees message "Please acknowledge all Special Instruction(s) before processing the action."
+    When the user acknowledges and sees message "Are you sure you want to put this action on Hold?"
+    Then user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters and clicks OK
+    And verifies the confirmation message displays: Success! Workflow has been successfully processed for 'GPMATS action's grant number'
+    And verifies the Status changes from New to "Hold" for the action
+    And verifies the date stamp of the action is today's date
+    And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
+    When the user selects the 'View Notes' bubble for an action that was put on hold
+    Then the user should see a header in the Notes section that contains the grant number of the current action
+    And the "Special Instruction" header is visible to the user
+    And the user observes that the latest note header displays the date when the note was added
+    And the user observes that the latest note header shows the name of the user who contributed the note
+    And an indication that an action was put on hold is shown to the user via a "HOLD" label next to the author's name in the most recent note header.
+
+
+
+
+
 
 
 

@@ -47,6 +47,135 @@ public class GPMATS_All_Steps {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Search")).nth(1).click();
     }
 
+    @Given("* * THIS TEST STEP INCLUDES ALL CODE FOR THIS TEST CASEE * * *")
+    public void this_test_step_includes_all_code_for_this_test_casee() {
+        // Constants
+        String processDropDownMenuItems = "//div[@class='dropdown-menu dropdown-menu-right show']/a";
+        String processDropDownButton = "(//div[@class='dropdown']/button)[1]";
+        String putOnHoldOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Put on Hold']";
+
+        // click on the Process button
+        page.waitForSelector(processDropDownButton);
+        page.locator(processDropDownButton).click();
+        MiscUtils.sleep(2000);
+
+        // Verify Process drop down options
+        List<ElementHandle> actualProcessOptions = page.querySelectorAll(processDropDownMenuItems);
+        List<String> expectedProcessOptions = new ArrayList<>();
+        expectedProcessOptions.add("Assign");
+        expectedProcessOptions.add("Cancel");
+        expectedProcessOptions.add("Pre-assign");
+        expectedProcessOptions.add("Put on Hold");
+        List<String> valuesToBeComparedWith = new ArrayList<>();
+        for (ElementHandle processOption : actualProcessOptions) {
+            valuesToBeComparedWith.add(processOption.innerText());
+        }
+        Assert.assertEquals(valuesToBeComparedWith, expectedProcessOptions, "- - - VERIFYING PROCESS OPTIONS - - -");
+        page.waitForSelector("(//i[contains(@class,'bi bi-dash-circle')])[1]");
+        page.locator("(//i[contains(@class,'bi bi-dash-circle')])[1]").click();
+        MiscUtils.sleep(1000);
+
+        // Retrieve the name of the action specialist for the first action
+        String actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();
+
+        // Retrieve the grant number for the first action
+        String grantNumber = page.locator("(//div//a[@ngbtooltip='Click to View Grant Details'])[1]").innerText();
+
+        // Retrieve the actual class attribute value of the View Notes bubble for the first action
+        String actualClassAttributeValueOfViewNotes = page.locator("(//div[@class='grant-icons']/div/div/span)[1]").getAttribute("class");
+
+        String baseString = "THIS IS AN AUTOMATED TEST FOR BOUNDARY TESTING ";
+        String repeatedString = baseString.repeat((2001 / baseString.length()) + 1);
+        String inputString = repeatedString.substring(0, 2001);
+
+        // Perform the following if the View Notes bubble has a red check mark with or without a green dot
+        if (actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked")) {
+            page.locator("(//div[@class='dropdown']/button)[1]").click();
+            page.locator(putOnHoldOption).click();
+
+            Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
+            page.locator("//button[normalize-space()='Acknowledge']").click();
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to put this action On Hold?']").innerText().trim(), "Are you sure you want to put this action On Hold?", "- - - VERIFYING ARE YOU SURE YOU WANT TO PUT ON HOLD THIS ACTION? TEXT - - -");
+            // click cancel to perform previous steps again
+            page.locator("//button[normalize-space()='Cancel']").click();
+            page.waitForLoadState();
+
+            // Performing previous steps again
+            page.locator("(//div[@class='dropdown']/button)[1]").click();
+            page.locator(putOnHoldOption).click();
+            Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
+            page.locator("//button[normalize-space()='Acknowledge']").click();
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to put this action On Hold?']").innerText().trim(), "Are you sure you want to put this action On Hold?", "- - - VERIFYING ARE YOU SURE YOU WANT TO PUT ON HOLD THIS ACTION? TEXT - - -");
+
+            // Verifying that the text box allows only 2000 characters
+            page.waitForSelector("//textarea");
+            page.locator("//textarea").fill(inputString);
+            String actualValue = page.inputValue("//textarea");
+            Assert.assertTrue(actualValue.length() <= 2000, "- - - TEXTBOX ALLOWS MORE THAN 2000 CHARACTERS. - - -");
+            page.locator("//input[@value='OK']").click();
+            page.waitForLoadState();
+
+            // Verifying success message with grants number, status and date
+            Assert.assertTrue(page.locator("//div[@id='submitMessage']/span").innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER IS INCLUDED IN THE SUCCESS MESSAGE TEXT.- - -");
+            Assert.assertEquals(page.locator("//div[normalize-space()='Hold']").innerText().trim(), "Hold", "- - - VERIFYING THE STATUS OF THE ACTION AFTER PUTTING IT ON HOLD - - -");
+            Assert.assertEquals(page.locator("(//td[@class='sorting_3']/app-current-status)[1]/div[2]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING THE DATE OF THE ACTION AFTER PUTTING IT ON HOLD - - -");
+        }
+
+        // Perform the following if the View Notes bubble is blank with or without green dot
+        if (actualClassAttributeValueOfViewNotes.contentEquals("note-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-blank")) {
+            page.locator("(//div[@class='dropdown']/button)[1]").click();
+            page.locator(putOnHoldOption).click();
+
+            //  And the system will display warning message "Are you sure you want to put this action On Hold?" with optional comments box (2000 char max)
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to put this action On Hold?']").innerText().trim(), "Are you sure you want to put this action On Hold?", "- - - VERIFYING ARE YOU SURE YOU WANT TO PUT ON HOLD THIS ACTION? TEXT - - -");
+
+            // Verifying that the text box allows only 2000 characters
+            page.waitForSelector("//textarea");
+            page.locator("//textarea").fill(inputString);
+            String actualValue = page.inputValue("//textarea");
+            Assert.assertTrue(actualValue.length() <= 2000, "- - - TEXTBOX ALLOWS MORE THAN 2000 CHARACTERS. - - -");
+            page.locator("//input[@value='OK']").click();
+            page.waitForLoadState();
+        }
+
+        // Verifying success message with grants number, status and date
+        Assert.assertTrue(page.locator("//div[@id='submitMessage']/span").innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER IS INCLUDED IN THE SUCCESS MESSAGE TEXT.- - -");
+        Assert.assertEquals(page.locator("//div[normalize-space()='Hold']").innerText().trim(), "Hold", "- - - VERIFYING THE STATUS OF THE ACTION AFTER PUTTING IT ON HOLD - - -");
+        Assert.assertEquals(page.locator("(//td[@class='sorting_3']/app-current-status)[1]/div[2]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING THE DATE OF THE ACTION AFTER PUTTING IT ON HOLD - - -");
+
+        // And the changes will be reflected in the "Change History" section along with any comments provided
+        page.waitForSelector("(//i[@ngbtooltip='View Change History'])[1]");
+        page.locator("(//i[@ngbtooltip='View Change History'])[1]").click();
+        page.waitForLoadState();
+        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING CHANGE HISTORY DATE OF PRE-ASSIGNING ACTION IS TODAY - - -");
+        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]").innerText(), "Hold", "- - - VERIFYING CHANGE HISTORY STATUS OF PRE-ASSIGN - - -");
+        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[3]").innerText(), "Baker, Bryan", "- - - VERIFYING CHANGE HISTORY ACTION SPECIALIST OF PRE-ASSIGN - - -");
+        String changeHistoryComments = page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[4]").innerText();
+        Assert.assertTrue(changeHistoryComments.length() <= 2000, "- - - VERIFYING CHANGE HISTORY COMMENTS OF PRE-ASSIGN HAS NO MORE THAN 2000 CHARACTERS - - -");
+
+        // Verifying special instruction notes
+        page.click("//span[@aria-hidden='true'][normalize-space()='×']");
+        page.waitForLoadState();
+
+        page.click("(//div//div[@ngbtooltip='View Notes'])[1]");
+        page.waitForLoadState();
+
+        // Verifying Special Instruction header is displayed
+        Assert.assertEquals(page.locator("//h5[normalize-space()='Special Instructions']").innerText(), "Special Instructions", "- - - VERIFYING SPECIAL INSTRUCTIONS HEADER - - -");
+
+        // Verifying Special instructions notes header contains grants number
+        Assert.assertTrue(page.locator("//div[@class='notes-header']/div/h3").innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER IS INCLUDED IN THE NOTES HEADER - - -");
+
+        // Verifying Special instructions contains today's date stamp
+        Assert.assertTrue(page.locator("//div[@class='special-inst-grid mb-2']/div[2]/div[1]").innerText().contains(CommonUtils.getTodayDate()), "- - - VERIFYING THE DATE OF THE SPECIAL INSTRUCTIONS IS TODAY's DATE - - -");
+
+        // Verifying Special instructions contains the name of the user who entered the comment
+        Assert.assertTrue(page.locator("//div[@class='special-inst-grid mb-2']/div[2]/div[1]").innerText().contains("Bryan Baker"), "- - - VERIFYING THE NAME OF THE USER WHO ENTERED THE SPECIAL INSTRUCTIONS - - -");
+
+        // Verifying Special instructions contains the HOLD status
+        Assert.assertTrue(page.locator("//div[@class='special-inst-grid mb-2']/div[2]/div[1]").innerText().contains("HOLD"), "- - - VERIFYING THE STATUS OF THE SPECIAL INSTRUCTIONS IS HOLD - - -");
+    }
+
     @Given("* * THIS TEST STEP INCLUDES ALL CODE FOR THIS TEST CASE - * * *")
     public void this_test_step_includes_all_code_for_this_test_case() {
         // Constants
@@ -173,7 +302,7 @@ public class GPMATS_All_Steps {
         page.click("//span[@aria-hidden='true'][normalize-space()='×']");
         page.waitForLoadState();
 
-        if(!actionSpecialistName.isEmpty()) {
+        if (!actionSpecialistName.isEmpty()) {
             actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();
             page.locator("#change-user-dropdown").click();
             page.getByText("Enter Last Name, First Name").click();
@@ -185,7 +314,7 @@ public class GPMATS_All_Steps {
             page.locator("(//button[contains(@class,'btn btn-info')])[1]").click();
             page.waitForLoadState();
             List<ElementHandle> grantNumbers = page.querySelectorAll("//div/a[@ngbtooltip='Click to View Grant Details']");
-            for(ElementHandle grantNumberInSpecialistQue : grantNumbers) {
+            for (ElementHandle grantNumberInSpecialistQue : grantNumbers) {
                 Assert.assertFalse(grantNumberInSpecialistQue.innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER OF THE ACTION PRE-ASSIGNED IS NOT DISPLAYED IN THE RESULTS TABLE - - -");
             }
             page.waitForLoadState();
@@ -323,7 +452,7 @@ public class GPMATS_All_Steps {
         page.locator("//button[contains(@class,'btn btn-info')]").click();
         page.waitForLoadState();
         List<ElementHandle> grantNumbers = page.querySelectorAll("//div/a[@ngbtooltip='Click to View Grant Details']");
-        for(ElementHandle grantNumberInSpecialistQue : grantNumbers) {
+        for (ElementHandle grantNumberInSpecialistQue : grantNumbers) {
             Assert.assertTrue(grantNumberInSpecialistQue.innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER OF THE ACTION ASSIGNED TO THE SPECIALIST IS DISPLAYED IN THE RESULTS TABLE - - -");
         }
         page.waitForLoadState();
@@ -453,44 +582,87 @@ public class GPMATS_All_Steps {
     public void perform_the_following_steps_only_if_an_action_has_no_specialist_assigned_or_if_the_view_notes_bubble_is_blank_or_just_has_a_green_dot() {
         CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
     }
+
     @Then("the user is able to select {string} option")
     public void the_user_is_able_to_select_option(String string) {
         CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
     }
+
     @Then("the system will display warning message {string} with optional comments box \\({int} char max)")
     public void the_system_will_display_warning_message_with_optional_comments_box_char_max(String string, Integer int1) {
         CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
     }
+
     @Then("the user will be able to click {string} on the warning message pop-up - the warning message will be closed, no changes will be made")
     public void the_user_will_be_able_to_click_on_the_warning_message_pop_up_the_warning_message_will_be_closed_no_changes_will_be_made(String string) {
         CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
     }
+
     @When("the user clicks on the {string} option again")
     public void the_user_clicks_on_the_option_again(String string) {
         CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
     }
+
     @Then("the user will be able to click {string} on the warning message pop-up")
     public void the_user_will_be_able_to_click_on_the_warning_message_pop_up(String string) {
         CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
     }
+
     @Then("the assigned GM Specialist \\(if any) will NOT see the action on {string} tab, when logged in")
     public void the_assigned_gm_specialist_if_any_will_not_see_the_action_on_tab_when_logged_in(String string) {
         CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
     }
+
     @When("the user clicks on the {string} option for an action, and the {string} bubble has a red check mark, either with or without a green dot.")
     public void the_user_clicks_on_the_option_for_an_action_and_the_bubble_has_a_red_check_mark_either_with_or_without_a_green_dot(String string, String string2) {
         CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
     }
+
     @When("the user clicks on the {string} option for an action, and the {string} bubble has a red check mark, either with or without a green dot. again")
     public void the_user_clicks_on_the_option_for_an_action_and_the_bubble_has_a_red_check_mark_either_with_or_without_a_green_dot_again(String string, String string2) {
         CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
     }
+
     @When("the user acknowledges and sees message {string}")
     public void the_user_acknowledges_and_sees_message(String string) {
         CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
     }
+
     @Then("verifies that the following confirmation message is displayed: 'Success! The workflow for the 'GPMATS action's grant number' has been successfully processed.'")
     public void verifies_that_the_following_confirmation_message_is_displayed_success_the_workflow_for_the_gpmats_action_s_grant_number_has_been_successfully_processed() {
         CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("the system will display warning message {string}")
+    public void the_system_will_display_warning_message(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @When("the user clicks on {string} option again for the same action again")
+    public void the_user_clicks_on_option_again_for_the_same_action_again(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @When("the user selects the {string} bubble for an action that was put on hold")
+    public void the_user_selects_the_bubble_for_an_action_that_was_put_on_hold(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @Then("the user should see a header in the Notes section that contains the grant number of the current action")
+    public void the_user_should_see_a_header_in_the_notes_section_that_contains_the_grant_number_of_the_current_action() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @Then("the {string} header is visible to the user")
+    public void the_header_is_visible_to_the_user(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @Then("the user observes that the latest note header displays the date when the note was added")
+    public void the_user_observes_that_the_latest_note_header_displays_the_date_when_the_note_was_added() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @Then("the user observes that the latest note header shows the name of the user who contributed the note")
+    public void the_user_observes_that_the_latest_note_header_shows_the_name_of_the_user_who_contributed_the_note() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+    @Then("an indication that an action was put on hold is shown to the user via a {string} label next to the author's name in the most recent note header.")
+    public void an_indication_that_an_action_was_put_on_hold_is_shown_to_the_user_via_a_label_next_to_the_author_s_name_in_the_most_recent_note_header(String string) {
+      CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
     }
 }
