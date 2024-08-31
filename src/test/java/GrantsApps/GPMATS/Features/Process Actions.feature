@@ -3,7 +3,7 @@ Feature: Process Actions Scenarios
   Description: This feature file is to test the Process Actions functionality in GPMATS application
 
   @Regression @playwright @JUAREZDS
-  Scenario: Process_Action Manager moves action from New to Awaiting GM Review
+  Scenario: Process Action Manager moves action from New to Awaiting GM Review
     Given a user is logged in with the role of GM Action Manager
     And clicks on Show Advanced Filters link
     And for the Action Status drop-down selects "New" option
@@ -126,6 +126,64 @@ Feature: Process Actions Scenarios
     And the user observes that the latest note header displays the date when the note was added
     And the user observes that the latest note header shows the name of the user who contributed the note
     And an indication that an action was put on hold is shown to the user via a "HOLD" label next to the author's name in the most recent note header.
+
+
+  @GPMATS-1364 @GPMATS-1571 @Progression @playwright @JUAREZDS
+  Scenario: Process Action Manager moves action from New to Cancelled
+    Given a user is logged in with the role of GM Action Manager
+    And clicks on Show Advanced Filters link
+    And for the Action Status drop-down selects "New" option
+    And clicks on the Search button
+    * * * THIS TEST STEP INCLUDES ALL CODE FOR THIS TEST CASE GPMATS-1364 AND GPMATS-1571 * * *
+    And clicks on the Process button for any Action
+    Then the following options are displayed:
+      | Assign      |
+      | Cancel      |
+      | Pre-assign  |
+      | Put on Hold |
+    * * * PERFORM THE FOLLOWING STEPS ONLY IF AN ACTION HAS NO SPECIALIST ASSIGNED OR IF THE VIEW NOTES BUBBLE IS BLANK OR JUST HAS A GREEN DOT  * * *
+    And the user is able to select "Cancel" option
+    And the system will display warning message "Are you sure you want to Cancel this action?"
+    When the user clicks on the Cancellation Reason drop-down
+    Then the following cancellation reasons will be displayed depending on action type:
+      | Award Declined            |
+      | Award is Not Eligible to Be Paid |
+      | Disaggregation            |
+      | Duplicate Award Action    |
+      | Early Pay Type 2          |
+      | Early Transition          |
+      | Folded into an OIA        |
+      | Grant Terminating         |
+      | Moved to Next Fiscal Year |
+      | Skip PFR                  |
+    And the user is prompted to select a "Cancellation Reason" before the "Ok" button becomes enabled.
+    And user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters
+    And the user will be able to click "Cancel" on the warning message pop-up - the warning message will be closed, no changes will be made
+    When the user clicks on "Cancel" option again for the same action again
+    Then the system will display warning message "Are you sure you want to Cancel this action?"
+    When the user clicks on the Cancellation Reason drop-down
+    Then the following cancellation reasons will be displayed depending on action type:
+      | Award Declined            |
+      | Award is Not Eligible to Be Paid |
+      | Disaggregation            |
+      | Duplicate Award Action    |
+      | Early Pay Type 2          |
+      | Early Transition          |
+      | Folded into an OIA        |
+      | Grant Terminating         |
+      | Moved to Next Fiscal Year |
+      | Skip PFR                  |
+    And the user is prompted to select a "Cancellation Reason" before the "Ok" button becomes enabled.
+    And user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters
+    And the user will be able to click "Ok" on the warning message pop-up
+    And verifies the confirmation message displays: Success! Workflow has been successfully processed for 'GPMATS action's grant number'
+    And verifies the Status changes from New to "Cancelled" for the action
+    And verifies the date stamp of the action is today's date
+    And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
+    And the assigned GM Specialist (if any) will NOT see the action on "My Specialist Queue" tab, when logged in
+
+#    And the reviewers (GM Reviewer, GM Manager, GM Leadership) will not be displayed actions in Cancelled status
+#    And GM Action Manager or any logged in user will not be able to process action that is in "Cancelled" status
 
 
 

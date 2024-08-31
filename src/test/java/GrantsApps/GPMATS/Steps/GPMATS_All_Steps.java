@@ -458,6 +458,64 @@ public class GPMATS_All_Steps {
         page.waitForLoadState();
     }
 
+    @Given("* * THIS TEST STEP INCLUDES ALL CODE FOR THIS TEST CASE GPMATS-{int} AND GPMATS-{int} * * *")
+    public void this_test_step_includes_all_code_for_this_test_case_gpmats_and_gpmats(Integer int1, Integer int2) {
+
+        // Constants
+        String processDropDownMenuItems = "//div[@class='dropdown-menu dropdown-menu-right show']/a";
+        String processDropDownButton = "(//div[@class='dropdown']/button)[1]";
+        String assignOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Assign']";
+
+        page.waitForSelector(processDropDownButton);
+        // CLICK ON THE PROCESS BUTTON
+        page.locator(processDropDownButton).click();
+        MiscUtils.sleep(2000);
+        List<ElementHandle> actualProcessOptions = page.querySelectorAll(processDropDownMenuItems);
+        List<String> expectedProcessOptions = new ArrayList<>();
+        expectedProcessOptions.add("Assign");
+        expectedProcessOptions.add("Cancel");
+        expectedProcessOptions.add("Pre-assign");
+        expectedProcessOptions.add("Put on Hold");
+        List<String> valuesToBeComparedWith = new ArrayList<>();
+        for (ElementHandle processOption : actualProcessOptions) {
+            valuesToBeComparedWith.add(processOption.innerText());
+        }
+        // VERIFY PROCESS DROP DOWN OPTIONS
+        Assert.assertEquals(valuesToBeComparedWith, expectedProcessOptions, "- - - VERIFYING PROCESS OPTIONS - - -");
+        page.waitForSelector("(//i[contains(@class,'bi bi-dash-circle')])[1]");
+        page.locator("(//i[contains(@class,'bi bi-dash-circle')])[1]").click();
+        MiscUtils.sleep(1000);
+
+        // RETRIEVE THE NAME OF THE ACTION SPECIALIST FOR THE FIRST ACTION
+        String actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();
+
+        // RETRIEVE THE GRANT NUMBER FOR THE FIRST ACTION
+        String grantNumber = page.locator("(//div//a[@ngbtooltip='Click to View Grant Details'])[1]").innerText();
+
+
+
+    }
+
+    @When("the user clicks on the Cancellation Reason drop-down")
+    public void the_user_clicks_on_the_cancellation_reason_drop_down() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("the following cancellation reasons will be displayed depending on action type:")
+    public void the_following_cancellation_reasons_will_be_displayed_depending_on_action_type(io.cucumber.datatable.DataTable dataTable) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("the user is prompted to select a {string} before the {string} button becomes enabled.")
+    public void the_user_is_prompted_to_select_a_before_the_button_becomes_enabled(String string, String string2) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("user can enter comments in the Status Comments field and verifies that the field does not allow more than {int} characters")
+    public void user_can_enter_comments_in_the_status_comments_field_and_verifies_that_the_field_does_not_allow_more_than_characters(Integer int1) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
     @Then("search results with the New Actions status display")
     public void search_results_with_the_new_actions_status_display() {
         CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
