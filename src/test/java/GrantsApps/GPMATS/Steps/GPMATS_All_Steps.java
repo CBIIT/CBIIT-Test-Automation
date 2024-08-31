@@ -461,15 +461,17 @@ public class GPMATS_All_Steps {
     @Given("* * THIS TEST STEP INCLUDES ALL CODE FOR THIS TEST CASE GPMATS-{int} AND GPMATS-{int} * * *")
     public void this_test_step_includes_all_code_for_this_test_case_gpmats_and_gpmats(Integer int1, Integer int2) {
 
-        // Constants
+        // CONSTANTS
         String processDropDownMenuItems = "//div[@class='dropdown-menu dropdown-menu-right show']/a";
         String processDropDownButton = "(//div[@class='dropdown']/button)[1]";
         String assignOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Assign']";
 
+        // CLICK ON PROCESS DROP-DOWN BUTTON
         page.waitForSelector(processDropDownButton);
-        // CLICK ON THE PROCESS BUTTON
         page.locator(processDropDownButton).click();
         MiscUtils.sleep(2000);
+
+        // VERIFY PROCESS DROP DOWN OPTIONS
         List<ElementHandle> actualProcessOptions = page.querySelectorAll(processDropDownMenuItems);
         List<String> expectedProcessOptions = new ArrayList<>();
         expectedProcessOptions.add("Assign");
@@ -480,7 +482,6 @@ public class GPMATS_All_Steps {
         for (ElementHandle processOption : actualProcessOptions) {
             valuesToBeComparedWith.add(processOption.innerText());
         }
-        // VERIFY PROCESS DROP DOWN OPTIONS
         Assert.assertEquals(valuesToBeComparedWith, expectedProcessOptions, "- - - VERIFYING PROCESS OPTIONS - - -");
         page.waitForSelector("(//i[contains(@class,'bi bi-dash-circle')])[1]");
         page.locator("(//i[contains(@class,'bi bi-dash-circle')])[1]").click();
@@ -492,7 +493,71 @@ public class GPMATS_All_Steps {
         // RETRIEVE THE GRANT NUMBER FOR THE FIRST ACTION
         String grantNumber = page.locator("(//div//a[@ngbtooltip='Click to View Grant Details'])[1]").innerText();
 
+        // RETRIEVE THE ACTUAL CLASS ATTRIBUTE VALUE OF THE VIEW NOTES BUBBLE FOR THE FIRST ACTION
+        String actualClassAttributeValueOfViewNotes = page.locator("(//div[@class='grant-icons']/div/div/span)[1]").getAttribute("class");
 
+        // CREATE A STRING OF 2001 CHARACTERS
+        String baseString = "THIS IS AN AUTOMATED TEST FOR BOUNDARY TESTING ";
+        String repeatedString = baseString.repeat((2001 / baseString.length()) + 1);
+        String inputString = repeatedString.substring(0, 2001);
+
+        // PERFORM THE FOLLOWING IF THE VIEW NOTES BUBBLE HAS A RED CHECK MARK WITH OR WITHOUT A GREEN DOT
+        if (actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked")) {
+            // CLICK ON PROCESS BUTTON
+            page.locator("(//div[@class='dropdown']/button)[1]").click();
+            page.locator(assignOption).click();
+
+            // VERIFY ACKNOWLEDGEMENT OF SPECIAL INSTRUCTIONS
+            Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
+
+            // CLICK ON ACKNOWLEDGE BUTTON
+            page.locator("//button[normalize-space()='Acknowledge']").click();
+
+            // VERIFY ASSIGN ACTION
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Assign this action?']").innerText().trim(), "Are you sure you want to Assign this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO ASSIGN THIS ACTION? TEXT - - -");
+            // click cancel to perform previous steps again
+            page.locator("//button[normalize-space()='Cancel']").click();
+            page.waitForLoadState();
+
+            // Performing previous steps again
+            page.locator("(//div[@class='dropdown']/button)[1]").click();
+            page.locator(assignOption).click();
+            Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
+            page.locator("//button[normalize-space()='Acknowledge']").click();
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Assign this action?']").innerText().trim(), "Are you sure you want to Assign this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO ASSIGN THIS ACTION? TEXT - - -");
+
+            // Verifying that the text box allows only 2000 characters
+            page.waitForSelector("//textarea");
+            page.locator("//textarea").fill(inputString);
+            String actualValue = page.inputValue("//textarea");
+            Assert.assertTrue(actualValue.length() <= 2000, "- - - TEXTBOX ALLOWS MORE THAN 2000 CHARACTERS. - - -");
+            page.locator("//input[@value='OK']").click();
+            page.waitForLoadState();
+
+            // Verifying success message with grants number, status and date
+            Assert.assertTrue(page.locator("//div[@id='submitMessage']/span").innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER IS INCLUDED IN THE SUCCESS MESSAGE TEXT.- - -");
+            Assert.assertEquals(page.locator("//div[normalize-space()='Awaiting GM Review']").innerText().trim(), "Awaiting GM Review", "- - - VERIFYING THE STATUS OF THE ACTION AFTER ASSIGNING IT - - -");
+            Assert.assertEquals(page.locator("(//td[@class='sorting_3']/app-current-status)[1]/div[2]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING THE DATE OF THE ACTION AFTER ASSIGNING IT - - -");
+        }
+
+        // PERFORM THE FOLLOWING IF THE VIEW NOTES BUBBLE IS BLANK WITH OR WITHOUT GREEN DOT
+        if (actualClassAttributeValueOfViewNotes.contentEquals("note-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-blank")) {
+            page.locator("(//div[@class='dropdown']/button)[1]").click();
+            page.locator(assignOption).click();
+
+            // Verifying that the text box allows only 2000 characters
+            page.waitForSelector("//textarea");
+            page.locator("//textarea").fill(inputString);
+            String actualValue = page.inputValue("//textarea");
+            Assert.assertTrue(actualValue.length() <= 2000, "- - - TEXTBOX ALLOWS MORE THAN 2000 CHARACTERS. - - -");
+            page.locator("//input[@value='OK']").click();
+            page.waitForLoadState();
+
+            // Verifying success message with grants number, status and date
+            Assert.assertTrue(page.locator("//div[@id='submitMessage']/span").innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER IS INCLUDED IN THE SUCCESS MESSAGE TEXT.- - -");
+            Assert.assertEquals(page.locator("//div[normalize-space()='Awaiting GM Review']").innerText().trim(), "Awaiting GM Review", "- - - VERIFYING THE STATUS OF THE ACTION AFTER ASSIGNING IT - - -");
+            Assert.assertEquals(page.locator("(//td[@class='sorting_3']/app-current-status)[1]/div[2]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING THE DATE OF THE ACTION AFTER ASSIGNING IT - - -");
+        }
 
     }
 
