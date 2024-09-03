@@ -40,7 +40,7 @@ public class NIFESubmitPage {
     /***
      * POLICY PAGE
      */
-    public static String policies = "Policies";
+    public static String policiesPage = "Policies";
 
     /***
      * VD POLICY PAGE
@@ -50,7 +50,7 @@ public class NIFESubmitPage {
     /***
      * ACCESSIBILITY PAGE
      */
-    public static String accessibility = "Accessibility";
+    public static String accessibilityPage = "Accessibility";
 
     /***
      * VIEWING FILE PAGE
@@ -60,22 +60,22 @@ public class NIFESubmitPage {
     /***
      * FOIA PAGE LINK
      */
-    public static String FOIA = "FOIA";
+    public static String FOIAPage = "FOIA";
 
     /***
      * HHS PAGE
      */
-    public static String HHS = "U.S. Department of Health and";
+    public static String HHSPage = "U.S. Department of Health and";
 
     /***
      * NIH
      */
-    public static String NIH = "National Institutes of Health";
+    public static String NIHPage = "National Institutes of Health";
 
     /***
      * NATIONAL CANCER INSTITUTE
      */
-    public static String NCI = "National Cancer Institute";
+    public static String NCIPage = "National Cancer Institute";
 
     /***
      * USA GOV ELEMENT
@@ -85,7 +85,7 @@ public class NIFESubmitPage {
     /***
      * CCR MICROSCOPY CORE LOCATOR
      */
-    public static String ccsMicroscopyCore = "CCR Confocal Microscopy Core";
+    public static String ccrMicroscopyCore = "CCR Confocal Microscopy Core";
 
     /***
      * CDBL MICROSCOPY CORE LOCATOR
@@ -96,4 +96,109 @@ public class NIFESubmitPage {
      * LCPG MICROSCOPY CORE LOCATOR
      */
     public static String lcpglMicroscopyCore = "LCPG Microscopy Core Facility";
+
+    /***
+     * VOLUME ELECTRON MICROSCOPY LOCATOR
+     */
+    public static String volumeElectronMicroscopy = "Volume Electron Microscopy";
+
+    /***
+     * OPTICAL MICROSCOPY AND IMAGE LOCATOR
+     */
+    public static String opticalMicroscopyImage = "Optical Microscopy and Image";
+
+    /***
+     * NCI HIGH THROUGHPUT IMAGING FACILITY LOCATOR
+     */
+    public static String nciImagingFacility = "NCI High-Throughput Imaging";
+
+    /***
+     * SPATIAL IMAGING TECHNOLOGY RESOURCE LOCATOR
+     */
+    public static String spatialImagingTechnology = "Collaborative Protein";
+
+    /***
+     * CANCER GENOMICS RESEARCH LABORATORY LOCATOR
+     */
+    public static String cancerGenomicsResearchLab = "Molecular and Digital";
+
+    /***
+     * LABORATORY OF RECEPTOR BIOLOGY AND GENE LOCATOR
+     */
+    public static String biologyAndGeneLab = "NCI Optical Microscopy Core";
+
+    /***
+     * ABOUT TAB
+     */
+    public static String aboutTab = "About";
+
+    /***
+     * RESET BUTTON LOCATOR
+     */
+    public static String resetButtonLocator = "//button[@type='reset']";
+
+    /***
+     * SUBMIT BUTTON
+     */
+    public static String submitButtonLocator = "Submit";
+
+    /***
+     * NAME LOCATOR
+     */
+    public static String nameLocator = "Enter LAST NAME, FIRST NAME";
+
+    /***
+     * EMAIL LOCATOR
+     */
+    public static String emailLocator = "Enter Scientist Email";
+
+    /***
+     * DATASET ID LOCATOR
+     */
+    public static String dataSetId = "Enter Study/Dataset ID";
+
+    /***
+     * PRINCIPAL INVESTIGATOR LOCATOR
+     */
+    public static String principalInvestigator = "//input[@id='react-select-3-input']";
+
+    /***
+     * ENTER BIOSAMPLE ID
+     */
+    public static String enterBioSampleId = "Enter Biosample ID";
+
+    /***
+     * BIOSAMPLE DESCRIPTION
+     */
+    public static String biosampleDescription = "Enter Biosample Description";
+
+    /***
+     * ENTER SPECIES LOCATOR
+     */
+    public static String enterSpecies = "Enter Species/Strain";
+
+    /***
+     * ENTER EMBRYO STAGE LOCATOR
+     */
+    public static String enterEmbryoStage = "Enter Embryo Stage";
+
+    /***
+     * DOWNLOAD LOCATOR
+     */
+    public static String downloadLocator = "Download";
+
+    /***
+     * EXCEL FORMAT BUTTON
+     */
+    public static String excelFormat = "//button[contains(text(),'Excel format')]";
+
+    /***
+     * ADD BIOSAMPLE BUTTON
+     */
+    public static String biosampleButton = "Add Biosample";
+
+    /***
+     * ENLARGE BIOSAMPLE SECTION
+     */
+    public static String enlageBiosample = "Biosample 1 copy close";
 }
