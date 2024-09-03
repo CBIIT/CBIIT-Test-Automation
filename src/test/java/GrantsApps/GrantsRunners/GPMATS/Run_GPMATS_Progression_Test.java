@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
         features = "src/test/java/GrantsApps/GPMATS/Features",
         glue = {"GrantsApps.GPMATS.Steps", "Hooks"},
         tags = "@Progression",
-        dryRun = true
+        dryRun = false
 )
 public class Run_GPMATS_Progression_Test extends AbstractTestNGCucumberTests {
 }

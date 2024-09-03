@@ -1,0 +1,117 @@
+package GrantsApps.GPMATS.Steps;
+
+import com.microsoft.playwright.ElementHandle;
+import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.CommonUtils;
+import org.testng.Assert;
+import java.util.ArrayList;
+import java.util.List;
+import static com.nci.automation.web.PlaywrightUtils.page;
+
+public class GPMATS_Common_Methods {
+
+    public static String processDropDownMenuItems = "//div[@class='dropdown-menu dropdown-menu-right show']/a";
+    public static String processDropDownButton = "(//div[@class='dropdown']/button)[1]";
+    public static String putOnHoldOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Put on Hold']";
+    public static String grantNumber = page.locator("(//div//a[@ngbtooltip='Click to View Grant Details'])[1]").innerText();
+
+    /**
+     * Verifies the actual process options against the expected process options.
+     * It compares the list of actual process options obtained from the page with the expected process options,
+     * and asserts if they match. After the verification, it performs additional actions like clicking on an element
+     * and introducing a short delay for further processing.
+     */
+    public static void verifyingActualProcessOptions(){
+        List<ElementHandle> actualProcessOptions = page.querySelectorAll(processDropDownMenuItems);
+        List<String> expectedProcessOptions = new ArrayList<>();
+        expectedProcessOptions.add("Assign");
+        expectedProcessOptions.add("Cancel");
+        expectedProcessOptions.add("Pre-assign");
+        expectedProcessOptions.add("Put on Hold");
+        List<String> valuesToBeComparedWith = new ArrayList<>();
+        for (ElementHandle processOption : actualProcessOptions) {
+            valuesToBeComparedWith.add(processOption.innerText());
+        }
+        Assert.assertEquals(valuesToBeComparedWith, expectedProcessOptions, "- - - VERIFYING PROCESS OPTIONS - - -");
+        page.waitForSelector("(//i[contains(@class,'bi bi-dash-circle')])[1]");
+        page.locator("(//i[contains(@class,'bi bi-dash-circle')])[1]").click();
+        MiscUtils.sleep(1000);
+    }
+
+    /**
+     * Waits for the process drop-down button to be visible on the page,
+     * clicks on the process drop-down button, and then waits for 2 seconds.
+     * This method is used to simulate clicking on the process button of the first action
+     * in a given page or user interface.
+     */
+    public static void clickOnProcessButtonOfFirstAction(){
+        page.waitForSelector(processDropDownButton);
+        page.locator(processDropDownButton).click();
+        MiscUtils.sleep(2000);
+    }
+
+    /**
+     * Generates a boundary test string.
+     *
+     * @return The generated boundary test string.
+     */
+    public static String generateBoundaryTestString() {
+        String baseString = "THIS IS AN AUTOMATED TEST FOR BOUNDARY TESTING ";
+        String repeatedString = baseString.repeat((2001 / baseString.length()) + 1);
+        return repeatedString.substring(0, 2001);
+    }
+
+    /**
+     * Clicks on the "Put on Hold" option of the first action in the process drop-down menu.
+     * This method waits for the process drop-down button to be visible on the page,
+     * clicks on the process drop-down button, and then waits for the "Put on Hold" option to be visible.
+     * Finally, it clicks on the "Put on Hold" option.
+     */
+    public static void clickOnHoldOptionOfFirstAction(){
+        page.waitForSelector(processDropDownButton);
+        page.locator(processDropDownButton).click();
+        page.locator(putOnHoldOption).click();
+    }
+
+    /**
+     * Verifies that the status comments text box does not allow more than 2000 characters.
+     */
+    public static void verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters(){
+        page.waitForSelector("//textarea");
+        page.locator("//textarea").fill(GPMATS_Common_Methods.generateBoundaryTestString());
+        String actualValue = page.inputValue("//textarea");
+        Assert.assertTrue(actualValue.length() <= 2000, "- - - TEXTBOX ALLOWS MORE THAN 2000 CHARACTERS. - - -");
+    }
+
+    /**
+     * Verifies the action on hold by performing the following checks:
+     * 1. Verifies if the grant number is included in the success message text.
+     * 2. Verifies if the status of the action is "Hold" after putting it on hold.
+     * 3. Verifies if the date of the action is today's date after putting it on hold.
+     */
+    public static void verifyActionOnHold() {
+        Assert.assertTrue(page.locator("//div[@id='submitMessage']/span").innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER IS INCLUDED IN THE SUCCESS MESSAGE TEXT.- - -");
+        Assert.assertEquals(page.locator("//div[normalize-space()='Hold']").innerText().trim(), "Hold", "- - - VERIFYING THE STATUS OF THE ACTION AFTER PUTTING IT ON HOLD - - -");
+        Assert.assertEquals(page.locator("(//td[@class='sorting_3']/app-current-status)[1]/div[2]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING THE DATE OF THE ACTION AFTER PUTTING IT ON HOLD - - -");
+    }
+
+    /**
+     * Clicks the "Cancel" button on the page.
+     * This method locates the "Cancel" button using a specific XPath selector and clicks on it.
+     * After clicking the button, it waits for the page to finish loading.
+     */
+    public static void clickCancelButton() {
+        page.locator("//button[normalize-space()='Cancel']").click();
+        page.waitForLoadState();
+    }
+
+    /**
+     * Clicks the "OK" button on the page.
+     * This method locates the "OK" button using a specific XPath selector and clicks on it.
+     * After clicking the button, it waits for the page to finish loading.
+     */
+    public static void clickOkButton(){
+        page.locator("//input[@value='OK']").click();
+        page.waitForLoadState();
+    }
+}
