@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 /**
  * This class contains cucumber related log utilities
  * that will allow you to log them to reports
- * 
+ *
  * @author juarezds
  *
  */

@@ -8,6 +8,6 @@ Feature: Covid-19 Activities Submission page Scenarios
 
   @NERDSNOW-675 @chaudhryma @Regression @selenium
   Scenario:Test Change 'Covid-19 Activities' Option on the 'Categories' Filter to Not Include 'Special Topic' Articles
-    Given a NERD user is viewing the Knowledge Base as a super user Grace Liou
+    Given a NERD user is viewing the Knowledge Base as a super user "hoffmanela@nih.gov"
     When they select the COVID19 Activities Category
     Then no other results are displayed which have 'COVID-19' as the Special Topic Filter
