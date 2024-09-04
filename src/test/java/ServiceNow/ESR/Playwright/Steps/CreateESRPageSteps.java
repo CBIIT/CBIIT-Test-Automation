@@ -18,7 +18,7 @@ public class CreateESRPageSteps {
         CreateESRPageStepsImplementation.navigateToCreateESRPage();
     }
 
-    @And("user sees the create ESR page where {string}, {string} and {string} are displayed")
+    @Then("user sees the create ESR page where {string}, {string} and {string} are displayed")
     public void user_sees_the_create_esr_page_where_and_are_displayed(String customerDetailsText, String projectDetailsText, String teamDetailsText) {
         CreateESRPageStepsImplementation.verifyTextOnCreateESRPage(customerDetailsText, projectDetailsText, teamDetailsText);
     }
@@ -36,6 +36,16 @@ public class CreateESRPageSteps {
     @Then("user sees the ESR page where {string}, {string} and {string} are displayed")
     public void user_sees_the_esr_page_where_and_are_displayed(String customerDetailsText, String projectDetailsText, String teamDetailsText) {
         CreateESRPageStepsImplementation.verifyTextOnESRPage(customerDetailsText, projectDetailsText, teamDetailsText);
+    }
+
+    @And("fills out all required information and clicks submit")
+    public void fills_out_all_required_information_and_clicks_submit() {
+
+    }
+
+    @Then("user sees an ESR-Q ticket was created")
+    public void user_sees_an_esr_q_ticket_was_created() {
+
     }
 
 }
