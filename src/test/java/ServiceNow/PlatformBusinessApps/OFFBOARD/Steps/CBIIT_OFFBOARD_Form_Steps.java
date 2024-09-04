@@ -28,7 +28,7 @@ public class CBIIT_OFFBOARD_Form_Steps {
 
     @Given("I am an Offboarding requester")
     public void i_am_an_offboarding_requester() {
-        OFFBOARD_StepsImpl.i_am_an_offboarding_requester();
+        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
     }
 
     @When("I open the Offboarding request form")
@@ -94,5 +94,35 @@ public class CBIIT_OFFBOARD_Form_Steps {
     @Then("verify that the Hardware Request link URL should be {string}")
     public void verify_that_the_hardware_request_link_url_should_be(String expectedURL) {
         OFFBOARD_StepsImpl.verify_that_the_hardware_request_link_url_should_be(expectedURL);
+    }
+
+    @Given("I am an authenticated user with NCI credential")
+    public void i_am_an_authenticated_user_with_nci_credential() {
+        OFFBOARD_StepsImpl.i_am_an_authenticated_user_with_nci_credential();
+    }
+
+    @When("I fill out an offboarding form for {string} request under the {string} field")
+    public void i_fill_out_an_offboarding_form_for_request_under_the_field(String departure, String departureOrTransferRequest) {
+        OFFBOARD_StepsImpl.i_fill_out_an_offboarding_form_for_request_under_the_field(departure, departureOrTransferRequest);
+    }
+
+    @When("select {string} for {string} field")
+    public void select_for_field(String yes, String hardwareReturnTicketAlreadyCreated) {
+        OFFBOARD_StepsImpl.select_for_field(yes, hardwareReturnTicketAlreadyCreated);
+    }
+
+    @Then("{string} should be required only for departure Request")
+    public void should_be_required_only_for_departure_request(String hardwareReturnTicketNumbers) {
+        OFFBOARD_StepsImpl.should_be_required_only_for_departure_request(hardwareReturnTicketNumbers);
+    }
+
+    @When("I fill out an offboarding form for {string} under the {string} field")
+    public void i_fill_out_an_offboarding_form_for_under_the_field(String transfer, String departureOrTransferRequest) {
+        OFFBOARD_StepsImpl.i_fill_out_an_offboarding_form_for_under_the_field(transfer, departureOrTransferRequest);
+    }
+
+    @Then("{string} should NOT be required for transfer Request")
+    public void should_not_be_required_for_transfer_request(String hardwareReturnTicketNumbers) {
+        OFFBOARD_StepsImpl.should_not_be_required_for_transfer_request(hardwareReturnTicketNumbers);
     }
 }

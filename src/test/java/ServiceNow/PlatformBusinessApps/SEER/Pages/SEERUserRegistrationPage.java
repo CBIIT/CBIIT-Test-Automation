@@ -13,7 +13,7 @@ public class SEERUserRegistrationPage extends CommonUtils {
 	/** --------------- SEER USER REGISTRATION PAGE --------------- */
 
 	/** SEER User Registration Header Text */
-	@FindBy(xpath = "//h1[contains(text(), ' SEER User Registration ')]")
+	@FindBy(xpath = "//h1[normalize-space()='SEER User Registration']")
 	public WebElement seerUserRegistrationHeaderText;
 
 	/** SEER User Registration First Name field */
@@ -108,7 +108,7 @@ public class SEERUserRegistrationPage extends CommonUtils {
 	/** --------------- SEER USER REGISTRATION SUBMISSION CONFIRMATION SECTION --------------- */
 	
 	/** SEER User Registration Is Complete Header */
-	@FindBy (xpath = " //h3[text() = ' Thank you - your registration is complete. ']")
+	@FindBy (xpath = "//h3[normalize-space()='Thank you - your registration is complete.']")
 	public WebElement seerUserRegistrationIsCompleteHeader;
 
 	/** SEER You Already Have Access To SEER Research Data Header */

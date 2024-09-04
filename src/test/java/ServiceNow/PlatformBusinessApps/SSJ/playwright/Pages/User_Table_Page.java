@@ -24,6 +24,6 @@ public class User_Table_Page {
     /**
      * USERS DROPDOWN
      */
-    public static String usersDropDown = "//select[@aria-label='Search a specific field of the Users list']";
+    public static String usersDropDown = "//select[@aria-label='Search a specific field of the Users list, 9 items']";
 
 }

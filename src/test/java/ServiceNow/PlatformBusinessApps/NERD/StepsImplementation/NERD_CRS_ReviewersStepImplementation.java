@@ -11,18 +11,34 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 
 public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
 
     public String topAccomplishmentsAccordion;
 
-    public static void aCRSReviewerIsLoggedIntoNERDsCRSKnowledgeManagementSystem() throws TestingException {
+    /**
+     * Logs in as a CRS reviewer into the NERDs CRS Knowledge Management System.
+     *
+     * @param crsReviewer The username of the CRS reviewer.
+     */
+    public static void aCRSReviewerIsLoggedIntoNERDsCRSKnowledgeManagementSystem(String crsReviewer) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");
+        ServiceNow_Common_Methods.impersonateAnyUser(crsReviewer);
         NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
     }
 
+    /**
+     * Verifies that the following checkbox options are also available:
+     *
+     * @param administrationTransitionMaterial              The administration transition material checkbox option.
+     * @param congressionalJustification                    The congressional justification checkbox option.
+     * @param hhsRequests                                   The HHS requests checkbox option.
+     * @param antiHarrassmentCivilityMaterial                The anti-harassment civility material checkbox option.
+     * @param donnasBlog                                    The Donna's blog checkbox option.
+     * @param furloughPlanning                              The furlough planning checkbox option.
+     * @param equityAndInclusionProgram                     The equity and inclusion program checkbox option.
+     * @param covid19LeadershipMessages                     The COVID-19 leadership messages checkbox option.
+     */
     public static void theFollowingCheckBoxOptionsAreAlsoAvailable(String administrationTransitionMaterial,
                                                                    String congressionalJustification, String hhsRequests, String antiHarrassmentCivilityMaterial,
                                                                    String donnasBlog, String furloughPlanning, String equityAndInclusionProgram,
@@ -33,21 +49,20 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
                 equityAndInclusionProgram, covid19LeadershipMessages);
     }
 
+    /**
+     * Verifies that the following checkbox option is displayed.
+     *
+     * @param covid19LeadershipMessages The COVID-19 leadership messages checkbox option.
+     */
     public static void theFollowingCheckBoxOptionIsDisplayed(String covid19LeadershipMessages) {
         NERDApplicationStepsImplementation.verifyingOfOM_CheckBox(covid19LeadershipMessages);
     }
 
-    public static void aCRSReviewerIsOnTheNERDKnowledgeBasePage() throws TestingException {
-        nerdLoginStepsImplementation.loginToNerd();
-        nativeViewImpersonateUser.impersonateToCRSReviewer();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        WebDriverUtils.webDriver.navigate().refresh();
-        MiscUtils.sleep(5000);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton.click();
-        MiscUtils.sleep(8000);
-        CucumberLogUtils.logScreenshot();
-    }
-
+    /**
+     * Clicks the given special topic filter
+     *
+     * @param SpecialTopic The special topic to filter on.
+     */
     public static void clicksTheFilter(String SpecialTopic) {
         MiscUtils.sleep(5000);
         CommonUtils.assertTrue(
@@ -58,10 +73,29 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Validates that the field options in the knowledge database page match the expected values.
+     *
+     * @param all                              The expected value for the 'All' field option.
+     * @param bigDataDataSharing               The expected value for the 'Big Data Data Sharing' field option.
+     * @param covid19                          The expected value for the 'COVID-19' field option.
+     * @param communications                   The expected value for the 'Communications' field option.
+     * @param earlyDetection                   The expected value for the 'Early Detection' field option.
+     * @param metastatic                       The expected value for the 'Metastatic' field option.
+     * @param minorityHealthHealthDisparities  The expected value for the 'Minority Health Health Disparities' field option.
+     * @param moonshot                         The expected value for the 'Moonshot' field option.
+     * @param partnerships                     The expected value for the 'Partnerships' field option.
+     * @param pediatric                        The expected value for the 'Pediatric' field option.
+     * @param rare                             The expected value for the 'Rare' field option.
+     * @param reportGuidancePolicy             The expected value for the 'Report Guidance Policy' field option.
+     * @param sexGenderDifferences             The expected value for the 'Sex Gender Differences' field option.
+     * @param trainingWorkforceDevelopment     The expected value for the 'Training Workforce Development' field option.
+     * @param womensHealth                     The expected value for the 'Women's Health' field option.
+     * @param workforce                        The expected value for the 'Workforce' field option.
+     */
     public static void theFieldOptionsAre(String all ,String bigDataDataSharing, String covid19, String communications, String earlyDetection,
                                           String metastatic, String minorityHealthHealthDisparities, String moonshot, String partnerships, String pediatric,
-                                          String rare, String reportGuidancePolicy, String sexGenderDifferences, String trainingWorkforceDevelopment, String womensHealth, String workforce)
-    {
+                                          String rare, String reportGuidancePolicy, String sexGenderDifferences, String trainingWorkforceDevelopment, String womensHealth, String workforce) {
         String[] expectedValues = {all, bigDataDataSharing, covid19, communications, earlyDetection,
                 metastatic, minorityHealthHealthDisparities, moonshot, partnerships, pediatric, rare,
                 reportGuidancePolicy, sexGenderDifferences, trainingWorkforceDevelopment, womensHealth, workforce};
@@ -75,27 +109,30 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
             JavascriptUtils.drawBlueBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDDvalues.get(j));
             CommonUtils.assertEquals(expectedValues[j], actualValue[j]);
         }
-        MiscUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
     }
 
-    public static void aCRSReviewerAndEmailIOnTheNERDHomePage(String crsReviewer, String approvedEmail) throws TestingException {
+    /**
+     * This method is used to navigate a CRS reviewer to the NERD Home Page.
+     *
+     * @param crsReviewer The username of the CRS reviewer.
+     */
+    public static void aCRSReviewerIsOnTheNERDHomePage(String crsReviewer) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        nativeViewImpersonateUser.impersonateToAnyCRSReviewerNerd(crsReviewer, approvedEmail);
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        MiscUtils.sleep(1500);
-        CucumberLogUtils.logScreenshot();;
-    }
-
-    public static void aCRSReviewerIsOnTheNERDHomePage() throws TestingException {
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");
+        ServiceNow_Common_Methods.impersonateAnyUser(crsReviewer);
         MiscUtils.sleep(1500);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         MiscUtils.sleep(1500);
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Verifies that three knowledge bases called Nerd, Rock, and Moonshot Evaluation have the expected values.
+     *
+     * @param nerd               The expected value for the Nerd knowledge base text.
+     * @param rock               The expected value for the Rock knowledge base text.
+     * @param moonshotEvaluation The expected value for the Moonshot Evaluation knowledge base text.
+     */
     public static void thereAreThreeKnowledgeBasesCalledAnd(String nerd, String rock, String moonshotEvaluation) {
         CommonUtils.assertEquals(nerd, nerdHomePage.nerdKnowledgeBaseText.getText());
         CommonUtils.assertEquals(rock, nerdHomePage.rockKnowledgeBaseText.getText());
@@ -107,18 +144,29 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method navigates the user to the NERD Knowledge Base page.
+     */
     public static void theUserClicksTheNERDKnowledgeBase() {
         nerdHomePage.nerdKnowledgeBaseText.click();
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();;
     }
 
+    /**
+     * Redirects the user to the Knowledge Base view page and performs validation.
+     */
     public static void theUserIsRedirectedToTheKnowledgeBaseViewPage() {
         CommonUtils.assertTrue(nerdKnowledgeBasePage.nerdKnowledgeBaseViewText.isDisplayed());
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();;
     }
 
+    /**
+     * Verifies the presence of a collapsed accordion with the specified header label.
+     *
+     * @param topAccomplishmentsAccordionText The text of the header label for the accordion.
+     */
     public static void thereIsACollapsedAccordionWithRheHeaderLabeled(String topAccomplishmentsAccordionText) {
         MiscUtils.sleep(7000);
         CommonUtils.waitForVisibility(NERDKnowledgebasePage
@@ -130,11 +178,21 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * The user clicks the header of the accordion to expand or collapse it.
+     *
+     * @param topAccomplishmentsAccordion The label of the accordion header.
+     */
     public static void theUserClicksTheAccordionHeader(String topAccomplishmentsAccordion) {
         NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion).click();
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Expands the accordion with the provided header label.
+     *
+     * @param itemsPerPageAccordionText The text of the header label for the accordion to expand.
+     */
     public static void theAccordionExpands(String itemsPerPageAccordionText) {
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1500);
@@ -145,6 +203,11 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Verifies if the list of all published records is visible.
+     *
+     * @param topAccomplishments The top accomplishments to verify visibility for.
+     */
     public static void aListOfAllPublishedRecordsIsVisible(String topAccomplishments) {
         boolean isListForPublishedTopAccomplishmentsDisplayed = NERDKnowledgebasePage
                 .dynamicXpathNERDKnowledgeBaseAccordionList(topAccomplishments).isDisplayed();
@@ -152,10 +215,16 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();;
     }
 
-    public void aCRSReviewerIsViewingTheListOfThePublished(String topAccomplishmentsAccordion) throws TestingException {
+    /**
+     * a CRS reviewer views the list of published records.
+     *
+     * @param crsReviewer                The username of the CRS reviewer.
+     * @param topAccomplishmentsAccordion The label of the accordion header.
+     */
+    public void aCRSReviewerIsViewingTheListOfThePublished(String crsReviewer, String topAccomplishmentsAccordion) {
         this.topAccomplishmentsAccordion = topAccomplishmentsAccordion;
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");
+        ServiceNow_Common_Methods.impersonateAnyUser(crsReviewer);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         MiscUtils.sleep(1500);
         CucumberLogUtils.logScreenshot();
@@ -164,6 +233,11 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method searches for a record with the given published article title in the NERD Knowledgebase page.
+     *
+     * @param publishedArticleTitle the title of the published article to search for
+     */
     public void thereIsARecordCalled(String publishedArticleTitle) {
         MiscUtils.sleep(10000);
         CommonUtils.waitForVisibility(NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion));
@@ -182,8 +256,12 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    public static void theUserClicksTheTitleOfTheRecord(String titleOfPublishedArticle)
-            throws InterruptedException {
+    /**
+     * The user clicks the title of the published record in the NERD Knowledgebase page.
+     *
+     * @param titleOfPublishedArticle The title of the published article to click.
+     */
+    public static void theUserClicksTheTitleOfTheRecord(String titleOfPublishedArticle) {
         MiscUtils.sleep(5000);
         CommonUtils.waitForVisibility(NERDKnowledgebasePage
                 .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(titleOfPublishedArticle));
@@ -192,6 +270,11 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Redirects the user to the published article view of the record with the given title.
+     *
+     * @param titleOfPublishedArticle the title of the published article
+     */
     public static void theUserIsRedirectedToTheArticleViewOfTheRecord(String titleOfPublishedArticle) {
         CommonUtils.switchToAnotherWindow();
         MiscUtils.sleep(1000);
@@ -202,6 +285,37 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * The following fields and their associated data are visible if the Research Resource is selected above Specify Type.
+     *
+     * @param category                                             The category of the collaboration
+     * @param pleaseSpecify                                        The text to specify more information
+     * @param acronym                                              The acronym of the collaboration
+     * @param fiscalYear                                           The fiscal year of the collaboration
+     * @param description                                          The description of the collaboration
+     * @param websiteURLs                                          The website URLs associated with the collaboration
+     * @param fyTheCollaborativeActivityOriginated                 The fiscal year when the collaborative activity originated
+     * @param leadDOC                                              The lead Department of Commerce (DOC) for the collaboration
+     * @param otherDOCs                                            Other departments of commerce for the collaboration
+     * @param poc                                                  The point of contact for the collaboration
+     * @param references                                           The references for the collaboration
+     * @param nihICsODCollaborators                                The NIH ICs/OD collaborators for the collaboration
+     * @param hhsAgencyCollaborators                               The HHS agency collaborators for the collaboration
+     * @param otherFederalAgencyCollaborators                      The other federal agency collaborators for the collaboration
+     * @param tribalStateLocalGovernmentCollaborators              The tribal/state/local government collaborators for the collaboration
+     * @param foreignGovernmentCollaborators                       The foreign government collaborators for the collaboration
+     * @param nonGovernmentalCollaborators                         The non-governmental collaborators for the collaboration
+     * @param otherCollaborators                                   Other collaborators for the collaboration
+     * @param selectTypeOfCollaborativeActivity                    The type of collaborative activity
+     * @param ifCommiteeIsSelectedAboveIsThisAFacaCommittee        If the committee is selected, is this a FACA committee?
+     * @param isThisCollaborationRelatedToaRegulatoryActivity      Is this collaboration related to a regulatory activity?
+     * @param wasNihFundingProvidedForThisActivity                 Was NIH funding provided for this activity?
+     * @param productsOutputs                                      The products/outputs of the collaboration
+     * @param ifResearchResourceIsSelectedAboveSpecifyType         The type of research resource to specify
+     * @param nihStrategicAlignment                                The NIH strategic alignment
+     * @param hhsStrategicPlanAlignment                            The HHS strategic plan alignment
+     * @param author                                               The author of the collaboration
+     */
     public static void theFollowingFieldsAndTheirAssociatedDataAreVisibleIfResearchResourceIsSelectedAboveSpecifyTypeNihStrategicAlignmentHhsStrategicPlanAlignmentAuthor(
             String category, String pleaseSpecify, String acronym, String fiscalYear, String description,
             String websiteURLs,
@@ -301,6 +415,26 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Checks if the following fields and their associated data are visible for top accomplishments:
+     *
+     * @param category              The category of the top accomplishment
+     * @param rank                  The rank of the top accomplishment
+     * @param title                 The title of the top accomplishment
+     * @param doc                   The document of the top accomplishment
+     * @param description           The description of the top accomplishment
+     * @param cancerSiteType        The cancer site type of the top accomplishment
+     * @param researchType          The research type of the top accomplishment
+     * @param specialTopic          The special topic of the top accomplishment
+     * @param references            The references of the top accomplishment
+     * @param otherReferences       The other references of the top accomplishment
+     * @param collaborations        The collaborations of the top accomplishment
+     * @param fiscalYear            The fiscal year of the top accomplishment
+     * @param pointOfContact        The point of contact of the top accomplishment
+     * @param pointOfContactEmail   The email of the point of contact of the top accomplishment
+     * @param crsContact            The CRS contact of the top accomplishment
+     * @param author                The author of the top accomplishment
+     */
     public static void theFollowingFieldsAndTheirAssociatedDataAreVisibleForTopAccomplishments(String category,
                                                                                                String rank, String title, String doc, String description, String cancerSiteType,
                                                                                                String researchType,
@@ -367,6 +501,24 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CommonUtils.assertTrue(isAuthorDisplayed);
     }
 
+    /**
+     * Verifies if the following fields and their associated data are visible for other accomplishments:
+     *
+     * @param category                The category of the accomplishment
+     * @param doc                     The document associated with the accomplishment
+     * @param otherAccomplishmentType The type of the other accomplishment
+     * @param description             The description of the accomplishment
+     * @param cancerSiteType          The type of the cancer site
+     * @param researchType            The type of research
+     * @param specialTopic            The special topic associated with the accomplishment
+     * @param references              The references of the accomplishment
+     * @param otherReferences         The other references of the accomplishment
+     * @param collaborations          The collaborations associated with the accomplishment
+     * @param fiscalYear              The fiscal year of the accomplishment
+     * @param pointOfContact          The point of contact for the accomplishment
+     * @param crsContact              The CRS contact for the accomplishment
+     * @param author                  The author of the accomplishment
+     */
     public static void theFollowingFieldsAndTheirAssociatedDataAreVisibleForOtherAccomplishments(String category, String doc, String otherAccomplishmentType, String description, String cancerSiteType,
                                                                                                  String researchType, String specialTopic, String references, String otherReferences, String collaborations,
                                                                                                  String fiscalYear, String pointOfContact, String crsContact, String author) {

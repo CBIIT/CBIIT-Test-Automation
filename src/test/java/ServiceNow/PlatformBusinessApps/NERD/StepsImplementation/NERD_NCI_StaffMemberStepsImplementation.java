@@ -10,9 +10,7 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import org.testng.Assert;
-import java.util.Set;
 
 public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
 
@@ -41,42 +39,6 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(submissionName));
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(5000);
-    }
-
-    /**
-     * This method will edit and submit Collaboration to DOC Planing Contact
-     *
-     * @param submissionName
-     */
-    public static void editingAndSubmittingOfCollaborationToDOCPlaningContact(String submissionName) throws TestingException {
-        nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        CommonUtils.waitForVisibility(
-                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
-        JavascriptUtils.scrollIntoView(
-                nerdDynamicXpaths.eiditCRSButton(submissionName));
-        nerdDynamicXpaths.eiditCRSButton(submissionName).click();
-        MiscUtils.sleep(2000);
-        Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
-        for (String currentWindow1 : allWindowHandles1) {
-            WebDriverUtils.webDriver.switchTo().window(currentWindow1);
-        }
-        CommonUtils.waitForVisibility(createNewSubmissionPage.pleaseSpecifyDropDown);
-        CommonUtils.selectDropDownValue("Edited", createNewSubmissionPage.pleaseSpecifyDropDown);
-        CommonUtils.selectDropDownValue("2022", createNewSubmissionPage.fiscalYearDropDown);
-        JavascriptUtils.scrollIntoView(createNewSubmissionPage.editedStaffMemberSubmissionSaveButton);
-        createNewSubmissionPage.editedStaffMemberSubmissionSaveButton.click();
-        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
-        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
-        JavascriptUtils.scrollIntoView(nerdDynamicXpaths.submitButtonToDOCPlanningContact(submissionName));
-        nerdDynamicXpaths.submitButtonToDOCPlanningContact(submissionName).click();
-        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton.click();
-        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
     }
 
     /**
@@ -109,19 +71,6 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
         NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember(submissionName);
-    }
-
-    /**
-     * This method will locate Staff Member to Submissions Page
-     *
-     * @param applicationName
-     */
-    public static void locatingProgramStaffMemberToSubmissionsPage(String applicationName) throws TestingException {
-        nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(applicationName));
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
     }
 
     /**
@@ -171,7 +120,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsAccordionButton.click();
-        MiscUtils.sleep(2000);
+        MiscUtils.sleep(5000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(nerdDynamicXpaths.underReviewText(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
@@ -184,9 +133,9 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      * This method documents the process of doc planning contact returning the top accomplishments submission back to nci staff member.
      * @param submissionName The name of the submission to be returned.
      */
-    public static void doc_planning_contact_returning_the_top_accomplishments_submission_back_to_nci_staff_member(String submissionName) {
+    public static void doc_planning_contact_returning_the_top_accomplishments_submission_back_to_nci_staff_member(String docPlanningContact, String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+        ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();
@@ -298,7 +247,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         nerdcrstOtherAccomplishmentsPage.nerdOtherAccomplishmentsAccordionButton.click();
-        MiscUtils.sleep(2000);
+        MiscUtils.sleep(5000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(nerdDynamicXpaths.underReviewText(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_NAME));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_NAME));
@@ -310,13 +259,15 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     }
 
     /**
-     * This method documents the process of doc planning contact returning the other accomplishments submission back to nci staff member.
+     * This method is used to document the process of the doc planning contact returning the other accomplishments
+     * submission back to the NCI staff member.
      *
-     * @param submissionName
+     * @param docPlanningContact The name of the doc planning contact.
+     * @param submissionName The name of the submission to be returned.
      */
-    public static void doc_planning_contact_returning_the_other_accomplishments_submission_back_to_nci_staff_member(String submissionName) {
+    public static void doc_planning_contact_returning_the_other_accomplishments_submission_back_to_nci_staff_member(String docPlanningContact, String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+        ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();
@@ -410,13 +361,14 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     }
 
     /**
-     * This method documents the process of doc planning contact returning the collaborations submission back to nci staff member.
+     * This method documents the process of the doc planning contact returning the collaborations submission back to an NCI staff member.
      *
+     * @param docPlanningContact The name of the doc planning contact.
      * @param submissionName The name of the submission to be returned.
      */
-    public static void doc_planning_contact_returning_the_collaborations_submission_back_to_nci_staff_member(String submissionName) {
+    public static void doc_planning_contact_returning_the_collaborations_submission_back_to_nci_staff_member(String docPlanningContact, String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+        ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();
@@ -547,13 +499,14 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     }
 
     /**
-     * This method documents the process of planning contact returning the COVID-19 activities submission back to an NCI staff member.
+     * This method documents the process of the doc planning contact returning the COVID-19 activities submission back to the NCI staff member.
      *
+     * @param docPlanningContact The name of the doc planning contact.
      * @param submissionName The name of the submission to be returned.
      */
-    public static void doc_planning_contact_returning_the_covid19_activities_submission_back_to_nci_staff_member(String submissionName) {
+    public static void doc_planning_contact_returning_the_covid19_activities_submission_back_to_nci_staff_member(String docPlanningContact, String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+        ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();
@@ -686,13 +639,14 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     }
 
     /**
-     * This method is used to return the ad hoc data call submission back to an NCI staff member by the doc planning contact.
+     * This method documents the process of the doc planning contact returning the ad hoc data call submission back to NCI staff member.
      *
-     * @param submissionName The name of the submission to be returned.
+     * @param docPlanningContact  The name of the doc planning contact.
+     * @param submissionName      The name of the submission to be returned.
      */
-    public static void doc_planning_contact_returning_the_ad_hoc_data_call_submission_back_to_nci_staff_member(String submissionName) {
+    public static void doc_planning_contact_returning_the_ad_hoc_data_call_submission_back_to_nci_staff_member(String docPlanningContact, String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+        ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();

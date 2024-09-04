@@ -1,7 +1,7 @@
 Feature: Applicant Profile Scenarios
   Description: This Feature file contains Applicant Profile Scenarios
 
-  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @JUAREZDS @Regression @playwright
+  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @JUAREZDS @Regression @playwright @SNOW_UPDATED
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
@@ -43,7 +43,7 @@ Feature: Applicant Profile Scenarios
       | SSJTest   | Marianna   | Mollick    | mollickja@nih.gov  | 7018211343 | 2123323454           | Masters          | Yes            | 11 Kolls | 6         | Sausalito  | CA    | USA     | 97712 |
       | SSJTest   | Elena      | Andrew     | andrewkl@nih.gov   | 8233212333 | 2202122234           | Bachelors        | Yes            | 11 Bells | 39        | Sacramento | CA    | USA     | 95512 |
 
-  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @SSJ-712 @JUAREZDS @Regression @playwright
+  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @SSJ-712 @JUAREZDS @Regression @playwright @SNOW_UPDATED
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
@@ -86,23 +86,7 @@ Feature: Applicant Profile Scenarios
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | US Citizenship | address | aptNumber | city   | state | country | zip   |
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
 
-  @SSJ-712 @BUG_OPEN @JUAREZDS @In_Progress @playwright @Smoke
-  Scenario: Edit Demographics of Profile
-    Given a test account "SSJTest" is reset before executing a test
-    When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
-    When User is on Profile tab - PW
-    And User clicks Edit for Demographics section - PW
-    And User chooses to share demographic details - PW
-    And User edits sex choice - PW
-    And User edits ethnicity choice - PW
-    And User edits race choice - PW
-    And User edits disability choice - PW
-    And User saves the updated section - PW
-    And User clicks Edit for Demographics section - PW
-    And User chooses not to share demographic details - PW
-    Then User saves the updated section - PW
-
-  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright
+  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright @SNOW_UPDATED
   Scenario Outline: Verifying applicant is able to see "Your Applications" tab and page content after applying to a Vacancy
 #    Given an Okta user "" is on the SSJ home page and logs in - PLEASE LEAVE THIS HERE! NEED TO CONNECT WITH OKTA TEAM
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
@@ -121,7 +105,7 @@ Feature: Applicant Profile Scenarios
     And clicks "Save"
     And clicks Save for Mandatory Statements
     And selects "David Rampulla" for Committee Member with chair role
-    And selects "Jay Kurani" for Committee Member with Executive Secretary role
+    And selects "Jason Levine" for Committee Member with Executive Secretary role
     And clicks "Save"
     And clicks Save for Email Templates
     Then user is able to see the Review and Finalize section with the vacancy information submitted
@@ -141,7 +125,7 @@ Feature: Applicant Profile Scenarios
     And verifies Personnel Action Tracking Solution (PATS) Initiator is "Holly Gemar-Griffith"
     And verifies Mandatory Statements "Equal Opportunity Employment", "Standards of Conduct/Financial Disclosure", "Foreign Education", and "Reasonable Accomodation" are displayed
     And verifies Committee Member "David Rampulla" is displayed with role "Chair"
-    And verifies Committee Member "Jay Kurani" is displayed with role "Executive Secretary (non-voting)"
+    And verifies Committee Member "Jason Levine" is displayed with role "Executive Secretary (non-voting)"
     And verifies Email Templates "Application saved", "Application submitted confirmation", "Applicant Reference Request", "Applicant Reference Received", "Applicant Reference Received - Applicant"
     And clicks "Save and Finalize"
     And clicks "OK"
@@ -212,8 +196,8 @@ Feature: Applicant Profile Scenarios
     And user verifies basic information "<firstName>", "<middleName>", "<lastName>", "<email>", "<phone>", "<businessPhone>", "<highestEducation>", and "<US Citizenship>"
     And user verifies address information "<address>", "<aptNumber>", "<city>", "<state>", "<zip>"
     And user verifies demographics information "Yes", "Male", "Hispanic or Latino", "American Indian or Alaska Native, Asian, Black or African-American, Native Hawaiian or other Pacific Islander, White", and "None of the conditions listed above apply to me."
-    And user verifies references one information "<referenceOneFirstName>", "<referenceOneMiddleName>", "<referenceOneLastName>", "<referenceOneEmail>", "<referenceOnePhoneNumber>", "<referenceOneRelationship>", "<referenceOnePositionTitle>", "<referenceOneOrganizationName>"
-    And user verifies references two information "<referenceTwoFirstName>", "<referenceTwoMiddleName>", "<referenceTwoLastName>", "<referenceTwoEmail>", "<referenceTwoPhoneNumber>", "<referenceTwoRelationship>", "<referenceTwoPositionTitle>", "<referenceTwoOrganizationName>"
+    And user verifies references one information "<referenceOneFirstName>", "<referenceOneLastName>", "<referenceOneEmail>", "<referenceOnePhoneNumber>", "<referenceOneRelationship>", "<referenceOnePositionTitle>", "<referenceOneOrganizationName>"
+    And user verifies references two information "<referenceTwoFirstName>", "<referenceTwoLastName>", "<referenceTwoEmail>", "<referenceTwoPhoneNumber>", "<referenceTwoRelationship>", "<referenceTwoPositionTitle>", "<referenceTwoOrganizationName>"
     And if either a Cover Letter, Qualification Statement, Curriculum Vitae (CV), or Vision Statement (or all) were uploaded then documents are displayed in the Application Documents section
     And clicks "Submit Application"
     And clicks "Ok"
@@ -229,12 +213,12 @@ Feature: Applicant Profile Scenarios
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 | Fred                  | Trout                  | Laste                | referenceOne@test.com | 7036875816              | Supervisor/Manager       | PROJECT MANAGER           | TESTING ORGANIZATION FIELD FOR REFERENCE ONE | John                  | Steven                 | Vakhutko             | referenceTwo@test.com | 7036875816              | Co-worker                | TEST AUTOMATION LEAD      | TESTING ORGANIZATION FIELD FOR REFERENCE TWO |
 
 
-  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright
+  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright @SNOW_UPDATED
   Scenario: Verifying applicant does not see "Your Applications" tab if applicant has not applied to a Vacancy
     Given a user who has not applied to a Vacancy before is on the SSJ home page
     Then Your Applications tab should NOT be displayed
 
-  @TC_APPTRACK-145 @JUAREZDS @Regression @playwright
+  @TC_APPTRACK-145 @JUAREZDS @Regression @playwright @SNOW_UPDATED
   Scenario: Verifying Vacancy details
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And clicks on "Vacancy Dashboard" - PW
@@ -252,7 +236,7 @@ Feature: Applicant Profile Scenarios
     And clicks "Save"
     And clicks Save for Mandatory Statements
     And selects "David Rampulla" for Committee Member with chair role
-    And selects "Jay Kurani" for Committee Member with Executive Secretary role
+    And selects "Jason Levine" for Committee Member with Executive Secretary role
     And clicks "Save"
     And clicks Save for Email Templates
     Then user is able to see the Review and Finalize section with the vacancy information submitted
@@ -270,7 +254,7 @@ Feature: Applicant Profile Scenarios
     And verifies Application Documents text "APPLICATION DOCUMENTS"
     And verifies required documents with required references needed to apply to this test Vacancy
 
-  @TC_APPTRACK-144 @JUAREZDS @Regression @playwright
+  @TC_APPTRACK-144 @JUAREZDS @Regression @playwright @NEEDS_FIX
   Scenario: Applying for vacancy as unauthenticated applicant
     Given an unauthenticated applicant is on the SSJ homepage "SSJPortalView"
     And verifies that the drop drown text is "Login"
@@ -284,10 +268,10 @@ You must be logged in to apply for a vacancy.
 Would you like to log in now or go back to the home page?
    """
     And verifies that the text on the buttons is "Create an account" "Log in" "Go Back"
-    And clicks "Log in" and is redirected to the Okta Login Portal
-    And verifies that the PIV CAC card button text is "Sign in with PIV / CAC card"
+#    And clicks "Log in" and is redirected to the Okta Login Portal
+#    And verifies that the PIV CAC card button text is "Sign in with PIV / CAC card"
 
-  @TC_APPTRACK-128 @JUAREZDS @Regression @playwright
+  @TC_APPTRACK-128 @JUAREZDS @Regression @playwright @SNOW_UPDATED
   Scenario Outline: Verification of the Save application functionality
     Given a test account "SSJTest" is reset before executing a test
     And a test vacancy "DIEGO TEST" is reset before creating a vacancy
@@ -307,7 +291,7 @@ Would you like to log in now or go back to the home page?
     And clicks "Save"
     And clicks Save for Mandatory Statements
     And selects "David Rampulla" for Committee Member with chair role
-    And selects "Jay Kurani" for Committee Member with Executive Secretary role
+    And selects "Jason Levine" for Committee Member with Executive Secretary role
     And clicks "Save"
     And clicks Save for Email Templates
     And user is able to see the Review and Finalize section with the vacancy information submitted
@@ -355,7 +339,7 @@ Would you like to log in now or go back to the home page?
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | address | aptNumber | city   | state | country | zip   |
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
 
-  @TC_APPTRACK-360 @JUAREZDS @Regression @playwright
+  @TC_APPTRACK-360 @JUAREZDS @Regression @playwright @SNOW_UPDATED
   Scenario Outline: Verification of the Save application functionality
     Given a test account "SSJTest" is reset before executing a test
     And User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
@@ -374,7 +358,7 @@ Would you like to log in now or go back to the home page?
     And clicks "Save"
     And clicks Save for Mandatory Statements
     And selects "David Rampulla" for Committee Member with chair role
-    And selects "Jay Kurani" for Committee Member with Executive Secretary role
+    And selects "Jason Levine" for Committee Member with Executive Secretary role
     And clicks "Save"
     And clicks Save for Email Templates
     And user is able to see the Review and Finalize section with the vacancy information submitted

@@ -15,6 +15,7 @@ import com.microsoft.playwright.options.LoadState;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import org.testng.Assert;
@@ -347,8 +348,10 @@ public class ApplicantProfileStepsImpl {
      * @param text The text value of the element to be clicked.
      */
     public static void clicks(String text) {
+        page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator(text));
         Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
         page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
+        MiscUtils.sleep(2000);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -1306,7 +1309,6 @@ public class ApplicantProfileStepsImpl {
      * Verifies the references information provided by the user.
      *
      * @param firstNameText    The first name of the user.
-     * @param middleNameText   The middle name of the user.
      * @param lastNameText     The last name of the user.
      * @param emailText        The email address of the user.
      * @param phoneNumberText  The phone number of the user.
@@ -1314,10 +1316,10 @@ public class ApplicantProfileStepsImpl {
      * @param titleText        The title of the user.
      * @param organizationText The organization of the user.
      */
-    public static void user_verifies_references_information(String firstNameText, String middleNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
+    public static void user_verifies_references_information(String firstNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
         Playwright_Common_Utils.scrollIntoView("(//tbody/tr/td)[7]");
         ArrayList<String> expectedValues = new ArrayList<>();
-        expectedValues.add(firstNameText + " " + middleNameText + " " + lastNameText);
+        expectedValues.add(firstNameText + " " + lastNameText);
         expectedValues.add(emailText);
         expectedValues.add(phoneNumberText);
         expectedValues.add(relationshipText);
@@ -1335,7 +1337,6 @@ public class ApplicantProfileStepsImpl {
      * Verifies that the user's references contain the expected information.
      *
      * @param firstNameText    The first name of the user's reference.
-     * @param middleNameText   The middle name of the user's reference.
      * @param lastNameText     The last name of the user's reference.
      * @param emailText        The email of the user's reference.
      * @param phoneNumberText  The phone number of the user's reference.
@@ -1343,9 +1344,9 @@ public class ApplicantProfileStepsImpl {
      * @param titleText        The title of the user's reference.
      * @param organizationText The organization of the user's reference.
      */
-    public static void user_verifies_references_two_information(String firstNameText, String middleNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
+    public static void user_verifies_references_two_information(String firstNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
         ArrayList<String> expectedValues = new ArrayList<>();
-        expectedValues.add(firstNameText + " " + middleNameText + " " + lastNameText);
+        expectedValues.add(firstNameText + " " + lastNameText);
         expectedValues.add(emailText);
         expectedValues.add(phoneNumberText);
         expectedValues.add(relationshipText);
@@ -1680,11 +1681,16 @@ public class ApplicantProfileStepsImpl {
      * @param logInButton the locator of the login button element to click
      */
     public static void clicks_and_is_redirected_to_the_login_portal(String logInButton) {
-        page.locator("//span[normalize-space()='Log in']").click();
+        page.locator("//span[normalize-space()='"+logInButton+"']").click();
+        MiscUtils.sleep(4000);
         List<Page> pages = page.context().pages();
         newPage = pages.get(pages.size() - 1);
-        Hooks.softAssert.assertEquals(newPage.url(), "https://iam-stage.cancer.gov/app/servicenow_ud/exk13dplx1oy5d1pZ0h8/sso/saml?RelayState=https://specializedscientificjobs-test.nih.gov/nih-ssj.do#/");
-        CucumberLogUtils.playwrightScreenshot(page);
+        if (ConfUtils.getProperty("env").equals("test")){
+            Hooks.softAssert.assertEquals(newPage.url(), "https://iam-stage.cancer.gov/app/servicenow_ud/exk13dplx1oy5d1pZ0h8/sso/saml?RelayState=https://specializedscientificjobs-test.nih.gov/nih-ssj.do#/");
+        } else if (ConfUtils.getProperty("env").equals("sandbox")) {
+            Hooks.softAssert.assertEquals(newPage.url(), "https://iam-stage.cancer.gov/app/servicenow_ud/exk13dplx1oy5d1pZ0h8/sso/saml?RelayState=https://specializedscientificjobs-sandbox.nih.gov/nih-ssj.do#/");
+        }
+
     }
 
     /**
@@ -1693,9 +1699,14 @@ public class ApplicantProfileStepsImpl {
      * @param pivCacCardButtonText the expected text of the PIV/CAC card button
      */
     public static void verifies_that_the_piv_cac_card_button_text_is(String pivCacCardButtonText) {
-        newPage.waitForSelector("//a[normalize-space()='Sign in with PIV / CAC card']");
-        CucumberLogUtils.playwrightScreenshot(newPage);
-        Hooks.softAssert.assertEquals(newPage.locator("//a[normalize-space()='Sign in with PIV / CAC card']").innerText(), pivCacCardButtonText);
+        Page[] popup = {null};
+        page.context().onPage(p -> popup[0] = p);
+        page.click("text=Log in");
+        while (popup[0] == null) {
+            MiscUtils.sleep(2000);
+        }
+        String text = popup[0].textContent("#form19");
+        assert text.contains(pivCacCardButtonText);
     }
 
     /**

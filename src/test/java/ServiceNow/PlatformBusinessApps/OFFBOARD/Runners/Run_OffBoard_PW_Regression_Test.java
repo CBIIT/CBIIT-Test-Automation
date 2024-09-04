@@ -1,4 +1,4 @@
-package ServiceNow.PlatformBusinessApps.OFFBOARD.playwright.Runners;
+package ServiceNow.PlatformBusinessApps.OFFBOARD.Runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;

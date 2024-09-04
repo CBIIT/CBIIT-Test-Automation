@@ -81,4 +81,7 @@ public class ReturningSubmissions_Constants {
 
     /* SUBMISSION VIEW RECORD CATEGORY HEADER */
     public static final String SUBMISSION_VIEW_RECORD_CATEGORY_HEADER = "Category";
+
+    /* NATIVE VIEW EMAILS UNDER SYSTEM LOGS URL */
+    public static final String NATIVE_VIEW_EMAILS_UNDER_SYSTEM_LOGS_URL = "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_email_list.do%3Fsysparm_userpref_module%3D8d620b63c611227b008368697b0b8d7b%26sysparm_query%3Dsys_created_onONToday%2540javascript%253Ags.daysAgoStart%25280%2529%2540javascript%253Ags.daysAgoEnd%25280%2529%255EEQ";
 }

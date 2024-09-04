@@ -386,8 +386,7 @@
 
     <!-- Application ID for NERD -->
     <application id="NERD">
-        <login_url>https://service-test.nci.nih.gov/nerd
-        </login_url> <!-- add test url -->
+        <login_url>https://service-test.nci.nih.gov/nerd</login_url> <!-- add test url -->
         <role name="Role">
             <user id="regular">
                 <name>regular</name>
