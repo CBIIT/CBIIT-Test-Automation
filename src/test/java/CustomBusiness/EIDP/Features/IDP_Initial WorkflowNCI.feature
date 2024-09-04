@@ -3,7 +3,7 @@ Feature: NCI Initial workflow Regression testing
   Background:
 #    Given User logs in to EIDP "EidpUrlNCI" as "Username" and "Password"
 
-    @Progression @playwright
+    @IN-PROGRESS @playwright
     Scenario: name of scenario
 #      Given User logs in to EIDP "EidpUrlNCI" as "Username" and "Password"
       Given a user logs in to EIDP "EidpUrlNCI"
