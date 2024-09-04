@@ -1,6 +1,7 @@
 package ServiceNow.ESR.Playwright.StepsImplementation;
 
 import ServiceNow.ESR.Playwright.Pages.CreateESRPage;
+import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.MiscUtils;
@@ -32,4 +33,22 @@ public class CreateESRPageStepsImplementation {
         assertThat(PlaywrightUtils.page.frameLocator(CreateESRPage.iframeSelector).getByLabel(CreateESRPage.fullESRText)).containsText(teamDetailsText);
     }
 
+    public static void navigateToNCIPortalView() {
+        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
+        PlaywrightUtils.page.getByPlaceholder(CreateESRPage.filterBoxNativeView).click();
+        PlaywrightUtils.page.getByPlaceholder(CreateESRPage.filterBoxNativeView).fill(CreateESRPage.NCIAtYourServiceText);
+        PlaywrightUtils.page.getByLabel(CreateESRPage.NCIAtYourServiceText, new Page.GetByLabelOptions().setExact(true)).click();
+    }
+
+    public static void navigateToCreateESRPortalView() {
+        PlaywrightUtils.page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName(CreateESRPage.searchBoxPortalView)).click();
+        PlaywrightUtils.page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName(CreateESRPage.searchBoxPortalView)).fill(CreateESRPage.fullESRText);
+        PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(CreateESRPage.fullESRTextIcon)).click();
+    }
+
+    public static void verifyTextOnESRPage(String customerDetailsText, String projectDetailsText, String teamDetailsText) {
+        assertThat(PlaywrightUtils.page.locator(CreateESRPage.customerDetailsContainer)).containsText(customerDetailsText);
+        assertThat(PlaywrightUtils.page.locator(CreateESRPage.projectDetailsContainer)).containsText(projectDetailsText);
+        assertThat(PlaywrightUtils.page.locator(CreateESRPage.teamDetailsContainer)).containsText(teamDetailsText);
+    }
 }

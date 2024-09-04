@@ -22,4 +22,20 @@ public class CreateESRPageSteps {
     public void user_sees_the_create_esr_page_where_and_are_displayed(String customerDetailsText, String projectDetailsText, String teamDetailsText) {
         CreateESRPageStepsImplementation.verifyTextOnCreateESRPage(customerDetailsText, projectDetailsText, teamDetailsText);
     }
+
+    @Given("a user logs into NCI at your service page")
+    public void a_user_logs_into_nci_at_your_service_page() {
+        CreateESRPageStepsImplementation.navigateToNCIPortalView();
+    }
+
+    @And("navigates to Engineering Support Requests")
+    public void navigates_to_engineering_support_requests() {
+        CreateESRPageStepsImplementation.navigateToCreateESRPortalView();
+    }
+
+    @Then("user sees the ESR page where {string}, {string} and {string} are displayed")
+    public void user_sees_the_esr_page_where_and_are_displayed(String customerDetailsText, String projectDetailsText, String teamDetailsText) {
+        CreateESRPageStepsImplementation.verifyTextOnESRPage(customerDetailsText, projectDetailsText, teamDetailsText);
+    }
+
 }

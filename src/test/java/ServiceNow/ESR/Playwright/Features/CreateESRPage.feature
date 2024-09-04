@@ -11,9 +11,7 @@ Feature: Create ESR Page
   Scenario: Test an authenticated user access on the create ESR page in Portal View
     Given a user logs into NCI at your service page
     And navigates to Engineering Support Requests
-    Then user sees the create ESR page where "Customer Details", "Project Details" and "Team Details" are displayed
-
-    // Do a test case wheere you create ESR from service portal as well
+    Then user sees the ESR page where "Customer Details", "Project Details" and "Team Details" are displayed
 
 #  @ESR-??? @ESR-??? @sarwarahmed1 @Progression @playwright
 #  Scenario: Test creating an ESR-Q ticket
