@@ -5,7 +5,7 @@ public class Playwright_NativeView_Dashboard_Page {
     /**
      * PROFILE BUTTON
      */
-    public static String profileButton = "Avatar: available, user";
+    public static String profileButton = "css=div.item-label.keyboard-navigatable.snf-collapsible-list-header-button[role = 'button'][aria-label='Availability']";
 
     /**
      * IMPERSONATE USER OPTION

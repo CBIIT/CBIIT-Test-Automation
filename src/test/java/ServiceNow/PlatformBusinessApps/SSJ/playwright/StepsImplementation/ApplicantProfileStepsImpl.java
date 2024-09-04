@@ -9,19 +9,19 @@ import ServiceNow.PlatformBusinessApps.SSJ.utils.SSJ_Constants;
 import appsCommon.Pages.Playwright_Common_Locators;
 import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
-import com.microsoft.playwright.ElementHandle;
-import com.microsoft.playwright.FrameLocator;
-import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.Page;
+import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.LoadState;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import org.testng.Assert;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -29,6 +29,9 @@ import java.util.stream.Collectors;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class ApplicantProfileStepsImpl {
+
+    public static Page newPage;
+    public static String timestamp;
 
     /***
      * THIS METHOD LOGS INTO SSJ WITH AN IMPERSONATED USER
@@ -152,7 +155,6 @@ public class ApplicantProfileStepsImpl {
      * USE THIS METHOD TO EDIT DEMOGRAPHICS SECTION
      */
     public static void user_clicks_edit_for_demographics_section() {
-        PlaywrightUtils.page.locator(Profile_Tab_Page.demographicsOptionalTab).click();
         PlaywrightUtils.page.locator(Profile_Tab_Page.demographicsEditButton).click();
     }
 
@@ -184,7 +186,7 @@ public class ApplicantProfileStepsImpl {
                 page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: " + text).click();
                 CucumberLogUtils.playwrightScreenshot(page);
                 page.waitForLoadState();
-                MiscUtils.sleep(1000);
+                MiscUtils.sleep(2000);
                 page.reload();
                 MiscUtils.sleep(1000);
                 page.frameLocator("iframe[name=\"gsft_main\"]").locator("#sysverb_delete").click();
@@ -233,7 +235,10 @@ public class ApplicantProfileStepsImpl {
      * @param vacancyName The name of the vacancy title to enter.
      */
     public static void enters_vacancy_title_name_pw(String vacancyName) {
-        page.getByPlaceholder("Please enter").fill(vacancyName);
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+        LocalDateTime now = LocalDateTime.now();
+        timestamp = dtf.format(now);
+        page.getByPlaceholder("Please enter").fill(vacancyName + " " + timestamp);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -343,8 +348,10 @@ public class ApplicantProfileStepsImpl {
      * @param text The text value of the element to be clicked.
      */
     public static void clicks(String text) {
+        page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator(text));
         Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
         page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
+        MiscUtils.sleep(2000);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -418,7 +425,7 @@ public class ApplicantProfileStepsImpl {
      * @param vacancyTitle The vacancy title to verify.
      */
     public static void verifies_vacancy_title(String vacancyTitle) {
-        Hooks.softAssert.assertEquals(page.locator("((//div[@class='SectionContent'])[1]/div[1]/div/p)[1]").innerText(), vacancyTitle);
+        Hooks.softAssert.assertEquals(page.locator("((//div[@class='SectionContent'])[1]/div[1]/div/p)[1]").innerText(), vacancyTitle + " " + timestamp);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -652,8 +659,15 @@ public class ApplicantProfileStepsImpl {
      * @param vacancyTitle The title of the vacancy to be clicked.
      */
     public static void clicks_on_vacancy_title(String vacancyTitle) {
-        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle));
-        page.locator(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle)).click();
+        List<ElementHandle> pagination = page.querySelectorAll("//a[@rel='nofollow']");
+        for (ElementHandle itemPage : pagination) {
+            if (page.querySelector("//a[normalize-space()='" + vacancyTitle + " " + timestamp + "']") != null) {
+                page.locator("//a[normalize-space()='" + vacancyTitle + " " + timestamp + "']").click();
+                break;
+            } else {
+                itemPage.click();
+            }
+        }
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -1295,7 +1309,6 @@ public class ApplicantProfileStepsImpl {
      * Verifies the references information provided by the user.
      *
      * @param firstNameText    The first name of the user.
-     * @param middleNameText   The middle name of the user.
      * @param lastNameText     The last name of the user.
      * @param emailText        The email address of the user.
      * @param phoneNumberText  The phone number of the user.
@@ -1303,10 +1316,10 @@ public class ApplicantProfileStepsImpl {
      * @param titleText        The title of the user.
      * @param organizationText The organization of the user.
      */
-    public static void user_verifies_references_information(String firstNameText, String middleNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
+    public static void user_verifies_references_information(String firstNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
         Playwright_Common_Utils.scrollIntoView("(//tbody/tr/td)[7]");
         ArrayList<String> expectedValues = new ArrayList<>();
-        expectedValues.add(firstNameText + " " + middleNameText + " " + lastNameText);
+        expectedValues.add(firstNameText + " " + lastNameText);
         expectedValues.add(emailText);
         expectedValues.add(phoneNumberText);
         expectedValues.add(relationshipText);
@@ -1324,7 +1337,6 @@ public class ApplicantProfileStepsImpl {
      * Verifies that the user's references contain the expected information.
      *
      * @param firstNameText    The first name of the user's reference.
-     * @param middleNameText   The middle name of the user's reference.
      * @param lastNameText     The last name of the user's reference.
      * @param emailText        The email of the user's reference.
      * @param phoneNumberText  The phone number of the user's reference.
@@ -1332,9 +1344,9 @@ public class ApplicantProfileStepsImpl {
      * @param titleText        The title of the user's reference.
      * @param organizationText The organization of the user's reference.
      */
-    public static void user_verifies_references_two_information(String firstNameText, String middleNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
+    public static void user_verifies_references_two_information(String firstNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
         ArrayList<String> expectedValues = new ArrayList<>();
-        expectedValues.add(firstNameText + " " + middleNameText + " " + lastNameText);
+        expectedValues.add(firstNameText + " " + lastNameText);
         expectedValues.add(emailText);
         expectedValues.add(phoneNumberText);
         expectedValues.add(relationshipText);
@@ -1456,7 +1468,6 @@ public class ApplicantProfileStepsImpl {
      * 1. Logs in using a side door test account.
      * 2. Navigates to the SSJ portal view.
      * 3. Takes a screenshot of the page using Playwright.
-     *
      */
     public static void a_user_who_has_not_applied_to_a_vacancy_before_is_on_the_ssj_home_page() {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
@@ -1481,7 +1492,7 @@ public class ApplicantProfileStepsImpl {
      */
     public static void verifies_vacancy_title_is(String expectedVacancyTitle) {
         CucumberLogUtils.playwrightScreenshot(page);
-        Hooks.softAssert.assertEquals(page.locator("//div[@class='TitleAndDateContainer']/h1").innerText(), expectedVacancyTitle);
+        Hooks.softAssert.assertEquals(page.locator("//*[normalize-space()='" + expectedVacancyTitle + " " + timestamp + "']").innerText(), expectedVacancyTitle + " " + timestamp);
     }
 
     /**
@@ -1583,5 +1594,262 @@ public class ApplicantProfileStepsImpl {
             CucumberLogUtils.scenario.log("* * * APPLICATION DOES NOT EXIST - TEST CONTINUES * * *");
         }
         Playwright_ServiceNow_Common_Methods.logOutOfNativeView();
+    }
+
+    /**
+     * Navigates an unauthenticated applicant to the SSJ homepage.
+     *
+     * @param ssjHomePage the URL of the SSJ homepage
+     */
+    public static void an_unauthenticated_applicant_is_on_the_ssj_homepage(String ssjHomePage) {
+        page.navigate(EnvUtils.getApplicationUrl(ssjHomePage));
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Verifies whether the drop down text is as expected.
+     *
+     * @param expectedDropDownText The expected text of the drop down
+     */
+    public static void verifies_that_the_drop_drown_text_is(String expectedDropDownText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//header[@class='Header']//span[2]").innerText(), expectedDropDownText);
+    }
+
+    /**
+     * Clicks on the first vacancy from the list of available vacancies.
+     * It locates the first vacancy on the page and performs a click action on it.
+     * Additionally, it captures a screenshot of the page using the Playwright framework.
+     *
+     * @return void
+     */
+    public static void clicks_on_the_first_vacancy() {
+        page.locator("(//td[@class='ant-table-cell'])[1]/a").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method verifies that the sign-in and apply button text is as expected.
+     * It uses the provided expectedSignInButtonText parameter to compare the actual button text.
+     *
+     * @param expectedSignInButtonText The expected text of the sign-in and apply button
+     */
+    public static void verifies_that_sign_in_and_apply_button_text_is(String expectedSignInButtonText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//button[@class='ant-btn ant-btn-primary']//span").innerText(), expectedSignInButtonText);
+    }
+
+    /**
+     * Verifies that the pop-up header text is equal to the expected modal header text.
+     *
+     * @param expectedModalHeaderText the expected modal header text
+     */
+    public static void verifies_that_the_pop_up_header_text_is(String expectedModalHeaderText) {
+        page.waitForSelector("//div[@class='ant-modal-title']");
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//div[@class='ant-modal-title']").innerText(), expectedModalHeaderText);
+    }
+
+    /**
+     * Verifies that the pop-up body text is equal to the expected modal body text.
+     *
+     * @param expectedModalBodyText The expected body text of the pop-up.
+     */
+    public static void verifies_that_the_pop_up_body_text_is(String expectedModalBodyText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//div[@class='ant-typography']").innerText(), expectedModalBodyText);
+    }
+
+    /**
+     * Verifies that the button text is as expected.
+     *
+     * @param expectedCreateAnAccountText The expected text for the "Create an account" button.
+     * @param expectedLogInText           The expected text for the "Log in" button.
+     * @param expectedGoBackText          The expected text for the "Go Back" button.
+     */
+    public static void verifies_that_the_button_text_is(String expectedCreateAnAccountText, String expectedLogInText, String expectedGoBackText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//span[normalize-space()='Create an account']").innerText(), expectedCreateAnAccountText);
+        Hooks.softAssert.assertEquals(page.locator("//span[normalize-space()='Log in']").innerText(), expectedLogInText);
+        Hooks.softAssert.assertEquals(page.locator("//span[normalize-space()='Go Back']").innerText(), expectedGoBackText);
+    }
+
+    /**
+     * Performs a click action on the specified login button and ensures that the user
+     * is redirected to the login portal.
+     *
+     * @param logInButton the locator of the login button element to click
+     */
+    public static void clicks_and_is_redirected_to_the_login_portal(String logInButton) {
+        page.locator("//span[normalize-space()='"+logInButton+"']").click();
+        MiscUtils.sleep(4000);
+        List<Page> pages = page.context().pages();
+        newPage = pages.get(pages.size() - 1);
+        if (ConfUtils.getProperty("env").equals("test")){
+            Hooks.softAssert.assertEquals(newPage.url(), "https://iam-stage.cancer.gov/app/servicenow_ud/exk13dplx1oy5d1pZ0h8/sso/saml?RelayState=https://specializedscientificjobs-test.nih.gov/nih-ssj.do#/");
+        } else if (ConfUtils.getProperty("env").equals("sandbox")) {
+            Hooks.softAssert.assertEquals(newPage.url(), "https://iam-stage.cancer.gov/app/servicenow_ud/exk13dplx1oy5d1pZ0h8/sso/saml?RelayState=https://specializedscientificjobs-sandbox.nih.gov/nih-ssj.do#/");
+        }
+
+    }
+
+    /**
+     * Verifies that the PIV/CAC card button text is equal to the provided value.
+     *
+     * @param pivCacCardButtonText the expected text of the PIV/CAC card button
+     */
+    public static void verifies_that_the_piv_cac_card_button_text_is(String pivCacCardButtonText) {
+        Page[] popup = {null};
+        page.context().onPage(p -> popup[0] = p);
+        page.click("text=Log in");
+        while (popup[0] == null) {
+            MiscUtils.sleep(2000);
+        }
+        String text = popup[0].textContent("#form19");
+        assert text.contains(pivCacCardButtonText);
+    }
+
+    /**
+     * Takes a string expectedQuestionText as a parameter and validates that there is no question in the page content that matches the expectedQuestionText.
+     * If a matching question is found, a screenshot is taken using the Playwright framework and an assertion failure is triggered using the Hooks.softAssert class.
+     *
+     * @param expectedQuestionText the text of the question that is expected to be absent in the page content
+     */
+    public static void user_sees_there_is_no_question_that_reads(String expectedQuestionText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertFalse(page.content().contains(expectedQuestionText));
+    }
+
+    /**
+     * Confirms that the user sees a statement at the top of the screen with the expected text.
+     *
+     * @param expectedStatementText The expected text of the statement.
+     */
+    public static void user_sees_there_is_a_statement_that_reads_at_the_top_of_the_screen(String expectedStatementText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//*[text()='Any reference provided can be contacted at any point in the recruitment process.']").innerText(), expectedStatementText);
+    }
+
+    public static void user_clicks_on_save_application_button() {
+        Playwright_Common_Utils.scrollIntoView("(//span[normalize-space()='Save Application'])[1]");
+        page.locator("//span[normalize-space()='Save Application']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    public static void verifies_that_successful_save_alert_is_displayed(String expectedSuccessfulText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//*[text()='Application successfully saved ']").textContent(), expectedSuccessfulText);
+    }
+
+    public static void verifies_that_the_application_became_a_draft(String expectedDraftText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("//*[text()='" + "DIEGO TEST" + " " + timestamp + "']/parent::td/following-sibling::td/span").innerText(), expectedDraftText);
+    }
+
+    public static void clicks_the_application(String vacancyTitle) {
+        if (timestamp == null) {
+            Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle));
+            page.locator(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle)).click();
+        } else {
+            Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle + " " + timestamp));
+            page.locator(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle + " " + timestamp)).click();
+        }
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    public static void clicks_edit_vacancy(String applicationName) {
+        Playwright_Common_Utils.scrollIntoView("(//a[@rel='nofollow'])[1]");
+        List<ElementHandle> pagination = page.querySelectorAll("//a[@rel='nofollow']");
+        for (ElementHandle itemPage : pagination) {
+            if (page.querySelector("//a[normalize-space()='" + applicationName + " " + timestamp + "']") != null) {
+                page.locator("//td[normalize-space()='" + applicationName + " " + timestamp + "']/following-sibling::td//button/span[text()=' Edit']").click();
+                break;
+            } else {
+                itemPage.click();
+            }
+        }
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    public static void verifies_that_reference_one_is_updated(String expectedUpdatedReferenceOneFirstName, String expectedUpdatedReferenceOneMiddleName, String expectedUpdatedReferenceOneLastName, String expectedUpdatedReferenceOneEmail, String expectedUpdatedReferenceOnePhoneNumber, String expectedUpdatedReferenceOnePositionTitle, String expectedUpdatedReferenceOneOrganizationName) {
+        page.locator("#references_0_firstName");
+        page.locator("#references_0_middleName");
+        page.locator("#references_0_lastName");
+        page.locator("#references_0_email");
+        page.locator("#references_0_phoneNumber");
+        page.locator("#references_0_title");
+        page.locator("#references_0_organization");
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("#references_0_firstName").inputValue(), expectedUpdatedReferenceOneFirstName);
+        Hooks.softAssert.assertEquals(page.locator("#references_0_middleName").inputValue(), expectedUpdatedReferenceOneMiddleName);
+        Hooks.softAssert.assertEquals(page.locator("#references_0_lastName").inputValue(), expectedUpdatedReferenceOneLastName);
+        Hooks.softAssert.assertEquals(page.locator("#references_0_email").inputValue(), expectedUpdatedReferenceOneEmail);
+        Hooks.softAssert.assertEquals(page.locator("#references_0_phoneNumber").inputValue(), expectedUpdatedReferenceOnePhoneNumber);
+        Hooks.softAssert.assertEquals(page.locator("#references_0_title").inputValue(), expectedUpdatedReferenceOnePositionTitle);
+        Hooks.softAssert.assertEquals(page.locator("#references_0_organization").inputValue(), expectedUpdatedReferenceOneOrganizationName);
+    }
+
+    public static void verifies_tha_reference_two_is_updated(String expectedUpdatedReferenceTwoFirstName, String expectedUpdatedReferenceTwoMiddleName, String expectedUpdatedReferenceTwoLastName, String expectedUpdatedReferenceTwoEmail, String expectedUpdatedReferenceTwoPhoneNumber, String expectedUpdatedReferenceTwoPositionTitle, String expectedUpdatedReferenceTwoOrganizationName) {
+        page.locator("#references_1_firstName");
+        page.locator("#references_1_middleName");
+        page.locator("#references_1_lastName");
+        page.locator("#references_1_email");
+        page.locator("#references_1_phoneNumber");
+        page.locator("#references_1_title");
+        page.locator("#references_1_title");
+        page.locator("#references_1_organization");
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(page.locator("#references_1_firstName").inputValue(), expectedUpdatedReferenceTwoFirstName);
+        Hooks.softAssert.assertEquals(page.locator("#references_1_middleName").inputValue(), expectedUpdatedReferenceTwoMiddleName);
+        Hooks.softAssert.assertEquals(page.locator("#references_1_lastName").inputValue(), expectedUpdatedReferenceTwoLastName);
+        Hooks.softAssert.assertEquals(page.locator("#references_1_email").inputValue(), expectedUpdatedReferenceTwoEmail);
+        Hooks.softAssert.assertEquals(page.locator("#references_1_phoneNumber").inputValue(), expectedUpdatedReferenceTwoPhoneNumber);
+        Hooks.softAssert.assertEquals(page.locator("#references_1_title").inputValue(), expectedUpdatedReferenceTwoPositionTitle);
+        Hooks.softAssert.assertEquals(page.locator("#references_1_organization").inputValue(), expectedUpdatedReferenceTwoOrganizationName);
+    }
+
+    public static void clicks_on_remove_button() {
+        page.locator("//td[normalize-space()='" + "DIEGO TEST" + " " + timestamp + "']/following-sibling::td//div/button/span[text()=' Remove']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    public static void that_the_draft_was_removed(String Confirm) {
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(Confirm));
+        page.locator(Playwright_Common_Locators.dynamicTextLocator(Confirm)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    public static void verifies_that_the_draft_is_no_longer_showing_under_your_application_tab() {
+        boolean isFound = false;
+        Playwright_Common_Utils.scrollIntoView("(//a[@rel='nofollow'])[1]");
+        List<ElementHandle> pagination = page.querySelectorAll("//a[@rel='nofollow']");
+        for (ElementHandle itemPage : pagination) {
+            if (page.querySelector("//a[normalize-space()='" + "DIEGO TEST" + " " + timestamp + "']") != null) {
+                isFound = true;
+                break;
+            } else {
+                itemPage.click();
+            }
+        }
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertFalse(isFound);
+    }
+
+    public static void user_withdraws_the_application() {
+        page.locator("//td[normalize-space()='" + "DIEGO TEST" + " " + timestamp + "']/following-sibling::td//div/button/span[text()='Withdraw']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    public static void withdrawing_the_application(String Withdraw) {
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(Withdraw));
+        page.locator(Playwright_Common_Locators.dynamicTextLocator(Withdraw)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    public static void verifies_that_the_application_status_is(String expectedWithdrawnText) {
+        String actualWithdrawnText = page.locator("//td[normalize-space()='" + "DIEGO TEST" + " " + timestamp + "']/following-sibling::td/span[text()='withdrawn']").innerText();
+        CucumberLogUtils.playwrightScreenshot(page);
+        Hooks.softAssert.assertEquals(actualWithdrawnText, expectedWithdrawnText);
     }
 }
