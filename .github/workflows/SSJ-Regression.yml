@@ -33,7 +33,7 @@ jobs:
           sed -i "s/SIDE_DOOR_USERNAME/${{ secrets.SIDEDOORUSERNAME }}/g" src/main/resources/conf/cloudEnv.properties
           sed -i "s/SIDE_DOOR_PASSWORD/${{ secrets.SIDEDOORPASSWORD }}/g" src/main/resources/conf/cloudEnv.properties
           sed -i "s/BROWSER_VAR/${{ github.event.inputs.testBrowser }}/g" src/main/resources/conf/cloudEnv.properties
-          sed -i "s/ENV_VAR/test/g" src/main/resources/conf/cloudEnv.properties
+          sed -i "s/ENV_VAR/stage/g" src/main/resources/conf/cloudEnv.properties
       - name: Run specific runner class
         run: mvn -B -q -Dtest=SSJ_Regression_Runners -DisCloud=true test
         continue-on-error: true
@@ -55,7 +55,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          git config --global user.email "diegojuarezbusiness@gmail.com"
+          git config --global user.email "dsjnih@gmail.com"
           git config --global user.name "iamdez99"
           git stash
           git fetch
