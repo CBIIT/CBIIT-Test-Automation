@@ -1,6 +1,6 @@
 Feature: Applicant Flow Scenarios
 
-  @Regression @Nekrashevich @SSJ-948 @selenium @Smoke @SNOW_UPDATED @LUIS
+  @Regression @Nekrashevich @SSJ-948 @selenium @Smoke @SNOW_UPDATED
   Scenario: Applicant view of SSJ Landing page
     Given User is on SSJ Landing page and user is "Okta Verified Applicant"
     And User can see SSJ landing page title "Specialized Scientific Jobs"
