@@ -59,7 +59,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
      * Search button Add document Page
      */
     @FindBy(xpath = "//button[@id='btnSearch']")
-    public WebElement searchButtonOnAddDocumentPage;
+    public WebElement searchButtonOnAddDocPage;
 
     /**
      * Grants drop-down
@@ -70,7 +70,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Grant year 18
      */
-    @FindBy(xpath = "//select[@id='ddlAppls']/option[text()='5P30CA125123-18']")
+    @FindBy(xpath = "(//a[@href='Javascript:by_appl(10877115 )'])[1]")
     public WebElement year18;
 
     /**
@@ -158,15 +158,21 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement createNewButton;
 
     /**
-     * Update icon
+     * Expand icon (First Row)
      */
-    @FindBy (xpath = "/(//*[@title='Update Document'])[1]")
-    public WebElement updateIcon;
+    @FindBy (xpath = "(//img[contains(@name,'show_qc')])[2]")
+    public WebElement expandIconFirstRow;
+
+    /**
+     * Expand icon (Second Row)
+     */
+    @FindBy (xpath = "(//img[contains(@name,'show_qc')])[3]")
+    public WebElement expandIconSecondRow;
 
     /**
      * Subcategory for funding
      */
-    @FindBy (xpath = "//select[@id='D_37']")
+    @FindBy (css = "#D_37")
     public WebElement subCategoryforFunding;
 
     /**
@@ -176,16 +182,46 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement updateButton;
 
     /**
-     * Expand button
+     * Gear Icon (Update)
      */
-    @FindBy (xpath = "//img[@name='show_qc_all']")
-    public WebElement expandButton;
+    @FindBy (xpath = "(//*[@title='Update Document'])[1]")
+    public WebElement gearIcon;
 
     /**
-     * Get text for an updated document
+     * Calendar
      */
-    @FindBy (xpath = "(//*[contains(text(),'Updated On')])[1]")
-    public WebElement updateText;
+    @FindBy (xpath = "//input[@id='txtDocumentdate']")
+    public WebElement calendar;
+
+    /**
+     * Replace Button
+     */
+    @FindBy (xpath = "//tbody/tr[1]/td[5]/a[1]/img[1]")
+    public WebElement replaceButton;
+
+    /**
+     * Delete Button on first row
+     */
+    @FindBy (xpath = "(//a[normalize-space()='Delete'])[1]")
+    public WebElement deleteButtonFirstRow;
+
+    /**
+     * Delete Button on second row
+     */
+    @FindBy (xpath = "(//a[normalize-space()='Delete'])[2]")
+    public WebElement deleteButtonSecondRow;
+
+    /**
+     * Created On Text first row
+     */
+    @FindBy (xpath = "(//div[contains(text(), 'Created On')])[1]")
+    public WebElement CreatedOnTextFirstRow;
+
+    /**
+     * Created On Text second row
+     */
+    @FindBy (xpath = "(//div[contains(text(), 'Created On')])[2]")
+    public WebElement CreatedOnTextSecondRow;
 
     public EgrantsSearchAndFileManagementScenariosPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);

@@ -53,7 +53,7 @@ public class QuickLinkVerificationAndManagementMenuSteps extends PageInitializer
 	}
 
 	@Given("User clicks on To dropdown to select {string}")
-	public void user_clicks_on_to_dropdown_to_select(String string) {
+	public void user_clicks_on_to_dropdown_to_select(String QualityAssociates) {
 		EgrantsStepImplementation.clicks_on_to_dropdown();
 	}
 

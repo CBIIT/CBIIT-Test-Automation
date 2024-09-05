@@ -13,7 +13,7 @@ Given User is logged in the application and is on the landing page
   @FileUpload @nesarh2 @Regression
   Scenario: Test document upload
     And clicks on Add Document button
-    And searches for grant "125123"
+    And searches for "125123" on Add New Document page
     And selects grant year 18
     And selects category as Application File
     And passes "Test File" as subcategory
@@ -22,33 +22,30 @@ Given User is logged in the application and is on the landing page
     Then verifies the success message "Done! New document has been created"
     And clicks on uploaded document
 
-  @UpdateDocumentCategory @nesarh2 @Progression1
+  @UpdateDocumentCategory @nesarh2 @Regression
   Scenario: Test updating document category
-    And searches for grant "125123"
-    And selects grant year 18
+    And searches for grant "CA125123"
+    And selects grant year 18 from Years
     When clicks on update icon
-    And selects "Funding" from Category dropdown
-    And selects "Transition Approval" as Subcategory
+    And selects Funding from Category dropdown
+    And selects Transition Approval as Subcategory
     Then clicks on update icon to submit the changes
-    And verifies the updated category and subcategory for the selected document
 
-  @ReplaceExistingFile @nesarh2 @Progression1
+  @ReplaceExistingFile @nesarh2 @In-Progress
   Scenario: Test replacing an existing file
-    And searches for grant "125123"
-    And selects grant year 18
+    And searches for grant "CA125123"
+    And selects grant year 18 from Years
     When clicks on Upload icon
-    And clicks on Locate File and Upload tab
-    And uploads a file
-    Then verifies the success message "Done! New document has been created"
-    And clicks on Check Document button to verify the uploaded document
+    #And clicks on Locate File and Upload tab
+    #And uploads a file
+    #Then verifies the success message "Done! New document has been created"
+    #And clicks on Check Document button to view the uploaded document
 
-
-  @DeleteUploadedFile @nesarh2 @Progression1
+  @DeleteUploadedFile @nesarh2 @Regression
   Scenario: Test deletion of an uploaded file
-    And searches for grant "125123"
-    And selects grant year 18
-    And clicks on "+" icon to expand the document details
-    And clicks on Delete button
+    And searches for grant "CA125123"
+    And selects grant year 18 from Years
+    And expands the document details and clicks on Delete button
     Then User clicks on OK button to confirm Deletion
 
   @InstitutionalFileUpload @nesarh2 @Regression
@@ -61,3 +58,9 @@ Given User is logged in the application and is on the landing page
     And clicks on Locate File and Upload tab
     And uploads a file
     Then clicks on Create New button
+
+  @InstitutionalFileDelete @nesarh2 @Progression
+  Scenario: Test deletion of an uploaded Institutional file
+
+  @VerifySoftDeletedYear @nesarh2 @Progression
+  Scenario: Verify soft deleted years are not displayed

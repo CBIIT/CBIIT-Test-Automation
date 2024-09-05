@@ -29,6 +29,6 @@ public class HooksSteps extends PageInitializer {
 	 */
 	@After
 	public void genericTearDown()  {
-		closeWebDriver();
+		WebDriverUtils.closeWebDriver();
 	}
 }
