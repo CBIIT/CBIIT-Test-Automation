@@ -36,14 +36,17 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         MiscUtils.sleep(2000);
         String actualTreatmentDataLimitationsAgreementText = seerDataAccessRequestPage.seerDataAccessTreatmentDataLimitationsAgreement.getText();
         CommonUtils.assertEquals(actualTreatmentDataLimitationsAgreementText, DUA_Constants.SEER_ACKNOWLEDGMENT_OF_TREATMENT_DATA_LIMITATIONS);
+        JavascriptUtils.drawBlueBorder(seerDataAccessRequestPage.seerDataAccessTreatmentDataLimitationsAgreement);
         CucumberLogUtils.logScreenshot();
         CommonUtils.scrollIntoView(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText);
         String actualDataUseAgreementCertificationText = seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText.getText();
         CommonUtils.assertEquals(actualDataUseAgreementCertificationText, DUA_Constants.DATA_USE_AGREEMENT_CERTIFICATION);
+        JavascriptUtils.drawBlueBorder(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText);
         CucumberLogUtils.logScreenshot();
         CommonUtils.scrollIntoView(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText);
         String actualDataAccessBestPracticeAssuranceText = seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText.getText();
         CommonUtils.assertEquals(actualDataAccessBestPracticeAssuranceText, DUA_Constants.BEST_PRACTICE_ASSURANCE);
+        JavascriptUtils.drawBlueBorder(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -290,11 +293,10 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
      *
      * @throws TestingException if there is an error during the verification process.
      */
-    public static void userVerifiesEmailAddressByClickingOnTheEmailVerificationLinkThatIsSentToTheUserAfterSubmittingASEERUserRegistrationForm()
-            throws TestingException {
+    public static void userVerifiesEmailAddressByClickingOnTheEmailVerificationLinkThatIsSentToTheUserAfterSubmittingASEERUserRegistrationForm() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         /** Waiting for email to be sent and searchable */
-        MiscUtils.sleep(60000);
+        MiscUtils.sleep(50000);
         ServiceNow_Common_Methods.filterNavigatorSearch("mailbox");
         WebDriverUtils.webDriver.get(SEERDataAccessRequest_Constants.SEER_INCIDENT_DATA_NATIVE_VIEW_FILTER_NAVIGATION_SENT_UNDER_MAILBOX_URL);
         MiscUtils.sleep(3000);
@@ -575,10 +577,9 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         String seerRegistrationIsCompletePage = WebDriverUtils.webDriver.getTitle();
-        CommonUtils.assertEquals(Registration_Constants.SEER_DATA_REQUEST_CONFIRMATION_ODS_DATA_ACCESS_REQUEST,
-                seerRegistrationIsCompletePage);
-        CommonUtils.assertEquals(Registration_Constants.THANK_YOU_DATA_ACCESS_REQUEST_IS_COMPLETE_MESSAGE,
-                seerDataAccessRequestPage.seerDataAccessYourDataAccessRequestIsCompleteHeader.getText());
+        CommonUtils.assertEquals(Registration_Constants.SEER_DATA_REQUEST_CONFIRMATION_ODS_DATA_ACCESS_REQUEST, seerRegistrationIsCompletePage);
+        CommonUtils.assertEquals(Registration_Constants.THANK_YOU_DATA_ACCESS_REQUEST_IS_COMPLETE_MESSAGE, seerDataAccessRequestPage.seerDataAccessYourDataAccessRequestIsCompleteHeader.getText());
+        JavascriptUtils.drawBlueBorder(seerDataAccessRequestPage.seerDataAccessYourDataAccessRequestIsCompleteHeader);
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
     }
@@ -627,6 +628,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationHeaderText);
         CommonUtils.assertEquals(seerUserRegistrationHeader,
                 seerUserRegistrationPage.seerUserRegistrationHeaderText.getText());
+        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationHeaderText);
     }
 
     /**
