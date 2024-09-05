@@ -60,9 +60,8 @@ jobs:
           git stash
           git fetch
           git checkout gh-pages
-          # Avoid the conflict before pop
-          git rm src/main/resources/conf/cloudEnv.properties 
-          git stash pop
+          git rm -f src/main/resources/conf/cloudEnv.properties
+          git checkout stash -- .
           mkdir -p ${{ steps.reportpath.outputs.path }}
           mv target/ssj-regression-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
           git add .
