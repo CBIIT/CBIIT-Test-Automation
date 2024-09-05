@@ -51,7 +51,7 @@ jobs:
         id: reportpath
         run: echo "::set-output name=path::html-charms-rasopathy-regression-reports"
       - name: Upload Cucumber Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: cucumber-report-${{ github.run_number }}
