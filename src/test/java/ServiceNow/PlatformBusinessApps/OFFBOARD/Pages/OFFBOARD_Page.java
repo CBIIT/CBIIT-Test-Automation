@@ -65,6 +65,9 @@ public class OFFBOARD_Page {
     /* CBIIT 'FEDEX LABEL NEEDED' TEXT BOX FIELD LOCATOR  */
     public static String cbiit_FedexLabelNeededTextBoxFieldLocator = "#s2id_sp_formfield_fedex_label a";
 
+    /* CBIIT 'HARDWARE RETURN TICKET ALREADY CREATED' FIELD LOCATOR  */
+    public static String cbiit_Hardware_Return_Ticket_Already_CreatedFieldLocator = "#already_created";
+
     /* CBIIT 'HARDWARE RETURN TICKET ALREADY CREATED' TEXT BOX FIELD LOCATOR  */
     public static String cbiit_Hardware_Return_Ticket_Already_CreatedTextBoxFieldLocator = "#s2id_sp_formfield_already_created a";
 
@@ -86,6 +89,15 @@ public class OFFBOARD_Page {
     /* CBIIT 'HARDWARE RETURN TICKET NUMBER' TEXT BOX FIELD LOCATOR  */
     public static String cbiit_Hardware_Return_Ticket_NumberTextBoxFieldLocator = "#s2id_autogen10";
 
+    /* CBIIT 'HARDWARE RETURN TICKET NUMBER' REQUIRED FIELD LOCATOR  */
+    public static String cbiit_Hardware_Return_Ticket_Number_Required_FieldLocator = "//label[contains(@for,'s2id_autogen10')]//span[contains(@aria-label,'Required')]";
+
+    /* CBIIT 'HARDWARE RETURN TICKET NUMBER' NON REQUIRED FIELD LOCATOR  */
+    public static String cbiit_Hardware_Return_Ticket_Number_Non_Required_FieldLocator = "//label[contains(@for,'s2id_autogen10')]//span[contains(@aria-label,'')][1]";
+
+    /* CBIIT 'HARDWARE RETURN TICKET NUMBER' REQUIRED FIELD ATTRIBUTE  */
+    public static String cbiit_Hardware_Return_Ticket_Number_Required_FieldAttribute = "ng-if";
+
     /* CBIIT 'REQUEST DETAILS' LABEL  */
     public static String cbiit_RequestDetails = "Request Details";
 
@@ -106,4 +118,7 @@ public class OFFBOARD_Page {
 
     /* CBIIT 'ONSITE LOCATION' FIELD DROP DOWN LOCATOR  */
     public static String cbiit_OnlineLocationFieldDropDownLocator = "#s2id_sp_formfield_location a";
+
+    /* UI ERROR FOR REQUIRED FIELDS ARE INCOMPLETE LOCATOR  */
+    public static String cbiit_ErrorLocator = "#uiNotificationContainer";
 }
