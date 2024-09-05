@@ -1,16 +1,12 @@
 package ServiceNow.CHARMS.FanconiSurvey.Playwright.StepsImplementation;
 
 import ServiceNow.CHARMS.FanconiSurvey.Playwright.Pages.FanconiSurveyLoginPage;
-import ServiceNow.PlatformBusinessApps.CCT_CHAT_BOT.Playwright.Pages.CCT_CHAT_BOT_Page;
-import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.PlaywrightUtils;
-
 import java.util.regex.Pattern;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 /* This method allows the login to the Fanconi Survey page */
@@ -271,7 +267,6 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.locator(FanconiSurveyLoginPage.FA_PREGNANCY_MEDICATION_MRVS)).containsText(FanconiSurveyLoginPage.MEDICATION_NAME);
         assertThat(page.locator(FanconiSurveyLoginPage.FA_PREGNANCY_MEDICATION_MRVS)).containsText(FanconiSurveyLoginPage.REASON_MEDICATION_PRESCRIBED);
         assertThat(page.locator(FanconiSurveyLoginPage.FA_PREGNANCY_MEDICATION_MRVS)).containsText(FanconiSurveyLoginPage.LENGTH_OF_TIME_MEDICATION_WAS_TAKEN_DURING_PREGNANCY);
-//        assertThat(page.locator(FanconiSurveyLoginPage.FA_PREGNANCY_MEDICATION_MRVS)).containsText(FanconiSurveyLoginPage.LENGTH_OF_TIME_IN);
         assertThat(page.locator(FanconiSurveyLoginPage.FA_PREGNANCY_MEDICATION_MRVS)).containsText(FanconiSurveyLoginPage.NO_DATA_TO_DISPLAY);
         page.getByLabel(FanconiSurveyLoginPage.ADD_A_ROW_FOR_PREGNANCY).click();
         assertThat(page.locator(FanconiSurveyLoginPage.FA_MEDICATION_TYPE)).containsText(FanconiSurveyLoginPage.TYPE_OF_MEDICATION);
@@ -287,7 +282,6 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.locator(FanconiSurveyLoginPage.FA_LENGTH_OF_TIME_MEDICATION_TAKEN_DURING_PREGNANCY)).containsText(FanconiSurveyLoginPage.LENGTH_OF_TIME_MEDICATION_WAS_TAKEN_DURING_PREGNANCY);
         page.locator(FanconiSurveyLoginPage.SP_FORMFIELD_FA_LENGTH_OF_TIME_MEDICATION_TAKEN_DURING_PREGNANCY_A).click();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.FA_LENGTH_OF_TIME_MEDICATION_TAKEN_DURING_PREGNANCY_ENTERED).setExact(true)).click();
-    //    assertThat(page.locator(FanconiSurveyLoginPage.FA_LENGTH_OF_TIME_IN)).containsText(FanconiSurveyLoginPage.LENGTH_OF_TIME_IN);
         page.locator(FanconiSurveyLoginPage.SP_FORMFIELD_FA_LENGTH_OF_TIME_IN_A).click();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.DAYS)).click();
         assertThat(page.locator(FanconiSurveyLoginPage.MRVS_ACTIVE_ROW)).containsText(FanconiSurveyLoginPage.CANCEL);
@@ -934,7 +928,7 @@ public class FanconiSurveyStepsImpl {
         page.getByLabel("Treatment for GVHD (please specify agents)", new Page.GetByLabelOptions().setExact(true)).click();
         page.getByLabel("Treatment for GVHD (please specify agents)", new Page.GetByLabelOptions().setExact(true)).fill("Test");
         page.getByLabel("Treatment for GVHD (please specify agents)", new Page.GetByLabelOptions().setExact(true)).press("Enter");
-       page.locator("div").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Are you\\/the participant still receiving treatment for GvHD\\?$"))).click();
+        page.locator("div").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Are you\\/the participant still receiving treatment for GvHD\\?$"))).click();
         assertThat(page.locator("#fa_gvhd_treatment_length")).containsText("What is the length of time you/the participant received GvHD treatment?");
         page.locator("#s2id_sp_formfield_fa_gvhd_treatment_length a").click();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Unknown/Unsure"))).isVisible();
