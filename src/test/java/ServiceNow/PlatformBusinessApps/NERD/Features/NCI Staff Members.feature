@@ -10,7 +10,7 @@ Feature: NCI Staff Member Test Scenarios
   Scenario: Test 1: Remove 'Delete' Button in NERD For Specific Users (Top Accomplishments submission)
     Given an NCI Staff Member not on the NERD table is on the NERD CRS Knowledge Base
     When NCI Staff Member submits new Top Accomplishments submission
-    And DOC Planning Contact returning the Top Accomplishments submission back to NCI Staff Member
+    And DOC Planning Contact "Abigail Joyce" returning the Top Accomplishments submission back to NCI Staff Member
     And NCI Staff Member views Top Accomplishments submission category
     Then NCI Staff Member DOES NOT see the 'Delete' button for Top Accomplishments submission returned record
 
@@ -18,7 +18,7 @@ Feature: NCI Staff Member Test Scenarios
   Scenario: Test 2: Remove 'Delete' Button in NERD For Specific Users (Other Accomplishments submission)
     Given an NCI Staff Member not on the NERD table is on the NERD CRS Knowledge Base
     When NCI Staff Member submits new Other Accomplishments submission
-    And DOC Planning Contact returning the Other Accomplishments submission back to NCI Staff Member
+    And DOC Planning Contact "Abigail Joyce" returning the Other Accomplishments submission back to NCI Staff Member
     And NCI Staff Member views the returned Other Accomplishments submission
     Then NCI Staff Member DOES NOT see the 'Delete' button for Other Accomplishments submission returned record
 
@@ -26,7 +26,7 @@ Feature: NCI Staff Member Test Scenarios
   Scenario: Test 3: Remove 'Delete' Button in NERD For Specific Users (Collaborations submission)
     Given an NCI Staff Member not on the NERD table is on the NERD CRS Knowledge Base
     When NCI Staff Member submits new Collaborations submission
-    And DOC Planning Contact returning the Collaborations submission back to NCI Staff Member
+    And DOC Planning Contact "Abigail Joyce" returning the Collaborations submission back to NCI Staff Member
     And NCI Staff Member views the returned Collaborations submission
     Then NCI Staff Member DOES NOT see the 'Delete' button for Collaborations submission returned record
 
@@ -34,7 +34,7 @@ Feature: NCI Staff Member Test Scenarios
   Scenario: Test 4: Remove 'Delete' Button in NERD For Specific Users (COVID-19 Activities submission)
     Given an NCI Staff Member not on the NERD table is on the NERD CRS Knowledge Base
     When NCI Staff Member submits new COVID19 Activities submission
-    And DOC Planning Contact returning the COVID19 Activities submission back to NCI Staff Member
+    And DOC Planning Contact "Abigail Joyce" returning the COVID19 Activities submission back to NCI Staff Member
     And NCI Staff Member views the returned COVID19 Activities submission
     Then NCI Staff Member DOES NOT see the 'Delete' button for COVID19 Activities submission returned record
 
@@ -42,6 +42,6 @@ Feature: NCI Staff Member Test Scenarios
   Scenario: Test 5: Remove 'Delete' Button in NERD For Specific Users (Ad Hoc Data Call submission)
     Given an NCI Staff Member not on the NERD table is on the NERD CRS Knowledge Base
     When NCI Staff Member submits new Ad Hoc Data Call submission
-    And DOC Planning Contact returning the Ad Hoc Data Call submission back to NCI Staff Member
+    And DOC Planning Contact "Abigail Joyce" returning the Ad Hoc Data Call submission back to NCI Staff Member
     And NCI Staff Member views the returned Ad Hoc Data Call submission
     Then NCI Staff Member DOES NOT see the 'Delete' button for Ad Hoc Data Call submission returned record

@@ -163,7 +163,7 @@ public class SEERDataAccessRequestPage extends CommonUtils {
 	public WebElement seerDataAccessLimitationOfTreatmentDataInitials;
 	
 	/** SEER Data Access Your Data Access Request Is Complete Header */
-	@FindBy (xpath = "//h3[text() = ' Thank you - your data access request is complete. ']")
+	@FindBy (xpath = "//h3[normalize-space()='Thank you - your data access request is complete.']")
 	public WebElement seerDataAccessYourDataAccessRequestIsCompleteHeader;
 
 	

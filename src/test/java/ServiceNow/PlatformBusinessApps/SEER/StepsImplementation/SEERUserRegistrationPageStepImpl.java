@@ -20,10 +20,6 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
      * Verifies that the email address field is read-only.
      */
     public static void validateEmailFieldReadOnly() {
-        /**
-         * VERIFYING EMAIL ADDRESS AND THAT EMAIL ADDRESS FIELD IS READ-ONLY
-         */
-
         Assert.assertTrue(
                 seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
     }
@@ -223,6 +219,7 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CommonUtils.assertEquals(Registration_Constants.SEER_DATA_CONFIRMATION_ODS_DATA_ACCESS_REQUEST, seerRegistrationIsCompletePage);
         CommonUtils.assertEquals(Registration_Constants.THANK_YOU_REGISTRATION_IS_COMPLETE_MESSAGE,
                 seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader.getText());
+        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader);
         CucumberLogUtils.logScreenshot();
     }
 
