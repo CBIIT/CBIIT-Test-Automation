@@ -40,7 +40,7 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
                 System.out.println(ServiceNow_NCISP_Page.nativeViewLink.getText());
                 MiscUtils.sleep(2000);
                 CommonUtils.clickOnElement(ServiceNow_NCISP_Page.nativeViewLink);
-                MiscUtils.sleep(2000);
+                MiscUtils.sleep(5000);
             }
         } catch (NoSuchElementException e) {
             System.out.println(NativeView_SideDoor_Dashboard_Page.impersonateAnotherUserButton.getText());
@@ -54,7 +54,7 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
             CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserWindowButton);
             MiscUtils.sleep(3000);
             CommonUtils.clickOnElement(ServiceNow_NCISP_Page.nativeViewLink);
-            MiscUtils.sleep(2000);
+            MiscUtils.sleep(5000);
         }
     }
     /**

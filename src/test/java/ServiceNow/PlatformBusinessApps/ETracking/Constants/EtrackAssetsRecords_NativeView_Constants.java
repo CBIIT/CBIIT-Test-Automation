@@ -1,5 +1,7 @@
 package ServiceNow.PlatformBusinessApps.ETracking.Constants;
 
+import com.nci.automation.web.CommonUtils;
+
 public class EtrackAssetsRecords_NativeView_Constants {
 
     /* ETRACKING USER NAME */
@@ -12,7 +14,7 @@ public class EtrackAssetsRecords_NativeView_Constants {
     public static final String ETRACKING_NATIVE_VIEW_ASSETS_ALL_RECORD_SEARCH_DROP_DOWN = "barcode";
 
     /* ETRACKING ASSETS NEW RECORD DECAL NUMBER TEXT BOX */
-    public static final String ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX  = "New Decal Number 123 Test";
+    public static final String ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX  = "New Decal Number 123 Test " + CommonUtils.lastNameRandomizer();
 
     /* ETRACKING ASSETS NEW RECORD MODEL TEXT BOX */
     public static final String ETRACKING_ASSETS_NEW_RECORD_MODEL_TEXT_BOX  = "Tarp";
