@@ -2,7 +2,7 @@ Feature: Process Actions Scenarios
 
   Description: This feature file is to test the Process Actions functionality in GPMATS application
 
-  @Regression @playwright @JUAREZDS
+  @GPMATS-1362 @Regression @playwright @JUAREZDS
   Scenario: Process Action Manager moves action from New to Awaiting GM Review
     Given a user is logged in with the role of GM Action Manager
     And clicks on Show Advanced Filters link
@@ -41,8 +41,8 @@ Feature: Process Actions Scenarios
     And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
     And the assigned GM Specialist will see the action on "My Specialist Queue" tab, when logged in
 
-  @Regression @playwright @JUAREZDS
-  Scenario: new test
+  @GPMATS-1363 @Regression @playwright @JUAREZDS
+  Scenario: Process Action Manager moves action from New to Pre-Assign
     Given a user is logged in with the role of GM Action Manager
     And clicks on Show Advanced Filters link
     And for the Action Status drop-down selects "New" option
@@ -79,8 +79,8 @@ Feature: Process Actions Scenarios
     And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
     And the assigned GM Specialist (if any) will NOT see the action on "My Specialist Queue" tab, when logged in
 
-  @Regression @playwright @JUAREZDS @Progression
-  Scenario: Next test
+  @GPMATS-1365 @GPMATS-1324 @Regression @playwright @JUAREZDS @Progression
+  Scenario: Process Action Manager moves action from New to Hold
     Given a user is logged in with the role of GM Action Manager
     And clicks on Show Advanced Filters link
     And for the Action Status drop-down selects "New" option
