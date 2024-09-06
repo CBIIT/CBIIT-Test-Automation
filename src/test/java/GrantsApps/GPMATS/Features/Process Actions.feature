@@ -79,7 +79,7 @@ Feature: Process Actions Scenarios
     And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
     And the assigned GM Specialist (if any) will NOT see the action on "My Specialist Queue" tab, when logged in
 
-  @Regression @playwright @JUAREZDS
+  @Regression @playwright @JUAREZDS @Progression
   Scenario: Next test
     Given a user is logged in with the role of GM Action Manager
     And clicks on Show Advanced Filters link
@@ -126,7 +126,6 @@ Feature: Process Actions Scenarios
     And the user observes that the latest note header displays the date when the note was added
     And the user observes that the latest note header shows the name of the user who contributed the note
     And an indication that an action was put on hold is shown to the user via a "HOLD" label next to the author's name in the most recent note header.
-
 
   @GPMATS-1364 @GPMATS-1571 @playwright @JUAREZDS @Regression
   Scenario: Process Action Manager moves Award action from New to Cancelled

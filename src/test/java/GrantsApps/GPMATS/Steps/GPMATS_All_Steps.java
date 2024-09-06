@@ -5,7 +5,6 @@ import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import io.cucumber.java.en.And;
@@ -13,13 +12,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+import static GrantsApps.GPMATS.Steps.GPMATS_Common_Methods.*;
 import static com.nci.automation.web.PlaywrightUtils.page;
-import static com.nci.automation.web.PlaywrightUtils.playwright;
 
 public class GPMATS_All_Steps {
 
@@ -60,7 +56,7 @@ public class GPMATS_All_Steps {
         GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
 
         // VERIFY PROCESS DROP DOWN OPTIONS
-        GPMATS_Common_Methods.verifyingActualProcessOptions();
+        verifyingActualProcessOptions();
 
         // RETRIEVE THE GRANT NUMBER FOR THE FIRST ACTION
         String grantNumber = page.locator("(//div//a[@ngbtooltip='Click to View Grant Details'])[1]").innerText();
@@ -70,7 +66,8 @@ public class GPMATS_All_Steps {
 
         // PERFORM THE FOLLOWING IF THE VIEW NOTES BUBBLE HAS A RED CHECK MARK WITH OR WITHOUT A GREEN DOT
         if (actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked")) {
-            GPMATS_Common_Methods.clickOnHoldOptionOfFirstAction();
+            CucumberLogUtils.playwrightScreenshot(page);
+            clickOnHoldOptionOfFirstAction();
 
             Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
             page.locator("//button[normalize-space()='Acknowledge']").click();
@@ -87,26 +84,27 @@ public class GPMATS_All_Steps {
             Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to put this action On Hold?']").innerText().trim(), "Are you sure you want to put this action On Hold?", "- - - VERIFYING ARE YOU SURE YOU WANT TO PUT ON HOLD THIS ACTION? TEXT - - -");
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
-            GPMATS_Common_Methods.verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
             page.locator("//input[@value='OK']").click();
             page.waitForLoadState();
         }
 
         // PERFORM THE FOLLOWING IF THE VIEW NOTES BUBBLE IS BLANK WITH OR WITHOUT GREEN DOT
         if (actualClassAttributeValueOfViewNotes.contentEquals("note-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-blank")) {
-            GPMATS_Common_Methods.clickOnHoldOptionOfFirstAction();
+            CucumberLogUtils.playwrightScreenshot(page);
+            clickOnHoldOptionOfFirstAction();
 
             // AND THE SYSTEM WILL DISPLAY WARNING MESSAGE "ARE YOU SURE YOU WANT TO PUT THIS ACTION ON HOLD?" WITH OPTIONAL COMMENTS BOX (2000 CHAR MAX)
             Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to put this action On Hold?']").innerText().trim(), "Are you sure you want to put this action On Hold?", "- - - VERIFYING ARE YOU SURE YOU WANT TO PUT ON HOLD THIS ACTION? TEXT - - -");
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
-            GPMATS_Common_Methods.verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
             page.locator("//input[@value='OK']").click();
             page.waitForLoadState();
         }
 
         // VERIFY ACTION ON HOLD
-        GPMATS_Common_Methods.verifyActionOnHold();
+        verifyActionOnHold();
 
         // AND THE CHANGES WILL BE REFLECTED IN THE "CHANGE HISTORY" SECTION ALONG WITH ANY COMMENTS PROVIDED
         page.waitForSelector("(//i[@ngbtooltip='View Change History'])[1]");
@@ -147,10 +145,10 @@ public class GPMATS_All_Steps {
         String preAssignOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Pre-assign']";
 
         // CLICK ON THE PROCESS BUTTON
-        GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+        clickOnProcessButtonOfFirstAction();
 
         // VERIFY PROCESS DROP DOWN OPTIONS
-        GPMATS_Common_Methods.verifyingActualProcessOptions();
+        verifyingActualProcessOptions();
 
         // RETRIEVE THE NAME OF THE ACTION SPECIALIST FOR THE FIRST ACTION
         String actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();
@@ -162,7 +160,7 @@ public class GPMATS_All_Steps {
         String actualClassAttributeValueOfViewNotes = page.locator("(//div[@class='grant-icons']/div/div/span)[1]").getAttribute("class");
 
         if (actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked")) {
-            GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+            clickOnProcessButtonOfFirstAction();
 
             Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
             page.locator("//button[normalize-space()='Acknowledge']").click();
@@ -172,40 +170,40 @@ public class GPMATS_All_Steps {
             page.waitForLoadState();
 
             // PERFORMING PREVIOUS STEPS AGAIN
-            GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+            clickOnProcessButtonOfFirstAction();
             page.locator(preAssignOption).click();
             Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
             page.locator("//button[normalize-space()='Acknowledge']").click();
             Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Pre-assign this action?']").innerText().trim(), "Are you sure you want to Pre-assign this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO ASSIGN THIS ACTION? TEXT - - -");
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
-            GPMATS_Common_Methods.verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
             page.locator("//input[@value='OK']").click();
             page.waitForLoadState();
         }
 
         // PERFORM THE FOLLOWING IF THE VIEW NOTES BUBBLE IS BLANK WITH OR WITHOUT GREEN DOT
         if (actualClassAttributeValueOfViewNotes.contentEquals("note-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-blank")) {
-            GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+            clickOnProcessButtonOfFirstAction();
 
             // AND THE SYSTEM WILL DISPLAY WARNING MESSAGE "ARE YOU SURE YOU WANT TO PRE-ASSIGN THIS ACTION?" WITH OPTIONAL COMMENTS BOX (2000 CHAR MAX)
             page.locator(preAssignOption).click();
             Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Pre-assign this action?']").innerText().trim(), "Are you sure you want to Pre-assign this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO PRE-ASSIGN THIS ACTION? TEXT - - -");
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
-            GPMATS_Common_Methods.verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
 
             // And the user will be able to click "Cancel" on the warning message pop-up -
             // the warning message will be closed, no changes will be made
             page.locator("//button[normalize-space()='Cancel']").click();
 
             // PERFORMING PREVIOUS STEPS AGAIN
-            GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+            clickOnProcessButtonOfFirstAction();
             page.click(preAssignOption);
             Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Pre-assign this action?']").innerText().trim(), "Are you sure you want to Pre-assign this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO PRE-ASSIGN THIS ACTION? TEXT - - -");
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
-            GPMATS_Common_Methods.verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
 
             // CLICKS OK
             page.locator("//input[@value='OK']").click();
@@ -255,10 +253,10 @@ public class GPMATS_All_Steps {
         String assignOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Assign']";
 
         // CLICK ON THE PROCESS BUTTON
-        GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+        clickOnProcessButtonOfFirstAction();
 
         // VERIFY PROCESS DROP DOWN OPTIONS
-        GPMATS_Common_Methods.verifyingActualProcessOptions();
+        verifyingActualProcessOptions();
 
         // Retrieve the name of the action specialist for the first action
         String actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();
@@ -303,7 +301,7 @@ public class GPMATS_All_Steps {
             Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Assign this action?']").innerText().trim(), "Are you sure you want to Assign this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO ASSIGN THIS ACTION? TEXT - - -");
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
-            GPMATS_Common_Methods.verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
             page.locator("//input[@value='OK']").click();
             page.waitForLoadState();
         }
@@ -314,7 +312,7 @@ public class GPMATS_All_Steps {
             page.locator(assignOption).click();
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
-            GPMATS_Common_Methods.verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
             page.locator("//input[@value='OK']").click();
             page.waitForLoadState();
         }
@@ -363,10 +361,10 @@ public class GPMATS_All_Steps {
         String cancelOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Cancel']";
 
         // CLICK ON PROCESS DROP-DOWN BUTTON
-        GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+        clickOnProcessButtonOfFirstAction();
 
         // VERIFY PROCESS DROP DOWN OPTIONS
-        GPMATS_Common_Methods.verifyingActualProcessOptions();
+        verifyingActualProcessOptions();
 
         // RETRIEVE THE NAME OF THE ACTION SPECIALIST FOR THE FIRST ACTION
         String actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();
@@ -380,7 +378,7 @@ public class GPMATS_All_Steps {
         // PERFORM THE FOLLOWING IF THE VIEW NOTES BUBBLE HAS A RED CHECK MARK WITH OR WITHOUT A GREEN DOT
         if (actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked")) {
             // CLICK ON PROCESS BUTTON
-            GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+            clickOnProcessButtonOfFirstAction();
 
             // VERIFY ACKNOWLEDGEMENT OF SPECIAL INSTRUCTIONS
             Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
@@ -392,10 +390,10 @@ public class GPMATS_All_Steps {
             Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Cancel this action?']").innerText().trim(), "Are you sure you want to Cancel this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT - - -");
 
             // CLICK CANCEL TO PERFORM PREVIOUS STEPS AGAIN
-            GPMATS_Common_Methods.clickCancelButton();
+            clickCancelButton();
 
             // PERFORMING PREVIOUS STEPS AGAIN
-            GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+            clickOnProcessButtonOfFirstAction();
             Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
             page.locator("//button[normalize-space()='Acknowledge']").click();
             Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Cancel this action?']").innerText().trim(), "Are you sure you want to Cancel this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT - - -");
@@ -423,13 +421,13 @@ public class GPMATS_All_Steps {
             }
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
-            GPMATS_Common_Methods.verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
 
             // CLICK CANCEL TO PERFORM PREVIOUS STEPS AGAIN
-            GPMATS_Common_Methods.clickCancelButton();
+            clickCancelButton();
 
             // PERFORMING PREVIOUS STEPS AGAIN
-            GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+            clickOnProcessButtonOfFirstAction();
             page.locator(cancelOption).click();
 
             // VERIFY ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT
@@ -458,15 +456,15 @@ public class GPMATS_All_Steps {
             }
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
-            GPMATS_Common_Methods.verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
 
             // CLICK OK
-            GPMATS_Common_Methods.clickOkButton();
+            clickOkButton();
         }
 
         // PERFORM THE FOLLOWING IF THE VIEW NOTES BUBBLE IS BLANK WITH OR WITHOUT GREEN DOT
         if (actualClassAttributeValueOfViewNotes.contentEquals("note-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-blank")) {
-            GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+            clickOnProcessButtonOfFirstAction();
             page.locator(cancelOption).click();
 
             // VERIFY ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT
@@ -495,13 +493,13 @@ public class GPMATS_All_Steps {
             }
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
-            GPMATS_Common_Methods.verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
 
             // CLICK CANCEL TO PERFORM PREVIOUS STEPS AGAIN
-            GPMATS_Common_Methods.clickCancelButton();
+            clickCancelButton();
 
             // PERFORMING PREVIOUS STEPS AGAIN
-            GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+            clickOnProcessButtonOfFirstAction();
             page.locator(cancelOption).click();
 
             // VERIFY ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT
@@ -527,10 +525,10 @@ public class GPMATS_All_Steps {
             }
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
-            GPMATS_Common_Methods.verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
 
             // CLICK OK
-            GPMATS_Common_Methods.clickOkButton();
+            clickOkButton();
 
         }
         // VERIFYING SUCCESS MESSAGE WITH GRANTS NUMBER, STATUS AND DATE
@@ -596,10 +594,10 @@ public class GPMATS_All_Steps {
         String cancelOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Cancel']";
 
         // CLICK ON PROCESS DROP-DOWN BUTTON
-        GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+        clickOnProcessButtonOfFirstAction();
 
         // VERIFY PROCESS DROP DOWN OPTIONS
-        GPMATS_Common_Methods.verifyingActualProcessOptions();
+        verifyingActualProcessOptions();
 
         // RETRIEVE THE NAME OF THE ACTION SPECIALIST FOR THE FIRST ACTION
         String actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();
@@ -613,7 +611,7 @@ public class GPMATS_All_Steps {
         // PERFORM THE FOLLOWING IF THE VIEW NOTES BUBBLE HAS A RED CHECK MARK WITH OR WITHOUT A GREEN DOT
         if (actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked")) {
             // CLICK ON PROCESS BUTTON
-            GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+            clickOnProcessButtonOfFirstAction();
 
             // VERIFY ACKNOWLEDGEMENT OF SPECIAL INSTRUCTIONS
             Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
@@ -625,10 +623,10 @@ public class GPMATS_All_Steps {
             Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Cancel this action?']").innerText().trim(), "Are you sure you want to Cancel this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT - - -");
 
             // CLICK CANCEL TO PERFORM PREVIOUS STEPS AGAIN
-            GPMATS_Common_Methods.clickCancelButton();
+            clickCancelButton();
 
             // PERFORMING PREVIOUS STEPS AGAIN
-            GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+            clickOnProcessButtonOfFirstAction();
             Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
             page.locator("//button[normalize-space()='Acknowledge']").click();
             Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Cancel this action?']").innerText().trim(), "Are you sure you want to Cancel this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT - - -");
@@ -656,13 +654,13 @@ public class GPMATS_All_Steps {
             }
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
-            GPMATS_Common_Methods.verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
 
             // CLICK CANCEL TO PERFORM PREVIOUS STEPS AGAIN
-            GPMATS_Common_Methods.clickCancelButton();
+            clickCancelButton();
 
             // PERFORMING PREVIOUS STEPS AGAIN
-            GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+            clickOnProcessButtonOfFirstAction();
             page.locator(cancelOption).click();
 
             // VERIFY ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT
@@ -691,15 +689,15 @@ public class GPMATS_All_Steps {
             }
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
-            GPMATS_Common_Methods.verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
 
             // CLICK OK
-            GPMATS_Common_Methods.clickOkButton();
+            clickOkButton();
         }
 
         // PERFORM THE FOLLOWING IF THE VIEW NOTES BUBBLE IS BLANK WITH OR WITHOUT GREEN DOT
         if (actualClassAttributeValueOfViewNotes.contentEquals("note-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-blank")) {
-            GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+            clickOnProcessButtonOfFirstAction();
             page.locator(cancelOption).click();
 
             // VERIFY ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT
@@ -728,13 +726,13 @@ public class GPMATS_All_Steps {
             }
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
-            GPMATS_Common_Methods.verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
 
             // CLICK CANCEL TO PERFORM PREVIOUS STEPS AGAIN
-            GPMATS_Common_Methods.clickCancelButton();
+            clickCancelButton();
 
             // PERFORMING PREVIOUS STEPS AGAIN
-            GPMATS_Common_Methods.clickOnProcessButtonOfFirstAction();
+            clickOnProcessButtonOfFirstAction();
             page.locator(cancelOption).click();
 
             // VERIFY ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT
@@ -760,10 +758,10 @@ public class GPMATS_All_Steps {
             }
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
-            GPMATS_Common_Methods.verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
 
             // CLICK OK
-            GPMATS_Common_Methods.clickOkButton();
+            clickOkButton();
         }
 
         // VERIFYING SUCCESS MESSAGE WITH GRANTS NUMBER, STATUS AND DATE

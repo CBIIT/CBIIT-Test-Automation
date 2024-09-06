@@ -10,10 +10,11 @@ import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class GPMATS_Common_Methods {
 
-    public static String processDropDownMenuItems = "//div[@class='dropdown-menu dropdown-menu-right show']/a";
-    public static String processDropDownButton = "(//div[@class='dropdown']/button)[1]";
-    public static String putOnHoldOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Put on Hold']";
-    public static String grantNumber = page.locator("(//div//a[@ngbtooltip='Click to View Grant Details'])[1]").innerText();
+    public String processDropDownMenuItems = "//div[@class='dropdown-menu dropdown-menu-right show']/a";
+    public String processDropDownButton = "(//div[@class='dropdown']/button)[1]";
+    public String putOnHoldOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Put on Hold']";
+    public String grantNumber = page.locator("(//div//a[@ngbtooltip='Click to View Grant Details'])[1]").innerText();
+    //static GPMATS_Common_Methods gpmatsCommonMethods = new GPMATS_Common_Methods();
 
     /**
      * Verifies the actual process options against the expected process options.
@@ -22,7 +23,8 @@ public class GPMATS_Common_Methods {
      * and introducing a short delay for further processing.
      */
     public static void verifyingActualProcessOptions(){
-        List<ElementHandle> actualProcessOptions = page.querySelectorAll(processDropDownMenuItems);
+        GPMATS_Common_Methods gpmatsCommonMethods = new GPMATS_Common_Methods();
+        List<ElementHandle> actualProcessOptions = page.querySelectorAll(gpmatsCommonMethods.processDropDownMenuItems);
         List<String> expectedProcessOptions = new ArrayList<>();
         expectedProcessOptions.add("Assign");
         expectedProcessOptions.add("Cancel");
@@ -45,8 +47,9 @@ public class GPMATS_Common_Methods {
      * in a given page or user interface.
      */
     public static void clickOnProcessButtonOfFirstAction(){
-        page.waitForSelector(processDropDownButton);
-        page.locator(processDropDownButton).click();
+        GPMATS_Common_Methods gpmatsCommonMethods = new GPMATS_Common_Methods();
+        page.waitForSelector(gpmatsCommonMethods.processDropDownButton);
+        page.locator(gpmatsCommonMethods.processDropDownButton).click();
         MiscUtils.sleep(2000);
     }
 
@@ -68,9 +71,10 @@ public class GPMATS_Common_Methods {
      * Finally, it clicks on the "Put on Hold" option.
      */
     public static void clickOnHoldOptionOfFirstAction(){
-        page.waitForSelector(processDropDownButton);
-        page.locator(processDropDownButton).click();
-        page.locator(putOnHoldOption).click();
+        GPMATS_Common_Methods gpmatsCommonMethods = new GPMATS_Common_Methods();
+        page.waitForSelector(gpmatsCommonMethods.processDropDownButton);
+        page.locator(gpmatsCommonMethods.processDropDownButton).click();
+        page.locator(gpmatsCommonMethods.putOnHoldOption).click();
     }
 
     /**
@@ -78,7 +82,7 @@ public class GPMATS_Common_Methods {
      */
     public static void verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters(){
         page.waitForSelector("//textarea");
-        page.locator("//textarea").fill(GPMATS_Common_Methods.generateBoundaryTestString());
+        page.locator("//textarea").fill(generateBoundaryTestString());
         String actualValue = page.inputValue("//textarea");
         Assert.assertTrue(actualValue.length() <= 2000, "- - - TEXTBOX ALLOWS MORE THAN 2000 CHARACTERS. - - -");
     }
@@ -90,7 +94,9 @@ public class GPMATS_Common_Methods {
      * 3. Verifies if the date of the action is today's date after putting it on hold.
      */
     public static void verifyActionOnHold() {
-        Assert.assertTrue(page.locator("//div[@id='submitMessage']/span").innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER IS INCLUDED IN THE SUCCESS MESSAGE TEXT.- - -");
+        GPMATS_Common_Methods gpmatsCommonMethods = new GPMATS_Common_Methods();
+        System.out.println("GRANT NUMBER: " + gpmatsCommonMethods.grantNumber);
+        Assert.assertTrue(page.locator("//div[@id='submitMessage']/span").innerText().contains(gpmatsCommonMethods.grantNumber), "- - - VERIFYING THE GRANT NUMBER IS INCLUDED IN THE SUCCESS MESSAGE TEXT.- - -");
         Assert.assertEquals(page.locator("//div[normalize-space()='Hold']").innerText().trim(), "Hold", "- - - VERIFYING THE STATUS OF THE ACTION AFTER PUTTING IT ON HOLD - - -");
         Assert.assertEquals(page.locator("(//td[@class='sorting_3']/app-current-status)[1]/div[2]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING THE DATE OF THE ACTION AFTER PUTTING IT ON HOLD - - -");
     }
