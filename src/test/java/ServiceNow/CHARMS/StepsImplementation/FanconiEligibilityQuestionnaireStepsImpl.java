@@ -14,7 +14,6 @@ import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
-
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
