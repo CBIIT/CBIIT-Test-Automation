@@ -40,7 +40,7 @@ public class CreateESRPageSteps {
 
     @And("fills out all required information and clicks submit")
     public void fills_out_all_required_information_and_clicks_submit() {
-
+        CreateESRPageStepsImplementation.fillRequiredInfoForESRQCreation();
     }
 
     @Then("user sees an ESR-Q ticket was created")
