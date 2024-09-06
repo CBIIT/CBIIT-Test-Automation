@@ -327,3 +327,26 @@ Feature: Process Actions Scenarios
     And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
     And the assigned GM Specialist (if any) will NOT see the action on "My Specialist Queue" tab, when logged in
 
+  @GPMATS-1367 @Progression @playwright @JUAREZDS
+  Scenario: Process Action Manager moves action from Pre-Assigned to New
+    Given a user is logged in with the role of GM Action Manager
+    And clicks on Show Advanced Filters link
+    And for the Action Status drop-down selects "Pre-assigned" option
+    And clicks on the Search button
+    And clicks on the Process button for any Action
+    Then the following options are displayed:
+      | Assign      |
+      | Cancel      |
+      | Pre-assign  |
+      | Put on Hold |
+
+
+#    And the user is able to select "Mark as New" option
+#    And the system will NOT validate that the action has "Specialist" selected
+#    And the system will display warning message "Are you sure you want to mark this action? as New" with optional comments box (2000 char max)
+#    And the user will be able to click "Cancel" on the warning message pop-up - the warning message will be closed, no changes will be made
+#    And the user will be able to click "Ok" on the warning message pop-up
+#    And the confirmation message will be displayed: "Success! Workflow has been processed successfully for { GPMATS action's grant number}"
+#    And the action status will be changed to "New" with a date stamp
+#    And the changes will be reflected in the "Change History" section along with any comments provided
+#    And the assigned GM Specialist will not see the action on "My Specialist Queue" tab, when logged in
