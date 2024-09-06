@@ -1,23 +1,24 @@
 package ServiceNow.CHARMS.StepsImplementation;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
+import ServiceNow.CHARMS.Utils.CharmsUtil;
+import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import com.nci.automation.utils.LocalConfUtils;
-import com.nci.automation.xceptions.TestingException;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.asserts.SoftAssert;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
-import ServiceNow.CHARMS.Utils.CharmsUtil;
-import appsCommon.PageInitializers.PageInitializer;
+import com.nci.automation.xceptions.TestingException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     String referralValue;
@@ -33,11 +34,11 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void resetTestAccountSignIn() throws TestingException {
         if (LocalConfUtils.getProperty("env").equals("test")) {
             WebDriverUtils.webDriver.get(
-                    "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Db1cf5c0087d0d610ad46326d3fbb3507%26sysparm_view%3D%26sysparm_domain%3Dnull%26sysparm_domain_scope%3Dnull%26sysparm_record_row%3D1%26sysparm_record_rows%3D12%26sysparm_record_list%3DnameCONTAINSreset%255eORDERBYname");
+                    "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Db1cf5c0087d0d610ad46326d3fbb3507%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D2%26sysparm_record_rows%3D1263%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
             MiscUtils.sleep(2000);
         } else if (LocalConfUtils.getProperty("env").equals("dev2")) {
             WebDriverUtils.webDriver.get(
-                    "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Db1cf5c0087d0d610ad46326d3fbb3507%26sysparm_view%3D%26sysparm_domain%3Dnull%26sysparm_domain_scope%3Dnull%26sysparm_record_row%3D1%26sysparm_record_rows%3D12%26sysparm_record_list%3DnameCONTAINSreset%255eORDERBYname");
+                    "https://service-dev2.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Db1cf5c0087d0d610ad46326d3fbb3507%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D2%26sysparm_record_rows%3D1263%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
             MiscUtils.sleep(2000);
         }
     }
