@@ -5,6 +5,7 @@ import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import io.cucumber.java.en.And;
@@ -12,8 +13,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
+
 import java.util.Arrays;
 import java.util.List;
+
 import static GrantsApps.GPMATS.Steps.GPMATS_Common_Methods.*;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
@@ -112,7 +115,7 @@ public class GPMATS_All_Steps {
         page.waitForLoadState();
         Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING CHANGE HISTORY DATE OF HOLD ACTION IS TODAY - - -");
         Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]").innerText(), "Hold", "- - - VERIFYING CHANGE HISTORY STATUS OF HOLD - - -");
-        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[3]").innerText(), "Baker, Bryan", "- - - VERIFYING CHANGE HISTORY ACTION SPECIALIST OF HOLD - - -");
+        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[3]").innerText(), "Baker, Bryan", "- - - VERIFYING NAME IN UPDATED BY COLUMN - - -");
         String changeHistoryComments = page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[4]").innerText();
         Assert.assertTrue(changeHistoryComments.length() <= 2000, "- - - VERIFYING CHANGE HISTORY COMMENTS OF HOLD HAS NO MORE THAN 2000 CHARACTERS - - -");
 
@@ -161,6 +164,7 @@ public class GPMATS_All_Steps {
 
         if (actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked")) {
             clickOnProcessButtonOfFirstAction();
+            page.locator(preAssignOption).click();
 
             Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
             page.locator("//button[normalize-space()='Acknowledge']").click();
@@ -344,8 +348,8 @@ public class GPMATS_All_Steps {
         page.locator("(//li[@role='option'])[1]").click();
 
         // Clicking on My Specialist Que and verifying that the action assigned is displayed in the results table
-        page.waitForSelector("//button[contains(@class,'btn btn-info')]");
-        page.locator("//button[contains(@class,'btn btn-info')]").click();
+        page.waitForSelector("(//button[contains(@class,'btn btn-info')])[1]");
+        page.locator("(//button[contains(@class,'btn btn-info')])[1]").click();
         page.waitForLoadState();
         List<ElementHandle> grantNumbers = page.querySelectorAll("//div/a[@ngbtooltip='Click to View Grant Details']");
         for (ElementHandle grantNumberInSpecialistQue : grantNumbers) {
@@ -807,11 +811,21 @@ public class GPMATS_All_Steps {
             page.waitForLoadState();
             List<ElementHandle> grantNumbers = page.querySelectorAll("//div/a[@ngbtooltip='Click to View Grant Details']");
             for (ElementHandle grantNumberInSpecialistQue : grantNumbers) {
-                Assert.assertFalse(grantNumberInSpecialistQue.innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER OF THE ACTION PRE-ASSIGNED IS NOT DISPLAYED IN THE RESULTS TABLE - - -");
+                Assert.assertFalse(grantNumberInSpecialistQue.innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER OF THE ACTION IS NOT DISPLAYED IN THE RESULTS TABLE - - -");
             }
             page.waitForLoadState();
         }
 
+    }
+
+    @Then("* * PERFORM THE FOLLOWING STEPS ONLY IF THE VIEW NOTES BUBBLE IS BLANK OR JUST HAS A GREEN DOT  * * *")
+    public void perform_the_following_steps_only_if_the_view_notes_bubble_is_blank_or_just_has_a_green_dot() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("the system will NOT validate that the action has {string} selected")
+    public void the_system_will_not_validate_that_the_action_has_selected(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
     }
 
     @Then("Neither the GM Action Manager nor any other authenticated user will have the capability to process an action designated as {string}. Furthermore, the {string} button for such an action will no longer be visible.")
@@ -1052,5 +1066,142 @@ public class GPMATS_All_Steps {
     @Then("an indication that an action was put on hold is shown to the user via a {string} label next to the author's name in the most recent note header.")
     public void an_indication_that_an_action_was_put_on_hold_is_shown_to_the_user_via_a_label_next_to_the_author_s_name_in_the_most_recent_note_header(String string) {
         CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Given("* * THIS TEST STEP INCLUDES ALL CODE FOR THE TEST CASE COVERING GPMATS-{int} * * *")
+    public void this_test_step_includes_all_code_for_the_test_case_covering_gpmats(Integer int1) {
+
+        // CONSTANTS
+        String markAsNewOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Mark as New']";
+
+        // CLICK ON PROCESS DROP-DOWN BUTTON
+        clickOnProcessButtonOfFirstAction();
+
+        // VERIFY PROCESS DROP DOWN OPTIONS
+        List<ElementHandle> actualValues = page.querySelectorAll("//div[@class='dropdown-menu dropdown-menu-right show']/a");
+        List<String> expectedValues = Arrays.asList("Assign", "Cancel", "Mark as New");
+        for (ElementHandle actualValue : actualValues) {
+            Assert.assertTrue(expectedValues.contains(actualValue.innerText()), "- - - VERIFYING PROCESS DROP DOWN OPTIONS - - -");
+        }
+        page.waitForSelector("(//i[contains(@class,'bi bi-dash-circle')])[1]");
+        page.locator("(//i[contains(@class,'bi bi-dash-circle')])[1]").click();
+        MiscUtils.sleep(1000);
+
+        // RETRIEVE THE NAME OF THE ACTION SPECIALIST FOR THE FIRST ACTION
+        String actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();
+
+        // RETRIEVE THE GRANT NUMBER FOR THE FIRST ACTION
+        String grantNumber = page.locator("(//div//a[@ngbtooltip='Click to View Grant Details'])[1]").innerText();
+
+        // RETRIEVE THE ACTUAL CLASS ATTRIBUTE VALUE OF THE VIEW NOTES BUBBLE FOR THE FIRST ACTION
+        String actualClassAttributeValueOfViewNotes = page.locator("(//div[@class='grant-icons']/div/div/span)[1]").getAttribute("class");
+
+        // PERFORM THE FOLLOWING IF THE VIEW NOTES BUBBLE HAS A RED CHECK MARK WITH OR WITHOUT A GREEN DOT
+        if (actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked")) {
+            clickOnProcessButtonOfFirstAction();
+            page.locator(markAsNewOption).click();
+
+            // VERIFY ACKNOWLEDGEMENT OF SPECIAL INSTRUCTIONS
+            Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
+
+            // CLICK ON ACKNOWLEDGE BUTTON
+            page.locator("//button[normalize-space()='Acknowledge']").click();
+
+            // VERIFY ASSIGN ACTION
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to mark this action as New?']").innerText().trim(), "Are you sure you want to mark this action as New?", "- - - VERIFYING ARE YOU SURE YOU WANT TO MARK THIS ACTION AS NEW? TEXT - - -");
+
+            // VERIFYING STATUS COMMENTS TEXT BOX ALLOWS ONLY 2000 CHARACTERS
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+
+            // CLICK CANCEL TO PERFORM PREVIOUS STEPS AGAIN
+            clickCancelButton();
+
+            // PERFORMING PREVIOUS STEPS AGAIN
+            clickOnProcessButtonOfFirstAction();
+            page.locator(markAsNewOption).click();
+
+            // VERIFY ACKNOWLEDGEMENT OF SPECIAL INSTRUCTIONS
+            Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
+
+            // CLICK ON ACKNOWLEDGE BUTTON
+            page.locator("//button[normalize-space()='Acknowledge']").click();
+
+            // VERIFY ASSIGN ACTION
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to mark this action as New?']").innerText().trim(), "Are you sure you want to mark this action as New?", "- - - VERIFYING ARE YOU SURE YOU WANT TO MARK THIS ACTION AS NEW? TEXT - - -");
+
+            // VERIFYING STATUS COMMENTS TEXT BOX ALLOWS ONLY 2000 CHARACTERS
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+
+            // CLICK OK
+            clickOkButton();
+        }
+
+        // PERFORM THE FOLLOWING IF THE VIEW NOTES BUBBLE IS BLANK WITH OR WITHOUT GREEN DOT
+        if (actualClassAttributeValueOfViewNotes.contentEquals("note-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-blank")) {
+            clickOnProcessButtonOfFirstAction();
+            page.locator(markAsNewOption).click();
+
+            // VERIFY ARE YOU SURE YOU WANT TO MARK THIS ACTION AS NEW? TEXT
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to mark this action as New?']").innerText().trim(), "Are you sure you want to mark this action as New?", "- - - VERIFYING ARE YOU SURE YOU WANT TO MARK THIS ACTION AS NEW? TEXT - - -");
+
+            // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+
+            // CLICK OK
+            clickOkButton();
+        }
+
+        // VERIFYING SUCCESS MESSAGE WITH GRANTS NUMBER, STATUS AND DATE
+        Assert.assertTrue(page.locator("//div[@id='submitMessage']/span").innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER IS INCLUDED IN THE SUCCESS MESSAGE TEXT.- - -");
+        Assert.assertEquals(page.locator("//div[normalize-space()='New']").innerText().trim(), "New", "- - - VERIFYING THE STATUS OF THE ACTION AFTER ASSIGNING IT - - -");
+        Assert.assertEquals(page.locator("(//td[@class='sorting_3']/app-current-status)[1]/div[2]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING THE DATE OF THE ACTION AFTER ASSIGNING IT - - -");
+
+        // AND THE CHANGES WILL BE REFLECTED IN THE "CHANGE HISTORY" SECTION ALONG WITH ANY COMMENTS PROVIDED
+        page.waitForSelector("(//i[@ngbtooltip='View Change History'])[1]");
+        page.locator("(//i[@ngbtooltip='View Change History'])[1]").click();
+        page.waitForLoadState();
+        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING CHANGE HISTORY DATE OF MARKING ACTION AS NEW IS TODAY - - -");
+        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]").innerText(), "New", "- - - VERIFYING CHANGE HISTORY STATUS OF MARKING ACTION AS NEW - - -");
+        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[3]").innerText(), "Baker, Bryan", "- - - VERIFYING CHANGE HISTORY NAME IN UPDATED BY COLUMN - - -");
+        String changeHistoryComments = page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[4]").innerText();
+        Assert.assertTrue(changeHistoryComments.length() <= 2000, "- - - VERIFYING CHANGE HISTORY COMMENTS OF ACTION HAS NO MORE THAN 2000 CHARACTERS - - -");
+
+        // AND THE ASSIGNED GM SPECIALIST(IF ANY) WILL NOT SEE THE ACTION ON THEIR TAB, WHEN LOGGED IN
+        page.click("//span[@aria-hidden='true'][normalize-space()='×']");
+        page.waitForLoadState();
+
+        if (!actionSpecialistName.isEmpty()) {
+            actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();
+            page.locator("#change-user-dropdown").click();
+            page.getByText("Enter Last Name, First Name").click();
+            System.out.println("NAME IS:" + actionSpecialistName);
+            page.locator("(//input[@role='searchbox'])[11]").fill(actionSpecialistName);
+            page.waitForSelector("//li[@role='option']");
+            page.locator("(//li[@role='option'])[1]").click();
+            page.waitForSelector("(//button[contains(@class,'btn btn-info')])[1]");
+            page.locator("(//button[contains(@class,'btn btn-info')])[1]").click();
+            page.waitForLoadState();
+            List<ElementHandle> grantNumbers = page.querySelectorAll("//div/a[@ngbtooltip='Click to View Grant Details']");
+            for (ElementHandle grantNumberInSpecialistQue : grantNumbers) {
+                Assert.assertFalse(grantNumberInSpecialistQue.innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER OF THE ACTION IS NOT DISPLAYED IN THE RESULTS TABLE - - -");
+            }
+            page.waitForLoadState();
+        }
+    }
+
+    @Then("verifies the Status changes from Pre-Assigned to {string} for the action")
+    public void verifies_the_status_changes_from_pre_assigned_to_for_the_action(String string) {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Then("* * PERFORM THE FOLLOWING STEPS ONLY IF THE VIEW NOTES BUBBLE HAS A RED CHECK MARK WITH OUR WITHOUT A GREEN DOT * * *")
+    public void perform_the_following_steps_only_if_the_view_notes_bubble_has_a_red_check_mark_with_our_without_a_green_dot() {
+        CucumberLogUtils.scenario.log("* * * THE CODE OF THIS STEP IS COVERED IN THE TEST STEP WITH ALL CODE * * *");
+    }
+
+    @Given("* * CODE FOR TEST: PROCESS ACTION MANAGER MOVES ACTION FROM PRE-ASSIGNED TO AWAITING GM REVIEW * * *")
+    public void code_for_test_process_action_manager_moves_action_from_pre_assigned_to_awaiting_gm_review() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
 }

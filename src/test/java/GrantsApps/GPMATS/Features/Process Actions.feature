@@ -79,7 +79,7 @@ Feature: Process Actions Scenarios
     And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
     And the assigned GM Specialist (if any) will NOT see the action on "My Specialist Queue" tab, when logged in
 
-  @GPMATS-1365 @GPMATS-1324 @Regression @playwright @JUAREZDS @Progression
+  @GPMATS-1365 @GPMATS-1324 @Regression @playwright @JUAREZDS
   Scenario: Process Action Manager moves action from New to Hold
     Given a user is logged in with the role of GM Action Manager
     And clicks on Show Advanced Filters link
@@ -241,7 +241,7 @@ Feature: Process Actions Scenarios
       | Cancel      |
       | Pre-assign  |
       | Put on Hold |
-    * * * PERFORM THE FOLLOWING STEPS ONLY IF AN ACTION HAS NO SPECIALIST ASSIGNED OR IF THE VIEW NOTES BUBBLE IS BLANK OR JUST HAS A GREEN DOT  * * *
+    * * * PERFORM THE FOLLOWING STEPS ONLY IF THE VIEW NOTES BUBBLE IS BLANK OR JUST HAS A GREEN DOT  * * *
     And the user is able to select "Cancel" option
     And the system will display warning message "Are you sure you want to Cancel this action?"
     When the user clicks on the Cancellation Reason drop-down
@@ -327,26 +327,55 @@ Feature: Process Actions Scenarios
     And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
     And the assigned GM Specialist (if any) will NOT see the action on "My Specialist Queue" tab, when logged in
 
-  @GPMATS-1367 @Progression @playwright @JUAREZDS
+  @GPMATS-1367 @playwright @JUAREZDS @Regression
   Scenario: Process Action Manager moves action from Pre-Assigned to New
     Given a user is logged in with the role of GM Action Manager
     And clicks on Show Advanced Filters link
-    And for the Action Status drop-down selects "Pre-assigned" option
+    And for the Action Status drop-down selects "Pre-Assigned" option
     And clicks on the Search button
+    * * * THIS TEST STEP INCLUDES ALL CODE FOR THE TEST CASE COVERING GPMATS-1367 * * *
     And clicks on the Process button for any Action
     Then the following options are displayed:
       | Assign      |
       | Cancel      |
-      | Pre-assign  |
-      | Put on Hold |
+      | Mark as New |
+    * * * PERFORM THE FOLLOWING STEPS ONLY IF THE VIEW NOTES BUBBLE IS BLANK OR JUST HAS A GREEN DOT  * * *
+    And the user is able to select "Mark as New" option
+    And the system will NOT validate that the action has "Specialist" selected
+    And the system will display warning message "Are you sure you want to mark this action? as New" with optional comments box (2000 char max)
+    And the user will be able to click "Cancel" on the warning message pop-up - the warning message will be closed, no changes will be made
+    And the user will be able to click "Ok" on the warning message pop-up
+    And verifies the confirmation message displays: Success! Workflow has been successfully processed for 'GPMATS action's grant number'
+    And verifies the Status changes from Pre-Assigned to "New" for the action
+    And verifies the date stamp of the action is today's date
+    And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
+    And the assigned GM Specialist (if any) will NOT see the action on "My Specialist Queue" tab, when logged in
+    * * * PERFORM THE FOLLOWING STEPS ONLY IF THE VIEW NOTES BUBBLE HAS A RED CHECK MARK WITH OUR WITHOUT A GREEN DOT * * *
+    When the user clicks on the 'Mark as New' option for an action, and the 'View Notes' bubble has a red check mark, either with or without a green dot.
+    Then the user sees message "Please acknowledge all Special Instruction(s) before processing the action." and cancels the acknowledgement to verify that the previous step can be performed again with the same action
+    When the user clicks on the 'Mark as New' option for an action, and the 'View Notes' bubble has a red check mark, either with or without a green dot. again
+    Then the user sees message "Please acknowledge all Special Instruction(s) before processing the action."
+    When the user acknowledges and sees message "Are you sure you want to mark this action? as New"
+    Then user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters and clicks OK
+    And verifies the confirmation message displays: Success! Workflow has been successfully processed for 'GPMATS action's grant number'
+    And verifies the Status changes from Pre-Assigned to "New" for the action
+    And verifies the date stamp of the action is today's date
+    And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
+    And the assigned GM Specialist (if any) will NOT see the action on "My Specialist Queue" tab, when logged in
 
-
-#    And the user is able to select "Mark as New" option
-#    And the system will NOT validate that the action has "Specialist" selected
-#    And the system will display warning message "Are you sure you want to mark this action? as New" with optional comments box (2000 char max)
-#    And the user will be able to click "Cancel" on the warning message pop-up - the warning message will be closed, no changes will be made
-#    And the user will be able to click "Ok" on the warning message pop-up
-#    And the confirmation message will be displayed: "Success! Workflow has been processed successfully for { GPMATS action's grant number}"
-#    And the action status will be changed to "New" with a date stamp
-#    And the changes will be reflected in the "Change History" section along with any comments provided
-#    And the assigned GM Specialist will not see the action on "My Specialist Queue" tab, when logged in
+  @GPMATS-1366 @playwright @JUAREZDS @Progression
+  Scenario: Process Action Manager moves action from Pre-Assigned to Awaiting GM Review
+    Given a user is logged in with the role of GM Action Manager
+    And clicks on Show Advanced Filters link
+    And for the Action Status drop-down selects "Pre-Assigned" option
+    And clicks on the Search button
+    * * * CODE FOR TEST: PROCESS ACTION MANAGER MOVES ACTION FROM PRE-ASSIGNED TO AWAITING GM REVIEW * * *
+    And clicks on the Process button for any Action
+    Then the following options are displayed:
+      | Assign      |
+      | Cancel      |
+      | Mark as New |
+    * * * PERFORM THE FOLLOWING STEPS ONLY IF AN ACTION HAS NO SPECIALIST ASSIGNED * * *
+    When if the user clicks on Assign option to an action that has no specialist assigned
+    Then the following message displays if no GMS is selected: "Please select GMS before proceeding."
+    And in order to proceed with assigning an action for an action that had no specialist assigned, the user has to edit the action by selecting an Action specialist from the Action Specialist drop-down and saves
