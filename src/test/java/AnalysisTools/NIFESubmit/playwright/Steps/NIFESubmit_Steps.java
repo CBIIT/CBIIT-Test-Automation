@@ -109,6 +109,11 @@ public class NIFESubmit_Steps extends PageInitializer {
         MiscUtils.sleep(2000);
     }
 
+    @Then("Verify the validation error message in the submit metadata tab")
+    public void verify_the_validation_error_message_in_the_submit_metadata_tab() {
+        assertThat(PlaywrightUtils.page.getByRole(AriaRole.MAIN)).containsText(NIFESubmit_Constants.SUBMIT_BUTTON_ERROR_MESSAGE);
+    }
+
     @Then("Verify metadata has been submitted successfully")
     public void verify_metadata_has_been_submitted_successfully() {
         assertThat(PlaywrightUtils.page.getByRole(AriaRole.MAIN)).containsText(NIFESubmit_Constants.SUBMIT_METADATA_SUCCESS_MESSAGE);
@@ -132,5 +137,13 @@ public class NIFESubmit_Steps extends PageInitializer {
 
     @Then("User enters all the required details in the biosample section")
     public void user_enters_all_the_required_details_in_the_biosample_section() {NIFESubmitStepsImpl.addAllRequiredDetailsInBiosample();
+    }
+
+    @Then("User clicks on the NIFE IMAGE SERVER tab")
+    public void user_clicks_on_the_nife_image_server_tab() {PlaywrightUtils. page.locator(NIFESubmitPage.nifeImageServer).click();
+    }
+
+    @Then("Verify User is on the OMERO login page")
+    public void verify_user_is_on_the_omero_login_page() {assertThat(PlaywrightUtils.page).hasTitle(NIFESubmit_Constants.OMERO_PAGE_TITLE);
     }
 }

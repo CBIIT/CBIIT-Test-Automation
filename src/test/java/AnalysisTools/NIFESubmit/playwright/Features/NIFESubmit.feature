@@ -8,11 +8,18 @@ Feature:These are the scenarios for the NIFESubmit application
     Then User clicks on the Submit Metadata and View Images
 
   @satya @Smoke @Regression @playwright @NCIATWP-6715
-  Scenario: Verify SUBMIT METADATA tab is available in the NIFE Website
+  Scenario: Verify User imports the excel file in the submit metadata tab
     Given User navigates to the NIFE Website
     Then User clicks on the SUBMIT METADATA tab
     Then Verify User is on the SUBMIT METADATA Tab
     Then User imports the excel file
+
+  @satya @Smoke @Regression @playwright
+  Scenario: Validate the error message if user clicks submit button without entering any details in the submit metadata tab
+    Given User navigates to the NIFE Website
+    Then User clicks on the SUBMIT METADATA tab
+    Then User clicks on the submit button in NIFESubmit
+    Then Verify the validation error message in the submit metadata tab
 
   @satya @Smoke @Regression @playwright @NCIATWP-6716
   Scenario: Verify User is able to submit metadata successfully
@@ -42,7 +49,13 @@ Feature:These are the scenarios for the NIFESubmit application
     Then Verify metadata has been submitted successfully
 
   @satya @Smoke @Regression @playwright @NCIATWP-6726
-  Scenario: Verify SUBMIT METADATA tab is available in the NIFE Website
+  Scenario: Verify the OMERO web login page on the NIFE IMAGE SERVER tab
+    Given User navigates to the NIFE Website
+    Then User clicks on the NIFE IMAGE SERVER tab
+    Then Verify User is on the OMERO login page
+
+  @satya @Smoke @Regression @playwright
+  Scenario: Verify the associated title of pages navigated through the links on the about tab
     Given User navigates to the NIFE Website
     Then User clicks on the About tab
     Then User clicks on the links and verify the associated title

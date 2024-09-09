@@ -99,4 +99,14 @@ public class NIFESubmit_Constants {
      * SUBMIT METADATA SUCCESS MESSAGE ON SUBMITTING METADATA
      */
     public static String SUBMIT_METADATA_SUCCESS_MESSAGE = "Metadata submitted successfully.";
+
+    /***
+     * VALIDATION ERROR MESSAGE AFTER CLICKING ON SUBMIT BUTTON WITH NO DETAILS
+     */
+    public static String SUBMIT_BUTTON_ERROR_MESSAGE = "Please fill out all required fields.";
+
+    /***
+     * OMERO WEB PAGE TITLE
+     */
+    public static String OMERO_PAGE_TITLE = "OMERO.web - Login";
 }

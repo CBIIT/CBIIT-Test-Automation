@@ -201,4 +201,9 @@ public class NIFESubmitPage {
      * ENLARGE BIOSAMPLE SECTION
      */
     public static String enlageBiosample = "Biosample 1 copy close";
+
+    /***
+     * NIFE IMAGE SERVER LOCATOR
+     */
+    public static String nifeImageServer = "//a[normalize-space()='NIFE Image Server']";
 }
