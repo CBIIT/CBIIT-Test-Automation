@@ -16,13 +16,14 @@ public class ACT24ParticipantAPISteps {
 
     String baseURL = "https://act24-test.cancer.gov/act24/";
     HttpURLConnection conn;
+    String globalPass = "ACT24Research!";
 
     @Then("the GET call to retrieve participant list is requested and the {int} status code is returned")
     public void the_get_call_to_retrieve_participant_list_is_requested_and_the_status_code_is_returned(int statusCode) throws IOException {
         //base request
         RestAssured.baseURI = baseURL;
         String username = "matakevin";
-        String password = "ACT24Test!";
+        String password = globalPass;
         String urlString = baseURL + "studyList/";
 
         // Create a Url object from the urlString.
@@ -70,7 +71,7 @@ public class ACT24ParticipantAPISteps {
         //base request
         RestAssured.baseURI = baseURL;
         String username = "matakevin";
-        String password = "ACT24Test!";
+        String password = globalPass;
         String urlString = baseURL + "participantList/7685/";
 
         // Create a Url object from the urlString.
@@ -118,7 +119,7 @@ public class ACT24ParticipantAPISteps {
         //base request
         RestAssured.baseURI = baseURL;
         String username = "matakevin";
-        String password = "ACT24Test!";
+        String password = globalPass;
         String urlString = baseURL + "participantList/"+studyNumber+"/";
 
         // Create a Url object from the urlString.
@@ -166,7 +167,7 @@ public class ACT24ParticipantAPISteps {
         //base request
         RestAssured.baseURI = baseURL;
         String username = "matakevin";
-        String password = "ACT24Test!";
+        String password = globalPass;
         String urlString = baseURL + "participantList/" + studyNumber + "/";
 
         // Create a Url object from the urlString.
@@ -214,7 +215,7 @@ public class ACT24ParticipantAPISteps {
         //base request
         RestAssured.baseURI = baseURL;
         String username = "matakevin";
-        String password = "ACT24Test!";
+        String password = globalPass;
         String urlString = baseURL + "summaryReportQC/"+studyID+"/";
 
         // Create a Url object from the urlString.
@@ -261,7 +262,7 @@ public class ACT24ParticipantAPISteps {
         //base request
         RestAssured.baseURI = baseURL;
         String username = "matakevin";
-        String password = "ACT24Test!";
+        String password = globalPass;
         String urlString = baseURL + "detailReportQC/"+studyID+"/";
 
         // Create a Url object from the urlString.
