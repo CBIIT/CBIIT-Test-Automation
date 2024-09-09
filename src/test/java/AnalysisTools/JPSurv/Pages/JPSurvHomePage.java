@@ -121,7 +121,7 @@ public class JPSurvHomePage extends CommonUtils {
 	public WebElement calculateButton;
 
 	/** Survival vs. Year at Diagnosis tab **/
-	@FindBy(xpath = "//ul[@id='jpsurv-tabs']//a[text()='Survival vs. Year at Diagnosis']")
+	@FindBy(xpath = "//*[@id='graph-year-link']")
 	public WebElement survivalVsYearAtDiagnosisTab;
 
 	/** Download full dataset button **/

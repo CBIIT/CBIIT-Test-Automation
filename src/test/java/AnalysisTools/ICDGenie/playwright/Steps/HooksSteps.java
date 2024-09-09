@@ -1,4 +1,4 @@
-package AnalysisTools.ICDGenie.Steps;
+package AnalysisTools.ICDGenie.playwright.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;

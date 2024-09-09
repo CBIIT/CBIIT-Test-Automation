@@ -1,1 +1,0 @@
-Feature: These are the scenario for the Home tab on the ICDGenie Application
