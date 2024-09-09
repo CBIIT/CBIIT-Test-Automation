@@ -65,7 +65,7 @@ public class TestAccountResetImpl extends PageInitializer {
     public static void charmsRasOneTestAccountReset(){
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(
-                "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3D6b09648c877fc6507e87a8a60cbb35f2%26sysparm_view%3D%26sysparm_domain%3Dnull%26sysparm_domain_scope%3Dnull");
+                "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Da3ee10cc8790d610ad46326d3fbb350a%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D1%26sysparm_record_rows%3D1263%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
         MiscUtils.sleep(2000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
