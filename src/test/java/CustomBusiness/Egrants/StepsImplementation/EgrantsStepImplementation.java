@@ -182,12 +182,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 	public static void uploads_a_file() {
 		MiscUtils.sleep(7000);
 		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.chooseFile, Egrants_Constants.TEST_FILE_PATH);
-		/*if (egrantsSearchandFileManagementScenariosPage.chooseFile.isDisplayed()){
-			System.out.println("Element is displayed");
-
-		} else {
-			System.out.println("Element is not interactable");
-		}*/
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addFileButton);
 		MiscUtils.sleep(5000);
 		CucumberLogUtils.logScreenshot();
@@ -222,7 +216,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void selects_funding_category() {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.categoryDropdown);
-		CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.categoryDropdown, 12);
+		CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.categoryDropdown,Egrants_Constants.FUNDING_CATEGORY);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 	}
@@ -232,7 +226,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void selects_transition_approval_subCategory_and_date() {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.subCategoryforFunding);
-		CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.subCategoryforFunding, 5);
+		CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.subCategoryforFunding, Egrants_Constants.FUNDING_SUBCATEGORY);
 		String formattedDate = CommonUtils.getTodayDate();
 		egrantsSearchandFileManagementScenariosPage.calendar.clear();
 		MiscUtils.sleep(1000);
@@ -418,7 +412,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 		if (CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.createdOnTextFirstRow).contains(Egrants_Constants.DOC_CREATOR_NAME)) {
 			CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.deleteButtonFirstRow);
 			MiscUtils.sleep(2000);
-		} else {
+		} else if (CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.createdOnTextSecondRow).contains(Egrants_Constants.DOC_CREATOR_NAME)) {
 			CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.expandIconSecondRow);
 			MiscUtils.sleep(1000);
 			CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.deleteButtonSecondRow);
@@ -426,12 +420,12 @@ public class EgrantsStepImplementation extends PageInitializer {
 	}
 
 	/**
-	 * THIS METHOD CONFIRMS FILE DELETION IF CONDITION MET ELSE DISMISS THE ALERT
+	 * THIS METHOD CONFIRMS FILE DELETION IF CONDITION IS MET ELSE DISMISSES THE ALERT
 	 */
 	public static void confirm_document_deletion() {
 		if (CommonUtils.getAlertText().contentEquals(Egrants_Constants.DELETE_ALERT_MESSAGE)){
-			CommonUtils.acceptAlert();
 			CucumberLogUtils.logScreenshot();
+			CommonUtils.acceptAlert();
 			System.out.println("Alert Present and condition is true");
 		} else {
 			CommonUtils.dismissAlert();

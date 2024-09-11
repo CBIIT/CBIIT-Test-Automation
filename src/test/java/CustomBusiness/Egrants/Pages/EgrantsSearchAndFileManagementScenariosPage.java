@@ -146,7 +146,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement documentCategoryDropdown;
 
     /**
-     * Document category
+     * Document Subcategory
      */
     @FindBy (xpath = "//input[@id='comments']")
     public WebElement subCategoryInstitutionalFiles;

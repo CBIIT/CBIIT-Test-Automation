@@ -94,10 +94,12 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
         CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.gearIcon);
         MiscUtils.sleep(2000);
     }
+
     @When("selects Funding from Category dropdown")
     public void selects_from_category_dropdown() {
         EgrantsStepImplementation.selects_funding_category();
     }
+
     @When("selects Transition Approval as Subcategory")
     public void selects_as_subcategory_and_date() {
         EgrantsStepImplementation.selects_transition_approval_subCategory_and_date();
