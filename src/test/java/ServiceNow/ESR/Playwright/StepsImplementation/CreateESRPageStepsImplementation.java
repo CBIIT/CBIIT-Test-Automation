@@ -13,7 +13,7 @@ import static com.nci.automation.web.PlaywrightUtils.page;
 public class CreateESRPageStepsImplementation {
 
     /**
-     * Navigates to the Create ESR page.
+     * Navigates to the Create ESR page in Native View.
      */
     public static void navigateToCreateESRPage() {
         page.getByPlaceholder(CreateESRPage.filterBoxNativeView).click();
@@ -23,10 +23,11 @@ public class CreateESRPageStepsImplementation {
     }
 
     /**
-     * Verifies if the given customer details text and project details text are displayed on the create ESR page.
+     * Verifies if the given customer details text and project details text are displayed on the create ESR page in Native View.
      *
      * @param customerDetailsText The text to verify for customer details.
      * @param projectDetailsText  The text to verify for project details.
+     * @param teamDetailsText  The text to verify for team details.
      */
     public static void verifyTextOnCreateESRPage(String customerDetailsText, String projectDetailsText, String teamDetailsText) {
         assertThat(page.frameLocator(CreateESRPage.iframeSelector).getByLabel(CreateESRPage.fullESRText)).containsText(customerDetailsText);
@@ -34,6 +35,10 @@ public class CreateESRPageStepsImplementation {
         assertThat(page.frameLocator(CreateESRPage.iframeSelector).getByLabel(CreateESRPage.fullESRText)).containsText(teamDetailsText);
     }
 
+
+    /**
+     * Navigates to the NCI At Your Service page from Native View
+     */
     public static void navigateToNCIPortalView() {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
         page.getByPlaceholder(CreateESRPage.filterBoxNativeView).click();
@@ -41,18 +46,31 @@ public class CreateESRPageStepsImplementation {
         page.getByLabel(CreateESRPage.NCIAtYourServiceText, new Page.GetByLabelOptions().setExact(true)).click();
     }
 
+    /**
+     * Navigates to the Engineering Support Requests module and Create ESR page from Portal View
+     */
     public static void navigateToCreateESRPortalView() {
         page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName(CreateESRPage.searchBoxPortalView)).click();
         page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName(CreateESRPage.searchBoxPortalView)).fill(CreateESRPage.fullESRText);
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(CreateESRPage.fullESRTextIcon)).click();
     }
 
+    /**
+     * Verifies if the given customer details text and project details text are displayed on the create ESR page on the portal view.
+     *
+     * @param customerDetailsText The text to verify for customer details.
+     * @param projectDetailsText  The text to verify for project details.
+     * @param teamDetailsText  The text to verify for team details.
+     */
     public static void verifyTextOnESRPage(String customerDetailsText, String projectDetailsText, String teamDetailsText) {
         assertThat(page.locator(CreateESRPage.customerDetailsContainer)).containsText(customerDetailsText);
         assertThat(page.locator(CreateESRPage.projectDetailsContainer)).containsText(projectDetailsText);
         assertThat(page.locator(CreateESRPage.teamDetailsContainer)).containsText(teamDetailsText);
     }
 
+    /**
+     * Fills in all information required for the creation of an ESR-Q ticket
+     */
     public static void fillRequiredInfoForESRQCreation() {
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Name")).click();
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Name")).fill("Test Project");
@@ -78,11 +96,17 @@ public class CreateESRPageStepsImplementation {
         page.frameLocator(CreateESRPage.iframeSelector).getByLabel("Submit", new FrameLocator.GetByLabelOptions().setExact(true)).click();
     }
 
+    /**
+     * Navigates into newly created ESR-Q ticket and validates it as a Q-Branch ticket
+     */
     public static void clickOnNewESRQTicket() {
         page.frameLocator(CreateESRPage.iframeSelector).locator("//tbody/tr/td/a[1]").click();
         assertThat(page.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]")).containsText("Q-Branch");
     }
 
+    /**
+     * Fills in all information required for the creation of an ESR-I ticket in Native View
+     */
     public static void fillRequiredInfoForESRICreation() {
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Name")).click();
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Name")).fill("Test Project");
@@ -108,6 +132,9 @@ public class CreateESRPageStepsImplementation {
         page.frameLocator(CreateESRPage.iframeSelector).getByLabel("Submit", new FrameLocator.GetByLabelOptions().setExact(true)).click();
     }
 
+    /**
+     * Navigates into newly created ESR-I ticket and validates it as a Implementation ticket
+     */
     public static void clickOnNewESRITicket() {
         page.frameLocator(CreateESRPage.iframeSelector).locator("//tbody/tr/td/a[1]").click();
         assertThat(page.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]")).containsText("Implementation");
