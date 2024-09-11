@@ -34,8 +34,4 @@ public class CreateESRPage {
 
     /* TEAM DETAILS SECTION SELECTOR IN PORTAL VIEW */
     public static String teamDetailsContainer = "#container_roles_and_assignments";
-
-
-
-
 }
