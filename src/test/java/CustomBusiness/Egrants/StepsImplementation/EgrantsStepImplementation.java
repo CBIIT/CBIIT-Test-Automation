@@ -388,7 +388,8 @@ public class EgrantsStepImplementation extends PageInitializer {
 		}
 	}
 
-	/** THIS METHOD SEARCHES FOR A GRANT NUMBER ON ADD NEW DOCUMENT PAGE
+	/***
+	 * THIS METHOD SEARCHES FOR A GRANT NUMBER ON ADD NEW DOCUMENT PAGE
 	 * @param grantNum
 	 */
 	public static void searches_for_grant_on_add_document_page(String grantNum) {
