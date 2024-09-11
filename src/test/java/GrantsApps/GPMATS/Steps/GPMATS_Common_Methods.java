@@ -14,6 +14,7 @@ public class GPMATS_Common_Methods {
     public String processDropDownButton = "(//div[@class='dropdown']/button)[1]";
     public String putOnHoldOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Put on Hold']";
     public String grantNumber = page.locator("(//div//a[@ngbtooltip='Click to View Grant Details'])[1]").innerText();
+    public String actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();
     //static GPMATS_Common_Methods gpmatsCommonMethods = new GPMATS_Common_Methods();
 
     /**
@@ -119,5 +120,30 @@ public class GPMATS_Common_Methods {
     public static void clickOkButton(){
         page.locator("//input[@value='OK']").click();
         page.waitForLoadState();
+    }
+
+    /**
+     * Verifies that the action is not displayed in the results table.
+     */
+    public static void verifyingGrantNumberOfActionIsNotDisplayedOnGMSpecialistResultsTable(){
+        page.click("//span[@aria-hidden='true'][normalize-space()='×']");
+        page.waitForLoadState();
+        GPMATS_Common_Methods gpmatsCommonMethods = new GPMATS_Common_Methods();
+        if (!gpmatsCommonMethods.actionSpecialistName.isEmpty()) {
+            page.locator("#change-user-dropdown").click();
+            page.getByText("Enter Last Name, First Name").click();
+            System.out.println("NAME IS:" + gpmatsCommonMethods.actionSpecialistName);
+            page.locator("(//input[@role='searchbox'])[11]").fill(gpmatsCommonMethods.actionSpecialistName);
+            page.waitForSelector("//li[@role='option']");
+            page.locator("(//li[@role='option'])[1]").click();
+            page.waitForSelector("(//button[contains(@class,'btn btn-info')])[1]");
+            page.locator("(//button[contains(@class,'btn btn-info')])[1]").click();
+            page.waitForLoadState();
+            List<ElementHandle> grantNumbers = page.querySelectorAll("//div/a[@ngbtooltip='Click to View Grant Details']");
+            for (ElementHandle grantNumberInSpecialistQue : grantNumbers) {
+                Assert.assertFalse(grantNumberInSpecialistQue.innerText().contains(gpmatsCommonMethods.grantNumber), "- - - VERIFYING THE GRANT NUMBER OF THE ACTION IS NOT DISPLAYED IN THE RESULTS TABLE - - -");
+            }
+            page.waitForLoadState();
+        }
     }
 }

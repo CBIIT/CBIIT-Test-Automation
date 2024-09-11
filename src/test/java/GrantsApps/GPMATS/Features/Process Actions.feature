@@ -403,6 +403,7 @@ Feature: Process Actions Scenarios
     Scenario: Process Action Manager moves Award action from Pre-Assigned to Cancelled
       Given a user is logged in with the role of GM Action Manager
       And clicks on Show Advanced Filters link
+      And for the Action Type drop-down selects "AWARD" option
       And for the Action Status drop-down selects "Pre-Assigned" option
       And clicks on the Search button
       * * * CODE FOR TEST: PROCESS ACTION MANAGER MOVES ACTION FROM PRE-ASSIGNED TO CANCELLED * * *
@@ -417,6 +418,7 @@ Feature: Process Actions Scenarios
       When the user clicks on the Cancellation Reason drop-down
       Then the following cancellation reasons will be displayed depending on action type:
         | Award Declined                   |
+        | Award is Not Eligible to Be Paid |
         | Disaggregation                   |
         | Duplicate Award Action           |
         | Early Pay Type 2                 |
@@ -424,7 +426,6 @@ Feature: Process Actions Scenarios
         | Folded into an OIA               |
         | Grant Terminating                |
         | Moved to Next Fiscal Year        |
-        | No Longer Required               |
         | Skip PFR                         |
       And the user is prompted to select a "Cancellation Reason" before the "Ok" button becomes enabled.
       And user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters
@@ -434,6 +435,7 @@ Feature: Process Actions Scenarios
       When the user clicks on the Cancellation Reason drop-down
       Then the following cancellation reasons will be displayed depending on action type:
         | Award Declined                   |
+        | Award is Not Eligible to Be Paid |
         | Disaggregation                   |
         | Duplicate Award Action           |
         | Early Pay Type 2                 |
@@ -441,7 +443,6 @@ Feature: Process Actions Scenarios
         | Folded into an OIA               |
         | Grant Terminating                |
         | Moved to Next Fiscal Year        |
-        | No Longer Required               |
         | Skip PFR                         |
       And the user is prompted to select a "Cancellation Reason" before the "Ok" button becomes enabled.
       And user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters
@@ -461,6 +462,7 @@ Feature: Process Actions Scenarios
       When the user clicks on the Cancellation Reason drop-down
       Then the following cancellation reasons will be displayed depending on action type:
         | Award Declined                   |
+        | Award is Not Eligible to Be Paid |
         | Disaggregation                   |
         | Duplicate Award Action           |
         | Early Pay Type 2                 |
@@ -468,7 +470,6 @@ Feature: Process Actions Scenarios
         | Folded into an OIA               |
         | Grant Terminating                |
         | Moved to Next Fiscal Year        |
-        | No Longer Required               |
         | Skip PFR                         |
       And the user is prompted to select a "Cancellation Reason" before the "Ok" button becomes enabled.
       And user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters
@@ -478,6 +479,7 @@ Feature: Process Actions Scenarios
       When the user clicks on the Cancellation Reason drop-down
       Then the following cancellation reasons will be displayed depending on action type:
         | Award Declined                   |
+        | Award is Not Eligible to Be Paid |
         | Disaggregation                   |
         | Duplicate Award Action           |
         | Early Pay Type 2                 |
@@ -485,7 +487,6 @@ Feature: Process Actions Scenarios
         | Folded into an OIA               |
         | Grant Terminating                |
         | Moved to Next Fiscal Year        |
-        | No Longer Required               |
         | Skip PFR                         |
       And the user is prompted to select a "Cancellation Reason" before the "Ok" button becomes enabled.
       And user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters

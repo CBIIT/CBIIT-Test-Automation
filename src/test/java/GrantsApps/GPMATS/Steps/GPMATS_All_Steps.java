@@ -724,6 +724,8 @@ public class GPMATS_All_Steps {
             // CLICK ON PROCESS BUTTON
             clickOnProcessButtonOfFirstAction();
 
+            page.locator(cancelOption).click();
+
             // VERIFY ACKNOWLEDGEMENT OF SPECIAL INSTRUCTIONS
             Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
 
@@ -738,6 +740,7 @@ public class GPMATS_All_Steps {
 
             // PERFORMING PREVIOUS STEPS AGAIN
             clickOnProcessButtonOfFirstAction();
+            page.locator(cancelOption).click();
             Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
             page.locator("//button[normalize-space()='Acknowledge']").click();
             Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Cancel this action?']").innerText().trim(), "Are you sure you want to Cancel this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT - - -");
@@ -901,27 +904,7 @@ public class GPMATS_All_Steps {
         // VERIFYING CHANGE HISTORY COMMENTS OF CANCELLING ACTION HAS NO MORE THAN 2000 CHARACTERS
         Assert.assertTrue(cleanedComments.concat(" ").length() <= 2000, "- - - VERIFYING CHANGE HISTORY COMMENTS OF CANCELLING ACTION HAS NO MORE THAN 2000 CHARACTERS - - -");
 
-        // AND THE ASSIGNED GM SPECIALIST(IF ANY) WILL NOT SEE THE ACTION ON THEIR TAB, WHEN LOGGED IN
-        page.click("//span[@aria-hidden='true'][normalize-space()='×']");
-        page.waitForLoadState();
-
-        if (!actionSpecialistName.isEmpty()) {
-            actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();
-            page.locator("#change-user-dropdown").click();
-            page.getByText("Enter Last Name, First Name").click();
-            System.out.println("NAME IS:" + actionSpecialistName);
-            page.locator("(//input[@role='searchbox'])[11]").fill(actionSpecialistName);
-            page.waitForSelector("//li[@role='option']");
-            page.locator("(//li[@role='option'])[1]").click();
-            page.waitForSelector("(//button[contains(@class,'btn btn-info')])[1]");
-            page.locator("(//button[contains(@class,'btn btn-info')])[1]").click();
-            page.waitForLoadState();
-            List<ElementHandle> grantNumbers = page.querySelectorAll("//div/a[@ngbtooltip='Click to View Grant Details']");
-            for (ElementHandle grantNumberInSpecialistQue : grantNumbers) {
-                Assert.assertFalse(grantNumberInSpecialistQue.innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER OF THE ACTION IS NOT DISPLAYED IN THE RESULTS TABLE - - -");
-            }
-            page.waitForLoadState();
-        }
+        verifyingGrantNumberOfActionIsNotDisplayedOnGMSpecialistResultsTable();
 
     }
 
