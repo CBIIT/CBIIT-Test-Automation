@@ -41,7 +41,7 @@ Given User is logged in the application and is on the landing page
     Then verifies the success message "Done! New document has been created"
     And clicks on Check Document button to view the uploaded document
 
-  @EGRANTS-591@DeleteUploadedFile @nesarh2 @Regression
+  @EGRANTS-591 @DeleteUploadedFile @nesarh2 @Regression
   Scenario: Test deletion of an uploaded file
     And searches for grant "CA125123"
     And selects grant year 18 from Years
@@ -59,7 +59,7 @@ Given User is logged in the application and is on the landing page
     And uploads a file
     Then clicks on Create New button
 
-  @EGRANTS-591 @InstitutionalFileCategoryUpdate @nesarh2 @Regression
+  @EGRANTS-591 @InstitutionalFileCategoryUpdate @nesarh2 @Progression
   Scenario: Test updating category and subcategory for an Institutional File
     And clicks on Institutional Files menu
     And clicks on AAVOGEN, INC.
@@ -68,7 +68,7 @@ Given User is logged in the application and is on the landing page
     And enters Follow-up facility visit Test as subcategory
     Then clicks on Save Update button
 
-  @EGRANTS-591@InstitutionalFileDelete @nesarh2 @Regression
+  @EGRANTS-591 @InstitutionalFileDelete @nesarh2 @Regression
   Scenario: Test deletion of an uploaded Institutional file
     And clicks on Institutional Files menu
     And clicks on AAVOGEN, INC.

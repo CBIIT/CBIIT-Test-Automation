@@ -38,7 +38,7 @@ public class QuickLinkVerificationAndManagementMenuSteps extends PageInitializer
 	}
 
 	@When("User selects {string} as QC Person")
-	public void user_selects_as_qc_person(String person) {
+	public void user_selects_as_qc_person() {
 		EgrantsStepImplementation.selects_qc_person();
 	}
 
@@ -53,7 +53,7 @@ public class QuickLinkVerificationAndManagementMenuSteps extends PageInitializer
 	}
 
 	@Given("User clicks on To dropdown to select {string}")
-	public void user_clicks_on_to_dropdown_to_select(String QualityAssociates) {
+	public void user_clicks_on_to_dropdown_to_select() {
 		EgrantsStepImplementation.clicks_on_to_dropdown();
 	}
 

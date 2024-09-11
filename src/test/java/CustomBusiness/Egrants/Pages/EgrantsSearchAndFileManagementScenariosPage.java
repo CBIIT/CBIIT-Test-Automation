@@ -70,7 +70,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Grant year 18
      */
-    @FindBy(xpath = "(//a[@href='Javascript:by_appl(10877115 )'])[1]")
+    @FindBy(css = "div[id='appls_10_687129'] a[title='View All Documents for 5P30CA125123-18']")
     public WebElement year18;
 
     /**
