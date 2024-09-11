@@ -20,7 +20,7 @@ Feature: Create ESR Page
     And fills out all required information for ESR-Q and clicks submit
     Then user sees an ESR-Q ticket was created
 
-  @ESR-552 @sarwarahmed1 @Progression @playwright
+  @ESR-552 @sarwarahmed1 @Regression @playwright
   Scenario: Test creating an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR

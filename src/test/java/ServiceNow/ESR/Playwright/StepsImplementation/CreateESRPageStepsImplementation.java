@@ -112,5 +112,4 @@ public class CreateESRPageStepsImplementation {
         page.frameLocator(CreateESRPage.iframeSelector).locator("//tbody/tr/td/a[1]").click();
         assertThat(page.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]")).containsText("Implementation");
     }
-
 }
