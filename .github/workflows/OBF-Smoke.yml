@@ -51,7 +51,7 @@ jobs:
         id: reportpath
         run: echo "::set-output name=path::obf-smoke-reports"
       - name: Upload Cucumber Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: cucumber-report-${{ github.run_number }}
@@ -67,7 +67,8 @@ jobs:
           git stash
           git fetch
           git checkout gh-pages
-          git stash pop
+          git rm -f src/main/resources/conf/cloudEnv.properties
+          git checkout stash -- .
           mkdir -p ${{ steps.reportpath.outputs.path }}
           mv target/obf-smoke-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
           git add .
