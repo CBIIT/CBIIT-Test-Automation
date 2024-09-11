@@ -246,8 +246,7 @@ Feature: Process Actions Scenarios
     And the system will display warning message "Are you sure you want to Cancel this action?"
     When the user clicks on the Cancellation Reason drop-down
     Then the following cancellation reasons will be displayed depending on action type:
-      | Award Declined                   |
-      | Award is Not Eligible to Be Paid |
+     | Award Declined                   |
       | Disaggregation                   |
       | Duplicate Award Action           |
       | Early Pay Type 2                 |
@@ -255,6 +254,7 @@ Feature: Process Actions Scenarios
       | Folded into an OIA               |
       | Grant Terminating                |
       | Moved to Next Fiscal Year        |
+      | No Longer Required               |
       | Skip PFR                         |
     And the user is prompted to select a "Cancellation Reason" before the "Ok" button becomes enabled.
     And user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters
@@ -263,8 +263,7 @@ Feature: Process Actions Scenarios
     Then the system will display warning message "Are you sure you want to Cancel this action?"
     When the user clicks on the Cancellation Reason drop-down
     Then the following cancellation reasons will be displayed depending on action type:
-      | Award Declined                   |
-      | Award is Not Eligible to Be Paid |
+    | Award Declined                   |
       | Disaggregation                   |
       | Duplicate Award Action           |
       | Early Pay Type 2                 |
@@ -272,6 +271,7 @@ Feature: Process Actions Scenarios
       | Folded into an OIA               |
       | Grant Terminating                |
       | Moved to Next Fiscal Year        |
+      | No Longer Required               |
       | Skip PFR                         |
     And the user is prompted to select a "Cancellation Reason" before the "Ok" button becomes enabled.
     And user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters
@@ -290,16 +290,16 @@ Feature: Process Actions Scenarios
     When the user acknowledges and sees message "Are you sure you want to Cancel this action?"
     When the user clicks on the Cancellation Reason drop-down
     Then the following cancellation reasons will be displayed depending on action type:
-      | Award Declined            |
-      | Disaggregation            |
-      | Duplicate Award Action    |
-      | Early Pay Type 2          |
-      | Early Transition          |
-      | Folded into an OIA        |
-      | Grant Terminating         |
-      | Moved to Next Fiscal Year |
-      | No Longer Required        |
-      | Skip PFR                  |
+     | Award Declined                   |
+      | Disaggregation                   |
+      | Duplicate Award Action           |
+      | Early Pay Type 2                 |
+      | Early Transition                 |
+      | Folded into an OIA               |
+      | Grant Terminating                |
+      | Moved to Next Fiscal Year        |
+      | No Longer Required               |
+      | Skip PFR                         |
     And the user is prompted to select a "Cancellation Reason" before the "Ok" button becomes enabled.
     And user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters
     And the user will be able to click "Cancel" on the warning message pop-up - the warning message will be closed, no changes will be made
@@ -307,16 +307,16 @@ Feature: Process Actions Scenarios
     Then the system will display warning message "Are you sure you want to Cancel this action?"
     When the user clicks on the Cancellation Reason drop-down
     Then the following cancellation reasons will be displayed depending on action type:
-      | Award Declined            |
-      | Disaggregation            |
-      | Duplicate Award Action    |
-      | Early Pay Type 2          |
-      | Early Transition          |
-      | Folded into an OIA        |
-      | Grant Terminating         |
-      | Moved to Next Fiscal Year |
-      | No Longer Required        |
-      | Skip PFR                  |
+     | Award Declined                   |
+      | Disaggregation                   |
+      | Duplicate Award Action           |
+      | Early Pay Type 2                 |
+      | Early Transition                 |
+      | Folded into an OIA               |
+      | Grant Terminating                |
+      | Moved to Next Fiscal Year        |
+      | No Longer Required               |
+      | Skip PFR                         |
     And the user is prompted to select a "Cancellation Reason" before the "Ok" button becomes enabled.
     And user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters
     And the user will be able to click "Ok" on the warning message pop-up
