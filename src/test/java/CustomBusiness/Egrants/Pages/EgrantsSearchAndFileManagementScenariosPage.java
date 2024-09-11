@@ -148,7 +148,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Document category
      */
-    @FindBy (xpath = "//td/input[@id='comments']")
+    @FindBy (xpath = "//input[@id='comments']")
     public WebElement subCategoryInstitutionalFiles;
 
     /**
@@ -215,13 +215,31 @@ public class EgrantsSearchAndFileManagementScenariosPage {
      * Created On Text first row
      */
     @FindBy (xpath = "(//div[contains(text(), 'Created On')])[1]")
-    public WebElement CreatedOnTextFirstRow;
+    public WebElement createdOnTextFirstRow;
 
     /**
      * Created On Text second row
      */
     @FindBy (xpath = "(//div[contains(text(), 'Created On')])[2]")
-    public WebElement CreatedOnTextSecondRow;
+    public WebElement createdOnTextSecondRow;
+
+    /**
+     * Update Icon for Institutional Files
+     */
+    @FindBy (xpath = "(//a[@title='Click here to update this document'])[1]")
+    public WebElement updateIconInstitutionalFiles;
+
+    /**
+     * Save Update button for Institutional Files category
+     */
+    @FindBy (xpath = "//div/button[@id='btnUpdate']")
+    public WebElement saveUpdateButton;
+
+    /**
+     * Delete Icon for Institutional Files
+     */
+    @FindBy (xpath = "(//a[@title='Click here to delete this document'])[1]")
+    public WebElement deleteIconInstitutionalFiles;
 
     public EgrantsSearchAndFileManagementScenariosPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);

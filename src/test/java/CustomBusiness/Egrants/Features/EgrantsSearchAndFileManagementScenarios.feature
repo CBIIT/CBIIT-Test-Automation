@@ -22,7 +22,7 @@ Given User is logged in the application and is on the landing page
     Then verifies the success message "Done! New document has been created"
     And clicks on uploaded document
 
-  @UpdateDocumentCategory @nesarh2 @Regression
+  @EGRANTS-591 @UpdateDocumentCategory @nesarh2 @Regression
   Scenario: Test updating document category
     And searches for grant "CA125123"
     And selects grant year 18 from Years
@@ -31,22 +31,22 @@ Given User is logged in the application and is on the landing page
     And selects Transition Approval as Subcategory
     Then clicks on update icon to submit the changes
 
-  @ReplaceExistingFile @nesarh2 @In-Progress
+  @EGRANTS-591 @ReplaceExistingFile @nesarh2 @Regression
   Scenario: Test replacing an existing file
     And searches for grant "CA125123"
     And selects grant year 18 from Years
-    When clicks on Upload icon
-    #And clicks on Locate File and Upload tab
-    #And uploads a file
-    #Then verifies the success message "Done! New document has been created"
-    #And clicks on Check Document button to view the uploaded document
+    When clicks on Replace icon
+    And clicks on Locate File and Upload tab
+    And uploads a file
+    Then verifies the success message "Done! New document has been created"
+    And clicks on Check Document button to view the uploaded document
 
-  @DeleteUploadedFile @nesarh2 @Regression
+  @EGRANTS-591@DeleteUploadedFile @nesarh2 @Regression
   Scenario: Test deletion of an uploaded file
     And searches for grant "CA125123"
     And selects grant year 18 from Years
     And expands the document details and clicks on Delete button
-    Then User clicks on OK button to confirm Deletion
+    Then clicks on OK button to confirm Deletion
 
   @InstitutionalFileUpload @nesarh2 @Regression
   Scenario: Test Institutional file upload
@@ -59,8 +59,17 @@ Given User is logged in the application and is on the landing page
     And uploads a file
     Then clicks on Create New button
 
-  @InstitutionalFileDelete @nesarh2 @Progression
-  Scenario: Test deletion of an uploaded Institutional file
+  @EGRANTS-591 @InstitutionalFileCategoryUpdate @nesarh2 @Regression
+  Scenario: Test updating category and subcategory for an Institutional File
+    And clicks on Institutional Files menu
+    And clicks on AAVOGEN, INC.
+    And clicks Update icon for an uploaded Organization Document
+    And selects Follow-Up as the new category
+    And enters Follow-up facility visit Test as subcategory
+    Then clicks on Save Update button
 
-  @VerifySoftDeletedYear @nesarh2 @Progression
-  Scenario: Verify soft deleted years are not displayed
+  @EGRANTS-591@InstitutionalFileDelete @nesarh2 @Regression
+  Scenario: Test deletion of an uploaded Institutional file
+    And clicks on Institutional Files menu
+    And clicks on AAVOGEN, INC.
+    Then clicks on Delete button to delete an uploaded document

@@ -415,7 +415,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.expandIconFirstRow);
 		MiscUtils.sleep(2000);
-		if (CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.CreatedOnTextFirstRow).contains(Egrants_Constants.DOC_CREATOR_NAME)) {
+		if (CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.createdOnTextFirstRow).contains(Egrants_Constants.DOC_CREATOR_NAME)) {
 			CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.deleteButtonFirstRow);
 			MiscUtils.sleep(2000);
 		} else {
@@ -426,7 +426,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	}
 
 	/**
-	 * THIS METHOD ACCEPT OR DISMISS ALERTS
+	 * THIS METHOD CONFIRMS FILE DELETION IF CONDITION MET ELSE DISMISS THE ALERT
 	 */
 	public static void confirm_document_deletion() {
 		if (CommonUtils.getAlertText().contentEquals(Egrants_Constants.DELETE_ALERT_MESSAGE)){
@@ -438,5 +438,25 @@ public class EgrantsStepImplementation extends PageInitializer {
 			CucumberLogUtils.logScreenshot();
 			System.out.println("Condition is not true");
 		}
+	}
+
+	/***
+	 * THIS METHOD CLICKS ON UPDATE ICON FOR AN UPLOADED ORGANIZATION DOCUMENT
+	 */
+	public static void enters_subcategory_for_institutional_file() {
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.subCategoryInstitutionalFiles);
+		MiscUtils.sleep(2000);
+		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.subCategoryInstitutionalFiles,Egrants_Constants.FOLLOWUP_SUBCATEGORY);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/***
+	 * THIS METHOD DELETES AN UPLOADED DOCUMENT FROM THE INSTITUTIONAL FILES
+	 */
+	public static void click_on_delete_button_institutional_files() {
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.deleteIconInstitutionalFiles);
+		EgrantsStepImplementation.confirm_document_deletion();
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenshot();
 	}
 }

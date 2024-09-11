@@ -2,7 +2,9 @@ package CustomBusiness.Egrants.Steps;
 
 import CustomBusiness.Egrants.Pages.EgrantsSearchAndFileManagementScenariosPage;
 import CustomBusiness.Egrants.StepsImplementation.EgrantsStepImplementation;
+import CustomBusiness.Egrants.Utils.Egrants_Constants;
 import appsCommon.PageInitializers.PageInitializer;
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
@@ -106,8 +108,8 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
         EgrantsStepImplementation.click_on_update_document_category_button();
     }
 
-    @When("clicks on Upload icon")
-    public void clicks_on_upload_icon() {
+    @When("clicks on Replace icon")
+    public void clicks_on_replace_icon() {
         CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.replaceButton);
     }
     @Then("clicks on Check Document button to view the uploaded document")
@@ -120,8 +122,8 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
         EgrantsStepImplementation.expand_document_rows();
     }
 
-    @Then("User clicks on OK button to confirm Deletion")
-    public void user_clicks_on_ok_button_to_confirm_deletion() {
+    @Then("clicks on OK button to confirm Deletion")
+    public void clicks_on_ok_button_to_confirm_deletion() {
         EgrantsStepImplementation.confirm_document_deletion();
     }
 
@@ -139,14 +141,17 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     public void clicks_on_create_new_document_link() {
         EgrantsStepImplementation.clicks_on_create_new_document_link();
     }
+
     @Given("selects Organization Document from category dropdown")
     public void selects_organization_document_from_category_dropdown() {
         EgrantsStepImplementation.selects_organization_document_from_category_dropdown();
     }
+
     @Given("provides {string} as a subcategory")
     public void provides_as_a_subcategory(String subCategory) {
         EgrantsStepImplementation.provides_as_a_subcategory(subCategory);
     }
+
     @Then("clicks on Create New button")
     public void clicks_on_create_new_button() {
         EgrantsStepImplementation.clicks_on_create_new_button();
@@ -155,5 +160,33 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     @Given("searches for {string} on Add New Document page")
     public void searches_for_on_add_new_document_page(String grantNum) {
         EgrantsStepImplementation.searches_for_grant_on_add_document_page(grantNum);
+    }
+
+    @Given("clicks Update icon for an uploaded Organization Document")
+    public void clicks_update_icon_for_an_uploaded_organization_document() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.updateIconInstitutionalFiles);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    @Given("selects Follow-Up as the new category")
+    public void selects_follow_up_as_the_new_category() {
+        CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.documentCategoryDropdown, Egrants_Constants.FOLLOWUP_CATEGORY);
+        CucumberLogUtils.logScreenshot();
+     }
+
+    @Given("enters Follow-up facility visit Test as subcategory")
+    public void enters_new_subcategory() {
+        EgrantsStepImplementation.enters_subcategory_for_institutional_file();
+    }
+
+    @Then("clicks on Save Update button")
+    public void clicks_on_save_update_button() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.saveUpdateButton);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    @Given("clicks on Delete button to delete an uploaded document")
+    public void clicks_on_delete_button_for_an_uploaded_organization_document() {
+        EgrantsStepImplementation.click_on_delete_button_institutional_files();
     }
 }

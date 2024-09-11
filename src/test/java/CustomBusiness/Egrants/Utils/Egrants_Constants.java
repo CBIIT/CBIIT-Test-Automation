@@ -10,6 +10,8 @@ public class Egrants_Constants {
     public static final String QUALITY_ASSOCIATES_USER = "3928";
     public static final String OGA_EMPLOYEE = "122";
     public static final String QC_REASON_CHANGE = "Change";
+    public static final String FOLLOWUP_CATEGORY = "5";
+    public static final String FOLLOWUP_SUBCATEGORY = "Follow-up facility visit Test";
     public static final String ASSIGN_BUTTON_ALERT_MESSAGE = "Are you sure that you want to assign QC Change documents to Quality, Associates?";
     public static final String DOCUMENT_ROUTING_PERCENTAGE = "10";
     public static final String ROUTE_BUTTON_ALERT_MESSAGE = "Are you sure that you want to route 10%  QC documents from D'Avella, Joseph to Quality, Associates?";
