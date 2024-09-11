@@ -38,14 +38,23 @@ public class CreateESRPageSteps {
         CreateESRPageStepsImplementation.verifyTextOnESRPage(customerDetailsText, projectDetailsText, teamDetailsText);
     }
 
-    @And("fills out all required information and clicks submit")
+    @And("fills out all required information for ESR-Q and clicks submit")
     public void fills_out_all_required_information_and_clicks_submit() {
         CreateESRPageStepsImplementation.fillRequiredInfoForESRQCreation();
     }
 
     @Then("user sees an ESR-Q ticket was created")
     public void user_sees_an_esr_q_ticket_was_created() {
+        CreateESRPageStepsImplementation.clickOnNewESRQTicket();
+    }
 
+    @And("fills out all required information for ESR-I and clicks submit")
+    public void fills_out_all_required_information_for_esr_i_and_clicks_submit() {
+        CreateESRPageStepsImplementation.fillRequiredInfoForESRICreation();
+    }
+    @Then("user sees an ESR-I ticket was created")
+    public void user_sees_an_esr_i_ticket_was_created() {
+        CreateESRPageStepsImplementation.clickOnNewESRITicket();
     }
 
 }
