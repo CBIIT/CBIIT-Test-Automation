@@ -111,8 +111,6 @@
 
     <!-- Application ID for Native View through Side Door -->
     <application id="Native View Side Door">
-
-
         <login_url>https://service-test.nci.nih.gov/side_door.do</login_url> <!-- add test
 			url -->
         <role name="Role">
