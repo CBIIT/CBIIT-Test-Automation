@@ -26,7 +26,7 @@ public class CreateESRPageStepsImplementation {
      *
      * @param customerDetailsText The text to verify for customer details.
      * @param projectDetailsText  The text to verify for project details.
-     * @param teamDetailsText  The text to verify for team details.
+     * @param teamDetailsText     The text to verify for team details.
      */
     public static void verifyTextOnCreateESRPage(String customerDetailsText, String projectDetailsText, String teamDetailsText) {
         assertThat(page.frameLocator(CreateESRPage.iframeSelector).getByLabel(CreateESRPage.fullESRText)).containsText(customerDetailsText);
@@ -58,7 +58,7 @@ public class CreateESRPageStepsImplementation {
      *
      * @param customerDetailsText The text to verify for customer details.
      * @param projectDetailsText  The text to verify for project details.
-     * @param teamDetailsText  The text to verify for team details.
+     * @param teamDetailsText     The text to verify for team details.
      */
     public static void verifyTextOnESRPage(String customerDetailsText, String projectDetailsText, String teamDetailsText) {
         assertThat(page.locator(CreateESRPage.customerDetailsContainer)).containsText(customerDetailsText);
