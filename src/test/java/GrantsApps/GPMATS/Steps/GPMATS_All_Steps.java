@@ -13,8 +13,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
+
 import java.util.Arrays;
 import java.util.List;
+
 import static GrantsApps.GPMATS.Steps.GPMATS_Common_Methods.*;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
@@ -1564,6 +1566,218 @@ public class GPMATS_All_Steps {
             page.click("//ng-select2[@class='ng-untouched ng-invalid ng-dirty']//span[@role='combobox']");
             List<ElementHandle> actualValues1 = page.querySelectorAll("//ul[@class='select2-results__options']/li");
             List<String> expectedValues1 = Arrays.asList("Award Declined", "Award is Not Eligible to Be Paid", "Disaggregation", "Duplicate Award Action", "Early Pay Type 2", "Early Transition", "Folded into an OIA", "Grant Terminating", "Moved to Next Fiscal Year", "Skip PFR");
+            for (ElementHandle actualValue1 : actualValues1) {
+                Assert.assertTrue(expectedValues1.contains(actualValue1.innerText()), "- - - VERIFYING CANCELLATION REASON DROP-DOWN OPTIONS - - -");
+            }
+
+            // SELECTING A CANCELLATION REASON OPTION
+            for (ElementHandle actualValue1 : actualValues1) {
+                if (actualValue1.innerText().trim().equals("Award Declined")) {
+                    actualValue1.click();
+                    break;
+                }
+            }
+
+            // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+
+            // CLICK OK
+            clickOkButton();
+        }
+
+        // VERIFYING SUCCESS MESSAGE WITH GRANTS NUMBER, STATUS AND DATE
+        Assert.assertTrue(page.locator("//div[@id='submitMessage']/span").innerText().contains(grantNumber), "- - - VERIFYING THE GRANT NUMBER IS INCLUDED IN THE SUCCESS MESSAGE TEXT.- - -");
+        Assert.assertEquals(page.locator("//div[normalize-space()='Cancelled']").innerText().trim(), "Cancelled", "- - - VERIFYING THE STATUS OF THE ACTION AFTER ASSIGNING IT - - -");
+        Assert.assertEquals(page.locator("(//td[@class='sorting_3']/app-current-status)[1]/div[2]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING THE DATE OF THE ACTION AFTER ASSIGNING IT - - -");
+
+        // VERIFYING PROCESS BUTTON OF THE FIRST ACTION IS NOT DISPLAYED IN THE RESULTS TABLE
+        Assert.assertFalse(page.locator("//html/body/app-root/div/div/div[2]/main/app-dashboard/app-search-result/div[2]/div[2]/div/div/table/tbody/tr[1]/td[20]/app-grant-info-actions/div[2]/app-process-dropdown-menu/div/button").isVisible(), "- - - VERIFYING PROCESS BUTTON OF THE FIRST ACTION IS NOT DISPLAYED IN THE RESULTS TABLE - - -");
+
+        // AND THE CHANGES WILL BE REFLECTED IN THE "CHANGE HISTORY" SECTION ALONG WITH ANY COMMENTS PROVIDED
+        clicking_On_Change_History_Of_FirstAction();
+        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING CHANGE HISTORY DATE OF CANCELLING ACTION IS TODAY - - -");
+        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]").innerText(), "Cancelled", "- - - VERIFYING CHANGE HISTORY STATUS OF CANCELLING ACTION IS CANCELLED - - -");
+        Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[3]").innerText(), "Baker, Bryan", "- - - VERIFYING CHANGE HISTORY ACTION SPECIALIST OF CANCELLING ACTION IS BAKER, BRYAN [OD OM OGA] - - -");
+
+        String changeHistoryComments = page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[4]").innerText();
+
+        // VERIFYING CHANGE HISTORY COMMENTS OF CANCELLING ACTION MATCHES THE REASON SELECTED IN THE EARLIER STEP
+        Assert.assertTrue(changeHistoryComments.contains("Reason: Award Declined"), "- - - VERIFYING CHANGE HISTORY COMMENTS OF CANCELLING ACTION MATCHES THE REASON SELECTED IN THE EARLIER STEP - - -");
+
+        String cleanedComments = changeHistoryComments.replaceFirst("^Reason:.*?\\n", "");
+
+        // VERIFYING CHANGE HISTORY COMMENTS OF CANCELLING ACTION HAS NO MORE THAN 2000 CHARACTERS
+        Assert.assertTrue(cleanedComments.concat(" ").length() <= 2000, "- - - VERIFYING CHANGE HISTORY COMMENTS OF CANCELLING ACTION HAS NO MORE THAN 2000 CHARACTERS - - -");
+
+        // AND THE ASSIGNED GM SPECIALIST(IF ANY) WILL NOT SEE THE ACTION ON THEIR TAB, WHEN LOGGED IN
+        verifyingGrantNumberOfActionIsNotDisplayedOnGMSpecialistResultsTable();
+    }
+
+    @Given("* * THIS TEST STEP INCLUDES ALL CODE FOR TEST: PROCESS ACTION MANAGER MOVES REVISION ACTION FROM PRE-ASSIGNED TO CANCELLED * * *")
+    public void this_test_step_includes_all_code_for_test_process_action_manager_moves_revision_action_from_pre_assigned_to_cancelled() {
+        // CONSTANTS
+        String cancelOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Cancel']";
+
+        // CLICK ON THE PROCESS BUTTON
+        clickOnProcessButtonOfFirstAction();
+
+        // VERIFY PROCESS DROP DOWN OPTIONS
+        List<ElementHandle> actualValues = page.querySelectorAll("//div[@class='dropdown-menu dropdown-menu-right show']/a");
+        List<String> expectedValues = Arrays.asList("Assign", "Cancel", "Mark as New");
+        for (ElementHandle actualValue : actualValues) {
+            Assert.assertTrue(expectedValues.contains(actualValue.innerText()), "- - - VERIFYING PROCESS DROP DOWN OPTIONS - - -");
+        }
+        page.waitForSelector("(//i[contains(@class,'bi bi-dash-circle')])[1]");
+        page.locator("(//i[contains(@class,'bi bi-dash-circle')])[1]").click();
+
+        // RETRIEVE THE GRANT NUMBER FOR THE FIRST ACTION
+        String grantNumber = page.locator("(//div//a[@ngbtooltip='Click to View Grant Details'])[1]").innerText();
+
+        // RETRIEVE THE ACTUAL CLASS ATTRIBUTE VALUE OF THE VIEW NOTES BUBBLE FOR THE FIRST ACTION
+        String actualClassAttributeValueOfViewNotes = page.locator("(//div[@class='grant-icons']/div/div/span)[1]").getAttribute("class");
+
+        // PERFORM THE FOLLOWING IF THE VIEW NOTES BUBBLE HAS A RED CHECK MARK WITH OR WITHOUT A GREEN DOT
+        if (actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked")) {
+            // CLICK ON PROCESS BUTTON
+            clickOnProcessButtonOfFirstAction();
+
+            page.locator(cancelOption).click();
+
+            // VERIFY ACKNOWLEDGEMENT OF SPECIAL INSTRUCTIONS
+            verifying_Acknowledge_Special_Instructions_And_Acknowledging();
+
+            // VERIFY CANCEL ACTION MESSAGE
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Cancel this action?']").innerText().trim(), "Are you sure you want to Cancel this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT - - -");
+
+            // CLICK CANCEL TO PERFORM PREVIOUS STEPS AGAIN
+            clickCancelButton();
+
+            // PERFORMING PREVIOUS STEPS AGAIN
+            clickOnProcessButtonOfFirstAction();
+            page.locator(cancelOption).click();
+            verifying_Acknowledge_Special_Instructions_And_Acknowledging();
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Cancel this action?']").innerText().trim(), "Are you sure you want to Cancel this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT - - -");
+
+            // VERIFYING OK BUTTON IS DISABLED BEFORE SELECTING CANCELLATION REASON DROP-DOWN OPTION
+            Assert.assertFalse(page.locator("//input[@value='OK']").isEnabled(), "- - - VERIFYING OK BUTTON IS DISABLED BEFORE SELECTING CANCELLATION REASON DROP-DOWN OPTION - - -");
+
+            // VERIFYING CANCELLATION DROP-DOWN HAS TEXT 'Cancellation Reason is required'
+            Assert.assertEquals(page.locator("//span[normalize-space()='Cancellation Reason is required']").innerText().trim(), "Cancellation Reason is required", "- - - VERIFYING CANCELLATION REASON IS REQUIRED TEXT - - -");
+
+            // VERIFYING CANCELLATION REASON DROP-DOWN OPTIONS
+            page.click("//ng-select2[@class='ng-untouched ng-invalid ng-dirty']//span[@role='combobox']");
+            List<ElementHandle> actualValues2 = page.querySelectorAll("//ul[@class='select2-results__options']/li");
+            List<String> expectedValues2 = Arrays.asList("Award Declined", "Disaggregation", "Duplicate Award Action", "Early Pay Type 2", "Early Transition", "Folded into an OIA", "Grant Terminating", "Moved to Next Fiscal Year", "No Longer Required", "Skip PFR");
+            for (ElementHandle actualValue : actualValues2) {
+                Assert.assertTrue(expectedValues2.contains(actualValue.innerText()), "- - - VERIFYING CANCELLATION REASON DROP-DOWN OPTIONS - - -");
+            }
+
+            // SELECTING A CANCELLATION REASON OPTION
+            for (ElementHandle actualValue : actualValues2) {
+                if (actualValue.innerText().trim().equals("Award Declined")) {
+                    actualValue.click();
+                    break;
+                }
+            }
+
+            // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+
+            // CLICK CANCEL TO PERFORM PREVIOUS STEPS AGAIN
+            clickCancelButton();
+
+            // PERFORMING PREVIOUS STEPS AGAIN
+            clickOnProcessButtonOfFirstAction();
+            page.locator(cancelOption).click();
+
+            // VERIFY ACKNOWLEDGEMENT OF SPECIAL INSTRUCTIONS
+            verifying_Acknowledge_Special_Instructions_And_Acknowledging();
+
+            // VERIFY ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Cancel this action?']").innerText().trim(), "Are you sure you want to Cancel this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT - - -");
+
+            // VERIFYING OK BUTTON IS DISABLED BEFORE SELECTING CANCELLATION REASON DROP-DOWN OPTION
+            Assert.assertFalse(page.locator("//input[@value='OK']").isEnabled(), "- - - VERIFYING OK BUTTON IS DISABLED BEFORE SELECTING CANCELLATION REASON DROP-DOWN OPTION - - -");
+
+            // VERIFYING CANCELLATION DROP-DOWN HAS TEXT 'Cancellation Reason is required'
+            Assert.assertEquals(page.locator("//span[normalize-space()='Cancellation Reason is required']").innerText().trim(), "Cancellation Reason is required", "- - - VERIFYING CANCELLATION REASON IS REQUIRED TEXT - - -");
+
+            // VERIFYING CANCELLATION REASON DROP-DOWN OPTIONS
+            page.click("//ng-select2[@class='ng-untouched ng-invalid ng-dirty']//span[@role='combobox']");
+            List<ElementHandle> actualValues1 = page.querySelectorAll("//ul[@class='select2-results__options']/li");
+            List<String> expectedValues1 = Arrays.asList("Award Declined", "Disaggregation", "Duplicate Award Action", "Early Pay Type 2", "Early Transition", "Folded into an OIA", "Grant Terminating", "Moved to Next Fiscal Year", "No Longer Required", "Skip PFR");
+            for (ElementHandle actualValue1 : actualValues1) {
+                Assert.assertTrue(expectedValues1.contains(actualValue1.innerText()), "- - - VERIFYING CANCELLATION REASON DROP-DOWN OPTIONS - - -");
+            }
+
+            // SELECTING A CANCELLATION REASON OPTION
+            for (ElementHandle actualValue1 : actualValues1) {
+                if (actualValue1.innerText().trim().equals("Award Declined")) {
+                    actualValue1.click();
+                    break;
+                }
+            }
+
+            // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+
+            // CLICK OK
+            clickOkButton();
+        }
+
+        // PERFORM THE FOLLOWING IF THE VIEW NOTES BUBBLE IS BLANK WITH OR WITHOUT GREEN DOT
+        if (actualClassAttributeValueOfViewNotes.contentEquals("note-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-blank")) {
+            clickOnProcessButtonOfFirstAction();
+            page.locator(cancelOption).click();
+
+            // VERIFY ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Cancel this action?']").innerText().trim(), "Are you sure you want to Cancel this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT - - -");
+
+            // VERIFYING OK BUTTON IS DISABLED BEFORE SELECTING CANCELLATION REASON DROP-DOWN OPTION
+            Assert.assertFalse(page.locator("//input[@value='OK']").isEnabled(), "- - - VERIFYING OK BUTTON IS DISABLED BEFORE SELECTING CANCELLATION REASON DROP-DOWN OPTION - - -");
+
+            // VERIFYING CANCELLATION DROP-DOWN HAS TEXT 'Cancellation Reason is required'
+            Assert.assertEquals(page.locator("//span[normalize-space()='Cancellation Reason is required']").innerText().trim(), "Cancellation Reason is required", "- - - VERIFYING CANCELLATION REASON IS REQUIRED TEXT - - -");
+
+            // VERIFYING CANCELLATION REASON DROP-DOWN OPTIONS
+            page.click("//ng-select2[@class='ng-untouched ng-invalid ng-dirty']//span[@role='combobox']");
+            List<ElementHandle> actualValues3 = page.querySelectorAll("//ul[@class='select2-results__options']/li");
+            List<String> expectedValues3 = Arrays.asList("Award Declined", "Disaggregation", "Duplicate Award Action", "Early Pay Type 2", "Early Transition", "Folded into an OIA", "Grant Terminating", "Moved to Next Fiscal Year", "No Longer Required", "Skip PFR");
+            for (ElementHandle actualValue : actualValues3) {
+                Assert.assertTrue(expectedValues3.contains(actualValue.innerText()), "- - - VERIFYING CANCELLATION REASON DROP-DOWN OPTIONS - - -");
+            }
+
+            // SELECTING A CANCELLATION REASON OPTION
+            for (ElementHandle actualValue : actualValues3) {
+                if (actualValue.innerText().trim().equals("Award Declined")) {
+                    actualValue.click();
+                    break;
+                }
+            }
+
+            // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
+            verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
+
+            // CLICK CANCEL TO PERFORM PREVIOUS STEPS AGAIN
+            clickCancelButton();
+
+            // PERFORMING PREVIOUS STEPS AGAIN
+            clickOnProcessButtonOfFirstAction();
+            page.locator(cancelOption).click();
+
+            // VERIFY ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT
+            Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to Cancel this action?']").innerText().trim(), "Are you sure you want to Cancel this action?", "- - - VERIFYING ARE YOU SURE YOU WANT TO CANCEL THIS ACTION? TEXT - - -");
+
+            // VERIFYING OK BUTTON IS DISABLED BEFORE SELECTING CANCELLATION REASON DROP-DOWN OPTION
+            Assert.assertFalse(page.locator("//input[@value='OK']").isEnabled(), "- - - VERIFYING OK BUTTON IS DISABLED BEFORE SELECTING CANCELLATION REASON DROP-DOWN OPTION - - -");
+
+            // VERIFYING CANCELLATION REASON DROP-DOWN HAS TEXT 'Cancellation Reason is required'
+            Assert.assertEquals(page.locator("//span[normalize-space()='Cancellation Reason is required']").innerText().trim(), "Cancellation Reason is required", "- - - VERIFYING CANCELLATION REASON IS REQUIRED TEXT - - -");
+
+            // VERIFYING CANCELLATION REASON DROP-DOWN OPTIONS
+            page.click("//ng-select2[@class='ng-untouched ng-invalid ng-dirty']//span[@role='combobox']");
+            List<ElementHandle> actualValues1 = page.querySelectorAll("//ul[@class='select2-results__options']/li");
+            List<String> expectedValues1 = Arrays.asList("Award Declined", "Disaggregation", "Duplicate Award Action", "Early Pay Type 2", "Early Transition", "Folded into an OIA", "Grant Terminating", "Moved to Next Fiscal Year", "No Longer Required", "Skip PFR");
             for (ElementHandle actualValue1 : actualValues1) {
                 Assert.assertTrue(expectedValues1.contains(actualValue1.innerText()), "- - - VERIFYING CANCELLATION REASON DROP-DOWN OPTIONS - - -");
             }
