@@ -2,7 +2,6 @@ package ServiceNow.PlatformBusinessApps.GDC.Steps;
 
 import ServiceNow.PlatformBusinessApps.GDC.StepImplementation.GDC_Workflow_NativeView_StepImplementation;
 import appsCommon.PageInitializers.PageInitializer;
-import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,7 +9,7 @@ import io.cucumber.java.en.When;
 public class GDC_WOrkflow_NativeViewSteps extends PageInitializer {
 
     @Given("I am authenticated GDC Fulfiller in the Native View")
-    public void i_am_authenticated_gdc_fulfiller_in_the_native_view() throws TestingException {
+    public void i_am_authenticated_gdc_fulfiller_in_the_native_view() {
         GDC_Workflow_NativeView_StepImplementation.iAmAuthenticatedGDCFulfillerInNV();
     }
 
@@ -20,7 +19,7 @@ public class GDC_WOrkflow_NativeViewSteps extends PageInitializer {
     }
 
     @Then("I should see UI Actions in the top right hand corner that follow GDC flow")
-    public void i_should_see_ui_actions_in_the_top_right_hand_corner_that_follow_gdc_flow() throws TestingException{
+    public void i_should_see_ui_actions_in_the_top_right_hand_corner_that_follow_gdc_flow(){
         GDC_Workflow_NativeView_StepImplementation.gDCUIActionsOnTopRightCornerForGDCFlow();
     }
 
@@ -35,7 +34,7 @@ public class GDC_WOrkflow_NativeViewSteps extends PageInitializer {
     }
 
     @Then("I should be able to go to the closure info and check that business duration is filled")
-    public void i_should_be_able_to_go_to_the_closure_info_and_check_that_business_duration_is_filled()throws TestingException {
+    public void i_should_be_able_to_go_to_the_closure_info_and_check_that_business_duration_is_filled() {
         GDC_Workflow_NativeView_StepImplementation.clickOnClosureInfoAndCheckBusinessDuration();
     }
 

@@ -1,6 +1,6 @@
 Feature: GCP Notifications Test Scenarios
 
-  @GCP-15 @GCP-20 @chaudhryma @selenium @Regression @Progression
+  @GCP-15 @GCP-20 @chaudhryma @selenium @Regression
   Scenario: Test Update GCP Employee Training Expired Notification - UAT Remediation
     Given a user with an Admin rights go to Notifications under System Notification in the Native View
     And searches GCP Employee Training expired for the Name filter

@@ -24,7 +24,6 @@ public class GCPNotifications_NativeViewStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(GCPNotifications_NativeView_Constants.GCP_NATIVE_VIEW_NOTIFICATIONS_UNDER_SYSTEM_NOTIFICATION_URL);
-//        WebDriverUtils.webDriver.get(GCPNotifications_NativeView_Constants.GCP_SAND_BOX_NATIVE_VIEW_NOTIFICATIONS_UNDER_SYSTEM_NOTIFICATION_URL);
         MiscUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         MiscUtils.sleep(2000);
