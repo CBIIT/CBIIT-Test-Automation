@@ -50,9 +50,8 @@ public class GPMATS_All_Steps {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Search")).nth(1).click();
     }
 
-    @Given("* * THIS TEST STEP INCLUDES ALL CODE FOR THIS TEST CASEE * * *")
-    public void this_test_step_includes_all_code_for_this_test_casee() {
-
+    @Given("* * THIS TEST STEP INCLUDES ALL CODE FOR TEST: PROCESS ACTION MANAGER MOVES ACTION FROM NEW TO HOLD * * *")
+    public void this_test_step_includes_all_code_for_test_process_action_manager_moves_action_from_new_to_hold() {
         String putOnHoldOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Put on Hold']";
 
         // CLICK ON THE PROCESS BUTTON OF THE FIRST ACTION
@@ -69,15 +68,12 @@ public class GPMATS_All_Steps {
 
         // PERFORM THE FOLLOWING IF THE VIEW NOTES BUBBLE HAS A RED CHECK MARK WITH OR WITHOUT A GREEN DOT
         if (actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked-green-dot") || actualClassAttributeValueOfViewNotes.contentEquals("note-red-checked")) {
-            CucumberLogUtils.playwrightScreenshot(page);
             clickOnHoldOptionOfFirstAction();
 
-            Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
-            page.locator("//button[normalize-space()='Acknowledge']").click();
+            verifying_Acknowledge_Special_Instructions_And_Acknowledging();
             Assert.assertEquals(page.locator("//label[normalize-space()='Are you sure you want to put this action On Hold?']").innerText().trim(), "Are you sure you want to put this action On Hold?", "- - - VERIFYING ARE YOU SURE YOU WANT TO PUT ON HOLD THIS ACTION? TEXT - - -");
             // CLICK CANCEL TO PERFORM PREVIOUS STEPS AGAIN
-            page.locator("//button[normalize-space()='Cancel']").click();
-            page.waitForLoadState();
+            clickCancelButton();
 
             // PERFORMING PREVIOUS STEPS AGAIN
             page.locator("(//div[@class='dropdown']/button)[1]").click();
@@ -88,8 +84,7 @@ public class GPMATS_All_Steps {
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
             verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
-            page.locator("//input[@value='OK']").click();
-            page.waitForLoadState();
+            clickOkButton();
         }
 
         // PERFORM THE FOLLOWING IF THE VIEW NOTES BUBBLE IS BLANK WITH OR WITHOUT GREEN DOT
@@ -102,17 +97,14 @@ public class GPMATS_All_Steps {
 
             // VERIFYING THAT THE TEXT BOX ALLOWS ONLY 2000 CHARACTERS
             verifyingStatusCommentsTextBoxDoesNotAllowMoreThan2000Characters();
-            page.locator("//input[@value='OK']").click();
-            page.waitForLoadState();
+            clickOkButton();
         }
 
         // VERIFY ACTION ON HOLD
         verifyActionOnHold();
 
         // AND THE CHANGES WILL BE REFLECTED IN THE "CHANGE HISTORY" SECTION ALONG WITH ANY COMMENTS PROVIDED
-        page.waitForSelector("(//i[@ngbtooltip='View Change History'])[1]");
-        page.locator("(//i[@ngbtooltip='View Change History'])[1]").click();
-        page.waitForLoadState();
+        clicking_On_Change_History_Of_FirstAction();
         Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]").innerText(), CommonUtils.getTodayDate(), "- - - VERIFYING CHANGE HISTORY DATE OF HOLD ACTION IS TODAY - - -");
         Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]").innerText(), "Hold", "- - - VERIFYING CHANGE HISTORY STATUS OF HOLD - - -");
         Assert.assertEquals(page.locator("//body[1]/ngb-modal-window[1]/div[1]/div[1]/app-action-chnage-history-modal[1]/div[2]/app-action-status-history[1]/div[2]/table[1]/tbody[1]/tr[1]/td[3]").innerText(), "Baker, Bryan", "- - - VERIFYING NAME IN UPDATED BY COLUMN - - -");

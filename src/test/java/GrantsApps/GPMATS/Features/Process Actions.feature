@@ -85,7 +85,7 @@ Feature: Process Actions Scenarios
     And clicks on Show Advanced Filters link
     And for the Action Status drop-down selects "New" option
     And clicks on the Search button
-    * * * THIS TEST STEP INCLUDES ALL CODE FOR THIS TEST CASEE * * *
+    * * * THIS TEST STEP INCLUDES ALL CODE FOR TEST: PROCESS ACTION MANAGER MOVES ACTION FROM NEW TO HOLD * * *
     And clicks on the Process button for any Action
     Then the following options are displayed:
       | Assign      |
