@@ -49,65 +49,28 @@ public class WebDriverUtils {
         webDriver.quit();
     }
 
-    /**
-     * Fetches current URL from browser window
-     *
-     * @param driver
-     * @return
-     */
-    public static String getCurrentURL(WebDriver driver) {
-        String url = "";
-
-        if (driver != null) {
-            url = driver.getCurrentUrl();
-        }
-        return url;
-    }
-
     public static void refreshPage(WebDriver driver) {
         driver.navigate().refresh();
     }
 
     public static void launchChrome() {
-        String osName = FrameworkConstants.GET_OS_NAME;
         String headless = ConfUtils.getProperty("headless");
+        String ci = System.getenv("CI");
+        ChromeOptions chromeOptions = new ChromeOptions();
 
-        if (osName.contains("Windows")) {
-            if (headless.equalsIgnoreCase(FrameworkConstants.TRUE)) {
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--headless=new");
-                webDriver = new ChromeDriver(chromeOptions);
-            } else {
-                webDriver = new ChromeDriver();
-                webDriver.manage().window().maximize();
-                webDriver.manage().deleteAllCookies();
-                webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-                shadowDriver.setImplicitWait(20);
-            }
-        } else if (osName.contains("Mac")) {
-            if (headless.equalsIgnoreCase(FrameworkConstants.TRUE)) {
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--headless=new");
-                webDriver = new ChromeDriver(chromeOptions);
-                webDriver.manage().window().maximize();
-                webDriver.manage().deleteAllCookies();
-                webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-            } else {
-                webDriver = new ChromeDriver();
-                webDriver.manage().window().maximize();
-                webDriver.manage().deleteAllCookies();
-                webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-            }
-        } else if (osName.contains("Linux")) {
-            ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.addArguments("--headless=new");
-            chromeOptions.addArguments("---no-sandbox");
-            chromeOptions.addArguments("--disable-dev-shm-usage");
-            webDriver = new ChromeDriver(chromeOptions);
-            webDriver.manage().window().maximize();
-            webDriver.manage().deleteAllCookies();
-            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        if (headless.equalsIgnoreCase(FrameworkConstants.TRUE)) {
+            chromeOptions.addArguments("--headless");
         }
+
+        if ("true".equals(ci)) {
+            chromeOptions.addArguments("--no-sandbox");
+            chromeOptions.addArguments("--disable-dev-shm-usage");
+        }
+
+        webDriver = new ChromeDriver(chromeOptions);
+        webDriver.manage().window().maximize();
+        webDriver.manage().deleteAllCookies();
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
     public static void launchFirefox() {

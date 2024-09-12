@@ -1,6 +1,5 @@
 package CustomBusiness.EIDP.Pages;
 
-import CustomBusiness.EIDP.Steps.HooksSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
