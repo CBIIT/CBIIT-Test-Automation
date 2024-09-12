@@ -37,5 +37,4 @@ public class GDC_WOrkflow_NativeViewSteps extends PageInitializer {
     public void i_should_be_able_to_go_to_the_closure_info_and_check_that_business_duration_is_filled() {
         GDC_Workflow_NativeView_StepImplementation.clickOnClosureInfoAndCheckBusinessDuration();
     }
-
 }
