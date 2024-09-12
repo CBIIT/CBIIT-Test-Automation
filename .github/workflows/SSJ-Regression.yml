@@ -45,7 +45,6 @@ jobs:
           sudo yum install -y nss
           sudo yum install -y alsa-lib
           sudo yum install -y libdrm
-          sudo yum install -y ipa-gothic-fonts
       - name: Setup Git LFS
         run: |
           sudo yum install -y git-lfs
