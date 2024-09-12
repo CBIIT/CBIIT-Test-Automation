@@ -56,5 +56,4 @@ public class CreateESRPageSteps {
     public void user_sees_an_esr_i_ticket_was_created() {
         CreateESRPageStepsImplementation.clickOnNewESRITicket();
     }
-
 }
