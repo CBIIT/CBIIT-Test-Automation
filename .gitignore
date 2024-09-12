@@ -54,6 +54,5 @@ src/test/java/ServiceNow/COVIDDash/Resources/.DS_Store
 src/test/java/ServiceNow/PlatformBusinessApps/CCT_CHAT_BOT/Playwright/Steps/Example.java
 src/test/java/PlaywrightTests_sandbox
 src/test/java/ServiceNow/PlatformBusinessApps/SSJ/playwright/Steps/Example.java
-.github/workflows/SSJ-Regression.yml
 src/test/java/CustomBusiness/Egrants/pw
 src/test/java/CustomBusiness/Oasys
