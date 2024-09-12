@@ -1,6 +1,5 @@
 package ServiceNow.CHARMS.StepsImplementation.RASStudy;
 
-import Hooks.Hooks;
 import ServiceNow.CHARMS.Constants.CHARMS_Data_File_Path_Constants;
 import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
 import ServiceNow.CHARMS.Pages.MyRASHomePage;
@@ -9,7 +8,6 @@ import ServiceNow.CHARMS.Pages.RAS_Screener_Page;
 import ServiceNow.CHARMS.Pages.ScreenerRecordTablePage;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
-import appsCommon.Pages.SeleniumCommonLocators;
 import appsCommon.Utils.Dynamic_Locators;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
@@ -25,7 +23,7 @@ import org.testng.Assert;
 import static Hooks.Hooks.softAssert;
 import static ServiceNow.CHARMS.Pages.RAS_Screener_Page.*;
 import static ServiceNow.CHARMS.studyQuestions.RAS_Screener_Questions.*;
-import static appsCommon.Pages.SeleniumCommonLocators.locateByXpath;
+import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
 
 public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
     /***

@@ -2,10 +2,9 @@ package appsCommon.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import static com.nci.automation.web.WebDriverUtils.webDriver;
 
-public class SeleniumCommonLocators {
+public class Selenium_Common_Locators {
 
     /**
      * Locates an element in the web page using the provided XPath expression.
