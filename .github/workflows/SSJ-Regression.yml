@@ -28,6 +28,24 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
+      - name: Install Playwright dependencies
+        run: |
+          sudo yum install -y atk
+          sudo yum install -y cups-libs
+          sudo yum install -y libXcomposite
+          sudo yum install -y libXdamage
+          sudo yum install -y libXext
+          sudo yum install -y libXfixes
+          sudo yum install -y libXi
+          sudo yum install -y libXrandr
+          sudo yum install -y libXtst
+          sudo yum install -y libgbm
+          sudo yum install -y pango
+          sudo yum install -y xorg-x11-server-utils
+          sudo yum install -y nss
+          sudo yum install -y alsa-lib
+          sudo yum install -y libdrm
+          sudo yum install -y ipa-gothic-fonts
       - name: Setup Git LFS
         run: |
           sudo yum install -y git-lfs
