@@ -15,6 +15,7 @@ public class GPMATS_Common_Methods {
     public String putOnHoldOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Put on Hold']";
     public String grantNumber = page.locator("(//div//a[@ngbtooltip='Click to View Grant Details'])[1]").innerText();
     public String actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();
+    public String assignOption = "//div[@class='dropdown-menu dropdown-menu-right show']/a[normalize-space()='Assign']";
     //static GPMATS_Common_Methods gpmatsCommonMethods = new GPMATS_Common_Methods();
 
     /**
@@ -51,7 +52,6 @@ public class GPMATS_Common_Methods {
         GPMATS_Common_Methods gpmatsCommonMethods = new GPMATS_Common_Methods();
         page.waitForSelector(gpmatsCommonMethods.processDropDownButton);
         page.locator(gpmatsCommonMethods.processDropDownButton).click();
-        MiscUtils.sleep(2000);
     }
 
     /**
@@ -145,5 +145,41 @@ public class GPMATS_Common_Methods {
             }
             page.waitForLoadState();
         }
+    }
+
+    /**
+     * Assigns a specialist if not assigned.
+     */
+    public static void assignSpecialistIfNotAssigned() {
+        GPMATS_Common_Methods gpmatsCommonMethods = new GPMATS_Common_Methods();
+        if (gpmatsCommonMethods.actionSpecialistName.isEmpty()) {
+            page.locator("(//div[@class='dropdown']/button)[1]").click();
+            page.locator(gpmatsCommonMethods.assignOption).click();
+            Assert.assertEquals(page.locator("//div[contains(@class,'text-center')]").innerText().trim(), "Please select GMS before proceeding.", "- - - VERIFYING PLEASE SELECT GMS BEFORE PROCEEDING. TEXT IF ACTION DID NOT HAVE AN ACTION SPECIALIST ASSIGNED  - - -");
+            page.locator("//button[normalize-space()='OK']").click();
+            page.waitForLoadState();
+            page.locator("//button[normalize-space()='Edit']").click();
+            page.click("//ng-select2[@class='ng-untouched ng-pristine ng-invalid']//span[@role='combobox']");
+            page.locator("//ul[@class='select2-results__options']/li[1]").click();
+            page.locator("//button[normalize-space()='Save']").click();
+            page.locator("//button[normalize-space()='OK']").click();
+        }
+    }
+
+    /**
+     * Verifies the acknowledgement special instructions and acknowledges them.
+     */
+    public static void verifying_Acknowledge_Special_Instructions_And_Acknowledging(){
+        Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
+        page.locator("//button[normalize-space()='Acknowledge']").click();
+    }
+
+    /**
+     * Clicks on the "Change History" button of the first action.
+     */
+    public static void clicking_On_Change_History_Of_FirstAction(){
+        page.waitForSelector("(//i[@ngbtooltip='View Change History'])[1]");
+        page.locator("(//i[@ngbtooltip='View Change History'])[1]").click();
+        page.waitForLoadState();
     }
 }
