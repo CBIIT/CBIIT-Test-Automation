@@ -32,7 +32,7 @@ public class Hooks {
         assertionError = null;  // reset the assertion error at the start of each test
     }
 
-    @After("@selenium")
+  //  @After("@selenium")
     public void endSelenium() {
         try {
             softAssert.assertAll();

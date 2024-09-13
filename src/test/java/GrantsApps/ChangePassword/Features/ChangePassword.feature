@@ -3,7 +3,7 @@ Feature: The following scenarios verify the functionality on Change Password pag
   Background:
     Given User is on landing page "ChangePassword"
 
-  @PASSWORD_POLICY_SUCCESS  @ANDREYEVE @CHANGPASS-8 @Regression @Smoke @selenium @SmokeTest
+  @PASSWORD_POLICY_SUCCESS  @ANDREYEVE @CHANGPASS-8 @Regression @Smoke @selenium @SmokeTest @FAILED_SEP_12_2024 @BugReported
   Scenario: User successfully changes Password
     And User enters New Password according to password policy
     And User confirms New Password
