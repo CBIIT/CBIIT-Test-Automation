@@ -19,7 +19,6 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.*;
 import org.testng.Assert;
-
 import static Hooks.Hooks.softAssert;
 import static ServiceNow.CHARMS.Pages.RAS_Screener_Page.*;
 import static ServiceNow.CHARMS.studyQuestions.RAS_Screener_Questions.*;
@@ -135,9 +134,9 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                  */
                 else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(WHAT_IS_YOUR_DATE_OF_BIRTH)) {
                     CucumberLogUtils.scenario.log("* * * * * WHAT IS YOUR DATE OF BIRTH? * * * * *");
-                    CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.DATE_OF_BIRTH_MONTH, rasopathyQuestionnairePage.calendarMonthDropDown);
                     rasopathyQuestionnairePage.calendarYearTextBox.clear();
                     rasopathyQuestionnairePage.calendarYearTextBox.sendKeys(ras_Screener_TestDataManager.DATE_OF_BIRTH_YEAR);
+                    CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.DATE_OF_BIRTH_MONTH, rasopathyQuestionnairePage.calendarMonthDropDown);
                     RAS_Screener_Page.dynamicDateOfBirthCalendarLocator(ras_Screener_TestDataManager.WHAT_IS_YOUR_DATE_OF_BIRTH).click();
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
@@ -163,8 +162,10 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * IN WHICH COUNTRY DO YOU CURRENTLY LIVE? * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(IN_WHICH_COUNTRY_DO_YOU_CURRENTLY_LIVE)) {
+                else if (rasopathyQuestionnairePage.question.getText().trim().contentEquals(IN_WHICH_COUNTRY_DO_YOU_CURRENTLY_LIVE)) {
                     CucumberLogUtils.scenario.log("* * * * * IN WHICH COUNTRY DO YOU CURRENTLY LIVE? * * * * *");
+                    MiscUtils.sleep(2000);
+                    System.out.println("TESTING QUESTION BEING MISSED!!!");
                     CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.COUNTRY_OPTION, rasopathyQuestionnairePage.whatCountryDoesParticipantCurrentlyLiveInDropDown);
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();

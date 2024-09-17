@@ -1,7 +1,5 @@
 package ServiceNow.PlatformBusinessApps.GDC.Constants;
 
-import com.nci.automation.web.CommonUtils;
-
 public class GDC_WorkFlow_NV_Constants {
 
     /* GDC Fulfiller USER NAME */
@@ -23,14 +21,14 @@ public class GDC_WorkFlow_NV_Constants {
     public static final String GDC_CATEGORY_DROPDOWN_FIELD  = "Portal";
 
     /* GDC NATIVE VIEW SHORT DESCRIPTION TEXT BOX */
-    public static final String GDC_NATIVE_VIEW_SHORT_DESCRIPTION_TEXT_BOX = "GDC Automated Test Record " + CommonUtils.lastNameRandomizer() ;
+    public static final String GDC_NATIVE_VIEW_SHORT_DESCRIPTION_TEXT_BOX = "GDC Automated Test Record";
 
     /* GDC NATIVE VIEW ASSIGNED TO USER TEXT BOX */
     public static final String GDC_NATIVE_VIEW_ASSIGNED_TO_USER_TEXT_BOX = "Bill Wysocki";
 
     /* GDC NATIVE VIEW SUBMITTER SEARCH TEXT BOX */
-    public static final String GDC_NATIVE_VIEW_SUBMITTER_SEARCH_TEXT_BOX = "GDC Test";
+    public static final String GDC_NATIVE_VIEW_SUBMITTER_SEARCH_TEXT_BOX = "Active User";
 
     /* GDC NATIVE VIEW ALL RECORD SEARCH DROP DOWN */
-    public static final String GDC_NATIVE_ALL_RECORD_SEARCH_DROP_DOWN = "short_description";
+    public static final String GDC_NATIVE_ALL_RECORD_SEARCH_DROP_DOWN = "case";
 }

@@ -57,7 +57,6 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
             MiscUtils.sleep(2000);
         }
     }
-
     /**
      * USE THIS METHOD TO IMPERSONATE ANY USER WITHOUT LANDING IN NATIVE VIEW
      * @param user
@@ -99,7 +98,6 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
             CommonUtils.clickOnElement(ServiceNow_NCISP_Page.nativeViewLink);
         }
     }
-
     /**
      * USE THIS METHOD TO CLICK ON ALL TAB AND SEARCH THE FILTER NAVIGATOR AND CLICK ON ANY MODULE
      * THE FIRST STRING ARGUMENT IS TO SEARCH THE FILTER NAVIGATOR
@@ -117,7 +115,6 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         MiscUtils.sleep(2000);
     }
-
     /**
      * USE THIS METHOD TO SEARCH THE FILTER NAVIGATOR WITHOUT CLICKING ON THE ALL TAB
      * @param text
@@ -157,7 +154,6 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
     		MiscUtils.sleep(1000);
     	}      
     }
-
     /***
      * USE THIS METHOD TO LOG OUT OF NATIVE VIEW
      */
