@@ -1,4 +1,4 @@
-package ServiceNow.CHARMS.FanconiSurvey.playwright.Pages;
+package ServiceNow.CHARMS.FanconiSurvey.Playwright.Pages;
 
 public class FanconiSurveyLoginPage {
 

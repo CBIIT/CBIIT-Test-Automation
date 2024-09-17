@@ -10,24 +10,29 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       DISPLAY: ".99"
       SCREEN_RESOLUTION: "1280x1024x24"
+      CI: 'true'  # <-- added CI environment variable here
     steps:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
+      - name: Setup Git LFS
+        run: |
+          sudo yum install -y git-lfs
+          git lfs install
       - name: Set up JDK 1.11
         uses: actions/setup-java@v1
         with:
           java-version: 1.11
       - name: Install Google Chrome
         run: |
-          sudo apt-get install -y wget
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
+          sudo yum install -y wget
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+          sudo yum install -y ./google-chrome-stable_current_x86_64.rpm
       - name: Replace variables in cloudEnv.properties
         run: |
           sed -i "s/SIDE_DOOR_USERNAME/${{ secrets.SIDEDOORUSERNAME }}/g" src/main/resources/conf/cloudEnv.properties
@@ -44,13 +49,11 @@ jobs:
         id: reportpath
         run: echo "::set-output name=path::ssj-regression-reports"
       - name: Upload Cucumber Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: cucumber-report-${{ github.run_number }}
           path: target/ssj-regression-reports/*
-      - name: Remove Google Chrome installation file
-        run: rm google-chrome-stable_current_amd64.deb
       - name: Push HTML Report
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -70,8 +73,15 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          sed -i '1s/.*/<h1>SSJ Regression Test Results<\/h1>/' ssj-regression-test-results.html
-          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> ssj-regression-test-results.html
-          git add ssj-regression-test-results.html
-          git commit -m "Update ssj-regression-test-results.html" 
+          if [[ -f "ssj-regression-test-results.html" ]]; then
+              sed -i '1s/.*/<h1>SSJ Regression Test Results<\/h1>/' ssj-regression-test-results.html
+              echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> ssj-regression-test-results.html
+              git add ssj-regression-test-results.html
+              git commit -m "Update ssj-regression-test-results.html"
+          else
+              echo "<h1>SSJ Regression Test Results</h1>" > ssj-regression-test-results.html
+              echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> ssj-regression-test-results.html
+              git add ssj-regression-test-results.html
+              git commit -m "Create and update ssj-regression-test-results.html"
+          fi
           git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages

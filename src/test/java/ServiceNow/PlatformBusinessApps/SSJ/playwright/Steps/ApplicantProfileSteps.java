@@ -302,9 +302,9 @@ public class ApplicantProfileSteps {
         ApplicantProfileStepsImpl.user_verifies_demographics_information_and(sharingDemographicsText, sexText, ethnicityText, raceText, disabilityText);
     }
 
-    @Then("user verifies references one information {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
-    public void user_verifies_references_information(String firstNameText, String middleNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
-        ApplicantProfileStepsImpl.user_verifies_references_information(firstNameText, middleNameText, lastNameText, emailText, phoneNumberText, relationshipText, titleText, organizationText);
+    @Then("user verifies references one information {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void user_verifies_references_information(String firstNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
+        ApplicantProfileStepsImpl.user_verifies_references_information(firstNameText, lastNameText, emailText, phoneNumberText, relationshipText, titleText, organizationText);
     }
 
     @Then("if reference two is required then user enters Reference Two first name {string}")
@@ -347,9 +347,9 @@ public class ApplicantProfileSteps {
         ApplicantProfileStepsImpl.enters_reference_two_organization_name(organizationTextBox);
     }
 
-    @Then("user verifies references two information {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
-    public void user_verifies_references_two_information(String firstNameText, String middleNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
-        ApplicantProfileStepsImpl.user_verifies_references_two_information(firstNameText, middleNameText, lastNameText, emailText, phoneNumberText, relationshipText, titleText, organizationText);
+    @Then("user verifies references two information {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void user_verifies_references_two_information(String firstNameText, String lastNameText, String emailText, String phoneNumberText, String relationshipText, String titleText, String organizationText) {
+        ApplicantProfileStepsImpl.user_verifies_references_two_information(firstNameText, lastNameText, emailText, phoneNumberText, relationshipText, titleText, organizationText);
     }
 
     @Then("if either a Cover Letter, Qualification Statement, Curriculum Vitae \\(CV), or Vision Statement \\(or all) were uploaded then documents are displayed in the Application Documents section")

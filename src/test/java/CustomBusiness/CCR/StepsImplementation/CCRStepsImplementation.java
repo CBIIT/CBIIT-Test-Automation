@@ -1,73 +1,93 @@
 package CustomBusiness.CCR.StepsImplementation;
 
 import CustomBusiness.CCR.Constants.CCR_CONSTANTS;
+import ServiceNow.PlatformBusinessApps.NERD.Constants.NCI_Staff_Members_Constants;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.Constants.StadtmanVacanciesConstants;
+import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import org.openqa.selenium.WebElement;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 
 public class CCRStepsImplementation extends PageInitializer {
 
-    public void ccrLogin(){
+    public void ccrApplicantLogin(){
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        ServiceNow_Common_Methods.impersonate_Any_User_Without_Landing_In_Native_View((CCR_CONSTANTS.APPLICANT));
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CCR"));
+        CucumberLogUtils.logScreenshot();
     }
 
-    public void clickNextButton(String sectionName) throws TestingException {
+    public void ccrAdminLogin(){
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        ServiceNow_Common_Methods.impersonate_Any_User_Without_Landing_In_Native_View((CCR_CONSTANTS.ADMIN));
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CCR"));
+        CucumberLogUtils.logScreenshot();
+    }
+
+    public void clickNextButton(String sectionName) {
         switch (sectionName) {
             case "Basic Information":
-                CommonUtils.waitForVisibility(cCRApplicationPage.nextButtonBasicInfoSection);
-                CommonUtils.clickOnElement(cCRApplicationPage.nextButtonBasicInfoSection);
+                CommonUtils.waitForVisibility(cCRApplicantPage.nextButtonBasicInfoSection);
+                CommonUtils.clickOnElement(cCRApplicantPage.nextButtonBasicInfoSection);
                 break;
             case "Address":
-                CommonUtils.waitForVisibility(cCRApplicationPage.nextButtonAddressSection);
-                CommonUtils.clickOnElement(cCRApplicationPage.nextButtonAddressSection);
+                CommonUtils.waitForVisibility(cCRApplicantPage.nextButtonAddressSection);
+                CommonUtils.clickOnElement(cCRApplicantPage.nextButtonAddressSection);
+                break;
+            case "Reference":
+                CommonUtils.waitForVisibility(cCRApplicantPage.nextButtonReferenceSection);
+                CommonUtils.clickOnElement(cCRApplicantPage.nextButtonReferenceSection);
                 break;
             case "Business Address":
-                CommonUtils.waitForVisibility(cCRApplicationPage.nextButtonBusinessAddressSection);
-                CommonUtils.clickOnElement(cCRApplicationPage.nextButtonBusinessAddressSection);
+                CommonUtils.waitForVisibility(cCRApplicantPage.nextButtonBusinessAddressSection);
+                CommonUtils.clickOnElement(cCRApplicantPage.nextButtonBusinessAddressSection);
                 break;
             case "Required Documents":
-                CommonUtils.waitForVisibility(cCRApplicationPage.nextButtonRequiredDocumentsSection);
-                CommonUtils.clickOnElement(cCRApplicationPage.nextButtonRequiredDocumentsSection);
+                CommonUtils.waitForVisibility(cCRApplicantPage.nextButtonRequiredDocumentsSection);
+                CommonUtils.clickOnElement(cCRApplicantPage.nextButtonRequiredDocumentsSection);
                 break;
         }
     }
 
-    public void chooseUSA(String sectionName) throws TestingException {
+    public void chooseUSA(String sectionName) {
         switch (sectionName) {
             case "Address":
-                Select se = new Select(cCRApplicationPage.countryDropdown);
+                Select se = new Select(cCRApplicantPage.countryDropdown);
                 se.selectByValue("060f782fdb51f30054d8ff621f96190a");
                 break;
             case "Business Address":
-                Select s = new Select(cCRApplicationPage.countryBusinessDropdown);
+                Select s = new Select(cCRApplicantPage.countryBusinessDropdown);
                 s.selectByValue("060f782fdb51f30054d8ff621f96190a");
                 break;
         }
     }
 
-    public void uploadDocuments(String document){
+    public void uploadDocuments(String document) throws AWTException {
         switch (document) {
-            case "Letter of Interest":
-                MiscUtils.sleep(2000);
-                System.out.println("method");
-                JavascriptUtils.scrollIntoView(cCRApplicationPage.uploadFile1);
-                CommonUtils.sendKeys(cCRApplicationPage.uploadFile1,"text");
+            case "CV":
+                CommonUtils.clickOnElement((cCRApplicantPage.uploadFileCV));
+                setClipboardData(CCR_CONSTANTS.CV);
+                MiscUtils.sleep(1000);
+                enterFilePathCloseWindowDialogue();
                 break;
-            case "CV/Bibliography":
-                MiscUtils.sleep(2000);
-                CommonUtils.sendKeys(cCRApplicationPage.uploadFile1,CCR_CONSTANTS.CV);
-                break;
-            case "Upload Diversity Statement":
-                WebElement uploadFile3 = cCRApplicationPage.uploadFile3;
-                uploadFile3.sendKeys(CCR_CONSTANTS.DIVERSITY_STATEMENT);
+            case "Research Goals":
+                CommonUtils.clickOnElement((cCRApplicantPage.uploadFileResearchGoals));
+                setClipboardData(CCR_CONSTANTS.RESEARCH_GOALS);
+                MiscUtils.sleep(1000);
+                enterFilePathCloseWindowDialogue();
                 break;
         }
     }
@@ -75,35 +95,35 @@ public class CCRStepsImplementation extends PageInitializer {
     public void selectOutreachSource(String source){
         switch (source) {
             case "Contacted By Member":
-                Select s1 = new Select(cCRApplicationPage.outreachSourceDropdown);
+                Select s1 = new Select(webDriver.findElement(By.id("outreach_source")));
                 s1.selectByVisibleText(" Directly contacted by a member of the search committee or an NCI employee. ");
                 break;
             case "Colleague":
-                Select s2 = new Select(cCRApplicationPage.outreachSourceDropdown);
+                Select s2 = new Select(webDriver.findElement(By.id("outreach_source")));
                 s2.selectByVisibleText(" Advisor/colleague in my current organization. If known, please indicate how they found out. ");
                 break;
             case "Internet Search":
-                Select s3 = new Select(cCRApplicationPage.outreachSourceDropdown);
+                Select s3 = new Select(webDriver.findElement(By.id("outreach_source")));
                 s3.selectByVisibleText(" Internet/Google search. Please indicate keywords used. ");
                 break;
             case "Social Media":
-                Select s4 = new Select(cCRApplicationPage.outreachSourceDropdown);
+                Select s4 = new Select(webDriver.findElement(By.id("outreach_source")));
                 s4.selectByVisibleText(" CCR social media, including Facebook, Twitter, Instagram, Linkedin. Please indicate which specifically. ");
                 break;
             case "Online Journal":
-                Select s5 = new Select(cCRApplicationPage.outreachSourceDropdown);
+                Select s5 = new Select(webDriver.findElement(By.id("outreach_source")));
                 s5.selectByVisibleText(" On-line journal advertisement or career fair. Please identify which journal/meeting. ");
                 break;
             case "GMPAP":
-                Select s6 = new Select(cCRApplicationPage.outreachSourceDropdown);
+                Select s6 = new Select(webDriver.findElement(By.id("outreach_source")));
                 s6.selectByVisibleText(" Geographic Management of Cancer Health Disparities Program (GMaP). ");
                 break;
             case "Other":
-                Select s7 = new Select(cCRApplicationPage.outreachSourceDropdown);
+                Select s7 = new Select(webDriver.findElement(By.id("outreach_source")));
                 s7.selectByVisibleText(" Other (please specify) ");
                 break;
             case "Don't recall":
-                Select s8 = new Select(cCRApplicationPage.outreachSourceDropdown);
+                Select s8 = new Select(webDriver.findElement(By.id("outreach_source")));
                 s8.selectByVisibleText(" Don't recall. ");
                 break;
         }
@@ -112,10 +132,10 @@ public class CCRStepsImplementation extends PageInitializer {
     public void selectUploadingMaterialsOption(String option) {
         switch (option) {
             case "Yes":
-                CommonUtils.clickOnElement(cCRApplicationPage.yesOptionSimplicityOfUploadingMaterials);
+                CommonUtils.clickOnElement(cCRApplicantPage.yesOptionSimplicityOfUploadingMaterials);
                 break;
             case "No":
-                CommonUtils.clickOnElement(cCRApplicationPage.noOptionSimplicityOfUploadingMaterials);
+                CommonUtils.clickOnElement(cCRApplicantPage.noOptionSimplicityOfUploadingMaterials);
                 break;
         }
     }
@@ -123,30 +143,30 @@ public class CCRStepsImplementation extends PageInitializer {
     public void selectAdInformationOption(String option){
         switch (option) {
             case "Yes":
-                CommonUtils.clickOnElement(cCRApplicationPage.yesPostedAd);
+                CommonUtils.clickOnElement(cCRApplicantPage.yesPostedAd);
                 break;
             case "No":
-                CommonUtils.clickOnElement(cCRApplicationPage.noPostedAd);
+                CommonUtils.clickOnElement(cCRApplicantPage.noPostedAd);
                 break;
         }
     }
 
-    public void clickButton(String button){
-        switch (button) {
-            case "Apply Now":
-                CommonUtils.waitForClickability(cCRApplicationPage.applyNowButton);
-                CommonUtils.clickOnElement(cCRApplicationPage.applyNowButton);
-                break;
-            case "Submit":
-                CommonUtils.waitForVisibility(cCRApplicationPage.submitButton);
-                CommonUtils.clickOnElement(cCRApplicationPage.submitButton);
-                CommonUtils.waitForVisibility(cCRApplicationPage.submitConfirmationButton);
-                CommonUtils.clickOnElement(cCRApplicationPage.submitConfirmationButton);
-                CommonUtils.waitForVisibility(cCRApplicationPage.closeApplicationSubmittedButton);
-                CommonUtils.clickOnElement(cCRApplicationPage.closeApplicationSubmittedButton);
-                break;
-        }
+    public void submitApplication(){
+        CommonUtils.waitForVisibility(cCRApplicantPage.submitButton);
+        CommonUtils.clickOnElement(cCRApplicantPage.submitButton);
+        CommonUtils.waitForVisibility(cCRApplicantPage.submitConfirmationButton);
+        CommonUtils.clickOnElement(cCRApplicantPage.submitConfirmationButton);
+        MiscUtils.sleep(1000);
+        Assert.assertTrue(" User failed to submit application", cCRApplicantPage.msgApplicationSubmitted.isDisplayed());
+        CommonUtils.waitForVisibility(cCRApplicantPage.closeApplicationSubmittedButton);
+        CommonUtils.clickOnElement(cCRApplicantPage.closeApplicationSubmittedButton);
     }
+
+    public void clickApplyButton(){
+        CommonUtils.waitForClickability(cCRApplicantPage.applyNowButton);
+        CommonUtils.clickOnElement(cCRApplicantPage.applyNowButton);
+    }
+
     public void verifyDisplayedTab(String tab) {
         if (tab.equals ("Home")) {
        CommonUtils.waitForVisibility(cCRLandingPage.homeTab);
@@ -155,5 +175,71 @@ public class CCRStepsImplementation extends PageInitializer {
        CommonUtils.waitForVisibility(cCRLandingPage.positionsTab);
        CommonUtils.assertTrue(cCRLandingPage.positionsTab.isDisplayed());
         }
+    }
+
+    public static void setClipboardData(String string) {
+        StringSelection stringSelection = new StringSelection(string);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+    }
+
+    public static void enterFilePathCloseWindowDialogue() throws AWTException {
+        Robot robot = new Robot();
+        robot.delay(1000);
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        robot.delay(1000);
+    }
+
+    public void logOutOfCCRCareersApp(){
+        CommonUtils.waitForVisibility(cCRApplicantPage.userDropdownMenu);
+        CommonUtils.clickOnElement(cCRApplicantPage.userDropdownMenu);
+        CommonUtils.waitForVisibility(cCRApplicantPage.optionLogOut);
+        CommonUtils.clickOnElement(cCRApplicantPage.optionLogOut);
+    }
+
+    public void adminUserCreatesNewVacancy(){
+        CommonUtils.waitForVisibility(cCRAdminUserPage.tabPositions);
+        CommonUtils.clickOnElement(cCRAdminUserPage.tabPositions);
+        CommonUtils.waitForVisibility(cCRAdminUserPage.buttonAddPosition);
+        CommonUtils.clickOnElement(cCRAdminUserPage.buttonAddPosition);
+        CommonUtils.waitForVisibility(cCRAdminUserPage.fieldPositionTitle);
+        CommonUtils.sendKeys(cCRAdminUserPage.fieldPositionTitle, "Chief Technical Officer");
+        MiscUtils.sleep(2000);
+        CommonUtils.switchToFrame(createNewSubmissionPage.DescriptionTextBoxIframe);
+        MiscUtils.sleep(1000);
+        CommonUtils.sendKeys(cCRAdminUserPage.fieldDescription, "Added description");
+        MiscUtils.sleep(2000);
+        WebDriverUtils.webDriver.switchTo().defaultContent();
+        JavascriptUtils.scrollIntoView(cCRAdminUserPage.openDateCalendar);
+        CommonUtils.clickOnElement(cCRAdminUserPage.openDateCalendar);
+        CommonUtils.clickOnElement(cCRAdminUserPage.todaysDateActiveField);
+        MiscUtils.sleep(2000);
+        Select s = new Select(webDriver.findElement(By.id("number_of_references")));
+        s.selectByVisibleText("1");
+        clickOutside();
+        MiscUtils.sleep(2000);
+        CommonUtils.clickOnElement(cCRAdminUserPage.buttonSaveNewPosition);
+    }
+
+    public void adminUserDeletesNewVacancy(){
+        CommonUtils.waitForVisibility(cCRAdminUserPage.tabPositions);
+        CommonUtils.clickOnElement(cCRAdminUserPage.tabPositions);
+        CommonUtils.waitForVisibility(cCRAdminUserPage.buttonRemoveNewlyCreatedPosition);
+        CommonUtils.clickOnElement(cCRAdminUserPage.buttonRemoveNewlyCreatedPosition);
+        MiscUtils.sleep(2000);
+        CommonUtils.clickOnElement(cCRAdminUserPage.buttonOkRemovingPositionModal);
+        MiscUtils.sleep(2000);
+        Assert.assertTrue("Position was NOT removed",cCRAdminUserPage.confirmationMessagePositionWasRemoved.isDisplayed());
+        MiscUtils.sleep(2000);
+        CommonUtils.clickOnElement(cCRAdminUserPage.acknowledgeConfirmationModalPositionWasRemoved);
+    }
+
+    public void clickOutside(){
+        Actions action = new Actions(webDriver);
+        action.moveByOffset(0, 0).click().build().perform();
     }
 }

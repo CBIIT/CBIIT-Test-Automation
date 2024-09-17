@@ -11,13 +11,14 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.Keys;
 
 public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer {
 
+    /**
+     * This method creates a new GDC record.
+     */
     public static void createNewGDCRecord(){
-
         CommonUtils.clickOnElement(gDC_Workflow_NativeView_Page.nVGDCShortDescriptionLabel);
         CommonUtils.sendKeys(gDC_Workflow_NativeView_Page.nVGDCShortDescriptionTextBox, GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_SHORT_DESCRIPTION_TEXT_BOX);
         CommonUtils.sendKeys(gDC_Workflow_NativeView_Page.nVGDCRecordSubmitterSearchTextBox, GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_SUBMITTER_SEARCH_TEXT_BOX);
@@ -38,7 +39,10 @@ public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer 
         CucumberLogUtils.logScreenshot();
     }
 
-    public static void deleteAutomatedGDCRecord() throws TestingException {
+    /**
+     * Deletes an Automated GDC Record.
+     */
+    public static void deleteAutomatedGDCRecord() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
@@ -47,6 +51,7 @@ public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer 
         MiscUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCAllRecordSearchDropDown);
         CommonUtils.selectDropDownValue(gDC_Workflow_NativeView_Page.nVGDCAllRecordSearchDropDown, GDC_WorkFlow_NV_Constants.GDC_NATIVE_ALL_RECORD_SEARCH_DROP_DOWN);
         MiscUtils.sleep(3000);
@@ -73,7 +78,10 @@ public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer 
         CucumberLogUtils.logScreenshot();
     }
 
-    public static void iAmAuthenticatedGDCFulfillerInNV() throws TestingException {
+    /**
+     * This method impersonate the GDC fulfiller in the Native View.
+     */
+    public static void iAmAuthenticatedGDCFulfillerInNV() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser("wwysoc2@uchicago.edu");
         MiscUtils.sleep(1000);
@@ -87,6 +95,9 @@ public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer 
         createNewGDCRecord();
     }
 
+    /**
+     * This method implements the impersonated user get the ticket he/she is assigned to in the Native View page.
+     */
     public static void iGetATicketAssignedToMe(){
         CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCRecordAssignedToSearchTextBox);
         JavascriptUtils.drawBlueBorder(gDC_Workflow_NativeView_Page.nVGDCRecordAssignedToSearchTextBox);
@@ -95,7 +106,10 @@ public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer 
         CucumberLogUtils.logScreenshot();
     }
 
-    public static void gDCUIActionsOnTopRightCornerForGDCFlow() throws TestingException {
+    /**
+     * This method performs various UI actions for the GDC work flow from Start Work button to Resolved.
+     */
+    public static void gDCUIActionsOnTopRightCornerForGDCFlow() {
         CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCRecordStartWorkButton);
         JavascriptUtils.drawBlueBorder(gDC_Workflow_NativeView_Page.nVGDCRecordStartWorkButton);
         CucumberLogUtils.logScreenshot();
@@ -113,6 +127,9 @@ public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer 
         deleteAutomatedGDCRecord();
     }
 
+    /**
+     * This method performs various UI actions for the GDC workflow from start to resolved.
+     */
     public static void gDCTicketIsResolved(){
         CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCRecordStartWorkButton);
         JavascriptUtils.drawBlueBorder(gDC_Workflow_NativeView_Page.nVGDCRecordStartWorkButton);
@@ -129,7 +146,10 @@ public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer 
         CucumberLogUtils.logScreenshot();
     }
 
-    public static void clickOnClosureInfoAndCheckBusinessDuration() throws TestingException{
+    /**
+     * Clicks on the Closure Info and checks the business duration.
+     */
+    public static void clickOnClosureInfoAndCheckBusinessDuration(){
         CommonUtils.waitForClickability(gDC_Workflow_NativeView_Page.nVGDCRecordClosureInformationTab);
         CommonUtils.clickOnElement(gDC_Workflow_NativeView_Page.nVGDCRecordClosureInformationTab);
         CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCRecordConfigureBusinessDurationField);

@@ -107,6 +107,15 @@ public class CBIIT_OFFBOARD_FORM_Constants {
     /* CBIIT 'ONSITE LOCATION' SELECTED DROP DOWN VALUE  */
     public static String CBIIT_ONSITE_LOCATION_SELECTED_DROP_DOWN_VALUE = "Pennsylvania";
 
-    /* CBIIT "RETURN HARDWARE FORM URL" TEXT  */
+    /* CBIIT 'RETURN HARDWARE FORM URL' TEXT  */
     public static String CBIIT_RETURN_HARDWARE_FORM_URL_TEXT = "Return Hardware Form URL";
+
+    /* CBIIT 'REQUIRED' TEXT  */
+    public static String CBIIT_REQUIRED_TEXT = "Required";
+
+    /* SOME REQUIRED FIELDS ARE INCOMPLETE TEXT  */
+    public static String CBIIT_REQUIRED_FIELDS_ARE_INCOMPLETE_TEXT = "Some fields are incomplete: Hardware Return Ticket Number(s)";
+
+    /* MANDATORY FIELD */
+    public static String MANDATORY_FIELD = "field.mandatory";
 }

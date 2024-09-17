@@ -67,11 +67,10 @@ import ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Pages.CTRPCTRO_NV_Page
 import ServiceNow.PlatformBusinessApps.GDC.Pages.GDC_Workflow_NativeView_Page;
 import ServiceNow.PlatformBusinessApps.GCP.Pages.GCPNotifications_NativeViewPage;
 import ServiceNow.PlatformBusinessApps.NERD.Pages.*;
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERDLoginStepsImplementation;
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
+import ServiceNow.PlatformBusinessApps.SNOW_TRAVEL.Selenium.Pages.Travel_Request_Form_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.*;
 import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.*;
 import appsCommon.Pages.ITrustLoginPage;
@@ -184,7 +183,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static SEERDataAccessRequestPageStepsImpl seerDataAccessRequestPageStepsImpl;
 
 	/** NERD instances */
-	public static NERDLoginStepsImplementation nerdLoginStepsImplementation;
 	public static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
 	public static CreateNewSubmissionPage createNewSubmissionPage;
 	public static NERDDynamicXPATHS nerdDynamicXpaths;
@@ -338,7 +336,8 @@ public class PageInitializer extends WebDriverUtils {
 	public static CCRLandingPage cCRLandingPage;
 	public static CCRStepsImplementation cCRStepsImplementation;
 	public static CCRDynamicXpaths cCRDynamicXpaths;
-	public static CCRApplicationPage cCRApplicationPage;
+	public static CCRApplicantPage cCRApplicantPage;
+	public static CCRAdminUserPage cCRAdminUserPage;
 
 	/** ESR INSTANCES */
 	public static NCINativeViewPage nciNativeViewPage;
@@ -347,7 +346,6 @@ public class PageInitializer extends WebDriverUtils {
 
 	/** --------------- NATIVE VIEW INSTANCES --------------- */
 	public static NativeViewHomePage nativeViewHomePage;
-	public static NativeViewImpersonateUser nativeViewImpersonateUser;
 	public static NativeViewImpersonateUserPage nativeViewImpersonateUserPage;
 	public static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
 	public static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
@@ -379,6 +377,9 @@ public class PageInitializer extends WebDriverUtils {
 	/** ----------------- COMETS ANALYTICS INSTANCES -----*/
 	public static CometsAnalyticsPage cometsAnalyticsPage;
 	public static CometsAnalyticsStepImp cometsAnalyticsStepImp;
+
+	/** ----------------- TRAVEL REQUEST  -----*/
+	public static Travel_Request_Form_Page travel_Request_Form_Page;
 
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -469,7 +470,6 @@ public class PageInitializer extends WebDriverUtils {
 		seerDataAccessRequestPageStepsImpl = new SEERDataAccessRequestPageStepsImpl();
 
 		/** NERD Instance Variables */
-		nerdLoginStepsImplementation = new NERDLoginStepsImplementation();
 		nerdCrsKnowledgeDatabaseSubmissionsPage = new NERDSubmissionsPage();
 		createNewSubmissionPage = new CreateNewSubmissionPage();
 		nerdDynamicXpaths = new NERDDynamicXPATHS();
@@ -622,11 +622,11 @@ public class PageInitializer extends WebDriverUtils {
 		cCRStepsImplementation = new CCRStepsImplementation();
 		cCRStepsImplementation = new CCRStepsImplementation();
 		cCRDynamicXpaths = new CCRDynamicXpaths();
-		cCRApplicationPage = new CCRApplicationPage();
+		cCRApplicantPage = new CCRApplicantPage();
+		cCRAdminUserPage = new CCRAdminUserPage();
 
 		/** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
 		nativeViewHomePage = new NativeViewHomePage();
-		nativeViewImpersonateUser = new NativeViewImpersonateUser();
 		nativeViewImpersonateUserPage = new NativeViewImpersonateUserPage();
 		nativeViewEnrollementsPage = new NativeViewEnrollmentsPage();
 		nativeViewEnrollmentViewPage = new NativeViewEnrollmentViewPage();
@@ -692,5 +692,8 @@ public class PageInitializer extends WebDriverUtils {
 		cometsAnalyticsPage = new CometsAnalyticsPage();
 		cometsAnalyticsStepImp = new CometsAnalyticsStepImp();
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
+
+		/** TRAVEL REQUEST INSTANCE VARIABLES */
+		travel_Request_Form_Page = new Travel_Request_Form_Page();
 	}
 }
