@@ -16,12 +16,13 @@ public class RestApiHelper {
 	String resourceUrl = null;
 	Response response;
 	static RestApiHelper rest;
+	static RestApiHelper rest1;
 	
 	public static void main(String[] args) {
 		  rest = new RestApiHelper("https://exploregwas-qa.cancer.gov/plco-atlas/api");
 		  rest.setResourceUrl("/phenotypes?q=cancer");
 		  rest.getRequestByChromeVersion86(); 
-		  System.out.println(rest.getResponseBody().asString()); 
+		  System.out.println(rest.getResponseBody().asString());
 	}
 	
 	public RestApiHelper(String baseUri) {

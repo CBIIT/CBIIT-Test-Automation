@@ -8,8 +8,8 @@ import io.cucumber.testng.CucumberOptions;
 		, "rerun:target/failed.txt"
 		, "pretty"}
         , features ={"src/test/java/AnalysisTools/CometsAnalytics/Features"}
-        , glue = "AnalysisTools.CometsAnalystics.Steps"
-        , tags = "@Progression"
+        , glue = "AnalysisTools.CometsAnalytics.Steps"
+        , tags = " @Progression"
         , dryRun = false      
 )
 public class RunCometsAnalyticsProgressionTest extends AbstractTestNGCucumberTests{
