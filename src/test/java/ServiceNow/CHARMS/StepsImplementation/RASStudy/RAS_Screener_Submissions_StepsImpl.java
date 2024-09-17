@@ -164,7 +164,6 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                  */
                 else if (rasopathyQuestionnairePage.question.getText().trim().contentEquals(IN_WHICH_COUNTRY_DO_YOU_CURRENTLY_LIVE)) {
                     CucumberLogUtils.scenario.log("* * * * * IN WHICH COUNTRY DO YOU CURRENTLY LIVE? * * * * *");
-                    MiscUtils.sleep(2000);
                     CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.COUNTRY_OPTION, rasopathyQuestionnairePage.whatCountryDoesParticipantCurrentlyLiveInDropDown);
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
