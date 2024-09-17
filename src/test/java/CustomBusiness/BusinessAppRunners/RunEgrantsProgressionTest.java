@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
         "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
         , features = "src/test/java/CustomBusiness/Egrants/Features"
-        , glue = "CustomBusiness.Egrants.Steps"
+        , glue = {"CustomBusiness.Egrants.Steps", "Hooks"}
         , tags = "@Progression"
         , dryRun = false
 )

@@ -1,7 +1,21 @@
 Feature: NCI Initial workflow Regression testing
 
   Background:
-    Given User logs in to EIDP "EidpUrlNCI" as "Username" and "Password"
+#    Given User logs in to EIDP "EidpUrlNCI" as "Username" and "Password"
+
+    @IN-PROGRESS @playwright
+    Scenario: name of scenario
+#      Given User logs in to EIDP "EidpUrlNCI" as "Username" and "Password"
+      Given a user logs in to EIDP "EidpUrlNCI"
+      And changes user to "Ginsburg,Erika"
+      When user searches for any IDP created
+      And checks Trainees without IDP
+      And selects Fellow for Classification Type
+      And clicks "Search" button
+      Then user verifies the search results display
+      When a user clicks on a Trainee record where the Initiate Action button is enabled
+      And selects "CBIIT" value for NCI Training Organization
+      And gets the text of the Trainee's name
 
   @InitiatesIDPNCI @Regression @Smoke @Zamant2
   Scenario: TC01 IDP request creates and decline and approve
