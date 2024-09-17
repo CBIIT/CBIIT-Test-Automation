@@ -1,10 +1,13 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
+import Hooks.Hooks;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Mandatory_Statements_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.OWM_Vacancy_Manager_StepsImpl;
 import appsCommon.Pages.Playwright_Common_Locators;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import com.nci.automation.utils.CucumberLogUtils;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
@@ -256,4 +259,20 @@ public class OWM_Vacancy_Manager_Steps {
     public void user_adds_duplicate_committee_member_for_executive_secretary(String committeeMember) {
         OWM_Vacancy_Manager_StepsImpl.user_adds_duplicate_committee_member_for_executive_secretary(committeeMember);
     }
+
+    @Given("Impersonate Holly, or any Vacancy Manager")
+    public void impersonate_holly_or_any_vacancy_manager() {
+        OWM_Vacancy_Manager_StepsImpl.impersonate_holly_or_any_vacancy_manager();
+    }
+
+    @When("Click on the {string} tab and create a new Vacancy.")
+    public void click_on_the_tab_and_create_a_new_vacancy(String string) {
+
+    }
+
+    @Then("verifies Vacancy Title {string} is on the Your Vacancies page")
+    public void verifies_vacancy_title_is_on_the_your_vacancies_page(String vacancyTitle) {
+        OWM_Vacancy_Manager_StepsImpl.verifies_vacancy_title_is_on_the_your_vacancies_page(vacancyTitle);
+    }
+
 }

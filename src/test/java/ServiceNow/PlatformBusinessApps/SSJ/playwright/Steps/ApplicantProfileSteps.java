@@ -3,7 +3,9 @@ package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.*;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
+import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
+import com.nci.automation.utils.CucumberLogUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -725,5 +727,14 @@ public class ApplicantProfileSteps {
     @Then("verifies that the application status is {string}")
     public void verifies_that_the_application_status_is(String withdrawnText) {
         ApplicantProfileStepsImpl.verifies_that_the_application_status_is(withdrawnText);
+    }
+
+    @When("selects {string} for Number of Scoring Categories")
+    public void selects_for_number_of_scoring_categories(String text) {
+//        Playwright_Common_Utils.scrollIntoView("(//span[@class='ant-slider-mark-text ant-slider-mark-text-active'][normalize-space()='" + text + "'])[2]");
+//        page.locator(Vacancy_Dashboard_Page.numberOfScoringSliderOptions).click();
+        page.locator("//div[@class='ant-slider-handle ant-slider-handle-dragging ant-tooltip-open'][1]//ancestor::span[@class='ant-slider-mark-text ant-slider-mark-text-active' and normalize-space()='1'][2]").click();
+        System.out.println(text);
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 }
