@@ -196,7 +196,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
                 .sendKeys(ReturningSubmissions_Constants.RETURN_TO_PROGRAM_STUFF_MESSAGE);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(3000);
         CommonUtils.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText(submissionName).getText()
                 .contentEquals(ReturningSubmissions_Constants.RETURNED_TO_STUFF_MEMBER_TEXT));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
