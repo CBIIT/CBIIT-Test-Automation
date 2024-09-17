@@ -9,6 +9,7 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
+import io.cucumber.java.en.Given;
 
 public class TestAccountResetImpl extends PageInitializer {
 
@@ -66,6 +67,26 @@ public class TestAccountResetImpl extends PageInitializer {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(
                 "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=a3ee10cc8790d610ad46326d3fbb350a");
+        MiscUtils.sleep(2000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
+        MiscUtils.sleep(2000);
+        testAccountResetPage.nativeViewRunFixScriptButton.click();
+        MiscUtils.sleep(1000);
+        CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
+        testAccountResetPage.nativeViewProceedInBackgroundButton.click();
+        MiscUtils.sleep(3000);
+        ServiceNow_Common_Methods.logOutOfNativeView();
+    }
+
+    /**
+     * USE THIS METHOD TO RESET THE TEST ACCOUNT
+     * @param url
+     */
+    @Given("test automation account {string} has been reset")
+    public static void test_automation_account_has_been_reset(String url) {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        WebDriverUtils.webDriver.get(url);
         MiscUtils.sleep(2000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
