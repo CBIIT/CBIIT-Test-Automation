@@ -81,8 +81,13 @@ public class CometsAnalyticsStepImp extends PageInitializer {
     public void clickOnAboutComment() {
         MiscUtils.sleep(4000);
         CommonUtils.waitForVisibility(cometsAnalyticsPage.aboutCometsButton);
+        String parent = WebDriverUtils.webDriver.getWindowHandle();
         cometsAnalyticsPage.aboutCometsButton.click();
         assertMoreThanOneWindowIsPresent();
+        CommonUtils.switchToAnotherTabWindow();
+        MiscUtils.sleep(2000);
+        webDriver.close();
+        webDriver.switchTo().window(parent);
     }
 
     /**
@@ -197,16 +202,28 @@ public class CometsAnalyticsStepImp extends PageInitializer {
      * METHOD TO CLICK ON TUTORIALS AND VERIFYING THE WINDOW IS PRESENT OR NOT
      */
     public void clickOnTutorials() {
+        MiscUtils.sleep(2000);
+        String parent = WebDriverUtils.webDriver.getWindowHandle();
         JavascriptUtils.clickByJS(cometsAnalyticsPage.tutorialsButton);
         assertMoreThanOneWindowIsPresent();
+        CommonUtils.switchToAnotherTabWindow();
+        MiscUtils.sleep(2000);
+        webDriver.close();
+        webDriver.switchTo().window(parent);
     }
 
     /**
      * METHOD TO CLICK ON VIGENETTE BUTTON
      */
     public void clickOnVigenette() {
+        MiscUtils.sleep(2000);
+        String parent = WebDriverUtils.webDriver.getWindowHandle();
         JavascriptUtils.clickByJS(cometsAnalyticsPage.vignettesButton);
         assertMoreThanOneWindowIsPresent();
+        CommonUtils.switchToAnotherTabWindow();
+        MiscUtils.sleep(2000);
+        webDriver.close();
+        webDriver.switchTo().window(parent);
     }
 
     /**
