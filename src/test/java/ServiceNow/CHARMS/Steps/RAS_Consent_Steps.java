@@ -26,11 +26,11 @@ public class RAS_Consent_Steps {
      */
     @Given("the consent is submitted for {string} {string}")
     public void the_consent_is_submitted_for(String sheetName, String consentType) {
-//        int consentTypeRadioButtonIndex = -1;
-//        if(consentType.equals("Consent")) {
-//
-//        } else if(consentType.equals("Eligibility")) {}
-//        else if(consentType.equals("Eligibility and Consent")) {}
+        int consentTypeRadioButtonIndex = -1;
+        if(consentType.equals("Under 7")) {
+
+        } else if(consentType.equals("Eligibility")) {}
+        else if(consentType.equals("Eligibility and Consent")) {}
 
 
 
@@ -205,9 +205,9 @@ public class RAS_Consent_Steps {
         CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
-        CommonUtils.waitForVisibility(locateByXpath("//button[@id='close-messages-btn']"));
-        CommonUtils.waitForClickability(locateByXpath("//button[@id='close-messages-btn']"));
-        CommonUtils.clickOnElement(locateByXpath("//button[@id='close-messages-btn']"));
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(locateByXpath("//button[@title='Back']"));
         CommonUtils.clickOnElement(locateByXpath("//button[@title='Back']"));
