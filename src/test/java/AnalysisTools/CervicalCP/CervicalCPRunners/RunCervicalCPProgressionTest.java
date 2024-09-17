@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
         features = {"src/test/java/AnalysisTools/CervicalCP/playwright/Features", "src/test/java/AnalysisTools/CervicalCP/selenium/Features"},
         glue = {"AnalysisTools.CervicalCP.playwright.Steps", "AnalysisTools.CervicalCP.selenium.Steps", "Hooks"},
         tags = "@Progression",
-        dryRun = true
+        dryRun = false
 )
 
 /*

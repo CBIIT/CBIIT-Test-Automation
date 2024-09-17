@@ -1,5 +1,7 @@
 package AnalysisTools.CervicalCP.playwright.Steps;
 
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
@@ -16,7 +18,7 @@ public class CCPRunScenarioStepsPW extends PlaywrightUtils {
 
     @Given("the user is on the Run Scenario tab on Cervical CP")
     public void the_user_is_on_the_run_scenario_tab_on_cervical_cp() {
-        PlaywrightUtils.page.navigate("https://globalcxca-stage.cancer.gov/#/run-scenario");
+        PlaywrightUtils.page.navigate("https://globalcxca-qa.cancer.gov/#/run-scenario");
     }
     @When("the user inputs {string} for the target population")
     public void the_user_inputs_for_the_target_population(String targetPopulation) {
@@ -36,16 +38,33 @@ public class CCPRunScenarioStepsPW extends PlaywrightUtils {
         assertThat(page.locator("#root")).containsText("Approximately 200 (Pap test) screening tests, NA triage tests, and 0 diagnostic tests will be required. 0 women will require treatment. 0.0% of women are possibly overtreated.");
     }
 
-    @When("sets all sliders to {int} percent")
-    public void sets_all_sliders_to_percent(int oneHundredPercentage) {
+    @When("sets all sliders to {string} percent")
+    public void sets_all_sliders_to_percent(String oneHundredPercentage) {
+        page.getByPlaceholder("Enter 1 -").fill("1");
+        page.getByLabel("Cervical screening test chosen").selectOption("pap");
+        page.getByLabel("Percent screening coverage").fill(oneHundredPercentage);
+        page.getByLabel("Triage").check();
+        page.getByRole(AriaRole.SLIDER, new Page.GetByRoleOptions().setName("Percent of screen positives")).fill(oneHundredPercentage);
+        page.locator("#triageTestSensitivity").nth(1).fill(oneHundredPercentage);
+        page.locator("#triageTestSpecificity").nth(1).fill(oneHundredPercentage);
+        page.getByLabel("Colposcopy").check();
+        page.locator("#percentTriaged").nth(2).fill(oneHundredPercentage);
+        page.locator("#diagnosticTestSensitivity").nth(2).fill(oneHundredPercentage);
+        page.locator("#diagnosticTestSpecificity").nth(2).fill(oneHundredPercentage);
+        page.getByLabel("Percent of diagnostic test").fill(oneHundredPercentage);
     }
 
-    @When("the Triage slider is moved to {int}")
-    public void the_triage_slider_is_moved_to(int zeroPercent) {
+    @When("the Triage slider is moved to {string}")
+    public void the_triage_slider_is_moved_to(String zeroPercent) {
+        page.getByLabel("Expand").nth(1).click();
+        MiscUtils.sleep(1000);
+        page.locator("#triageTestSensitivity").nth(2).fill(zeroPercent);
     }
 
-    @Then("the Colposcopy value is still {int}")
-    public void the_colposcopy_value_is_still(int colposcopyTableValue) {
+    @Then("the Colposcopy value is still {string}")
+    public void the_colposcopy_value_is_still(String colposcopyTableValue) {
+        assertThat(page.locator("#tab1Content")).containsText("60.0%");
+        assertThat(page.locator("#tab1Content")).containsText(colposcopyTableValue);
     }
 
     @When("the user enters {int} for number of people in the target population")
@@ -63,8 +82,8 @@ public class CCPRunScenarioStepsPW extends PlaywrightUtils {
             // Code to click on triage checkbox
     }
 
-    @When("clicks Diagnosis checkbox")
-        public void clicksDiagnosisCheckbox() {
+    @When("clicks Colposcopy checkbox")
+        public void clicksColposcopyCheckbox() {
             // Code to click on diagnosis checkbox
     }
 

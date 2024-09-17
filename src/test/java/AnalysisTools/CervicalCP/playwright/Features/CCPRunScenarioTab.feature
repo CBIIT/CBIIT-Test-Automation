@@ -17,22 +17,22 @@ Feature: These are the scenarios that are under the Run Scenario tab on Cervical
     And move the Percent screening coverage to ten percent
     Then the results section displays "Approximately 200 (Pap test) screening tests, NA triage tests, and 0 diagnostic tests will be required. 0 women will require treatment. 0.0% of women are possibly overtreated."
 
-  @inProgress @matakevin @NCIATWP-6596 @playwright
+  @Progression @matakevin @NCIATWP-6596 @playwright
     Scenario: Test Cervical CP - Add a second pie chart - PW
     Given the user is on the Run Scenario tab on Cervical CP
-    When the user enters 10000 for number of people in the target population
-    Then the first pie chart is named "Population with Precancer" is displayed
+    When the user inputs "10000" for the target population
+    Then the first pie chart is named "Population with precancer in one year" is displayed
     When clicks on Triage checkbox
-    And clicks Diagnosis checkbox
+    And clicks Colposcopy checkbox
     Then the "Impact on Cervical Precancer and Impact on the Population Targeted for Screening" is displayed
 
-  @Progression @matakevin @NCIATWP-7967 @playwright
-  Scenario: Test Cervical CP - Add a second pie chart - PW
+  @Smoke @matakevin @NCIATWP-7967 @playwright
+  Scenario: Test Cervical CP - Triage and Colposcopy slider are flipped - PW
     Given the user is on the Run Scenario tab on Cervical CP
     When the user inputs "10000" for the target population
-    And sets all sliders to 100 percent
-    When the Triage slider is moved to 0
-    Then the Colposcopy value is still 0
+    And sets all sliders to "100" percent
+    When the Triage slider is moved to "0"
+    Then the Colposcopy value is still "0"
 
   @forCoverage @NEEDTOCREATEONJIRA
   Scenario: Ensure the CIN and NIC values are present in English and Spanish
