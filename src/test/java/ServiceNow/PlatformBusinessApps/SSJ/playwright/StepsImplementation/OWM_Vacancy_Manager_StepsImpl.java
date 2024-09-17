@@ -701,6 +701,5 @@ public class OWM_Vacancy_Manager_StepsImpl {
     }
 
     public static void verifies_vacancy_title_is_on_the_your_vacancies_page(String vacancyTitle) {
-        Hooks.softAssert.assertEquals();
     }
 }
