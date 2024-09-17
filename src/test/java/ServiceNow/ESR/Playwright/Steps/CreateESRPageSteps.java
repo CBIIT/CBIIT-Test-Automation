@@ -59,7 +59,7 @@ public class CreateESRPageSteps {
 
     @And("fills out all required information for ESR-Q in portal view and clicks submit")
     public void fills_out_all_required_information_for_esr_q_in_portal_view_and_clicks_submit() {
-
+        CreateESRPageStepsImplementation.fillRequiredInfoForESRQPortal();
     }
     @Then("user sees an ESR-Q ticket was created in portal view")
     public void user_sees_an_esr_q_ticket_was_created_in_portal_view() {

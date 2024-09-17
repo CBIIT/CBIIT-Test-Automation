@@ -3,6 +3,7 @@ package ServiceNow.ESR.Playwright.StepsImplementation;
 import ServiceNow.ESR.Playwright.Pages.CreateESRPage;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.MiscUtils;
@@ -136,5 +137,37 @@ public class CreateESRPageStepsImplementation {
     public static void clickOnNewESRITicket() {
         page.frameLocator(CreateESRPage.iframeSelector).locator("//tbody/tr/td/a[1]").click();
         assertThat(page.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]")).containsText("Implementation");
+    }
+
+    public static void fillRequiredInfoForESRQPortal() {
+        page.getByLabel("Phone").click();
+        page.getByLabel("Phone").fill("000");
+        page.getByLabel("Project Name").click();
+        page.getByLabel("Project Name").fill("Test Project - Portal View");
+        page.locator("#s2id_sp_formfield_phase a").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Q-Branch")).click();
+        page.locator("#s2id_sp_formfield_it_service_area").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Cybersecurity")).click();
+        page.getByLabel("Project Description").click();
+        page.getByLabel("Project Description").fill("Test Description");
+        page.locator("#s2id_sp_formfield_ocio_federal_lead").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
+        page.getByText("Alex Nordan").click();
+        page.locator("#s2id_sp_formfield_assignment_group_esr").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("CHARMS Technical Support")).click();
+        page.locator("#s2id_sp_formfield_business_owner").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
+        page.getByText("Aaliyah Robertson").click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true)).click();
+    }
+
+    public static void verifyESRQPortalCreation() {
+
+    }
+
+    public static void fillRequiredInfoForESRIPortal() {
+
+    }
+
+    public static void verifyESRIPortalCreation() {
+
     }
 }
