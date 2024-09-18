@@ -168,14 +168,33 @@ public class CreateESRPageStepsImplementation {
             page.locator("//span[@ng-if=\"data.table == 'sc_req_item'\"]//a").click();
         });
         assertThat(page1.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]")).containsText("Q-Branch");
-        MiscUtils.sleep(4000);
     }
 
     public static void fillRequiredInfoForESRIPortal() {
-
+        page.getByLabel("Phone").click();
+        page.getByLabel("Phone").fill("000");
+        page.getByLabel("Project Name").click();
+        page.getByLabel("Project Name").fill("Test Project - Portal View");
+        page.locator("#s2id_sp_formfield_it_service_area").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Cybersecurity")).click();
+        page.getByLabel("Project Description").click();
+        page.getByLabel("Project Description").fill("Test Description");
+        page.locator("#s2id_sp_formfield_ocio_federal_lead").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
+        page.getByText("Alex Nordan").click();
+        page.locator("#s2id_sp_formfield_assignment_group_esr").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("CHARMS Technical Support")).click();
+        page.locator("#s2id_sp_formfield_business_owner").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
+        page.getByText("Aaliyah Robertson").click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true)).click();
     }
 
     public static void verifyESRIPortalCreation() {
-
+        page.navigate("https://service-test.nci.nih.gov/ncisp?id=nci_home");
+        page.locator("//li[@class='list-group-item ng-scope'][1]").click();
+        assertThat(page.getByRole(AriaRole.MAIN)).containsText("Implementation");
+        Page page1 = page.waitForPopup(() -> {
+            page.locator("//span[@ng-if=\"data.table == 'sc_req_item'\"]//a").click();
+        });
+        assertThat(page1.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]")).containsText("Implementation");
     }
 }
