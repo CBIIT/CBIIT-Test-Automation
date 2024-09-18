@@ -19,6 +19,11 @@ jobs:
         with:
           ref: ${{ github.ref }}
           fetch-depth: 0
+
+      - name: Check the content of cloudEnv.properties
+        run: Get-Content src/main/resources/conf/cloudEnv.properties
+        shell: powershell
+
       - name: Replace variables in cloudEnv.properties
         run: |
           $content = Get-Content src/main/resources/conf/cloudEnv.properties
@@ -28,23 +33,28 @@ jobs:
           $content = $content -replace 'ENV_VAR', 'test'
           $content | Set-Content src/main/resources/conf/cloudEnv.properties
         shell: powershell
+
       - name: Run specific runner class
         run: mvn -B -q -Dtest=SSJ_Regression_Runners -DisCloud=true test
         continue-on-error: true
+
       - name: Generate timestamp
         id: timestamp
         run: echo "::set-output name=timestamp::$(Get-Date -Format yyyy-MM-dd_HH-mm-ss_tt)"
         shell: powershell
+
       - name: Determine report path
         id: reportpath
         run: echo "::set-output name=path::ssj-regression-reports"
         shell: powershell
+
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v3
         if: always()
         with:
           name: cucumber-report-${{ github.run_number }}
           path: target/ssj-regression-reports/*
+
       - name: Push HTML Report
         run: |
           git config --global user.email "diegojuarezbusiness@gmail.com"
@@ -61,6 +71,7 @@ jobs:
         shell: powershell
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
       - name: Update Test Results and Append to Index File
         run: |
           if (Test-Path "ssj-regression-test-results.html")
