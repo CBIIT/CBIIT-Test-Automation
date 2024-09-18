@@ -63,7 +63,7 @@ public class CreateESRPageSteps {
     }
     @Then("user sees an ESR-Q ticket was created in portal view")
     public void user_sees_an_esr_q_ticket_was_created_in_portal_view() {
-
+        CreateESRPageStepsImplementation.verifyESRQPortalCreation();
     }
 
     @And("fills out all required information for ESR-I in portal view and clicks submit")

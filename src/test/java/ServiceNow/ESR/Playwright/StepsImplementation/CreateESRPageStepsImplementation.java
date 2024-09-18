@@ -8,6 +8,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.MiscUtils;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+import static com.nci.automation.web.PlaywrightUtils.context;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class CreateESRPageStepsImplementation {
@@ -163,6 +164,11 @@ public class CreateESRPageStepsImplementation {
         page.navigate("https://service-test.nci.nih.gov/ncisp?id=nci_home");
         page.locator("//li[@class='list-group-item ng-scope'][1]").click();
         assertThat(page.getByRole(AriaRole.MAIN)).containsText("ESR-Q");
+        Page page1 = page.waitForPopup(() -> {
+            page.locator("//span[@ng-if=\"data.table == 'sc_req_item'\"]//a").click();
+        });
+        assertThat(page1.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]")).containsText("Q-Branch");
+        MiscUtils.sleep(4000);
     }
 
     public static void fillRequiredInfoForESRIPortal() {
