@@ -33,6 +33,10 @@ public class GDC_Workflow_NativeView_Page extends CommonUtils {
     @FindBy(xpath = "//span[@id='x_g_nci_gdc_case_hide_search']/div//child::span//child::span//child::select")
     public WebElement nVGDCAllRecordSearchDropDown;
 
+    /** Native View GDC All Record Search Drop Down */
+    @FindBy(xpath = "//span[@class='input-group-addon input-group-select']//span//select")
+    public WebElement nVGDCAllRecordSearchDropDowntemp;
+
     /** Native View GDC All Record Search Text Box */
     @FindBy(xpath = "//span[@id='x_g_nci_gdc_case_hide_search']//div//input")
     public WebElement nVGDCAllRecordSearchTextBox;
@@ -40,13 +44,13 @@ public class GDC_Workflow_NativeView_Page extends CommonUtils {
     /** Native View Record Name Dynamic Xpath */
     public WebElement nVRecordName(String value) {
         return WebDriverUtils.webDriver
-                .findElement(By.xpath("//div[normalize-space()='" + value + "']"));
+                .findElement(By.xpath("//td[normalize-space()='" + value + "']"));
     }
 
     /** Native View Record locator Dynamic Xpath */
     public WebElement nVRecordLocator(String value) {
         return WebDriverUtils.webDriver
-                .findElement(By.xpath("//div[normalize-space()='" + value + "']//parent::div//parent::td//parent::tr//child::td[2]//child::a"));
+                .findElement(By.xpath("//td[normalize-space()='" + value + "']//parent::td//parent::tr//child::td[2]//child::a"));
     }
 
     /** Native View GDC Record locator */

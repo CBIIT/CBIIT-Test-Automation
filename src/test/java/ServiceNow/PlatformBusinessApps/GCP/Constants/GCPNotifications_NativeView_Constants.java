@@ -27,13 +27,13 @@ public class GCPNotifications_NativeView_Constants {
     public static final String NATIVE_VIEW_GCP_SEARCH_TEXT_BOX_GCP_MANAGER_APPROVAL_NOTIFICATION = "GCP Manager Approval Notification";
 
     /* NATIVE VIEW GCP SEARCH TEXT BOX GCP EMPLOYEE TRAINING PAST DUE*/
-    public static final String NATIVE_VIEW_GCP_SEARCH_TEXT_BOX_GCP_EMPLOYEE_TRAINING_PAST_DUE = "GCP Employee training past due";
+    public static final String NATIVE_VIEW_GCP_SEARCH_TEXT_BOX_GCP_EMPLOYEE_TRAINING_PAST_DUE = "GCP Employee Training Past Due";
 
     /* NATIVE VIEW GCP SEARCH TEXT BOX GCP EMPLOYEE TRAINING NOTIFICATION*/
     public static final String NATIVE_VIEW_GCP_SEARCH_TEXT_BOX_GCP_EMPLOYEE_TRAINING_NOTIFICATION = "GCP Employee Training Notification";
 
     /* NATIVE VIEW GCP SEARCH TEXT BOX GCP EMPLOYEE TRAINING EXPIRED IN A MONTH*/
-    public static final String NATIVE_VIEW_GCP_SEARCH_TEXT_BOX_GCP_EMPLOYEE_TRAINING_EXPIRED_IN_A_MONTH = "GCP Employee Training expired in a Month";
+    public static final String NATIVE_VIEW_GCP_SEARCH_TEXT_BOX_GCP_EMPLOYEE_TRAINING_EXPIRED_IN_A_MONTH = "GCP Employee Training expires in a Month";
 
     /* NATIVE VIEW GCP EMPLOYEE TRAINING EXPIRED NOTIFICATION CONTENT */
     public static final String NATIVE_VIEW_GCP_EMPLOYEE_TRAINING_EXPIRED_NOTIFICATION_CONTENT = "Hello Rebecca Ferrer, \n" +

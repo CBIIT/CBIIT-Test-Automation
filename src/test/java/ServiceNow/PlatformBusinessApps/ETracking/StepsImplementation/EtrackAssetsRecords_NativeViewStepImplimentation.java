@@ -9,7 +9,6 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.Keys;
 
 public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitializer {
@@ -17,7 +16,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
     /**
      * All Etracking Asset methods needs Screenshots once the issues is resolved
      */
-    public static void aEtrackingUserOpensAnAssetRecord() throws TestingException {
+    public static void aEtrackingUserOpensAnAssetRecord() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser("Jeffrey Alderdice");
         ServiceNow_Common_Methods.filterNavigatorSearch("Assets");
