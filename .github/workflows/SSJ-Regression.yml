@@ -21,11 +21,14 @@ jobs:
           fetch-depth: 0
 
       - name: Check the content of cloudEnv.properties
-        run: Get-Content src/main/resources/conf/cloudEnv.properties
+        run: |
+          Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+          Get-Content src/main/resources/conf/cloudEnv.properties
         shell: powershell
 
       - name: Replace variables in cloudEnv.properties
         run: |
+          Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
           $content = Get-Content src/main/resources/conf/cloudEnv.properties
           $content = $content -replace 'SIDE_DOOR_USERNAME', '${{ secrets.SIDEDOORUSERNAME }}'
           $content = $content -replace 'SIDE_DOOR_PASSWORD', '${{ secrets.SIDEDOORPASSWORD }}'
@@ -40,12 +43,16 @@ jobs:
 
       - name: Generate timestamp
         id: timestamp
-        run: echo "::set-output name=timestamp::$(Get-Date -Format yyyy-MM-dd_HH-mm-ss_tt)"
+        run: |
+          Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+          echo "::set-output name=timestamp::$(Get-Date -Format yyyy-MM-dd_HH-mm-ss_tt)"
         shell: powershell
 
       - name: Determine report path
         id: reportpath
-        run: echo "::set-output name=path::ssj-regression-reports"
+        run: |
+          Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+          echo "::set-output name=path::ssj-regression-reports"
         shell: powershell
 
       - name: Upload Cucumber Report
@@ -57,6 +64,7 @@ jobs:
 
       - name: Push HTML Report
         run: |
+          Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
           git config --global user.email "diegojuarezbusiness@gmail.com"
           git config --global user.name "iamdez99"
           git stash
@@ -74,6 +82,7 @@ jobs:
 
       - name: Update Test Results and Append to Index File
         run: |
+          Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
           if (Test-Path "ssj-regression-test-results.html")
           {
               $content = Get-Content ssj-regression-test-results.html -Raw
