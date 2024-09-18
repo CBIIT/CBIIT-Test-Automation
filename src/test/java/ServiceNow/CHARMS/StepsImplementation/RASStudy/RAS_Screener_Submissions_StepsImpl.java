@@ -19,6 +19,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.*;
 import org.testng.Assert;
+
 import static Hooks.Hooks.softAssert;
 import static ServiceNow.CHARMS.Pages.RAS_Screener_Page.*;
 import static ServiceNow.CHARMS.studyQuestions.RAS_Screener_Questions.*;
@@ -225,14 +226,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                  */
                 else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().trim().contentEquals(WHAT_IS_YOUR_RACE_PLEASE_SELECT_ALL_THAT_APPLY)) {
                     CucumberLogUtils.scenario.log("* * * * * WHAT IS YOUR RACE? PLEASE SELECT ALL THAT APPLY.  * * * * *");
-
-                    if (sheetName.contentEquals("screenerScenario1")) {
-                        dynamicLocator(ras_Screener_TestDataManager.WHAT_IS_YOUR_RACE).click();
-                    }
-                    if (sheetName.contentEquals("screenerScenario2")) {
-                        dynamicLocator(ras_Screener_TestDataManager.WHAT_IS_YOUR_RACE).click();
-                        CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicPleaseSpecifyTextBox(ras_Screener_TestDataManager.WHAT_IS_YOUR_RACE), ras_Screener_TestDataManager.WHAT_IS_YOUR_RACE_OTHER);
-                    }
+                    dynamicLocator(ras_Screener_TestDataManager.WHAT_IS_YOUR_RACE).click();
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
