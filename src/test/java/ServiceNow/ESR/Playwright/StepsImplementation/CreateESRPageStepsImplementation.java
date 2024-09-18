@@ -160,7 +160,9 @@ public class CreateESRPageStepsImplementation {
     }
 
     public static void verifyESRQPortalCreation() {
-
+        page.navigate("https://service-test.nci.nih.gov/ncisp?id=nci_home");
+        page.locator("//li[@class='list-group-item ng-scope'][1]").click();
+        assertThat(page.getByRole(AriaRole.MAIN)).containsText("ESR-Q");
     }
 
     public static void fillRequiredInfoForESRIPortal() {
