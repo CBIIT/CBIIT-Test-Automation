@@ -24,7 +24,6 @@ public class ServiceNow_Login_Methods extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         NativeView_SideDoor_Login_Page.clickSignInButton();
         MiscUtils.sleep(3000);
-        CucumberLogUtils.logScreenshot();
     }
 
     /***
