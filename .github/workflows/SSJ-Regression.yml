@@ -45,14 +45,12 @@ jobs:
         env:
           POWERSHELL_TELEMETRY_OPTOUT: 1
       - name: Upload Cucumber Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         if: always()
         with:
           name: cucumber-report-${{ github.run_number }}
           path: target/ssj-regression-reports/*
       - name: Push HTML Report
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config --global user.email "diegojuarezbusiness@gmail.com"
           git config --global user.name "iamdez99"
@@ -64,13 +62,12 @@ jobs:
           mv target/ssj-regression-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
-          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+          git push -f https://${{ env.GH_TOKEN }}@github.com/${{ github.repository }}.git HEAD:gh-pages
         shell: powershell
         env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           POWERSHELL_TELEMETRY_OPTOUT: 1
       - name: Update Test Results and Append to Index File
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           if (Test-Path "ssj-regression-test-results.html")
           {
@@ -88,7 +85,8 @@ jobs:
               git add ssj-regression-test-results.html
               git commit -m 'Create ssj-regression-test-results.html'
           }
-          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+          git push https://${{ env.GH_TOKEN }}@github.com/${{ github.repository }}.git HEAD:gh-pages
         shell: powershell
         env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           POWERSHELL_TELEMETRY_OPTOUT: 1
