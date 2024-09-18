@@ -223,7 +223,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * WHAT IS YOUR RACE? PLEASE SELECT ALL THAT APPLY.  * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(WHAT_IS_YOUR_RACE_PLEASE_SELECT_ALL_THAT_APPLY)) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().trim().contentEquals(WHAT_IS_YOUR_RACE_PLEASE_SELECT_ALL_THAT_APPLY)) {
                     CucumberLogUtils.scenario.log("* * * * * WHAT IS YOUR RACE? PLEASE SELECT ALL THAT APPLY.  * * * * *");
 
                     if (sheetName.contentEquals("screenerScenario1")) {
