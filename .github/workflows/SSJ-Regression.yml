@@ -20,8 +20,8 @@ jobs:
           fetch-depth: 0
       - name: Setup Git LFS
         run: |
-          Start-Process powershell -ArgumentList 'git lfs install' -Verb RunAs
-        shell: powershell
+          git lfs install
+        shell: bash
       - name: Replace variables in cloudEnv.properties
         run: |
           (Get-Content src/main/resources/conf/cloudEnv.properties).replace('SIDE_DOOR_USERNAME', '${{ secrets.SIDEDOORUSERNAME }}') | Set-Content src/main/resources/conf/cloudEnv.properties
