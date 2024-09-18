@@ -744,6 +744,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         MiscUtils.sleep(2000);
         CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
+        CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(3000);
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
         MiscUtils.sleep(3000);
