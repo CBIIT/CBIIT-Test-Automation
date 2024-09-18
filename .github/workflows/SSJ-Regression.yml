@@ -27,6 +27,8 @@ jobs:
           $content = $content -replace 'ENV_VAR', 'test'
           $content | Set-Content src/main/resources/conf/cloudEnv.properties
         shell: powershell
+        env:
+          POWERSHELL_TELEMETRY_OPTOUT: 1
       - name: Run specific runner class
         run: mvn -B -q -Dtest=SSJ_Regression_Runners -DisCloud=true test
         continue-on-error: true
@@ -34,10 +36,14 @@ jobs:
         id: timestamp
         run: echo "::set-output name=timestamp::$(Get-Date -Format yyyy-MM-dd_HH-mm-ss_tt)"
         shell: powershell
+        env:
+          POWERSHELL_TELEMETRY_OPTOUT: 1
       - name: Determine report path
         id: reportpath
         run: echo "::set-output name=path::ssj-regression-reports"
         shell: powershell
+        env:
+          POWERSHELL_TELEMETRY_OPTOUT: 1
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v3
         if: always()
@@ -59,6 +65,9 @@ jobs:
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+        shell: powershell
+        env:
+          POWERSHELL_TELEMETRY_OPTOUT: 1
       - name: Update Test Results and Append to Index File
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -81,3 +90,5 @@ jobs:
           }
           git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
         shell: powershell
+        env:
+          POWERSHELL_TELEMETRY_OPTOUT: 1
