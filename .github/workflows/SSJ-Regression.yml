@@ -19,7 +19,9 @@ jobs:
           ref: ${{ github.ref }}
           fetch-depth: 0
       - name: Setup Git LFS
-        run: git lfs install
+        run: |
+          Start-Process powershell -ArgumentList 'git lfs install' -Verb RunAs
+        shell: powershell
       - name: Replace variables in cloudEnv.properties
         run: |
           (Get-Content src/main/resources/conf/cloudEnv.properties).replace('SIDE_DOOR_USERNAME', '${{ secrets.SIDEDOORUSERNAME }}') | Set-Content src/main/resources/conf/cloudEnv.properties
@@ -63,7 +65,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          if (Test-Path "ssj-regression-test-results.html") 
+          if (Test-Path "ssj-regression-test-results.html")
           {
               $content = Get-Content ssj-regression-test-results.html -Raw
               $content = $content -replace '<h1>.*</h1>', '<h1>SSJ Regression Test Results</h1>'
@@ -72,7 +74,7 @@ jobs:
               git add ssj-regression-test-results.html
               git commit -m "Update ssj-regression-test-results.html"
           }
-          else 
+          else
           {
               "<h1>SSJ Regression Test Results</h1>" | Out-File -Encoding ASCII ssj-regression-test-results.html
               "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" | Out-File -Append -Encoding ASCII ssj-regression-test-results.html
