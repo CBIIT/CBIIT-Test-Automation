@@ -20,10 +20,12 @@ jobs:
           fetch-depth: 0
       - name: Replace variables in cloudEnv.properties
         run: |
-          (Get-Content src/main/resources/conf/cloudEnv.properties).replace('SIDE_DOOR_USERNAME', '${{ secrets.SIDEDOORUSERNAME }}') | Set-Content src/main/resources/conf/cloudEnv.properties
-          (Get-Content src/main/resources/conf/cloudEnv.properties).replace('SIDE_DOOR_PASSWORD', '${{ secrets.SIDEDOORPASSWORD }}') | Set-Content src/main/resources/conf/cloudEnv.properties
-          (Get-Content src/main/resources/conf/cloudEnv.properties).replace('BROWSER_VAR', '${{ github.event.inputs.testBrowser }}') | Set-Content src/main/resources/conf/cloudEnv.properties
-          (Get-Content src/main/resources/conf/cloudEnv.properties).replace('ENV_VAR', 'test') | Set-Content src/main/resources/conf/cloudEnv.properties
+          $content = Get-Content src/main/resources/conf/cloudEnv.properties
+          $content = $content -replace 'SIDE_DOOR_USERNAME', '${{ secrets.SIDEDOORUSERNAME }}'
+          $content = $content -replace 'SIDE_DOOR_PASSWORD', '${{ secrets.SIDEDOORPASSWORD }}'
+          $content = $content -replace 'BROWSER_VAR', '${{ github.event.inputs.testBrowser }}'
+          $content = $content -replace 'ENV_VAR', 'test'
+          $content | Set-Content src/main/resources/conf/cloudEnv.properties
         shell: powershell
       - name: Run specific runner class
         run: mvn -B -q -Dtest=SSJ_Regression_Runners -DisCloud=true test
