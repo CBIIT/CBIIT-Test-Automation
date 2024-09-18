@@ -6,12 +6,26 @@ import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.Given;
+import org.apache.commons.collections4.map.HashedMap;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
+
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.file.Paths;
+import java.util.Properties;
+import java.util.Set;
 
 import static Hooks.Hooks.softAssert;
 import static appsCommon.PageInitializers.PageInitializer.*;
@@ -21,19 +35,11 @@ public class RAS_Consent_Steps {
 
     /**
      * THIS METHOD WILL SELECT THE CONSENT FLOW ACCORDING TO THE SHEET CHOSEN IN THE FEATURE FILE
+     *
      * @param sheetName
-     * @param consentType
      */
-    @Given("the consent is submitted for {string} {string}")
-    public void the_consent_is_submitted_for(String sheetName, String consentType) {
-        int consentTypeRadioButtonIndex = -1;
-        if(consentType.equals("Under 7")) {
-
-        } else if(consentType.equals("Eligibility")) {}
-        else if(consentType.equals("Eligibility and Consent")) {}
-
-
-
+    @Given("the e-consent is submitted for {string}")
+    public void the_e_consent_is_submitted_for(String sheetName) {
         MiscUtils.sleep(20000);
         ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
@@ -102,7 +108,7 @@ public class RAS_Consent_Steps {
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVerionCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-        CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown, consentType);
+        CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown, 1);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
@@ -120,6 +126,10 @@ public class RAS_Consent_Steps {
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
 
+    /**
+     * THIS METHOD WILL FILL OUT THE E-CONSENT FORM
+     * @param password
+     */
     @Given("clicks on Study Consent to begin form {string}")
     public void clicks_on_Study_Consent_to_begin_form(String password) {
         CommonUtils.waitForVisibility(myRASHomePage.rasopathyStudyConsent);
@@ -160,8 +170,15 @@ public class RAS_Consent_Steps {
         CucumberLogUtils.logScreenshot();
     }
 
-    @Given("study nurse completes consent and verifies {string} {string} {string} {string}")
-    public void study_nurse_verifies(String sheetName, String consentStatus, String consentType, String responseType) {
+    /**
+     * THIS METHOD WILL SIGN THE CONSENT RECORD IN NATIVE VIEW
+     * @param sheetName
+     * @param consentStatus
+     * @param consentType
+     * @param responseType
+     */
+    @Given("PI completes consent and verifies {string} {string} {string} {string}")
+    public void PI_completes_consent_and_verifies(String sheetName, String consentStatus, String consentType, String responseType) {
         MiscUtils.sleep(20000);
         ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
@@ -207,11 +224,18 @@ public class RAS_Consent_Steps {
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage);
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage);
+        nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage.click();
+//        CommonUtils.waitForVisibility(JavascriptUtils.shadowDriver.findElement("#close-messages-btn"));
+//        CommonUtils.waitForClickability(JavascriptUtils.shadowDriver.findElement("#close-messages-btn"));
+//        JavascriptUtils.shadowDriver.findElement("button.now-button-iconic.-tertiary.-md.is-bare[aria-label=\"Dismiss alert\"][data-tooltip=\"Dismiss alert\"]").click();
+//        CommonUtils.waitForVisibility(locateByXpath("//button[@aria-label='Dismiss alert']"));
+//        CommonUtils.waitForClickability(locateByXpath("//button[@aria-label='Dismiss alert']"));
+//        CommonUtils.clickOnElement(locateByXpath("//button[@aria-label='Dismiss alert']"));
+//        JavascriptUtils.shadowDriver.findElement("\button[type=\"button\"][aria-label=\"Dismiss alert\"]").click();
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(locateByXpath("//button[@title='Back']"));
         CommonUtils.clickOnElement(locateByXpath("//button[@title='Back']"));
-        MiscUtils.sleep(500);
+        MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
@@ -219,5 +243,62 @@ public class RAS_Consent_Steps {
         softAssert.assertEquals(locateByXpath("//td[normalize-space()='Complete']").getText(), consentStatus);
         softAssert.assertEquals(locateByXpath("//td[normalize-space()='Adult']").getText(), consentType);
         softAssert.assertEquals(locateByXpath("//td[normalize-space()='CHARMS e-consent']").getText(), responseType);
+    }
+
+    /**
+     * THIS METHOD VERIFIES THAT THE CONSENT DOWNLOAD FORM IS SHOWN ON THE PARTICIPANT'S PORTAL
+     * @param participantPortalText
+     */
+    @Given("{string} shows on participant portal")
+    public void shows_on_participant_portal(String participantPortalText) {
+        CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='Download Study Consent']"));
+        softAssert.assertEquals(locateByXpath("//span[normalize-space()='Download Study Consent']").getText(), participantPortalText);
+    }
+
+    /**
+     * THIS METHOD WILL VERIFY THAT THE CONSENT FORM PDF WAS DOWNLOADED AND THEN DELETE IT FROM THE DIRECTORY
+     * @param pdfName
+     */
+    @Given("when clicked downloads {string}")
+    public void when_clicked_downloads(String pdfName) {
+        CommonUtils.waitForClickability(locateByXpath("//span[normalize-space()='Download Study Consent']"));
+        locateByXpath("//span[normalize-space()='Download Study Consent']").click();
+        String mainWindowHandle = webDriver.getWindowHandle();
+        Set<String> windowHandles = webDriver.getWindowHandles();
+        for (String handle : windowHandles) {
+            if (!handle.equals(mainWindowHandle)) {
+                webDriver.switchTo().window(handle);
+                break;
+            }
+        }
+        String pdfUrl = webDriver.getCurrentUrl();
+        String downloadPath = LocalConfUtils.getRootDir() + "/src/test/resources/" + pdfName + ".pdf";
+        try {
+            HttpURLConnection connection = (HttpURLConnection) new URL(pdfUrl).openConnection();
+            String cookies = String.join(";", webDriver.manage().getCookies().stream()
+                    .map(cookie -> cookie.getName() + "=" + cookie.getValue())
+                    .toArray(String[]::new));
+            connection.setRequestProperty("Cookie", cookies);
+            connection.connect();
+            InputStream in = connection.getInputStream();
+            FileOutputStream fos = new FileOutputStream(downloadPath);
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = in.read(buffer)) != -1) {
+                fos.write(buffer, 0, bytesRead);
+            }
+            fos.close();
+            in.close();
+
+            System.out.println("PDF downloaded successfully to: " + downloadPath);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        File downloadedFile = new File(downloadPath);
+        if (downloadedFile.delete()) {
+            System.out.println("* * * * * DOWNLOADED PDF DELETED SUCCESSFULLY * * * * *");
+        } else {
+            System.out.println("* * * * * FAILED TO DELETE THE DOWNLOADED PDF * * * * *");
+        }
     }
 }

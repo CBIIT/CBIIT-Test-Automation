@@ -2,18 +2,20 @@ Feature: All RAS Steps
 
   @muzipovay2 @RAS_STUDY @CP2-3603 @selenium @Progression
   Scenario Outline: E-consent - create a new clickable widget to download the latest completed consent
-    Given test automation account "<AccountResetScriptURL>" has been reset
+#    Given test automation account "<AccountResetScriptURL>" has been reset
+#    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+#    And logs in via Okta with username "<Email>" and password "<Password>"
+#    And clicks on "Eligibility Questionnaire" to begin survey
+#    When the participant submits a screener from excel sheet "<ScreenerScenario>"
+#    And the e-consent is submitted for "<ScreenerScenario>"
+#    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+#    And logs in via Okta with username "<Email>" and password "<Password>"
+#    And clicks on Study Consent to begin form "<Password>"
+#    And PI completes consent and verifies "<ScreenerScenario>" "<ConsentStatus>" "<ConsentType>" "<ResponseType>"
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
-    And clicks on "Eligibility Questionnaire" to begin survey
-    When the participant submits a screener from excel sheet "<ScreenerScenario>"
-    And the consent is submitted for "<ScreenerScenario>" "<ConsentType>"
-    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-    And logs in via Okta with username "<Email>" and password "<Password>"
-    And clicks on Study Consent to begin form "<Password>"
-    And study nurse completes consent and verifies "<ScreenerScenario>" "<ConsentStatus>" "<ConsentType>" "<ResponseType>"
-#    And "Download Study Consent" shows on participant portal
-#    And when clicked downloads "Consent Record"
+    And "Download Study Consent" shows on participant portal
+    And when clicked downloads "Consent Record"
 
 
 #    And Consent Status is "Complete"
