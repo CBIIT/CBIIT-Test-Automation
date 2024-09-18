@@ -10,7 +10,7 @@ Feature: RAS Screener Scenarios
     When the participant submits a screener from excel sheet "<ScreenerScenario>"
 #    Then screener data from "<ScreenerScenario>" is verified
     And the consent is submitted for "<ScreenerScenario>"
-#    Then data submitted for scenario is verified in native from the excel sheet "<ScreenerScenario>"
+    Then data submitted for scenario is verified in native from the excel sheet "<ScreenerScenario>"
 #    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
 #    And logs in via Okta with username "<Email>" and password "<Password>"
 #    And clicks on the IIQ Form
