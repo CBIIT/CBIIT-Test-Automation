@@ -13,6 +13,7 @@ jobs:
     runs-on: NCI-WINDOWS
     env:
       CI: 'true'
+      POWERSHELL_TELEMETRY_OPTOUT: 1
     steps:
       - uses: actions/checkout@v2
         with:
@@ -27,8 +28,6 @@ jobs:
           $content = $content -replace 'ENV_VAR', 'test'
           $content | Set-Content src/main/resources/conf/cloudEnv.properties
         shell: powershell
-        env:
-          POWERSHELL_TELEMETRY_OPTOUT: 1
       - name: Run specific runner class
         run: mvn -B -q -Dtest=SSJ_Regression_Runners -DisCloud=true test
         continue-on-error: true
@@ -36,16 +35,12 @@ jobs:
         id: timestamp
         run: echo "::set-output name=timestamp::$(Get-Date -Format yyyy-MM-dd_HH-mm-ss_tt)"
         shell: powershell
-        env:
-          POWERSHELL_TELEMETRY_OPTOUT: 1
       - name: Determine report path
         id: reportpath
         run: echo "::set-output name=path::ssj-regression-reports"
         shell: powershell
-        env:
-          POWERSHELL_TELEMETRY_OPTOUT: 1
       - name: Upload Cucumber Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: cucumber-report-${{ github.run_number }}
@@ -66,7 +61,6 @@ jobs:
         shell: powershell
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          POWERSHELL_TELEMETRY_OPTOUT: 1
       - name: Update Test Results and Append to Index File
         run: |
           if (Test-Path "ssj-regression-test-results.html")
@@ -80,7 +74,7 @@ jobs:
           }
           else
           {
-              "<h1>SSJ Regression Test Results</h1>" | Out-File -Encoding ASCII ssj-regression-test-results.html
+              "<h1>SSJ Regression Test Results</h1>" | Set-Content -Encoding ASCII ssj-regression-test-results.html
               "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" | Out-File -Append -Encoding ASCII ssj-regression-test-results.html
               git add ssj-regression-test-results.html
               git commit -m 'Create ssj-regression-test-results.html'
