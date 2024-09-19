@@ -1,12 +1,6 @@
 package ServiceNow.CHARMS.Steps;
 
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
-import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
-import appsCommon.Utils.ServiceNow_Common_Methods;
-import appsCommon.Utils.ServiceNow_Login_Methods;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
