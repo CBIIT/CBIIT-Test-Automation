@@ -140,6 +140,9 @@ public class CreateESRPageStepsImplementation {
         assertThat(page.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]")).containsText("Implementation");
     }
 
+    /**
+     * Fills in all information required for the creation of an ESR-Q ticket in Portal View
+     */
     public static void fillRequiredInfoForESRQPortal() {
         page.getByLabel("Phone").click();
         page.getByLabel("Phone").fill("000");
@@ -160,6 +163,9 @@ public class CreateESRPageStepsImplementation {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true)).click();
     }
 
+    /**
+     * Navigates into newly created ESR-Q ticket from Portal View and validates it as a Q-Branch ticket
+     */
     public static void verifyESRQPortalCreation() {
         page.navigate("https://service-test.nci.nih.gov/ncisp?id=nci_home");
         page.locator("//li[@class='list-group-item ng-scope'][1]").click();
@@ -170,6 +176,9 @@ public class CreateESRPageStepsImplementation {
         assertThat(page1.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]")).containsText("Q-Branch");
     }
 
+    /**
+     * Fills in all information required for the creation of an ESR-I ticket in Portal View
+     */
     public static void fillRequiredInfoForESRIPortal() {
         page.getByLabel("Phone").click();
         page.getByLabel("Phone").fill("000");
@@ -188,6 +197,9 @@ public class CreateESRPageStepsImplementation {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true)).click();
     }
 
+    /**
+     * Navigates into newly created ESR-I ticket from Portal View and validates it as a Implementation ticket
+     */
     public static void verifyESRIPortalCreation() {
         page.navigate("https://service-test.nci.nih.gov/ncisp?id=nci_home");
         page.locator("//li[@class='list-group-item ng-scope'][1]").click();

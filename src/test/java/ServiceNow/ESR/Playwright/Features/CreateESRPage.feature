@@ -27,14 +27,14 @@ Feature: Create ESR Page
     And fills out all required information for ESR-I and clicks submit
     Then user sees an ESR-I ticket was created
 
-  @ESR-??? @sarwarahmed1 @Regression @playwright
+  @ESR-553 @sarwarahmed1 @Progression @playwright
   Scenario: Test an authenticated user access on the create ESR page in Portal View
     Given a user logs into NCI at your service page
     And navigates to Engineering Support Requests
     And fills out all required information for ESR-Q in portal view and clicks submit
     Then user sees an ESR-Q ticket was created in portal view
 
-  @ESR-??? @sarwarahmed1 @Progression @playwright
+  @ESR-554 @sarwarahmed1 @Progression @playwright
   Scenario: Test an authenticated user access on the create ESR page in Portal View
     Given a user logs into NCI at your service page
     And navigates to Engineering Support Requests
