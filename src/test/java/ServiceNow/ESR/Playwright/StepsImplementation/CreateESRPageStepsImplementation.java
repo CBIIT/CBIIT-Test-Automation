@@ -8,7 +8,6 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.MiscUtils;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-import static com.nci.automation.web.PlaywrightUtils.context;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class CreateESRPageStepsImplementation {

@@ -74,5 +74,4 @@ public class CreateESRPageSteps {
     public void user_sees_an_esr_i_ticket_was_created_in_portal_view() {
         CreateESRPageStepsImplementation.verifyESRIPortalCreation();
     }
-
 }
