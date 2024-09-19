@@ -21,8 +21,10 @@ public class ServiceNow_Login_Methods extends PageInitializer {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("Native View Side Door"));
         NativeView_SideDoor_Login_Page.enterSideDoorUsername("SideDoorUsername");
         NativeView_SideDoor_Login_Page.enterSideDoorPassword("SideDoorPassword");
+        CucumberLogUtils.logScreenshot();
         NativeView_SideDoor_Login_Page.clickSignInButton();
         MiscUtils.sleep(3000);
+        webDriver.navigate().refresh();
     }
 
     /***
