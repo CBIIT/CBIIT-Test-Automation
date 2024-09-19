@@ -86,7 +86,6 @@ public class TestAccountResetImpl extends PageInitializer {
      * USE THIS METHOD TO RESET THE TEST ACCOUNT
      * @param url
      */
-    @Given("test automation account {string} has been reset")
     public static void test_automation_account_has_been_reset(String url) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(url);
