@@ -10,8 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
-    labels: [NCI-WINDOWS]
+    runs-on: NCI-WINDOWS
     env:
       CI: 'true'
     steps:
