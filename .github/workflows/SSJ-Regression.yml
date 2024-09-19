@@ -10,7 +10,8 @@ on:
 
 jobs:
   build:
-    runs-on: NCI-WINDOWS
+    runs-on: self-hosted
+    labels: [NCI-WINDOWS]
     env:
       CI: 'true'
     steps:
@@ -18,10 +19,6 @@ jobs:
         with:
           ref: ${{ github.ref }}
           fetch-depth: 0
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
       - name: Setup Git LFS
         run: |
           choco install git-lfs
