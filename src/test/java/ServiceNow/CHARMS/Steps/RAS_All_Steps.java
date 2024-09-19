@@ -26,7 +26,6 @@ import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
 
 public class RAS_All_Steps extends PageInitializer {
 
-
     /**
      * THIS METHOD WILL SELECT THE CONSENT FLOW ACCORDING TO THE SHEET CHOSEN IN THE FEATURE FILE
      *
