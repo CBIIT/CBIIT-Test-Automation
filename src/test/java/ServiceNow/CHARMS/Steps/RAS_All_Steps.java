@@ -5,7 +5,7 @@ import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
-public class RAS_Consent_Steps extends PageInitializer {
+public class RAS_All_Steps extends PageInitializer {
 
     /**
      * THIS METHOD WILL SELECT THE CONSENT FLOW ACCORDING TO THE SHEET CHOSEN IN THE FEATURE FILE
