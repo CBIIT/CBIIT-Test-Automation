@@ -35,8 +35,10 @@ public class RAS_All_Steps extends PageInitializer {
     public static void the_e_consent_is_submitted_for(String sheetName) {
         ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        MiscUtils.sleep(2000);
+        MiscUtils.sleep(4000);
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
+        CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(3000);
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
         MiscUtils.sleep(3000);
