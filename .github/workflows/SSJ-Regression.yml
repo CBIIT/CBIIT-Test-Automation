@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        shell: bash
+        shell: cmd
         run: mvn -B -q -Dtest=SSJ_Regression_Runners -DisCloud=true -DSideDoorUsername='${{ secrets.SIDEDOORUSERNAME }}' -DSideDoorPassword='${{ secrets.SIDEDOORPASSWORD }}' -DBROWSER_VAR='${{ github.event.inputs.testBrowser }}' -DENV_VAR='test' test
         continue-on-error: true
 
