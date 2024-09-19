@@ -51,14 +51,6 @@ public class ConfUtils {
 		return returnValue;
 	}
 
-	public static String getResultsDir() {
-		return resultsDir;
-	}
-
-	public static void setResultsDir(String resultsDirName) {
-		resultsDir = baseResultsDir + File.separator + resultsDirName;
-	}
-
 	public static void setBaseResultsDir(String baseDirName) {
 		baseResultsDir = baseDirName;
 	}

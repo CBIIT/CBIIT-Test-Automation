@@ -133,26 +133,36 @@ public class EnvUtils {
         return getConfigValue(proxyPasswordXPath, appName);
     }
 
+//    public static String getConfigValue(String configElementXPathTemplate, Object... args) throws TestingException {
+//    	final String configElementXPath = String.format(configElementXPathTemplate, args);
+//        String envFilePath = ConfUtils.getEnvFileResourcePath();
+//        String configElementValue = null;
+//
+//        try {
+//            configElementValue = JDomXmlUtils.getValueByXpathFromResourcePath(envFilePath, configElementXPath);
+//        } catch (IOException ioException) {
+//            throw new TestingException("IO Error while reading the xml file from the config Path: " + configElementXPath, ioException);
+//        }
+//        return configElementValue;
+//    }
+
     public static String getConfigValue(String configElementXPathTemplate, Object... args) throws TestingException {
-    	final String configElementXPath = String.format(configElementXPathTemplate, args);
-        String envFilePath = ConfUtils.getEnvFileResourcePath();
+        final String configElementXPath = String.format(configElementXPathTemplate, args);
         String configElementValue = null;
 
-        try {
-            configElementValue = JDomXmlUtils.getValueByXpathFromResourcePath(envFilePath, configElementXPath);
-        } catch (IOException ioException) {
-            throw new TestingException("IO Error while reading the xml file from the config Path: " + configElementXPath, ioException);
+        // Fetch configuration value through system property
+        configElementValue = System.getProperty(configElementXPath);
+
+        if(configElementValue == null) {
+            // fallback to the previous file-based method
+            String envFilePath = ConfUtils.getEnvFileResourcePath();
+            try {
+                configElementValue = JDomXmlUtils.getValueByXpathFromResourcePath(envFilePath, configElementXPath);
+            } catch (IOException ioException) {
+                throw new TestingException("IO Error while reading the xml file from the config Path: " + configElementXPath, ioException);
+            }
         }
+
         return configElementValue;
-    }
-    
-	public static String getHomePageUrl(String appName) throws TestingException {
-        final String appURL = "//application[@id='"+ appName +"']/home_url";
-        return getConfigValue(appURL);
-    }
-	
-	public static String getLandingPageUrl(String appName) throws TestingException {
-        final String appURL = "//application[@id='"+ appName +"']/landing_url";
-        return getConfigValue(appURL);
     }
 }
