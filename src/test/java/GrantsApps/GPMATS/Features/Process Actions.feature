@@ -597,21 +597,21 @@ Feature: Process Actions Scenarios
     And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
     And the assigned GM Specialist (if any) will NOT see the action on "My Specialist Queue" tab, when logged in
 
-    GPMATS-1369 GPMATS-1571 @playwright @JUAREZDS @Regression
+  @GPMATS-1369 @GPMATS-1571 @playwright @JUAREZDS @Regression
   Scenario: Process Action Manager moves Award action from Awaiting GM Review to Cancelled
     Given a user is logged in with the role of GM Action Manager
     And clicks on Show Advanced Filters link
     And for the Action Type drop-down selects "AWARD" option
     And for the Action Status drop-down selects "Awaiting GM Review" option
     And clicks on the Search button
-    * * * THIS TEST STEP INCLUDES ALL CODE FOR THIS TEST CASE GPMATS-1369 AND GPMATS-1571 * * *
+    * * * THIS TEST STEP INCLUDES ALL CODE FOR TEST: PROCESS ACTION MANAGER MOVES AWARD ACTION FROM AWAITING GM REVIEW TO CANCELLED * * *
     And clicks on the Process button for any Action
     Then the following options are displayed:
-      | Cancel     |
+      | Cancel      |
       | Mark as New |
-      | Pre-assign     |
-      | Put on Hold      |
-    * * * PERFORM THE FOLLOWING STEPS ONLY IF AN ACTION HAS NO SPECIALIST ASSIGNED OR IF THE VIEW NOTES BUBBLE IS BLANK OR JUST HAS A GREEN DOT  * * *
+      | Pre-assign  |
+      | Put on Hold |
+    * * * PERFORM THE FOLLOWING STEPS ONLY IF THE VIEW NOTES BUBBLE IS BLANK OR JUST HAS A GREEN DOT  * * *
     And the user is able to select "Cancel" option
     And the system will display warning message "Are you sure you want to Cancel this action?"
     When the user clicks on the Cancellation Reason drop-down
@@ -633,7 +633,7 @@ Feature: Process Actions Scenarios
     Then the system will display warning message "Are you sure you want to Cancel this action?"
     When the user clicks on the Cancellation Reason drop-down
     Then the following cancellation reasons will be displayed depending on action type:
-       | Award Declined                   |
+      | Award Declined                   |
       | Award is Not Eligible to Be Paid |
       | Disaggregation                   |
       | Duplicate Award Action           |
@@ -652,7 +652,7 @@ Feature: Process Actions Scenarios
     And Neither the GM Action Manager nor any other authenticated user will have the capability to process an action designated as 'Cancelled'. Furthermore, the 'Process' button for such an action will no longer be visible.
     And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
     And the assigned GM Specialist (if any) will NOT see the action on "My Specialist Queue" tab, when logged in
-    * * * PERFORM THE FOLLOWING STEPS ONLY IF AN ACTION HAS A SPECIALIST ASSIGNED AND THE VIEW NOTES BUBBLE HAS A RED CHECK MARK WITH OUR WITHOUT A GREEN DOT * * *
+    * * * PERFORM THE FOLLOWING STEPS ONLY IF THE VIEW NOTES BUBBLE HAS A RED CHECK MARK WITH OR WITHOUT A GREEN DOT * * *
     When the user clicks on the 'Cancel' option for an action, and the 'View Notes' bubble has a red check mark, either with or without a green dot.
     Then the user sees message "Please acknowledge all Special Instruction(s) before processing the action." and cancels the acknowledgement to verify that the previous step can be performed again with the same action
     When the user clicks on the 'Cancel' option for an action, and the 'View Notes' bubble has a red check mark, either with or without a green dot. again
@@ -697,7 +697,7 @@ Feature: Process Actions Scenarios
     And the changes will be reflected in the Change History section such as the date being today's date, the status, GM Action Manager along with any comments provided in the previous step
     And the assigned GM Specialist (if any) will NOT see the action on "My Specialist Queue" tab, when logged in
 
-GPMATS-1369 GPMATS-1571 @playwright @JUAREZDS @Regression
+  @GPMATS-1369 @GPMATS-1571 @playwright @JUAREZDS
   Scenario: Process Action Manager moves Revision action from Awaiting GM Review to Cancelled
     Given a user is logged in with the role of GM Action Manager
     And clicks on Show Advanced Filters link
@@ -707,25 +707,25 @@ GPMATS-1369 GPMATS-1571 @playwright @JUAREZDS @Regression
     * * * THIS TEST STEP INCLUDES ALL CODE FOR THIS TEST CASE GPMATS-1368 AND GPMATS-1571 * * *
     And clicks on the Process button for any Action
     Then the following options are displayed:
-      | Cancel     |
+      | Cancel      |
       | Mark as New |
-      | Pre-assign     |
-      | Put on Hold      |
+      | Pre-assign  |
+      | Put on Hold |
     * * * PERFORM THE FOLLOWING STEPS ONLY IF AN ACTION HAS NO SPECIALIST ASSIGNED OR IF THE VIEW NOTES BUBBLE IS BLANK OR JUST HAS A GREEN DOT  * * *
     And the user is able to select "Cancel" option
     And the system will display warning message "Are you sure you want to Cancel this action?"
     When the user clicks on the Cancellation Reason drop-down
     Then the following cancellation reasons will be displayed depending on action type:
-      | Award Declined                   |
-      | Disaggregation                   |
-      | Duplicate Award Action           |
-      | Early Pay Type 2                 |
-      | Early Transition                 |
-      | Folded into an OIA               |
-      | Grant Terminating                |
-      | Moved to Next Fiscal Year        |
-      | No Longer Required               |
-      | Skip PFR                         |
+      | Award Declined            |
+      | Disaggregation            |
+      | Duplicate Award Action    |
+      | Early Pay Type 2          |
+      | Early Transition          |
+      | Folded into an OIA        |
+      | Grant Terminating         |
+      | Moved to Next Fiscal Year |
+      | No Longer Required        |
+      | Skip PFR                  |
     And the user is prompted to select a "Cancellation Reason" before the "Ok" button becomes enabled.
     And user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters
     And the user will be able to click "Cancel" on the warning message pop-up - the warning message will be closed, no changes will be made
@@ -733,16 +733,16 @@ GPMATS-1369 GPMATS-1571 @playwright @JUAREZDS @Regression
     Then the system will display warning message "Are you sure you want to Cancel this action?"
     When the user clicks on the Cancellation Reason drop-down
     Then the following cancellation reasons will be displayed depending on action type:
-      | Award Declined                   |
-      | Disaggregation                   |
-      | Duplicate Award Action           |
-      | Early Pay Type 2                 |
-      | Early Transition                 |
-      | Folded into an OIA               |
-      | Grant Terminating                |
-      | Moved to Next Fiscal Year        |
-      | No Longer Required               |
-      | Skip PFR                         |
+      | Award Declined            |
+      | Disaggregation            |
+      | Duplicate Award Action    |
+      | Early Pay Type 2          |
+      | Early Transition          |
+      | Folded into an OIA        |
+      | Grant Terminating         |
+      | Moved to Next Fiscal Year |
+      | No Longer Required        |
+      | Skip PFR                  |
     And the user is prompted to select a "Cancellation Reason" before the "Ok" button becomes enabled.
     And user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters
     And the user will be able to click "Ok" on the warning message pop-up
@@ -760,16 +760,16 @@ GPMATS-1369 GPMATS-1571 @playwright @JUAREZDS @Regression
     When the user acknowledges and sees message "Are you sure you want to Cancel this action?"
     When the user clicks on the Cancellation Reason drop-down
     Then the following cancellation reasons will be displayed depending on action type:
-      | Award Declined                   |
-      | Disaggregation                   |
-      | Duplicate Award Action           |
-      | Early Pay Type 2                 |
-      | Early Transition                 |
-      | Folded into an OIA               |
-      | Grant Terminating                |
-      | Moved to Next Fiscal Year        |
-      | No Longer Required               |
-      | Skip PFR                         |
+      | Award Declined            |
+      | Disaggregation            |
+      | Duplicate Award Action    |
+      | Early Pay Type 2          |
+      | Early Transition          |
+      | Folded into an OIA        |
+      | Grant Terminating         |
+      | Moved to Next Fiscal Year |
+      | No Longer Required        |
+      | Skip PFR                  |
     And the user is prompted to select a "Cancellation Reason" before the "Ok" button becomes enabled.
     And user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters
     And the user will be able to click "Cancel" on the warning message pop-up - the warning message will be closed, no changes will be made
@@ -777,16 +777,16 @@ GPMATS-1369 GPMATS-1571 @playwright @JUAREZDS @Regression
     Then the system will display warning message "Are you sure you want to Cancel this action?"
     When the user clicks on the Cancellation Reason drop-down
     Then the following cancellation reasons will be displayed depending on action type:
-      | Award Declined                   |
-      | Disaggregation                   |
-      | Duplicate Award Action           |
-      | Early Pay Type 2                 |
-      | Early Transition                 |
-      | Folded into an OIA               |
-      | Grant Terminating                |
-      | Moved to Next Fiscal Year        |
-      | No Longer Required               |
-      | Skip PFR                         |
+      | Award Declined            |
+      | Disaggregation            |
+      | Duplicate Award Action    |
+      | Early Pay Type 2          |
+      | Early Transition          |
+      | Folded into an OIA        |
+      | Grant Terminating         |
+      | Moved to Next Fiscal Year |
+      | No Longer Required        |
+      | Skip PFR                  |
     And the user is prompted to select a "Cancellation Reason" before the "Ok" button becomes enabled.
     And user can enter comments in the Status Comments field and verifies that the field does not allow more than 2000 characters
     And the user will be able to click "Ok" on the warning message pop-up
