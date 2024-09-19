@@ -19,8 +19,21 @@ public class Playwright_ServiceNow_Common_Methods {
      */
     public static void side_Door_Test_Account_Login(){
         page.navigate(EnvUtils.getApplicationUrl("nativeviewSideDoor"));
-        page.locator(Playwright_NativeView_Side_Door_Login_Page.usernameTextBox).fill(ConfUtils.getProperty("SideDoorUsername"));
-        page.locator(Playwright_NativeView_Side_Door_Login_Page.passwordTextBox).fill(EncryptionUtils.decrypt(ConfUtils.getProperty("SideDoorPassword")));
+//        page.locator(Playwright_NativeView_Side_Door_Login_Page.usernameTextBox).fill(ConfUtils.getProperty("SideDoorUsername"));
+//        page.locator(Playwright_NativeView_Side_Door_Login_Page.passwordTextBox).fill(EncryptionUtils.decrypt(ConfUtils.getProperty("SideDoorPassword")));
+//        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(Playwright_NativeView_Side_Door_Login_Page.loginButton)).click();
+
+        // Get the settings from system properties or properties file
+        String sideDoorUsername = System.getProperty("SideDoorUsername");
+        if (sideDoorUsername == null) sideDoorUsername = ConfUtils.getProperty("SideDoorUsername");
+        String sideDoorPassword = System.getProperty("SideDoorPassword");
+        if (sideDoorPassword == null) sideDoorPassword = EncryptionUtils.decrypt(ConfUtils.getProperty("SideDoorPassword"));
+
+        // Use the settings for filling forms
+        page.locator(Playwright_NativeView_Side_Door_Login_Page.usernameTextBox).fill(sideDoorUsername);
+        page.locator(Playwright_NativeView_Side_Door_Login_Page.passwordTextBox).fill(sideDoorPassword);
+
+        // Continue with the remaining steps as usual
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(Playwright_NativeView_Side_Door_Login_Page.loginButton)).click();
     }
 
