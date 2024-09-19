@@ -27,7 +27,12 @@ public class WebDriverUtils {
 
     public static void setUp() {
 
-        String browser = ConfUtils.getProperty("browser");
+        // Check system properties first for browser setting
+        // if not present, fall back to properties file
+        String browser = System.getProperty("BROWSER_VAR");
+        if(browser == null) {
+            browser = ConfUtils.getProperty("browser");
+        }
 
         if (FrameworkConstants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
             launchChrome();
