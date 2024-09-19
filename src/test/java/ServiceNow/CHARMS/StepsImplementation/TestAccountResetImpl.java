@@ -83,8 +83,10 @@ public class TestAccountResetImpl extends PageInitializer {
     }
 
     /**
-     * USE THIS METHOD TO RESET THE TEST ACCOUNT
-     * @param url
+     * This method navigates to the url with the RASopathy Study Test Account reset script
+     * Call this method at the end of your test case to rerun test case with same test account
+     *
+     * @param url the URL to navigate to the test account reset script
      */
     public static void test_automation_account_has_been_reset(String url) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
