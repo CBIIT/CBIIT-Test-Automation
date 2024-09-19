@@ -21,7 +21,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Set;
-
 import static Hooks.Hooks.softAssert;
 import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
 
@@ -30,7 +29,7 @@ public class RASConsentStepsImpl extends PageInitializer {
     /**
      * THIS METHOD WILL SELECT THE CONSENT FLOW ACCORDING TO THE SHEET CHOSEN IN THE FEATURE FILE
      *
-     * @param sheetName
+     * @param sheetName the name of the sheet for which the e-consent is being submitted
      */
     @Given("the e-consent is submitted for {string}")
     public static void the_e_consent_is_submitted_for(String sheetName) {
@@ -122,7 +121,7 @@ public class RASConsentStepsImpl extends PageInitializer {
     /**
      * THIS METHOD WILL FILL OUT THE STUDY CONSENT FORM
      *
-     * @param password
+     * @param password the password to be used for completing the form
      */
     @Given("participant clicks on Study Consent and completes form with {string}")
     public static void participant_clicks_on_Study_Consent_and_completes_form_with(String password) {
@@ -166,10 +165,10 @@ public class RASConsentStepsImpl extends PageInitializer {
     /**
      * THIS METHOD WILL SIGN THE CONSENT RECORD IN NATIVE VIEW
      *
-     * @param sheetName
-     * @param consentStatus
-     * @param consentType
-     * @param responseType
+     * @param sheetName the name of the sheet for which the consent is being processed
+     * @param consentStatus the expected status of the consent
+     * @param consentType the expected type of the consent
+     * @param responseType the expected response type of the consent
      */
     @Then("PI completes consent and verifies {string} {string} {string} {string} in Native View")
     public static void PI_completes_consent_and_verifies_in_Native_View(String sheetName, String consentStatus, String consentType, String responseType) {
@@ -234,7 +233,7 @@ public class RASConsentStepsImpl extends PageInitializer {
     /**
      * THIS METHOD VERIFIES THAT THE CONSENT DOWNLOAD FORM IS SHOWN ON THE PARTICIPANT'S PORTAL
      *
-     * @param participantPortalText
+     * @param participantPortalText The expected text to be shown on the participant portal.
      */
     @Given("{string} shows on participant portal")
     public static void shows_on_participant_portal(String participantPortalText) {
@@ -243,10 +242,10 @@ public class RASConsentStepsImpl extends PageInitializer {
     }
 
     /**
-     * THIS METHOD WILL VERIFY THAT THE CONSENT FORM PDF WAS DOWNLOADED AND THEN DELETE IT FROM THE DIRECTORY
+     * THIS METHOD WILL VERIFY THAT THE CONSENT WIDGET DISPLAYS ON THE PARTICIPANT PORTAL AND WHEN CLICKED VERIFIES THAT THE CONSENT FORM PDF WAS DOWNLOADED
      *
-     * @param expectedDownloadStudyConsentText
-     * @param pdfName
+     * @param expectedDownloadStudyConsentText The expected text to be shown on the participant portal.
+     * @param pdfName                         The name of the PDF file to be downloaded.
      */
     @Given("{string} text shows on participant portal and when clicked downloads {string}")
     public static void text_shows_on_participant_portal_and_when_clicked_downloads(String expectedDownloadStudyConsentText, String pdfName) {

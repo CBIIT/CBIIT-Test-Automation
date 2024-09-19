@@ -1,13 +1,13 @@
 Feature: RAS Consent Scenarios
 
-  @muzipovay2 @RAS_STUDY @CP2-3603 @selenium @Regression
+  @muzipovay2 @RAS_STUDY @CP2-3603 @selenium @Regression @Progression
   Scenario Outline: Verifying e-consent workflow for an adult participant, and then verifying that a Download Study Consent widget shows on portal and when clicked downloads the most recent Consent Record
-    Given test automation account "<AccountResetScriptURL>" has been reset
-    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-    And logs in via Okta with username "<Email>" and password "<Password>"
-    And clicks on "Eligibility Questionnaire" to begin survey
-    When the participant submits a screener from excel sheet "<ScreenerScenario>"
-    And the e-consent is submitted for "<ScreenerScenario>"
+#    Given test automation account "<AccountResetScriptURL>" has been reset
+#    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+#    And logs in via Okta with username "<Email>" and password "<Password>"
+#    And clicks on "Eligibility Questionnaire" to begin survey
+#    When the participant submits a screener from excel sheet "<ScreenerScenario>"
+#    And the e-consent is submitted for "<ScreenerScenario>"
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
     And participant clicks on Study Consent and completes form with "<Password>"

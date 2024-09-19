@@ -10,7 +10,7 @@ public class RAS_All_Steps extends PageInitializer {
     /**
      * THIS METHOD WILL SELECT THE CONSENT FLOW ACCORDING TO THE SHEET CHOSEN IN THE FEATURE FILE
      *
-     * @param sheetName
+     * @param sheetName the name of the sheet for which the e-consent is being submitted
      */
     @Given("the e-consent is submitted for {string}")
     public void the_e_consent_is_submitted_for(String sheetName) {
@@ -20,7 +20,7 @@ public class RAS_All_Steps extends PageInitializer {
     /**
      * THIS METHOD WILL FILL OUT THE STUDY CONSENT FORM
      *
-     * @param password
+     * @param password the password to be used for completing the form
      */
     @Given("participant clicks on Study Consent and completes form with {string}")
     public void participant_clicks_on_Study_Consent_and_completes_form_with(String password) {
