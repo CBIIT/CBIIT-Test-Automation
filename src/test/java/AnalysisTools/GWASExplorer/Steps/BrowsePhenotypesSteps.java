@@ -1,6 +1,7 @@
 package AnalysisTools.GWASExplorer.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
+import com.nci.automation.utils.MiscUtils;
 import io.cucumber.java.en.*;
 import org.testng.Assert;
 
@@ -9,6 +10,7 @@ public class BrowsePhenotypesSteps extends PageInitializer {
     @When("user clicks browse phenotype tab")
     public void user_clicks_browse_phenotype_tab() {
         browsePhenotypesPage.lnkBrowsePhenotype.click();
+        MiscUtils.sleep(2000);
     }
 
     @Then("browse phenotype page displays {string}")
