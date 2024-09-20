@@ -5,10 +5,14 @@ import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Applic
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
 import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
+import com.microsoft.playwright.ElementHandle;
 import com.nci.automation.utils.CucumberLogUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import java.awt.*;
+
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class ApplicantProfileSteps {
@@ -730,11 +734,7 @@ public class ApplicantProfileSteps {
     }
 
     @When("selects {string} for Number of Scoring Categories")
-    public void selects_for_number_of_scoring_categories(String text) {
-//        Playwright_Common_Utils.scrollIntoView("(//span[@class='ant-slider-mark-text ant-slider-mark-text-active'][normalize-space()='" + text + "'])[2]");
-//        page.locator(Vacancy_Dashboard_Page.numberOfScoringSliderOptions).click();
-        page.locator("//div[@class='ant-slider-handle ant-slider-handle-dragging ant-tooltip-open'][1]//ancestor::span[@class='ant-slider-mark-text ant-slider-mark-text-active' and normalize-space()='1'][2]").click();
-        System.out.println(text);
-        CucumberLogUtils.playwrightScreenshot(page);
+    public void selects_for_number_of_scoring_categories(String scoringNumber) {
+        ApplicantProfileStepsImpl.selects_for_number_of_scoring_categories(scoringNumber);
     }
 }

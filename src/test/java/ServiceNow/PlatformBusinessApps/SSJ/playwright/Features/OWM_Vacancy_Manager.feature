@@ -140,7 +140,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks "Save" for Actions
     Then User can see "A committee member can only be listed once on a committee. Please remove duplicate committee members." alert
 
-  @BUGFIX_APPTRACK-1332 @cabreralf @playwright @Progression
+  @BUGFIX_APPTRACK-1332 @cabreralf @playwright
   Scenario: BUG - Vacancy not showing for assigned Exec Secretary in Your Vacancies tab
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -151,7 +151,8 @@ Feature: OWM Vacancy Manager Scenarios
     And User sets an "Open Date" entry as today's date
     And selects "0" for Full Contact Details for References
     And User verifies that Number of Scoring Categories slider is set to "4" by default
-#    And selects "4" for Number of Scoring Categories
+    And selects "4" for Number of Scoring Categories
+    And User verifies that Number of Scoring Categories slider is set to "4" by default
     And selects "Research Fellow" for Position Classification drop down
     And selects "HNC" for Organizational Code drop down
     And User clicks button "Save" - PW
@@ -170,15 +171,6 @@ Feature: OWM Vacancy Manager Scenarios
     And clicks "Close"
     And User navigates to tab "Your Vacancies" - PW
     And verifies Vacancy Title "Testing Automation Title SSJ-1332" is on the Your Vacancies page
-
-
-
-
-#    And Click on the "Vacancy Dashboard" tab and create a new Vacancy.
-#    And Complete the required steps to create a test Vacancy and finalize (have the Vacancy set to open for the current day).
-#    Then Once the Vacancy has been created, go back to the "Your Vacancies" tab and verify the Vacancy is present.
-
-
 
   @SSJ-310 @SSJ-158 @SSJ-71 @playwright
   Scenario: Verification of Email Templates section while creating an NCI Vacancy Positive Flow

@@ -10,7 +10,6 @@ import ServiceNow.PlatformBusinessApps.SSJ.playwright.Utils.SSJ_Constants;
 import appsCommon.Pages.Playwright_Common_Locators;
 import appsCommon.Pages.Playwright_NativeView_Side_Door_Login_Page;
 import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
-import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -19,12 +18,12 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.EnvUtils;
-import com.nci.automation.web.PlaywrightUtils;
 import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import static ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl.timestamp;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
@@ -696,10 +695,26 @@ public class OWM_Vacancy_Manager_StepsImpl {
         MiscUtils.sleep(2000);
     }
 
-    public static void click_on_the_tab_and_create_a_new_vacancy(){
-
-    }
-
+    /**
+     * Verifies if the given vacancy title is present on the "Your Vacancies" page.
+     *
+     * @param vacancyTitle The title of the vacancy to be verified.
+     */
     public static void verifies_vacancy_title_is_on_the_your_vacancies_page(String vacancyTitle) {
+        Playwright_Common_Utils.scrollIntoView("(//a[@rel='nofollow'])[1]");
+        List<ElementHandle> pagination = page.querySelectorAll("//a[@rel='nofollow']");
+        for (ElementHandle itemPage : pagination) {
+            if (page.querySelector("//a[normalize-space()='" + vacancyTitle + " " + timestamp + "']") != null) {
+                String actualVacancy = page.locator("//a[normalize-space()='" + vacancyTitle + ' ' + ApplicantProfileStepsImpl.timestamp).innerText();
+                MiscUtils.sleep(2000);
+                System.out.println("Timestamp before assertion: " + ApplicantProfileStepsImpl.timestamp);
+                String expectedVacancy = vacancyTitle + " " + ApplicantProfileStepsImpl.timestamp;
+                Hooks.softAssert.assertEquals(actualVacancy,expectedVacancy);
+                break;
+            } else {
+                itemPage.click();
+            }
+        }
+
     }
 }
