@@ -6,11 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
@@ -20,7 +18,7 @@ import io.cucumber.java.en.When;
 public class BranchAdminSteps extends PageInitializer {
 
 @Given("User logged in as SADIE HOLMES")
-public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
+public void user_logged_in_as_SADIE_HOLMES()  {
 		flowStepsImplementation.dcegLoginHolmes();
 	}
 
@@ -33,7 +31,7 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 					System.out.println("Pending Submission request is present");
 				}
 			}
-			MiscUtils.sleep(3000);
+			CommonUtils.sleep(3000);
 			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
@@ -47,7 +45,7 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 	@Then("User can verify that publications in Submitted for Publication status are only editable within his branch")
 	public void user_can_verify_that_publications_in_Submitted_for_Publication_status_are_only_editable_within_his_branch() {
 		for (int row = 1; row <= 3; row++) {
-			MiscUtils.sleep(3000);
+			CommonUtils.sleep(3000);
 			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
@@ -61,7 +59,7 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 	@Then("User can verify that publications in Accepted for Publication\\/In Press status are only editable within his branch")
 	public void user_can_verify_that_publications_in_Accepted_for_Publication_In_Press_status_are_only_editable_within_his_branch() {
 		for (int row = 1; row <= 3; row++) {
-			MiscUtils.sleep(3000);
+			CommonUtils.sleep(3000);
 			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
@@ -82,7 +80,7 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 				System.out.println("HGP CGB organization is present");
 			}
 		}
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		System.out.println("Search is across DCEG");
 
 	}
@@ -90,22 +88,22 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 	@When("User can status of one request to Published")
 	public void user_can_status_of_one_request_to_Published() {
 		CommonUtils.clickOnElement(adminFlowPage.viewFirstRequest);
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		CommonUtils.clickOnElement(adminFlowPage.publicationStatusDropdown);
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		CommonUtils.clickOnElement(adminFlowPage.publicationStatusDropdown);
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User applies wide search")
 	public void user_applies_wide_search() {
 		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearch);
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(adminFlowPage.publicationsTabSearchButton);
 		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearchButton);
-		MiscUtils.sleep(4000);
+		CommonUtils.sleep(4000);
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -124,21 +122,21 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 	@When("User applies high profile publications search to Publications")
 	public void user_applies_high_profile_publications_search_to_Publications() {
 		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearch);
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(adminFlowPage.highProfileCheckbox);
 		CommonUtils.clickOnElement(adminFlowPage.highProfileCheckbox);
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(adminFlowPage.publicationsTabSearchButton);
 		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearchButton);
-		MiscUtils.sleep(4000);
+		CommonUtils.sleep(4000);
 		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can view high profile entries within their NED")
 	public void user_can_view_high_profile_entries_within_their_NED() {
 		for (int row = 1; row <= 5; row++) {
-			MiscUtils.sleep(4000);
+			CommonUtils.sleep(4000);
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
@@ -150,15 +148,15 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 	@When("User applies  non high profile publications search to Publications")
 	public void user_applies_non_high_profile_publications_search_to_Publications() {
 		CommonUtils.clickOnElement(adminFlowPage.clRequestTab);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(adminFlowPage.publicationsTab);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearch);
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(adminFlowPage.publicationsTabSearchButton);
 		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearchButton);
-		MiscUtils.sleep(4000);
+		CommonUtils.sleep(4000);
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -181,7 +179,7 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 	@Then("User can verify that clearance request is successfully submitted")
 	public void user_can_verify_that_clearance_request_is_successfully_submitted() {
 		JavascriptUtils.clickByJS(createCRPage.myActiveSubmissions);
-		MiscUtils.sleep(4000);
+		CommonUtils.sleep(4000);
 		String dateSubmitted = adminFlowPage.dateSubmitted.getText();
 		System.out.println(dateSubmitted);
 	}
@@ -191,21 +189,21 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 		Map<String, String> states = CommonUtil.getMapFromDataTable(data);
 		Assert.assertTrue(adminFlowPage.draftStatus.isDisplayed(), states.get("state1"));
 		CommonUtils.clickOnElement(adminFlowPage.draftStatus);
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		CucumberLogUtils.logScreenshot();
 		Assert.assertTrue(adminFlowPage.submittedForVerStatus.isDisplayed(), states.get("state2"));
 		CommonUtils.clickOnElement(adminFlowPage.submittedForVerStatus);
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		CucumberLogUtils.logScreenshot();
 		Assert.assertTrue(adminFlowPage.returnedForRevStatus.isDisplayed(), states.get("state2"));
 		CommonUtils.clickOnElement(adminFlowPage.returnedForRevStatus);
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that User can operate on a clearance request that only belongs to OFFICE OF THE DIRECTOR")
 	public void user_can_verify_that_User_can_operate_on_a_clearance_request_that_only_belongs_to_OFFICE_OF_THE_DIRECTOR() {
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		if (branchAdminPage.firstODentry.getText().contains("OD")) {
 			CommonUtils.clickOnElement(branchAdminPage.firstView);
 		}

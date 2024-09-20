@@ -45,8 +45,8 @@ jobs:
           git fetch
           git checkout gh-pages
           git stash pop
-          mkdir -p ${{ steps.reportpath.outputs.path }}
-          mv target/ssj-regression-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
+          mkdir -p ssj-regression-reports
+          mv target/ssj-regression-reports/*.html ssj-regression-reports/report-${{ steps.timestamp.outputs.timestamp }}.html
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
@@ -58,12 +58,12 @@ jobs:
         run: |
           if [[ -f "ssj-regression-test-results.html" ]]; then
             sed -i 's/<h1>.*<\/h1>/<h1>SSJ Regression Test Results<\/h1>/' ssj-regression-test-results.html
-            echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> ssj-regression-test-results.html
+            echo "<h3><a href='ssj-regression-reports/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ssj-regression-reports/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> ssj-regression-test-results.html
             git add ssj-regression-test-results.html
             git commit -m "Update ssj-regression-test-results.html"
           else
             echo "<h1>SSJ Regression Test Results</h1>" > ssj-regression-test-results.html
-            echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> ssj-regression-test-results.html
+            echo "<h3><a href='ssj-regression-reports/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ssj-regression-reports/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> ssj-regression-test-results.html
             git add ssj-regression-test-results.html
             git commit -m "Create and update ssj-regression-test-results.html"
           fi

@@ -1,11 +1,7 @@
 package AnalysisTools.AnalysisToolsRunners;
 
-import java.io.File;
-import org.testng.annotations.BeforeClass;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
-import com.nci.automation.utils.LocalConfUtils;
-import com.nci.automation.web.ConfUtils;
 
 @CucumberOptions(plugin= {"html:target/html-reports/cucumber-default-report"
 		, "json:target/cucumber.json"

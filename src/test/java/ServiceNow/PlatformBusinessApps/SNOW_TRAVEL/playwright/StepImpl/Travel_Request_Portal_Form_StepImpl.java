@@ -6,12 +6,12 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.CommonUtils;
 import org.testng.Assert;
 import java.util.regex.Pattern;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
+import static com.nci.automation.web.TestProperties.getNCISPUrl;
 
 public class Travel_Request_Portal_Form_StepImpl {
 
@@ -19,7 +19,7 @@ public class Travel_Request_Portal_Form_StepImpl {
      * Navigates to the NCI at Your Service Portal.
      */
     public static void i_navigate_to_the_nci_at_your_service_portal() {
-        page.navigate(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
+        page.navigate(getNCISPUrl());
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -86,7 +86,7 @@ public class Travel_Request_Portal_Form_StepImpl {
         page.getByLabel("Show Calendar for Event End").click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("OK").setExact(true)).click();
         assertThat(page.locator("#registration_fees")).containsText(Travel_Request_Portal_Form_Constants.REGISTRATION_FEES_FIELD_TEXT);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         page.getByRole(AriaRole.GROUP, new Page.GetByRoleOptions().setName("Registration Fee").setExact(true)).locator("a").click();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("No").setExact(true)).click();
         CucumberLogUtils.playwrightScreenshot(page);
@@ -135,7 +135,7 @@ public class Travel_Request_Portal_Form_StepImpl {
         CucumberLogUtils.playwrightScreenshot(page);
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(Travel_Request_Portal_Form_Constants.SUBMIT_BUTTON).setExact(true)).waitFor();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(Travel_Request_Portal_Form_Constants.SUBMIT_BUTTON).setExact(true)).click();
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -151,7 +151,7 @@ public class Travel_Request_Portal_Form_StepImpl {
         page.getByPlaceholder("Filter").fill("Travel Planning System");
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Travel Requests")).click();
         CucumberLogUtils.playwrightScreenshot(page);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
         page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search a specific field of").selectOption("number");
         page.frameLocator("iframe[name=\"gsft_main\"]").getByText("All>Item = Travel Planning").click();
@@ -292,6 +292,6 @@ public class Travel_Request_Portal_Form_StepImpl {
      */
     public static void i_will_not_see_the_header_on_the_form(String travelCashAdvance) {
         assertThat(page.locator("#catItemTop div").filter(new Locator.FilterOptions().setHasText("Travel QuestionsDo you have a")).nth(1)).isVisible();
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
     }
 }

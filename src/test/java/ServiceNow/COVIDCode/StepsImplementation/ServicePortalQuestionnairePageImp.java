@@ -2,27 +2,24 @@
 package ServiceNow.COVIDCode.StepsImplementation;
 
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import org.junit.Assert;
 import appsCommon.PageInitializers.PageInitializer;
 
 public class ServicePortalQuestionnairePageImp extends PageInitializer {
 
-	public void startNewInitialQuestionnaire() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
+	public void startNewInitialQuestionnaire()  {
+		WebDriverUtils.webDriver.get("");
 		CucumberLogUtils.logScreenshot();
 		covidCodeLoginPage.LogInButton.click();
 		CucumberLogUtils.logScreenshot();
 		iTrustLoginPageImpl.loginToITrust();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 		servicePortalQuestionnairePage.startNewInitialQuestionnaireButton.click();
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
 
 		CommonUtils.selectDropDownValue("User Group 1",
@@ -33,19 +30,19 @@ public class ServicePortalQuestionnairePageImp extends PageInitializer {
 		// List<WebElement> groupIDs =
 		// servicePortalQuestionnairePage.enrollmentCreationUserGroupIDValues;
 		// CommonUtils.selectValueFromBootStrapDropDown(groupIDs, " User Group 1");
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
 
 	}
 
-	public void startNewFollowUpQuestionnaire() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
+	public void startNewFollowUpQuestionnaire()  {
+		WebDriverUtils.webDriver.get("");
 		CucumberLogUtils.logScreenshot();
 		covidCodeLoginPage.LogInButton.click();
 		CucumberLogUtils.logScreenshot();
 		iTrustLoginPageImpl.loginToITrust();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 		servicePortalQuestionnairePage.startNewFollowUpButton.click();
 		CucumberLogUtils.logScreenshot();
@@ -59,7 +56,7 @@ public class ServicePortalQuestionnairePageImp extends PageInitializer {
 		covidCodeEQPage.enrollmentQuestionnairePatientLastNameTextBox.sendKeys("AutomatedLN");
 		covidCodeEQPage.enrollmentQuestionnairePatientFirstNameTextBox.sendKeys("AutomatedFNGroup1");
 		covidCodeEQPage.enrollmentQuestionnairePatientMiddletNameTextBox.sendKeys("M");
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		covidCodeEQPage.enrollmentQuestionnairePatientEmailAddressTextBox.sendKeys("email@email.com");
 		covidCodeEQPage.enrollmentQuestionnairePatientPhoneNumberTextBox.sendKeys("2351456778");
 		covidCodeEQPage.enrollmentQuestionnairePatientStreetAddress1TextBox.sendKeys("123 street");

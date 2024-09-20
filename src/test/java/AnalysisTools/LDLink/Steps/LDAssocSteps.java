@@ -2,7 +2,6 @@ package AnalysisTools.LDLink.Steps;
 
 import java.io.File;
 import org.junit.Assert;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import appsCommon.PageInitializers.PageInitializer;
@@ -34,18 +33,18 @@ public class LDAssocSteps extends PageInitializer {
     @When("the user uploads {string}, selects Variant drop down, enters {string} and YRI population and calculates")
     public void the_user_uploads_selects_Variant_drop_down_enters_and_YRI_population_and_calculates(String ldAssocFile,
             String ldAssocRsNumber) {
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         File ldAssocInputFile = new File(ldAssocFile);
         JavascriptUtils.sendKeysByJS(ldAssocPage.fileUploadInputBox, ldAssocInputFile.getAbsolutePath());
         CommonUtils.sendKeys(ldAssocPage.fileUploadInputBox, ldAssocFile);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(ldAssocPage.variantDropDown);
         CommonUtils.clickOnElement(ldAssocPage.variantDropDownValue);
         CommonUtils.sendKeys(ldAssocPage.rsNumberInputOnVariantDropDown,
                 ldAssocRsNumber);
         CommonUtils.clickOnElement(ldAssocPage.populationDropDown);
         CommonUtils.clickOnElement(ldAssocPage.populationYriDropDownValue);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(ldAssocPage.submitOnLDassoc);
     }
 }

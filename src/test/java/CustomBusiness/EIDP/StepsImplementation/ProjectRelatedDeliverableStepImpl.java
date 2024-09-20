@@ -3,7 +3,6 @@ package CustomBusiness.EIDP.StepsImplementation;
 import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import java.util.List;
@@ -53,7 +52,7 @@ ProjectRelatedDeliverableStepImpl extends PageInitializer {
 		eidpBasePage.waitForElementToLoad(By.id("workshopSubmission"));
 		CommonUtils.waitForVisibility(projectRelatedDeliverablePage.classesCoursesWorkshopButton);
 		CommonUtils.clickOnElement(projectRelatedDeliverablePage.classesCoursesWorkshopButton);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(projectRelatedDeliverablePage.travelNoRadioButton);
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.classesStartDate, "05/20/2023");
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.classesToDate, "10/20/2023");
@@ -67,10 +66,10 @@ ProjectRelatedDeliverableStepImpl extends PageInitializer {
 	}
 
 	public void addWorkShipDetailsWithStatus() {
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.waitForVisibility(projectRelatedDeliverablePage.classesCoursesWorkshopButton);
 		CommonUtils.clickOnElement(projectRelatedDeliverablePage.classesCoursesWorkshopButton);
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		CommonUtils.clickOnElement(projectRelatedDeliverablePage.travelNoRadioButton);
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.classesStartDate, "02/20/2023" + Keys.TAB);
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.classesToDate, "10/20/2023" + Keys.TAB);
@@ -103,12 +102,12 @@ ProjectRelatedDeliverableStepImpl extends PageInitializer {
 
 	public void markAllExistingProjectsAsCompleted() {
 		for (int i = 0; i < projectRelatedDeliverablePage.projectEditButtons.size(); i++) {
-			MiscUtils.sleep(5000);
+			CommonUtils.sleep(5000);
 			CommonUtils.clickOnElement(projectRelatedDeliverablePage.projectEditButtons.get(i));
-			MiscUtils.sleep(3000);
+			CommonUtils.sleep(3000);
 			CommonUtils.clickOnElement(projectRelatedDeliverablePage.completeRadioButton);
 			markAllDeliverablesOfTheProjectCompleted();
-			MiscUtils.sleep(3000);
+			CommonUtils.sleep(3000);
 			CommonUtils.waitForVisibility(projectRelatedDeliverablePage.projectsAndTrainingSave);
 			CommonUtils.clickOnElement(projectRelatedDeliverablePage.projectsAndTrainingSave);
 		}
@@ -197,7 +196,7 @@ ProjectRelatedDeliverableStepImpl extends PageInitializer {
 		
 		for (int i = 0; i < projectRelatedDeliverablePage.trainningActivitiesEditIcons.size(); i++) {
 			projectRelatedDeliverablePage.trainningActivitiesEditIcons.get(i).click();
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			String currentTrainningType = projectRelatedDeliverablePage.trainingTypeText.getText();
 			if ("Interest/Working Group Participation".equalsIgnoreCase(currentTrainningType.trim())) {
 				projectRelatedDeliverablePage.interestGroups.get(3).click();
@@ -229,7 +228,7 @@ ProjectRelatedDeliverableStepImpl extends PageInitializer {
 				projectRelatedDeliverablePage.addOthersTrainingActivities.click();
 			}
 		}
-		MiscUtils.sleep(6000);
+		CommonUtils.sleep(6000);
 		projectRelatedDeliverablePage.projectsAndTrainingSave.click();
 	}
 

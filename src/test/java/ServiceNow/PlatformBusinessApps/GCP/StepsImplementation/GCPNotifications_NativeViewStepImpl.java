@@ -6,7 +6,6 @@ import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -17,14 +16,14 @@ public class GCPNotifications_NativeViewStepImpl extends PageInitializer {
     public static void aUserWithAdminRightsGoToNotificationsIsInTheNativeView() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser("songjay@nih.gov");
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         WebDriverUtils.webDriver.get(GCPNotifications_NativeView_Constants.GCP_NATIVE_VIEW_NOTIFICATIONS_UNDER_SYSTEM_NOTIFICATION_URL);
 //        WebDriverUtils.webDriver.get(GCPNotifications_NativeView_Constants.GCP_SAND_BOX_NATIVE_VIEW_NOTIFICATIONS_UNDER_SYSTEM_NOTIFICATION_URL);
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
     }
 
     public static void searchesGcpEmployeeTrainingExpiredForTheNameFilter() {
@@ -108,7 +107,7 @@ public class GCPNotifications_NativeViewStepImpl extends PageInitializer {
     }
 
     public static void userClicksThePreviewNotificationButtonForTheGcpEmployeeTrainingPastDueNotificationRecord() {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.hoverOverElement(gCPNotifications_NativeViewPage.nVRecordName(GCPNotifications_NativeView_Constants.NATIVE_VIEW_GCP_SEARCH_TEXT_BOX_GCP_EMPLOYEE_TRAINING_PAST_DUE));
         CommonUtils.waitForClickability(gCPNotifications_NativeViewPage.nVRecordLocator(GCPNotifications_NativeView_Constants.NATIVE_VIEW_GCP_SEARCH_TEXT_BOX_GCP_EMPLOYEE_TRAINING_PAST_DUE));
         CommonUtils.clickOnElement(gCPNotifications_NativeViewPage.nVRecordLocator(GCPNotifications_NativeView_Constants.NATIVE_VIEW_GCP_SEARCH_TEXT_BOX_GCP_EMPLOYEE_TRAINING_PAST_DUE));

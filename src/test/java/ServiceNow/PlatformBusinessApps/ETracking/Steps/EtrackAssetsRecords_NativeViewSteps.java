@@ -2,7 +2,6 @@ package ServiceNow.PlatformBusinessApps.ETracking.Steps;
 
 import ServiceNow.PlatformBusinessApps.ETracking.StepsImplementation.EtrackAssetsRecords_NativeViewStepImplimentation;
 import appsCommon.PageInitializers.PageInitializer;
-import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,7 +9,7 @@ import io.cucumber.java.en.When;
 public class EtrackAssetsRecords_NativeViewSteps extends PageInitializer {
 
     @Given("a eTracking user opens an Asset record")
-    public void a_e_tracking_user_opens_an_asset_record() throws TestingException{
+    public void a_e_tracking_user_opens_an_asset_record() {
         EtrackAssetsRecords_NativeViewStepImplimentation.aEtrackingUserOpensAnAssetRecord();
     }
 
@@ -30,7 +29,7 @@ public class EtrackAssetsRecords_NativeViewSteps extends PageInitializer {
     }
 
     @Given("an eTracking user is on an Asset record")
-    public void an_e_tracking_user_is_on_an_asset_record() throws TestingException {
+    public void an_e_tracking_user_is_on_an_asset_record()  {
        EtrackAssetsRecords_NativeViewStepImplimentation.anEtrackingUserIsOnAnAssetRecord();
     }
 

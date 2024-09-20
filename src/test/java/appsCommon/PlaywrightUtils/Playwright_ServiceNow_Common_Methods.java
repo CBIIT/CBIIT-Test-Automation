@@ -6,12 +6,7 @@ import appsCommon.Pages.Playwright_ServiceNow_NCISP_Page;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import com.nci.automation.utils.EncryptionUtils;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.ConfUtils;
-import com.nci.automation.web.EnvUtils;
-import com.nci.automation.web.TestProperties;
-
+import com.nci.automation.web.CommonUtils;
 import static com.nci.automation.web.PlaywrightUtils.page;
 import static com.nci.automation.web.TestProperties.*;
 
@@ -33,20 +28,21 @@ public class Playwright_ServiceNow_Common_Methods {
      * @param name
      */
     public static void side_Door_Test_Account_Login_Impersonate(String name){
-        page.navigate(EnvUtils.getApplicationUrl("nativeviewSideDoor"));
-        page.locator(Playwright_NativeView_Side_Door_Login_Page.usernameTextBox).fill(ConfUtils.getProperty("SideDoorUsername"));
-        page.locator(Playwright_NativeView_Side_Door_Login_Page.passwordTextBox).fill(EncryptionUtils.decrypt(ConfUtils.getProperty("SideDoorPassword")));
+
+        page.navigate(getNativeViewSideDoorUrl());
+        page.locator(Playwright_NativeView_Side_Door_Login_Page.usernameTextBox).fill(SIDE_DOOR_USERNAME);
+        page.locator(Playwright_NativeView_Side_Door_Login_Page.passwordTextBox).fill(SIDE_DOOR_PASSWORD);
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(Playwright_NativeView_Side_Door_Login_Page.loginButton)).click();
         page.waitForLoadState();
         page.reload();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CBIIT Test Account: available")).click();
         page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName(Playwright_NativeView_Dashboard_Page.impersonateUserOption)).click();
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName(Playwright_NativeView_Dashboard_Page.impersonateUserDropDown)).click();
         page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName(Playwright_NativeView_Dashboard_Page.impersonateUserDropDown)).fill(name);
         page.waitForLoadState();
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         page.locator(Playwright_NativeView_Dashboard_Page.impersonateDropDownOption).getByRole(AriaRole.OPTION, new Locator.GetByRoleOptions().setName(name)).click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(Playwright_NativeView_Dashboard_Page.impersonateUserButton)).click();
     }
@@ -74,7 +70,7 @@ public class Playwright_ServiceNow_Common_Methods {
      * THIS METHOD LOGS OUT OF NATIVE VIEW
      */
     public static void logOutOfNativeView(){
-        page.navigate(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
+        page.navigate(getNCISPUrl());
         page.locator(Playwright_ServiceNow_NCISP_Page.profileAccountButton).click();
         page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName(Playwright_ServiceNow_NCISP_Page.logOutLink)).click();
     }

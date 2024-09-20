@@ -4,11 +4,12 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.EncryptionUtils;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.ConfUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
+import static com.nci.automation.web.TestProperties.I_TRUST_PASSWORD;
+import static com.nci.automation.web.TestProperties.I_TRUST_USERNAME;
 
 public class Playwright_Common_Utils {
 
@@ -42,7 +43,7 @@ public class Playwright_Common_Utils {
     public static void clickAndAssertNewPage(String Name, String NewPage){
         Page newPage1 = PlaywrightUtils.context.waitForPage(() -> {
             page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(Name)).click();});
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         assertThat(newPage1).hasURL(NewPage);newPage1.close();
     }
 
@@ -55,7 +56,7 @@ public class Playwright_Common_Utils {
     public static void clickAndAssertNewPageTitle(String locator, String title){
         Page newPage1 = PlaywrightUtils.context.waitForPage(() -> {
             page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(locator)).click();});
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         assertThat(newPage1).hasTitle(title);newPage1.close();
     }
 
@@ -64,8 +65,8 @@ public class Playwright_Common_Utils {
      */
     public static void iTrustLogin(){
         page.waitForLoadState();
-        page.locator("#USER").fill(ConfUtils.getProperty("Username"));
-        page.locator("#PASSWORD").fill(EncryptionUtils.decrypt(ConfUtils.getProperty("Password")));
+        page.locator("#USER").fill(I_TRUST_USERNAME);
+        page.locator("#PASSWORD").fill(EncryptionUtils.decrypt(I_TRUST_PASSWORD));
         page.locator("#CredSelectorNotice").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Sign in")).click();
     }
 }

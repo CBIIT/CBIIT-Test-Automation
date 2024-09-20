@@ -4,7 +4,6 @@ import ServiceNow.PlatformBusinessApps.SSJ.selenium.Constants.OWMVacanciesConsta
 import ServiceNow.PlatformBusinessApps.SSJ.selenium.Constants.StadtmanVacanciesConstants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import org.openqa.selenium.Keys;
@@ -49,7 +48,7 @@ public class StadtmanVacancyStepsImplementation extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(owmVacancyPage.apptPackageInitiatorField.getAttribute("title"), StadtmanVacanciesConstants.VACANCY_APPOINTMENT_PACKAGE_INITIATOR, "-- VERIFYING APPOINTMENT PACKAGE INITIATOR --");
         // ----- CLICKING ON THE POSITION CLASSIFICATION -----
         CommonUtils.clickOnElement(owmVacancyPage.positionClassificationDropdown);
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         boolean positionNumberClick= false;
         while (!positionNumberClick) {
             try {

@@ -1,10 +1,7 @@
 package AnalysisTools.ACT24.Steps;
 
-import AnalysisTools.ACT24.StepsImpl.ACT24ParticipantStepImpl;
 import appsCommon.PageInitializers.PageInitializer;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,7 +12,7 @@ public class ACT24ParticipantPortalSteps extends PageInitializer {
 
     @Given("the participant on the ACT24 participant")
     public void the_participant_on_the_act24_participant() {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ACT24Participant"));
+        WebDriverUtils.webDriver.get("");
     }
 
     @Then("the splash screen is displayed")

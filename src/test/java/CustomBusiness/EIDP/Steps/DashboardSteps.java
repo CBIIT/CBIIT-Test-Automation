@@ -3,7 +3,6 @@ package CustomBusiness.EIDP.Steps;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
@@ -16,7 +15,7 @@ public class DashboardSteps extends PageInitializer {
 	public void clickOnSearch() {
 			eidpDashboardStepImpl.clickOnSearch();
 			CucumberLogUtils.logScreenshot();
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 	}
 
 	@When("User click on Search button")
@@ -55,7 +54,7 @@ public class DashboardSteps extends PageInitializer {
 	@When("User will clickOn proceed button")
 	public void clickOnProceedButton() throws Exception {
 		eidpDashboardStepImpl.clickOnProceedButton();
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 	}
 
 	@When("User clicks on Send IDP to the Primary Mentor button")

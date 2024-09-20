@@ -2,21 +2,14 @@ package ServiceNow.ATO.Pages;
 
 import static org.junit.Assert.assertEquals;
 import java.util.List;
-import java.util.Set;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
-import ServiceNow.ATO.Utils.CommonUtils;
-import ServiceNow.ATO.Utils.DriverObjectFactory;
 
 public class BusinessCaseFormPage extends BasePage {
 
@@ -367,6 +360,6 @@ public class BusinessCaseFormPage extends BasePage {
 	}
 
 	public void openApp() {
-			driver.get(EnvUtils.getApplicationUrl("AtoTestUrl"));
+			driver.get("");
 	}
 }

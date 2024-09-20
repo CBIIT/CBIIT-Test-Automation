@@ -2,18 +2,17 @@ package ServiceNow.PlatformBusinessApps.SEER.Steps;
 
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataRejectionStepImpl;
 import appsCommon.PageInitializers.PageInitializer;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import static com.nci.automation.web.TestProperties.getSeerOdsUrl;
 
 public class SEERDataRejectionSteps extends PageInitializer {
 
     @Given("an authenticated ODS SEER Data user with an eRA Commons account is on the SEER Data Access landing page")
-    public void an_authenticated_ODS_SEER_Data_user_with_an_eRA_Commons_account_is_on_the_SEER_Data_Access_landing_page() throws TestingException {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
+    public void an_authenticated_ODS_SEER_Data_user_with_an_eRA_Commons_account_is_on_the_SEER_Data_Access_landing_page() {
+        WebDriverUtils.webDriver.get(getSeerOdsUrl());
         SEERDataRejectionStepImpl.proceedsToRegisterForResearchDataWithUniqueEmailAddress();
     }
 

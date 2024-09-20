@@ -14,7 +14,6 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.PlaywrightException;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import org.testng.Assert;
 import java.util.ArrayList;
@@ -287,13 +286,13 @@ public class OWM_Vacancy_Manager_StepsImpl {
      */
     public static void user_verifies_that_all_positions_are_present_via_position_classification_dropdown() {
         page.locator(Vacancy_Dashboard_Page.positionClassificationDropDown).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         HashSet<String> actualValues = new HashSet<>();
         boolean flag = false;
         for (int i = 1; !flag; i++) {
             try {
                 String value = "" + i;
-                MiscUtils.sleep(3000);
+                CommonUtils.sleep(3000);
                 Playwright_Common_Utils.scrollIntoView("(//div[@class='rc-virtual-list'])[2]/div/div/div/div[" + value + "]/div");
                 for (ElementHandle c : page.querySelectorAll("(//div[@class='rc-virtual-list'])[2]/div/div/div/div/div")) {
                     String consoleMName = c.innerText();
@@ -340,13 +339,13 @@ public class OWM_Vacancy_Manager_StepsImpl {
      */
     public static void user_verifies_all_org_codes_are_present_via_organizational_code_dropdown() {
         page.locator(Vacancy_Dashboard_Page.organizationCodeDropDown).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         HashSet<String> actualValues = new HashSet<>();
         boolean flag = false;
         for (int i = 10; !flag; ) {
             try {
                 String value = "" + i;
-                MiscUtils.sleep(3000);
+                CommonUtils.sleep(3000);
                 for (ElementHandle c : page.querySelectorAll("(//div[@class='rc-virtual-list'])[3]/div/div/div/div/div")) {
                     String consoleMName = c.innerText();
                     actualValues.add(consoleMName);
@@ -389,7 +388,7 @@ public class OWM_Vacancy_Manager_StepsImpl {
      */
     public static void user_selects_position_classification_and_organizational_code_options() {
         page.locator(Vacancy_Dashboard_Page.positionClassificationDropDown).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         page.locator(Vacancy_Dashboard_Page.positionClassificationDropDown).focus();
         for (int i = 0; i < 28; i++) {
             page.keyboard().press("ArrowUp");
@@ -660,7 +659,7 @@ public class OWM_Vacancy_Manager_StepsImpl {
      */
     public static void user_adds_duplicate_committee_member_for_executive_secretary(String committeeMember) {
         page.locator(Vacancy_Committee_Page.duplicateVacancyCommitteeMemberDropdown).click();
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         page.locator(Playwright_Common_Locators.dynamicTextLocatorByIndex(committeeMember,2)).click();
         page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberRoleDropDown ).click();
         page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator("Executive Secretary (non-voting)")).click();

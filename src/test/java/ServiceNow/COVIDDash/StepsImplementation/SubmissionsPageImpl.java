@@ -1,14 +1,10 @@
 package ServiceNow.COVIDDash.StepsImplementation;
 
 import java.util.List;
-
+import com.nci.automation.web.CommonUtils;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.Utils.PageCache;
 import appsCommon.PageInitializers.PageInitializer;
 
@@ -22,27 +18,27 @@ public class SubmissionsPageImpl extends PageInitializer {
 			String actualIbrNumber = ibrList.get(i).getText().trim();
 
 			if (actualIbrNumber.equals(ExptdIbrNumber)) {
-				MiscUtils.sleep(2000);
+				CommonUtils.sleep(2000);
 				submissionPage.getRejectButtonsList().get(i).click();
-				MiscUtils.sleep(1000);
+				CommonUtils.sleep(1000);
 				submissionPage.enterRejectionReasonClickConfirm();
 				break;
 			} else {
-				MiscUtils.sleep(1000);
+				CommonUtils.sleep(1000);
 				submissionPage.clickPendingApprovalNextButton();
 			}
 		}
 
 	}
 
-	public void rejectStudyUsingIbrNumber(String approver, String ibrNumber) throws TestingException {
-		MiscUtils.sleep(3000);
+	public void rejectStudyUsingIbrNumber(String approver, String ibrNumber)  {
+		CommonUtils.sleep(3000);
 		pageCache.getNativeViewDashboardPageImpl().impersonateUser(approver);
 		pageCache.getSubmissionsPageImpl().findIbrNumberAndclickRejectButton(ibrNumber);
 	}
 
 	public void verifySubmissionsTablesExists(String pendingStudies, String rejectedStudies) {
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		boolean pdngTExists = submissionPage.getPendingApprovalTableText().contains(pendingStudies);
 		Assert.assertTrue(pdngTExists);
 		boolean rjctTExists = submissionPage.getRejectedStudiesTableText().contains(rejectedStudies);

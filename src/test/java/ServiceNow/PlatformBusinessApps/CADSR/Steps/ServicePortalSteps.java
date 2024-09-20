@@ -1,19 +1,12 @@
 package ServiceNow.PlatformBusinessApps.CADSR.Steps;
 
-import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
 import org.testng.Assert;
 
-import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
-import com.nci.automation.web.ConfUtils;
-import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 
 import ServiceNow.PlatformBusinessApps.CADSR.Pages.ServicePortalPage;
 import ServiceNow.PlatformBusinessApps.CADSR.StepsImplementation.LoginStepsImpl;
-import appsCommon.Utils.PageCache;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -45,8 +38,8 @@ public class ServicePortalSteps {
 
 	@When("User Logins to the caDSR application")
 	public void login() throws Exception {
-		loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
-		String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
+		loginStepsImpl.enterUsername("");
+		String decyptedPass = EncryptionUtils.decrypt("");
 		loginStepsImpl.enterPassword(decyptedPass);
 		loginStepsImpl.clickOnSignInButton();
 	}
@@ -500,7 +493,7 @@ public class ServicePortalSteps {
 	}
 
 //	@After
-//	public void genericTearDown(Scenario s) throws TestingException {
+//	public void genericTearDown(Scenario s)  {
 //		CucumberLogUtils.logScreenshot();
 //		if (WebDriverUtils.webDriver != null) {
 //			WebDriverUtils.closeWebDriver();
