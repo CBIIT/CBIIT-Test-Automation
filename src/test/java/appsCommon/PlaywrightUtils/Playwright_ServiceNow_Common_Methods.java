@@ -22,14 +22,8 @@ public class Playwright_ServiceNow_Common_Methods {
      */
     public static void side_Door_Test_Account_Login(){
         page.navigate(getNativeViewSideDoorUrl());
-
-        String sideDoorUsername = System.getProperty("SideDoorUsername");
-        if (sideDoorUsername == null) sideDoorUsername = SIDE_DOOR_USERNAME;
-        String sideDoorPassword = System.getProperty("SideDoorPassword");
-        if (sideDoorPassword == null) sideDoorPassword = SIDE_DOOR_PASSWORD;
-
-        page.locator(Playwright_NativeView_Side_Door_Login_Page.usernameTextBox).fill(sideDoorUsername);
-        page.locator(Playwright_NativeView_Side_Door_Login_Page.passwordTextBox).fill(sideDoorPassword);
+        page.locator(Playwright_NativeView_Side_Door_Login_Page.usernameTextBox).fill(SIDE_DOOR_USERNAME);
+        page.locator(Playwright_NativeView_Side_Door_Login_Page.passwordTextBox).fill(SIDE_DOOR_PASSWORD);
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(Playwright_NativeView_Side_Door_Login_Page.loginButton)).click();
     }
 
