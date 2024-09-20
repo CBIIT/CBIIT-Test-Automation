@@ -35,6 +35,7 @@ jobs:
           path: target/ssj-regression-reports/*
 
       - name: Push HTML Report
+        shell: bash
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
@@ -51,18 +52,19 @@ jobs:
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
 
       - name: Update Test Results and Append to Index File
+        shell: bash
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          if (Test-Path "ssj-regression-test-results.html") {
-              (Get-Content ssj-regression-test-results.html) -replace '<h1>.*</h1>', '<h1>SSJ Regression Test Results</h1>' | Set-Content ssj-regression-test-results.html
-              Add-Content ssj-regression-test-results.html "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>"
-              git add ssj-regression-test-results.html
-              git commit -m "Update ssj-regression-test-results.html"
-          } else {
-              Set-Content ssj-regression-test-results.html "<h1>SSJ Regression Test Results</h1>"
-              Add-Content ssj-regression-test-results.html "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>"
-              git add ssj-regression-test-results.html
-              git commit -m "Create and update ssj-regression-test-results.html"
-          }
+          if [[ -f "ssj-regression-test-results.html" ]]; then
+            sed -i 's/<h1>.*<\/h1>/<h1>SSJ Regression Test Results<\/h1>/' ssj-regression-test-results.html
+            echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> ssj-regression-test-results.html
+            git add ssj-regression-test-results.html
+            git commit -m "Update ssj-regression-test-results.html"
+          else
+            echo "<h1>SSJ Regression Test Results</h1>" > ssj-regression-test-results.html
+            echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> ssj-regression-test-results.html
+            git add ssj-regression-test-results.html
+            git commit -m "Create and update ssj-regression-test-results.html"
+          fi
           git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
