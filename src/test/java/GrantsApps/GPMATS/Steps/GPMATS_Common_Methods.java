@@ -1,6 +1,7 @@
 package GrantsApps.GPMATS.Steps;
 
 import com.microsoft.playwright.ElementHandle;
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import org.testng.Assert;
@@ -52,6 +53,7 @@ public class GPMATS_Common_Methods {
         GPMATS_Common_Methods gpmatsCommonMethods = new GPMATS_Common_Methods();
         page.waitForSelector(gpmatsCommonMethods.processDropDownButton);
         page.locator(gpmatsCommonMethods.processDropDownButton).click();
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -86,6 +88,7 @@ public class GPMATS_Common_Methods {
         page.locator("//textarea").fill(generateBoundaryTestString());
         String actualValue = page.inputValue("//textarea");
         Assert.assertTrue(actualValue.length() <= 2000, "- - - TEXTBOX ALLOWS MORE THAN 2000 CHARACTERS. - - -");
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -110,6 +113,7 @@ public class GPMATS_Common_Methods {
     public static void clickCancelButton() {
         page.locator("//button[normalize-space()='Cancel']").click();
         page.waitForLoadState();
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -120,6 +124,7 @@ public class GPMATS_Common_Methods {
     public static void clickOkButton(){
         page.locator("//input[@value='OK']").click();
         page.waitForLoadState();
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -128,16 +133,21 @@ public class GPMATS_Common_Methods {
     public static void verifyingGrantNumberOfActionIsNotDisplayedOnGMSpecialistResultsTable(){
         page.click("//span[@aria-hidden='true'][normalize-space()='×']");
         page.waitForLoadState();
+        CucumberLogUtils.playwrightScreenshot(page);
         GPMATS_Common_Methods gpmatsCommonMethods = new GPMATS_Common_Methods();
         if (!gpmatsCommonMethods.actionSpecialistName.isEmpty()) {
             page.locator("#change-user-dropdown").click();
+            CucumberLogUtils.playwrightScreenshot(page);
             page.getByText("Enter Last Name, First Name").click();
+            CucumberLogUtils.playwrightScreenshot(page);
             System.out.println("NAME IS:" + gpmatsCommonMethods.actionSpecialistName);
             page.locator("(//input[@role='searchbox'])[11]").fill(gpmatsCommonMethods.actionSpecialistName);
             page.waitForSelector("//li[@role='option']");
             page.locator("(//li[@role='option'])[1]").click();
+            CucumberLogUtils.playwrightScreenshot(page);
             page.waitForSelector("(//button[contains(@class,'btn btn-info')])[1]");
             page.locator("(//button[contains(@class,'btn btn-info')])[1]").click();
+            CucumberLogUtils.playwrightScreenshot(page);
             page.waitForLoadState();
             List<ElementHandle> grantNumbers = page.querySelectorAll("//div/a[@ngbtooltip='Click to View Grant Details']");
             for (ElementHandle grantNumberInSpecialistQue : grantNumbers) {
@@ -172,6 +182,7 @@ public class GPMATS_Common_Methods {
     public static void verifying_Acknowledge_Special_Instructions_And_Acknowledging(){
         Assert.assertEquals(page.locator("//span[@class='modal-title']").innerText().trim(), "Please acknowledge all Special Instruction(s) before processing the action.", "- - - VERIFYING PLEASE ACKNOWLEDGE ALL SPECIAL INSTRUCTIONS BEFORE PROCESSING THE ACTION. TEXT IF ACTION HAD SPECIAL INSTRUCTIONS THAT WERE NOT ACKNOWLEDGED - - -");
         page.locator("//button[normalize-space()='Acknowledge']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -181,5 +192,6 @@ public class GPMATS_Common_Methods {
         page.waitForSelector("(//i[@ngbtooltip='View Change History'])[1]");
         page.locator("(//i[@ngbtooltip='View Change History'])[1]").click();
         page.waitForLoadState();
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 }

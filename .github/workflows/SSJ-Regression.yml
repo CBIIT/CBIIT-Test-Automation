@@ -14,12 +14,37 @@ jobs:
     env:
       DISPLAY: ".99"
       SCREEN_RESOLUTION: "1280x1024x24"
-      CI: 'true'  # <-- added CI environment variable here
+      CI: 'true'
     steps:
+      - name: Setup xvfb
+        run: |
+          sudo yum install -y xorg-x11-server-Xvfb
+          Xvfb :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
       - uses: actions/checkout@v2
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ github.ref }}
           fetch-depth: 0
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install Playwright dependencies
+        run: |
+          sudo yum install -y atk
+          sudo yum install -y cups-libs
+          sudo yum install -y libXcomposite
+          sudo yum install -y libXdamage
+          sudo yum install -y libXext
+          sudo yum install -y libXfixes
+          sudo yum install -y libXi
+          sudo yum install -y libXrandr
+          sudo yum install -y libXtst
+          sudo yum install -y libgbm
+          sudo yum install -y pango
+          sudo yum install -y xorg-x11-server-utils
+          sudo yum install -y nss
+          sudo yum install -y alsa-lib
+          sudo yum install -y libdrm
       - name: Setup Git LFS
         run: |
           sudo yum install -y git-lfs
@@ -28,11 +53,12 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.11
-      - name: Install Google Chrome
+      - name: Install Google Chrome and dependencies
         run: |
           sudo yum install -y wget
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
           sudo yum install -y ./google-chrome-stable_current_x86_64.rpm
+          sudo yum install -y gtk3 libXt libXtst libXScrnSaver alsa-lib
       - name: Replace variables in cloudEnv.properties
         run: |
           sed -i "s/SIDE_DOOR_USERNAME/${{ secrets.SIDEDOORUSERNAME }}/g" src/main/resources/conf/cloudEnv.properties
