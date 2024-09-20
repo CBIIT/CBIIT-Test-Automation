@@ -10,6 +10,7 @@ public class BrowsePhenotypesSteps extends PageInitializer {
 
     @When("user clicks browse phenotype tab")
     public void user_clicks_browse_phenotype_tab() {
+        MiscUtils.sleep(2000);
         JavascriptUtils.clickByJS(browsePhenotypesPage.lnkBrowsePhenotype);
         MiscUtils.sleep(2000);
     }
