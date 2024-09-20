@@ -658,16 +658,19 @@ public class OWM_Vacancy_Manager_StepsImpl {
             for (int i = 0; i < 100; i++) {
                 page.keyboard().press("ArrowDown");
                 page.waitForTimeout(200);
-
-                // Check if the element is visible in the dropdown
-                if(page.isVisible("//div[@class='UserPickerDropdown']//span[contains(text(),'Holly Gemar-Griffith')]")) {
-                    page.waitForSelector("//div[@class='UserPickerDropdown']//span[contains(text(),'Holly Gemar-Griffith')]").click();
+                String name = "//div[@class='UserPickerDropdown']//span[contains(text(),'" + committeeMember + "')]";
+                if(page.isVisible(name)) {
+                    page.waitForSelector(name).click();
                     isElementFound = true;
                     break;
                 }
             }
         }
-        page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberRoleDropDown).click();
+        if (page.isVisible(Vacancy_Committee_Page.vacancyCommitteeChairRoleDropDown)){
+            page.locator(Vacancy_Committee_Page.vacancyCommitteeChairRoleDropDown).click();
+        }else if(page.isVisible(Vacancy_Committee_Page.vacancyCommitteeMemberDropDown)){
+            page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberDropDown).click();
+        }
         page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator("Executive Secretary (non-voting)")).click();
 
     }

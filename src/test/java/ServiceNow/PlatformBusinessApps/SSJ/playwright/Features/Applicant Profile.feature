@@ -28,7 +28,6 @@ Feature: Applicant Profile Scenarios
     And verifies that the saved business phone number displays as "<businessPhoneVacancy>"
     And verifies that the saved highest education displays as "<highestEducation>"
     And verifies that the saved US Citizenship displays as "<US Citizenship>"
-#    And tester navigates to native view to reset account with name "<firstName>" so that automated test can run again without manual intervention
 
     Examples:
       | firstName | middleName | lastName   | email              | phone      | businessPhoneVacancy | highestEducation | US Citizenship | address  | aptNumber | city       | state | country | zip   |
@@ -80,7 +79,6 @@ Feature: Applicant Profile Scenarios
     And User clicks Edit for Demographics section - PW
     And User chooses not to share demographic details - PW
     Then User saves the updated section - PW
-#    And tester navigates to native view to reset account with name "<firstName>" so that automated test can run again without manual intervention
 
     Examples:
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | US Citizenship | address | aptNumber | city   | state | country | zip   |
@@ -206,7 +204,6 @@ Feature: Applicant Profile Scenarios
     When user navigates to Your Applications tab
     And user verifies "Your Applications" page title is displayed
     Then user verifies the following columns are displayed on Your Applications page "Vacancy Title", "Status", "Vacancy Closes", "Application Submitted", "Actions"
-#    And tester navigates to native view to reset account with name "<firstName>" so that automated test can run again without manual intervention
 
     Examples:
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | US Citizenship | address | aptNumber | city   | state | country | zip   | referenceOneFirstName | referenceOneMiddleName | referenceOneLastName | referenceOneEmail     | referenceOnePhoneNumber | referenceOneRelationship | referenceOnePositionTitle | referenceOneOrganizationName                 | referenceTwoFirstName | referenceTwoMiddleName | referenceTwoLastName | referenceTwoEmail     | referenceTwoPhoneNumber | referenceTwoRelationship | referenceTwoPositionTitle | referenceTwoOrganizationName                 |
@@ -499,13 +496,11 @@ Would you like to log in now or go back to the home page?
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | address | aptNumber | city   | state | country | zip   | referenceOneFirstName | referenceOneMiddleName | referenceOneLastName | referenceOneEmail     | referenceOnePhoneNumber | referenceOneRelationship | referenceOnePositionTitle | referenceOneOrganizationName                 | referenceTwoFirstName | referenceTwoMiddleName | referenceTwoLastName | referenceTwoEmail     | referenceTwoPhoneNumber | referenceTwoPositionTitle | referenceTwoOrganizationName                 | updatedReferenceOneFirstName | updatedReferenceOneMiddleName | updatedReferenceOneLastName | updatedReferenceOneEmail     | updatedReferenceOnePhoneNumber | updatedReferenceOneRelationship | updatedReferenceOnePositionTitle | updatedReferenceOneOrganizationName                  | updatedReferenceTwoFirstName | updatedReferenceTwoMiddleName | updatedReferenceTwoLastName | updatedReferenceTwoEmail     | updatedReferenceTwoPhoneNumber | updatedReferenceTwoPositionTitle | updatedReferenceTwoOrganizationName                  |
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | 7 Mills | 12378     | Reston | VA    | USA     | 20453 | Fred                  | Trout                  | Laste                | referenceOne@test.com | 7036875816              | Supervisor/Manager       | PROJECT MANAGER           | TESTING ORGANIZATION FIELD FOR REFERENCE ONE | John                  | Steven                 | Vakhutko             | referenceTwo@test.com | 7036875816              | TEST AUTOMATION LEAD      | TESTING ORGANIZATION FIELD FOR REFERENCE TWO | Elizabeth                    | Mary                          | Smith                       | updatedReferenceOne@test.com | 7036875817                     | Colleague                       | BUSINESS ANALYST                 | UPDATED TESTING ORGANIZATION FIELD FOR REFERENCE ONE | Adam                         | Elliot                        | Washington                  | updatedReferenceTwo@test.com | 7036875817                     | PRODUCT OWNER                    | UPDATED TESTING ORGANIZATION FIELD FOR REFERENCE TWO |
 
-  @TC_APPTRACK-827
+  @TC_APPTRACK-827 @TODO
   Scenario: Banner Notifying an Applicant While They are Editing a Submitted Application That Their Changes Will Not Save
-#    Given User logged in as an SCSS Applicant,
-#    When User edits an application for a vacancy that already submitted
-#    Then User sees a banner notifying that changes will not save to the system automatically
-    Given a test account "Maria Chaudhry" is reset before executing a test
-    When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
+    Given User logged in as an SCSS Applicant,
+    When User edits an application for a vacancy that already submitted
+    Then User sees a banner notifying that changes will not save to the system automatically
 
 
 

@@ -1,7 +1,7 @@
 Feature: OWM Vacancy Manager Scenarios
   Description: This Feature file contains OWM Vacancy Manager Scenarios
 
-  @SSJ-7 @SSJ-8 @juarezds @Regression @playwright @Smoke @SNOW_UPDATED @needsFix
+  @SSJ-7 @SSJ-8 @juarezds @Regression @playwright @Smoke @SNOW_UPDATED
   Scenario: Verification of Basic Vacancy Information section while creating an NCI Vacancy
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -113,7 +113,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks button "Save" - PW
     Then User is directed to "Email Templates" section
 
-  @SSJ-11 @Regression @playwright @carberalf @SNOW_UPDATED @needsFix
+  @SSJ-11 @Regression @playwright @carberalf @SNOW_UPDATED
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Negative Flow
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -140,7 +140,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks "Save" for Actions
     Then User can see "A committee member can only be listed once on a committee. Please remove duplicate committee members." alert
 
-  @BUGFIX_APPTRACK-1332 @cabreralf @playwright
+  @BUGFIX_APPTRACK-1332 @playwright @Regression @cabreralf
   Scenario: BUG - Vacancy not showing for assigned Exec Secretary in Your Vacancies tab
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
