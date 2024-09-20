@@ -19,7 +19,8 @@ jobs:
 
       - name: Generate timestamp
         id: timestamp
-        run: echo "::set-output name=timestamp::$(Get-Date -Format 'yyyy-MM-dd_HH-mm-ss')"
+        shell: cmd
+        run: echo "::set-output name=timestamp::%date:~-4,4%-%date:~-10,2%-%date:~-7,2%_%time:~0,2%-%time:~3,2%-%time:~6,2%"
 
       - name: Determine report path
         id: reportpath
