@@ -5,19 +5,19 @@ public class TestProperties {
         // Local values that can be edited by testers
         private static String localEnv = "test";
         private static String localBrowser = "chrome";
-        private static boolean localHeadless = false;
+        private static boolean localHeadless = true;
 
         // The values that will actually be used in tests
-        public static String ENV = System.getProperty("ENV_VAR") != null ? System.getProperty("ENV_VAR") : localEnv;
-        public static String BROWSER = System.getProperty("BROWSER_VAR") != null ? System.getProperty("BROWSER_VAR") : localBrowser;
-        public static boolean HEADLESS = System.getProperty("HEADLESS_VAR") != null ? Boolean.parseBoolean(System.getProperty("HEADLESS_VAR")) : localHeadless;
+        public static String ENV = System.getProperty("ENV_VAR", localEnv);
+        public static String BROWSER = System.getProperty("BROWSER_VAR", localBrowser);
+        public static boolean HEADLESS = Boolean.parseBoolean(System.getProperty("HEADLESS_VAR", String.valueOf(localHeadless)));
         public static int SET_SLOW_MO_TIME = 1000;
 
         // SIDE-DOOR TEST ACCOUNT
         public static String SIDE_DOOR_USERNAME = "CBIITTestAccount";
         public static String SIDE_DOOR_PASSWORD = "Tester123@";
 
-        //iTrust Login Credentials
+        // iTrust Login Credentials
         public static String I_TRUST_USERNAME = "juarezds";
         public static String I_TRUST_PASSWORD = "QXZlbmdlcnNBc3NlbWJsZTk5Pw==";
 

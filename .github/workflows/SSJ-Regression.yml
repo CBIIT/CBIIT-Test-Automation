@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    runs-on: NCI-WINDOWS
+    runs-on: self-hosted
     env:
       CI: 'true'
     steps:
