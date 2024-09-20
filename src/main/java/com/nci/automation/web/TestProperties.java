@@ -2,15 +2,10 @@ package com.nci.automation.web;
 
 public class TestProperties {
 
-        // Local values that can be edited by testers
-        private static String localEnv = "test";
-        private static String localBrowser = "chrome";
-        private static boolean localHeadless = true;
-
         // The values that will actually be used in tests
-        public static String ENV = System.getProperty("ENV_VAR", localEnv);
-        public static String BROWSER = System.getProperty("BROWSER_VAR", localBrowser);
-        public static boolean HEADLESS = Boolean.parseBoolean(System.getProperty("HEADLESS_VAR", String.valueOf(localHeadless)));
+        public static String ENV = "test";
+        public static String BROWSER = "chrome";
+        public static boolean HEADLESS = true;
         public static int SET_SLOW_MO_TIME = 1000;
 
         // SIDE-DOOR TEST ACCOUNT
