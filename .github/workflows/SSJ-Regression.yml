@@ -2,21 +2,10 @@ name: PLATFORM BUSINESS - SSJ REGRESSION TESTS
 
 on:
   workflow_dispatch:
-    inputs:
-      testBrowser:
-        description: 'Browser'
-        required: true
-        default: 'chrome'
-      environment:
-        description: 'Environment'
-        required: true
-        default: 'staging'
 
 jobs:
   build:
     runs-on: NCI-WINDOWS
-    env:
-      CI: 'true'
     steps:
       - uses: actions/checkout@v2
         with:
