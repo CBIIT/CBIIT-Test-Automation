@@ -24,6 +24,7 @@ jobs:
 
       - name: Determine report path
         id: reportpath
+        shell: cmd
         run: echo "::set-output name=path::ssj-regression-reports"
 
       - name: Upload Cucumber Report
