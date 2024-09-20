@@ -25,7 +25,7 @@ jobs:
 
       - name: Run specific runner class
         shell: cmd
-        run: mvn -B -q -Dtest=SSJ_Regression_Runners -DisCloud=true -DBROWSER_VAR='${{ github.event.inputs.testBrowser }}' -DENV_VAR='${{ github.event.inputs.environment }}' test
+        run: mvn -B -q -Dtest=SSJ_Regression_Runners -DisCloud=true -DBROWSER_VAR='${{ github.event.inputs.testBrowser }}' -DENV_VAR='${{ github.event.inputs.environment }}' -DHEADLESS_VAR='true' test
         continue-on-error: true
 
       - name: Generate timestamp
