@@ -834,7 +834,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * @param ReturnedToDOCPlaningContact
      */
     public static void verifyingReturnedDOCStatus(String submissionName, String ReturnedToDOCPlaningContact) {
-        WebDriverUtils.refreshPage(WebDriverUtils.webDriver);
+        webDriver.navigate().refresh();
         MiscUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.returnedToDOCText(submissionName));
         CommonUtils.waitForVisibility(nerdDynamicXpaths.returnedToDOCTextCRS(ReturnedToDOCPlaningContact));
@@ -853,7 +853,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * @param versionNumber
      */
     public static void verifyingArticleVersionNumber(String versionNumber) {
-        JavascriptUtils.refreshPage(WebDriverUtils.webDriver);
+        webDriver.navigate().refresh();
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageHOMEButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton.click();
         MiscUtils.sleep(7000);
@@ -877,7 +877,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * @param versionNumber
      */
     public static void verifyingIncrementedArticleVersionNumber(String versionNumber) {
-        JavascriptUtils.refreshPage(WebDriverUtils.webDriver);
+        webDriver.navigate().refresh();
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageHOMEButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton.click();
         CommonUtils.waitForVisibility( nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsList);

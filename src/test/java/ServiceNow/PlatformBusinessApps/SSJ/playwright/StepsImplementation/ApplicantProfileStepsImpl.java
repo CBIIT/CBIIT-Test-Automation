@@ -14,10 +14,7 @@ import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.LoadState;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.ConfUtils;
-import com.nci.automation.web.EnvUtils;
-import com.nci.automation.web.PlaywrightUtils;
+import com.nci.automation.web.*;
 import org.testng.Assert;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
@@ -27,6 +24,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import static com.nci.automation.web.PlaywrightUtils.page;
+import static com.nci.automation.web.TestProperties.getSSJUrl;
 
 public class ApplicantProfileStepsImpl {
 
@@ -1471,7 +1469,7 @@ public class ApplicantProfileStepsImpl {
      */
     public static void a_user_who_has_not_applied_to_a_vacancy_before_is_on_the_ssj_home_page() {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
-        PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("SSJPortalView"));
+        PlaywrightUtils.page.navigate(getSSJUrl());
         CucumberLogUtils.playwrightScreenshot(page);
     }
 

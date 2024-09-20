@@ -10,7 +10,10 @@ import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.TestProperties;
+
 import static com.nci.automation.web.PlaywrightUtils.page;
+import static com.nci.automation.web.TestProperties.*;
 
 public class Playwright_ServiceNow_Common_Methods {
 
@@ -18,22 +21,15 @@ public class Playwright_ServiceNow_Common_Methods {
      * THIS METHOD LOGS INTO NATIVE VIEW USING THE SIDE DOOR TEST ACCOUNT
      */
     public static void side_Door_Test_Account_Login(){
-        page.navigate(EnvUtils.getApplicationUrl("nativeviewSideDoor"));
-//        page.locator(Playwright_NativeView_Side_Door_Login_Page.usernameTextBox).fill(ConfUtils.getProperty("SideDoorUsername"));
-//        page.locator(Playwright_NativeView_Side_Door_Login_Page.passwordTextBox).fill(EncryptionUtils.decrypt(ConfUtils.getProperty("SideDoorPassword")));
-//        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(Playwright_NativeView_Side_Door_Login_Page.loginButton)).click();
+        page.navigate(getNativeViewSideDoorUrl());
 
-        // Get the settings from system properties or properties file
         String sideDoorUsername = System.getProperty("SideDoorUsername");
-        if (sideDoorUsername == null) sideDoorUsername = ConfUtils.getProperty("SideDoorUsername");
+        if (sideDoorUsername == null) sideDoorUsername = SIDE_DOOR_USERNAME;
         String sideDoorPassword = System.getProperty("SideDoorPassword");
-        if (sideDoorPassword == null) sideDoorPassword = EncryptionUtils.decrypt(ConfUtils.getProperty("SideDoorPassword"));
+        if (sideDoorPassword == null) sideDoorPassword = SIDE_DOOR_PASSWORD;
 
-        // Use the settings for filling forms
         page.locator(Playwright_NativeView_Side_Door_Login_Page.usernameTextBox).fill(sideDoorUsername);
         page.locator(Playwright_NativeView_Side_Door_Login_Page.passwordTextBox).fill(sideDoorPassword);
-
-        // Continue with the remaining steps as usual
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(Playwright_NativeView_Side_Door_Login_Page.loginButton)).click();
     }
 

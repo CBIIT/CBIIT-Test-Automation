@@ -14,11 +14,6 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 
-/**
- * This class contains web driver related methods
- *
- * @author juarezds
- */
 public class WebDriverUtils {
 
     public static Logger log = LogManager.getLogger(WebDriverUtils.class);
@@ -27,12 +22,7 @@ public class WebDriverUtils {
 
     public static void setUp() {
 
-        // Check system properties first for browser setting
-        // if not present, fall back to properties file
-        String browser = System.getProperty("BROWSER_VAR");
-        if(browser == null) {
-            browser = ConfUtils.getProperty("browser");
-        }
+        String browser = TestProperties.BROWSER.toLowerCase();
 
         if (FrameworkConstants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
             launchChrome();
@@ -47,23 +37,12 @@ public class WebDriverUtils {
         }
     }
 
-    /**
-     * This method will close the current web-driver
-     */
-    public static void closeWebDriver() {
-        webDriver.quit();
-    }
-
-    public static void refreshPage(WebDriver driver) {
-        driver.navigate().refresh();
-    }
-
     public static void launchChrome() {
-        String headless = ConfUtils.getProperty("headless");
+        boolean headless = TestProperties.HEADLESS;
         String ci = System.getenv("CI");
         ChromeOptions chromeOptions = new ChromeOptions();
 
-        if (headless.equalsIgnoreCase(FrameworkConstants.TRUE)) {
+        if (headless) {
             chromeOptions.addArguments("--headless");
         }
 

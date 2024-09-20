@@ -499,13 +499,13 @@ public class ServicePortalSteps {
 
 	}
 
-	@After
-	public void genericTearDown(Scenario s) throws TestingException {
-		CucumberLogUtils.logScreenshot();
-		if (WebDriverUtils.webDriver != null) {
-			WebDriverUtils.closeWebDriver();
-			PageCache.getInstance().destroyInstances();
-		}
-	}
+//	@After
+//	public void genericTearDown(Scenario s) throws TestingException {
+//		CucumberLogUtils.logScreenshot();
+//		if (WebDriverUtils.webDriver != null) {
+//			WebDriverUtils.closeWebDriver();
+//			PageCache.getInstance().destroyInstances();
+//		}
+//	}
 
 }

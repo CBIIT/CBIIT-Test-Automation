@@ -7,6 +7,10 @@ on:
         description: 'Browser'
         required: true
         default: 'chrome'
+      environment:
+        description: 'Environment'
+        required: true
+        default: 'staging'
 
 jobs:
   build:
@@ -21,7 +25,7 @@ jobs:
 
       - name: Run specific runner class
         shell: cmd
-        run: mvn -B -q -Dtest=SSJ_Regression_Runners -DisCloud=true -DSideDoorUsername='${{ secrets.SIDEDOORUSERNAME }}' -DSideDoorPassword='${{ secrets.SIDEDOORPASSWORD }}' -DBROWSER_VAR='${{ github.event.inputs.testBrowser }}' -DENV_VAR='test' test
+        run: mvn -B -q -Dtest=SSJ_Regression_Runners -DisCloud=true -DBROWSER_VAR='${{ github.event.inputs.testBrowser }}' -DENV_VAR='${{ github.event.inputs.environment }}' test
         continue-on-error: true
 
       - name: Generate timestamp
