@@ -43,7 +43,9 @@ public class HomeSteps extends PageInitializer {
 
     @When("user clicks on About page")
     public void user_clicks_on_About_page() {
+        MiscUtils.sleep(2000);
         gwasExplorerHomePage.lnkAbout.click();
+        MiscUtils.sleep(2000);
     }
 
     @When("clicks on Github")
