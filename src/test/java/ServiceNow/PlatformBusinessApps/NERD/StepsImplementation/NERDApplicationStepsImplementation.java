@@ -14,9 +14,9 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import java.util.Set;
 import static com.nci.automation.web.TestProperties.getNerdUrl;
 
@@ -739,7 +739,8 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         JavascriptUtils.clickByJS(nerdDynamicXpaths.publishedCollaboration(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER));
         CommonUtils.switchToAnotherWindow();
         CommonUtils.sleep(1000);
-        Assert.assertTrue(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER,
+        // MARIA WILL UPDATE THIS ASSERTION
+        Assert.assertEquals(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER,
                 nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber1.getText().trim()
                         .contentEquals(versionNumber));
         JavascriptUtils.drawBlueBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber1);
