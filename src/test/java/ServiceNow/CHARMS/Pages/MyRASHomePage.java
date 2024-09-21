@@ -34,7 +34,7 @@ public class MyRASHomePage {
 	@FindBy(xpath = "//p[@align='center']//parent::div//child::h3")
 	public WebElement rasoptathyRasSurveyPin;
 
-	/* RASopathy Study Consent */
+	/* RASopathy Study Consent Button */
 	@FindBy(xpath = "//div[@class='custom-card-image']//a[@aria-label='Consent']")
 	public WebElement rasopathyStudyConsent;
 

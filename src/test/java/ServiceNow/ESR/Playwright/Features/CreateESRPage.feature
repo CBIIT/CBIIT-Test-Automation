@@ -26,3 +26,17 @@ Feature: Create ESR Page
     And navigates to create ESR
     And fills out all required information for ESR-I and clicks submit
     Then user sees an ESR-I ticket was created
+
+  @ESR-553 @sarwarahmed1 @Regression @playwright
+  Scenario: Test creating an ESR-Q ticket from Portal View
+    Given a user logs into NCI at your service page
+    And navigates to Engineering Support Requests
+    And fills out all required information for ESR-Q in portal view and clicks submit
+    Then user sees an ESR-Q ticket was created in portal view
+
+  @ESR-554 @sarwarahmed1 @Regression @playwright
+  Scenario: Test creating an ESR-I ticket from Portal View
+    Given a user logs into NCI at your service page
+    And navigates to Engineering Support Requests
+    And fills out all required information for ESR-I in portal view and clicks submit
+    Then user sees an ESR-I ticket was created in portal view

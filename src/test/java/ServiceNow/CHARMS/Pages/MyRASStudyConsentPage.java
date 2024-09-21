@@ -12,8 +12,7 @@ public class MyRASStudyConsentPage {
 	/* Yes, I have read the terms and conditions checkbox */
 	@FindBy (xpath = "//input[@name='consent_read']")
 	public WebElement yesIhaveReadTheTermsAndConditionsCheckbox;
-	
-	
+
 	/* I am this person radio button */
 	@FindBy (xpath = "//div[2]//span[1]//div[1]//div[1]//div[1]//div[1]//div[4]//div[2]//div[2]//div[1]//input[1]")
 	public WebElement iAmThisPersonRadioButton;
