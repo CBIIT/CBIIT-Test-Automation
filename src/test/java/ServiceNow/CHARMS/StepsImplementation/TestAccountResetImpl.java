@@ -89,15 +89,15 @@ public class TestAccountResetImpl extends PageInitializer {
     public static void test_automation_account_has_been_reset(String url) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(url);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         testAccountResetPage.nativeViewRunFixScriptButton.click();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
         testAccountResetPage.nativeViewProceedInBackgroundButton.click();
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
 }
