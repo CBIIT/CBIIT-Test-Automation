@@ -276,8 +276,8 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         ServiceNow_Common_Methods.logOutOfNativeView();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         MiscUtils.sleep(2000);
-        ServiceNow_Common_Methods.filterNavigatorSearch("Emails");
-        MiscUtils.sleep(2000);
+//        ServiceNow_Common_Methods.filterNavigatorSearch("Emails");
+//        MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(ReturningSubmissions_Constants.NATIVE_VIEW_EMAILS_UNDER_SYSTEM_LOGS_URL);
         MiscUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
