@@ -7,7 +7,6 @@ import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
