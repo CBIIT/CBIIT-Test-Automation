@@ -7,7 +7,6 @@ import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class ApplicantProfileSteps {
