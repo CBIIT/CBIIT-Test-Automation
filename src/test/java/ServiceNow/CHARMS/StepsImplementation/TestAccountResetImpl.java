@@ -8,6 +8,7 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.TestProperties;
 import com.nci.automation.web.WebDriverUtils;
 import appsCommon.PageInitializers.PageInitializer;
+import io.cucumber.java.en.Given;
 
 public class TestAccountResetImpl extends PageInitializer {
 
@@ -76,6 +77,27 @@ public class TestAccountResetImpl extends PageInitializer {
         testAccountResetPage.nativeViewProceedInBackgroundButton.click();
         CommonUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
+        ServiceNow_Common_Methods.logOutOfNativeView();
+    }
+
+    /**
+     * This method navigates to the url with the RASopathy Study Test Account reset script
+     * Call this method at the end of your test case to rerun test case with same test account
+     *
+     * @param url the URL to navigate to the test account reset script
+     */
+    public static void test_automation_account_has_been_reset(String url) {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        WebDriverUtils.webDriver.get(url);
+        MiscUtils.sleep(2000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
+        MiscUtils.sleep(2000);
+        testAccountResetPage.nativeViewRunFixScriptButton.click();
+        MiscUtils.sleep(1000);
+        CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
+        testAccountResetPage.nativeViewProceedInBackgroundButton.click();
+        MiscUtils.sleep(3000);
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
 }

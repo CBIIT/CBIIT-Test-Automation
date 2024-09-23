@@ -1,4 +1,4 @@
-package ServiceNow.ServiceNowRunners;
+package ServiceNow.PlatformBusinessApps.ETracking.ETracking_Runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -11,9 +11,9 @@ import io.cucumber.testng.CucumberOptions;
         , tags="@Regression"
         , dryRun = false
 )
-/**
-*  @author sohilz2
-*/
 
+/**
+ * This class is annotated with @RunWith(Cucumber.class) and it will run cucumber feature(s).
+ */
 public class RunETrackingRegressionTest extends AbstractTestNGCucumberTests{
 }

@@ -9,7 +9,7 @@ import io.cucumber.java.en.When;
 public class EtrackAssetsRecords_NativeViewSteps extends PageInitializer {
 
     @Given("a eTracking user opens an Asset record")
-    public void a_e_tracking_user_opens_an_asset_record() {
+    public void a_e_tracking_user_opens_an_asset_record(){
         EtrackAssetsRecords_NativeViewStepImplimentation.aEtrackingUserOpensAnAssetRecord();
     }
 
@@ -29,7 +29,7 @@ public class EtrackAssetsRecords_NativeViewSteps extends PageInitializer {
     }
 
     @Given("an eTracking user is on an Asset record")
-    public void an_e_tracking_user_is_on_an_asset_record()  {
+    public void an_e_tracking_user_is_on_an_asset_record() {
        EtrackAssetsRecords_NativeViewStepImplimentation.anEtrackingUserIsOnAnAssetRecord();
     }
 

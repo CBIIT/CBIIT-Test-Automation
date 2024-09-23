@@ -15,7 +15,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
     /**
      * All Etracking Asset methods needs Screenshots once the issues is resolved
      */
-    public static void aEtrackingUserOpensAnAssetRecord()  {
+    public static void aEtrackingUserOpensAnAssetRecord() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser("Jeffrey Alderdice");
         ServiceNow_Common_Methods.filterNavigatorSearch("Assets");

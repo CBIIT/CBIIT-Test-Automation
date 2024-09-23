@@ -9,7 +9,7 @@ import io.cucumber.java.en.When;
 public class GDC_WOrkflow_NativeViewSteps extends PageInitializer {
 
     @Given("I am authenticated GDC Fulfiller in the Native View")
-    public void i_am_authenticated_gdc_fulfiller_in_the_native_view()  {
+    public void i_am_authenticated_gdc_fulfiller_in_the_native_view() {
         GDC_Workflow_NativeView_StepImplementation.iAmAuthenticatedGDCFulfillerInNV();
     }
 
@@ -19,7 +19,7 @@ public class GDC_WOrkflow_NativeViewSteps extends PageInitializer {
     }
 
     @Then("I should see UI Actions in the top right hand corner that follow GDC flow")
-    public void i_should_see_ui_actions_in_the_top_right_hand_corner_that_follow_gdc_flow() {
+    public void i_should_see_ui_actions_in_the_top_right_hand_corner_that_follow_gdc_flow(){
         GDC_Workflow_NativeView_StepImplementation.gDCUIActionsOnTopRightCornerForGDCFlow();
     }
 
@@ -37,5 +37,4 @@ public class GDC_WOrkflow_NativeViewSteps extends PageInitializer {
     public void i_should_be_able_to_go_to_the_closure_info_and_check_that_business_duration_is_filled() {
         GDC_Workflow_NativeView_StepImplementation.clickOnClosureInfoAndCheckBusinessDuration();
     }
-
 }
