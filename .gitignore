@@ -4,6 +4,7 @@
 src/main/resources/conf/localConf.properties
 src/main/resources/conf/localEnv.properties
 target/classes/conf/localConf.properties
+target/classes/conf/localEnv.properties
 target/cucumber.json
 true
 /.metadata/
@@ -54,3 +55,6 @@ src/test/java/ServiceNow/COVIDDash/Resources/.DS_Store
 src/test/java/ServiceNow/PlatformBusinessApps/CCT_CHAT_BOT/Playwright/Steps/Example.java
 src/test/java/PlaywrightTests_sandbox
 src/test/java/ServiceNow/PlatformBusinessApps/SSJ/playwright/Steps/Example.java
+src/test/java/CustomBusiness/Egrants/pw
+src/test/java/CustomBusiness/Oasys
+src/test/java/ServiceNow/ESR/Playwright/Steps/Example.java

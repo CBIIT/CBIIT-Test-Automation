@@ -18,14 +18,19 @@ jobs:
       DISPLAY: ".99"
       SCREEN_RESOLUTION: "1280x1024x24"
     steps:
-      - uses: actions/checkout@v2
+      - name: Install Git LFS
+        run: |
+          sudo apt-get install git-lfs
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
           fetch-depth: 0
+          lfs: true
       - name: Set up JDK 1.11
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v4
         with:
-          java-version: 1.11
+          distribution: 'zulu'
+          java-version: '11'
       - name: Install Google Chrome
         run: |
           sudo apt-get install -y wget
@@ -46,15 +51,15 @@ jobs:
         continue-on-error: true
       - name: Generate timestamp
         id: timestamp
-        run: echo "::set-output name=timestamp::$(TZ='America/New_York' date +'%Y-%m-%d_%I-%M-%S_%p')"
+        run: echo "timestamp=$(TZ='America/New_York' date +'%Y-%m-%d_%I-%M-%S_%p')" >> $GITHUB_ENV
       - name: Determine report path
         id: reportpath
-        run: echo "::set-output name=path::html-charms-rasopathy-regression-reports"
+        run: echo "path=html-charms-rasopathy-regression-reports" >> $GITHUB_ENV
       - name: Upload Cucumber Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: cucumber-report-${{ github.run_number }}
+          name: CHARMS-RAS-REGRESSION-${{ env.timestamp }}
           path: target/html-charms-rasopathy-regression-reports/*
       - name: Remove Google Chrome installation file
         run: rm google-chrome-stable_current_amd64.deb
@@ -69,10 +74,10 @@ jobs:
           git checkout gh-pages
           git rm -f src/main/resources/conf/cloudEnv.properties
           git checkout stash -- .
-          mkdir -p ${{ steps.reportpath.outputs.path }}
-          mv target/html-charms-rasopathy-regression-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
+          mkdir -p ${{ env.path }}
+          mv target/html-charms-rasopathy-regression-reports/*.html ${{ env.path }}/report-${{ env.timestamp }}.html
           git add .
-          git commit -m "Publishing cucumber report ${{ github.run_number }}"
+          git commit -m "Publishing cucumber report ${{ env.timestamp }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
       - name: Update Test Results and Append to Index File
         env:
@@ -80,12 +85,12 @@ jobs:
         run: |
           if [[ -f "charms-ras-test-results.html" ]]; then
               sed -i '1s/.*/<h1>CHARMS RAS Test Results<\/h1>/' charms-ras-test-results.html
-              echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> charms-ras-test-results.html
+              echo "<h3><a href='${{ env.path }}/report-${{ env.timestamp }}.html'>Test Report ${{ env.path }}/report-${{ env.timestamp }}.html</a></h3>" >> charms-ras-test-results.html
               git add charms-ras-test-results.html
               git commit -m "Update charms-ras-test-results.html"
           else
               echo "<h1>CHARMS RAS Test Results</h1>" > charms-ras-test-results.html
-              echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> charms-ras-test-results.html
+              echo "<h3><a href='${{ env.path }}/report-${{ env.timestamp }}.html'>Test Report ${{ env.path }}/report-${{ env.timestamp }}.html</a></h3>" >> charms-ras-test-results.html
               git add charms-ras-test-results.html
               git commit -m "Create and update charms-ras-test-results.html"
           fi
