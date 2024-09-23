@@ -266,7 +266,7 @@ public class RAS_All_Steps extends PageInitializer {
             }
         }
         String pdfUrl = webDriver.getCurrentUrl();
-        String downloadPath = LocalConfUtils.getRootDir() + "/src/test/resources/" + pdfName + ".pdf";
+        String downloadPath = System.getProperty("user.dir") + "/src/test/resources/" + pdfName + ".pdf";
         System.out.println("* * * * * DOWNLOADING STUDY CONSENT PDF * * * * *");
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL(pdfUrl).openConnection();
