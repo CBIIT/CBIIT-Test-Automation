@@ -3,15 +3,10 @@ package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.*;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
-import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
-import com.microsoft.playwright.ElementHandle;
-import com.nci.automation.utils.CucumberLogUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import java.awt.*;
 
 import static com.nci.automation.web.PlaywrightUtils.page;
 

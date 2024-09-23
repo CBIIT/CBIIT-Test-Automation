@@ -688,6 +688,16 @@ public class OWM_Vacancy_Manager_StepsImpl {
         page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator("Executive Secretary (non-voting)")).click();
     }
 
+    /**
+     * Impersonates Holly or any vacancy manager.
+     * This method performs the following steps:
+     * 1. Navigates to the native view side door page.
+     * 2. Fills the username and password text boxes with the appropriate values.
+     * 3. Clicks on the login button.
+     * 4. Waits for the page to finish loading.
+     * 5. Reloads the page.
+     * 6. Sleeps for 2000 milliseconds.
+     */
     public static void impersonate_holly_or_any_vacancy_manager(){
         page.navigate(EnvUtils.getApplicationUrl("nativeviewSideDoor"));
         page.locator(Playwright_NativeView_Side_Door_Login_Page.usernameTextBox).fill(ConfUtils.getProperty("SideDoorUsername"));
