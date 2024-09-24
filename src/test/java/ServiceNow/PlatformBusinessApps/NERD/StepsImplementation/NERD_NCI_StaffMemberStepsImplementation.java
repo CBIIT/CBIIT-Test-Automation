@@ -119,7 +119,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsAccordionButton.click();
-        CommonUtils.sleep(5000);
+        CommonUtils.sleep(6000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(nerdDynamicXpaths.underReviewText(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
@@ -153,8 +153,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-        CommonUtils.sleep(1000);
-        CommonUtils.scrollIntoView(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
+        CommonUtils.sleep(5000);
         CommonUtils.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText(submissionName).getText().contentEquals(ReturningSubmissions_Constants.RETURNED_TO_STUFF_MEMBER_TEXT));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
         CucumberLogUtils.logScreenshot();
@@ -285,8 +284,8 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-        CommonUtils.sleep(1000);
-        CommonUtils.scrollIntoView(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
+        CommonUtils.sleep(5000);
+//        CommonUtils.scrollIntoView(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
         CommonUtils.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText(submissionName).getText().contentEquals(ReturningSubmissions_Constants.RETURNED_TO_STUFF_MEMBER_TEXT));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
         CucumberLogUtils.logScreenshot();
@@ -386,8 +385,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-        CommonUtils.sleep(1000);
-        CommonUtils.scrollIntoView(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
+        CommonUtils.sleep(3000);
         CommonUtils.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText(submissionName).getText().contentEquals(ReturningSubmissions_Constants.RETURNED_TO_STUFF_MEMBER_TEXT));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
         CommonUtils.sleep(2000);
@@ -524,8 +522,8 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-        CommonUtils.sleep(2000);
-        CommonUtils.scrollIntoView(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
+        CommonUtils.sleep(3000);
+//        CommonUtils.scrollIntoView(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
         CommonUtils.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText(submissionName).getText().contentEquals(ReturningSubmissions_Constants.RETURNED_TO_STUFF_MEMBER_TEXT));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
         CommonUtils.sleep(2000);
@@ -664,8 +662,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-        CommonUtils.sleep(2000);
-        CommonUtils.scrollIntoView(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
+        CommonUtils.sleep(3000);
         CommonUtils.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText(submissionName).getText().contentEquals(ReturningSubmissions_Constants.RETURNED_TO_STUFF_MEMBER_TEXT));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
         CommonUtils.sleep(2000);

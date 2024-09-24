@@ -4,6 +4,7 @@ import ServiceNow.COVIDDash.Utils.COVIDConstants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.NCI_Staff_Members_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.TopAccomplishmentsSubmission_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.Pages.NERDDOCCollaborationsPage;
 import ServiceNow.PlatformBusinessApps.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.PlatformBusinessApps.SEER.Constants.SEERNativeView_Constants;
 import appsCommon.PageInitializers.PageInitializer;
@@ -159,7 +160,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
                 .sendKeys(ReturningSubmissions_Constants.RETURN_TO_PROGRAM_STUFF_MESSAGE);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-        CommonUtils.sleep(1000);
+        CommonUtils.sleep(3000);
         CommonUtils.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText(submissionName).getText()
                 .contentEquals(ReturningSubmissions_Constants.RETURNED_TO_STUFF_MEMBER_TEXT));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
@@ -238,8 +239,6 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
     public static void checkingEmailWasNotReceived(String docPlanningContact) {
         ServiceNow_Common_Methods.logOutOfNativeView();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        CommonUtils.sleep(2000);
-        ServiceNow_Common_Methods.filterNavigatorSearch("Emails");
         CommonUtils.sleep(2000);
         WebDriverUtils.webDriver.get(ReturningSubmissions_Constants.NATIVE_VIEW_EMAILS_UNDER_SYSTEM_LOGS_URL);
         CommonUtils.sleep(3000);
@@ -739,10 +738,8 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         JavascriptUtils.clickByJS(nerdDynamicXpaths.publishedCollaboration(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER));
         CommonUtils.switchToAnotherWindow();
         CommonUtils.sleep(1000);
-        // MARIA WILL UPDATE THIS ASSERTION
-        Assert.assertEquals(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER,
-                nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber1.getText().trim()
-                        .contentEquals(versionNumber));
+        CommonUtils.assertTrue(nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber1.getText().trim()
+                .contentEquals(versionNumber));
         JavascriptUtils.drawBlueBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber1);
         CommonUtils.sleep(5000);
         CucumberLogUtils.logScreenshot();
