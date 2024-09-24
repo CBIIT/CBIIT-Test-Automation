@@ -33,7 +33,7 @@ public class GwasExplorerHomePage extends CommonUtils {
     public WebElement lnkAbout;
 
     /** About Page Github Link **/
-    @FindBy(linkText = "GitHub")
+    @FindBy(xpath = "//a[contains(text(),'GitHub')]")
     public WebElement lnkGitHub;
 
     /*** HOME TAB ELEMENTS ***/

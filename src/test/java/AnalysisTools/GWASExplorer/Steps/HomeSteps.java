@@ -51,7 +51,8 @@ public class HomeSteps extends PageInitializer {
 
     @When("clicks on Github")
     public void clicks_on_Github() {
-        gwasExplorerHomePage.lnkGitHub.click();
+        MiscUtils.sleep(2000);
+        JavascriptUtils.clickByJS(gwasExplorerHomePage.lnkGitHub);
     }
 
     @Then("user goes to source code from About page")
