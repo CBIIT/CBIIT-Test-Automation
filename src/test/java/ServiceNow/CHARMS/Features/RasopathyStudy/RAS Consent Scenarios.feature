@@ -1,6 +1,6 @@
 Feature: RAS Consent Scenarios
 
-  @muzipovay2 @RAS_STUDY @CP2-3603 @selenium @Regression @Progression
+  @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3637 @selenium @Regression
   Scenario Outline: Verifying e-consent workflow for an adult participant, and then verifying that a Download Study Consent widget shows on portal and when clicked downloads the most recent Consent Record
     Given test automation account "<AccountResetScriptURL>" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
