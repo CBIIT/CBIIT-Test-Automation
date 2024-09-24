@@ -1,5 +1,6 @@
 package appsCommon.Utils;
 
+import com.nci.automation.utils.CucumberLogUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import com.nci.automation.utils.MiscUtils;
@@ -164,7 +165,9 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
     public static void logOutOfNativeView() {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
         MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(NativeViewHomePage.profileModule);
         CommonUtils.clickOnElement(NativeViewHomePage.logOutButton);
+        CucumberLogUtils.logScreenshot();
     }
 }
