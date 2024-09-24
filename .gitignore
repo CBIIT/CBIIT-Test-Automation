@@ -57,5 +57,6 @@ src/test/java/PlaywrightTests_sandbox
 src/test/java/ServiceNow/PlatformBusinessApps/SSJ/playwright/Steps/Example.java
 src/test/java/CustomBusiness/Egrants/pw
 src/test/java/CustomBusiness/Oasys
+src/test/java/ServiceNow/ESR/Playwright/Steps/Example.java
 Steps/Example.java
 Steps/UpgradeExample.java

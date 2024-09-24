@@ -18,4 +18,9 @@ public class TestAccountResetSteps extends PageInitializer {
 	public void test_automation_account_has_been_reset() {
 		TestAccountResetImpl.charmsRasOneTestAccountReset();
 	}
+
+	@Given("test automation account {string} has been reset")
+	public static void test_automation_account_has_been_reset(String url) {
+		TestAccountResetImpl.test_automation_account_has_been_reset(url);
+	}
 }
