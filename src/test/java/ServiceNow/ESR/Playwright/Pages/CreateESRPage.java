@@ -34,4 +34,6 @@ public class CreateESRPage {
 
     /* TEAM DETAILS SECTION SELECTOR IN PORTAL VIEW */
     public static String teamDetailsContainer = "#container_roles_and_assignments";
+
+    public static String newESRTicketSelector = "//tbody/tr/td/a[1]";
 }
