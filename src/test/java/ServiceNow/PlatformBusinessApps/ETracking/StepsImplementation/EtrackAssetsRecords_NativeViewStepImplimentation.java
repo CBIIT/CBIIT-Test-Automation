@@ -2,6 +2,7 @@ package ServiceNow.PlatformBusinessApps.ETracking.StepsImplementation;
 
 import ServiceNow.PlatformBusinessApps.ETracking.Constants.EtrackAssetsRecords_NativeView_Constants;
 import ServiceNow.PlatformBusinessApps.SEER.Constants.SEERNativeView_Constants;
+import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;
@@ -18,6 +19,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
     public static void aEtrackingUserOpensAnAssetRecord() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser("Jeffrey Alderdice");
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
         ServiceNow_Common_Methods.filterNavigatorSearch("Assets");
         CucumberLogUtils.logScreenshot();
         etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewButton.click();
