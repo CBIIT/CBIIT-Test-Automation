@@ -8,7 +8,7 @@ import static com.nci.automation.web.PlaywrightUtils.page;
 public class ESRShortDescriptionStepsImplementation {
 
     /**
-     * Validates the short description fields on the ESR ticket is Native View
+     * Validates the short description fields on the ESR ticket in Native View
      */
     public static void validateFieldsForESR() {
         page.frameLocator(CreateESRPage.iframeSelector).locator(CreateESRPage.newESRTicketSelector).click();
