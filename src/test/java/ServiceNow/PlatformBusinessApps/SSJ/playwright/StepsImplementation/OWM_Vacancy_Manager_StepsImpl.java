@@ -1,5 +1,6 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation;
 
+import Hooks.Hooks;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Email_Templates_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Mandatory_Statements_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Vacancy_Committee_Page;
@@ -7,20 +8,22 @@ import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Vacancy_Dashboard_Pa
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Utils.SSJ_Common_Utils;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Utils.SSJ_Constants;
 import appsCommon.Pages.Playwright_Common_Locators;
+import appsCommon.Pages.Playwright_NativeView_Side_Door_Login_Page;
 import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
-import com.microsoft.playwright.ElementHandle;
-import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.PlaywrightException;
+import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.ConfUtils;
+import com.nci.automation.web.EnvUtils;
 import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import static ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl.timestamp;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
@@ -648,9 +651,28 @@ public class OWM_Vacancy_Manager_StepsImpl {
      */
     public static void user_adds_committee_member_for_executive_secretary(String committeeMember) {
         page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberDropDown).click();
-        page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator(committeeMember)).click();
-        page.locator(Vacancy_Committee_Page.vacancyCommitteeChairRoleDropDown).click();
+        MiscUtils.sleep(2000);
+        page.locator("(//input[@id='react-select-3-input'])[1]").focus();
+        boolean isElementFound = false;
+        while(!isElementFound) {
+            for (int i = 0; i < 100; i++) {
+                page.keyboard().press("ArrowDown");
+                page.waitForTimeout(200);
+                String name = "//div[@class='UserPickerDropdown']//span[contains(text(),'" + committeeMember + "')]";
+                if(page.isVisible(name)) {
+                    page.waitForSelector(name).click();
+                    isElementFound = true;
+                    break;
+                }
+            }
+        }
+        if (page.isVisible(Vacancy_Committee_Page.vacancyCommitteeChairRoleDropDown)){
+            page.locator(Vacancy_Committee_Page.vacancyCommitteeChairRoleDropDown).click();
+        }else if(page.isVisible(Vacancy_Committee_Page.vacancyCommitteeMemberDropDown)){
+            page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberDropDown).click();
+        }
         page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator("Executive Secretary (non-voting)")).click();
+
     }
 
     /**
@@ -664,5 +686,48 @@ public class OWM_Vacancy_Manager_StepsImpl {
         page.locator(Playwright_Common_Locators.dynamicTextLocatorByIndex(committeeMember,2)).click();
         page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberRoleDropDown ).click();
         page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator("Executive Secretary (non-voting)")).click();
+    }
+
+    /**
+     * Impersonates Holly or any vacancy manager.
+     * This method performs the following steps:
+     * 1. Navigates to the native view side door page.
+     * 2. Fills the username and password text boxes with the appropriate values.
+     * 3. Clicks on the login button.
+     * 4. Waits for the page to finish loading.
+     * 5. Reloads the page.
+     * 6. Sleeps for 2000 milliseconds.
+     */
+    public static void impersonate_holly_or_any_vacancy_manager(){
+        page.navigate(EnvUtils.getApplicationUrl("nativeviewSideDoor"));
+        page.locator(Playwright_NativeView_Side_Door_Login_Page.usernameTextBox).fill(ConfUtils.getProperty("SideDoorUsername"));
+        page.locator(Playwright_NativeView_Side_Door_Login_Page.passwordTextBox).fill(EncryptionUtils.decrypt(ConfUtils.getProperty("SideDoorPassword")));
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(Playwright_NativeView_Side_Door_Login_Page.loginButton)).click();
+        page.waitForLoadState();
+        page.reload();
+        MiscUtils.sleep(2000);
+    }
+
+    /**
+     * Verifies if the given vacancy title is present on the "Your Vacancies" page.
+     *
+     * @param vacancyTitle The title of the vacancy to be verified.
+     */
+    public static void verifies_vacancy_title_is_on_the_your_vacancies_page(String vacancyTitle) {
+        Playwright_Common_Utils.scrollIntoView("(//a[@rel='nofollow'])[1]");
+        List<ElementHandle> pagination = page.querySelectorAll("//a[@rel='nofollow']");
+        for (ElementHandle itemPage : pagination) {
+            if (page.querySelector("//a[normalize-space()='" + vacancyTitle + " " + timestamp + "']") != null) {
+                String actualVacancy = page.locator("//a[normalize-space()='" + vacancyTitle + ' ' + ApplicantProfileStepsImpl.timestamp).innerText();
+                MiscUtils.sleep(2000);
+                System.out.println("Timestamp before assertion: " + ApplicantProfileStepsImpl.timestamp);
+                String expectedVacancy = vacancyTitle + " " + ApplicantProfileStepsImpl.timestamp;
+                Hooks.softAssert.assertEquals(actualVacancy,expectedVacancy);
+                break;
+            } else {
+                itemPage.click();
+            }
+        }
+
     }
 }

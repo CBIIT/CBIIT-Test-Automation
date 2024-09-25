@@ -133,12 +133,44 @@ Feature: OWM Vacancy Manager Scenarios
     Then User can see "At least one committee member must be of the role 'Chair'" alert
     And User clicks "Remove" for Actions
     When User clicks button " Add Member" - PW
-    When the user adds a Committee Member "Jay Kurani" for Chair role
+    When the user adds a Committee Member "Bre Harvey" for Chair role
     And User clicks "Save" for Actions
     When User clicks button " Add Member" - PW
-    And User adds duplicate Committee Member "Jay Kurani" for Executive Secretary
+    And User adds duplicate Committee Member "Bre Harvey" for Executive Secretary
     And User clicks "Save" for Actions
     Then User can see "A committee member can only be listed once on a committee. Please remove duplicate committee members." alert
+
+  @BUGFIX_APPTRACK-1332 @playwright @Regression @cabreralf
+  Scenario: BUG - Vacancy not showing for assigned Exec Secretary in Your Vacancies tab
+    When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
+    And User navigates to tab "Vacancy Dashboard" - PW
+    And User clicks button "+ Create Vacancy" - PW
+    And enters Vacancy Title name "Testing Automation Title SSJ-1332" - PW
+    And enters Vacancy Description "THIS IS A TEST AUTOMATION TEST" - PW
+    And selects "Yes" for point of contact - PW
+    And User sets an "Open Date" entry as today's date
+    And selects "0" for Full Contact Details for References
+    And User verifies that Number of Scoring Categories slider is set to "4" by default
+    And selects "4" for Number of Scoring Categories
+    And User verifies that Number of Scoring Categories slider is set to "4" by default
+    And selects "Research Fellow" for Position Classification drop down
+    And selects "HNC" for Organizational Code drop down
+    And User clicks button "Save" - PW
+    And User clicks on "Vacancy Committee" option on the left bar menu
+    When User clicks button " Add Member" - PW
+    When the user adds a Committee Member "David Rampulla" for Chair role
+    When User clicks "Save" for Actions
+    When User clicks button " Add Member" - PW
+    Then User adds Committee Member "Holly Gemar-Griffith" for Executive Secretary
+    When User clicks "Save" for Actions
+    And User clicks button "Save" - PW
+    Then User is directed to "Email Templates" section
+    And User clicks button "Save" - PW
+    And clicks "Save and Finalize"
+    And clicks "OK"
+    And clicks "Close"
+    And User navigates to tab "Your Vacancies" - PW
+    And verifies Vacancy Title "Testing Automation Title SSJ-1332" is on the Your Vacancies page
 
   @SSJ-310 @SSJ-158 @SSJ-71 @playwright
   Scenario: Verification of Email Templates section while creating an NCI Vacancy Positive Flow

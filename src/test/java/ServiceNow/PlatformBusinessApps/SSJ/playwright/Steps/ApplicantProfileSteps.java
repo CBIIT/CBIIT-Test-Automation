@@ -726,4 +726,9 @@ public class ApplicantProfileSteps {
     public void verifies_that_the_application_status_is(String withdrawnText) {
         ApplicantProfileStepsImpl.verifies_that_the_application_status_is(withdrawnText);
     }
+
+    @When("selects {string} for Number of Scoring Categories")
+    public void selects_for_number_of_scoring_categories(String scoringNumber) {
+        ApplicantProfileStepsImpl.selects_for_number_of_scoring_categories(scoringNumber);
+    }
 }
