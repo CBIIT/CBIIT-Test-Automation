@@ -7,17 +7,15 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class CGBIIQPage {
 
-	/* One Time Pin text box */
-	@FindBy (xpath = "//input[@name='QR~Authentication-FL_18~1~TEXT']")
-	public WebElement cgbIIQOneTimePinTextBox;
-	
-	/* One Time Pin email box */
-	@FindBy (xpath = "//input[@name='QR~Authentication-FL_18~0~TEXT']")
-	public WebElement cgbIIQOneTimeEmailTextBox;
+    /* One Time Pin text box */
+    @FindBy(xpath = "//input[@name='QR~Authentication-FL_18~1~TEXT']")
+    public WebElement cgbIIQOneTimePinTextBox;
 
-	public CGBIIQPage() {
-		
-		PageFactory.initElements(WebDriverUtils.webDriver, this);
-	}
+    /* One Time Pin email box */
+    @FindBy(xpath = "//input[@name='QR~Authentication-FL_18~0~TEXT']")
+    public WebElement cgbIIQOneTimeEmailTextBox;
 
+    public CGBIIQPage() {
+        PageFactory.initElements(WebDriverUtils.webDriver, this);
+    }
 }
