@@ -1,7 +1,6 @@
 package ServiceNow.ESR.Playwright.StepsImplementation;
 
 import ServiceNow.ESR.Playwright.Pages.CreateESRPage;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
