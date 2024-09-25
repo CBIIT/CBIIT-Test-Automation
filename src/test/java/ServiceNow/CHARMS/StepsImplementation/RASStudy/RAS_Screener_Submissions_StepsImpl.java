@@ -6,6 +6,7 @@ import ServiceNow.CHARMS.Pages.MyRASHomePage;
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import ServiceNow.CHARMS.Pages.RAS_Screener_Page;
 import ServiceNow.CHARMS.Pages.ScreenerRecordTablePage;
+import ServiceNow.CHARMS.ScenariosData.RAS_Screener_TestDataManager;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.Dynamic_Locators;
@@ -73,6 +74,9 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         } else if (sheetName.contentEquals("screenerScenario5")) {
             ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
 //            ras_scenario_five_stepsImpl.ras_screener_submission_five();
+        } else if (sheetName.contentEquals("screenerScenarioAge11-13")) {
+            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+            rasScreenerSubmissions(sheetName);
         }
     }
 
@@ -122,6 +126,17 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
                 /**
+                 * * * * * WHAT IS THE PROBAND'S NAME? * * * *
+                 */
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY)) {
+                    CucumberLogUtils.scenario.log("* * * * * ENTERING PROBAND'S FIRST NAME, MIDDLE INITIAL, LAST NAME * * * * *");
+                    rasopathyQuestionnairePage.dynamicTextBoxLocator("First name").sendKeys(ras_Screener_TestDataManager.PROBAND_FIRST_NAME);
+                    rasopathyQuestionnairePage.dynamicTextBoxLocator("Middle Initial").sendKeys(ras_Screener_TestDataManager.PROBAND_MIDDLE_INITIAL);
+                    rasopathyQuestionnairePage.dynamicTextBoxLocator("Last name").sendKeys(ras_Screener_TestDataManager.PROBAND_LAST_NAME);
+                    CucumberLogUtils.logScreenshot();
+                    ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
+                }
+                /**
                  * * * * * THE NEXT SET OF QUESTIONS WILL COLLECT BASIC INFORMATION ABOUT YOU. * * * *
                  */
                 else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(THE_NEXT_SET_OF_QUESTIONS_WILL_COLLECT_BASIC_INFORMATION_ABOUT_YOU)) {
@@ -138,6 +153,15 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     rasopathyQuestionnairePage.calendarYearTextBox.sendKeys(ras_Screener_TestDataManager.DATE_OF_BIRTH_YEAR);
                     CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.DATE_OF_BIRTH_MONTH, rasopathyQuestionnairePage.calendarMonthDropDown);
                     RAS_Screener_Page.dynamicDateOfBirthCalendarLocator(ras_Screener_TestDataManager.WHAT_IS_YOUR_DATE_OF_BIRTH).click();
+                    CucumberLogUtils.logScreenshot();
+                    ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
+                }
+                /**
+                 * * * * * WHAT IS THE PROBAND'S DATE OF BIRTH? * * * *
+                 */
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals("Date of birth of" + ras_Screener_TestDataManager.PROBAND_FIRST_NAME + " " + ras_Screener_TestDataManager.PROBAND_LAST_NAME)) {
+                    CucumberLogUtils.scenario.log("* * * * * WHAT IS THE PROBAND'S DATE OF BIRTH? * * * * *");
+                    rasopathyQuestionnairePage.probandDateOfBirthTextBox.sendKeys(ras_Screener_TestDataManager.DATE_OF_BIRTH_OF_THE_PROBAND);
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }

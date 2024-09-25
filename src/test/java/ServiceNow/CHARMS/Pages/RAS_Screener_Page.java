@@ -56,6 +56,10 @@ public class RAS_Screener_Page {
     @FindBy(xpath = "//span[@aria-label='April 1, 1990']")
     public WebElement calendarDayOption;
 
+    /* Proband date of birth text box */
+    @FindBy(xpath = "(//input[@id='QR~QID9'])[1]")
+    public WebElement probandDateOfBirthTextBox;
+
     /* IIQ Calendar day option */
     @FindBy(xpath = "//span[@aria-label='November 10, 2004']")
     public WebElement iIQcalendarDayOption;

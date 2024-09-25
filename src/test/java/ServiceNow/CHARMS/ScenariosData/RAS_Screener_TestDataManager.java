@@ -3,6 +3,7 @@ package ServiceNow.CHARMS.ScenariosData;
 import ServiceNow.CHARMS.Constants.CHARMS_Data_File_Path_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.ExcelReader;
+
 import java.util.Map;
 
 public class RAS_Screener_TestDataManager extends PageInitializer {
@@ -15,9 +16,13 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
     public String FIRST_NAME;
     public String MIDDLE_INITIAL;
     public String LAST_NAME;
+    public String PROBAND_FIRST_NAME;
+    public String PROBAND_MIDDLE_INITIAL;
+    public String PROBAND_LAST_NAME;
     public String WHAT_IS_YOUR_DATE_OF_BIRTH;
     public String DATE_OF_BIRTH_MONTH;
     public String DATE_OF_BIRTH_YEAR;
+    public String DATE_OF_BIRTH_OF_THE_PROBAND;
     public String WHAT_IS_YOUR_RELATIONSHIP_TO_THE_PROBAND;
     public String ARE_YOU_THE_LEGAL_GUARDIAN_OF_THE_PROBAND;
     public String THE_NEXT_SET_OF_QUESTIONS_WILL_COLLECT_BASIC_INFORMATION_ABOUT_THE_PROBAND;
@@ -137,10 +142,10 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
          * FETCHING DATA FROM EXCEL BEFORE SUBMITTING SCREENER
          */
         if (sheetName.equals("screenerScenario1") || sheetName.equals("screenerScenario2")) {
-            if(sheetName.equals("screenerScenario1")){
+            if (sheetName.equals("screenerScenario1")) {
                 TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ONE_DATA, sheetName);
             }
-            if(sheetName.equals("screenerScenario2")){
+            if (sheetName.equals("screenerScenario2")) {
                 TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_TWO_DATA, sheetName);
             }
             ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_YOURSELF = TEST_DATA_FOR_RAS_SCREENER.get("Are you completing this form for someone else or for yourself?");
@@ -461,6 +466,132 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
 //            toDetermineEligibilityForThisStudy = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.TO_DETERMINE_ELIGIBILITY_FOR_THIS_STUDY);
 //            weKnowThatRASopathiesAreAGroup = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WE_KNOW_THAT_RASOPATHIES_ARE_A_GROUP);
 //            weWillNowAskAFewRemainingQuestionsRegarding = TEST_DATA_FOR_RAS_SCREENER.get(ras_Screener_Constants.WE_WILL_NOW_ASK_A_FEW_REMAINING_QUESTIONS_REGARDING);
+        } else if (sheetName.equals("screenerScenarioAge11-13")) {
+            /**
+             * FETCHING DATA FROM EXCEL BEFORE SUBMITTING SCREENER
+             */
+            // Log file path and sheet name
+            System.out.println("Loading file: " + CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_11_13_DATA);
+            System.out.println("Loading sheet: " + sheetName);
+            TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_11_13_DATA, sheetName);
+
+            ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_YOURSELF = TEST_DATA_FOR_RAS_SCREENER.get("Are you completing this form for someone else or for yourself?");
+            PROBAND_FIRST_NAME = TEST_DATA_FOR_RAS_SCREENER.get("What is the name of the person who may be eligible for this study? First");
+            PROBAND_MIDDLE_INITIAL = TEST_DATA_FOR_RAS_SCREENER.get("What is the name of the person who may be eligible for this study? MI");
+            PROBAND_LAST_NAME = TEST_DATA_FOR_RAS_SCREENER.get("What is the name of the person who may be eligible for this study? Last");
+            FIRST_NAME = TEST_DATA_FOR_RAS_SCREENER.get("What is your name? First");
+            MIDDLE_INITIAL = TEST_DATA_FOR_RAS_SCREENER.get("What is your name? MI");
+            LAST_NAME = TEST_DATA_FOR_RAS_SCREENER.get("What is your name? Last");
+            WHAT_IS_YOUR_RELATIONSHIP_TO_THE_PROBAND = TEST_DATA_FOR_RAS_SCREENER.get("What is your relationship to the proband?");
+            ARE_YOU_THE_LEGAL_GUARDIAN_OF_THE_PROBAND = TEST_DATA_FOR_RAS_SCREENER.get("Are you the legal guardian of the proband?");
+            WHAT_IS_YOUR_DATE_OF_BIRTH = TEST_DATA_FOR_RAS_SCREENER.get("Date of birth of the proband.");
+            SEX_ASSIGNED_AT_BIRTH_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("What was your sex assigned at birth?");
+            ARE_YOU_ADOPTED_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Are you adopted?");
+            COUNTRY_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("In which country do you currently live?");
+            STREET = TEST_DATA_FOR_RAS_SCREENER.get("Street");
+            STREET2 = TEST_DATA_FOR_RAS_SCREENER.get("Street 2 (optional)");
+            CITY = TEST_DATA_FOR_RAS_SCREENER.get("City");
+            STATE = TEST_DATA_FOR_RAS_SCREENER.get("State (Abbreviation)");
+            ZIPCODE = TEST_DATA_FOR_RAS_SCREENER.get("Zip Code");
+            EMAIL_ADDRESS = TEST_DATA_FOR_RAS_SCREENER.get("What is your email address?");
+            EMAIL_ADDRESS_CONFIRM = TEST_DATA_FOR_RAS_SCREENER.get("Please confirm your email address");
+            HOME_PHONE_NUMBER = TEST_DATA_FOR_RAS_SCREENER.get("Home phone number");
+            CELL_PHONE_NUMBER = TEST_DATA_FOR_RAS_SCREENER.get("Cell phone number");
+            WORK_PHONE_NUMBER = TEST_DATA_FOR_RAS_SCREENER.get("Work phone number");
+            WHAT_IS_YOUR_ETHNICITY = TEST_DATA_FOR_RAS_SCREENER.get("What is your ethnicity?");
+            WHAT_IS_YOUR_RACE = TEST_DATA_FOR_RAS_SCREENER.get("What is your race? Please select all that apply.");
+            WHAT_IS_YOUR_RACE_OTHER = TEST_DATA_FOR_RAS_SCREENER.get("Race text box");
+            ARE_YOU_A_PARTICIPANT_IN_OTHER_STUDY_GROUP = TEST_DATA_FOR_RAS_SCREENER.get("Are you a participant in any other research study or registry group?  Please specify.");
+            HAVE_YOU_BEEN_DIAGNOSED_WITH_FOLLOWING_CONDITIONS = TEST_DATA_FOR_RAS_SCREENER.get("Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer.");
+            HAVE_YOU_BEEN_DIAGNOSED_WITH_CANCER = TEST_DATA_FOR_RAS_SCREENER.get("Have you ever been diagnosed with cancer?");
+            HAVE_YOU_BEEN_DIAGNOSED_WITH_A_RASOPATHY = TEST_DATA_FOR_RAS_SCREENER.get("Have you been diagnosed with a RASopathy such as Noonan syndrome, Noonan syndrome with multiple lentigines, Costello syndrome, cardiofaciocutaneous syndrome, Legius syndrome, capillary arteriovenous malformation syndrome, hereditary gingival fibromatosis or SYNGAP1 syndrome?");
+            HAVE_ANY_OF_YOUR_BIOLOGICAL_RELATIVES_BEEN_DIAGNOSED_WITH_A_RASOPATHY = TEST_DATA_FOR_RAS_SCREENER.get("Have any of your biological relatives been diagnosed with a RASopathy?");
+            HAVE_YOU_EVER_HAD_GENETIC_TESTING = TEST_DATA_FOR_RAS_SCREENER.get("Have you ever had genetic testing?");
+            HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY = TEST_DATA_FOR_RAS_SCREENER.get("How did you hear about this study?  If a specific health care provider referred you to this study, please include their name in the corresponding text box.");
+            HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY_OTHER_REASON = TEST_DATA_FOR_RAS_SCREENER.get("How did you hear about this study?  If a specific health care provider referred you to this study, please include their name in the corresponding text box. Other reason");
+            HAVE_YOU_OR_OTHER_FAMILY_MEMBERS_PARTICIPATED_IN_OTHER_STUDY = TEST_DATA_FOR_RAS_SCREENER.get("Have you or other family members ever participated in another study on RASopathies at another medical institution, university, government agency or other site?");
+            WHAT_ARE_MAIN_REASONS_FOR_PARTICIPATING_IN_STUDY = TEST_DATA_FOR_RAS_SCREENER.get("What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox.");
+            WHAT_ARE_MAIN_REASONS_FOR_PARTICIPATING_IN_STUDY_OTHER_REASON = TEST_DATA_FOR_RAS_SCREENER.get("What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox. Other reason");
+            YOU_ARE_ALMOST_DONE = TEST_DATA_FOR_RAS_SCREENER.get("You are almost done!");
+            WE_KNOW_THAT_RASOPATHIES_ARE_A_GROUP = TEST_DATA_FOR_RAS_SCREENER.get("We know that RASopathies are a group of syndromes that have a genetic basis.  In order to help us determine eligibility for the RASopathies Study, we also need to know about any genetic testing that has been completed.");
+            WE_WILL_NOW_ASK_A_FEW_REMAINING_QUESTIONS_REGARDING = TEST_DATA_FOR_RAS_SCREENER.get("We will now ask a few remaining questions regarding this study.");
+            ARE_YOU_A_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP_RASOPATHIES_NET_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Are you a participant in any other research study or registry group? RASopathies Net option");
+            ARE_YOU_A_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP_FAMILY_ADVOCACY_GROUP_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Are you a participant in any other research study or registry group? Family Advocacy Group option");
+            ARE_YOU_A_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP_OTHER_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Are you a participant in any other research study or registry group? Other option");
+            ARE_YOU_A_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP_NOT_INVOLVED_IN_OTHER_STUDY = TEST_DATA_FOR_RAS_SCREENER.get("Are you a participant in any other research study or registry group? I am not involved in any other research study or registry group option");
+            ARE_YOU_A_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP_FAMILY_ADVOCACY_GROUP_TEXT_BOX = TEST_DATA_FOR_RAS_SCREENER.get("Are you a participant in any other research study or registry group? Family Advocacy Group text box");
+            ARE_YOU_A_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP_OTHER_TEXT_BOX = TEST_DATA_FOR_RAS_SCREENER.get("Are you a participant in any other research study or registry group? Other text box");
+            HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_FEEDING_PROBLEMS_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer. Feeding Problems option");
+            HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_NEUROCOGNITIVE_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer. Neurocognitive option");
+            HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_SKELETAL_DEFORMITIES_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer. Skeletal Deformities option");
+            HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_HEAD_CRANIOFACIAL_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer. Head/Craniofacial option");
+            HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_EYE_EAR_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer. Eye/ear");
+            HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_SKIN_HAIR_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer. Skin/hair option");
+            HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_HEART_PROBLEMS_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer. Heart problems option");
+            HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_GENITAL_ABNORMALITIES_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer. Genital abnormalities option");
+            HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_NON_CANCEROUS_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer. Non-Cancerous tumors option");
+            HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_LYMPHEDEMA_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer. Lymphedema option");
+            HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_OTHER_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer. Other option");
+            HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_OTHER_OPTION_TEXT_BOX = TEST_DATA_FOR_RAS_SCREENER.get("Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer. Other option text box");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN1_OPTION1 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Cancer Type Option 1");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN1_OPTION2 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Cancer Type Option 2");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN1_OPTION3 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Cancer Type Option 3");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN1_OPTION4 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Cancer Type Option 4");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN2_OPTION1 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Other Cancer Option 1");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN2_OPTION2 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Other Cancer Option 2");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN2_OPTION3 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Other Cancer Option 3");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN2_OPTION4 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Other Cancer Option 4");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN2_OPTION1 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Age at diagnosis Option 1");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN2_OPTION2 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Age at diagnosis Option 2");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN2_OPTION3 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Age at diagnosis Option 3");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN2_OPTION4 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Age at diagnosis Option 4");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN3_OPTION1 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Year at diagnosis Option 1");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN3_OPTION2 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Year at diagnosis Option 2");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN3_OPTION3 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Year at diagnosis Option 3");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN3_OPTION4 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Year at diagnosis Option 4");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN4_OPTION1 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Currently receiving treatment Option 1");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN4_OPTION2 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Currently receiving treatment Option 2");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN4_OPTION3 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Currently receiving treatment Option 3");
+            PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN4_OPTION4 = TEST_DATA_FOR_RAS_SCREENER.get("Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread. Currently receiving treatment Option 4");
+            FOR_WHICH_SPECIFIC_RASOPATHY = TEST_DATA_FOR_RAS_SCREENER.get("For which specific RASopathy have you been diagnosed?");
+            FOR_WHICH_SPECIFIC_RASOPATHY_OTHER = TEST_DATA_FOR_RAS_SCREENER.get("For which specific RASopathy have you been diagnosed? Other text box");
+            AGE_AT_DIAGNOSIS = TEST_DATA_FOR_RAS_SCREENER.get("Age at diagnosis");
+            YEAR_OF_DIAGNOSIS_RAS = TEST_DATA_FOR_RAS_SCREENER.get("Year of diagnosis");
+            DO_YOU_HAVE_A_COPY_OF_THE_GENETIC = TEST_DATA_FOR_RAS_SCREENER.get("Do you have a copy of the genetic test results?");
+            HOW_WOULD_YOU_LIKE_TO_PROVIDE_THE_GENETIC_TEST_RESULTS = TEST_DATA_FOR_RAS_SCREENER.get("How would you like to provide the genetic test results to us?  Please select one.  On the next page, you will be provided with where to send the information.");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN1_OPTION1 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 1 Option 1");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN2_OPTION1 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 2 Option 1");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN3_OPTION1 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 3 Option 1");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN4_OPTION1 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 4 Option 1");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN5_OPTION1 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 5 Option 1");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN6_OPTION1 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 6 Option 1");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN1_OPTION2 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 1 Option 2");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN2_OPTION2 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 2 Option 2");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN3_OPTION2 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 3 Option 2");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN4_OPTION2 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 4 Option 2");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN5_OPTION2 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 5 Option 2");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN6_OPTION2 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 6 Option 2");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN1_OPTION3 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 1 Option 3");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN2_OPTION3 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 2 Option 3");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN3_OPTION3 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 3 Option 3");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN4_OPTION3 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 4 Option 3");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN5_OPTION3 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 5 Option 3");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN6_OPTION3 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 6 Option 3");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN1_OPTION4 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 1 Option 4");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN2_OPTION4 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 2 Option 4");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN3_OPTION4 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 3 Option 4");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN4_OPTION4 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 4 Option 4");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN5_OPTION4 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 5 Option 4");
+            PLEASE_PROVIDE_THE_INFORMATION_REGARDING_PREVIOUS_PARTICIPATION_COLUMN6_OPTION4 = TEST_DATA_FOR_RAS_SCREENER.get("Please provide the information regarding previous participation in other RASopathy studies in the box below.  Column 6 Option 4");
+            WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION1_OTHER = TEST_DATA_FOR_RAS_SCREENER.get("What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox. Option 1 Other");
+            WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION1 = TEST_DATA_FOR_RAS_SCREENER.get("What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox. Option 1");
+            WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION2_OTHER = TEST_DATA_FOR_RAS_SCREENER.get("What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox. Option 2 Other");
+            WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION2 = TEST_DATA_FOR_RAS_SCREENER.get("What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox. Option 2");
+            WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION3_OTHER = TEST_DATA_FOR_RAS_SCREENER.get("What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox. Option 3 Other");
+            WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION3 = TEST_DATA_FOR_RAS_SCREENER.get("What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox. Option 3");
+            WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION4_OTHER = TEST_DATA_FOR_RAS_SCREENER.get("What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox. Option 4 Other");
+            WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_OPTION4 = TEST_DATA_FOR_RAS_SCREENER.get("What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox. Option 4");
+
         }
     }
 }

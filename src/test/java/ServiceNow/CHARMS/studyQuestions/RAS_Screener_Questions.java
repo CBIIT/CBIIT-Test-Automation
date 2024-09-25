@@ -7,6 +7,7 @@ public class RAS_Screener_Questions {
      */
     public static final String ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_FOR_YOURSELF = "Are you completing this form for someone else or for yourself?";
     public static final String WHAT_IS_YOUR_NAME = "What is your name?";
+    public static final String WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY = "What is the name of the person who may be eligible for this study?";
     public static final String THE_NEXT_SET_OF_QUESTIONS_WILL_COLLECT_BASIC_INFORMATION_ABOUT_YOU = "The next set of questions will collect basic information about you.";
     public static final String WHAT_IS_YOUR_DATE_OF_BIRTH = "What is your date of birth?";
     public static final String WHAT_WAS_YOUR_SEX_ASSIGNED_AT_BIRTH = "What was your sex assigned at birth?";
