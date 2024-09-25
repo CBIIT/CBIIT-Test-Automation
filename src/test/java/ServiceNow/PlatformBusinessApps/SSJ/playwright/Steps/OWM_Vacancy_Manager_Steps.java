@@ -5,6 +5,7 @@ import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.OWM_Va
 import appsCommon.Pages.Playwright_Common_Locators;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
@@ -255,5 +256,15 @@ public class OWM_Vacancy_Manager_Steps {
     @When("User adds duplicate Committee Member {string} for Executive Secretary")
     public void user_adds_duplicate_committee_member_for_executive_secretary(String committeeMember) {
         OWM_Vacancy_Manager_StepsImpl.user_adds_duplicate_committee_member_for_executive_secretary(committeeMember);
+    }
+
+    @Given("Impersonate Holly, or any Vacancy Manager")
+    public void impersonate_holly_or_any_vacancy_manager() {
+        OWM_Vacancy_Manager_StepsImpl.impersonate_holly_or_any_vacancy_manager();
+    }
+
+    @Then("verifies Vacancy Title {string} is on the Your Vacancies page")
+    public void verifies_vacancy_title_is_on_the_your_vacancies_page(String vacancyTitle) {
+        OWM_Vacancy_Manager_StepsImpl.verifies_vacancy_title_is_on_the_your_vacancies_page(vacancyTitle);
     }
 }
