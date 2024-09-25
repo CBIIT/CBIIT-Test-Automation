@@ -126,7 +126,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
                 /**
-                 * * * * * WHAT IS THE PROBAND'S NAME? * * * *
+                 * * * * * WHAT IS THE NAME OF THE PERSON WHO MAY BE ELIGIBLE FOR THIS STUDY? * * * *
                  */
                 else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY)) {
                     CucumberLogUtils.scenario.log("* * * * * ENTERING PROBAND'S FIRST NAME, MIDDLE INITIAL, LAST NAME * * * * *");

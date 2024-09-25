@@ -470,11 +470,7 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
             /**
              * FETCHING DATA FROM EXCEL BEFORE SUBMITTING SCREENER
              */
-            // Log file path and sheet name
-            System.out.println("Loading file: " + CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_11_13_DATA);
-            System.out.println("Loading sheet: " + sheetName);
             TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_11_13_DATA, sheetName);
-
             ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_YOURSELF = TEST_DATA_FOR_RAS_SCREENER.get("Are you completing this form for someone else or for yourself?");
             PROBAND_FIRST_NAME = TEST_DATA_FOR_RAS_SCREENER.get("What is the name of the person who may be eligible for this study? First");
             PROBAND_MIDDLE_INITIAL = TEST_DATA_FOR_RAS_SCREENER.get("What is the name of the person who may be eligible for this study? MI");
