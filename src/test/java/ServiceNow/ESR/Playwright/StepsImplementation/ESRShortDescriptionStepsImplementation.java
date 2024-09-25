@@ -7,7 +7,9 @@ import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class ESRShortDescriptionStepsImplementation {
 
-    // Add Java Docs
+    /**
+     * Validates the short description fields on the ESR ticket is Native View
+     */
     public static void validateFieldsForESR() {
         page.frameLocator(CreateESRPage.iframeSelector).locator(CreateESRPage.newESRTicketSelector).click();
         assertThat(page.frameLocator(CreateESRPage.iframeSelector).locator("[id=\"label\\.sc_req_item\\.u_esr_correlation_id\"]")).containsText("ESR ID");
