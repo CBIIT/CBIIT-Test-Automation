@@ -68,7 +68,6 @@ import ServiceNow.PlatformBusinessApps.NERD.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
-import ServiceNow.PlatformBusinessApps.SNOW_TRAVEL.Selenium.Pages.Travel_Request_Form_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.*;
 import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.*;
 import appsCommon.Pages.ITrustLoginPage;
@@ -371,9 +370,6 @@ public class PageInitializer extends WebDriverUtils {
 	/** ----------------- COMETS ANALYTICS INSTANCES -----*/
 	public static CometsAnalyticsPage cometsAnalyticsPage;
 	public static CometsAnalyticsStepImp cometsAnalyticsStepImp;
-
-	/** ----------------- TRAVEL REQUEST  -----*/
-	public static Travel_Request_Form_Page travel_Request_Form_Page;
 
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -682,8 +678,5 @@ public class PageInitializer extends WebDriverUtils {
 		cometsAnalyticsPage = new CometsAnalyticsPage();
 		cometsAnalyticsStepImp = new CometsAnalyticsStepImp();
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
-
-		/** TRAVEL REQUEST INSTANCE VARIABLES */
-		travel_Request_Form_Page = new Travel_Request_Form_Page();
 	}
 }
