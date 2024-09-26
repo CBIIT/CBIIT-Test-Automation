@@ -7,12 +7,12 @@ import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import java.io.File;
@@ -33,40 +33,7 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Given("the e-consent is submitted for {string}")
     public static void the_e_consent_is_submitted_for(String sheetName) {
-        ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        MiscUtils.sleep(4000);
-        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
-        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
-        CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(3000);
-        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
-        MiscUtils.sleep(3000);
-        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-        MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenshot();
-        if (sheetName.contentEquals("screenerScenario1")) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
-            CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
-        } else if (sheetName.contentEquals("screenerScenario2")) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
-            CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
-        } else if (sheetName.contentEquals("screenerScenario3")) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
-            CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
-        } else if (sheetName.contentEquals("screenerScenario4")) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
-            CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
-        }
-        MiscUtils.sleep(1000);
-        if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
-            CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-        }
+        RAS_Common_Methods.navigateToRecordInNativeView(sheetName);
         MiscUtils.sleep(2000);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
         CucumberLogUtils.logScreenshot();
@@ -225,9 +192,9 @@ public class RAS_All_Steps extends PageInitializer {
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CucumberLogUtils.logScreenshot();
-        softAssert.assertEquals(locateByXpath("//td[normalize-space()='Complete']").getText(), consentStatus);
-        softAssert.assertEquals(locateByXpath("//td[normalize-space()='Adult']").getText(), consentType);
-        softAssert.assertEquals(locateByXpath("//td[normalize-space()='CHARMS e-consent']").getText(), responseType);
+        softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + consentStatus + "']").getText(), consentStatus);
+        softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + consentType + "']").getText(), consentType);
+        softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + responseType + "']").getText(), responseType);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
@@ -250,10 +217,9 @@ public class RAS_All_Steps extends PageInitializer {
      * @param pdfName                          The name of the PDF file to be downloaded.
      */
     @Given("{string} text shows on participant portal and when clicked downloads {string}")
-    public static void text_shows_on_participant_portal_and_when_clicked_downloads(String expectedDownloadStudyConsentText, String pdfName) {
+    public static void text_shows_on_participant_portal_and_when_clicked_downloads_consent_form(String expectedDownloadStudyConsentText, String pdfName) {
         CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='Download Study Consent']"));
         softAssert.assertEquals(locateByXpath("//span[normalize-space()='Download Study Consent']").getText(), expectedDownloadStudyConsentText);
-        CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(locateByXpath("//span[normalize-space()='Download Study Consent']"));
         locateByXpath("//span[normalize-space()='Download Study Consent']").click();
         CucumberLogUtils.logScreenshot();
@@ -266,7 +232,7 @@ public class RAS_All_Steps extends PageInitializer {
             }
         }
         String pdfUrl = webDriver.getCurrentUrl();
-        String downloadPath = LocalConfUtils.getRootDir() + "/src/test/resources/" + pdfName + ".pdf";
+        String downloadPath = System.getProperty("user.dir") + "/src/test/resources/" + pdfName + ".pdf";
         System.out.println("* * * * * DOWNLOADING STUDY CONSENT PDF * * * * *");
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL(pdfUrl).openConnection();
@@ -288,10 +254,27 @@ public class RAS_All_Steps extends PageInitializer {
             e.printStackTrace();
         }
         File downloadedFile = new File(downloadPath);
+        softAssert.assertTrue(downloadedFile.exists());
+        CucumberLogUtils.logScreenshot();
         if (downloadedFile.delete()) {
             System.out.println("* * * * * STUDY CONSENT PDF DELETED SUCCESSFULLY * * * * *");
         } else {
             System.out.println("* * * * * FAILED TO DELETE STUDY CONSENT PDF * * * * *");
         }
+    }
+
+    /**
+     * Submits and verifies the consent in native view for a specified sheet name, consent status, consent type, and response type.
+     *
+     * @param sheetName      the name of the sheet for which the consent is being processed
+     * @param consentStatus  the expected status of the consent
+     * @param consentType    the expected type of the consent
+     * @param responseType   the expected response type of the consent
+     */
+    @When("the consent is submitted for {string} and {string} {string} {string} is verified in Native View")
+    public void the_consent_is_submitted_for_and_is_verified_in_native_view(String sheetName, String consentStatus, String consentType, String responseType) {
+        MiscUtils.sleep(20000);
+        ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+        RAS_Common_Methods.nativeViewConsentFlowProcessScenario1Parameterized(sheetName, consentStatus, consentType, responseType);
     }
 }
