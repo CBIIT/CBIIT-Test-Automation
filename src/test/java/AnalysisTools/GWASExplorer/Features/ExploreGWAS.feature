@@ -1,6 +1,6 @@
 Feature: These are the scenarios for the GWAS Explorer's Explore GWAS tab
 
-@Smoke @matakevin
+@Smoke @matakevin @selenium
 Scenario: User looks up correlation between BMI at Baseline and Height BQ
 Given the user is on the GWAS Explorer home page
 When user selects explore GWAS

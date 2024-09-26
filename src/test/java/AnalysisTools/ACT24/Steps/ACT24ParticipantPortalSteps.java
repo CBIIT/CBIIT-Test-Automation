@@ -8,11 +8,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
+import static com.nci.automation.web.TestProperties.getAct24ParticipantUrl;
+
 public class ACT24ParticipantPortalSteps extends PageInitializer {
 
     @Given("the participant on the ACT24 participant")
     public void the_participant_on_the_act24_participant() {
-        WebDriverUtils.webDriver.get("");
+        WebDriverUtils.webDriver.get(getAct24ParticipantUrl());
     }
 
     @Then("the splash screen is displayed")

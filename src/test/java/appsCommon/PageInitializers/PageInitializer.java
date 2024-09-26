@@ -3,7 +3,7 @@ package appsCommon.PageInitializers;
 import AnalysisTools.ACT24.Pages.*;
 import AnalysisTools.ACT24.StepsImpl.ACT24ParticipantStepImpl;
 import AnalysisTools.ACT24.StepsImpl.ACT24ResearcherStepImpl;
-import AnalysisTools.Comets2.Pages.*;
+import AnalysisTools.CometsExplorer.Pages.*;
 import AnalysisTools.CometsAnalytics.Pages.*;
 import AnalysisTools.CometsAnalytics.StepsImplementation.*;
 import AnalysisTools.GDSTracking.Pages.*;
