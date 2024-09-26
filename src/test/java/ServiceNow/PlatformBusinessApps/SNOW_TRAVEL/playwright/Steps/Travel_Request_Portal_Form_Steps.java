@@ -107,7 +107,8 @@ public class Travel_Request_Portal_Form_Steps {
         Travel_Request_Portal_Form_StepImpl.i_will_not_see_the_header_on_the_form(travelCashAdvance);
     }
 
-    @Then("the following fields under {string} section will be removed:")
-    public void the_following_fields_under_section_will_be_removed(String string, String docString) {
+    @Then("the following fields {string} and {string} under Travel Cash Advance section will be removed")
+    public void the_following_fields_and_under_travel_cash_advance_section_will_be_removed(String cashAdvanceRequested, String reasonForCashAdvance) {
+        Travel_Request_Portal_Form_StepImpl.the_following_fields_and_under_travel_cash_advance_section_will_be_removed(cashAdvanceRequested, reasonForCashAdvance );
     }
 }
