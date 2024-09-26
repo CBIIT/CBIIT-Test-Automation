@@ -30,6 +30,9 @@ public class Travel_Request_NV_Steps {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
     }
 
+    /**
+     * Searches for a Group under System Security.
+     */
     @When("I search for Group under System Security")
     public void i_search_for_group_under_system_security() {
         //Search the System Security in Filter navigation Native View
@@ -45,6 +48,11 @@ public class Travel_Request_NV_Steps {
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * Searches for a group by name.
+     *
+     * @param nciCGHTravelRequestBranchDirectors The name of the group to search for.
+     */
     @When("I search for {string} group Name")
     public void i_search_for_group_name(String nciCGHTravelRequestBranchDirectors) {
         //Search for the "NCI CGH - Travel Request Branch Directors" group and open the group record
@@ -66,6 +74,13 @@ public class Travel_Request_NV_Steps {
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * Verifies if the associated users are listed under the Group Members tab.
+     *
+     * @param dimetriaBranch    the name of the first associated user
+     * @param kalinaDuncan      the name of the second associated user
+     * @param markParascandola  the name of the third associated user
+     */
     @When("I verify the associated users {string}, {string} and {string} are listed under the Group Members tab")
     public void i_verify_the_associated_users_and_are_listed_under_the_group_members_tab(String dimetriaBranch, String kalinaDuncan, String markParascandola) {
         //clicks on Group members Tab on the bottom of the page and verify group members
@@ -78,6 +93,12 @@ public class Travel_Request_NV_Steps {
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * Go back to Groups page and search for the specified group name.
+     * Opens the group record if found.
+     *
+     * @param nciCGHTravelRequestTravelPlanners The name of the group to search for.
+     */
     @When("I go back to Groups and search for {string} group Name")
     public void i_go_back_to_groups_and_search_for_group_name(String nciCGHTravelRequestTravelPlanners) {
         //Go back to Groups page and search for the "NCI CGH - Travel Request Travel Planners" group and open the group record
@@ -100,6 +121,16 @@ public class Travel_Request_NV_Steps {
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * Verifies if the associated users are listed under the Group Members tab.
+     *
+     * @param brianDavis   the name of the first associated user
+     * @param dimetriaBranch   the name of the second associated user
+     * @param jenniferBridges   the name of the third associated user
+     * @param karenGrady   the name of the fourth associated user
+     * @param ravenCoit   the name of the fifth associated user
+     * @param susanGiuliani   the name of the sixth associated user
+     */
     @When("I verify that the associated users {string}, {string}, {string} , {string}, {string} and {string} are listed under the Group Members tab")
     public void i_verify_that_the_associated_users_and_are_listed_under_the_group_members_tab(String brianDavis, String dimetriaBranch, String jenniferBridges, String karenGrady, String ravenCoit, String susanGiuliani) {
         //clicks on Group members Tab on the bottom of the page and verify group members
@@ -115,6 +146,12 @@ public class Travel_Request_NV_Steps {
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * Go back again and search for the specified group name.
+     * Opens the group record if found.
+     *
+     * @param nciCGHTravelRequestProxyUsers The name of the group to search for.
+     */
     @When("I go back again and search for {string} group Name")
     public void i_go_back_again_and_search_for_group_name(String nciCGHTravelRequestProxyUsers) {
         //Go back to Groups page and search for the "NCI CGH - Travel Request Proxy users" group and open the group record
@@ -137,6 +174,13 @@ public class Travel_Request_NV_Steps {
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * Verifies if the associated users are listed under the Group Members tab.
+     *
+     * @param dimetriaBranch    the name of the first associated user
+     * @param kalinaDuncan      the name of the second associated user
+     * @param markParascandola  the name of the third associated user
+     */
     @Then("I verify that the associated users {string}, {string} and {string} should be listed under the Group Members tab")
     public void i_verify_that_the_associated_users_and_should_be_listed_under_the_group_members_tab(String dimetriaBranch, String kalinaDuncan, String markParascandola) {
         //clicks on Group members Tab on the bottom of the page and verify group members
