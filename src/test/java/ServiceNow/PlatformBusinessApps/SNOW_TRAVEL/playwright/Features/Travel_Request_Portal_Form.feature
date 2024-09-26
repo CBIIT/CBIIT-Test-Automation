@@ -9,7 +9,7 @@ Feature: SNOWTRAVEL Portal Form Scenarios
     And I click "CBIIT Business Services",
     Then I will see the current form "Travel Request" updated to "Travel Planning System"
 
-  @SNOWTRAVEL-130 @Chaudhryma @Smoke @Regression @playwright
+  @SNOWTRAVEL-121 @SNOWTRAVEL-130 @Chaudhryma @Smoke @Regression @playwright
   Scenario: Test Travel Start Date and Travel End Date Field Additions
     Given I am an authenticated DOC CGH Travel Request User
     When I navigate to the Trip Information section of the form,
