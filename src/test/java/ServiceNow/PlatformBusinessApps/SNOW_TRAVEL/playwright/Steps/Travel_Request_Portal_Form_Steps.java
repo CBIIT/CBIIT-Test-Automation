@@ -2,9 +2,17 @@ package ServiceNow.PlatformBusinessApps.SNOW_TRAVEL.playwright.Steps;
 
 import ServiceNow.PlatformBusinessApps.SNOW_TRAVEL.playwright.StepImpl.Travel_Request_Portal_Form_StepImpl;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
+import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.EnvUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class Travel_Request_Portal_Form_Steps {
 
@@ -110,5 +118,39 @@ public class Travel_Request_Portal_Form_Steps {
     @Then("the following fields {string} and {string} under Travel Cash Advance section will be removed")
     public void the_following_fields_and_under_travel_cash_advance_section_will_be_removed(String cashAdvanceRequested, String reasonForCashAdvance) {
         Travel_Request_Portal_Form_StepImpl.the_following_fields_and_under_travel_cash_advance_section_will_be_removed(cashAdvanceRequested, reasonForCashAdvance );
+    }
+
+    @Given("I am not a CGH user")
+    public void i_am_not_a_cgh_user() {
+        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate("Warren Kibbe");
+    }
+
+    @When("I log in to the NCI at Your Service Portal,")
+    public void i_log_in_to_the_nci_at_your_service_portal() {
+        page.navigate(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Verify that the Travel Planning System is not visible in the catalog item.
+     */
+    @Then("I should not see the Travel Planning System in the catalog item.")
+    public void i_should_not_see_the_travel_planning_system_in_the_catalog_item() {
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Services").setExact(true))).isVisible();
+        assertThat(page.locator("#fresponsive")).containsText("Services");
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Services").setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.locator("//a[@class='level-2-link ng-binding dropdown-toggle dropdown'][normalize-space()='CBIIT Business Services']").isHidden();
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        //Travel Planning System Request do not exist in the catalogue item for non-CGH user
+        assertThat(page.getByRole(AriaRole.MAIN).locator("a").filter(new Locator.FilterOptions().setHasText("Travel Planning System"))).isHidden();
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        //inserted the Travel Planning System URL for Non-CGH user and verified that user do not have access to Travel Planning System Request
+        page.navigate("https://service-test.nci.nih.gov/ncisp?id=nci_sc_cat_item&sys_id=b246963e1b2a7d50344042e2b24bcb64");
+        assertThat(page.getByRole(AriaRole.MAIN)).containsText("You are either not authorized to view this content or the record is not valid.");
+        CucumberLogUtils.playwrightScreenshot(page);
+        MiscUtils.sleep(6000);
     }
 }
