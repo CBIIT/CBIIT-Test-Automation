@@ -1,1 +1,0 @@
-Feature: These are the scenarios that are under the Run Scenario tab on Cervical Cancer Prevention
