@@ -16,13 +16,13 @@ public class UpgradeExample {
             BrowserContext context = browser.newContext(new Browser.NewContextOptions()
                     .setViewportSize(1512, 738));
             Page page = context.newPage();
-            page.navigate("https://gds-test.nci.nih.gov/gds/search/home.action");
+            page.navigate("https://gds-stage.nci.nih.gov/gds/search/home.action");
             MiscUtils.sleep(12000);
             page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Create New Submission")).click();
             page.getByLabel("Project", new Page.GetByLabelOptions().setExact(true)).check();
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Next ")).nth(1).click();
             page.getByLabel("Project Submission Title [Max").click();
-            page.getByLabel("Project Submission Title [Max").fill("Project Name 2");
+            page.getByLabel("Project Submission Title [Max").fill("Stage Project Test 4");
             page.getByText("Required by GDS Policy").click();
             page.locator("#programBranch").selectOption("CBIIT");
             page.locator("#cancerActivity").click();
@@ -67,7 +67,7 @@ public class UpgradeExample {
             page.getByRole(AriaRole.RADIO, new Page.GetByRoleOptions().setName("Yes")).check();
             page.locator("[id=\"\\35 \"]").check();
             page.locator("#exceptionMemoDiv").getByText("Choose File").click();
-            MiscUtils.sleep(10000);
+            MiscUtils.sleep(20000);
             //MANUALLY ADD THE FILE
 //            page.locator("body").setInputFiles(Paths.get("/Users/matarodriguezko/CBIIT-Test-Automation/src/test/java/AnalysisTools/GDSTracking/Resources/GDS Tracking DUL IC upload.docx"));
             MiscUtils.sleep(2000);
@@ -144,7 +144,7 @@ public class UpgradeExample {
             page.getByLabel("Comments (4000 Characters):").fill("Comments");
             MiscUtils.sleep(1000);
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save & Next ")).nth(1).click();
-            MiscUtils.sleep(2000);
+            MiscUtils.sleep(20000);
             page.navigate("https://gds-test.nci.nih.gov/gds/manage/navigateToSubmissionDetail.action?projectId=834");
         }
 

@@ -3,6 +3,7 @@ package AnalysisTools.GDSTracking.Steps;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.CommonUtils;
 
 public class UpgradeSubProject {
 
@@ -17,7 +18,7 @@ public class UpgradeSubProject {
             BrowserContext context = browser.newContext(new Browser.NewContextOptions()
                     .setViewportSize(1512, 738));
             Page page = context.newPage();
-            page.navigate("https://gds-test.nci.nih.gov/gds/search/home.action");
+            page.navigate("https://gds-stage.nci.nih.gov/gds/search/home.action");
             MiscUtils.sleep(12000);
             page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Create New Submission")).click();
             page.getByLabel("Sub-Project", new Page.GetByLabelOptions().setExact(true)).check();
@@ -25,12 +26,13 @@ public class UpgradeSubProject {
             MiscUtils.sleep(5000);
             page.getByLabel("Submission from:").selectOption("60");
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(" Search")).click();
-            page.locator("tr:nth-child(8) > .dt-center > input").check();
+            MiscUtils.sleep(10000);
+            page.locator("tr:nth-child(2) > td.dt-center.sorting_1 > input[type=radio]").check();
             page.locator("#search-form_2").click();
             page.locator("button[name=\"action\\:saveGeneralInfoAndNext\"]").click();
             MiscUtils.sleep(2000);
             page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Institutional Certifications (1)")).click();
-            page.locator("#ic643").check();
+            page.locator("#ic594").check();
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save & Next ")).nth(1).click();
             page.getByLabel("Yes").check();
             page.getByText("Choose File").click();
@@ -40,7 +42,7 @@ public class UpgradeSubProject {
             page.locator("#bsiComments").click();
             page.locator("#bsiComments").fill("subproject comment");
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save & Next ")).nth(1).click();
-            MiscUtils.sleep(2000);
+            MiscUtils.sleep(5000);
             page.locator("#repositoryDate span i").click();
             page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("25")).nth(1).click();
             page.locator("#submissionLinkAddBtn").click();
@@ -59,7 +61,7 @@ public class UpgradeSubProject {
             page.getByLabel("Comments (4000 Characters):").fill("subproject comment");
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save & Next ")).nth(1).click();
             MiscUtils.sleep(10000);
-            page.navigate("https://gds-test.nci.nih.gov/gds/manage/navigateToSubmissionDetail.action?projectId=864");
+            page.navigate("https://gds-stage.nci.nih.gov/gds/manage/navigateToSubmissionDetail.action?projectId=864");
         }
     }
 }
