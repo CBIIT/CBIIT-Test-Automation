@@ -352,9 +352,9 @@ public class JPSurvHomePageSteps extends PageInitializer {
 			JavascriptUtils.clickByJS(jpsurvHomePage.fileUploadBtn);
 			CommonUtils.waitForVisibility(jpsurvHomePage.yearOfDiagnosisStartDropdown);
 			MiscUtils.sleep(1500);
-//			CommonUtils.selectDropDownValue(valueToSelect, jpsurvHomePage.yearOfDiagnosisStartDropdown);
-//			CommonUtils.selectDropDownValue(valueToSelect2, jpsurvHomePage.yearOfDiagnosisEndDropdown);
-//			CommonUtils.selectDropDownValue(valueToSelect3, jpsurvHomePage.maxnumOfYearsFromDiagnosisDropdown);
+			CommonUtils.selectDropDownValue(valueToSelect, jpsurvHomePage.yearOfDiagnosisStartDropdown);
+			CommonUtils.selectDropDownValue(valueToSelect2, jpsurvHomePage.yearOfDiagnosisEndDropdown);
+			CommonUtils.selectDropDownValue(valueToSelect3, jpsurvHomePage.maxnumOfYearsFromDiagnosisDropdown);
 			jpsurvHomePage.nonhodgkinlymphonmaCheckbox.click();
 			MiscUtils.sleep(1500);
 			CommonUtils.clickOnElement(jpsurvHomePage.calculateButton);
