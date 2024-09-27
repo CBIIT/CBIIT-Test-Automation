@@ -196,7 +196,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
                 .sendKeys(ReturningSubmissions_Constants.RETURN_TO_PROGRAM_STUFF_MESSAGE);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(3000);
         CommonUtils.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText(submissionName).getText()
                 .contentEquals(ReturningSubmissions_Constants.RETURNED_TO_STUFF_MEMBER_TEXT));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
@@ -275,8 +275,6 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
     public static void checkingEmailWasNotReceived(String docPlanningContact) {
         ServiceNow_Common_Methods.logOutOfNativeView();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        MiscUtils.sleep(2000);
-        ServiceNow_Common_Methods.filterNavigatorSearch("Emails");
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(ReturningSubmissions_Constants.NATIVE_VIEW_EMAILS_UNDER_SYSTEM_LOGS_URL);
         MiscUtils.sleep(3000);

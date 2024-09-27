@@ -99,7 +99,7 @@ public class CreateESRPageStepsImplementation {
      * Navigates into newly created ESR-Q ticket and validates it as a Q-Branch ticket
      */
     public static void clickOnNewESRQTicket() {
-        page.frameLocator(CreateESRPage.iframeSelector).locator("//tbody/tr/td/a[1]").click();
+        page.frameLocator(CreateESRPage.iframeSelector).locator(CreateESRPage.newESRTicketSelector).click();
         assertThat(page.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]")).containsText("Q-Branch");
     }
 
@@ -135,7 +135,7 @@ public class CreateESRPageStepsImplementation {
      * Navigates into newly created ESR-I ticket and validates it as a Implementation ticket
      */
     public static void clickOnNewESRITicket() {
-        page.frameLocator(CreateESRPage.iframeSelector).locator("//tbody/tr/td/a[1]").click();
+        page.frameLocator(CreateESRPage.iframeSelector).locator(CreateESRPage.newESRTicketSelector).click();
         assertThat(page.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]")).containsText("Implementation");
     }
 
