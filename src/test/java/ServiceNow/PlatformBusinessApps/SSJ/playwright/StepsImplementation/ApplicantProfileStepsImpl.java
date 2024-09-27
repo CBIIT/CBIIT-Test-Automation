@@ -48,6 +48,10 @@ public class ApplicantProfileStepsImpl {
             Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate("Maria Chaudhry");
             MiscUtils.sleep(3000);
             PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("SSJPortalView"));
+        } else if(user.equals("OKTA_APPLICANT")) {
+            Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(ServiceNow.PlatformBusinessApps.SSJ.playwright.Utils.SSJ_Constants.OKTA_APPLICANT);
+            MiscUtils.sleep(3000);
+            PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("SSJPortalView"));
         }
     }
 
@@ -1863,5 +1867,38 @@ public class ApplicantProfileStepsImpl {
         page.mouse().move(boxTarget.x + boxTarget.width / 2, boxTarget.y + boxTarget.height / 2);
         page.mouse().up();
         CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Edits an application for a vacancy that has a specific status.
+     *
+     * @param applicationStatus the status of the vacancy application to edit
+     */
+    public static void edits_an_application_for_a_vacancy_that_status_is(String applicationStatus){
+        page.waitForSelector(".ant-table-thead");
+        int rowCount = page.querySelectorAll("//tr[@class='ant-table-row ant-table-row-level-0']").size();
+        System.out.println(rowCount);
+        for (int i = 0; i < rowCount; i++) {
+            String rowSelector = "(//tr[@class='ant-table-row ant-table-row-level-0'])[" + (i+1) + "]";
+            String statusSelector = rowSelector + "/td[2]";
+            String editButtonSelector = rowSelector + "//span[contains(text(),'Edit')]";
+            String status = page.locator(statusSelector).innerText();
+            if (status.equalsIgnoreCase(applicationStatus)) {
+                page.click(editButtonSelector);
+                break;
+            }
+        }
+    }
+
+    /**
+     * Checks if the user sees a banner with the expected message.
+     *
+     * @param expectedBanner the expected message that should be displayed in the banner
+     */
+    public static void user_sees_a_banner(String expectedBanner) {
+        String alertMessage = page.textContent(".ant-alert-message");
+        String alertDescription = page.textContent(".ant-alert-description");
+        String actualAlertMessage = alertMessage + " " + alertDescription;
+        Hooks.softAssert.assertEquals(actualAlertMessage, expectedBanner);
     }
 }
