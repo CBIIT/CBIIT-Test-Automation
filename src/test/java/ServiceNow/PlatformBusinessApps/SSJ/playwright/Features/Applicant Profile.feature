@@ -265,8 +265,8 @@ You must be logged in to apply for a vacancy.
 Would you like to log in now or go back to the home page?
    """
     And verifies that the text on the buttons is "Create an account" "Log in" "Go Back"
-#    And clicks "Log in" and is redirected to the Okta Login Portal
-#    And verifies that the PIV CAC card button text is "Sign in with PIV / CAC card"
+    And clicks "Log in" and is redirected to the Okta Login Portal
+    And verifies that the PIV CAC card button text is "Sign in with PIV / CAC card"
 
   @TC_APPTRACK-128 @JUAREZDS @Regression @playwright @SNOW_UPDATED
   Scenario Outline: Verification of the Save application functionality
