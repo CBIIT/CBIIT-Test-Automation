@@ -112,6 +112,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     CucumberLogUtils.scenario.log("* * * * ARE YOU COMPLETING THIS FORM FOR SOMEONE ELSE OR FOR YOURSELF? * * * *");
                     dynamicLocator(ras_Screener_TestDataManager.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_YOURSELF).click();
                     CucumberLogUtils.logScreenshot();
+                    CommonUtils.sleep(200);
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
                 /**
@@ -123,6 +124,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     rasopathyQuestionnairePage.dynamicTextBoxLocator("Middle Initial").sendKeys(ras_Screener_TestDataManager.MIDDLE_INITIAL);
                     rasopathyQuestionnairePage.dynamicTextBoxLocator("Last name").sendKeys(ras_Screener_TestDataManager.LAST_NAME);
                     CucumberLogUtils.logScreenshot();
+                    CommonUtils.sleep(200);
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
                 /**
@@ -134,6 +136,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     rasopathyQuestionnairePage.dynamicTextBoxLocator("Middle Initial").sendKeys(ras_Screener_TestDataManager.PARTICIPANT_MIDDLE_INITIAL);
                     rasopathyQuestionnairePage.dynamicTextBoxLocator("Last name").sendKeys(ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME);
                     CucumberLogUtils.logScreenshot();
+                    CommonUtils.sleep(200);
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
                 /**
@@ -269,6 +272,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     CucumberLogUtils.scenario.log("* * * * * WHAT IS YOUR ETHNICITY?  * * * * *");
                     dynamicLocator(ras_Screener_TestDataManager.WHAT_IS_YOUR_ETHNICITY).click();
                     CucumberLogUtils.logScreenshot();
+                    CommonUtils.sleep(200);
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
                 /**
@@ -278,6 +282,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     CucumberLogUtils.scenario.log("* * * * * WHAT IS YOUR RACE? PLEASE SELECT ALL THAT APPLY.  * * * * *");
                     dynamicLocator(ras_Screener_TestDataManager.WHAT_IS_YOUR_RACE).click();
                     CucumberLogUtils.logScreenshot();
+                    CommonUtils.sleep(200);
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
                 /**

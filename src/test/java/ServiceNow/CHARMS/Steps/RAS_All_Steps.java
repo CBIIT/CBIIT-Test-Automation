@@ -91,7 +91,7 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.clickOnElement(myRASHomePage.rasopathyStudyConsent);
         CommonUtils.sleep(5000);
         CucumberLogUtils.logScreenshot();
-        System.out.println("* * * * * FILLING OUT CONSENT FORM * * * * *");
+        System.out.println("* * * * * PROXY FILLING OUT CONSENT FORM * * * * *");
         JavascriptUtils.scrollIntoView(locateByXpath("//input[@id='consent_read']"));
         WebElement readConsentCheckbox = locateByXpath("//input[@id='consent_read']");
         CommonUtils.waitForClickability(readConsentCheckbox);
@@ -116,13 +116,13 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.waitForVisibility(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
         CommonUtils.clickOnElement(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
         CucumberLogUtils.logScreenshot();
-        CommonUtils.sleep(800);
-        CommonUtils.acceptAlert();
-        CommonUtils.sleep(800);
-        CommonUtils.waitForVisibility(locateByXpath("//button[normalize-space()='OK']"));
-        CommonUtils.clickOnElement(locateByXpath("//button[normalize-space()='OK']"));
+        CommonUtils.sleep(500);
         softAssert.assertEquals(CommonUtils.getAlertText(), "To complete enrollment, please have your 11-13 year-old minor click through the \"Study Assent\" tile. If your minor declines participation, please contact the study team.");
         CommonUtils.acceptAlert();
+        CommonUtils.sleep(500);
+        CommonUtils.waitForVisibility(locateByXpath("//button[normalize-space()='OK']"));
+        CommonUtils.clickOnElement(locateByXpath("//button[normalize-space()='OK']"));
+        CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
@@ -139,7 +139,7 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.clickOnElement(myRASHomePage.rasopathyStudyConsent);
         CommonUtils.sleep(5000);
         CucumberLogUtils.logScreenshot();
-        System.out.println("* * * * * FILLING OUT CONSENT FORM * * * * *");
+        System.out.println("* * * * * PARTICIPANT FILLING OUT CONSENT FORM * * * * *");
         JavascriptUtils.scrollIntoView(locateByXpath("//input[@id='consent_read']"));
         WebElement readConsentCheckbox = locateByXpath("//input[@id='consent_read']");
         CommonUtils.waitForClickability(readConsentCheckbox);
@@ -181,15 +181,13 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.waitForVisibility(myRASHomePage.rasopathyStudyAssent);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(myRASHomePage.rasopathyStudyAssent);
-        CommonUtils.sleep(5000);
-        CucumberLogUtils.logScreenshot();
-        System.out.println("* * * * * FILLING OUT CONSENT FORM * * * * *");
+        CommonUtils.sleep(3000);
+        System.out.println("* * * * * PARTICIPANT FILLING OUT ASSENT FORM * * * * *");
         JavascriptUtils.scrollIntoView(locateByXpath("//input[@id='consent_read']"));
         WebElement readConsentCheckbox = locateByXpath("//input[@id='consent_read']");
         softAssert.assertEquals(locateByXpath("//b[contains(text(),'Yes, I have read and assent to the terms and condi')]").getText(), "Yes, I have read and assent to the terms and conditions.");
         CommonUtils.waitForClickability(readConsentCheckbox);
         CommonUtils.clickOnElement(readConsentCheckbox);
-        CucumberLogUtils.logScreenshot();
         CucumberLogUtils.logScreenshot();
         WebElement toConsentButton = locateByXpath("//button[@id='toConsentBtn']");
         CommonUtils.waitForClickability(toConsentButton);
