@@ -78,7 +78,7 @@ public class PortalViewSteps {
 		portalViewPage.saveContinueButton();
 	}
 	
-	@Then("Open Latest Idea Case")
+	@Then("Open Latest  Idea Case")
 	public void openLatestIdeaCase() {
 		portalViewPage.clickOnFirstIdeaCase();
 	}
