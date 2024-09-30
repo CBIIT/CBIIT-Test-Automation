@@ -39,10 +39,12 @@ public class ApplicantProfileStepsImpl {
             Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate("Holly Gemar-Griffith");
             CommonUtils.sleep(3000);
             PlaywrightUtils.page.navigate(getSSJUrl());
-        } else if (user.equals("Stadtman Vacancy Manager")) {
-
         } else if (user.equals("Maria Chaudhry")) {
             Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate("Maria Chaudhry");
+            CommonUtils.sleep(3000);
+            PlaywrightUtils.page.navigate(getSSJUrl());
+        } else if(user.equals("OKTA_APPLICANT")) {
+            Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(ServiceNow.PlatformBusinessApps.SSJ.playwright.Utils.SSJ_Constants.OKTA_APPLICANT);
             CommonUtils.sleep(3000);
             PlaywrightUtils.page.navigate(getSSJUrl());
         }
@@ -1727,23 +1729,45 @@ public class ApplicantProfileStepsImpl {
         Hooks.softAssert.assertEquals(page.locator("//*[text()='Any reference provided can be contacted at any point in the recruitment process.']").innerText(), expectedStatementText);
     }
 
+    /**
+     * Performs a user action of clicking on the "Save Application" button.
+     * This method scrolls into view the button, clicks on it, and captures a screenshot of the page.
+     *
+     * @return void
+     */
     public static void user_clicks_on_save_application_button() {
         Playwright_Common_Utils.scrollIntoView("(//span[normalize-space()='Save Application'])[1]");
         page.locator("//span[normalize-space()='Save Application']").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * Verifies that the successful save alert is displayed with the expected text.
+     *
+     * @param expectedSuccessfulText The expected text to be displayed in the save alert.
+     */
     public static void verifies_that_successful_save_alert_is_displayed(String expectedSuccessfulText) {
         CucumberLogUtils.playwrightScreenshot(page);
         CucumberLogUtils.playwrightScreenshot(page);
         Hooks.softAssert.assertEquals(page.locator("//*[text()='Application successfully saved ']").textContent(), expectedSuccessfulText);
     }
 
+    /**
+     * Verifies that the application became a draft.
+     *
+     * @param expectedDraftText The expected text indicating that the application is a draft.
+     */
     public static void verifies_that_the_application_became_a_draft(String expectedDraftText) {
         CucumberLogUtils.playwrightScreenshot(page);
         Hooks.softAssert.assertEquals(page.locator("//*[text()='" + "DIEGO TEST" + " " + timestamp + "']/parent::td/following-sibling::td/span").innerText(), expectedDraftText);
     }
 
+    /**
+     * Clicks on the application with the specified vacancy title.
+     * If a timestamp is available, it appends it to the vacancy title before clicking.
+     *
+     * @param vacancyTitle The title of the vacancy application to click.
+     */
     public static void clicks_the_application(String vacancyTitle) {
         if (timestamp == null) {
             Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle));
@@ -1755,6 +1779,11 @@ public class ApplicantProfileStepsImpl {
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * Scroll into view and click on the Edit button of a vacancy in the application.
+     *
+     * @param applicationName the name of the application
+     */
     public static void clicks_edit_vacancy(String applicationName) {
         Playwright_Common_Utils.scrollIntoView("(//a[@rel='nofollow'])[1]");
         List<ElementHandle> pagination = page.querySelectorAll("//a[@rel='nofollow']");
@@ -1769,6 +1798,17 @@ public class ApplicantProfileStepsImpl {
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * Verifies that reference one is updated with the expected values.
+     *
+     * @param expectedUpdatedReferenceOneFirstName      The expected updated first name of reference one.
+     * @param expectedUpdatedReferenceOneMiddleName     The expected updated middle name of reference one.
+     * @param expectedUpdatedReferenceOneLastName       The expected updated last name of reference one.
+     * @param expectedUpdatedReferenceOneEmail          The expected updated email of reference one.
+     * @param expectedUpdatedReferenceOnePhoneNumber    The expected updated phone number of reference one.
+     * @param expectedUpdatedReferenceOnePositionTitle  The expected updated position title of reference one.
+     * @param expectedUpdatedReferenceOneOrganizationName The expected updated organization name of reference one.
+     */
     public static void verifies_that_reference_one_is_updated(String expectedUpdatedReferenceOneFirstName, String expectedUpdatedReferenceOneMiddleName, String expectedUpdatedReferenceOneLastName, String expectedUpdatedReferenceOneEmail, String expectedUpdatedReferenceOnePhoneNumber, String expectedUpdatedReferenceOnePositionTitle, String expectedUpdatedReferenceOneOrganizationName) {
         page.locator("#references_0_firstName");
         page.locator("#references_0_middleName");
@@ -1787,6 +1827,18 @@ public class ApplicantProfileStepsImpl {
         Hooks.softAssert.assertEquals(page.locator("#references_0_organization").inputValue(), expectedUpdatedReferenceOneOrganizationName);
     }
 
+    /**
+     * This method verifies that reference two is updated by comparing the expected values with the actual values
+     * obtained from the page locators.
+     *
+     * @param expectedUpdatedReferenceTwoFirstName       The expected updated first name for reference two.
+     * @param expectedUpdatedReferenceTwoMiddleName      The expected updated middle name for reference two.
+     * @param expectedUpdatedReferenceTwoLastName        The expected updated last name for reference two.
+     * @param expectedUpdatedReferenceTwoEmail           The expected updated email for reference two.
+     * @param expectedUpdatedReferenceTwoPhoneNumber     The expected updated phone number for reference two.
+     * @param expectedUpdatedReferenceTwoPositionTitle   The expected updated position title for reference two.
+     * @param expectedUpdatedReferenceTwoOrganizationName The expected updated organization name for reference two.
+     */
     public static void verifies_tha_reference_two_is_updated(String expectedUpdatedReferenceTwoFirstName, String expectedUpdatedReferenceTwoMiddleName, String expectedUpdatedReferenceTwoLastName, String expectedUpdatedReferenceTwoEmail, String expectedUpdatedReferenceTwoPhoneNumber, String expectedUpdatedReferenceTwoPositionTitle, String expectedUpdatedReferenceTwoOrganizationName) {
         page.locator("#references_1_firstName");
         page.locator("#references_1_middleName");
@@ -1806,17 +1858,36 @@ public class ApplicantProfileStepsImpl {
         Hooks.softAssert.assertEquals(page.locator("#references_1_organization").inputValue(), expectedUpdatedReferenceTwoOrganizationName);
     }
 
+    /**
+     * Clicks on the "Remove" button for a specific item.
+     */
     public static void clicks_on_remove_button() {
         page.locator("//td[normalize-space()='" + "DIEGO TEST" + " " + timestamp + "']/following-sibling::td//div/button/span[text()=' Remove']").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * Scrolls into view and removes the draft based on the confirmation message.
+     *
+     * @param Confirm the confirmation message used to locate and remove the draft
+     */
     public static void that_the_draft_was_removed(String Confirm) {
         Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(Confirm));
         page.locator(Playwright_Common_Locators.dynamicTextLocator(Confirm)).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * Verifies that the draft is no longer showing under your application tab.
+     * The method performs the following steps:
+     * 1. Scroll into view the first element with "nofollow" attribute.
+     * 2. Get a list of all elements with "nofollow" attribute.
+     * 3. Loop through each element in the list.
+     * 4. If an element with the text "DIEGO TEST" and the given timestamp is found, set the isFound variable to true and break the loop.
+     * 5. If no matching element is found, click on the current element in the loop.
+     * 6. Take a screenshot of the page using CucumberLogUtils.playwrightScreenshot method.
+     * 7. Use Hooks.softAssert to assert that the isFound variable is false.
+     */
     public static void verifies_that_the_draft_is_no_longer_showing_under_your_application_tab() {
         boolean isFound = false;
         Playwright_Common_Utils.scrollIntoView("(//a[@rel='nofollow'])[1]");
@@ -1833,23 +1904,42 @@ public class ApplicantProfileStepsImpl {
         Hooks.softAssert.assertFalse(isFound);
     }
 
+    /**
+     * This method represents the action of a user withdrawing the application.
+     */
     public static void user_withdraws_the_application() {
         page.locator("//td[normalize-space()='" + "DIEGO TEST" + " " + timestamp + "']/following-sibling::td//div/button/span[text()='Withdraw']").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * This method is used to withdraw the application.
+     *
+     * @param Withdraw the specific text to be used for withdrawing the application
+     */
     public static void withdrawing_the_application(String Withdraw) {
         Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(Withdraw));
         page.locator(Playwright_Common_Locators.dynamicTextLocator(Withdraw)).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * Verifies that the application status is as expected.
+     *
+     * @param expectedWithdrawnText The expected withdrawn text.
+     */
     public static void verifies_that_the_application_status_is(String expectedWithdrawnText) {
         String actualWithdrawnText = page.locator("//td[normalize-space()='" + "DIEGO TEST" + " " + timestamp + "']/following-sibling::td/span[text()='withdrawn']").innerText();
         CucumberLogUtils.playwrightScreenshot(page);
         Hooks.softAssert.assertEquals(actualWithdrawnText, expectedWithdrawnText);
     }
 
+    /**
+     * Selects the number of scoring categories based on the scoring number provided.
+     * Uses Playwright to interact with the webpage.
+     *
+     * @param scoringNumber The scoring number to select the number of categories.
+     */
     public static void selects_for_number_of_scoring_categories(String scoringNumber) {
         ElementHandle sliderHandle = page.querySelector(".ant-slider-handle");
         var boxSlider = sliderHandle.boundingBox();
@@ -1860,5 +1950,38 @@ public class ApplicantProfileStepsImpl {
         page.mouse().move(boxTarget.x + boxTarget.width / 2, boxTarget.y + boxTarget.height / 2);
         page.mouse().up();
         CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Edits an application for a vacancy that has a specific status.
+     *
+     * @param applicationStatus the status of the vacancy application to edit
+     */
+    public static void edits_an_application_for_a_vacancy_that_status_is(String applicationStatus){
+        page.waitForSelector(".ant-table-thead");
+        int rowCount = page.querySelectorAll("//tr[@class='ant-table-row ant-table-row-level-0']").size();
+        System.out.println(rowCount);
+        for (int i = 0; i < rowCount; i++) {
+            String rowSelector = "(//tr[@class='ant-table-row ant-table-row-level-0'])[" + (i+1) + "]";
+            String statusSelector = rowSelector + "/td[2]";
+            String editButtonSelector = rowSelector + "//span[contains(text(),'Edit')]";
+            String status = page.locator(statusSelector).innerText();
+            if (status.equalsIgnoreCase(applicationStatus)) {
+                page.click(editButtonSelector);
+                break;
+            }
+        }
+    }
+
+    /**
+     * Checks if the user sees a banner with the expected message.
+     *
+     * @param expectedBanner the expected message that should be displayed in the banner
+     */
+    public static void user_sees_a_banner(String expectedBanner) {
+        String alertMessage = page.textContent(".ant-alert-message");
+        String alertDescription = page.textContent(".ant-alert-description");
+        String actualAlertMessage = alertMessage + " " + alertDescription;
+        Hooks.softAssert.assertEquals(actualAlertMessage, expectedBanner);
     }
 }
