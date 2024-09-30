@@ -7,22 +7,19 @@ import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+import static com.nci.automation.web.TestProperties.getFORGEdbUrl;
 
 public class FORGEdb_Steps extends PageInitializer {
 
     @Given("User navigates to the FORGEdb Website")
     public void user_navigates_to_the_forg_edb_website() {
-        PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("FORGEdb"));
-        MiscUtils.sleep(2000);
+        PlaywrightUtils.page.navigate(getFORGEdbUrl());
+        CommonUtils.sleep(2000);
     }
 
     @Then("User clicks on the HOME tab in FORGEdb")

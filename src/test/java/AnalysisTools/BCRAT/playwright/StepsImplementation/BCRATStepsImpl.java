@@ -2,18 +2,12 @@ package AnalysisTools.BCRAT.playwright.StepsImplementation;
 
 import AnalysisTools.BCRAT.playwright.Pages.BCRATPage;
 import AnalysisTools.BCRAT.playwright.Utils.BCRAT_Constants;
-import AnalysisTools.FORGEdb.playwright.Pages.FORGEdbPage;
-import AnalysisTools.FORGEdb.playwright.Utils.FORGEdb_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import org.testng.Assert;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
@@ -24,7 +18,7 @@ public class BCRATStepsImpl extends PageInitializer {
      */
     public static void checksPatientEligibility() {
         PlaywrightUtils.page.getByLabel("Does the woman have a medical").getByRole(AriaRole.RADIO, new Locator.GetByRoleOptions().setName("Yes")).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("OK")).click();
     }
 
@@ -33,7 +27,7 @@ public class BCRATStepsImpl extends PageInitializer {
      */
     public static void clickHealthProfessionalLink() {
         PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(BCRATPage.bcHealthProfessionalLocator)).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         assertThat(PlaywrightUtils.page).hasTitle(BCRAT_Constants.BREAST_CANCER_HEALTH_PROFESSIONAL_VERSION);
     }
 
@@ -43,7 +37,7 @@ public class BCRATStepsImpl extends PageInitializer {
     public static void clickBCRiskLink() {
         PlaywrightUtils.page.goBack();
         PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(BCRATPage.bcHealthRiskLocator)).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         assertThat(PlaywrightUtils.page).hasTitle(BCRAT_Constants.BREAST_CANCER_HEALTH_RISK);
     }
 
@@ -53,7 +47,7 @@ public class BCRATStepsImpl extends PageInitializer {
     public static void clickCCTBCScreeningLink() {
         PlaywrightUtils.page.goBack();
         PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(BCRATPage.cctBreastCancerScreeningLocator)).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         assertThat(PlaywrightUtils.page).hasTitle(BCRAT_Constants.CCT_BREAST_CANCER_SCREENING);
     }
 
@@ -63,7 +57,7 @@ public class BCRATStepsImpl extends PageInitializer {
     public static void clickCCTBCPreventionLink() {
         PlaywrightUtils.page.goBack();
         PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(BCRATPage.cctBreastCancerPreventionLocator)).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         assertThat(PlaywrightUtils.page).hasTitle(BCRAT_Constants.CCT_BREAST_CANCER_PREVENTION);
     }
 
@@ -73,7 +67,7 @@ public class BCRATStepsImpl extends PageInitializer {
     public static void clickCCTBCTreatmentLink() {
         PlaywrightUtils.page.goBack();
         PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(BCRATPage.cctBreastCancerTreatmentLocator)).click();
-        MiscUtils.sleep(2000);
+     CommonUtils.sleep(2000);
         assertThat(PlaywrightUtils.page).hasTitle(BCRAT_Constants.CCT_BREAST_CANCER_TREATMENT);
     }
 
@@ -83,11 +77,11 @@ public class BCRATStepsImpl extends PageInitializer {
     public static void enterAllDataForRiskCalculator() {
         PlaywrightUtils.page.getByLabel("Does the woman have a medical").getByRole(AriaRole.RADIO, new Locator.GetByRoleOptions().setName("No")).click();
         PlaywrightUtils.page.getByLabel("Does the woman have a mutation in either the BRCA1 or BRCA2 gene, or a").getByRole(AriaRole.RADIO, new Locator.GetByRoleOptions().setName("No").setExact(true)).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         PlaywrightUtils.page.getByLabel("What is the patient’s age?").selectOption("36");
         PlaywrightUtils.page.getByLabel("What is the patient’s race/").selectOption("Asian");
         PlaywrightUtils.page.getByLabel("What is the sub race/").selectOption("Asian");
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         PlaywrightUtils.page.getByLabel("Has the patient ever had a breast biopsy with a benign (not cancer) diagnosis?").getByRole(AriaRole.RADIO, new Locator.GetByRoleOptions().setName("No").setExact(true)).click();
         PlaywrightUtils.page.getByRole(AriaRole.RADIO, new Page.GetByRoleOptions().setName("or older")).click();
         PlaywrightUtils.page.getByLabel("What was the woman’s age when").selectOption("1");
@@ -99,6 +93,6 @@ public class BCRATStepsImpl extends PageInitializer {
      */
     public static void clickRiskCalculatorTab() {
         PlaywrightUtils.page.locator(BCRATPage.calculateRiskTabLocator).click();
-        MiscUtils.sleep(2000);
+      CommonUtils.sleep(2000);
     }
 }

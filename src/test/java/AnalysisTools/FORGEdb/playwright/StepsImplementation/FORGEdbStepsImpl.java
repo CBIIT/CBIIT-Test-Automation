@@ -6,7 +6,7 @@ import appsCommon.PageInitializers.PageInitializer;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -23,7 +23,7 @@ public class FORGEdbStepsImpl extends PageInitializer {
      */
     public static void clickHomeTabInForgedb() {
         PlaywrightUtils.page.locator(FORGEdbPage.homeTabElement).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
     }
 
     /**
@@ -32,12 +32,12 @@ public class FORGEdbStepsImpl extends PageInitializer {
     public static void clickForge2LinkAndRunButton() {
         Page newPage1 = PlaywrightUtils.context.waitForPage(() -> {
             PlaywrightUtils.page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(FORGEdbPage.forge2LinkLocator)).getByRole(AriaRole.LINK).click();});
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         assertThat(newPage1).hasTitle(FORGEdb_Constants.FORGEDB2_TITLE);
         newPage1.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FORGEdbPage.runButton)).click();
-        MiscUtils.sleep(10000);
+        CommonUtils.sleep(10000);
         assertThat(newPage1.locator("thead")).containsText(FORGEdbPage.runningText);
-        MiscUtils.sleep(55000);
+        CommonUtils.sleep(55000);
         try {
             String str = newPage1.locator("#col3_content").textContent();
             SoftAssert soft = new SoftAssert();
@@ -56,7 +56,7 @@ public class FORGEdbStepsImpl extends PageInitializer {
         Page page8 = PlaywrightUtils.page.waitForPopup(() -> {
             PlaywrightUtils.page.locator("li").filter(new Locator.FilterOptions().setHasText(FORGEdbPage.nci)).getByRole(AriaRole.LINK).click();
         });
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         assertThat(page8).hasTitle(FORGEdb_Constants.NCI_PAGE_TITLE);page8.close();
     }
 

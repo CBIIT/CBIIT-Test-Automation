@@ -72,7 +72,7 @@ public class NIFESubmitStepsImpl extends PageInitializer {
      */
     public static void verifyNCILink() {
         Page newPage1 = PlaywrightUtils.context.waitForPage(() -> {
-            PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(NIFESubmitPage.NCI).setExact(true)).click();});
+            PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(NIFESubmitPage.NCIPage).setExact(true)).click();});
         CommonUtils.sleep(2000);
         assertThat(newPage1).hasURL(NIFESubmit_Constants.NCI_LINK);newPage1.close();
     }
@@ -81,7 +81,7 @@ public class NIFESubmitStepsImpl extends PageInitializer {
      * CLICK LINK AND ASSERT THE TITLE OF NEW PAGE
      */
     public static void clickAndAssertNewPageTitle() {
-        Playwright_Common_Utils.clickAndAssertNewPageTitle(NIFESubmitPage.ccsMicroscopyCore,NIFESubmit_Constants.CCR_MICROSCOPY_CORE_TITLE);
+        Playwright_Common_Utils.clickAndAssertNewPageTitle(NIFESubmitPage.cdblMicroscopyCore,NIFESubmit_Constants.CCR_MICROSCOPY_CORE_TITLE);
         CommonUtils.sleep(2000);
         Playwright_Common_Utils.clickAndAssertNewPageTitle(NIFESubmitPage.cdblMicroscopyCore,NIFESubmit_Constants.CDBL_MICROSCOPY_CORE_TITLE);
         CommonUtils.sleep(2000);

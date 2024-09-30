@@ -53,7 +53,7 @@ public class NIFESubmit_Steps extends PageInitializer {
 
     @Then("User clicks on policies link and verify it in NIFE")
     public void user_clicks_on_policies_link_and_verify_it_in_NIFE() {
-        Playwright_Common_Utils.clickAndAssertNewPage(NIFESubmitPage.policies, NIFESubmit_Constants.POLICIES_LINK);
+        Playwright_Common_Utils.clickAndAssertNewPage(NIFESubmitPage.policiesPage, NIFESubmit_Constants.POLICIES_LINK);
     }
 
     @Then("User clicks on the VDPolicy link and verify it in NIFE")
@@ -63,7 +63,7 @@ public class NIFESubmit_Steps extends PageInitializer {
 
     @Then("User clicks on the Accessibility link and verify it in NIFE")
     public void user_clicks_on_the_accessibility_link_and_verify_it_in_NIFE() {
-        Playwright_Common_Utils.clickAndAssertNewPage(NIFESubmitPage.accessibility, NIFESubmit_Constants.ACCESSIBILITY_LINK);
+        Playwright_Common_Utils.clickAndAssertNewPage(NIFESubmitPage.accessibilityPage, NIFESubmit_Constants.ACCESSIBILITY_LINK);
     }
 
     @Then("User clicks on the viewing file link and verify it in NIFE")
@@ -73,17 +73,17 @@ public class NIFESubmit_Steps extends PageInitializer {
 
     @Then("User clicks on the FIOS link and verify it in NIFE")
     public void user_clicks_on_the_fios_link_and_verify_it_in_NIFE() {
-        Playwright_Common_Utils.clickAndAssertNewPage(NIFESubmitPage.FOIA, NIFESubmit_Constants.FOIA_LINK);
+        Playwright_Common_Utils.clickAndAssertNewPage(NIFESubmitPage.FOIAPage, NIFESubmit_Constants.FOIA_LINK);
     }
 
     @Then("User clicks on hhs link and verify it in NIFE")
     public void user_clicks_on_hhs_link_and_verify_it_in_NIFE() {
-        Playwright_Common_Utils.clickAndAssertNewPage(NIFESubmitPage.HHS, NIFESubmit_Constants.HHS_LINK);
+        Playwright_Common_Utils.clickAndAssertNewPage(NIFESubmitPage.HHSPage, NIFESubmit_Constants.HHS_LINK);
     }
 
     @Then("User clicks on NIH link and verify it in NIFE")
     public void user_clicks_on_nih_link_and_verify_it_in_NIFE() {
-        Playwright_Common_Utils.clickAndAssertNewPage(NIFESubmitPage.NIH, NIFESubmit_Constants.NIH_LINK);
+        Playwright_Common_Utils.clickAndAssertNewPage(NIFESubmitPage.NIHPage, NIFESubmit_Constants.NIH_LINK);
     }
 
     @Then("User clicks on NCI link and verify it in NIFE")

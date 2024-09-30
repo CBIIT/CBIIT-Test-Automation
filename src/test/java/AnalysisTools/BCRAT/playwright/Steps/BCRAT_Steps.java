@@ -8,19 +8,19 @@ import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+import static com.nci.automation.web.TestProperties.getBCRATUrl;
 
 public class BCRAT_Steps extends PageInitializer {
 
     @Given("User navigates to the BCRAT Website")
     public void user_navigates_to_the_bcrat_website() {
-        PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("BCRAT"));
-        MiscUtils.sleep(2000);
+        PlaywrightUtils.page.navigate(getBCRATUrl());
+        CommonUtils.sleep(2000);
     }
 
     @Then("User clicks on the BCRAT link")
@@ -46,7 +46,7 @@ public class BCRAT_Steps extends PageInitializer {
     @Then("User clicks on the Calculate Patient Risk button")
     public void user_clicks_on_the_calculate_patient_risk_button() {
         PlaywrightUtils.page.locator(BCRATPage.patientRiskLocator).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
     }
 
     @Then("User clicks yes for the patient eligibility and clicks ok button")
