@@ -5,13 +5,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
 
 public class CEDCDBiospecimenCountsAlphabeticalCancerTypeSteps extends PageInitializer {
 
 	@Given("the user is on the CEDCD Biospecimen tab")
-	public void the_user_is_on_the_CEDCD_Biospecimen_tab() throws TestingException {
+	public void the_user_is_on_the_CEDCD_Biospecimen_tab()  {
 		/** This step starts the browser and directs us to the CEDCD Biospecimen Tab */
 		cedcdStartUps.setUpOnBiospecimenTabPage();
 	}

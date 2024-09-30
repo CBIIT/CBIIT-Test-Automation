@@ -1,18 +1,18 @@
 package AnalysisTools.MCAExplorer.Steps;
 
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import static com.nci.automation.web.TestProperties.getMcaExplorerUrl;
 
 public class MCAExplorer_steps extends PageInitializer {
 
 	@Given("User navigates to MCAExplorer page")
 	public void user_navigates_to_mca_explorer_page() {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("MCAExplorer"));
+		WebDriverUtils.webDriver.get(getMcaExplorerUrl());
 	}
 
 	@Then("clicks on advance filters")

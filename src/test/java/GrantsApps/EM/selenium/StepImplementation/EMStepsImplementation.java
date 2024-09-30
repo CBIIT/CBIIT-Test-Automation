@@ -6,9 +6,7 @@ import GrantsApps.EM.selenium.Utils.EM_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.Dynamic_Locators;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.By;
@@ -21,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import static com.nci.automation.web.TestProperties.getEnterpriseMaintenanceUrl;
 
 public class EMStepsImplementation extends PageInitializer {
 
@@ -34,20 +33,20 @@ public class EMStepsImplementation extends PageInitializer {
     public void emLogin(String userName) {
         switch (userName) {
             case "Elizabeth Andreyev":
-                WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("EM"));
+                WebDriverUtils.webDriver.get(getEnterpriseMaintenanceUrl());
                 iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "andreyeveUsername");
                 iTrustloginPage.enterPassword("andreyevePassword");
-                MiscUtils.sleep(3000);
+                CommonUtils.sleep(3000);
                 iTrustloginPage.clickSignInButton();
-                MiscUtils.sleep(3000);
+                CommonUtils.sleep(3000);
                 break;
             case "Diego Juarez":
-                WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("EM"));
+                WebDriverUtils.webDriver.get(getEnterpriseMaintenanceUrl());
                 iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "Username");
                 iTrustloginPage.enterPassword("Password");
-                MiscUtils.sleep(3000);
+                CommonUtils.sleep(3000);
                 iTrustloginPage.clickSignInButton();
-                MiscUtils.sleep(3000);
+                CommonUtils.sleep(3000);
                 break;
             default:
                 throw new RuntimeException("***** NOT VALID USER *****");
@@ -61,7 +60,7 @@ public class EMStepsImplementation extends PageInitializer {
      * 3. Take a screenshot
      */
     public static void user_is_logged_in_as_primary_ic_coordinator() {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("EM"));
+        WebDriverUtils.webDriver.get(getEnterpriseMaintenanceUrl());
         iTrustLoginPageImpl.loginToITrust();
         CucumberLogUtils.logScreenshot();
     }
@@ -106,12 +105,12 @@ public class EMStepsImplementation extends PageInitializer {
                 break;
             case "I2E Home":
                 CommonUtils.clickOnElement(manageI2EUsersPage.i2eHomeHyperlink);
-                MiscUtils.sleep(3000);
+                CommonUtils.sleep(3000);
                 String actual_I2E_PageTitle = WebDriverUtils.webDriver.getTitle();
                 String expected_I2E_PageTitle = EM_Constants.I2E_HOME_PAGE_TITLE;
                 Assert.assertEquals(actual_I2E_PageTitle, expected_I2E_PageTitle);
-                WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("EM"));
-                MiscUtils.sleep(2000);
+                WebDriverUtils.webDriver.get(getEnterpriseMaintenanceUrl());
+                CommonUtils.sleep(2000);
                 break;
             case "Workbench":
                 CommonUtils.clickOnElement(ManageI2EUsersPage.dynamicLinkLocator(linkText));
@@ -120,7 +119,7 @@ public class EMStepsImplementation extends PageInitializer {
                 String expectedWorkbenchPageTitle = EM_Constants.WORKBENCH_PAGE_TITLE;
                 Assert.assertEquals(actualWorkbenchPageTitle, expectedWorkbenchPageTitle);
                 WebDriverUtils.webDriver.switchTo().window(emWindowHandle);
-                MiscUtils.sleep(3000);
+                CommonUtils.sleep(3000);
                 break;
         }
     }
@@ -135,7 +134,7 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void verifyingHelpDropDownOptions(String helpDropDown, String option1, String option2, String option3) {
         CommonUtils.clickOnElement(ManageI2EUsersPage.dynamicLinkLocator(helpDropDown));
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         List<String> actualHelpDropDownValues = new ArrayList<>();
         for (WebElement option : manageI2EUsersPage.i2eHelpDropDownValues) {
             actualHelpDropDownValues.add(option.getText());
@@ -157,15 +156,15 @@ public class EMStepsImplementation extends PageInitializer {
         String emMainWindowHandle = webDriver.getWindowHandle();
         ManageI2EUsersPage.dynamicLinkLocator("Help ").click();
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         JavascriptUtils.clickByJS(ManageI2EUsersPage.dynamicLinkLocator(hyperlinkText));
         CommonUtils.switchToNextWindow();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         Assert.assertEquals(webDriver.getCurrentUrl(), URL);
         webDriver.switchTo().window(emMainWindowHandle);
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -176,7 +175,7 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void verifyingContactOptions(String option1, String option2) {
         ManageI2EUsersPage.dynamicLinkLocator("Contact ").click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         String actualEmailTechnicalSupportText = ManageI2EUsersPage.dynamicLinkLocator(option1).getText();
         Assert.assertEquals(actualEmailTechnicalSupportText, option1.trim());
         String actualEmailBusinessPolicyText = ManageI2EUsersPage.dynamicLinkLocator(option2).getText();
@@ -193,7 +192,7 @@ public class EMStepsImplementation extends PageInitializer {
         CommonUtils.waitForVisibility(manageI2EUsersPage.i2eAccountStatusDropDown);
         manageI2EUsersPage.i2eAccountStatusDropDown.click();
         CommonUtils.selectValueFromBootStrapDropDown(manageI2EUsersPage.i2eAccountStatusValues, text);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -206,7 +205,7 @@ public class EMStepsImplementation extends PageInitializer {
      * @throws InterruptedException if the thread is interrupted while waiting
      */
     public static void user_can_verify_that_user_s_full_name_is_displayed() {
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
         JavascriptUtils.scrollIntoView(manageI2EUsersPage.createButton);
         expectedNEDname = JavascriptUtils.getTextUsingJS(manageI2EUsersPage.fullNEDName);
         CucumberLogUtils.logScreenshot();
@@ -219,10 +218,10 @@ public class EMStepsImplementation extends PageInitializer {
      * Then it waits for 2 seconds.
      */
     public static void clicks_create_on_the_first_record_in_the_results() {
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
         JavascriptUtils.scrollIntoView(manageI2EUsersPage.createButton);
         JavascriptUtils.clickByJS(manageI2EUsersPage.createButton);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -235,7 +234,7 @@ public class EMStepsImplementation extends PageInitializer {
         String actualPageName = createNewAccountPage.createNewAccountTitle.getText();
         CucumberLogUtils.logScreenshot();
         Assert.assertEquals(actualPageName, expectedPageName);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
     }
 
     /**
@@ -259,7 +258,7 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void user_can_verify_the_respective_wording_of_full_name_tooltip(String expectedWording_of_full_name_tooltip) {
         createNewAccountPage.tooltipNEDnameLink.click();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         String actualWording_of_full_name_tooltip = createNewAccountPage.tooltipNEDnameText.getText();
         CucumberLogUtils.logScreenshot();
         Assert.assertEquals(actualWording_of_full_name_tooltip, expectedWording_of_full_name_tooltip);
@@ -315,7 +314,7 @@ public class EMStepsImplementation extends PageInitializer {
         String emMainWindowHandle = webDriver.getWindowHandle();
         createNewAccountPage.list_of_I2E_roles_link.click();
         CommonUtils.switchToNextWindow();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         String actual_I2E_roles_pdf_url = webDriver.getCurrentUrl();
         Assert.assertEquals(actual_I2E_roles_pdf_url, expected_I2E_roles_pdf_url);
@@ -374,7 +373,7 @@ public class EMStepsImplementation extends PageInitializer {
      * Simulates a user clicking on the I2E Role drop-down.
      */
     public static void user_clicks_i2e_role_drop_down() {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         createNewAccountPage.i2e_role_drop_down.click();
     }
 
@@ -436,7 +435,7 @@ public class EMStepsImplementation extends PageInitializer {
     public static void user_can_verify_the_success_message_is_displayed(String expectedSuccessMessage) {
         String actualSuccessMessage = createNewAccountPage.success_message.getText();
         Assert.assertEquals(actualSuccessMessage, expectedSuccessMessage);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -447,7 +446,7 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void user_can_verify_that_return_to_manage_i2e_users_hyperlink_directs_to_url(String searchPageExpectedURL) {
         createNewAccountPage.return_to_manage_i2e_users_hyperlink.click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         String searchPageActualURL = webDriver.getCurrentUrl();
         Assert.assertEquals(searchPageActualURL, searchPageExpectedURL);
         CucumberLogUtils.logScreenshot();
@@ -458,24 +457,24 @@ public class EMStepsImplementation extends PageInitializer {
      * <p>
      * This method performs the following steps:
      * <ol>
-     * <li>Pauses the execution for 2 seconds using the {@link MiscUtils#sleep(long)} method.</li>
+     * <li>Pauses the execution for 2 seconds using the {@link CommonUtils#sleep(long)} method.</li>
      * <li>Clicks on the "change user" dropdown by executing JavaScript code using the {@link JavascriptUtils#clickByJS(String)} method.</li>
      * <li>Clicks on the "change user" field using the {@link CommonUtils#clickOnElement(WebElement)} method.</li>
      * <li>Enters "Li, Bin" in the "change user" field input using the {@link CommonUtils#sendKeys(WebElement, String)} method.</li>
      * <li>Waits for the "Li, Bin" option to become clickable using the {@link CommonUtils#waitForClickability(WebElement)} method.</li>
      * <li>Clicks on the "Li, Bin" option using the {@link CommonUtils#clickOnElement(WebElement)} method.</li>
-     * <li>Pauses the execution for 2 seconds using the {@link MiscUtils#sleep(long)} method.</li>
+     * <li>Pauses the execution for 2 seconds using the {@link CommonUtils#sleep(long)} method.</li>
      * </ol>
      * </p>
      */
     public void loginAsLiBin() {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         JavascriptUtils.clickByJS(manageI2EUsersPage.changeuserDr);
         CommonUtils.clickOnElement(manageI2EUsersPage.changeuserField);
         CommonUtils.sendKeys(manageI2EUsersPage.changeuserFieldInput, "Li, Bin");
         CommonUtils.waitForClickability(manageI2EUsersPage.liBinOption);
         CommonUtils.clickOnElement(manageI2EUsersPage.liBinOption);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
     }
 
     /**
@@ -499,7 +498,7 @@ public class EMStepsImplementation extends PageInitializer {
         CommonUtils.sendKeys(manageI2EUsersPage.nameField, name);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(manageI2EUsersPage.searchButtonI2ESearch);
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -544,7 +543,7 @@ public class EMStepsImplementation extends PageInitializer {
     public static void tester_deletes_role_to_re_run_test_before_adding_role(String role) {
 
         try {
-            MiscUtils.sleep(2000);
+            CommonUtils.sleep(2000);
             if (WebDriverUtils.webDriver.findElement(By.xpath("(//span[contains(text(),'" + role + "')]//parent::td//parent::tr/td)[5]/span/button")).isDisplayed()) {
                 WebDriverUtils.webDriver.findElement(By.xpath("(//span[contains(text(),'" + role + "')]//parent::td//parent::tr/td)[5]/span/button")).click();
                 WebDriverUtils.webDriver.findElement(By.xpath("//button[normalize-space()='Yes']")).click();
@@ -559,7 +558,7 @@ public class EMStepsImplementation extends PageInitializer {
      * Waits for 2 seconds and then performs a click action on the I_E_Role_drop_down element in the account details page.
      */
     public static void user_clicks_I_E_Role_drop_down() {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(accountDetailsPage.I2ERoleDropDown);
     }
 
@@ -570,7 +569,7 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void user_selects_I_E_Technical_Support_Role() {
         CommonUtils.clickOnElement(accountDetailsPage.technicalSupportRole);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -595,9 +594,9 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void user_saves_ITwoE_Technical_Support_Role_that_was_added_role() {
         CommonUtils.clickOnElement(accountDetailsPage.addRoleModalClose);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(accountDetailsPage.saveChangesButton);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
     }
 
     /**
@@ -606,7 +605,7 @@ public class EMStepsImplementation extends PageInitializer {
      * @param expectedName the expected first and last name of the logged in user
      */
     public static void user_can_verify_that_first_and_last_name_of_logged_in_user_are_shown(String expectedName) {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForClickability(WebDriverUtils.webDriver.findElement(By.xpath("//body/app-root/app-header/lib-header/header/nav/div/div/ul/li/span[1]")));
         String actualName = WebDriverUtils.webDriver.findElement(By.xpath("//body/app-root/app-header/lib-header/header/nav/div/div/ul/li/span[1]")).getText();
         Assert.assertEquals(actualName, expectedName);
@@ -618,7 +617,7 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void user_clicks_on_My_DOC_Discrepancies() {
         JavascriptUtils.clickByJS(manageI2EUsersPage.myDOCDiscrepancies);
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -628,7 +627,7 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void user_clicks_on_IMPAC_II_Portfolio_Analysis() {
         CommonUtils.clickOnElement(manageI2EUsersPage.impac2PortfolioAnalysis);
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -639,7 +638,7 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void user_clicks_on_I_E_Portfolio_Analysis(Integer int1) {
         CommonUtils.clickOnElement(manageI2EUsersPage.i2EPortfolioAnalysis);
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -652,7 +651,7 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void user_clicks_on_Accounts_Audit() {
         CommonUtils.clickOnElement(manageI2EUsersPage.accountsAudit);
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -664,7 +663,7 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void user_clicks_on_NEAR() {
         CommonUtils.clickOnElement(manageI2EUsersPage.near);
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -772,7 +771,7 @@ public class EMStepsImplementation extends PageInitializer {
         CommonUtils.clickOnElement(accountDetailsPage.allBADropDown);
         CommonUtils.waitForClickability(accountDetailsPage.administrativeBADropDownOption);
         CommonUtils.clickOnElement(accountDetailsPage.administrativeBADropDownOption);
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
     }
 
     /**
@@ -784,9 +783,9 @@ public class EMStepsImplementation extends PageInitializer {
      * @param role4 The fourth administrative related role to verify.
      */
     public static void user_can_verify_that_administrative_related_roles_are_reflected_in_i2e_role_dropdown(String role1, String role2, String role3, String role4) {
-        MiscUtils.sleep(6000);
+        CommonUtils.sleep(6000);
         CommonUtils.clickOnElement(manageI2EUsersPage.I2ERoleDropD);
-        MiscUtils.sleep(6000);
+        CommonUtils.sleep(6000);
         ArrayList<String> list = new ArrayList();
         list.add(role1);
         list.add(role2);
@@ -934,7 +933,7 @@ public class EMStepsImplementation extends PageInitializer {
      * @param expectedUpdateByText       The expected column header name for the Updated By.
      */
     public static void user_verifies_inactive_i2e_roles_column_header_names(String expectedRoleText, String expectedRoleOrganizationText, String expectedStartDateText, String expectedEndDateText, String expectedUpdateByText) {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         ArrayList<String> expectedValues = new ArrayList<>();
         expectedValues.add(expectedRoleText);
         expectedValues.add(expectedRoleOrganizationText);
@@ -974,7 +973,7 @@ public class EMStepsImplementation extends PageInitializer {
      * @param expectedUpdatedByText The expected column header name for updated by.
      */
     public static void user_verifies_inactive_cancer_activities_column_header_names(String expectedCancerActivityText, String expectedTypeText, String expectedStartDateText, String expectedEndDateText, String expectedUpdatedByText) {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         ArrayList<String> expectedValues = new ArrayList<>();
         expectedValues.add(expectedCancerActivityText);
         expectedValues.add(expectedTypeText);
@@ -993,7 +992,7 @@ public class EMStepsImplementation extends PageInitializer {
      * @param expectedUpdatedByText The expected header name for the updated by column.
      */
     public static void user_verifies_change_history_column_header_names(String expectedDateText, String expectedChangesMadeText, String expectedUpdatedByText) {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         ArrayList<String> expectedValues = new ArrayList<>();
         expectedValues.add(expectedDateText);
         expectedValues.add(expectedChangesMadeText);

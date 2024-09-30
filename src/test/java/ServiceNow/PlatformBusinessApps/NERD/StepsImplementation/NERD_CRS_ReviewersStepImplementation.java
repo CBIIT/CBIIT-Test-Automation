@@ -6,11 +6,10 @@ import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
+import static com.nci.automation.web.TestProperties.getNerdUrl;
 
 public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
 
@@ -64,7 +63,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
      * @param SpecialTopic The special topic to filter on.
      */
     public static void clicksTheFilter(String SpecialTopic) {
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
         CommonUtils.assertTrue(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDD.getText()
                         .contentEquals(SpecialTopic));
@@ -120,9 +119,9 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
     public static void aCRSReviewerIsOnTheNERDHomePage(String crsReviewer) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser(crsReviewer);
-        MiscUtils.sleep(1500);
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        MiscUtils.sleep(1500);
+        CommonUtils.sleep(1500);
+        WebDriverUtils.webDriver.get(getNerdUrl());
+        CommonUtils.sleep(1500);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -149,7 +148,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
      */
     public static void theUserClicksTheNERDKnowledgeBase() {
         nerdHomePage.nerdKnowledgeBaseText.click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();;
     }
 
@@ -158,7 +157,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
      */
     public static void theUserIsRedirectedToTheKnowledgeBaseViewPage() {
         CommonUtils.assertTrue(nerdKnowledgeBasePage.nerdKnowledgeBaseViewText.isDisplayed());
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();;
     }
 
@@ -168,7 +167,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
      * @param topAccomplishmentsAccordionText The text of the header label for the accordion.
      */
     public static void thereIsACollapsedAccordionWithRheHeaderLabeled(String topAccomplishmentsAccordionText) {
-        MiscUtils.sleep(7000);
+        CommonUtils.sleep(7000);
         CommonUtils.waitForVisibility(NERDKnowledgebasePage
                 .dynamicAccordion(topAccomplishmentsAccordionText));
         boolean isTopAccomplishmentAccordionDisplayed = NERDKnowledgebasePage
@@ -195,7 +194,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
      */
     public static void theAccordionExpands(String itemsPerPageAccordionText) {
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(1500);
+        CommonUtils.sleep(1500);
         boolean isTopAccomplishmentsAccordionItemPerPageDisplayed = NERDKnowledgebasePage
                 .dynamicXpathNERDKnowledgeBaseAccordionItemsPerPageText(itemsPerPageAccordionText)
                 .isDisplayed();
@@ -225,11 +224,11 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         this.topAccomplishmentsAccordion = topAccomplishmentsAccordion;
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser(crsReviewer);
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        MiscUtils.sleep(1500);
+        WebDriverUtils.webDriver.get(getNerdUrl());
+        CommonUtils.sleep(1500);
         CucumberLogUtils.logScreenshot();
         nerdHomePage.nerdKnowledgeBaseText.click();
-        MiscUtils.sleep(1500);
+        CommonUtils.sleep(1500);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -239,15 +238,15 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
      * @param publishedArticleTitle the title of the published article to search for
      */
     public void thereIsARecordCalled(String publishedArticleTitle) {
-        MiscUtils.sleep(10000);
+        CommonUtils.sleep(10000);
         CommonUtils.waitForVisibility(NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion));
         CommonUtils.sendKeysToElement(nerdKnowledgeBasePage.topAccomplishmentsNerdKnowledgeBaseSearchTextBox, publishedArticleTitle);
-        MiscUtils.sleep(500);
+        CommonUtils.sleep(500);
         CommonUtils.clickOnElement(nerdKnowledgeBasePage.topAccomplishmentsNerdKnowledgeBaseSearchButton);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion).click();
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(500);
+        CommonUtils.sleep(500);
         boolean isArticleDisplayed = NERDKnowledgebasePage
                 .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(publishedArticleTitle)
                 .getText()
@@ -262,7 +261,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
      * @param titleOfPublishedArticle The title of the published article to click.
      */
     public static void theUserClicksTheTitleOfTheRecord(String titleOfPublishedArticle) {
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
         CommonUtils.waitForVisibility(NERDKnowledgebasePage
                 .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(titleOfPublishedArticle));
         CommonUtils.clickOnElement(NERDKnowledgebasePage
@@ -277,7 +276,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
      */
     public static void theUserIsRedirectedToTheArticleViewOfTheRecord(String titleOfPublishedArticle) {
         CommonUtils.switchToAnotherWindow();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         boolean isPublishedArticleDisplayed = NERDKnowledgebasePage
                 .dynamicXpathNERDAccordian(titleOfPublishedArticle).getText()
                 .contentEquals(titleOfPublishedArticle);

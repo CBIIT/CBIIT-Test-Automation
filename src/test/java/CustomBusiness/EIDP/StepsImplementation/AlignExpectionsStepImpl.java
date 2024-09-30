@@ -3,7 +3,6 @@ package CustomBusiness.EIDP.StepsImplementation;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import appsCommon.PageInitializers.PageInitializer;
 
@@ -15,7 +14,7 @@ public class AlignExpectionsStepImpl extends PageInitializer {
 		if (CommonUtils.isElementDisplayed(aligningExpectationsPage.additionalCommentNoRadioButton)) {
 			CommonUtils.clickOnElement(aligningExpectationsPage.additionalCommentNoRadioButton);
 		}
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(aligningExpectationsPage.saveButton);
 		Thread.sleep(6000);

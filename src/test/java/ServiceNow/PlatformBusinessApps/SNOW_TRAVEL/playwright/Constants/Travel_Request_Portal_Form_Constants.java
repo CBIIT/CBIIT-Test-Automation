@@ -56,17 +56,11 @@ public class Travel_Request_Portal_Form_Constants {
     /* NATIVE VIEW LINK  */
     public static final String NATIVE_VIEW_LINK = "Native View";
 
-    /* TRAVEL PLANNING SYSTEM RITM NUMBER  */
-    public static final String TRAVEL_PLANNING_SYSTEM_RITM_NUMBER = "NCI-RITM0509434";
-
     /* OPEN RECORD BUTTON  */
     public static final String OPEN_RECORD_BUTTON = "Open Record";
 
     /* VARIABLES TAB  */
     public static final String VARIABLES_TAB = "Variables";
-
-    /* ENTERED DATE  */
-    public static final String ENTERED_DATE = "07/10/2024";
 
     /* TRAVEL QUESTION ONE  */
     public static final String TRAVEL_QUESTION_ONE = "Do you have a defined role at the meeting/conference or intended for professional development?";
@@ -78,5 +72,5 @@ public class Travel_Request_Portal_Form_Constants {
     public static final String TRAVEL_QUESTION_THREE = "Does your travel meet travel deadlines and administrative deadlines (training requirements, passport/visa requirements)?";
 
     /* TRAVEL QUESTION FOUR  */
-    public static final String TRAVEL_QUESTION_FOUR = "Do you travel to a Level 3 or 4 travel advisory location?";
+    public static final String TRAVEL_QUESTION_FOUR = "Is your travel destination to a level 3 or 4 location?";
 }

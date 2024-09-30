@@ -1,19 +1,18 @@
 package ServiceNow.CHARMS.Steps;
 
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import static com.nci.automation.web.TestProperties.getRasLoginUrl;
 
 public class RAS_Screener_Submission_Steps extends PageInitializer {
 
     @Given("a participant is on the RASopathies Longitudinal Cohort Study login page {string}")
     public void a_participant_is_on_the_RASopathies_Longitudinal_Cohort_Study_login_page(String applicationID) {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(applicationID));
+        WebDriverUtils.webDriver.get(getRasLoginUrl());
         CucumberLogUtils.logScreenshot();
     }
 
@@ -38,13 +37,13 @@ public class RAS_Screener_Submission_Steps extends PageInitializer {
     }
 
     @Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")
-    public void a_user_is_on_the_RASopathies_Longitudinal_Cohort_Study_login_page() throws TestingException {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
+    public void a_user_is_on_the_RASopathies_Longitudinal_Cohort_Study_login_page() {
+        WebDriverUtils.webDriver.get(getRasLoginUrl());
     }
 
     @Given("a proband is on the RASopathies Longitudinal Cohort Study login page")
-    public void a_proband_is_on_the_RASopathies_Longitudinal_Cohort_Study_login_page() throws TestingException {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
+    public void a_proband_is_on_the_RASopathies_Longitudinal_Cohort_Study_login_page() {
+        WebDriverUtils.webDriver.get(getRasLoginUrl());
     }
 
     @Given("logs in via Okta with username {string} and password {string}")

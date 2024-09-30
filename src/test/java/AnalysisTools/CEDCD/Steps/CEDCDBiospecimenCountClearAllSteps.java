@@ -1,10 +1,10 @@
 package AnalysisTools.CEDCD.Steps;
 
+import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import com.nci.automation.utils.MiscUtils;
 import appsCommon.PageInitializers.PageInitializer;
 
 public class CEDCDBiospecimenCountClearAllSteps extends PageInitializer {
@@ -37,6 +37,6 @@ public class CEDCDBiospecimenCountClearAllSteps extends PageInitializer {
 	@Then("all previously selected fields are no longer selected")
 	public void all_previously_selected_fields_are_no_longer_selected() {
 		Assert.assertTrue(cedcdBiospecimenCountsPage.biospecimenSubmitBtn.isEnabled());
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 	}
 }

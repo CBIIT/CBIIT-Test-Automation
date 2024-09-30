@@ -1,20 +1,18 @@
 package AnalysisTools.ezQTL.Steps;
 
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.*;
 import appsCommon.PageInitializers.PageInitializer;
+import static com.nci.automation.web.TestProperties.getEzQTLUrl;
 
 public class DocumentationTabSteps extends PageInitializer {
 
         @Given("The user is on the ezQTL Documentation page")
-        public void the_user_is_on_the_ezQTL_Documentation_page() throws TestingException {
-                WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ezQTL"));
+        public void the_user_is_on_the_ezQTL_Documentation_page()  {
+                WebDriverUtils.webDriver.get(getEzQTLUrl());
                 CommonUtils.clickOnElement(ezQTLHomePage.documentationTabButton);
-                MiscUtils.sleep(2000);
+                CommonUtils.sleep(2000);
         }
 
         @Then("the values {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string} are displayed")

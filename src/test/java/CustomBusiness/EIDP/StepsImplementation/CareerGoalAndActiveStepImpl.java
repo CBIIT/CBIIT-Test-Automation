@@ -5,7 +5,6 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import appsCommon.PageInitializers.PageInitializer;
@@ -15,9 +14,9 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 	public void fillCarrerGoalActivite() throws Exception {
 		CommonUtils.waitForVisibility(careerGoalAndActivePage.saveAndContinueButton);
 		selectCareerGoal();
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		fillSkill();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(careerGoalAndActivePage.saveAndContinueButton);
 	}
@@ -66,10 +65,10 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 				|| careerGoalAndActivePage.goals.get(0).getAttribute("aria-expanded").equals("false")) {
 			careerGoalAndActivePage.goals.get(0).click();
 		}
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		if (careerGoalAndActivePage.goalOptions.size() == 0) {
 			careerGoalAndActivePage.academicOption.click();
-			MiscUtils.sleep(3000);
+			CommonUtils.sleep(3000);
 		}
 		careerGoalAndActivePage.goalOptions.get(2).click();
 		careerGoalAndActivePage.goalOptions.get(3).click();
@@ -143,31 +142,31 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 	}
 
 	public void editCareerTrainingActivites() {
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		for (int i = 0; i < careerGoalAndActivePage.editIcons.size(); i++) {
 			CommonUtils.clickOnElement(careerGoalAndActivePage.editIcons.get(i));
-			MiscUtils.sleep(3000);
+			CommonUtils.sleep(3000);
 			CommonUtils.clickOnElement(careerGoalAndActivePage.careerStatuses.get(careerGoalAndActivePage.careerStatuses.size() - 1)
 			.findElement(By.tagName("label")));
 			CommonUtils.clickOnElement(careerGoalAndActivePage.addMoreButton);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 		}
 		CommonUtils.clickOnElement(careerGoalAndActivePage.saveAndContinueButton);
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 	}
 
 	public void markAllExistingCareerGoalsAsCompleted() {
 		for (int i = 0; i < careerGoalAndActivePage.editIcons.size(); i++) {
-			MiscUtils.sleep(4000);
+			CommonUtils.sleep(4000);
 			careerGoalAndActivePage.editIcons.get(i).click();
 			CommonUtils.clickOnElement(careerGoalAndActivePage.editRadiobuttons.get(2));
-			MiscUtils.sleep(3000);
+			CommonUtils.sleep(3000);
 			careerGoalAndActivePage.editIcons.get(0).click();
 			CommonUtils.clickOnElement(careerGoalAndActivePage.editRadiobuttons.get(2));
 			CommonUtils.clickOnElement(careerGoalAndActivePage.doneButton);
 		}
 		CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.id("careerGoalsSubmitSave")));
-		MiscUtils.sleep(4000);
+		CommonUtils.sleep(4000);
 	}
 
 	public void addNewCareerGoal() {

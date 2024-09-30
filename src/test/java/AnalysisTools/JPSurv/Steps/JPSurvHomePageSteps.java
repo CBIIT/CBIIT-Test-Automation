@@ -3,20 +3,18 @@ package AnalysisTools.JPSurv.Steps;
 import java.io.File;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.*;
+import static com.nci.automation.web.TestProperties.getJpSurvUrl;
 
 public class JPSurvHomePageSteps extends PageInitializer {
 
 	@Given("the user is on the JPSurv homepage")
-	public void the_user_is_on_the_JPSurv_homepage() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("JPSurv"));
+	public void the_user_is_on_the_JPSurv_homepage() {
+		WebDriverUtils.webDriver.get(getJpSurvUrl());
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -41,7 +39,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@When("user select year of diagnosis start {string}")
 	public void selectYearOfDiagnosisStart(String valueToSelect) {
 		CommonUtils.waitForVisibility(jpsurvHomePage.yearOfDiagnosisStartDropdown);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.selectDropDownValue(valueToSelect, jpsurvHomePage.yearOfDiagnosisStartDropdown);
 	}
 
@@ -77,7 +75,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@When("user click calculate button")
 	public void clickCalculateButton() {
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		CommonUtils.clickOnElement(jpsurvHomePage.calculateButton);
 	}
 
@@ -146,7 +144,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	public void user_selects_CSV_Files() {
 		jpsurvHomePage.csvRadioBtn.click();
 		File csvFile = new File(jpsurvHomePage.csvFilePath);
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		jpsurvHomePage.cvsFileInputTextbox.sendKeys(csvFile.getAbsolutePath());
 	}
 
@@ -154,9 +152,9 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	public void user_selects_workspace() {
 		jpsurvHomePage.WorkspaceRadiobtn.click();
 		File workspaceFile = new File(jpsurvHomePage.workspaceFilePath);
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		jpsurvHomePage.WorkspaceFileInputTextbox.sendKeys(workspaceFile.getAbsolutePath());
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 	}
 
 	@When("user clicks import")
@@ -167,20 +165,20 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@When("select Non-Hodgkin-Lymphoma")
 	public void select_Non_Hodgkin_Lymphoma() {
 		jpsurvHomePage.nonhodgkinlymphonmaCheckbox.click();
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 	}
 
 	@When("select Calculate")
 	public void select_Calculate() {
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		JavascriptUtils.clickByJS(jpsurvHomePage.calculateButton);
 	}
 
 	@When("click Reset")
 	public void click_Reset() {
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		JavascriptUtils.clickByJS(jpsurvHomePage.showhidearrowButton);
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		JavascriptUtils.clickByJS(jpsurvHomePage.resetButton);
 	}
 
@@ -192,9 +190,9 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@When("click download full dataset button")
 	public void click_download_full_dataset_button() {
 		CommonUtils.deleteFile("/JPSurv-Tutorial_JPSURV.xlsx");
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		jpsurvHomePage.downloadFullDataSetButton.click();
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 	}
 
 	@Then("verify dataset download {string}")
@@ -204,14 +202,14 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@Then("workspace results display")
 	public void workspace_results_display() {
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		Assert.assertTrue(jpsurvHomePage.survivalVsYearAtDiagnosisTab.isDisplayed());
 	}
 
 	@When("enter email address")
 	public void enter_email_address() {
 		JavascriptUtils.scrollDown(5000);
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		jpsurvHomePage.emailTextbox.sendKeys("Kevin.MataRodriguez@nih.gov");
 	}
 
@@ -222,7 +220,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@Then("verify email send")
 	public void verify_email_send() {
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		Assert.assertTrue(jpsurvHomePage.submitemailConfirmation.isDisplayed());
 	}
 
@@ -237,9 +235,9 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@When("user selects non-example workspace")
 	public void user_selects_non_example_workspace() {
 		jpsurvHomePage.WorkspaceRadiobtn.click();
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		File workspaceFile = new File(jpsurvHomePage.nonExampleworkspaceFilePath);
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		jpsurvHomePage.WorkspaceFileInputTextbox.sendKeys(workspaceFile.getAbsolutePath());
 	}
 
@@ -261,7 +259,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@When("select {string} for interval drop down")
 	public void select_for_interval_drop_down(String string) {
 		JavascriptUtils.scrollIntoView(jpsurvHomePage.intervalDD);
-		MiscUtils.sleep(4000);
+		CommonUtils.sleep(4000);
 		CommonUtils.selectDropDownValue(string, jpsurvHomePage.intervalDD);
 	}
 
@@ -320,13 +318,13 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@When("clicks upload")
 	public void clicks_upload() {
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		jpsurvHomePage.uploadCSVbtn.click();
 	}
 
 	@When("selects zero for age rec")
 	public void selects_zero_for_age_rec() {
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		jpsurvHomePage.ageRecValue0Checkbox.click();
 	}
 

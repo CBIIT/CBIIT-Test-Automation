@@ -6,8 +6,6 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
-import com.nci.automation.xceptions.TestingException;
-
 import ServiceNow.ATO.Pages.BasePage;
 import ServiceNow.ATO.Pages.CommonPage;
 import ServiceNow.ATO.Utils.DriverObjectFactory;
@@ -94,7 +92,7 @@ public class CommonSteps {
 	}
 
 	@After
-	public void genericTearDown(Scenario s) throws TestingException {
+	public void genericTearDown(Scenario s)  {
 		System.out.println("Inside After");
 		DriverObjectFactory.closeDriver();
 	}

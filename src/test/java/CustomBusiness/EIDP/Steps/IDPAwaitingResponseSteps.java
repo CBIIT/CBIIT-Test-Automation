@@ -3,7 +3,6 @@ package CustomBusiness.EIDP.Steps;
 import java.util.Map;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
 import CustomBusiness.EIDP.Util.SharedData;
@@ -30,7 +29,7 @@ public class IDPAwaitingResponseSteps extends PageInitializer {
 		CucumberLogUtils.logScreenshot();
 		searchStepimpl.clickOnOkButton();
 		changeUserToTrainnee();
-		MiscUtils.sleep(4000);
+		CommonUtils.sleep(4000);
 		eidpDashboardStepImpl.clickOnStartIDPButton();
 		projectRelatedDeliverableStepImpl.fillProjectDeliverableData();
 		careerGoalAndActiveStepImpl.fillCarrerGoalActivite();
@@ -78,7 +77,7 @@ public class IDPAwaitingResponseSteps extends PageInitializer {
 	@When("User clicks on SEND IDP TO THE TRAINEE button")
 	public void clickOnSendIDPToTraineeButton() throws Exception {
 		aligningExpectationsStepImpl.clickOnSendIDPToTraineeButton();
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 	}
 
 	@When("User clicks on SUBMIT button")

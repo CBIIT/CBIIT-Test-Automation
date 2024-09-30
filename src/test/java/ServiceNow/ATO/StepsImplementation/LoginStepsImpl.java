@@ -2,9 +2,6 @@ package ServiceNow.ATO.StepsImplementation;
 
 import org.openqa.selenium.By;
 
-import com.nci.automation.web.EnvUtils;
-import com.nci.automation.xceptions.TestingException;
-
 import ServiceNow.ATO.Pages.LoginPage;
 import ServiceNow.ATO.Utils.CommonUtils;
 
@@ -18,7 +15,7 @@ public class LoginStepsImpl extends LoginPage {
 		// driver.get(ConfigFileReader.getConfigFileReader().getAtoUrl());
 		try {
 			Thread.sleep(3000);
-			driver.get(EnvUtils.getApplicationUrl("AtoTestUrl"));
+			driver.get("");
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

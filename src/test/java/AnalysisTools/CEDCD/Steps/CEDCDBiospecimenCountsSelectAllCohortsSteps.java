@@ -4,13 +4,12 @@ import io.cucumber.java.en.*;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
 
 public class CEDCDBiospecimenCountsSelectAllCohortsSteps extends PageInitializer {
 
 	@Given("the user is on the CEDCD Biospecimen Tab")
-	public void the_user_is_on_the_CEDCD_Biospecimen_Tab() throws TestingException {
+	public void the_user_is_on_the_CEDCD_Biospecimen_Tab()  {
 		cedcdStartUps.setUpOnBiospecimenTabPage();
 	}
 

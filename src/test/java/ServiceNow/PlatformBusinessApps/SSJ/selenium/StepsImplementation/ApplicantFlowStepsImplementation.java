@@ -1,7 +1,6 @@
 package ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation;
 
 import appsCommon.PageInitializers.PageInitializer;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
@@ -177,7 +176,7 @@ public class ApplicantFlowStepsImplementation extends PageInitializer {
         CommonUtils.waitForVisibility(applicantFlowPage.nihLogo);
         if (applicantFlowPage.nihLogo.isDisplayed()) {
             webDriver.navigate().back();
-            MiscUtils.sleep(3000);
+            CommonUtils.sleep(3000);
             return true;
         } else {
             return false;

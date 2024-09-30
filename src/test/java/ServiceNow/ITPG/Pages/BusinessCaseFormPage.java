@@ -3,9 +3,7 @@ package ServiceNow.ITPG.Pages;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
-import java.util.Set;
 
-import ServiceNow.ITPG.Steps.HooksSteps;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -18,17 +16,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 
 import ServiceNow.ITPG.Utils.CommonUtils;
-import ServiceNow.ITPG.Utils.DriverObjectFactory;
 
 public class BusinessCaseFormPage extends BasePage {
 
@@ -609,7 +602,7 @@ public class BusinessCaseFormPage extends BasePage {
 	}
 
 	public void openApp() {
-			driver.get(EnvUtils.getApplicationUrl("ITPGURl"));
+			driver.get("");
 	}
 
 	public boolean verifyEmail(String subject) throws InterruptedException {

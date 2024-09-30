@@ -2,15 +2,14 @@ package AnalysisTools.CometsAnalytics.StepsImplementation;
 
 import java.util.Set;
 
-import com.nci.automation.utils.MiscUtils;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import AnalysisTools.CometsAnalytics.Utils.CometsAnalysis_Constants;
 import appsCommon.PageInitializers.PageInitializer;
+import static com.nci.automation.web.TestProperties.getCometsAnalyticsUrl;
 
 public class CometsAnalyticsStepImp extends PageInitializer {
 
@@ -18,7 +17,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
      * METHOD TO GOTO APPLICATION
      */
     public void gotoApplication() {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CometsAnalystics"));
+        WebDriverUtils.webDriver.get(getCometsAnalyticsUrl());
     }
 
     /**
@@ -79,7 +78,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
      * CLICK ON ABOUT COMMENT
      */
     public void clickOnAboutComment() {
-        MiscUtils.sleep(4000);
+        CommonUtils.sleep(4000);
         CommonUtils.waitForVisibility(cometsAnalyticsPage.aboutCometsButton);
         String parent = WebDriverUtils.webDriver.getWindowHandle();
         cometsAnalyticsPage.aboutCometsButton.click();
@@ -111,7 +110,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
      * @param successMessage
      */
     public void viewSucessMessage(String successMessage) {
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
         CommonUtils.waitForVisibility(cometsAnalyticsPage.SuccessMessage);
         Assert.assertEquals(cometsAnalyticsPage.SuccessMessage.getText(), successMessage);
     }
