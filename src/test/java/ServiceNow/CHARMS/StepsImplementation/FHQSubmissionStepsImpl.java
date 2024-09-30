@@ -1,11 +1,8 @@
 package ServiceNow.CHARMS.StepsImplementation;
 
-import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import ServiceNow.CHARMS.Constants.FHQConstants;
 import ServiceNow.CHARMS.Pages.FHQSubmissionPage;
@@ -13,6 +10,7 @@ import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import ServiceNow.CHARMS.Utils.CharmsUtil;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;
+import static com.nci.automation.web.TestProperties.getNativeViewSideDoorUrl;
 
 public class FHQSubmissionStepsImpl extends PageInitializer {
 	static SoftAssert softAssert = new SoftAssert();	
@@ -25,22 +23,22 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 			fHQ_TestDataManager.dataInitializerFHQ("Partner");
 			loginToFHQGridPageForARelative();
 			fhqPartnerSubmissionScenario1();
-			MiscUtils.sleep(600);
+			CommonUtils.sleep(600);
 			CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("FHQ Home"));
 			fHQ_TestDataManager.dataInitializerFHQ("Mother");
-			MiscUtils.sleep(300);
+			CommonUtils.sleep(300);
 			loginToFHQGridPageForARelative();
 			fhqMotherSubmissionScenario1();
 			fHQ_TestDataManager.dataInitializerFHQ("Father");
 			fhqFatherSubmissionScenario1();	 
 			CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("FHQ Home"));
-			MiscUtils.sleep(600);
+			CommonUtils.sleep(600);
 			fhqChildrenSubmissionScenario1();
 			CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("FHQ Home"));
-			MiscUtils.sleep(600);
+			CommonUtils.sleep(600);
 			fhqSiblingSubmissionScenario1();
 			CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("FHQ Home"));
-			MiscUtils.sleep(600);
+			CommonUtils.sleep(600);
 			fhqAuntSubmissionScenario1();
 			softAssert.assertAll();				
 		}		
@@ -264,7 +262,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 			/* CHILDREN FORM IN PORTAL */
 	/*************************************************/
 	public static void fhqChildrenSubmissionScenario1() {
-		MiscUtils.sleep(600);
+		CommonUtils.sleep(600);
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Children"));	
 		commonFamilyFieldsInListViewPageAssertions();
 		childListViewTableAssertions();
@@ -290,7 +288,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 			/* SIBLING FORM IN PORTAL */
 	/**************************************************/
 	public static void fhqSiblingSubmissionScenario1() {
-		MiscUtils.sleep(600);
+		CommonUtils.sleep(600);
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Siblings"));	
 		commonFamilyFieldsInListViewPageAssertions();
 		siblingListViewTableAssertions();
@@ -647,7 +645,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	/* Method to click on FHQ Link and landing on the FHQ MAIN Form Page and doing assertions on Help Text */
 	public static void loginToMainFHQPage() {
 		CharmsUtil.clickOnElement(FHQSubmissionPage.familyHistoryQuestionnaireLink);
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		String header1 = "We know families come in different shapes and sizes. This survey is primarily meant to record health information on your biological (blood-related) relatives. It's okay not to know information about some of your relatives.";
 		String header2 = "As you go through your relatives information in these forms, you will be able to fill out the information you know and click the Complete button on each page. Please keep in mind you will not be able to make changes to that relative once completed. When all relatives are completed, the Submit FHQ Questionnaire button will appear.";
 		String header3 = "Once you click Submit FHQ Questionnaire, you will see a pop up asking if you'd like to provide additional information. If you would like to tell us about any non-biological relatives to add to your family tree (like an adopted sibling, or a step-parent), you can disclose that information here.";
@@ -666,7 +664,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	/* Method to land on FHQ Grid page and do text message assertions */
 	public static void loginToFHQGridPage() {
 		CharmsUtil.clickOnElement(FHQSubmissionPage.familyHistoryQuestionnaireLink);
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		String header1 = "We know families come in different shapes and sizes. This survey is primarily meant to record health information on your biological (blood-related) relatives. It's okay not to know information about some of your relatives.";
 		String header2 = "As you go through your relatives information in these forms, you will be able to fill out the information you know and click the Complete button on each page. Please keep in mind you will not be able to make changes to that relative once completed. When all relatives are completed, the Submit FHQ Questionnaire button will appear.";
 		String header3 = "Once you click Submit FHQ Questionnaire, you will see a pop up asking if you'd like to provide additional information. If you would like to tell us about any non-biological relatives to add to your family tree (like an adopted sibling, or a step-parent), you can disclose that information here.";
@@ -679,7 +677,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	}
 	/* Method to land on FHQ Grid page on Portal and do text message assertions */
 	public static void loginToFHQGridPageForARelative() {
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		String header1 = "We know families come in different shapes and sizes. This survey is primarily meant to record health information on your biological (blood-related) relatives. It's okay not to know information about some of your relatives.";
 		String header2 = "As you go through your relatives information in these forms, you will be able to fill out the information you know and click the Complete button on each page. Please keep in mind you will not be able to make changes to that relative once completed. When all relatives are completed, the Submit FHQ Questionnaire button will appear.";
 		String header3 = "Once you click Submit FHQ Questionnaire, you will see a pop up asking if you'd like to provide additional information. If you would like to tell us about any non-biological relatives to add to your family tree (like an adopted sibling, or a step-parent), you can disclose that information here.";
@@ -690,37 +688,26 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.ONCE_YOU_CLICK_SUBMIT_FHQ_QUESTIONNAIRE,1),header3," Once you click Submit FHQ Questionnaire ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.noteMyRasLandingPage,header4," Note: You will not be able to edit the survey once you click the Submit FHQ Questionnaire button. ");
 	}
-	/* Method to Login to NativeView */
-	public static void loginToNativeViewForFHQ(String username, String password) {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
-		CommonUtils.waitForVisibility(iTrustloginPage.loginLink);
-		CharmsUtil.clickOnElement(iTrustloginPage.loginLink);
-		CharmsUtil.sendKeysToElement(iTrustloginPage.userNameField, username);
-		CharmsUtil.sendKeysToElement(iTrustloginPage.passwordField, password);
-		CharmsUtil.clickOnElement(iTrustloginPage.signInButton);
-		CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.linkText("Native View")));
-		CharmsUtil.clickOnElement(WebDriverUtils.webDriver.findElement(By.linkText("Native View")));
-		CommonUtils.maximizeWindow();
-	}
+
 	/* Method to Login to NativeView using the side door Test Account */
 	public static void nativeViewSideDoorLogin(String SideDoorUsername, String SideDoorPassword) {
-		MiscUtils.sleep(2000);
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("Native View Side Door"));
+		CommonUtils.sleep(2000);
+		WebDriverUtils.webDriver.get(getNativeViewSideDoorUrl());
 		CharmsUtil.clickOnElement(fHQSubmissionPage.nVSideDoorUserName);
 		CharmsUtil.sendKeysToElement(fHQSubmissionPage.nVSideDoorUserName,SideDoorUsername);
 		CharmsUtil.sendKeysToElement(fHQSubmissionPage.nVSideDoorPassword,SideDoorPassword);
 		CharmsUtil.clickOnElement(fHQSubmissionPage.nVSideDoorLogInButton);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 	}	
 	/* Method to Login to the FHQ list view in Native View */
 	public static void loginToFHQPatientInNativeView() {
 		ServiceNow_Common_Methods.filterNavigatorSearchForFHQ("FHQ Patients");
 		CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator("SOnika Jain"));
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
 			CucumberLogUtils.logScreenshot();
 			CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 		}
 	}
 	/* Assertions of common fields on the List View Page */
@@ -806,9 +793,9 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.PLEASE_PROVIDE_THE_YEAR_OF_DIAGNOSIS_OR_THE_AGE_OF_DIAGNOSIS),fHQ_TestDataManager.pleaseProvideTheYearOfDiagnosisOrTheAgeOfDiagnosis, " Please provide the year of diagnosis or the age of diagnosis Label in RASopathy MRVS ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocatorForDropDown(1),FHQConstants.YEAR_OR_AGE_OF_DIAGNOSIS,fHQ_TestDataManager.pleaseProvideTheYearOfDiagnosisOrTheAgeOfDiagnosisSelected);		
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorClassNormalizeSpace(FHQConstants.YEAR_OF_DIAGNOSIS),fHQ_TestDataManager.yearOfDiagnosis, " Year of diagnosis Label in RASopathy MRVS ");	
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.yearOfBirthdateBanner,"An estimated date is preferred over “Don’t Know.” Examples: select 1995 if you know the date is in the 1990s but unsure the exact year; select 1982 if you know it was in the early 1980s; select 1977 if you know it was in the late 1970s.", " An estimated date is preferred banner in RASopathy MRVS ");		
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocatorForDropDown(1),FHQConstants.yearOfBirthOrDeathAfter1900(),fHQ_TestDataManager.yearOfDiagnosisForRasopathySelected);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.ADDITIONAL_INFORMATION), fHQ_TestDataManager.additionalInformation, " Any Additional Information Added for the RASopathy Label "); 	
 		CharmsUtil.sendKeysToElement(fHQSubmissionPage.dynamicLocatorTextBox("additional_information_ras"), fHQ_TestDataManager.additionalInformationAddedForRasopathy); 
@@ -859,9 +846,9 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.PLEASE_PROVIDE_THE_YEAR_OF_DIAGNOSIS_OR_THE_AGE_OF_DIAGNOSIS),fHQ_TestDataManager.pleaseProvideTheYearOfDiagnosisOrTheAgeOfDiagnosis, " Please provide the year of diagnosis or the age of diagnosis Label in Cancer MRVS ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocatorForDropDown(1),FHQConstants.YEAR_OR_AGE_OF_DIAGNOSIS,fHQ_TestDataManager.pleaseProvideTheYearOfDiagnosisOrTheAgeOfDiagnosisSelected);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorClassNormalizeSpace(FHQConstants.YEAR_OF_DIAGNOSIS),fHQ_TestDataManager.yearOfDiagnosis, " Year of diagnosis Label in Cancer MRVS ");
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.yearOfBirthdateBanner,"An estimated date is preferred over “Don’t Know.” Examples: select 1995 if you know the date is in the 1990s but unsure the exact year; select 1982 if you know it was in the early 1980s; select 1977 if you know it was in the late 1970s.", " An estimated date is preferred banner in Cancer MRVS ");		
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocatorForDropDown(1),FHQConstants.yearOfBirthOrDeathAfter1900(),fHQ_TestDataManager.yearOfDiagnosisForCancerSelected);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.ADDITIONAL_INFORMATION), fHQ_TestDataManager.additionalInformation, " Any Additional Information Added for the Cancer Label "); 	
 		CharmsUtil.sendKeysToElement(fHQSubmissionPage.dynamicLocatorTextBox("additional_information_cancer"), fHQ_TestDataManager.additionalInformationAddedForCancer); 
@@ -908,14 +895,14 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		String yearOfBirthdateBannerText = "An estimated date is preferred over \"Don't Know.\" Examples: select 1995 if you know the date is in the 1990s but unsure the exact year; select 1982 if you know it was in the early 1980s; select 1977 if you know it was in the late 1970s.";
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.ADD_ROW),fHQ_TestDataManager.addRow, " Add Row label for Benign Tumor in MRVS ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Benign Tumor"),"Benign Tumor", " Benign Tumor Label in Benign Tumor MRVS Table ");
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocatorForDropDown(1),FHQConstants.BENIGN_TUMOR_TYPE,fHQ_TestDataManager.benignTumorOptionSelected);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.PLEASE_PROVIDE_THE_YEAR_OF_DIAGNOSIS_OR_THE_AGE_OF_DIAGNOSIS),fHQ_TestDataManager.pleaseProvideTheYearOfDiagnosisOrTheAgeOfDiagnosis, " Please provide the year of diagnosis or the age of diagnosis Label in Benign Tumor MRVS ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocatorForDropDown(1),FHQConstants.YEAR_OR_AGE_OF_DIAGNOSIS,fHQ_TestDataManager.pleaseProvideTheYearOfDiagnosisOrTheAgeOfDiagnosisSelected);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorClassNormalizeSpace(FHQConstants.YEAR_OF_DIAGNOSIS),fHQ_TestDataManager.yearOfDiagnosis, " Year of diagnosis Label in Benign Tumor MRVS ");
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.yearOfBirthdateBanner,yearOfBirthdateBannerText," An estimated date is preferred banner in Benign Tumor MRVS ");				
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocatorForDropDown(1),FHQConstants.yearOfBirthOrDeathAfter1900(),fHQ_TestDataManager.yearOfDiagnosisForBenignTumorSelected);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.ADDITIONAL_INFORMATION), fHQ_TestDataManager.additionalInformation, " Any Additional Information Added for the Benign Tumor Label "); 	
 		CharmsUtil.sendKeysToElement(fHQSubmissionPage.dynamicLocatorTextBox("additional_information_benign_tumor"), fHQ_TestDataManager.additionalInformationAddedForBenignTumor); 
@@ -967,9 +954,9 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.PLEASE_PROVIDE_THE_YEAR_OF_DIAGNOSIS_OR_THE_AGE_OF_DIAGNOSIS),fHQ_TestDataManager.pleaseProvideTheYearOfDiagnosisOrTheAgeOfDiagnosis, " Please provide the year of diagnosis or the age of diagnosis Label in Medical Condition MRVS ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocatorForDropDown(1),FHQConstants.YEAR_OR_AGE_OF_DIAGNOSIS,fHQ_TestDataManager.pleaseProvideTheYearOfDiagnosisOrTheAgeOfDiagnosisSelected);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorClassNormalizeSpace(FHQConstants.YEAR_OF_DIAGNOSIS),fHQ_TestDataManager.yearOfDiagnosis, " Year of diagnosis Label in Medical Condition MRVS ");
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.yearOfBirthdateBanner,"An estimated date is preferred over “Don’t Know.” Examples: select 1995 if you know the date is in the 1990s but unsure the exact year; select 1982 if you know it was in the early 1980s; select 1977 if you know it was in the late 1970s.", " An estimated date is preferred banner in Medical Condition MRVS ");		
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocatorForDropDown(1),FHQConstants.yearOfBirthOrDeathAfter1900(),fHQ_TestDataManager.yearOfDiagnosisForMedicalConditionSelected);		
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.CANCEL),fHQ_TestDataManager.cancel, " Cancel button label for Medical Condition in MRVS ");
 		CharmsUtil.assertButtonLabel(softAssert, FHQSubmissionPage.addRowSaveButton,fHQ_TestDataManager.add, " Add button label for Medical Condition in MRVS ");
@@ -990,7 +977,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.OTHER),fHQ_TestDataManager.other," Other Label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE),fHQ_TestDataManager.isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative," Is there anything else you would like us to know about this relative? Label ");
 		CharmsUtil.sendKeysToElement(fHQSubmissionPage.addOtherInformationForRelativeTextBox, fHQ_TestDataManager.addAdditionalInformation);
-		MiscUtils.sleep(700);
+		CommonUtils.sleep(700);
 	}
 	/* Final Steps to submit any Family Relative Form */
 	public static void finalSubmissionSteps() {	
@@ -1397,11 +1384,11 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.PARTICIPANT_FIRST_INITIAL_OF_LAST_NAME),fHQ_TestDataManager.firstInitialOfLASTName, " First Initial of LAST Name label for Child in Child Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocator3ForDropDown(1),fHQ_TestDataManager.childFirstInitialOfLASTNameValue,"");	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.YEAR_OF_BIRTH),fHQ_TestDataManager.yearOfBirth, " Year of Birth label for Child in Child Form "); 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.yearOfBirthdateBanner,"An estimated date is preferred over “Don’t Know.” Examples: select 1995 if you know the date is in the 1990s but unsure the exact year; select 1982 if you know it was in the early 1980s; select 1977 if you know it was in the late 1970s.", " An estimated date is preferred banner for Child in Child Form ");		
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(2),FHQConstants.yearOfBirthOrDeathAfter1900(),fHQ_TestDataManager.childYearOfBirthSelected);
-		MiscUtils.sleep(600);
+		CommonUtils.sleep(600);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.VITAL_STATUS),fHQ_TestDataManager.vitalStatus, " Vital Status Label for Child in Child Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocator3ForDropDown(3),fHQ_TestDataManager.childVitalStatusValue, " Vital Status Label for Child in Child Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPANT_SEX_ASSIGNED_AT_BIRTH),"Sex assigned at birth"," Sex assigned at birth Label for Child in Child Form ");
@@ -1524,7 +1511,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocator3ForDropDown(2),fHQ_TestDataManager.firstInitialOfLASTNameValue," First Initial of LAST Name Value for Sibling in the Sibling Form");	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.YEAR_OF_BIRTH),fHQ_TestDataManager.yearOfBirth, " Year of Birth label for Sibling in the Sibling Form "); 
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.yearOfBirthdateBanner,"An estimated date is preferred over “Don’t Know.” Examples: select 1995 if you know the date is in the 1990s but unsure the exact year; select 1982 if you know it was in the early 1980s; select 1977 if you know it was in the late 1970s.", " An estimated date is preferred banner for Sibling YOB in the Sibling Form ");		
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(3),FHQConstants.yearOfBirthOrDeathAfter1900(),fHQ_TestDataManager.yearOfBirthValueAdded);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.VITAL_STATUS),fHQ_TestDataManager.vitalStatus, " Vital Status Label in the Sibling Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocator3ForDropDown(4),fHQ_TestDataManager.vitalStatusValue, " Vital Status Value for Sibling in the Sibling Form ");
@@ -1537,10 +1524,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	public static void twinOrMultipleBirthQuestionsForSibling(){
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.IS_THIS_RELATIVE_A_TWIN_OR_PART_OF_A_MULTIPLE_BIRTH), fHQ_TestDataManager.isThisRelativeATwinOrPartOfAMultipleBirth, " Is this relative a twin or part of a multiple birth? Label of Child in Child Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(10),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.twinOrPartOfAMultipleBirthValue);	
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.PARENT_TYPE_OF_BIRTH), fHQ_TestDataManager.typeOfBirth, " Type of birth Label of Child in Child Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(11),FHQConstants.TYPE_OF_BIRTH,fHQ_TestDataManager.typeOfBirthValue);	
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 	}
 	/* miscarriages or stillbirths? Questionnare for SIBLING */
 	public static void miscarriagesOrStillbirthsSubmissionAndAssertionsForSibling() {
@@ -1549,9 +1536,9 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(12),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.hasThisRelativeEverHadAnyMiscarriagesOrStillbirthsValue);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES),fHQ_TestDataManager.totalNumberOfMiscarriages," Total number of Miscarriages Label in Child Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.LESS_THAN_20_WEEKS_OF_PREGNANCY),fHQ_TestDataManager.lessThan20WeeksOfPregnancy," less than 20 weeks of pregnancy Label in Child Form ");
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(13),FHQConstants.numberUpToN(20),fHQ_TestDataManager.totalNumberOfMiscarriagesValue);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.TOTAL_NUMBER_OF_STILLBIRTHS),fHQ_TestDataManager.totalNumberOfStillbirths," Total number of Stillbirths Label in Child Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.MORE_THAN_20_WEEKS_OF_PREGNANCY),fHQ_TestDataManager.moreThan20WeeksOfPregnancy," More than 20 weeks of pregnancy Label in Child Form  ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(14),FHQConstants.numberUpToN(20),fHQ_TestDataManager.totalNumberOfStillbirthsValue);
@@ -1571,7 +1558,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	public static void cancerQuestionnaireForSibling() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_CANCER  ), fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithCancer, " Has this relative ever been diagnosed with cancer? Label in Child Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(16),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithCancerValue);	
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.parentDiagnosedWithCancerAddButtonInfo,fHQ_TestDataManager.pleaseSelectTheAddButtonBelowToAddEachCancerThisRelativeHasHad, " Please select the 'Add' button below to add each cancer this relative has had. Label in Child Form ");	
 		FHQSubmissionStepsImpl.assertCancerBannerInMRVSTable(2);			
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForButton("Add a row for Cancer(s)"));
@@ -1709,10 +1696,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	public static void twinOrMultipleBirthQuestionsForAuntUncle(){
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.IS_THIS_RELATIVE_A_TWIN_OR_PART_OF_A_MULTIPLE_BIRTH), fHQ_TestDataManager.isThisRelativeATwinOrPartOfAMultipleBirth, " Is this relative a twin or part of a multiple birth? Label of Child in Child Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(10),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.twinOrPartOfAMultipleBirthValue);	
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.PARENT_TYPE_OF_BIRTH), fHQ_TestDataManager.typeOfBirth, " Type of birth Label of Child in Child Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(11),FHQConstants.TYPE_OF_BIRTH,fHQ_TestDataManager.typeOfBirthValue);
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 	}
 	/* miscarriages or stillbirths? Questionnare for AUNT/UNCLE */
 	public static void miscarriagesOrStillbirthsSubmissionAndAssertionsForAuntUncle() {
@@ -1722,7 +1709,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES),fHQ_TestDataManager.totalNumberOfMiscarriages," Total number of Miscarriages Label in Child Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.LESS_THAN_20_WEEKS_OF_PREGNANCY),fHQ_TestDataManager.lessThan20WeeksOfPregnancy," less than 20 weeks of pregnancy Label in Child Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(13),FHQConstants.numberUpToN(20),fHQ_TestDataManager.totalNumberOfMiscarriagesValue);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.TOTAL_NUMBER_OF_STILLBIRTHS),fHQ_TestDataManager.totalNumberOfStillbirths," Total number of Stillbirths Label in Child Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.MORE_THAN_20_WEEKS_OF_PREGNANCY),fHQ_TestDataManager.moreThan20WeeksOfPregnancy," More than 20 weeks of pregnancy Label in Child Form  ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(14),FHQConstants.numberUpToN(20),fHQ_TestDataManager.totalNumberOfStillbirthsValue);
@@ -1734,7 +1721,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(15),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.hasThisRelativeBeenDiagnosedWithARASopathyValue);	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.parentDiagnosedWithRasopathyAddButtonInfo,fHQ_TestDataManager.pleaseSelectTheAddButtonBelowToAddEachRASopathyThisRelativeHasHad, " Please select the 'Add' button below to add each RASopathy this relative has had. Label in Child Form ");			
 		FHQSubmissionStepsImpl.assertRasopathyBannerInMRVSTable(1);	
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForButton("Add a row for RASopathy(s)"));	
 		FHQSubmissionStepsImpl.addRASopathyRowInMRVSPage();		
 		FHQSubmissionStepsImpl.assertRASopathyRowAddedInMRVSTable(1);
@@ -1743,7 +1730,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	public static void cancerQuestionnaireForAuntUncle() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_CANCER  ), fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithCancer, " Has this relative ever been diagnosed with cancer? Label in Child Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(16),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithCancerValue);	
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.parentDiagnosedWithCancerAddButtonInfo,fHQ_TestDataManager.pleaseSelectTheAddButtonBelowToAddEachCancerThisRelativeHasHad, " Please select the 'Add' button below to add each cancer this relative has had. Label in Child Form ");	
 		FHQSubmissionStepsImpl.assertCancerBannerInMRVSTable(2);			
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForButton("Add a row for Cancer(s)"));
@@ -1846,7 +1833,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES),fHQ_TestDataManager.totalNumberOfMiscarriages," Total number of Miscarriages Label in Neice/Nephew Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.LESS_THAN_20_WEEKS_OF_PREGNANCY),fHQ_TestDataManager.lessThan20WeeksOfPregnancy," less than 20 weeks of pregnancy Label in Neice/Nephew Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(14),FHQConstants.numberUpToN(20),fHQ_TestDataManager.totalNumberOfMiscarriagesValue);
-		MiscUtils.sleep(200);
+		CommonUtils.sleep(200);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.TOTAL_NUMBER_OF_STILLBIRTHS),fHQ_TestDataManager.totalNumberOfStillbirths," Total number of Stillbirths Label in Neice/Nephew Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.MORE_THAN_20_WEEKS_OF_PREGNANCY),fHQ_TestDataManager.moreThan20WeeksOfPregnancy," More than 20 weeks of pregnancy Label in Neice/Nephew Form  ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(15),FHQConstants.numberUpToN(20),fHQ_TestDataManager.totalNumberOfStillbirthsValue);
@@ -2574,7 +2561,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	public static void  maternalGrandMotherFHQInformationAssertions (String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(6));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForAddedRelatives(fHQ_TestDataManager.firstNameValueAdded,fHQ_TestDataManager.yearOfBirthValueNV));
-		MiscUtils.sleep(200);
+		CommonUtils.sleep(200);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPATION_STATUS),fHQ_TestDataManager.participationStatus, " Participation Status Label " + string);	
 		CharmsUtil.assertDropDownData(softAssert,fHQSubmissionPage.dynamicLocatorForSelectedDropDown(1),fHQ_TestDataManager.participationStatusValue, " Participation Status Label " + string);	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText("FSID"),"FSID"," FSID Label "+ string); 	
@@ -2622,7 +2609,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	public static void  maternalGrandFatherFHQInformationAssertions(String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(6));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForAddedRelatives(fHQ_TestDataManager.firstNameValueAdded,fHQ_TestDataManager.yearOfBirthValueNV));
-		MiscUtils.sleep(200);
+		CommonUtils.sleep(200);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPATION_STATUS),fHQ_TestDataManager.participationStatus, " Participation Status Label " + string);	
 		CharmsUtil.assertDropDownData(softAssert,fHQSubmissionPage.dynamicLocatorForSelectedDropDown(1),fHQ_TestDataManager.participationStatusValue, " Participation Status Label " + string);	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText("FSID"),"FSID"," FSID Label "+ string); 	
@@ -2670,7 +2657,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	public static void  paternalGrandMotherFHQInformationAssertions (String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(6));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForAddedRelatives(fHQ_TestDataManager.firstNameValueAdded,fHQ_TestDataManager.yearOfBirthValueNV));
-		MiscUtils.sleep(200);
+		CommonUtils.sleep(200);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPATION_STATUS),fHQ_TestDataManager.participationStatus, " Participation Status Label " + string);	
 		CharmsUtil.assertDropDownData(softAssert,fHQSubmissionPage.dynamicLocatorForSelectedDropDown(1),fHQ_TestDataManager.participationStatusValue, " Participation Status Label " + string);	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText("FSID"),"FSID"," FSID Label "+ string); 	
@@ -2718,7 +2705,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	public static void  paternalGrandFatherFHQInformationAssertions(String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(6));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForAddedRelatives(fHQ_TestDataManager.firstNameValueAdded,fHQ_TestDataManager.yearOfBirthValueNV));
-		MiscUtils.sleep(200);
+		CommonUtils.sleep(200);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPATION_STATUS),fHQ_TestDataManager.participationStatus, " Participation Status Label " + string);	
 		CharmsUtil.assertDropDownData(softAssert,fHQSubmissionPage.dynamicLocatorForSelectedDropDown(1),fHQ_TestDataManager.participationStatusValue, " Participation Status Label " + string);	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText("FSID"),"FSID"," FSID Label "+ string); 	
@@ -2727,7 +2714,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForParticipant("parent"),"", " Participant Value "+ string); 
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.RELATIONS_TO_PATIENT),fHQ_TestDataManager.relationsToPatient, " Relation to Patient Label " + string);	
 		CharmsUtil.assertDropDownData(softAssert,fHQSubmissionPage.dynamicLocatorForSelectedDropDown(2),fHQ_TestDataManager.relationToPatientValue2, " Relation to Patient Value " + string);
-		MiscUtils.sleep(200);
+		CommonUtils.sleep(200);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorNormalizeSpaceSpan(FHQConstants.FIRST_NAME,1),fHQ_TestDataManager.firstName, " First Name label " + string); 
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorInputTextBox(2),fHQ_TestDataManager.firstNameValueAdded, " First Name Value "+ string);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorNormalizeSpaceSpan(FHQConstants.PARTICIPANT_FIRST_INITIAL_OF_LAST_NAME,1),fHQ_TestDataManager.firstInitialOfLASTName, " First Initial of LAST Name label " + string); 
@@ -2767,7 +2754,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	public static void grandChildrenFHQInformationAssertions (String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Grandchildren (8)"));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForAddedRelatives(fHQ_TestDataManager.firstNameValue,fHQ_TestDataManager.yearOfBirthValueNV));
-		MiscUtils.sleep(200);
+		CommonUtils.sleep(200);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPATION_STATUS),fHQ_TestDataManager.participationStatus, " Participation Status Label " + string);	
 		CharmsUtil.assertDropDownData(softAssert,fHQSubmissionPage.dynamicLocatorForSelectedDropDown(1),fHQ_TestDataManager.participationStatusValue, " Participation Status Label " + string);	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText("FSID"),"FSID"," FSID Label "+ string); 	
@@ -2817,7 +2804,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	public static void cousinFHQInformationAssertions (String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(10));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForAddedRelatives(fHQ_TestDataManager.firstNameValue,fHQ_TestDataManager.yearOfBirthValueNV));
-		MiscUtils.sleep(200);
+		CommonUtils.sleep(200);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPATION_STATUS),fHQ_TestDataManager.participationStatus, " Participation Status Label " + string);	
 		CharmsUtil.assertDropDownData(softAssert,fHQSubmissionPage.dynamicLocatorForSelectedDropDown(1),fHQ_TestDataManager.participationStatusValue, " Participation Status Label " + string);	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText("FSID"),"FSID"," FSID Label "+ string); 	

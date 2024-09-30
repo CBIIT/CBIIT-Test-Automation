@@ -5,9 +5,7 @@ import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,12 +15,13 @@ import java.util.Arrays;
 import java.util.List;
 import static GrantsApps.GPMATS.Steps.GPMATS_Common_Methods.*;
 import static com.nci.automation.web.PlaywrightUtils.page;
+import static com.nci.automation.web.TestProperties.getGpMatsUrl;
 
 public class GPMATS_All_Steps {
 
     @Given("a user is logged in with the role of GM Action Manager")
     public void a_user_is_logged_in_with_the_role_of_gm_action_manager() {
-        page.navigate(EnvUtils.getApplicationUrl("GPMATS"));
+        page.navigate(getGpMatsUrl());
         Playwright_Common_Utils.iTrustLogin();
         page.waitForLoadState();
         page.locator("#change-user-dropdown").click();
@@ -1157,7 +1156,7 @@ public class GPMATS_All_Steps {
         }
         page.waitForSelector("(//i[contains(@class,'bi bi-dash-circle')])[1]");
         page.locator("(//i[contains(@class,'bi bi-dash-circle')])[1]").click();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
 
         // RETRIEVE THE NAME OF THE ACTION SPECIALIST FOR THE FIRST ACTION
         String actionSpecialistName = page.locator("(//*[@id='gDt']/tbody/tr/td[15])[1]").innerText();

@@ -1,11 +1,9 @@
 package CustomBusiness.Egrants.Steps;
 
-import CustomBusiness.Egrants.Pages.EgrantsSearchAndFileManagementScenariosPage;
 import CustomBusiness.Egrants.StepsImplementation.EgrantsStepImplementation;
 import CustomBusiness.Egrants.Utils.Egrants_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -86,13 +84,13 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     @When("selects grant year 18 from Years")
     public void selects_year_18() {
         CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.year18);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
     }
 
     @When("clicks on update icon")
     public void clicks_on_update_icon() {
         CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.gearIcon);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
     }
 
     @When("selects Funding from Category dropdown")

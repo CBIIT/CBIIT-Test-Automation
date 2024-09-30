@@ -1,8 +1,8 @@
 package CustomBusiness.EIDP.Steps;
 
+import com.nci.automation.web.CommonUtils;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -32,9 +32,9 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 
 	@When("User clicks on REVIEWED button")
 	public void clickOnReviewedButton() {
-		MiscUtils.sleep(4000);
+		CommonUtils.sleep(4000);
 		coPrimaryMentorPage.clickOnReviewedButton();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 	}
 
 	@When("User clicks on REVIEWED button then approves and submit")

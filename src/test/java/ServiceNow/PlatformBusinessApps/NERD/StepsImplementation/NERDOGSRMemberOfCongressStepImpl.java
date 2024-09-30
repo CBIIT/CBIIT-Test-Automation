@@ -8,15 +8,14 @@ import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import java.util.ArrayList;
 import java.util.List;
+import static com.nci.automation.web.TestProperties.getNerdUrl;
 
 public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
 
@@ -30,7 +29,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
     public static void aUserIsInTheOgcrAdminGroup(String oGCRUser) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser(oGCRUser);
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        WebDriverUtils.webDriver.get(getNerdUrl());
     }
 
     /**
@@ -48,7 +47,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
      */
     public static void theOgcrUserClicksTheButton() {
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageOGCRCreateNewSubmissionLink);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageOGCRCreateNewSubmissionLink);
     }
@@ -60,7 +59,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
     public static void newEntryMemberOfCongressDropDownValues() {
         CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown);
         CommonUtils.sendKeys(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown, Keys.ENTER);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         boolean congressNumber = false;
         int i = 1;
@@ -76,7 +75,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
             }
         }
         CommonUtils.sendKeys(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown, Keys.ENTER);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CommonUtils.sendKeys(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown, NERDOGSRMemberOfCongress_Constants.NERD_OGCR_MEMBER_OF_CONGRESS_SENATOR);
         CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressSerchDropDown);
         JavascriptUtils.scrollIntoView(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressSerchDropDown);
@@ -85,9 +84,9 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
         CommonUtils.assertEquals(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressSelectedDropDown("" + 2).getText(), (NERDOGSRMemberOfCongress_Constants.NERD_OGCR_MEMBER_OF_CONGRESS_SENATOR));
         JavascriptUtils.drawBlueBorder(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressSelectedDropDown("" + 1));
         JavascriptUtils.drawBlueBorder(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressSelectedDropDown("" + 2));
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -98,32 +97,32 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
         CommonUtils.waitForVisibility(nativeViewImpersonateUserPage.nativeViewNameButton);
         CommonUtils.clickOnElement(nativeViewImpersonateUserPage.nativeViewNameButton);
         CommonUtils.waitForVisibility(nativeViewImpersonateUserPage.nativeViewLogOutButton);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CommonUtils.clickOnElement(nativeViewImpersonateUserPage.nativeViewLogOutButton);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
         CucumberLogUtils.logScreenshot();
         if(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.getAttribute("class").equals("sn-global-typeahead-input -global")){
             CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allTab);
             NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("Members of Congress");
-            MiscUtils.sleep(3000);
+            CommonUtils.sleep(3000);
             CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.filterNavigationMembersOfCongress);
-            MiscUtils.sleep(3000);
+            CommonUtils.sleep(3000);
             CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-            MiscUtils.sleep(2000);
+            CommonUtils.sleep(2000);
         }else {
             NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("Members of Congress");
-            MiscUtils.sleep(3000);
+            CommonUtils.sleep(3000);
             CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.filterNavigationMembersOfCongress);
-            MiscUtils.sleep(3000);
+            CommonUtils.sleep(3000);
             CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-            MiscUtils.sleep(2000);
+            CommonUtils.sleep(2000);
         }
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForClickability(nativeViewMembersOfCongressPage.membersOfCongressFilterIcon);
         CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongressFilterIcon);
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
         CommonUtils.waitForClickability(nativeViewMembersOfCongressPage.membersOfCongressActiveFiled);
         CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongressActiveFiled);
         CommonUtils.waitForVisibility(nativeViewMembersOfCongressPage.membersOfCongressActiveTextFiled);
@@ -131,10 +130,10 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         CommonUtils.sendKeys(nativeViewMembersOfCongressPage.membersOfCongressActiveTextFiled, Keys.ENTER);
         CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongressRunButton);
-        MiscUtils.sleep(500);
+        CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
        while (nativeViewMembersOfCongressPage.membersOfCongresNextPageButton.isEnabled()){
-             MiscUtils.sleep(1500);
+             CommonUtils.sleep(1500);
              for (int jl = 2 ; jl < 21; jl++) {String actualNativeViewCongressPersonName = NativeViewMembersOfCongressPage.nativeViewCongressPersonFirstName("" + jl).getText() + " " + NativeViewMembersOfCongressPage.nativeViewCongressPersonLastName("" + jl).getText();
                  int vl = 0;
                      for (int nl = 0; nl < formCongressPeopleList.size(); nl++){
@@ -145,13 +144,13 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
                      CommonUtils.assertTrue(vl == 1);
                  }
             CucumberLogUtils.logScreenshot();
-            MiscUtils.sleep(1000);
+            CommonUtils.sleep(1000);
             CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongresNextPageButton);
-            MiscUtils.sleep(1000);
+            CommonUtils.sleep(1000);
            }
            boolean congressNameNumber = false;
            int j = 2;
-           MiscUtils.sleep(1500);
+           CommonUtils.sleep(1500);
            while (!congressNameNumber) {
                try {
                    String actualNativeViewCongressPersonName = NativeViewMembersOfCongressPage.nativeViewCongressPersonFirstName("" + j).getText() + " " + NativeViewMembersOfCongressPage.nativeViewCongressPersonLastName("" + j).getText();
@@ -168,7 +167,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
                }
            }
            CucumberLogUtils.logScreenshot();
-           MiscUtils.sleep(1000);
+           CommonUtils.sleep(1000);
            CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongresNextPageButton);
     }
 }

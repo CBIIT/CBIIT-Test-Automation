@@ -1,11 +1,8 @@
 package ServiceNow.PlatformBusinessApps.RCMDB.Steps;
 
 import org.junit.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
-import com.nci.automation.web.ConfUtils;
-
 import ServiceNow.PlatformBusinessApps.RCMDB.Pages.BusinessCaseFormPage;
 import ServiceNow.PlatformBusinessApps.RCMDB.Pages.LoginStepsImpl;
 import io.cucumber.java.Before;
@@ -280,13 +277,10 @@ public class BusinessCaseFormSteps {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 		}
-		loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
-		String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
+		loginStepsImpl.enterUsername("");
+		String decyptedPass = EncryptionUtils.decrypt("");
 		loginStepsImpl.enterPassword(decyptedPass);
 		CucumberLogUtils.logScreenshot();
 		loginStepsImpl.clickOnSignInButton();
 	}
-	
-	
-	
 }

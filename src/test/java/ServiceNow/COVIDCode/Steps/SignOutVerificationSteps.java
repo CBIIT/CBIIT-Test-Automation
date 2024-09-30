@@ -1,22 +1,21 @@
 package ServiceNow.COVIDCode.Steps;
 
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
+import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class SignOutVerificationSteps extends PageInitializer {
 
 	@Given("an internal user is logged into the COVIDcode application")
-	public void an_internal_user_is_logged_into_the_COVIDcode_application() throws TestingException {
+	public void an_internal_user_is_logged_into_the_COVIDcode_application()  {
 		signOutVerificationStepImp.covidCodeServicePortalLogIn();
 	}
 
 	@Given("is on the home page")
 	public void is_on_the_home_page() {
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		CucumberLogUtils.logScreenshot();
 	}
 

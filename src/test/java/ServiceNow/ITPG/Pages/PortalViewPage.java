@@ -3,7 +3,6 @@ package ServiceNow.ITPG.Pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.WebElement;
@@ -11,9 +10,7 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 
 import ServiceNow.ITPG.Utils.CommonUtils;
 
@@ -248,7 +245,7 @@ public class PortalViewPage extends BasePage {
 	}
 
 	public void openApp() {
-			driver.get(EnvUtils.getApplicationUrl("AtoTestUrl"));
+			driver.get("");
 	}
 
 	public void clickOnAllBusiness() {
