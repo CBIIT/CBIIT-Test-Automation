@@ -2,15 +2,12 @@ package AnalysisTools.ACT24.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-
-import java.text.SimpleDateFormat;
 
 public class ACT24ResearcherPortalSteps extends PageInitializer {
 

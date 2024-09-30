@@ -48,9 +48,13 @@ Feature: These are the PlayWright scenarios for the ICDGenie Application
     When the user searches "Breast Cancer"
     Then the "Malignant melanoma of skin" is a result returned
 
-  @NCIATWP-4678 @matakevin @inProgress @playwright
-  Scenario:7
-    Given TBD
+  @NCIATWP-6501 @matakevin @Progression @playwright
+  Scenario: Test ICDGenie: Add default example to API Access
+    Given the user is on the "API Access" tab on ICDGenie
+    When the user trys out the Search sections "POST" box
+    Then the "Curl" text box is displayed
+    When the user trys out the Batch Export sections "POST" box
+    Then the "Curl" text box is displayed
 
   @NCIATWP-6388 @matakevin @Smoke @playwright
   Scenario:Batch query results

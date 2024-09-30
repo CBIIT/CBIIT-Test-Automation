@@ -341,7 +341,6 @@ public class JPSurvHomePageSteps extends PageInitializer {
 		jpsurvHomePage.yearOfDiagnosed.click();
 	}
 
-
 	@Then("the user submits {int} jobs with diagnosis start {string}, diagnosis end {string} and maximum number of years from diagnosis {string}")
 	public void the_user_submits_jobs_with_diagnosis_start_diagnosis_end_and_maximum_number_of_years_from_diagnosis(int iterations, String valueToSelect, String valueToSelect2, String valueToSelect3) {
 		for(int i=0; i<iterations;i++) {

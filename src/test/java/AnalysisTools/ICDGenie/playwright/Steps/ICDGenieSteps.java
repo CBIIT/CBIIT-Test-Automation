@@ -1,17 +1,13 @@
 package AnalysisTools.ICDGenie.playwright.Steps;
 
-import AnalysisTools.ICDGenie.playwright.Pages.ICDGeniePages;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import java.nio.file.Paths;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class ICDGenieSteps extends PlaywrightUtils {
@@ -173,5 +169,17 @@ public class ICDGenieSteps extends PlaywrightUtils {
     public void the_text_and_the_button_are_displayed(String resultsReturned, String exportResultsButtonText) {
         assertThat(page.locator("#main-content")).containsText(resultsReturned);
         assertThat(page.locator("#main-content")).containsText(exportResultsButtonText);
+    }
+
+    @When("the user trys out the Search sections {string} box")
+    public void the_user_trys_out_the_search_sections_box(String apiRequestType) {
+    }
+
+    @Then("the {string} text box is displayed")
+    public void the_text_box_is_displayed(String curlTextBox) {
+    }
+
+    @When("the user trys out the Batch Export sections {string} box")
+    public void the_user_trys_out_the_batch_export_sections_box(String curlTextbox) {
     }
 }
