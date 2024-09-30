@@ -8,6 +8,7 @@ public class CHARMS_Data_File_Path_Constants {
     public static final String RAS_SCENARIO_THREE_DATA = "ServiceNow/CHARMS/Resources/RASScenario3.xlsx";
     public static final String RAS_SCENARIO_FOUR_DATA = System.getProperty("user.dir") + "/src/test/java/ServiceNow/CHARMS/Resources/RASScenario4.xlsx";
     public static final String RAS_SCENARIO_FIVE_DATA =  System.getProperty("user.dir") + "/src/test/java/ServiceNow/CHARMS/GenAIData/Gen_AI_Data_Set_1.xlsx";
+    public static final String RAS_SCENARIO_AGE_11_13_DATA =  System.getProperty("user.dir") + "/src/test/java/ServiceNow/CHARMS/Resources/RASScenario_Consent_Age_11-13.xlsx";
     public static final String IIQ_SAMPLE_FORM = "https://ncidccpssurveys.gov1.qualtrics.com/jfe/form/SV_37PVCadeAqdT6Ki?family_member_id=5671bd521bafa1106daea681f54bcb68&study=RASopathies";
     public static final String FHQ_SCENARIO_ONE_DATA = System.getProperty("user.dir") + "/src/test/java/ServiceNow/CHARMS/Resources/FHQScenario1.xlsx";
     public static final String FHQ_SCENARIO_TWO_DATA = System.getProperty("user.dir") + "/src/test/java/ServiceNow/CHARMS/Resources/FHQScenario2.xlsx";
