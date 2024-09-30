@@ -731,4 +731,14 @@ public class ApplicantProfileSteps {
     public void selects_for_number_of_scoring_categories(String scoringNumber) {
         ApplicantProfileStepsImpl.selects_for_number_of_scoring_categories(scoringNumber);
     }
+
+    @When("edits an application for a vacancy that status is {string}")
+    public void edits_an_application_for_a_vacancy_that_status_is(String applicationStatus) {
+        ApplicantProfileStepsImpl.edits_an_application_for_a_vacancy_that_status_is(applicationStatus);
+    }
+
+    @Then("user sees a banner {string}")
+    public void user_sees_a_banner(String expectedBanner) {
+        ApplicantProfileStepsImpl.user_sees_a_banner(expectedBanner);
+    }
 }
