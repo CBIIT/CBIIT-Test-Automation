@@ -22,6 +22,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Set;
 import static Hooks.Hooks.softAssert;
+import static ServiceNow.CHARMS.Pages.MyRASHomePage.dynamicModuleLocator;
+import static ServiceNow.CHARMS.Steps.RAS_Common_Methods.*;
 import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
 
 public class RAS_All_Steps extends PageInitializer {
@@ -33,19 +35,9 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Given("the e-consent is submitted for {string}")
     public static void the_e_consent_is_submitted_for(String sheetName) {
-        RAS_Common_Methods.navigateToRecordInNativeView(sheetName);
-        MiscUtils.sleep(2000);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
-        MiscUtils.sleep(1500);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText);
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.assertEqualsWithMessage(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), CHARMSRASScreenerConstants.CONSENT_ADDED_TEXT, "---- VERIFYING SCREENER RECORD RASOPATHY HISTORY DATA ----");
-
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        navigateToParticipantRecordInNativeView(sheetName);
+        submitParticipantForReviewAndEligibility();
         /**
          * BEGINNING: CONSENT FLOW PROCESS
          */
@@ -88,7 +80,54 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * THIS METHOD WILL FILL OUT THE STUDY CONSENT FORM
+     * This method represents the step where the proxy clicks on the Study Consent and completes the consent form with the given password.
+     *
+     * @param password the password to be used for completing the form
+     */
+    @Given("proxy clicks on Study Consent and completes form with {string}")
+    public void proxy_clicks_on_study_consent_and_completes_form_with(String password) {
+        CommonUtils.waitForVisibility(myRASHomePage.rasopathyStudyConsent);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(myRASHomePage.rasopathyStudyConsent);
+        MiscUtils.sleep(5000);
+        CucumberLogUtils.logScreenshot();
+        System.out.println("* * * * * FILLING OUT CONSENT FORM * * * * *");
+        JavascriptUtils.scrollIntoView(locateByXpath("//input[@id='consent_read']"));
+        WebElement readConsentCheckbox = locateByXpath("//input[@id='consent_read']");
+        CommonUtils.waitForClickability(readConsentCheckbox);
+        CommonUtils.clickOnElement(readConsentCheckbox);
+        CucumberLogUtils.logScreenshot();
+        WebElement IAmThisPersonRadioButton = locateByXpath("//input[@aria-label='Yes']");
+        WebElement futureResearchYesRadioButton = locateByXpath("(//input[@id='future_research_yes'])[2]");
+        WebElement specimenShareYesRadioButton = locateByXpath("//input[@id='specimen_share_yes']");
+        WebElement specimenShareForFutureYesRadioButton = locateByXpath("//input[@id='specimen_share_for_future_yes']");
+        CommonUtils.waitForClickability(IAmThisPersonRadioButton);
+        CommonUtils.clickOnElement(IAmThisPersonRadioButton);
+        CommonUtils.clickOnElement(futureResearchYesRadioButton);
+        CommonUtils.clickOnElement(specimenShareYesRadioButton);
+        CommonUtils.clickOnElement(specimenShareForFutureYesRadioButton);
+        CucumberLogUtils.logScreenshot();
+        WebElement toConsentButton = locateByXpath("//button[@id='toConsentBtn']");
+        CommonUtils.waitForClickability(toConsentButton);
+        CommonUtils.clickOnElement(toConsentButton);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForVisibility(locateByXpath("//div[@class='form-group']//input[@id='signature_password']"));
+        CommonUtils.sendKeys(locateByXpath("//div[@class='form-group']//input[@id='signature_password']"), password);
+        CommonUtils.waitForVisibility(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
+        CommonUtils.clickOnElement(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(800);
+        CommonUtils.acceptAlert();
+        MiscUtils.sleep(800);
+        CommonUtils.waitForVisibility(locateByXpath("//button[normalize-space()='OK']"));
+        CommonUtils.clickOnElement(locateByXpath("//button[normalize-space()='OK']"));
+        CommonUtils.acceptAlert();
+        CucumberLogUtils.logScreenshot();
+        ServiceNow_Common_Methods.logOutOfNativeView();
+    }
+
+    /**
+     * Participant clicks on Study Consent and completes the form with the provided password.
      *
      * @param password the password to be used for completing the form
      */
@@ -132,12 +171,46 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * THIS METHOD WILL SIGN THE CONSENT RECORD IN NATIVE VIEW
+     * This method represents the step where the participant clicks on Study Assent and completes the form with the provided password.
      *
-     * @param sheetName     the name of the sheet for which the consent is being processed
-     * @param consentStatus the expected status of the consent
-     * @param consentType   the expected type of the consent
-     * @param responseType  the expected response type of the consent
+     * @param password the password to be used for completing the form
+     */
+    @Given("participant clicks on Study Assent and completes form with {string}")
+    public static void participant_clicks_on_Study_Assent_and_completes_form_with(String password) {
+        CommonUtils.waitForVisibility(myRASHomePage.rasopathyStudyAssent);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(myRASHomePage.rasopathyStudyAssent);
+        MiscUtils.sleep(5000);
+        CucumberLogUtils.logScreenshot();
+        System.out.println("* * * * * FILLING OUT CONSENT FORM * * * * *");
+        JavascriptUtils.scrollIntoView(locateByXpath("//input[@id='consent_read']"));
+        WebElement readConsentCheckbox = locateByXpath("//input[@id='consent_read']");
+        softAssert.assertEquals(locateByXpath("//b[contains(text(),'Yes, I have read and assent to the terms and condi')]").getText(), "Yes, I have read and assent to the terms and conditions.");
+        CommonUtils.waitForClickability(readConsentCheckbox);
+        CommonUtils.clickOnElement(readConsentCheckbox);
+        CucumberLogUtils.logScreenshot();
+        CucumberLogUtils.logScreenshot();
+        WebElement toConsentButton = locateByXpath("//button[@id='toConsentBtn']");
+        CommonUtils.waitForClickability(toConsentButton);
+        CommonUtils.clickOnElement(toConsentButton);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForVisibility(locateByXpath("//div[@class='form-group']//input[@id='signature_password']"));
+        CommonUtils.sendKeys(locateByXpath("//div[@class='form-group']//input[@id='signature_password']"), password);
+        CommonUtils.waitForVisibility(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
+        CommonUtils.clickOnElement(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForVisibility(locateByXpath("//button[normalize-space()='OK']"));
+        CommonUtils.clickOnElement(locateByXpath("//button[normalize-space()='OK']"));
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * PI completes consent and verifies the specified information in Native View.
+     *
+     * @param sheetName     The name of the Excel sheet containing the data.
+     * @param consentStatus The expected consent status.
+     * @param consentType   The expected consent type.
+     * @param responseType  The expected response type.
      */
     @Then("PI completes consent and verifies {string} {string} {string} {string} in Native View")
     public static void PI_completes_consent_and_verifies_in_Native_View(String sheetName, String consentStatus, String consentType, String responseType) {
@@ -167,6 +240,10 @@ public class RAS_All_Steps extends PageInitializer {
             CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
             CucumberLogUtils.logScreenshot();
             CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
+        } else if (sheetName.contentEquals("screenerScenarioAge11-13")) {
+            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
         }
         MiscUtils.sleep(1000);
         if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
@@ -181,8 +258,8 @@ public class RAS_All_Steps extends PageInitializer {
         MiscUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentSignAndCompleteButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentSignAndCompleteButton);
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(locateByXpath("//button[@title='Back']"));
@@ -200,28 +277,19 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * THIS METHOD VERIFIES THAT THE CONSENT DOWNLOAD FORM IS SHOWN ON THE PARTICIPANT'S PORTAL
-     *
-     * @param participantPortalText The expected text to be shown on the participant portal.
-     */
-    @Given("{string} shows on participant portal")
-    public static void shows_on_participant_portal(String participantPortalText) {
-        CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='Download Study Consent']"));
-        softAssert.assertEquals(locateByXpath("//span[normalize-space()='Download Study Consent']").getText(), participantPortalText);
-    }
-
-    /**
      * THIS METHOD WILL VERIFY THAT THE CONSENT WIDGET DISPLAYS ON THE PARTICIPANT PORTAL AND WHEN CLICKED VERIFIES THAT THE CONSENT FORM PDF WAS DOWNLOADED
      *
-     * @param expectedDownloadStudyConsentText The expected text to be shown on the participant portal.
-     * @param pdfName                          The name of the PDF file to be downloaded.
+     * @param expectedDownloadStudyText The expected text to be shown on the participant portal.
+     * @param pdfName                   The name of the PDF file to be downloaded.
      */
     @Given("{string} text shows on participant portal and when clicked downloads {string}")
-    public static void text_shows_on_participant_portal_and_when_clicked_downloads_consent_form(String expectedDownloadStudyConsentText, String pdfName) {
-        CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='Download Study Consent']"));
-        softAssert.assertEquals(locateByXpath("//span[normalize-space()='Download Study Consent']").getText(), expectedDownloadStudyConsentText);
-        CommonUtils.waitForClickability(locateByXpath("//span[normalize-space()='Download Study Consent']"));
-        locateByXpath("//span[normalize-space()='Download Study Consent']").click();
+    public static void text_shows_on_participant_portal_and_when_clicked_downloads_consent_form(String expectedDownloadStudyText, String pdfName) {
+        CommonUtils.webDriver.navigate().refresh();
+        dynamicModuleLocator(expectedDownloadStudyText);
+        CommonUtils.waitForVisibility(dynamicModuleLocator(expectedDownloadStudyText));
+        softAssert.assertEquals(dynamicModuleLocator(expectedDownloadStudyText).getText(), expectedDownloadStudyText);
+        CommonUtils.waitForClickability(dynamicModuleLocator(expectedDownloadStudyText));
+        dynamicModuleLocator(expectedDownloadStudyText).click();
         CucumberLogUtils.logScreenshot();
         String mainWindowHandle = webDriver.getWindowHandle();
         Set<String> windowHandles = webDriver.getWindowHandles();
@@ -233,7 +301,7 @@ public class RAS_All_Steps extends PageInitializer {
         }
         String pdfUrl = webDriver.getCurrentUrl();
         String downloadPath = System.getProperty("user.dir") + "/src/test/resources/" + pdfName + ".pdf";
-        System.out.println("* * * * * DOWNLOADING STUDY CONSENT PDF * * * * *");
+        CucumberLogUtils.scenario.log("* * * * * DOWNLOADING " + pdfName.toUpperCase() + " PDF * * * * *");
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL(pdfUrl).openConnection();
             String cookies = String.join(";", webDriver.manage().getCookies().stream()
@@ -255,26 +323,41 @@ public class RAS_All_Steps extends PageInitializer {
         }
         File downloadedFile = new File(downloadPath);
         softAssert.assertTrue(downloadedFile.exists());
-        CucumberLogUtils.logScreenshot();
         if (downloadedFile.delete()) {
-            System.out.println("* * * * * STUDY CONSENT PDF DELETED SUCCESSFULLY * * * * *");
+            CucumberLogUtils.scenario.log("* * * * * " + pdfName.toUpperCase() + " PDF DELETED SUCCESSFULLY * * * * *");
         } else {
-            System.out.println("* * * * * FAILED TO DELETE STUDY CONSENT PDF * * * * *");
+            CucumberLogUtils.scenario.log("* * * * * FAILED TO DELETE " + pdfName.toUpperCase() + "  PDF * * * * *");
         }
     }
 
     /**
      * Submits and verifies the consent in native view for a specified sheet name, consent status, consent type, and response type.
      *
-     * @param sheetName      the name of the sheet for which the consent is being processed
-     * @param consentStatus  the expected status of the consent
-     * @param consentType    the expected type of the consent
-     * @param responseType   the expected response type of the consent
+     * @param sheetName     the name of the sheet for which the consent is being processed
+     * @param consentStatus the expected status of the consent
+     * @param consentType   the expected type of the consent
+     * @param responseType  the expected response type of the consent
      */
     @When("the consent is submitted for {string} and {string} {string} {string} is verified in Native View")
     public void the_consent_is_submitted_for_and_is_verified_in_native_view(String sheetName, String consentStatus, String consentType, String responseType) {
         MiscUtils.sleep(20000);
         ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
         RAS_Common_Methods.nativeViewConsentFlowProcessScenario1Parameterized(sheetName, consentStatus, consentType, responseType);
+    }
+
+    /**
+     * Logs in a Study Team member to the Native View and completes a consent call.
+     *
+     * @param sheetName                                the name of the sheet for which the consent is being processed
+     * @param consentStatus                            the expected status of the consent
+     * @param consentType                              the expected type of the consent
+     * @param responseType                             the expected response type of the consent
+     * @param parentGuardianStatus                     the status of the parent/guardian for the consent
+     * @param numberOfGuardianSignaturesRequired       the number of guardian signatures required for the consent
+     * @param numberOfParentGuardianSignaturesReceived the number of parent/guardian signatures received for the consent
+     */
+    @Then("Study Team member logs in to Native View and completest consent call {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void study_team_member_logs_in_to_native_view_and_completest_consent_call(String sheetName, String consentStatus, String consentType, String responseType, String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
+        nativeViewConsentAssentFlowProcess(sheetName, consentStatus, consentType, responseType, parentGuardianStatus, numberOfGuardianSignaturesRequired, numberOfParentGuardianSignaturesReceived);
     }
 }

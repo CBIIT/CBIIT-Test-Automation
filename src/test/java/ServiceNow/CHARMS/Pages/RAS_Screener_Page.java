@@ -1,12 +1,12 @@
 package ServiceNow.CHARMS.Pages;
 
+import appsCommon.PageInitializers.PageInitializer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import static com.nci.automation.web.WebDriverUtils.webDriver;
 
-public class RAS_Screener_Page {
+public class RAS_Screener_Page extends PageInitializer {
 
     /* LOCATOR FOR ALL QUESTIONS ON RAS SCREENER */
     @FindBy(xpath = "//*[@class='QuestionText BorderColor']")
@@ -26,11 +26,11 @@ public class RAS_Screener_Page {
 
     /* Have Any Of Your Relatives Been Diagnosed No Radio Button */
     @FindBy(xpath = "//*[@id='QID43']/div[3]/div/fieldset/div/ul/li[2]/span")
-    public WebElement haveAnyOfYourRelativesBeenDiagnosedNoRadioButton ;
+    public WebElement haveAnyOfYourRelativesBeenDiagnosedNoRadioButton;
 
     /* Have You Ever Had Genetic Testing No Radio Button */
     @FindBy(xpath = "//*[@id='QID120-2-label']")
-    public WebElement haveYouEverHadGeneticTestingNoRadioButton ;
+    public WebElement haveYouEverHadGeneticTestingNoRadioButton;
 
     /* I am completing this form for myself option */
     @FindBy(xpath = "//span[contains(text(),'I am completing this form for myself')]")
@@ -57,7 +57,7 @@ public class RAS_Screener_Page {
     public WebElement calendarDayOption;
 
     /* Proband date of birth text box */
-    @FindBy(xpath = "(//input[@id='QR~QID9'])[1]")
+    @FindBy(xpath = "//input[@placeholder='MM/DD/YYYY']")
     public WebElement probandDateOfBirthTextBox;
 
     /* IIQ Calendar day option */
@@ -108,8 +108,8 @@ public class RAS_Screener_Page {
      * @param text The text to search for in the element.
      * @return The WebElement representing the located element.
      */
-    public static WebElement dynamicContainsLabelAndTextLocator(String text){
-        return webDriver.findElement(By.xpath("//span[contains(@class,'LabelWrapper')]//label[contains(.,'"+ text + "')]"));
+    public static WebElement dynamicContainsLabelAndTextLocator(String text) {
+        return webDriver.findElement(By.xpath("//span[contains(@class,'LabelWrapper')]//label[contains(.,'" + text + "')]"));
     }
 
     /**
@@ -118,8 +118,8 @@ public class RAS_Screener_Page {
      * @param text The aria-label value of the date to locate.
      * @return The WebElement representing the dynamic date of birth calendar element.
      */
-    public static WebElement dynamicDateOfBirthCalendarLocator(String text){
-        return webDriver.findElement(By.xpath("//span[@aria-label='"+ text + "']"));
+    public static WebElement dynamicDateOfBirthCalendarLocator(String text) {
+        return webDriver.findElement(By.xpath("//span[@aria-label='" + text + "']"));
     }
 
     /**
@@ -130,6 +130,26 @@ public class RAS_Screener_Page {
      */
     public WebElement dynamicTextBoxLocator(String text) {
         return webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::label//parent::span//parent::td/following-sibling::td/input"));
+    }
+
+    /**
+     * USE THIS METHOD TO DYNAMICALLY LOCATE RADIO BOXES ON RAS SCREENER
+     *
+     * @param text The text to search for in the radio button element.
+     * @return The WebElement representing the located radio button element.
+     */
+    public static WebElement dynamicRadioButtonLocator(String text) {
+        return webDriver.findElement(By.xpath("//span[contains(text(),'" + text + "')]"));
+    }
+
+    /**
+     * Formats the given screener question by replacing placeholders (%s) with the provided first name and last name.
+     *
+     * @param screenerQuestion The original screener question with placeholders.
+     * @return The formatted screener question with replaced placeholders.
+     */
+    public static String formatRASQuestionForProxy(String screenerQuestion) {
+        return screenerQuestion.replace("%s", ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME);
     }
 
     /***
