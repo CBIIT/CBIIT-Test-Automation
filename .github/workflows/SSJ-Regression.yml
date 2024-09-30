@@ -39,7 +39,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          git config --global user.email "diegojuarezbusiness@gmail.com"
+          git config --global user.email "dsjnih@gmail.com"
           git config --global user.name "iamdez99"
           git stash
           git fetch

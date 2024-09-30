@@ -4,7 +4,6 @@ import ServiceNow.COVIDDash.Utils.COVIDConstants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.NCI_Staff_Members_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.TopAccomplishmentsSubmission_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.Pages.NERDDOCCollaborationsPage;
 import ServiceNow.PlatformBusinessApps.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.PlatformBusinessApps.SEER.Constants.SEERNativeView_Constants;
 import appsCommon.PageInitializers.PageInitializer;
@@ -800,7 +799,6 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
     }
-
 
     /**
      * This method clicks on Collaborations Link

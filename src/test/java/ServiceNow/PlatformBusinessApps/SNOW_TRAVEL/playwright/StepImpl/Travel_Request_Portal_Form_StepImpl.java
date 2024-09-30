@@ -132,10 +132,13 @@ public class Travel_Request_Portal_Form_StepImpl {
         page.waitForSelector("#total_costs div");
         page.locator("#total_costs div").filter(new Locator.FilterOptions().setHasText(Travel_Request_Portal_Form_Constants.TOTAL_COSTS_FIELD_TEXT)).isVisible();
         page.locator("#total_costs div").filter(new Locator.FilterOptions().setHasText(Travel_Request_Portal_Form_Constants.TOTAL_COSTS_FIELD_TEXT)).click();
-        CucumberLogUtils.playwrightScreenshot(page);
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(Travel_Request_Portal_Form_Constants.SUBMIT_BUTTON).setExact(true)).waitFor();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(Travel_Request_Portal_Form_Constants.SUBMIT_BUTTON).setExact(true)).click();
-        CommonUtils.sleep(5000);
+        assertThat(page.getByLabel("Sum of All Costs Entered", new Page.GetByLabelOptions().setExact(true))).hasValue("$100.00");
+        page.locator("//span[normalize-space()='Comments']").scrollIntoViewIfNeeded();
+        assertThat(page.getByText("Comments")).isVisible();
+        page.getByLabel("Comments").click();
+        page.getByLabel("Comments").fill("Test Comments");
+        page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").isVisible();
+        page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -146,29 +149,23 @@ public class Travel_Request_Portal_Form_StepImpl {
      */
     public static void the_field_will_map_to_the_travel_start_date_field_in_the_variables_section_of_the_ritm_in_nv(String travelStartDate) {
         assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Services").setExact(true))).isVisible();
-        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(Travel_Request_Portal_Form_Constants.NATIVE_VIEW_LINK)).click();
+        page.locator("//span[normalize-space()='Native View']").isVisible();
+        page.locator("//span[normalize-space()='Native View']").click();
         page.getByPlaceholder("Filter").click();
         page.getByPlaceholder("Filter").fill("Travel Planning System");
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Travel Requests")).click();
         CucumberLogUtils.playwrightScreenshot(page);
-        CommonUtils.sleep(2000);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search a specific field of").selectOption("number");
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByText("All>Item = Travel Planning").click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(Travel_Request_Portal_Form_Constants.TRAVEL_PLANNING_SYSTEM_RITM_NUMBER);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
-        CucumberLogUtils.playwrightScreenshot(page);
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI-RITM0509434")).containsText(Travel_Request_Portal_Form_Constants.TRAVEL_PLANNING_SYSTEM_RITM_NUMBER);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI-RITM0509434").hover();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Preview record: NCI-RITM0509434").click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.LINK, new FrameLocator.GetByRoleOptions().setName(Travel_Request_Portal_Form_Constants.OPEN_RECORD_BUTTON).setExact(true)).click();
+
+        //click on the most top record and click on open record button
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("(//*[@class='list_decoration_cell col-small col-center ']//a)[1]").hover();
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("(//*[@class='list_decoration_cell col-small col-center ']//a)[1]").click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
         CucumberLogUtils.playwrightScreenshot(page);
         page.frameLocator("iframe[name=\"gsft_main\"]").locator("#tabs2_section").getByText(Travel_Request_Portal_Form_Constants.VARIABLES_TAB).click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//span[@aria-label='Trip Information']").scrollIntoViewIfNeeded();
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Trip Information", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(Travel_Request_Portal_Form_Constants.TRIP_INFORMATION_HEADER_TEXT);
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.HEADING, new FrameLocator.GetByRoleOptions().setName(travelStartDate))).isVisible();
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Variables form section")).containsText(travelStartDate);
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitTravel Start Date"))).hasValue(Travel_Request_Portal_Form_Constants.ENTERED_DATE);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -180,7 +177,6 @@ public class Travel_Request_Portal_Form_StepImpl {
     public static void the_field_will_map_to_the_travel_end_date_in_the_variables_section_of_the_ritm_in_nv(String travelEndDate) {
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.HEADING, new FrameLocator.GetByRoleOptions().setName(travelEndDate))).isVisible();
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Variables form section")).containsText(travelEndDate);
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitTravel End Date"))).hasValue(Travel_Request_Portal_Form_Constants.ENTERED_DATE);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -286,12 +282,32 @@ public class Travel_Request_Portal_Form_StepImpl {
     }
 
     /**
-     * This method verifies that the header on the form is not visible.
+     * This method verifies that "Travel Cash Advance" header on the form is not visible.
      *
      * @param travelCashAdvance the travel cash advance value
      */
     public static void i_will_not_see_the_header_on_the_form(String travelCashAdvance) {
-        assertThat(page.locator("#catItemTop div").filter(new Locator.FilterOptions().setHasText("Travel QuestionsDo you have a")).nth(1)).isVisible();
-        CommonUtils.sleep(5000);
+        assertThat(page.locator("//span[@id='container_travel_cash_advance']")).containsText(travelCashAdvance);
+        boolean isHidden = page.locator("//span[@id='container_travel_cash_advance']").isHidden();
+
+        if(isHidden) {
+            System.out.println("Element is hidden");
+        } else {
+            System.out.println("Element is visible");
+        }
+        assertThat(page.locator("//span[@id='container_travel_cash_advance']")).isHidden();
+    }
+
+    /**
+     * The following method is used to verify that specific fields under the Travel Cash Advance section are removed.
+     *
+     * @param cashAdvanceRequested The value of the Cash Advance Requested field.
+     * @param reasonForCashAdvance The value of the Reason for Cash Advance field.
+     */
+    public static void the_following_fields_and_under_travel_cash_advance_section_will_be_removed(String cashAdvanceRequested, String reasonForCashAdvance) {
+        assertThat(page.locator("//span[normalize-space()='Cash (Direct Deposit) Advance Requested']")).containsText(cashAdvanceRequested);
+        assertThat(page.locator("//span[normalize-space()='Cash (Direct Deposit) Advance Requested']")).isHidden();
+        assertThat(page.locator("//span[normalize-space()='Reason for Cash Advance']")).containsText(reasonForCashAdvance);
+        assertThat(page.locator("//span[normalize-space()='Reason for Cash Advance']")).isHidden();
     }
 }

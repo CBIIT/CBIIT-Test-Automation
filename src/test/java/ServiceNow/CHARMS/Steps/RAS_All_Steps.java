@@ -7,10 +7,15 @@ import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
+<<<<<<< HEAD
+=======
+import com.nci.automation.utils.MiscUtils;
+>>>>>>> 34ba6435f2d4ba14ee4ee18d34e8b6de3ebf8535
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import java.io.File;
@@ -31,6 +36,7 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Given("the e-consent is submitted for {string}")
     public static void the_e_consent_is_submitted_for(String sheetName) {
+<<<<<<< HEAD
         ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sleep(4000);
@@ -66,6 +72,10 @@ public class RAS_All_Steps extends PageInitializer {
             CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         }
         CommonUtils.sleep(2000);
+=======
+        RAS_Common_Methods.navigateToRecordInNativeView(sheetName);
+        MiscUtils.sleep(2000);
+>>>>>>> 34ba6435f2d4ba14ee4ee18d34e8b6de3ebf8535
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
@@ -223,9 +233,9 @@ public class RAS_All_Steps extends PageInitializer {
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CucumberLogUtils.logScreenshot();
-        softAssert.assertEquals(locateByXpath("//td[normalize-space()='Complete']").getText(), consentStatus);
-        softAssert.assertEquals(locateByXpath("//td[normalize-space()='Adult']").getText(), consentType);
-        softAssert.assertEquals(locateByXpath("//td[normalize-space()='CHARMS e-consent']").getText(), responseType);
+        softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + consentStatus + "']").getText(), consentStatus);
+        softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + consentType + "']").getText(), consentType);
+        softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + responseType + "']").getText(), responseType);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
@@ -248,10 +258,9 @@ public class RAS_All_Steps extends PageInitializer {
      * @param pdfName                          The name of the PDF file to be downloaded.
      */
     @Given("{string} text shows on participant portal and when clicked downloads {string}")
-    public static void text_shows_on_participant_portal_and_when_clicked_downloads(String expectedDownloadStudyConsentText, String pdfName) {
+    public static void text_shows_on_participant_portal_and_when_clicked_downloads_consent_form(String expectedDownloadStudyConsentText, String pdfName) {
         CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='Download Study Consent']"));
         softAssert.assertEquals(locateByXpath("//span[normalize-space()='Download Study Consent']").getText(), expectedDownloadStudyConsentText);
-        CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(locateByXpath("//span[normalize-space()='Download Study Consent']"));
         locateByXpath("//span[normalize-space()='Download Study Consent']").click();
         CucumberLogUtils.logScreenshot();
@@ -286,10 +295,27 @@ public class RAS_All_Steps extends PageInitializer {
             e.printStackTrace();
         }
         File downloadedFile = new File(downloadPath);
+        softAssert.assertTrue(downloadedFile.exists());
+        CucumberLogUtils.logScreenshot();
         if (downloadedFile.delete()) {
             System.out.println("* * * * * STUDY CONSENT PDF DELETED SUCCESSFULLY * * * * *");
         } else {
             System.out.println("* * * * * FAILED TO DELETE STUDY CONSENT PDF * * * * *");
         }
+    }
+
+    /**
+     * Submits and verifies the consent in native view for a specified sheet name, consent status, consent type, and response type.
+     *
+     * @param sheetName      the name of the sheet for which the consent is being processed
+     * @param consentStatus  the expected status of the consent
+     * @param consentType    the expected type of the consent
+     * @param responseType   the expected response type of the consent
+     */
+    @When("the consent is submitted for {string} and {string} {string} {string} is verified in Native View")
+    public void the_consent_is_submitted_for_and_is_verified_in_native_view(String sheetName, String consentStatus, String consentType, String responseType) {
+        MiscUtils.sleep(20000);
+        ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+        RAS_Common_Methods.nativeViewConsentFlowProcessScenario1Parameterized(sheetName, consentStatus, consentType, responseType);
     }
 }

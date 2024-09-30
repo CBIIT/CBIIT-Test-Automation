@@ -1849,4 +1849,16 @@ public class ApplicantProfileStepsImpl {
         CucumberLogUtils.playwrightScreenshot(page);
         Hooks.softAssert.assertEquals(actualWithdrawnText, expectedWithdrawnText);
     }
+
+    public static void selects_for_number_of_scoring_categories(String scoringNumber) {
+        ElementHandle sliderHandle = page.querySelector(".ant-slider-handle");
+        var boxSlider = sliderHandle.boundingBox();
+        page.mouse().move(boxSlider.x + boxSlider.width / 2, boxSlider.y + boxSlider.height / 2);
+        page.mouse().down();
+        ElementHandle target = page.querySelector(".ant-slider-mark-text[style*='" + scoringNumber + "']");
+        var boxTarget = target.boundingBox();
+        page.mouse().move(boxTarget.x + boxTarget.width / 2, boxTarget.y + boxTarget.height / 2);
+        page.mouse().up();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
 }
