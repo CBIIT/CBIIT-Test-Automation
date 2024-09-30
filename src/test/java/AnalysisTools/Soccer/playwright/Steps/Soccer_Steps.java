@@ -7,18 +7,18 @@ import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+import static com.nci.automation.web.TestProperties.getSoccerUrl;
 
 public class Soccer_Steps extends PageInitializer {
 
     @Given("User navigates to soccer home page")
     public void user_navigates_to_soccer_home_page() {
-        PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("Soccer"));
+        PlaywrightUtils.page.navigate(getSoccerUrl());
     }
 
     @Then("User click on run soccer button")

@@ -1,6 +1,6 @@
 Feature: This feature file encompasses test cases on the LDexpress module of LDlink
 
-    @Smoke @Regression @matakevin
+    @Smoke @Regression @matakevin @selenium
     Scenario: Testing expected warning message on LDexpress
         Given a LDlink user opens home page
         When the user clicks on the LDexpress module

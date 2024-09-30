@@ -2,7 +2,6 @@ package ServiceNow.ESR.Selenium.StepsImplementation;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 
 public class ESRDefaultNotificationsStepsImplementation extends PageInitializer {
@@ -16,7 +15,7 @@ public class ESRDefaultNotificationsStepsImplementation extends PageInitializer 
         esrTicketCreationPage.federalLeadTextBox.sendKeys(federalLead);
         esrTicketCreationPage.projectLeadTextBox.sendKeys(projectLead);
         esrTicketCreationPage.businessOwnerTextBox.sendKeys(businessOwner);
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         esrTicketCreationPage.submitButtonForESR.click();
         CucumberLogUtils.logScreenshot();
     }

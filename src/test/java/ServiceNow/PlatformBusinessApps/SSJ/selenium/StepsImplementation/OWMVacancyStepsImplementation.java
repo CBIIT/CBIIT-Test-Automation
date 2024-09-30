@@ -4,15 +4,14 @@ import ServiceNow.PlatformBusinessApps.SSJ.selenium.Constants.NativeViewSSJConst
 import ServiceNow.PlatformBusinessApps.SSJ.selenium.Constants.OWMVacanciesConstants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
+import static com.nci.automation.web.TestProperties.getSSJUrl;
 
 public class OWMVacancyStepsImplementation extends PageInitializer {
 
@@ -36,7 +35,7 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
         JavascriptUtils.scrollIntoView(owmVacancyPage.saveButton);
         CommonUtils.waitForVisibility(owmVacancyPage.apptPackageInitiatorField);
         CommonUtils.clickOnElement(owmVacancyPage.positionClassificationDropdown);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         boolean positionNumber= false;
         while (!positionNumber) {
@@ -80,11 +79,11 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
         String openDate = OWMVacanciesConstants.TODAYS_DATE;
         JavascriptUtils.clickByJS(owmVacancyPage.calendarDatePicker.get(Integer.parseInt(openDate.substring(6,8))-1));
         CommonUtils.sendKeys(owmVacancyPage.vacancyOpenDateTextBox, Keys.ENTER);
-        MiscUtils.sleep(9000);
+        CommonUtils.sleep(9000);
         CommonUtils.clickOnElement(owmVacancyPage.vacancyCloseDateTextBox);
         CommonUtils.sendKeys(owmVacancyPage.vacancyCloseDateTextBox, OWMVacanciesConstants.VACANCY_CLOSE_DATE);
         CommonUtils.sendKeys(owmVacancyPage.vacancyCloseDateTextBox, Keys.ENTER);
-        MiscUtils.sleep(9000);
+        CommonUtils.sleep(9000);
         CommonUtils.clickOnElement(owmVacancyPage.vacancyScoringDueDateTextBox);
         CommonUtils.sendKeys(owmVacancyPage.vacancyScoringDueDateTextBox, OWMVacanciesConstants.VACANCY_SCORING_DUE_DATE);
         CommonUtils.sendKeys(owmVacancyPage.vacancyScoringDueDateTextBox, Keys.ENTER);
@@ -100,7 +99,7 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(owmVacancyPage.apptPackageInitiatorField.getAttribute("title"), OWMVacanciesConstants.VACANCY_APPOINTMENT_PACKAGE_INITIATOR, "-- VERIFYING APPOINTMENT PACKAGE INITIATOR --");
         // ----- CLICKING ON THE POSITION CLASSIFICATION -----
         CommonUtils.clickOnElement(owmVacancyPage.positionClassificationDropdown);
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         boolean positionNumberClick= false;
         while (!positionNumberClick) {
             try {
@@ -229,7 +228,7 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
         CommonUtils.waitForVisibility(owmVacancyPage.whoWeAreText);
         CommonUtils.assertEqualsWithMessage(OWMVacanciesConstants.WHO_WE_ARE_TEXT, owmVacancyPage.whoWeAreText.getText(), "-- VERIFYING WHO WE ARE TEXT --");
         CucumberLogUtils.logScreenshot();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SCSSPortalView"));
+        WebDriverUtils.webDriver.get(getSSJUrl());
         CommonUtils.waitForVisibility(owmVacancyPage.ssjLandingPageTitle);
         CucumberLogUtils.logScreenshot();
     }

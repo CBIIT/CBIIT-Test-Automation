@@ -7,7 +7,10 @@ import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
+<<<<<<< HEAD
+=======
 import com.nci.automation.utils.MiscUtils;
+>>>>>>> 34ba6435f2d4ba14ee4ee18d34e8b6de3ebf8535
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.Given;
@@ -33,12 +36,50 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Given("the e-consent is submitted for {string}")
     public static void the_e_consent_is_submitted_for(String sheetName) {
+<<<<<<< HEAD
+        ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        CommonUtils.sleep(4000);
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(3000);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
+        CommonUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        if (sheetName.contentEquals("screenerScenario1")) {
+            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+        } else if (sheetName.contentEquals("screenerScenario2")) {
+            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+        } else if (sheetName.contentEquals("screenerScenario3")) {
+            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
+        } else if (sheetName.contentEquals("screenerScenario4")) {
+            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
+        }
+        CommonUtils.sleep(1000);
+        if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        }
+        CommonUtils.sleep(2000);
+=======
         RAS_Common_Methods.navigateToRecordInNativeView(sheetName);
         MiscUtils.sleep(2000);
+>>>>>>> 34ba6435f2d4ba14ee4ee18d34e8b6de3ebf8535
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
-        MiscUtils.sleep(1500);
+        CommonUtils.sleep(1500);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
@@ -54,7 +95,7 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-        MiscUtils.sleep(500);
+        CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
@@ -80,7 +121,7 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureSpecimensAndDataDropDown, 4);
         CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureUseCollaboratorsDropDown, 4);
         CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown, 4);
-        MiscUtils.sleep(500);
+        CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallCompleteButton);
         CucumberLogUtils.logScreenshot();
@@ -97,7 +138,7 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.waitForVisibility(myRASHomePage.rasopathyStudyConsent);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(myRASHomePage.rasopathyStudyConsent);
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
         CucumberLogUtils.logScreenshot();
         System.out.println("* * * * * FILLING OUT CONSENT FORM * * * * *");
         JavascriptUtils.scrollIntoView(locateByXpath("//input[@id='consent_read']"));
@@ -143,13 +184,13 @@ public class RAS_All_Steps extends PageInitializer {
     public static void PI_completes_consent_and_verifies_in_Native_View(String sheetName, String consentStatus, String consentType, String responseType) {
         ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        MiscUtils.sleep(8000);
+        CommonUtils.sleep(8000);
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
-        MiscUtils.sleep(8000);
+        CommonUtils.sleep(8000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         if (sheetName.contentEquals("screenerScenario1")) {
             CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
@@ -168,7 +209,7 @@ public class RAS_All_Steps extends PageInitializer {
             CucumberLogUtils.logScreenshot();
             CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
         }
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
             CucumberLogUtils.logScreenshot();
             CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
@@ -178,16 +219,16 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='Awaiting PI Signature']"));
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-        MiscUtils.sleep(500);
+        CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(locateByXpath("//button[@title='Back']"));
         CommonUtils.clickOnElement(locateByXpath("//button[@title='Back']"));
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);

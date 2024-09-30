@@ -2,9 +2,6 @@ package ServiceNow.ITPG.StepsImplementation;
 
 import org.openqa.selenium.By;
 
-import com.nci.automation.web.EnvUtils;
-import com.nci.automation.xceptions.TestingException;
-
 import ServiceNow.ITPG.Pages.LoginPage;
 import ServiceNow.ITPG.Utils.CommonUtils;
 
@@ -15,7 +12,7 @@ public class LoginStepsImpl extends LoginPage {
     }
 
     public void openApp() {
-        driver.get(EnvUtils.getApplicationUrl("AtoTestUrl"));
+        driver.get("");
     }
 
     public void openApp(String url) {

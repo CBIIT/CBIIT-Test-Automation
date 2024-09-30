@@ -2,13 +2,12 @@ package ServiceNow.CHARMS.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.nci.automation.web.CommonUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
 /****  @author SonikaJain ***/
@@ -40,7 +39,7 @@ public class FHQUtil {
 		}
  
 		/* To unhightlight the Label */
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		ComponentTestResult componentTestResult = new ComponentTestResult();
 		componentTestResult.setComparisionResultList(comparisionResultList);
 		componentTestResult.setComponentResult(result);
@@ -62,7 +61,7 @@ public class FHQUtil {
 
 	public static ComponentTestResult verifyDropDowns(WebElement webElement, List<String> list) {
 		FHQUtil.fHQLabelHighlight(webElement);
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		String result = "PASSED";
 		List<ComparisionResult> comparisionResultList = new ArrayList<ComparisionResult>();
 		Select select = new Select(webElement);
@@ -81,10 +80,10 @@ public class FHQUtil {
 				ComparisionResult comparisionResult = new ComparisionResult(options, list.get(i), "FAILED");
 				comparisionResultList.add(comparisionResult);
 			}
-			MiscUtils.sleep(500);
+			CommonUtils.sleep(500);
 		}
 		FHQUtil.fHQLabelUnHighlight(webElement);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		ComponentTestResult componentTestResult = new ComponentTestResult();
 		componentTestResult.setComparisionResultList(comparisionResultList);
 		componentTestResult.setComponentResult(result);
@@ -129,16 +128,16 @@ public class FHQUtil {
 	public static ComponentTestResult selectRandomDropdown(WebElement webElement, int index)
 			{
 		FHQUtil.fHQLabelHighlight(webElement);
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		webElement.click();
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		String result = "PASSED";		
 		WebElement select2ElementResults = WebDriverUtils.webDriver.findElement(By.xpath("(//a[@class='select2-choice select2-default form-control'])[1]"));
 		List<WebElement> selectResultsAsListCollection = select2ElementResults.findElements(By.tagName("li"));
 		List<ComparisionResult> comparisionResultList = new ArrayList<ComparisionResult>();
 		try {
 		selectResultsAsListCollection.get(0).click();
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		}catch(Exception e) {
 			result = "FAILED";
 			ComparisionResult comparisionResult = new ComparisionResult("Unable to locate element" , 0+"", "FAILED");
@@ -152,7 +151,7 @@ public class FHQUtil {
 	
 	public static ComponentTestResult verifyLabel(WebElement webElement, String expectedValue) {
 		FHQUtil.fHQLabelHighlight(webElement);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		String result = "PASSED";
 		List<ComparisionResult> comparisionResultList = new ArrayList<ComparisionResult>();
 		String actualValue = webElement.getText();
@@ -165,7 +164,7 @@ public class FHQUtil {
 		}
  
 		/* To unhightlight the Label */
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		ComponentTestResult componentTestResult = new ComponentTestResult();
 		componentTestResult.setComparisionResultList(comparisionResultList);
 		componentTestResult.setComponentResult(result);
@@ -174,7 +173,7 @@ public class FHQUtil {
 	
 	public static void verifySelectRandomDropDowns(WebElement webElement) {
 		FHQUtil.fHQLabelHighlight(webElement);
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
                 webElement.click();
 
        @SuppressWarnings("unchecked")

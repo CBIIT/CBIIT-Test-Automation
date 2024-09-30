@@ -3,10 +3,7 @@ package ServiceNow.PlatformBusinessApps.CADSR.Steps;
 import ServiceNow.PlatformBusinessApps.CADSR.StepsImplementation.LoginStepsImpl;
 import io.cucumber.java.Before;
 import org.junit.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.EncryptionUtils;
-import com.nci.automation.web.ConfUtils;
 import ServiceNow.PlatformBusinessApps.CADSR.Pages.NativeViewPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -30,9 +27,9 @@ public class NativeViewSteps {
 
 	@When("User Logins to the CADSR application")
 	public void login() throws Exception {
-		loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
-		String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
-		loginStepsImpl.enterPassword(decyptedPass);
+		//loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
+		//String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
+		//loginStepsImpl.enterPassword(decyptedPass);
 		loginStepsImpl.clickOnSignInButton();
 	}
 

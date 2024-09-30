@@ -3,7 +3,7 @@ package appsCommon.PageInitializers;
 import AnalysisTools.ACT24.Pages.*;
 import AnalysisTools.ACT24.StepsImpl.ACT24ParticipantStepImpl;
 import AnalysisTools.ACT24.StepsImpl.ACT24ResearcherStepImpl;
-import AnalysisTools.Comets2.Pages.*;
+import AnalysisTools.CometsExplorer.Pages.*;
 import AnalysisTools.CometsAnalytics.Pages.*;
 import AnalysisTools.CometsAnalytics.StepsImplementation.*;
 import AnalysisTools.GDSTracking.Pages.*;
@@ -49,8 +49,6 @@ import ServiceNow.CHARMS.Pages.*;
 import ServiceNow.CHARMS.ScenariosData.*;
 import ServiceNow.CHARMS.StepsImplementation.*;
 import ServiceNow.CHARMS.StepsImplementation.RASStudy.*;
-import ServiceNow.CICDBuild.Pages.*;
-import ServiceNow.CICDBuild.StepsImplementation.*;
 import ServiceNow.COVIDCode.Pages.*;
 import ServiceNow.COVIDCode.StepsImplementation.*;
 import ServiceNow.COVIDCode.StepsImplementation.DashboardStepImpl;
@@ -164,12 +162,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static MelanomaLoginPage melanomaLoginPage;
 	public static MelanomaHomePage melanomaHomePage;
 	public static MelanomaQuestionnairePage melanomaQuestionnairePage;
-
-	/** CICDBuild instances */
-	// ServiceNow DevOps instances
-	public static DevOpsLoginPage devOpsLoginPage;
-	public static DevOpsNativeViewPage devOpsNativeViewPage;
-	public static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
 
 	/** SEER instances */
 	public static SEERLandingPage seerLandingPage;
@@ -444,12 +436,6 @@ public class PageInitializer extends WebDriverUtils {
 		melanomaLoginPage = new MelanomaLoginPage();
 		melanomaHomePage = new MelanomaHomePage();
 		melanomaQuestionnairePage = new MelanomaQuestionnairePage();
-
-		/** CICDBuild Instance Variables */
-		// ServiceNow DevOps instances
-		devOpsLoginPage = new DevOpsLoginPage();
-		devOpsNativeViewPage = new DevOpsNativeViewPage();
-		devOpsAutomatedBuildStepsImplementation = new DevOpsAutomatedBuildStepsImplementation();
 
 		/** SEER Instance Variables */
 		seerLandingPage = new SEERLandingPage();

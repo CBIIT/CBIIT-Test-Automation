@@ -4,9 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 
 public class ITrustLoginPage extends CommonUtils {
 
@@ -42,21 +40,21 @@ public class ITrustLoginPage extends CommonUtils {
 	/**
 	 * Enters user-name to ITrust
 	 * 
-	 * @throws TestingException
+	 * @
 	 */
-	public void enterUsername() throws TestingException {
+	public void enterUsername()  {
 		userNameField.clear();
-		sendKeys(userNameField, EnvUtils.getUserName("regular"));
+//		sendKeys(userNameField, EnvUtils.getUserName("regular"));
 	}
 
 	/**
 	 * Enters password to ITrust
 	 * 
-	 * @throws TestingException
+	 * @
 	 */
-	public void enterPassword() throws TestingException {
+	public void enterPassword()  {
 		passwordField.clear();
-		sendKeys(passwordField, EnvUtils.getPassword("regular"));
+//		sendKeys(passwordField, EnvUtils.getPassword("regular"));
 	}
 
 	/**

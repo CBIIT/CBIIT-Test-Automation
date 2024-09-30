@@ -4,12 +4,9 @@ import java.util.List;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -18,26 +15,26 @@ import io.cucumber.java.en.When;
 public class ServicePortalIQScenarioSteps extends PageInitializer {
 
 	@Given("a user in the CovidCode App Admins group has saved a draft Initial Questionnaire")
-	public void a_user_in_the_CovidCode_App_Admins_group_has_saved_a_draft_Initial_Questionnaire() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
+	public void a_user_in_the_CovidCode_App_Admins_group_has_saved_a_draft_Initial_Questionnaire() {
+		WebDriverUtils.webDriver.get("");
 		CucumberLogUtils.logScreenshot();
 		covidCodeLoginPage.LogInButton.click();
 		CucumberLogUtils.logScreenshot();
 		iTrustLoginPageImpl.loginToITrust();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 		servicePortalQuestionnairePage.startNewInitialQuestionnaireButton.click();
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		CucumberLogUtils.logScreenshot();
 		servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown.click();
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		CommonUtils.selectDropDownValue("User Group 2", servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
 		covidCodeEQPage.enrollmentQuestionnaireNIHMedicalRecordNumberTextBox.sendKeys("11122245");
 		covidCodeEQPage.enrollmentQuestionnairePatientLastNameTextBox.sendKeys("AutomatedLNGroup2");
 		covidCodeEQPage.enrollmentQuestionnairePatientFirstNameTextBox.sendKeys("AutomatedFNGroup2");
 		covidCodeEQPage.enrollmentQuestionnairePatientMiddletNameTextBox.sendKeys("M");
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		covidCodeEQPage.enrollmentQuestionnairePatientEmailAddressTextBox.sendKeys("emailGroup2@email.com");
 		covidCodeEQPage.enrollmentQuestionnairePatientPhoneNumberTextBox.sendKeys("2346794567");
 		covidCodeEQPage.enrollmentQuestionnairePatientStreetAddress1TextBox.sendKeys("345 M Road");
@@ -46,11 +43,11 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 	   	}
 	
 	@When("the user comes to the COVIDCode Home Page")
-	public void the_user_comes_to_the_COVIDCode_Home_Page() throws TestingException {
+	public void the_user_comes_to_the_COVIDCode_Home_Page()  {
 		JavascriptUtils.scrollUp(2000);
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		covidCodeEQPage.COVIDcodeHomeButton.click();
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -72,16 +69,16 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 	
 	@Given("COVIDcode user is on the Disease Course section on the Initial Questionnaire form")
 	public void covidcode_user_is_on_the_Disease_Course_section_on_the_Initial_Questionnaire_form()
-			throws TestingException {
+			 {
 		signOutVerificationStepImp.covidCodeServicePortalLogIn();
 		servicePortalQuestionnairePage.startNewInitialQuestionnaireButton.click();
 		servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown.click();
 		CommonUtils.selectDropDownValue(servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown, 2);
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		JavascriptUtils.scrollIntoView(followUpFormPage.diseaseCourseNewButton);
 		followUpFormPage.diseaseCourseNewButton.click();
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 	}
 
 	@When("selecting {string} for Symptoms")
@@ -99,8 +96,8 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 	}
 	
 	@Given("an enrollment form has been filled out")
-	public void an_enrollment_form_has_been_filled_out() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
+	public void an_enrollment_form_has_been_filled_out() {
+		WebDriverUtils.webDriver.get("");
 		CucumberLogUtils.logScreenshot();
 		covidCodeLoginPage.LogInButton.click();
 		CucumberLogUtils.logScreenshot();
@@ -109,13 +106,13 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 		// Start New initial questionnaire, select Group1 and click on create Enrollment
 		// Button
 		JavascriptUtils.clickByJS(servicePortalQuestionnairePage.startNewInitialQuestionnaireButton);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 
 		CommonUtils.selectDropDownValue(servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown,
 				"1");
 		JavascriptUtils.clickByJS(servicePortalQuestionnairePage.createEnrollmentButton);
 		// filling the questionnaire
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(covidCodeEQPage.enrollmentQuestionnaireUserGroupIdDropdown);
 		covidCodeEQPage.enrollmentQuestionnaireConsentDropdown.click();
 		List<WebElement> consentValues = covidCodeEQPage.enrollmentQuestionaireConsentDropDownValues;
@@ -126,12 +123,12 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 	@When("submitting")
 	public void submitting() {
 		covidCodeEQPage.enrollmentQuestionnaireSubmitButton.click();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 	}
 
 	@Then("a pop up with the message {string} displays")
 	public void a_pop_up_with_the_message_displays(String confirmSubmissionPopUpText) {
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 		Assert.assertEquals(confirmSubmissionPopUpText, covidCodeEQPage.enrollmentQuestionnaireConfirmSubmissionPopUpText.getText());
 	}

@@ -2,18 +2,17 @@ package AnalysisTools.GWASExplorer.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
+import static com.nci.automation.web.TestProperties.getExploreGwasUrl;
 
 public class HomeSteps extends PageInitializer {
 
     @Given("the user is on the GWAS Explorer home page")
     public void the_user_is_on_the_gwas_explorer_home_page() {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("GWASExplorer"));
+        WebDriverUtils.webDriver.get(getExploreGwasUrl());
         CommonUtils.waitForVisibility(gwasExplorerHomePage.gwasExplorerText);
         Assert.assertTrue(gwasExplorerHomePage.gwasExplorerText.isDisplayed());
     }
@@ -68,7 +67,7 @@ public class HomeSteps extends PageInitializer {
 
     @When("user navigates to the About page")
     public void user_navigates_to_the_About_page() {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         gwasExplorerHomePage.aboutTab.click();
     }
 

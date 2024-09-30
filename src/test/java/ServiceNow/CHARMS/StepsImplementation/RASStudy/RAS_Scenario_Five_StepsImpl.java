@@ -1,14 +1,6 @@
 package ServiceNow.CHARMS.StepsImplementation.RASStudy;
 
 import appsCommon.PageInitializers.PageInitializer;
-import appsCommon.Utils.ServiceNow_Common_Methods;
-import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.JavascriptUtils;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.NoSuchFrameException;
-import org.testng.Assert;
 
 public class RAS_Scenario_Five_StepsImpl extends PageInitializer {
     /***
@@ -16,7 +8,7 @@ public class RAS_Scenario_Five_StepsImpl extends PageInitializer {
      */
 //    public void ras_screener_submission_five() {
 //        CommonUtils.switchToNextWindow();
-//        MiscUtils.sleep(2000);
+//        CommonUtils.sleep(2000);
 //        CommonUtils.waitForVisibility(myRASSurveyPage.rasSurveyThisCopyText);
 //        //ASSERTING THAT THIS IS THE COPY FOR LOWER ENVIRONMENTS ONLY!!! MESSAGE DISPLAYS
 //        Assert.assertEquals(myRASSurveyPage.rasSurveyThisCopyText.getText(), ras_Screener_Constants.THIS_IS_A_COPY);
@@ -24,7 +16,7 @@ public class RAS_Scenario_Five_StepsImpl extends PageInitializer {
 //        JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.studyNextButton);
 //        CucumberLogUtils.logScreenshot();
 //        ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
-//        MiscUtils.sleep(2000);
+//        CommonUtils.sleep(2000);
 //        if (!rasopathyQuestionnairePage.iAmCompletingThisFormForMyselfOption.isDisplayed()) {
 //            ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
 //        }
@@ -294,9 +286,9 @@ public class RAS_Scenario_Five_StepsImpl extends PageInitializer {
 //        CommonUtils.assertEqualsWithMessage(ras_Screener_TestDataManager.youAreAlmostDone, myRASSurveyPage.rasScreenerText.getText(), "-- VERIFYING YOU ARE ALMOST DONE TEXT --");
 //        CucumberLogUtils.logScreenshot();
 //        ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
-//        MiscUtils.sleep(3000);
+//        CommonUtils.sleep(3000);
 //        CucumberLogUtils.logScreenshot();
-//        MiscUtils.sleep(1000);
+//        CommonUtils.sleep(1000);
 //        ServiceNow_Common_Methods.logOutOfNativeView();
 //    }
 }

@@ -13,11 +13,7 @@ import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.LoadState;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.ConfUtils;
-import com.nci.automation.web.EnvUtils;
-import com.nci.automation.web.PlaywrightUtils;
+import com.nci.automation.web.*;
 import org.testng.Assert;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
@@ -27,6 +23,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import static com.nci.automation.web.PlaywrightUtils.page;
+import static com.nci.automation.web.TestProperties.getSSJUrl;
 
 public class ApplicantProfileStepsImpl {
 
@@ -40,14 +37,14 @@ public class ApplicantProfileStepsImpl {
     public static void ssjLogin(String user) {
         if (user.equals("OWM Vacancy Manager")) {
             Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate("Holly Gemar-Griffith");
-            MiscUtils.sleep(3000);
-            PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("SSJPortalView"));
+            CommonUtils.sleep(3000);
+            PlaywrightUtils.page.navigate(getSSJUrl());
         } else if (user.equals("Stadtman Vacancy Manager")) {
 
         } else if (user.equals("Maria Chaudhry")) {
             Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate("Maria Chaudhry");
-            MiscUtils.sleep(3000);
-            PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("SSJPortalView"));
+            CommonUtils.sleep(3000);
+            PlaywrightUtils.page.navigate(getSSJUrl());
         }
     }
 
@@ -174,29 +171,29 @@ public class ApplicantProfileStepsImpl {
     public static void a_test_vacancy_is_reset_before_creating_a_vacancy(String text) {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
         Playwright_ServiceNow_Common_Methods.searchFilterNavigatorAndClickOption("SCSS", "Vacancies");
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
         page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(text);
         page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
         CucumberLogUtils.playwrightScreenshot(page);
         page.reload();
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         try {
             if (page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: " + text).isVisible()) {
                 page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: " + text).click();
                 CucumberLogUtils.playwrightScreenshot(page);
                 page.waitForLoadState();
-                MiscUtils.sleep(2000);
+                CommonUtils.sleep(2000);
                 page.reload();
-                MiscUtils.sleep(1000);
+                CommonUtils.sleep(1000);
                 page.frameLocator("iframe[name=\"gsft_main\"]").locator("#sysverb_delete").click();
                 CucumberLogUtils.playwrightScreenshot(page);
                 if (!page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Confirmation Help").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Delete")).isVisible()) {
                     page.reload();
-                    MiscUtils.sleep(1000);
+                    CommonUtils.sleep(1000);
                 }
                 page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Confirmation Help").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Delete")).click();
-                MiscUtils.sleep(2000);
+                CommonUtils.sleep(2000);
             }
             Playwright_ServiceNow_Common_Methods.logOutOfNativeView();
         } catch (Exception e) {
@@ -351,19 +348,19 @@ public class ApplicantProfileStepsImpl {
         page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator(text));
         Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
         page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
      * Clicks the "Save" button for mandatory statements.
      * <p>
-     * This method simulates a delay of 5000 milliseconds using the MiscUtils.sleep() method.
+     * This method simulates a delay of 5000 milliseconds using the CommonUtils.sleep() method.
      * It then locates the "Save" button element using the specified locator and performs a click action.
      * After clicking the button, a screenshot of the page is taken using the CucumberLogUtils.playwrightScreenshot() method.
      */
     public static void clicks_save_for_mandatory_statements() {
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
         page.locator("(//button[@class='ant-btn ant-btn-primary wider-button'])[1]").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -397,13 +394,13 @@ public class ApplicantProfileStepsImpl {
 
     /**
      * Performs a click action on the "Save" button for email templates.
-     * This method simulates a delay of 2000 milliseconds using the MiscUtils.sleep() method.
+     * This method simulates a delay of 2000 milliseconds using the CommonUtils.sleep() method.
      * It then scrolls the specified element into view using Playwright_Common_Utils.scrollIntoView().
      * Finally, it clicks the "Save" button element using the specified locator.
      * After clicking the button, a screenshot of the page is taken using the CucumberLogUtils.playwrightScreenshot() method.
      */
     public static void clicks_save_for_email_templates() {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         Playwright_Common_Utils.scrollIntoView("//button[@class='ant-btn ant-btn-primary wider-button']");
         page.locator("//button[@class='ant-btn ant-btn-primary wider-button']").click();
         CucumberLogUtils.playwrightScreenshot(page);
@@ -1366,7 +1363,7 @@ public class ApplicantProfileStepsImpl {
      */
     public static void if_either_a_cover_letter_qualification_statement_curriculum_vitae_cv_or_vision_statement_or_all_were_uploaded_then_documents_are_displayed_in_the_application_documents_section() {
         page.waitForLoadState(LoadState.NETWORKIDLE);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         List<ElementHandle> actualValues = page.querySelectorAll("//div[@class='SectionContent'][5]/div");
         ArrayList<String> values = new ArrayList<>();
         for (ElementHandle actualValue : actualValues) {
@@ -1471,7 +1468,7 @@ public class ApplicantProfileStepsImpl {
      */
     public static void a_user_who_has_not_applied_to_a_vacancy_before_is_on_the_ssj_home_page() {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
-        PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("SSJPortalView"));
+        PlaywrightUtils.page.navigate(getSSJUrl());
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -1556,7 +1553,7 @@ public class ApplicantProfileStepsImpl {
      */
     public static void verifies_required_documents_with_required_references_needed_to_apply_to_this_test_vacancy() {
         ArrayList<String> expectedValues = new ArrayList<>();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         page.waitForSelector("//ul[@class='DocumentsList']/li");
         expectedValues.add("Vision Statement");
         expectedValues.add("Curriculum Vitae (CV)");
@@ -1602,7 +1599,7 @@ public class ApplicantProfileStepsImpl {
      * @param ssjHomePage the URL of the SSJ homepage
      */
     public static void an_unauthenticated_applicant_is_on_the_ssj_homepage(String ssjHomePage) {
-        page.navigate(EnvUtils.getApplicationUrl(ssjHomePage));
+        page.navigate(getSSJUrl());
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -1682,12 +1679,12 @@ public class ApplicantProfileStepsImpl {
      */
     public static void clicks_and_is_redirected_to_the_login_portal(String logInButton) {
         page.locator("//span[normalize-space()='"+logInButton+"']").click();
-        MiscUtils.sleep(4000);
+        CommonUtils.sleep(4000);
         List<Page> pages = page.context().pages();
         newPage = pages.get(pages.size() - 1);
-        if (ConfUtils.getProperty("env").equals("test")){
+        if (TestProperties.ENV.equals("test")){
             Hooks.softAssert.assertEquals(newPage.url(), "https://iam-stage.cancer.gov/app/servicenow_ud/exk13dplx1oy5d1pZ0h8/sso/saml?RelayState=https://specializedscientificjobs-test.nih.gov/nih-ssj.do#/");
-        } else if (ConfUtils.getProperty("env").equals("sandbox")) {
+        } else if (TestProperties.ENV.equals("sandbox")) {
             Hooks.softAssert.assertEquals(newPage.url(), "https://iam-stage.cancer.gov/app/servicenow_ud/exk13dplx1oy5d1pZ0h8/sso/saml?RelayState=https://specializedscientificjobs-sandbox.nih.gov/nih-ssj.do#/");
         }
 
@@ -1703,7 +1700,7 @@ public class ApplicantProfileStepsImpl {
         page.context().onPage(p -> popup[0] = p);
         page.click("text=Log in");
         while (popup[0] == null) {
-            MiscUtils.sleep(2000);
+            CommonUtils.sleep(2000);
         }
         String text = popup[0].textContent("#form19");
         assert text.contains(pivCacCardButtonText);

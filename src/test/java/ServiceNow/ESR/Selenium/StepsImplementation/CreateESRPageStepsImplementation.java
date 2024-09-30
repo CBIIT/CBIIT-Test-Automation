@@ -3,13 +3,12 @@ package ServiceNow.ESR.Selenium.StepsImplementation;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 
 public class CreateESRPageStepsImplementation extends PageInitializer {
 
     public static void nativeViewSideDoorLogInHomePage(String appID) {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(appID));
+        WebDriverUtils.webDriver.get("");
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
     }
 
