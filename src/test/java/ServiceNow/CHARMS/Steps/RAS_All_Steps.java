@@ -121,6 +121,7 @@ public class RAS_All_Steps extends PageInitializer {
         MiscUtils.sleep(800);
         CommonUtils.waitForVisibility(locateByXpath("//button[normalize-space()='OK']"));
         CommonUtils.clickOnElement(locateByXpath("//button[normalize-space()='OK']"));
+        softAssert.assertEquals(CommonUtils.getAlertText(), "To complete enrollment, please have your 11-13 year-old minor click through the \"Study Assent\" tile. If your minor declines participation, please contact the study team.");
         CommonUtils.acceptAlert();
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
