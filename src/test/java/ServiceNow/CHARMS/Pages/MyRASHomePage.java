@@ -57,5 +57,4 @@ public class MyRASHomePage {
 	public MyRASHomePage() {
 		PageFactory.initElements(webDriver, this);
 	}
-
 }
