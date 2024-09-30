@@ -3,7 +3,6 @@ package CustomBusiness.EIDP.StepsImplementation;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.SharedData;
@@ -85,7 +84,7 @@ public class DashboardStepImpl extends PageInitializer {
 		if (!traineeName.contains(",")) {
 			traineeName = SharedData.traineeName.split(" ")[1] + ", " + SharedData.traineeName.split(" ")[0];
 		}
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		for (byte i = 1; i <= 8; i++) {
 			for (WebElement each : eidpDashboardPage.pendingReviews) {
 				if (each.getText().equals(traineeName)) {
@@ -94,12 +93,12 @@ public class DashboardStepImpl extends PageInitializer {
 					break;
 				}
 			}
-			MiscUtils.sleep(5000);
+			CommonUtils.sleep(5000);
 			if (isSelected) {
 				break;
 			} else {
 				eidpDashboardPage.nextButton.click();
-				MiscUtils.sleep(5000);
+				CommonUtils.sleep(5000);
 			}
 		}
 		return isSelected;

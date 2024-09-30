@@ -5,12 +5,11 @@ import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.testng.Assert;
+import static com.nci.automation.web.TestProperties.getNerdUrl;
 
 public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
 
@@ -22,23 +21,23 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     public static void submittingOfApplicationToDocPlaningContact(String submissionName) {
         ServiceNow_Common_Methods.logOutOfNativeView();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        WebDriverUtils.webDriver.get(getNerdUrl());
         WebDriverUtils.webDriver.navigate().refresh();
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         JavascriptUtils.clickByJS(nerdDynamicXpaths.submitButtonToDOCPlanningContact(submissionName));
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmSubmissionYesButton);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.underReviewText(submissionName));
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         Assert.assertTrue(nerdDynamicXpaths.underReviewText(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER).getText().contentEquals("Under Review"));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(submissionName));
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
     }
 
     /**
@@ -49,17 +48,17 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     public static void deletingOfSubmissionByProgramStaff(String submissionName) {
         ServiceNow_Common_Methods.logOutOfNativeView();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        MiscUtils.sleep(2000);
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        CommonUtils.sleep(2000);
+        WebDriverUtils.webDriver.get(getNerdUrl());
         WebDriverUtils.webDriver.navigate().refresh();
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
         nerdDynamicXpaths.deleteButtonReturnedToStaffMember(submissionName).click();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmDeleteYesButton);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -68,7 +67,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      * @param submissionName
      */
     public static void creatingOfSubmissionByProgramStaff(String submissionName) {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        WebDriverUtils.webDriver.get(getNerdUrl());
         NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
         NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember(submissionName);
     }
@@ -80,8 +79,8 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      */
     public static void aProgramStaffMemberIsOnTheCRSKnowledgeManagementSystemPage(String submissionsPage) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        MiscUtils.sleep(1000);
+        WebDriverUtils.webDriver.get(getNerdUrl());
+        CommonUtils.sleep(1000);
         CommonUtils.assertEquals(NCI_Staff_Members_Constants.CRS_KNOWLEDGE_MANAGEMENT_SYSTEM_TEXT_MAIN_PAGE, nerdKnowledgeBasePage.nerdCRSKnowledgeMainText.getText());
         JavascriptUtils.drawBlueBorder(nerdKnowledgeBasePage.nerdCRSKnowledgeMainText);
         Assert.assertEquals(submissionsPage, nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageSubmissionsLink.getText());
@@ -94,12 +93,12 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      */
     public static void an_nci_staff_member_not_on_the_nerd_table_is_on_the_nerd_crs_knowledge_base() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        MiscUtils.sleep(1000);
+        WebDriverUtils.webDriver.get(getNerdUrl());
+        CommonUtils.sleep(1000);
         JavascriptUtils.drawBlueBorder(nerdKnowledgeBasePage.nerdCRSKnowledgeMainText);
         JavascriptUtils.drawBlueBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageSubmissionsLink);
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
     }
 
     /**
@@ -108,23 +107,23 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     public static void nci_staff_member_submits_new_top_accomplishments_submission() {
         NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentsCreateNewSubmissionLink);
         NERDApplicationStepsImplementation.filingOutAllRequiredFieldsOfSubmission();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.newSubmissionsPageSubmitButton);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.newSubmissionsPageSubmitButton);
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(nerdCRSTopAccomplishmentsPage.nerdNewSubmissionsSubmitToDocPlanningPopUpYesButton);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
         CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsAccordionButton.click();
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(6000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(nerdDynamicXpaths.underReviewText(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
@@ -136,25 +135,25 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     public static void doc_planning_contact_returning_the_top_accomplishments_submission_back_to_nci_staff_member(String docPlanningContact, String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
-        MiscUtils.sleep(2000);
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        CommonUtils.sleep(2000);
+        WebDriverUtils.webDriver.get(getNerdUrl());
         WebDriverUtils.webDriver.navigate().refresh();
         CommonUtils.waitForVisibility(nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsAccordionButton);
         nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsAccordionButton.click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(nerdDynamicXpaths.returnButtonToStaff(submissionName));
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField.sendKeys(NCI_Staff_Members_Constants.DOC_PLANNING_RETURN_TO_NCI_STAFF_MESSAGE);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(5000);
         CommonUtils.waitForVisibility(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
         CommonUtils.scrollIntoView(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
         CommonUtils.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText(submissionName).getText().contentEquals(ReturningSubmissions_Constants.RETURNED_TO_STUFF_MEMBER_TEXT));
@@ -168,8 +167,8 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      */
     public static void nci_staff_member_views_top_accomplishments_submission_category() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        MiscUtils.sleep(1000);
+        WebDriverUtils.webDriver.get(getNerdUrl());
+        CommonUtils.sleep(1000);
         CommonUtils.waitForVisibility(nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsAccordionButton);
         nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsAccordionButton.click();
         CommonUtils.scrollIntoView(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
@@ -177,7 +176,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CommonUtils.assertTrue(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME).getText()
                 .contentEquals(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -206,7 +205,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         Assert.assertNotEquals(delete, nerdDynamicXpaths.deleteCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME).getText(),
                 "Verifying that Delete button is removed from the NCI Staff Member Top Accomplishment Submission returned by Doc Planning contact");
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -217,7 +216,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CommonUtils.waitForVisibility(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.submissionsCategory(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSIONS_PAGE_CATEGORY_VALUE));
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsSelectCheckBoxFiscalYear2019.click();
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsPageTitleTextBox);
@@ -225,37 +224,37 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CommonUtils.waitForVisibility(createNewSubmissionPage.leadDOCDropDown);
         CommonUtils.selectDropDownValue(createNewSubmissionPage.leadDOCDropDown, Other_Accomplishments_Submissions_Constants.SUBMISSIONS_DOC_FIELD_DROPDOWN);
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.switchToFrame(createNewSubmissionPage.DescriptionTextBoxIframe);
         createNewSubmissionPage.DescriptionTextBox.sendKeys(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_DESCRIPTION_TEXT_BOX);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         WebDriverUtils.webDriver.switchTo().defaultContent();
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsPageResearchTypeDropDown);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.selectDropDownValue(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsPageResearchTypeDropDown, Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_RESEARCH_TYPE);
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.newSubmissionsPageSubmitButton);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.newSubmissionsPageSubmitButton);
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(nerdCRSTopAccomplishmentsPage.nerdNewSubmissionsSubmitToDocPlanningPopUpYesButton);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
         CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         nerdcrstOtherAccomplishmentsPage.nerdOtherAccomplishmentsAccordionButton.click();
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(nerdDynamicXpaths.underReviewText(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_NAME));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_NAME));
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -269,25 +268,26 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     public static void doc_planning_contact_returning_the_other_accomplishments_submission_back_to_nci_staff_member(String docPlanningContact, String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
-        MiscUtils.sleep(2000);
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        CommonUtils.sleep(2000);
+        WebDriverUtils.webDriver.get(getNerdUrl());
         WebDriverUtils.webDriver.navigate().refresh();
         CommonUtils.waitForVisibility(nerdcrstOtherAccomplishmentsPage.nerdOtherAccomplishmentsAccordionButton);
         nerdcrstOtherAccomplishmentsPage.nerdOtherAccomplishmentsAccordionButton.click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(nerdDynamicXpaths.returnButtonToStaff(submissionName));
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField.sendKeys(NCI_Staff_Members_Constants.DOC_PLANNING_RETURN_TO_NCI_STAFF_MESSAGE);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(5000);
+//        CommonUtils.scrollIntoView(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
         CommonUtils.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText(submissionName).getText().contentEquals(ReturningSubmissions_Constants.RETURNED_TO_STUFF_MEMBER_TEXT));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
         CucumberLogUtils.logScreenshot();
@@ -299,8 +299,8 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      */
     public static void nci_staff_member_views_the_returned_other_accomplishments_submission() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        MiscUtils.sleep(1000);
+        WebDriverUtils.webDriver.get(getNerdUrl());
+        CommonUtils.sleep(1000);
         CommonUtils.waitForVisibility(nerdcrstOtherAccomplishmentsPage.nerdOtherAccomplishmentsAccordionButton);
         nerdcrstOtherAccomplishmentsPage.nerdOtherAccomplishmentsAccordionButton.click();
         CommonUtils.scrollIntoView(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_NAME));
@@ -308,7 +308,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CommonUtils.assertTrue(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_NAME).getText()
                 .contentEquals(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_NAME));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_NAME));
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -345,18 +345,18 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     public static void nci_staff_member_submits_new_collaborations_submission() {
         NERDApplicationStepsImplementation.creatingNewCollaborationSubmission(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(createNewSubmissionPage.nerdCollaborationsButton);
         createNewSubmissionPage.nerdCollaborationsButton.click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(nerdDynamicXpaths.underReviewText(NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX));
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -369,28 +369,28 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     public static void doc_planning_contact_returning_the_collaborations_submission_back_to_nci_staff_member(String docPlanningContact, String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
-        MiscUtils.sleep(2000);
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        CommonUtils.sleep(2000);
+        WebDriverUtils.webDriver.get(getNerdUrl());
         WebDriverUtils.webDriver.navigate().refresh();
         CommonUtils.waitForVisibility(createNewSubmissionPage.nerdCollaborationsButton);
         createNewSubmissionPage.nerdCollaborationsButton.click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(nerdDynamicXpaths.returnButtonToStaff(submissionName));
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField.sendKeys(NCI_Staff_Members_Constants.DOC_PLANNING_RETURN_TO_NCI_STAFF_MESSAGE);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         CommonUtils.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText(submissionName).getText().contentEquals(ReturningSubmissions_Constants.RETURNED_TO_STUFF_MEMBER_TEXT));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
@@ -400,8 +400,8 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      */
     public static void nci_staff_member_views_the_returned_collaborations_submission() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        MiscUtils.sleep(1000);
+        WebDriverUtils.webDriver.get(getNerdUrl());
+        CommonUtils.sleep(1000);
         CommonUtils.waitForVisibility(createNewSubmissionPage.nerdCollaborationsButton);
         createNewSubmissionPage.nerdCollaborationsButton.click();
         CommonUtils.scrollIntoView(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX));
@@ -409,7 +409,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CommonUtils.assertTrue(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX).getText()
                 .contentEquals(NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX));
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -438,7 +438,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         Assert.assertNotEquals(delete, nerdDynamicXpaths.deleteCRSButton(NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX).getText(),
                 "Verifying that Delete button is removed from the NCI Staff Member Collaborations Submission returned by Doc Planning contact");
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(10000);
+        CommonUtils.sleep(10000);
     }
 
     /**
@@ -451,12 +451,12 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19CreateNewSubmissionButton);
         JavascriptUtils.drawBlueBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19CreateNewSubmissionButton);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19CreateNewSubmissionButton);
         CommonUtils.waitForVisibility(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.submissionsCategory(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE));
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         String actualCategoryValue = nerdDynamicXpaths.submissionsCategory(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE).getText();
         CommonUtils.assertEqualsWithMessage(actualCategoryValue, Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE,
@@ -467,33 +467,33 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CommonUtils.waitForVisibility(createNewSubmissionPage.leadDOCDropDown);
         CommonUtils.selectDropDownValue(createNewSubmissionPage.leadDOCDropDown, Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_DOC_DROP_DOWN);
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.selectDropDownValue(createNewSubmissionPage.nCIActivitiesDropDown, Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_NCI_ACTIVITIES_DROP_DOWN);
         JavascriptUtils.clickByJS(covid19ActivitiesSubmissionsPage.nihCovid19SpecialTopicCovid19CheckBox);
         JavascriptUtils.clickByJS(covid19ActivitiesSubmissionsPage.nihCovid19SpecialTopicBigDataDataSharingCheckBox);
         CommonUtils.waitForVisibility(covid19ActivitiesSubmissionsPage.nihCovid19StrategicPlanPriority1CheckBox);
         JavascriptUtils.clickByJS(covid19ActivitiesSubmissionsPage.nihCovid19StrategicPlanPriority1CheckBox);
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.newSubmissionsPageSubmitButton);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.newSubmissionsPageSubmitButton);
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(nerdCRSTopAccomplishmentsPage.nerdNewSubmissionsSubmitToDocPlanningPopUpYesButton);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
         CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink.click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(nerdDynamicXpaths.underReviewText(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX));
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -506,28 +506,29 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     public static void doc_planning_contact_returning_the_covid19_activities_submission_back_to_nci_staff_member(String docPlanningContact, String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
-        MiscUtils.sleep(2000);
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        CommonUtils.sleep(2000);
+        WebDriverUtils.webDriver.get(getNerdUrl());
         WebDriverUtils.webDriver.navigate().refresh();
         CommonUtils.waitForVisibility(covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink);
         covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink.click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(nerdDynamicXpaths.returnButtonToStaff(submissionName));
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField.sendKeys(NCI_Staff_Members_Constants.DOC_PLANNING_RETURN_TO_NCI_STAFF_MESSAGE);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
+//        CommonUtils.scrollIntoView(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
         CommonUtils.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText(submissionName).getText().contentEquals(ReturningSubmissions_Constants.RETURNED_TO_STUFF_MEMBER_TEXT));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
@@ -537,8 +538,8 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      */
     public static void nci_staff_member_views_the_returned_covid19_activities_submission() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        MiscUtils.sleep(1000);
+        WebDriverUtils.webDriver.get(getNerdUrl());
+        CommonUtils.sleep(1000);
         CommonUtils.waitForVisibility(covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink);
         covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink.click();
         CommonUtils.scrollIntoView(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX));
@@ -546,7 +547,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CommonUtils.assertTrue(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX).getText()
                 .contentEquals(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX));
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -575,7 +576,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         Assert.assertNotEquals(delete, nerdDynamicXpaths.deleteCRSButton(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX).getText(),
                 "Verifying that Delete button is removed from the NCI Staff Member COVID-19 Activities Submission returned by Doc Planning contact");
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(10000);
+        CommonUtils.sleep(10000);
     }
 
     /**
@@ -587,12 +588,12 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(adHoc_data_call_submissions_page.adHocDataCallCreateNewSubmissionButton);
         JavascriptUtils.drawBlueBorder(adHoc_data_call_submissions_page.adHocDataCallCreateNewSubmissionButton);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         NERDApplicationStepsImplementation.creatingNewSubmission(adHoc_data_call_submissions_page.adHocDataCallCreateNewSubmissionButton);
         CommonUtils.waitForVisibility(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.submissionsCategory(NCI_Staff_Members_Constants.AD_HOC_DATA_CALL_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE));
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         String actualCategoryValue = nerdDynamicXpaths.submissionsCategory(NCI_Staff_Members_Constants.AD_HOC_DATA_CALL_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE).getText();
         CommonUtils.assertEqualsWithMessage(actualCategoryValue, NCI_Staff_Members_Constants.AD_HOC_DATA_CALL_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE,
@@ -604,35 +605,35 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CommonUtils.waitForVisibility(createNewSubmissionPage.leadDOCDropDown);
         CommonUtils.selectDropDownValue(createNewSubmissionPage.leadDOCDropDown, ReturningSubmissions_Constants.SUBMISSIONS_DOC_FIELD_DROPDOWN);
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.switchToFrame(createNewSubmissionPage.DescriptionTextBoxIframe);
         createNewSubmissionPage.DescriptionTextBox.sendKeys(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_DESCRIPTION_TEXT_BOX);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         WebDriverUtils.webDriver.switchTo().defaultContent();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(adHoc_data_call_submissions_page.adHocDataCallSubmissionPOCTextBox);
         CommonUtils.sendKeys(adHoc_data_call_submissions_page.adHocDataCallSubmissionPOCTextBox, ReturningSubmissions_Constants.AD_HOC_DATA_CALL_SUBMISSION_POINT_OF_CONTACT_TEXT_BOX);
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.newSubmissionsPageSubmitButton);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.newSubmissionsPageSubmitButton);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(nerdCRSTopAccomplishmentsPage.nerdNewSubmissionsSubmitToDocPlanningPopUpYesButton);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
         CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(adHoc_data_call_submissions_page.adHocDataCallSubmissionAccordionLink);
         adHoc_data_call_submissions_page.adHocDataCallSubmissionAccordionLink.click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(nerdDynamicXpaths.underReviewText(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX));
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -645,28 +646,28 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     public static void doc_planning_contact_returning_the_ad_hoc_data_call_submission_back_to_nci_staff_member(String docPlanningContact, String submissionName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
-        MiscUtils.sleep(2000);
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        CommonUtils.sleep(2000);
+        WebDriverUtils.webDriver.get(getNerdUrl());
         WebDriverUtils.webDriver.navigate().refresh();
         CommonUtils.waitForVisibility(adHoc_data_call_submissions_page.adHocDataCallSubmissionAccordionLink);
         adHoc_data_call_submissions_page.adHocDataCallSubmissionAccordionLink.click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(nerdDynamicXpaths.returnButtonToStaff(submissionName));
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField.sendKeys(NCI_Staff_Members_Constants.DOC_PLANNING_RETURN_TO_NCI_STAFF_MESSAGE);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         CommonUtils.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText(submissionName).getText().contentEquals(ReturningSubmissions_Constants.RETURNED_TO_STUFF_MEMBER_TEXT));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
@@ -676,8 +677,8 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      */
     public static void nci_staff_member_views_the_returned_ad_hoc_data_call_submission() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        MiscUtils.sleep(1000);
+        WebDriverUtils.webDriver.get(getNerdUrl());
+        CommonUtils.sleep(1000);
         CommonUtils.waitForVisibility(adHoc_data_call_submissions_page.adHocDataCallSubmissionAccordionLink);
         adHoc_data_call_submissions_page.adHocDataCallSubmissionAccordionLink.click();
         CommonUtils.scrollIntoView(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX));
@@ -685,7 +686,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CommonUtils.assertTrue(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX).getText()
                 .contentEquals(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX));
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -714,6 +715,6 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         Assert.assertNotEquals(delete, nerdDynamicXpaths.deleteCRSButton(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX).getText(),
                 "Verifying that Delete button is removed from the NCI Staff Member Ad Hoc Data Call Submission returned by Doc Planning contact");
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(10000);
+        CommonUtils.sleep(10000);
     }
 }

@@ -5,10 +5,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
+import static com.nci.automation.web.TestProperties.I_TRUST_PASSWORD;
+import static com.nci.automation.web.TestProperties.I_TRUST_USERNAME;
 
 public class ITrustLoginPage extends CommonUtils {
 
@@ -72,7 +72,7 @@ public class ITrustLoginPage extends CommonUtils {
      */
     public void enterUsername(WebElement userNameField, String username) {
         userNameField.clear();
-        sendKeys(userNameField, ConfUtils.getProperty(username));
+        sendKeys(userNameField, I_TRUST_USERNAME);
     }
 
     /**
@@ -82,7 +82,7 @@ public class ITrustLoginPage extends CommonUtils {
      */
     public void enterPassword(String password) {
         passwordField.clear();
-        String decryptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty(password));
+        String decryptedPass = EncryptionUtils.decrypt(I_TRUST_PASSWORD);
         sendKeys(passwordField, decryptedPass);
     }
 

@@ -1,6 +1,5 @@
 package CustomBusiness.EIDP.Steps;
 
-import com.nci.automation.xceptions.TestingException;
 import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
@@ -9,12 +8,12 @@ import io.cucumber.java.en.When;
 public class LoginSteps extends PageInitializer {
 
 	@Given("User logs in to EIDP {string} as {string} and {string}")
-	public void user_logs_in_to_EIDP_as_and(String url, String username, String password) throws TestingException {
+	public void user_logs_in_to_EIDP_as_and(String url, String username, String password)  {
 		eidpLoginStepImpl.ApplicationLogin(username, password, url);
 	}
 
 	@When("User will login to the application as \"([^\"]*)\" user")
-	public void loginByUsername(String username) throws TestingException {
+	public void loginByUsername(String username)  {
 		if (username.equalsIgnoreCase("gugulothus2")) {
 			eidpLoginStepImpl.eidpApplicationLogin("sgugulothuUsername", "sgugulothuPassword");
 		} else if (username.equalsIgnoreCase("nekrashevicha2")) {
@@ -25,7 +24,7 @@ public class LoginSteps extends PageInitializer {
 	}
 
 	@When("Logged in user changes the user to \"([^\"]*)\"")
-	public void changeUser(String username) throws TestingException {
+	public void changeUser(String username)  {
 		eidpLoginStepImpl.changeUser(username);
 	}
 

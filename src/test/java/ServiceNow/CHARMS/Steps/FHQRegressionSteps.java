@@ -1,10 +1,9 @@
 package ServiceNow.CHARMS.Steps;
 
 import java.util.ArrayList;
-
-import com.nci.automation.utils.MiscUtils;
 import ServiceNow.CHARMS.Utils.StepTestResult;
 import appsCommon.PageInitializers.PageInitializer;
+import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Then;
 
 public class FHQRegressionSteps extends PageInitializer {
@@ -17,7 +16,7 @@ public class FHQRegressionSteps extends PageInitializer {
 
         fHQSurveyPortalPage.homeButton.click();
 
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
 
     }
 

@@ -3,7 +3,6 @@ package AnalysisTools.ThreeDVizSNP.StepsImplementations;
 import java.time.Duration;
 import org.openqa.selenium.NoAlertPresentException;
 import org.testng.Assert;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import AnalysisTools.ThreeDVizSNP.Utils.ThreeDVizSNP_Constants;
@@ -68,7 +67,7 @@ public class ThreeDVizSNPStepImp extends PageInitializer {
 			if (waitPeriod >maxTimeoutInSeconds){
 				return false;
 			}
-			MiscUtils.sleep(1000);
+			CommonUtils.sleep(1000);
 		}
 		return true;
 	}
@@ -150,7 +149,7 @@ public class ThreeDVizSNPStepImp extends PageInitializer {
 	 * FEEDBACK OPTION
 	 */
 	public static void feedbackOption() {
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		CommonUtils.switchToFrame(threeDVizSNPPage.ifrmaeFeedback);
 		CommonUtils.waitForThePresenceOfEl(threeDVizSNPPage.feedbackLocator, Duration.ofSeconds(30));
 		JavascriptUtils.clickByJS(threeDVizSNPPage.feedback);

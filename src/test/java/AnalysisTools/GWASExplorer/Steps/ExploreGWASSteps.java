@@ -2,7 +2,6 @@ package AnalysisTools.GWASExplorer.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -98,7 +97,7 @@ public class ExploreGWASSteps extends PageInitializer {
 
 	@When("selects variant lookup tab")
 	public void selects_variant_lookup_tab() {
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		JavascriptUtils.clickByJS(exploreGWASPage.lnkVariantLookUp);
 	}
 

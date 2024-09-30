@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import com.nci.automation.web.CommonUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -14,7 +15,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.ExcelReader;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.WebDriverUtils;
 
 /* @author SONIKA JAIN */
@@ -51,10 +51,10 @@ public class CharmsUtil {
 		while (count < 5) {
 			try {
 				webElement.click();
-				MiscUtils.sleep(1200);
+				CommonUtils.sleep(1200);
 				break;
 			} catch (WebDriverException ex) {
-				MiscUtils.sleep(2000);
+				CommonUtils.sleep(2000);
 				count++;
 			}
 		}
@@ -67,10 +67,10 @@ public class CharmsUtil {
 		while (count < 5) {
 			try {
 				webElement.click();
-				MiscUtils.sleep(400);
+				CommonUtils.sleep(400);
 				break;
 			} catch (WebDriverException ex) {
-				MiscUtils.sleep(2000);
+				CommonUtils.sleep(2000);
 				count++;
 			}
 		}
@@ -83,10 +83,10 @@ public class CharmsUtil {
 			try {
 				CharmsUtil.labelHighlight(webElement);
 				webElement.sendKeys(text);
-				MiscUtils.sleep(600);
+				CommonUtils.sleep(600);
 				break;
 			} catch (WebDriverException ex) {
-				MiscUtils.sleep(2000);
+				CommonUtils.sleep(2000);
 				count++;
 			}
 		}
@@ -134,7 +134,7 @@ public class CharmsUtil {
 	/* webElement:A text box to be Verified */
 	public static void assertTextBoxData(SoftAssert softAssert, WebElement webElement, String expectedValue,String messsage) {
 		CharmsUtil.labelHighlight(webElement);
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		String actualValue = null;
 		if (webElement.getAttribute("value") != null) {
 			actualValue = webElement.getAttribute("value");
@@ -149,7 +149,7 @@ public class CharmsUtil {
 	/* webElement:A text box to be Verified */
 	public static void assertTextBoxDataSelected(SoftAssert softAssert, WebElement webElement, String expectedValue,String messsage) {
 		CharmsUtil.labelHighlight(webElement);
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		String actualValue = null;
 		if (webElement.getAttribute("value") != null) {
 			actualValue = webElement.getAttribute("value");
@@ -166,7 +166,7 @@ public class CharmsUtil {
 	/* webElement:A DropDown value to be Verified */
 	public static void assertDropDownData(SoftAssert softAssert, WebElement webElement, String expectedValue,String messsage) {
 		CharmsUtil.labelHighlight(webElement);
-		MiscUtils.sleep(200);
+		CommonUtils.sleep(200);
 		Select select = new Select(webElement);
 		String actualValue = select.getFirstSelectedOption().getText(); // getFirstSelectedOption() returns the selected
 		// option in the dropdown.
@@ -186,7 +186,7 @@ public class CharmsUtil {
 	/* Method to select a value from the Drop down List */
 	public static boolean selectDropDownValue(WebElement webElement, String selectedValue) {
 		CharmsUtil.labelHighlight(webElement);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		Select dropDown = new Select(webElement);
 		List<WebElement> e = dropDown.getOptions();
 		int itemCount = e.size();
@@ -195,9 +195,9 @@ public class CharmsUtil {
 				try {
 					CharmsUtil.labelHighlight(e.get(l));
 					e.get(l).click();
-					MiscUtils.sleep(500);
+					CommonUtils.sleep(500);
 				} catch (Exception ex) {
-					MiscUtils.sleep(2000);
+					CommonUtils.sleep(2000);
 					e.get(l).click();
 				}
 				return true;
@@ -221,7 +221,7 @@ public class CharmsUtil {
 			if ( options.equals(dropDownValue))
 			{
 				selectResultsAsListCollection.get(i).click();
-				MiscUtils.sleep(1000);
+				CommonUtils.sleep(1000);
 				break;
 			}
 		}
@@ -235,10 +235,10 @@ public class CharmsUtil {
 				try {
 					CharmsUtil.labelHighlight(radioButtonList.get(l));
 					radioButtonList.get(l).click();
-					MiscUtils.sleep(600);
+					CommonUtils.sleep(600);
 				} catch (Exception ex) {
 					radioButtonList.get(l).click();
-					MiscUtils.sleep(2000);
+					CommonUtils.sleep(2000);
 				}
 				return true;
 			}
@@ -251,7 +251,7 @@ public class CharmsUtil {
 	 * to the final Component Test Result */
 	public static ComponentTestResult verifyLabel(WebElement webElement, String expectedValue) {
 		CharmsUtil.labelHighlight(webElement);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		String result = "PASSED";
 		List<ComparisionResult> comparisionResultList = new ArrayList<ComparisionResult>();
 		String actualValue = webElement.getText();
@@ -262,7 +262,7 @@ public class CharmsUtil {
 			ComparisionResult comparisionResult = new ComparisionResult(actualValue, expectedValue, "FAILED");
 			comparisionResultList.add(comparisionResult);
 		}
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		ComponentTestResult componentTestResult = new ComponentTestResult();
 		componentTestResult.setComparisionResultList(comparisionResultList);
 		componentTestResult.setComponentResult(result);
@@ -274,7 +274,7 @@ public class CharmsUtil {
 	 * v.s. expected) */
 	public static ComponentTestResult verifyDropDowns(WebElement webElement, List<String> list) {
 		CharmsUtil.labelHighlight(webElement);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		String result = "PASSED";
 		List<ComparisionResult> comparisionResultList = new ArrayList<ComparisionResult>();
 		Select select = new Select(webElement);
@@ -292,7 +292,7 @@ public class CharmsUtil {
 				ComparisionResult comparisionResult = new ComparisionResult(options, list.get(i), "FAILED");
 				comparisionResultList.add(comparisionResult);
 			}
-			MiscUtils.sleep(500);
+			CommonUtils.sleep(500);
 		}
 		CharmsUtil.labelUnHighlight(webElement);
 		ComponentTestResult componentTestResult = new ComponentTestResult();
@@ -307,7 +307,7 @@ public class CharmsUtil {
 	public static ComponentTestResult verifySelect2DropDowns(WebElement webElement, List<String> dropdownList,
 			int dropdownSelectedIndex) {
 		CharmsUtil.labelHighlight(webElement);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		webElement.click();
 		String result = "PASSED";
 		WebElement select2ElementResults = WebDriverUtils.webDriver
@@ -337,7 +337,7 @@ public class CharmsUtil {
 
 	public static ComponentTestResult assertTextBoxDataV(WebElement webElement, String expectedValue) {
 		CharmsUtil.labelHighlight(webElement);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		String result = "PASSED";
 		List<ComparisionResult> comparisionResultList = new ArrayList<ComparisionResult>();
 		String actualValue = null;
@@ -355,7 +355,7 @@ public class CharmsUtil {
 			ComparisionResult comparisionResult = new ComparisionResult(actualValue, expectedValue, "FAILED");
 			comparisionResultList.add(comparisionResult);
 		}
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		ComponentTestResult componentTestResult = new ComponentTestResult();
 		componentTestResult.setComparisionResultList(comparisionResultList);
 		componentTestResult.setComponentResult(result);
