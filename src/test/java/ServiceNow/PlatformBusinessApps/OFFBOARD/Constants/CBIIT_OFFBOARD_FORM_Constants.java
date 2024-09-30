@@ -8,9 +8,6 @@ public class CBIIT_OFFBOARD_FORM_Constants {
     /* CATEGORY TEXT */
     public static String CATEGORY_TEXT = "Category";
 
-    /* CBIIT SERVICES LINK */
-    public static String CBIIT_SERVICESLINK = "Services";
-
     /* CBIIT BIZ SERVICES LINK */
     public static String CBIIT_BUSINESS_SERVICESLINK = "CBIIT Business Services";
 

@@ -1,13 +1,22 @@
 package ServiceNow.PlatformBusinessApps.OFFBOARD.Steps;
 
+import ServiceNow.PlatformBusinessApps.OFFBOARD.Constants.CBIIT_OFFBOARD_FORM_Constants;
 import ServiceNow.PlatformBusinessApps.OFFBOARD.Pages.OFFBOARD_Page;
 import ServiceNow.PlatformBusinessApps.OFFBOARD.StepsImplementation.OFFBOARD_StepsImpl;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import java.util.regex.Pattern;
+
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class CBIIT_OFFBOARD_Form_Steps {
 
@@ -124,5 +133,50 @@ public class CBIIT_OFFBOARD_Form_Steps {
     @Then("{string} should NOT be required for transfer Request")
     public void should_not_be_required_for_transfer_request(String hardwareReturnTicketNumbers) {
         OFFBOARD_StepsImpl.should_not_be_required_for_transfer_request(hardwareReturnTicketNumbers);
+    }
+
+    @When("I select {string} under the {string} field")
+    public void i_select_under_the_field(String transfer, String departureOrTransferRequest) {
+        page.waitForSelector(OFFBOARD_Page.cbiit_OffBoardingRequestFormDepartureOrTransferFieldTextLocator);
+        assertThat(page.locator(OFFBOARD_Page.cbiit_OffBoardingRequestFormDepartureOrTransferFieldTextLocator)).containsText(departureOrTransferRequest);
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.locator(OFFBOARD_Page.cbiit_OffBoardingDepartureOrTransferRequestDropDownLocator).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(transfer)).click();
+    }
+
+    @Then("I should see {string},{string} drop down options for {string} field")
+    public void i_should_see_drop_down_options_for_field(String withInNCI, String outsideOfNCI, String isThisTransferWithinOrOutsideOfNCI) {
+        assertThat(page.locator("#within_or_outside_transfer")).containsText(isThisTransferWithinOrOutsideOfNCI);
+        assertThat(page.locator("span").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Is this transfer within or outside of NCI\\?$")))).isVisible();
+
+
+        //need to add assertions for the field and drop down optons
+        page.locator("#s2id_sp_formfield_within_or_outside_transfer a").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(withInNCI)).click();
+
+    }
+
+    @Then("If I select {string} option")
+    public void if_i_select_option(String outsideOfNCI) {
+    }
+
+    @Then("{string} field should become required.")
+    public void field_should_become_required(String hardwareReturnTicketNumbers) {
+
+        
+        assertThat(page.getByLabel(OFFBOARD_Page.cbiit_RequestDetails).getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_DATE_OF_TRANSFER_TEXT)).isVisible();
+        assertThat(page.locator(OFFBOARD_Page.cbiit_DateOfTransferFieldLocator)).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_DATE_OF_TRANSFER_TEXT);
+        page.getByLabel(OFFBOARD_Page.cbiit_ShowCalendarForDateOfTransferFieldLocator).click();
+        page.getByLabel(OFFBOARD_Page.cbiit_DatePickerIsOpenedFieldLocator).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_OK_OPTION_SELECTED)).click();
+        assertThat(page.locator(OFFBOARD_Page.cbiit_HnSacTransferToFieldLocator)).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_HN_SAC_CODE_TRANSFER_TO_TEXT);
+        page.getByLabel(CBIIT_OFFBOARD_FORM_Constants.CBIIT_HN_SAC_CODE_TRANSFER_TO_TEXT).click();
+        page.getByLabel(CBIIT_OFFBOARD_FORM_Constants.CBIIT_HN_SAC_CODE_TRANSFER_TO_TEXT).fill(CBIIT_OFFBOARD_FORM_Constants.CBIIT_HN_SAC_CODE_TRANSFER_TO_TEXT_BOX_Value);
+        page.getByLabel(CBIIT_OFFBOARD_FORM_Constants.CBIIT_HN_SAC_CODE_TRANSFER_TO_TEXT).press(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_ENTER_KEY);
+        assertThat(page.getByLabel("Required - Point of Contact")).containsText("Point of Contact");
+        page.locator("#s2id_sp_formfield_fedSupervisor").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
+        page.getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_POINT_OF_CONTACT_NAME).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+        if_user_select_yes_for_the_answer_to_isTheEmployeeLocatedOnSite_field_show_onsiteLocation_field();
     }
 }

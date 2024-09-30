@@ -9,7 +9,6 @@ import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.BoundingBox;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.EnvUtils;
-import com.nci.automation.web.PlaywrightUtils;
 import org.testng.Assert;
 import java.util.regex.Pattern;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
@@ -209,8 +208,10 @@ public class OFFBOARD_StepsImpl {
         page.getByLabel("Additional Information", new Page.GetByLabelOptions().setExact(true)).fill("test");
         page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").scrollIntoViewIfNeeded();
         assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true))).isVisible();
+        CucumberLogUtils.playwrightScreenshot(page);
         page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").click();
-        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_SERVICESLINK).setExact(true))).isVisible();
+        page.waitForSelector("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']");
+        assertThat(page.locator("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']")).isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -312,9 +313,10 @@ public class OFFBOARD_StepsImpl {
         page.getByLabel("Additional Information", new Page.GetByLabelOptions().setExact(true)).fill("test");
         page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").scrollIntoViewIfNeeded();
         assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true))).isVisible();
-        page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").click();
         CucumberLogUtils.playwrightScreenshot(page);
-        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_SERVICESLINK).setExact(true))).isVisible();
+        page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").click();
+        page.waitForSelector("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']");
+        assertThat(page.locator("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']")).isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -368,7 +370,7 @@ public class OFFBOARD_StepsImpl {
     }
 
     /**
-     * Verifies that the 'Hardware Return Ticket Number(s)' field is required only for departure request.
+     * Verifies that the 'Hardware Return Ticket Number(s)' field is required for departure request.
      *
      * @param hardwareReturnTicketNumbers the value of the hardware return ticket number(s) field
      */
@@ -393,7 +395,8 @@ public class OFFBOARD_StepsImpl {
         assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true))).isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
         page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").click();
-        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_SERVICESLINK).setExact(true))).isVisible();
+        page.waitForSelector("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']");
+        assertThat(page.locator("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']")).isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -409,6 +412,10 @@ public class OFFBOARD_StepsImpl {
         CucumberLogUtils.playwrightScreenshot(page);
         page.locator(OFFBOARD_Page.cbiit_OffBoardingDepartureOrTransferRequestDropDownLocator).click();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(transfer)).click();
+        assertThat(page.locator("#within_or_outside_transfer")).containsText("Is this transfer within or outside of NCI?");
+        assertThat(page.locator("span").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Is this transfer within or outside of NCI\\?$")))).isVisible();
+        page.locator("#s2id_sp_formfield_within_or_outside_transfer a").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Within NCI")).click();
         assertThat(page.getByLabel(OFFBOARD_Page.cbiit_RequestDetails).getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_DATE_OF_TRANSFER_TEXT)).isVisible();
         assertThat(page.locator(OFFBOARD_Page.cbiit_DateOfTransferFieldLocator)).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_DATE_OF_TRANSFER_TEXT);
         page.getByLabel(OFFBOARD_Page.cbiit_ShowCalendarForDateOfTransferFieldLocator).click();
@@ -426,7 +433,7 @@ public class OFFBOARD_StepsImpl {
     }
 
     /**
-     * Verifies that the 'Hardware Return Ticket Number(s)' field is not required for a transfer request.
+     * Verifies that the 'Hardware Return Ticket Number(s)' field is not required for a transfer request except "transfer outside of NCI".
      *
      * @param hardwareReturnTicketNumbers the value of the hardware return ticket number(s) field
      */
@@ -442,7 +449,8 @@ public class OFFBOARD_StepsImpl {
         assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true))).isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
         page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").click();
-        assertThat(PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_SERVICESLINK).setExact(true))).isVisible();
+        page.waitForSelector("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']");
+        assertThat(page.locator("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']")).isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }

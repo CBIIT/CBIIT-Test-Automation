@@ -45,3 +45,11 @@ Feature: CBIIT Off-boarding form Scenarios
     When I fill out an offboarding form for "Transfer" under the "Departure or Transfer Request" field
     And select "Yes" for "Hardware Return Ticket Already Created" field
     Then "Hardware Return Ticket Number(s)" should NOT be required for transfer Request
+
+  @OFFBOARD-72 @chaudhryma @playwright @In-Progress @Progression
+  Scenario:Test Enhancement: Add question for Transfer request (Transfer: within NCI or Outside of NCI)
+    Given I am an authenticated user with NCI credential
+    When I select "Transfer" under the "Departure or Transfer Request" field
+    Then I should see "Within NCI","Outside of NCI" drop down options for "Is this transfer within or outside of NCI?" field
+    And If I select "Outside of NCI" option
+    Then "Hardware Return Ticket Number(s)" field should become required.
