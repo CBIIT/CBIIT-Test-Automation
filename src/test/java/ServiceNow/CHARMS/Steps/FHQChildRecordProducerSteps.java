@@ -4,10 +4,8 @@ import java.util.ArrayList;
 
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import org.junit.Assert;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import ServiceNow.CHARMS.Constants.FHQSurveyPageConstants;
 import ServiceNow.CHARMS.Utils.ComponentTestResult;
 import ServiceNow.CHARMS.Utils.FHQUtil;
@@ -25,7 +23,7 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 
 	@Given("a user is logged on FHQ Landing Page after filling out patient data using the Test Account credentials in Test side door login page")
 	public void a_user_is_logged_on_FHQ_Landing_Page_after_filling_out_patient_data_using_the_Test_Account_credentials_in_Test_side_door_login_page()
-			throws TestingException {
+			 {
 		ServiceNow_Login_Methods.nativeViewSideDoorLogin();
 
 		WebDriverUtils.webDriver.get("https://service-test.nci.nih.gov/ncifamily");
@@ -309,7 +307,7 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 
 		fHQSurveyPortalPage.addRasopathyButton.click();
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		CommonUtils.maximizeWindow();
 
@@ -349,7 +347,7 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 		ComponentTestResult estimatedAgeBanner1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.addRowestimatedAgeBanner1,
 				"An estimated age is preferred over \"Don't Know\". Examples: early 40s = 42; mid-40s = 45; late 40s = 48.");
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		ComponentTestResult dropdownTest4 = FHQUtil.verifySelect2DropDowns(
 				fHQSurveyPortalPage.addRowYearOfDiagnosisDropDown, FHQSurveyPageConstants.yearOfDiagnosis(), 16);
@@ -510,14 +508,14 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 
 		fHQSurveyPortalPage.addCancerButton.click();
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CommonUtils.maximizeWindow();
 
 		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.addRowBanner, "Add Row");
 
 		ComponentTestResult labelTest4 = FHQUtil.verifyLabel(fHQSurveyPortalPage.addRowTypeOfDiagnosisLabel, "Cancer");
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(
 				fHQSurveyPortalPage.addRowTypeOfDiagnosisDropDown, FHQSurveyPageConstants.CANCER_TYPE, 41);
@@ -687,7 +685,7 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
 				FHQSurveyPageConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER, 1);
 
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		ComponentTestResult labelTest2 = FHQUtil.verifyLabel(
 				fHQSurveyPortalPage.relativeDiagnosedWithMedicalConditionsAddButtonInfo,
 				"Please select the 'Add' button below to add each medical condition this relative has had.");
@@ -717,7 +715,7 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 
 		fHQSurveyPortalPage.addMedicalConditionsButton.click();
 
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		CommonUtils.maximizeWindow();
 
 		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.addRowBanner, "Add Row");
@@ -877,7 +875,7 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(
 				fHQSurveyPortalPage.totalChildrenPatientHadDropDown, FHQSurveyPageConstants.numberUpToN(20), 4);
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		ComponentTestResult labelTest2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.eachChildThisPersonHasLabel,
 				"Please select the 'Add' button below to add each child this relative has.");
@@ -1035,7 +1033,7 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 
 		fHQSurveyPortalPage.CompleteAndSubmitButton.click();
 
-		MiscUtils.sleep(400);
+		CommonUtils.sleep(400);
 
 		StepTestResult stepTestResult = new StepTestResult(
 				"Finally clicked the Complete-Submit Button to submit the Participant Child(SonDaughter)record producer");
@@ -1086,7 +1084,7 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 
 		fHQSurveyPortalPage.childFirstNameBannerOnList.click();
 		
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(
 				fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel1,

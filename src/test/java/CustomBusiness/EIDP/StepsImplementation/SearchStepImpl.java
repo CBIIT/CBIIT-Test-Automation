@@ -6,7 +6,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.SharedData;
@@ -48,7 +47,7 @@ public class SearchStepImpl extends PageInitializer {
     }
 
     public void selectActiveCompletedIDP() throws Exception {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(searchPage.advancedSearchResults);
         Boolean isSelected = false;
         while (!isSelected) {
@@ -57,13 +56,13 @@ public class SearchStepImpl extends PageInitializer {
                 isSelected = true;
             } else {
                 searchPage.nextButton.click();
-                MiscUtils.sleep(3000);
+                CommonUtils.sleep(3000);
             }
         }
     }
 
     public void selectReleaseHoldIDP() {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(searchPage.advancedSearchResults);
         Boolean isSelected = false;
         while (!isSelected) {
@@ -74,14 +73,14 @@ public class SearchStepImpl extends PageInitializer {
                 if (searchPage.nextButton.isEnabled()) {
                     CommonUtils.waitForClickability(searchPage.nextButton);
                     searchPage.nextButton.click();
-                    MiscUtils.sleep(3000);
+                    CommonUtils.sleep(3000);
                 }
             }
         }
     }
 
     public void selectCancelIDP() {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(searchPage.advancedSearchResults);
         Boolean isSelected = false;
         while (!isSelected) {
@@ -91,14 +90,14 @@ public class SearchStepImpl extends PageInitializer {
             } else {
                 if (searchPage.nextButton.isEnabled()) {
                     searchPage.nextButton.click();
-                    MiscUtils.sleep(5000);
+                    CommonUtils.sleep(5000);
                 }
             }
         }
     }
 
     public void selectUndoCancelIDP() {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(searchPage.advancedSearchResults);
         Boolean isSelected = false;
         while (!isSelected) {
@@ -108,14 +107,14 @@ public class SearchStepImpl extends PageInitializer {
             } else {
                 if (searchPage.nextButton.isEnabled()) {
                     searchPage.nextButton.click();
-                    MiscUtils.sleep(5000);
+                    CommonUtils.sleep(5000);
                 }
             }
         }
     }
 
     public void selectExistSurveyIDP() {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(searchPage.advancedSearchResults);
         Boolean isSelected = false;
         while (!isSelected) {
@@ -125,7 +124,7 @@ public class SearchStepImpl extends PageInitializer {
             } else {
                 if (searchPage.nextButton.isEnabled()) {
                     searchPage.nextButton.click();
-                    MiscUtils.sleep(5000);
+                    CommonUtils.sleep(5000);
                 }
             }
         }
@@ -206,7 +205,7 @@ public class SearchStepImpl extends PageInitializer {
     }
 
     public void selectActiveTrainee() throws Exception {
-        MiscUtils.sleep(8000);
+        CommonUtils.sleep(8000);
         List<WebElement> searchResults = WebDriverUtils.webDriver.findElement(By.id("advanced_search_results"))
                 .findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
         WebElement buttonEl;
@@ -217,7 +216,7 @@ public class SearchStepImpl extends PageInitializer {
                 if (buttonEl.isEnabled()) {
                     SharedData.traineeName = searchResults.get(i).findElement(By.tagName("a")).getText();
                     buttonEl.click();
-                    MiscUtils.sleep(2000);
+                    CommonUtils.sleep(2000);
                     if (!searchPage.saveAndSendEmailButton.isDisplayed() && !searchPage.yesButtonforRenewal.isDisplayed()) {
                         continue;
                     } else {
@@ -230,7 +229,7 @@ public class SearchStepImpl extends PageInitializer {
                 break;
             } else {
                 searchPage.nextButton.click();
-                MiscUtils.sleep(8000);
+                CommonUtils.sleep(8000);
                 searchResults = WebDriverUtils.webDriver.findElement(By.id("advanced_search_results"))
                         .findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
             }
@@ -239,7 +238,7 @@ public class SearchStepImpl extends PageInitializer {
 
     public void selectReviewExistingIDP() throws Exception {
 
-        MiscUtils.sleep(8000);
+        CommonUtils.sleep(8000);
         List<WebElement> searchResults = WebDriverUtils.webDriver.findElement(By.id("advanced_search_results"))
                 .findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
         WebElement buttonEl;
@@ -258,7 +257,7 @@ public class SearchStepImpl extends PageInitializer {
                 break;
             } else {
                 searchPage.nextButton.click();
-                MiscUtils.sleep(8000);
+                CommonUtils.sleep(8000);
                 searchResults = WebDriverUtils.webDriver.findElement(By.id("advanced_search_results"))
                         .findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
             }
@@ -402,7 +401,7 @@ public class SearchStepImpl extends PageInitializer {
     public void verifyTraineeUnderPrimaryMentor(String primaryMentor) {
         eidpBasePage.selectOption(searchPage.choosePrimaryMentor, primaryMentor);
         clickOnSearchButton();
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         for (WebElement row : searchPage.rowsPM) {
             row.click();
             eidpBasePage.scrollToElement(searchPage.traineeNameText);
@@ -410,7 +409,7 @@ public class SearchStepImpl extends PageInitializer {
             Assert.assertEquals(primaryMentor, actualName);
             CucumberLogUtils.logScreenshot();
             row.click();
-            MiscUtils.sleep(5000);
+            CommonUtils.sleep(5000);
         }
     }
 
@@ -441,9 +440,9 @@ public class SearchStepImpl extends PageInitializer {
 
     public void verifyTraineeOrganization(String nameOrg) {
         eidpBasePage.selectOption(searchPage.chooseCBIIT, nameOrg);
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         clickOnSearchButton();
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         List<WebElement> rows = WebDriverUtils.webDriver.findElements(By.cssSelector("td.sorting_2"));
         for (WebElement each : rows) {
             WebElement nameOrgList = WebDriverUtils.webDriver
@@ -451,7 +450,7 @@ public class SearchStepImpl extends PageInitializer {
             eidpBasePage.scrollToElement(nameOrgList);
             if (each.getText().equals(nameOrg)) {
                 Assert.assertTrue(each.getText().equals(nameOrg));
-                MiscUtils.sleep(3000);
+                CommonUtils.sleep(3000);
             }
         }
     }
@@ -459,7 +458,7 @@ public class SearchStepImpl extends PageInitializer {
     public void verifyClassificationType(String type) {
         for (WebElement eachRow : searchPage.rowsVerificationType) {
             eachRow.click();
-            MiscUtils.sleep(1000);     
+            CommonUtils.sleep(1000);     
             eidpBasePage.scrollToElement(searchPage.classificationTypeText);
             String actualType = searchPage.classificationTypeText.getText();
             Assert.assertEquals(type.toUpperCase(), actualType);

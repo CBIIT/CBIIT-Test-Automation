@@ -4,7 +4,6 @@ import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import ServiceNow.ITPG.Pages.LoginPage;
 import ServiceNow.ITPG.Utils.CommonUtils;
@@ -16,7 +15,7 @@ public class LoginStepsImpl extends LoginPage {
 	}
 
 	public void openApp() {
-			driver.get(EnvUtils.getApplicationUrl("AtoTestUrl"));
+			//driver.get(EnvUtils.getApplicationUrl("AtoTestUrl"));
 	}
 
 	public void openApp(String url) {

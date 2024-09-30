@@ -5,7 +5,6 @@ import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
-import com.nci.automation.web.ConfUtils;
 
 import ServiceNow.ATO.Pages.BusinessCaseFormPage;
 import ServiceNow.ATO.StepsImplementation.LoginStepsImpl;
@@ -53,11 +52,11 @@ public class BusinessCaseFormSteps {
 	public void login() throws Exception {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
-			loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
-			String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
+			//loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
+			//String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
 			// loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
 			// decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
-			loginStepsImpl.enterPassword(decyptedPass);
+			//loginStepsImpl.enterPassword(decyptedPass);
 			// loginPage.enterUsername(ConfigFileReader.getConfigFileReader().getUserName());
 			// loginPage.enterPassword(ConfigFileReader.getConfigFileReader().getPassword());
 			loginStepsImpl.clickOnSignInButton();

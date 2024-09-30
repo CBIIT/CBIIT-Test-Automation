@@ -15,15 +15,19 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
     public String FIRST_NAME;
     public String MIDDLE_INITIAL;
     public String LAST_NAME;
+    public String PARTICIPANT_FIRST_NAME;
+    public String PARTICIPANT_MIDDLE_INITIAL;
+    public String PARTICIPANT_LAST_NAME;
     public String WHAT_IS_YOUR_DATE_OF_BIRTH;
     public String DATE_OF_BIRTH_MONTH;
     public String DATE_OF_BIRTH_YEAR;
-    public String WHAT_IS_YOUR_RELATIONSHIP_TO_THE_PROBAND;
-    public String ARE_YOU_THE_LEGAL_GUARDIAN_OF_THE_PROBAND;
-    public String THE_NEXT_SET_OF_QUESTIONS_WILL_COLLECT_BASIC_INFORMATION_ABOUT_THE_PROBAND;
+    public String DATE_OF_BIRTH_OF_THE_PARTICIPANT;
+    public String WHAT_IS_YOUR_RELATIONSHIP_TO_THE_PARTICIPANT;
+    public String ARE_YOU_THE_LEGAL_GUARDIAN_OF_THE_PARTICIPANT;
+    public String THE_NEXT_SET_OF_QUESTIONS_WILL_COLLECT_BASIC_INFORMATION_ABOUT_THE_PARTICIPANT;
     public String SEX_ASSIGNED_AT_BIRTH_OPTION;
     public String ARE_YOU_ADOPTED_OPTION;
-    public String IS_THE_PROBAND_ALIVE;
+    public String IS_THE_PARTICIPANT_ALIVE;
     public String COUNTRY_OPTION;
     public String STREET;
     public String STREET2;
@@ -136,17 +140,28 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
         /**
          * FETCHING DATA FROM EXCEL BEFORE SUBMITTING SCREENER
          */
-        if (sheetName.equals("screenerScenario1") || sheetName.equals("screenerScenario2")) {
-            if(sheetName.equals("screenerScenario1")){
+        if (sheetName.equals("screenerScenario1") || sheetName.equals("screenerScenario2") || sheetName.equals("screenerScenarioAge11-13")) {
+            if (sheetName.equals("screenerScenario1")) {
                 TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ONE_DATA, sheetName);
             }
-            if(sheetName.equals("screenerScenario2")){
+            if (sheetName.equals("screenerScenario2")) {
                 TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_TWO_DATA, sheetName);
             }
+            if (sheetName.equals("screenerScenarioAge11-13")) {
+                TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_11_13_DATA, sheetName);
+            }
+
             ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_YOURSELF = TEST_DATA_FOR_RAS_SCREENER.get("Are you completing this form for someone else or for yourself?");
             FIRST_NAME = TEST_DATA_FOR_RAS_SCREENER.get("First name");
             MIDDLE_INITIAL = TEST_DATA_FOR_RAS_SCREENER.get("Middle Initial");
             LAST_NAME = TEST_DATA_FOR_RAS_SCREENER.get("Last name");
+            PARTICIPANT_FIRST_NAME = TEST_DATA_FOR_RAS_SCREENER.get("What is the name of the person who may be eligible for this study? First");
+            PARTICIPANT_MIDDLE_INITIAL = TEST_DATA_FOR_RAS_SCREENER.get("What is the name of the person who may be eligible for this study? MI");
+            PARTICIPANT_LAST_NAME = TEST_DATA_FOR_RAS_SCREENER.get("What is the name of the person who may be eligible for this study? Last");
+            WHAT_IS_YOUR_RELATIONSHIP_TO_THE_PARTICIPANT = TEST_DATA_FOR_RAS_SCREENER.get("What is your relationship to the participant?");
+            ARE_YOU_THE_LEGAL_GUARDIAN_OF_THE_PARTICIPANT = TEST_DATA_FOR_RAS_SCREENER.get("Are you the legal guardian of the participant?");
+            DATE_OF_BIRTH_OF_THE_PARTICIPANT = TEST_DATA_FOR_RAS_SCREENER.get("Date of birth of the participant.");
+            IS_THE_PARTICIPANT_ALIVE = TEST_DATA_FOR_RAS_SCREENER.get("Is the participant alive?");
             WHAT_IS_YOUR_DATE_OF_BIRTH = TEST_DATA_FOR_RAS_SCREENER.get("What is your date of birth?");
             DATE_OF_BIRTH_MONTH = TEST_DATA_FOR_RAS_SCREENER.get("Date of birth month");
             DATE_OF_BIRTH_YEAR = TEST_DATA_FOR_RAS_SCREENER.get("Date of birth year");

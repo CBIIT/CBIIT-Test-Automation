@@ -1,7 +1,6 @@
 package AnalysisTools.MCAExplorer.Steps;
 
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import appsCommon.PageInitializers.PageInitializer;
@@ -9,12 +8,13 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import static com.nci.automation.web.TestProperties.getMcaExplorerUrl;
 
 public class MCAExplorer_pairwiseplots_steps extends PageInitializer {
 
 	@Given("User navigates to MCAExplorer")
 	public void user_navigates_to_mca_explorer() {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("MCAExplorer"));
+		WebDriverUtils.webDriver.get(getMcaExplorerUrl());
 	}
 
 	@When("user clicks pairwise PLOTS CHECKBOX")

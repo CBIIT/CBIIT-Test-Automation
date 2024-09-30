@@ -1,16 +1,11 @@
 package ServiceNow.COVIDCode.Steps;
 
-
-
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -19,38 +14,37 @@ import io.cucumber.java.en.When;
 public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 
 	@Given("a user in the CovidCode App Admins group has saved a draft Follow-up Questionnaire")
-	public void a_user_in_the_CovidCode_App_Admins_group_has_saved_a_draft_Follow_up_Questionnaire()
-			throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
+	public void a_user_in_the_CovidCode_App_Admins_group_has_saved_a_draft_Follow_up_Questionnaire() {
+		WebDriverUtils.webDriver.get("");
 		CucumberLogUtils.logScreenshot();
 		covidCodeLoginPage.LogInButton.click();
 		CucumberLogUtils.logScreenshot();
 		iTrustLoginPageImpl.loginToITrust();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 		servicePortalQuestionnairePage.startNewInitialQuestionnaireButton.click();
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
 		servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown.click();
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		CommonUtils.selectDropDownValue("User Group 2", servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
 	    servicePortalQuestionnairePage.createEnrollmentButton.click();
 		covidCodeEQPageImpl.requiredDemographicsInfo();
 		JavascriptUtils.scrollIntoView(covidCodeEQPage.enrollmentQuestionnaireSubmitButton);
 		covidCodeEQPage.enrollmentQuestionnaireSubmitButton.click();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		covidCodeEQPage.enrollmentQuestionnaireSubmitYesButton.click();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		covidCodeEQPage.COVIDcodeHomeButton.click();
-		MiscUtils.sleep(5000);	
+		CommonUtils.sleep(5000);	
 		servicePortalQuestionnairePage.startNewFollowUpButton.click();
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDown.click();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDownTextField.sendKeys("AutomatedFNGroup3");
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDownTextField.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		servicePortalQuestionnairePage.enrollmentLookUpCreateFollowUpButton.click();
 		JavascriptUtils.scrollIntoView(followUpFormPage.followUpNIHMedicalRecordNumberTextBox);
 		followUpFormPage.followUpNIHMedicalRecordNumberTextBox.sendKeys("11122288");
@@ -62,22 +56,22 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 	}
 
 	@When("the user in the CovidCode App Admins group comes to the COVIDCode Home Page")
-	public void the_user_in_the_CovidCode_App_Admins_group_comes_to_the_COVIDCode_Home_Page() throws TestingException {
-		MiscUtils.sleep(3000);
+	public void the_user_in_the_CovidCode_App_Admins_group_comes_to_the_COVIDCode_Home_Page()  {
+		CommonUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(covidCodeEQPage.COVIDcodeHomeButton);
 		covidCodeEQPage.COVIDcodeHomeButton.click();
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("the draft is shown in the Draft Follow up Questionnaires table on the Home Page")
 	public void the_draft_is_shown_in_the_Draft_Follow_up_Questionnaires_table_on_the_Home_Page() {
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(servicePortalQuestionnairePage.draftFollowUpFirstRow);
 		JavascriptUtils.scrollUp(200);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		servicePortalQuestionnairePage.draftFollowUpLastUpdated.click();
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		Assert.assertTrue(servicePortalQuestionnairePage.draftFollowUpFirstRow.getText().contains("11122288"));
 		CucumberLogUtils.logScreenshot();
 	}
@@ -86,23 +80,23 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 	public void the_user_can_resume_draft_follow_up_questionnaire_by_clicking_the_Open_button() {
 		servicePortalQuestionnairePage.draftFollowUpFirstOpenButton.click();
 		CucumberLogUtils.logScreenshot();
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 	}
 
 	@Given("a COVIDcode user is on the Disease Course section on the Follow Up form")
-	public void a_COVIDcode_user_is_on_the_Disease_Course_section_on_the_Follow_Up_form() throws TestingException {
+	public void a_COVIDcode_user_is_on_the_Disease_Course_section_on_the_Follow_Up_form()  {
 		signOutVerificationStepImp.covidCodeServicePortalLogIn();
 		servicePortalQuestionnairePage.startNewFollowUpButton.click();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDown.click();
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDownTextField.sendKeys("Automated");
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDownTextField.sendKeys(Keys.ENTER);
 		servicePortalQuestionnairePage.enrollmentLookUpCreateFollowUpButton.click();
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		JavascriptUtils.scrollIntoView(followUpFormPage.diseaseCourseNewButton);
 		followUpFormPage.diseaseCourseNewButton.click();
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 	}
 
 	@When("select {string} for the Symptoms")
@@ -119,7 +113,7 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 	}
 
 	@Given("COVIDCode App Admin user is in the Portal")
-	public void covidcode_App_Admin_user_is_in_the_Portal() throws TestingException {
+	public void covidcode_App_Admin_user_is_in_the_Portal()  {
 		signOutVerificationStepImp.covidCodeServicePortalLogIn();
 
 	}
@@ -127,12 +121,12 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 	@When("the user creates a draft Follow-up questionnaire")
 	public void the_user_creates_a_draft_Follow_up_questionnaire() {
 		servicePortalQuestionnairePage.startNewFollowUpButton.click();
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDown.click();
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDownTextField.sendKeys("Automated");
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDownTextField.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		servicePortalQuestionnairePage.enrollmentLookUpCreateFollowUpButton.click();
 
 	}
@@ -141,16 +135,16 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 	public void create_a_new_Disease_Course_record() {
 		JavascriptUtils.scrollIntoView(followUpFormPage.diseaseCourseNewButton);
 		followUpFormPage.diseaseCourseNewButton.click();
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 	}
 
 	@Then("there is a field option called a {string} for the Drug Treatments field")
 	public void there_is_a_field_option_called_a_for_the_Drug_Treatments_field(String Plasma) {
 		followUpFormPage.diseaseCourseDrugTreatmentsTextField.click();
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		CommonUtils.selectValueFromBootStrapDropDown(followUpFormPage.diseaseCourseDrugTreatmentsDropDownValues,
 				Plasma);
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		CucumberLogUtils.logScreenshot();
 	}
 }

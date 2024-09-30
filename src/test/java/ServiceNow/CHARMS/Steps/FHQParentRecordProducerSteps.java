@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import org.junit.Assert;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import ServiceNow.CHARMS.Constants.FHQSurveyPageConstants;
 import ServiceNow.CHARMS.Utils.ComponentTestResult;
@@ -23,9 +22,9 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 
 	@Given("user clicks the Parents Grid link on FHQ Grid page to land on the FHQ Parents list view page")
 	public void user_clicks_the_Parents_Grid_link_on_FHQ_Grid_page_to_land_on_the_FHQ_Parents_list_view_page() {
-		MiscUtils.sleep(100);
+		CommonUtils.sleep(100);
 		fHQSurveyPortalPage.parentsLinkOnFamilyGrid.click();
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		StepTestResult stepTestResult = new StepTestResult("User clicked the Participant Parents Grid link on FHQ Grid page and lands on the FHQ Parents list view page");
 		scenarioReportList.add(stepTestResult);
 	}
@@ -71,7 +70,7 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 	@When("clicks the New button on the FHQ Parents list view page it lands on the New FHQ Parent record producer page")
 	public void clicks_the_New_button_on_the_FHQ_Parents_list_view_page_it_lands_on_the_New_FHQ_Parent_record_producer_page() {
 		fHQSurveyPortalPage.newButtonLinkOnListView.click();
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,"Family Cohort Study Management System: RASopathies");
 		ComponentTestResult homeButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.homeButton, "FHQ Home");
 		ComponentTestResult listViewButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.listView1Button, "List View");
@@ -220,7 +219,7 @@ ComponentTestResult dropdownTest4 = FHQUtil.verifySelect2DropDowns(fHQSurveyPort
 		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.parentBirthLabelDropDown,
 				FHQSurveyPageConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER, 1);
 
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 
 		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentbirthsBanner,
 				"Please identify the number of each of the following pregnancy results for this parent.");
@@ -318,7 +317,7 @@ ComponentTestResult dropdownTest4 = FHQUtil.verifySelect2DropDowns(fHQSurveyPort
 
 		fHQSurveyPortalPage.addRasopathyButton.click();
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		CommonUtils.maximizeWindow();
 
@@ -515,7 +514,7 @@ ComponentTestResult dropdownTest4 = FHQUtil.verifySelect2DropDowns(fHQSurveyPort
 
 		fHQSurveyPortalPage.addCancerButton.click();
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CommonUtils.maximizeWindow();
 
 		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.addRowBanner, "Add Row");
@@ -581,7 +580,7 @@ ComponentTestResult dropdownTest4 = FHQUtil.verifySelect2DropDowns(fHQSurveyPort
 
 		ComponentTestResult labelTest13 = FHQUtil.verifyLabel(fHQSurveyPortalPage.addRowsaveButton, "Add");
 
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		fHQSurveyPortalPage.addRowsaveButton.click();
 
 		StepTestResult stepTestResult = new StepTestResult(
@@ -719,7 +718,7 @@ ComponentTestResult dropdownTest4 = FHQUtil.verifySelect2DropDowns(fHQSurveyPort
 
 		fHQSurveyPortalPage.addMedicalConditionsButton.click();
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CommonUtils.maximizeWindow();
 
 		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.addRowBanner, "Add Row");
@@ -879,7 +878,7 @@ ComponentTestResult dropdownTest4 = FHQUtil.verifySelect2DropDowns(fHQSurveyPort
 		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(
 				fHQSurveyPortalPage.howManySiblingsThisRelativeHaveDropDown, FHQSurveyPageConstants.numberUpToN(12), 4);
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		ComponentTestResult labelTest2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.selectAddButtonToAddEachSiblingLabel,
 				"Please select the 'Add' button below to add each sibling this relative has.");
@@ -1032,7 +1031,7 @@ ComponentTestResult dropdownTest4 = FHQUtil.verifySelect2DropDowns(fHQSurveyPort
 
 		fHQSurveyPortalPage.CompleteAndSubmitButton.click();
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		StepTestResult stepTestResult = new StepTestResult(
 				"Finally clicked the Complete-Submit Button to submit the Participant Parent record producer");
@@ -1088,7 +1087,7 @@ ComponentTestResult dropdownTest4 = FHQUtil.verifySelect2DropDowns(fHQSurveyPort
 
 		fHQSurveyPortalPage.parentfirstNameOnListView.click();
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(
 				fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,

@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
@@ -29,7 +28,7 @@ public class GeneralInformationStepImpl extends PageInitializer {
 		if (name != null) {
 			CommonUtils.clickOnElement(generalInformationPage.primaryMentorsName);
 			CommonUtils.sendKeys(generalInformationPage.searchInputField, name);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(generalInformationPage.dropdownOptions);
 		}
 	}
@@ -57,10 +56,10 @@ public class GeneralInformationStepImpl extends PageInitializer {
 	}
 
 	public void selectRandomHighestDegree() {
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		if (CommonUtils.isElementDisplayed(generalInformationPage.highestDegreeDropdown2)) {
 			eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown2);
-			MiscUtils.sleep(1000);
+			CommonUtils.sleep(1000);
 		} else if (CommonUtils.isElementDisplayed(generalInformationPage.highestDegreeDropdown)) {
 			eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown);
 		}
@@ -80,18 +79,18 @@ public class GeneralInformationStepImpl extends PageInitializer {
 			SharedData.primaryMentorName = requestDt.get("Primary Mentor");
 			CommonUtils.clickOnElement(generalInformationPage.primaryMentorsName);
 			CommonUtils.sendKeys(generalInformationPage.searchInputField, (SharedData.primaryMentorName));
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(generalInformationPage.dropdownOptions);
 		}
 		//Selecting Co-PM
 		if (!requestDt.get("Co-PM").isEmpty()) {
 			SharedData.coPmName = requestDt.get("Co-PM");
 			doYouHaveCoPrimaryMentory(true);
-			MiscUtils.sleep(1000);
+			CommonUtils.sleep(1000);
 			CommonUtils.clickOnElement(generalInformationPage.coPrimaryMentorsName);
 			CommonUtils.waitForVisibility(generalInformationPage.searchInputField);
 			CommonUtils.sendKeys(generalInformationPage.searchInputField, (SharedData.coPmName));
-			MiscUtils.sleep(3000);
+			CommonUtils.sleep(3000);
 			CommonUtils.clickOnElement(generalInformationPage.dropdownOptions);
 		} else {
 			doYouHaveCoPrimaryMentory(false);
@@ -101,20 +100,20 @@ public class GeneralInformationStepImpl extends PageInitializer {
 			SharedData.lbo = requestDt.get("LBO");
 			CommonUtils.clickOnElement(generalInformationPage.labBranchNameDropdown);
 			CommonUtils.sendKeys(generalInformationPage.searchInputField, (SharedData.lbo));
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(generalInformationPage.dropdownOptions);
 		}
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		//clicking on Save and Continue
 		CommonUtils.clickOnElement(generalInformationPage.saveAndContinueButton);
 	}
 
 	public void doYouHaveCoPrimaryMentory(Boolean isCoPrimary) {
 		if (isCoPrimary) {
-			MiscUtils.sleep(1000);
+			CommonUtils.sleep(1000);
 			generalInformationPage.coPMYES.click();
 		} else {
-			MiscUtils.sleep(1000);
+			CommonUtils.sleep(1000);
 			generalInformationPage.coPMNO.click();
 		}
 	}

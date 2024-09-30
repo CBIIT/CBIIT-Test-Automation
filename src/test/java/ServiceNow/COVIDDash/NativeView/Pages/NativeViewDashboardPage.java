@@ -5,7 +5,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -49,7 +48,7 @@ public class NativeViewDashboardPage extends CommonUtils {
     }
 
     public void clickNativeViewLink() {
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         JavascriptUtils.clickByJS(nativeViewLink);
     }
 
@@ -67,12 +66,12 @@ public class NativeViewDashboardPage extends CommonUtils {
 
     public void enterTextImpersntSearchBox(String approver) {
         impersonateSearchBox.sendKeys(approver);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         impersonateSearchBox.sendKeys(Keys.ENTER);
     }
 
     public void enterTextImpersonateSearchBox(String approver) {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         impersonateSearchBox.sendKeys(approver);
         CommonUtils.waitForVisibility(
                 WebDriverUtils.webDriver.findElement(By.xpath("//div[normalize-space()='Sharon Savage']")));

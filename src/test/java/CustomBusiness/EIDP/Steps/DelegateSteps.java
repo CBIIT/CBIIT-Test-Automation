@@ -2,8 +2,9 @@ package CustomBusiness.EIDP.Steps;
 
 import static org.junit.Assert.fail;
 import java.util.Map;
+
+import com.nci.automation.web.CommonUtils;
 import org.junit.Assert;
-import com.nci.automation.utils.MiscUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
 import CustomBusiness.EIDP.Util.Constants.DelegationTypes;
 import appsCommon.PageInitializers.PageInitializer;
@@ -48,7 +49,7 @@ public class DelegateSteps extends PageInitializer {
 	@When("User deletes \"([^\"]*)\" from delegators table")
 	public void deleteDelegator(String name) {
 		delegatePage.deleteDelegator(name);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		Assert.assertEquals("Delegate deleted successfully.", delegatePage.getDeleteMessage());
 	}
 

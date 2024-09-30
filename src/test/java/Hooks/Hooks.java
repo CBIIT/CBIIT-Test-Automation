@@ -9,6 +9,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.testng.asserts.SoftAssert;
 import static com.nci.automation.web.PlaywrightUtils.page;
+import static com.nci.automation.web.WebDriverUtils.webDriver;
 
 public class Hooks {
 
@@ -40,7 +41,7 @@ public class Hooks {
             assertionError = error;
         } finally {
             CucumberLogUtils.logScreenshot();
-            WebDriverUtils.closeWebDriver();  // tearDown() for Selenium
+            webDriver.quit(); // tearDown() for Selenium
         }
 
         if (assertionError != null) {

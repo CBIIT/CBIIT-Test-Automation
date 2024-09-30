@@ -1,14 +1,14 @@
 package appsCommon.Pages;
 
-import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.WebDriverUtils;
 import io.github.sukgu.support.ElementFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
+import static com.nci.automation.web.TestProperties.SIDE_DOOR_PASSWORD;
+import static com.nci.automation.web.TestProperties.SIDE_DOOR_USERNAME;
 
 public class NativeView_SideDoor_Login_Page extends CommonUtils {
 
@@ -35,7 +35,7 @@ public class NativeView_SideDoor_Login_Page extends CommonUtils {
      */
     public static void enterSideDoorUsername(String username) {
         sideDoorUserNameField.clear();
-        sendKeys(sideDoorUserNameField, ConfUtils.getProperty(username));
+        sendKeys(sideDoorUserNameField, SIDE_DOOR_USERNAME);
     }
 
     /**
@@ -43,8 +43,7 @@ public class NativeView_SideDoor_Login_Page extends CommonUtils {
      */
     public static void enterSideDoorPassword(String password) {
         sideDoorPasswordField.clear();
-        String decryptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty(password));
-        sendKeys(sideDoorPasswordField, decryptedPass);
+        sendKeys(sideDoorPasswordField, SIDE_DOOR_PASSWORD);
     }
 
     /**

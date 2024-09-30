@@ -2,22 +2,20 @@ package AnalysisTools.cProSite.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import static com.nci.automation.web.TestProperties.getCProSiteUrl;
 
 public class CProSiteExplorePageSteps extends PageInitializer {
 
     @Given("user is on cProSite explore Tab")
-    public void userIsOnCProSiteExploreTab() throws TestingException {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("cProSite"));
-        MiscUtils.sleep(3000);
+    public void userIsOnCProSiteExploreTab() {
+        WebDriverUtils.webDriver.get(getCProSiteUrl());
+        CommonUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -61,18 +59,18 @@ public class CProSiteExplorePageSteps extends PageInitializer {
         cProSiteExplorePage.corelatedgeneDropdown.sendKeys("DLC1");
         cProSiteExplorePage.corelatedgeneDropdown.sendKeys(Keys.ENTER);
         JavascriptUtils.scrollDown(100);
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
     }
 
     @And("user select protein and mRNA")
     public void userSelectProteinAndMRNA() {
         JavascriptUtils.clickByJS(cProSiteExplorePage.proteinandmRNAcheckbox);
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
     }
 
     @And("user click reset button")
     public void userClickResetButton() {
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         cProSiteExplorePage.resetButton.click();
     }
 
@@ -89,7 +87,7 @@ public class CProSiteExplorePageSteps extends PageInitializer {
     @And("user clicks export button")
     public void userClicksExportButton() {
         JavascriptUtils.scrollDown(200);
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         cProSiteExplorePage.exportbutton.click();
     }
 
@@ -101,7 +99,7 @@ public class CProSiteExplorePageSteps extends PageInitializer {
 
     @And("user change Gene")
     public void userChangeGene() {
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         JavascriptUtils.scrollDown(200);
         cProSiteExplorePage.dropdowngene.sendKeys("ABCA7");
         cProSiteExplorePage.dropdowngene.sendKeys(Keys.ENTER);

@@ -2,14 +2,13 @@ package GrantsApps.ChangePassword.Steps;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import com.nci.automation.xceptions.TestingException;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
 import appsCommon.PageInitializers.PageInitializer;
 
 public class ChangePasswordSteps extends PageInitializer {
 
     @Given("User is on landing page {string}")
-    public void user_is_on_landing_page(String url) throws TestingException {
+    public void user_is_on_landing_page(String url)  {
         ChangePasswordStepsImpl.userIsOnLandingPage(url);
     }
 
@@ -29,7 +28,7 @@ public class ChangePasswordSteps extends PageInitializer {
     }
 
     @Given("User is back on landing page")
-    public void user_is_back_on_landing_page() throws TestingException {
+    public void user_is_back_on_landing_page()  {
         ChangePasswordStepsImpl.userIsBackOnLandingPage();
     }
 

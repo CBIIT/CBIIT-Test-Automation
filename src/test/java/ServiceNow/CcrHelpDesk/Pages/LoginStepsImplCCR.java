@@ -1,18 +1,10 @@
 package ServiceNow.CcrHelpDesk.Pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
-
-import com.nci.automation.web.EnvUtils;
-import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 
 import ServiceNow.ATO.Pages.BasePage;
-import ServiceNow.ATO.Pages.LoginPage;
-import ServiceNow.ATO.Utils.CommonUtils;
 
 public class LoginStepsImplCCR extends BasePage {
 
@@ -30,7 +22,7 @@ public class LoginStepsImplCCR extends BasePage {
 	public WebElement nativeviewLink;
 
 	public void openApp() {
-			driver.get(EnvUtils.getApplicationUrl("CCRHelpdesk") + "&sys_id=350223aa1bc515906daea681f54bcb89");
+			//driver.get(EnvUtils.getApplicationUrl("CCRHelpdesk") + "&sys_id=350223aa1bc515906daea681f54bcb89");
 	}
 
 	public void openApp(String url) {

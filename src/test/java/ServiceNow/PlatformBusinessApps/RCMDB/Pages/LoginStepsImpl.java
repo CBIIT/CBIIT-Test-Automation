@@ -2,9 +2,6 @@ package ServiceNow.PlatformBusinessApps.RCMDB.Pages;
 
 import org.openqa.selenium.By;
 
-import com.nci.automation.web.EnvUtils;
-import com.nci.automation.xceptions.TestingException;
-
 import ServiceNow.ITPG.Pages.LoginPage;
 import ServiceNow.ITPG.Utils.CommonUtils;
 
@@ -15,7 +12,8 @@ public class LoginStepsImpl extends LoginPage {
 	}
 
 	public void openApp() {
-			driver.get(EnvUtils.getApplicationUrl("AtoTestUrl"));
+		// THIS IS ALSO POINTING TO NATIVE VIEW AND NOT ATO
+			driver.get("");
 	}
 	
 	public void openApp(String url)  {

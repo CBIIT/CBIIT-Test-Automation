@@ -1,7 +1,7 @@
 package CustomBusiness.EIDP.Steps;
 
-import com.nci.automation.utils.MiscUtils;
 import appsCommon.PageInitializers.PageInitializer;
+import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -15,9 +15,9 @@ public class ProjectRelatedDeliverableSteps extends PageInitializer {
 	@Then("User fills mandatory fields in project deliverable page for renew")
 	public void continueAfterProjectDetails() {
 		projectRelatedDeliverableStepImpl.markAllExistingProjectsAsCompleted();
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		projectRelatedDeliverableStepImpl.markAllProjectRelatedTrainningsAreCompleted();
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 	}
 
 	@When("User edits the existing IDP details in all the tabs")
@@ -56,11 +56,11 @@ public class ProjectRelatedDeliverableSteps extends PageInitializer {
 	@When("User adds new project with deliverables")
 	public void addNewProject() {
 		projectRelatedDeliverableStepImpl.addNewProject();
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		eidpCommonPage.clickOnbutton("Save and Continue");
 		projectRelatedDeliverableStepImpl.addWorkShipDetailsWithStatus();
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		eidpCommonPage.clickOnbutton("Save and Continue");
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 	}
 }

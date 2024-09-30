@@ -5,19 +5,18 @@ import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataRejectio
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERLandingPageStepImpl;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERUserRegistrationPageStepImpl;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import static com.nci.automation.web.TestProperties.getSeerOdsUrl;
 
 public class SEERLandingPageSteps extends PageInitializer {
 
 	@Given("a user is on the SEER Data Access landing page")
-	public void a_user_is_on_the_SEER_Data_Access_landing_page() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
+	public void a_user_is_on_the_SEER_Data_Access_landing_page() {
+		WebDriverUtils.webDriver.get(getSeerOdsUrl());
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -27,8 +26,8 @@ public class SEERLandingPageSteps extends PageInitializer {
 	}
 
 	@When("enter email for SEER Research Database and click on the Register for Research Data")
-	public void enter_email_for_SEER_Research_Database_and_click_on_the_Register_for_Research_Data() throws TestingException{
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
+	public void enter_email_for_SEER_Research_Database_and_click_on_the_Register_for_Research_Data() {
+		WebDriverUtils.webDriver.get(getSeerOdsUrl());
 		CucumberLogUtils.logScreenshot();
 		SEERDataAccessRequestPageStepsImpl.enterEmailAddress349();
 	}
@@ -44,7 +43,7 @@ public class SEERLandingPageSteps extends PageInitializer {
 	}
 
 	@Then("the user should see page {string} when re registering")
-	public void the_user_should_see_page_when_re_registering(String youAlreadyHaveAccessToSeerResearchData) throws TestingException{
+	public void the_user_should_see_page_when_re_registering(String youAlreadyHaveAccessToSeerResearchData) {
 		SEERUserRegistrationPageStepImpl.theUserShouldSeePageWhenReRegistering(youAlreadyHaveAccessToSeerResearchData);
 	}
 

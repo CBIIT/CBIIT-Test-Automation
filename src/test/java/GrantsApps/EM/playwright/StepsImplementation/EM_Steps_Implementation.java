@@ -11,15 +11,14 @@ import com.microsoft.playwright.PlaywrightException;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.ConfUtils;
-import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.List;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
+import static com.nci.automation.web.TestProperties.*;
 
 public class EM_Steps_Implementation {
 
@@ -29,9 +28,9 @@ public class EM_Steps_Implementation {
      * and presses the Enter key to log in.
      */
     public static void user_is_logged_in_as_primary_i_two_e_coordinator_pw() {
-        page.navigate(EnvUtils.getApplicationUrl("EM"));
-        page.locator(ITrust_Page.usernameTextBox).fill(ConfUtils.getProperty("Username"));
-        page.locator(ITrust_Page.passwordTextBox).fill(EncryptionUtils.decrypt(ConfUtils.getProperty("Password")));
+        page.navigate(getEnterpriseMaintenanceUrl());
+        page.locator(ITrust_Page.usernameTextBox).fill(I_TRUST_USERNAME);
+        page.locator(ITrust_Page.passwordTextBox).fill(EncryptionUtils.decrypt(I_TRUST_PASSWORD));
         page.locator(ITrust_Page.passwordTextBox).press("Enter");
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -57,7 +56,7 @@ public class EM_Steps_Implementation {
     public static void tester_deletes_role_to_re_run_test_before_adding_role_pw(String value) {
         page.waitForLoadState();
         Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(value));
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         try {
             if (page.locator(EM_Page.gmActionManagerRoleText).isVisible()) {
                 page.locator(EM_Page.gmActionManagerRoleText).click();

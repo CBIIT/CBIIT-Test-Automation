@@ -3,10 +3,8 @@ package ServiceNow.CHARMS.Steps;
 import java.util.ArrayList;
 
 import org.junit.Assert;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import ServiceNow.CHARMS.Constants.FHQSurveyPageConstants;
 import ServiceNow.CHARMS.Utils.ComponentTestResult;
 import ServiceNow.CHARMS.Utils.FHQUtil;
@@ -21,7 +19,7 @@ public class FHQPartnerRecordProducerSteps extends PageInitializer {
 	private ArrayList<StepTestResult> scenarioReportList = new ArrayList<StepTestResult>();
 
 	@Given("a user is logged on FHQ Family Cohort Study Management Page")
-	public void a_user_is_logged_on_FHQ_Family_Cohort_Study_Management_Page() throws TestingException {
+	public void a_user_is_logged_on_FHQ_Family_Cohort_Study_Management_Page()  {
 
 		WebDriverUtils.webDriver.get("https://service-test.nci.nih.gov/myras?id=fmi_landing");
 		CommonUtils.maximizeWindow();
@@ -66,7 +64,7 @@ public class FHQPartnerRecordProducerSteps extends PageInitializer {
 
 		fHQSurveyPortalPage.partnersLinkOnFamilyGrid.click();
 		
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		StepTestResult stepTestResult = new StepTestResult(
 				"User clicked the Partner Grid link on FHQ Grid page to land on the FHQ Partners list view page");
@@ -379,7 +377,7 @@ public class FHQPartnerRecordProducerSteps extends PageInitializer {
 
 		fHQSurveyPortalPage.CompleteAndSubmitButton.click();
 
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 
 		StepTestResult stepTestResult = new StepTestResult(
 				"Finally clicked the Complete/Submit Button to submit the New FHQ Partner of the Participant Record Producer");
@@ -435,7 +433,7 @@ public class FHQPartnerRecordProducerSteps extends PageInitializer {
 
 		fHQSurveyPortalPage.partnerFirstNameOnListViewValue1.click();
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(
 				fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,

@@ -7,15 +7,9 @@ import java.time.format.DateTimeFormatter;
 
 import io.cucumber.java.Before;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
-import com.nci.automation.web.ConfUtils;
-import com.nci.automation.web.JavascriptUtils;
 
 import ServiceNow.ITPG.Pages.BusinessCaseFormPage;
 import ServiceNow.ITPG.StepsImplementation.LoginStepsImpl;
@@ -64,8 +58,8 @@ public class BusinessCaseFormSteps {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 		}
-		loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
-		String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
+		loginStepsImpl.enterUsername("");
+		String decyptedPass = EncryptionUtils.decrypt("");
 		CucumberLogUtils.logScreenshot();
 		// loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
 		// decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));

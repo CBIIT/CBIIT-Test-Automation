@@ -6,11 +6,11 @@ import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import java.nio.file.Paths;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+import static com.nci.automation.web.TestProperties.getNifeUrl;
 
 public class NIFESubmitStepsImpl extends PageInitializer {
 
@@ -19,7 +19,7 @@ public class NIFESubmitStepsImpl extends PageInitializer {
      */
     public static void clickHomeTab() {
         PlaywrightUtils.page.locator(NIFESubmitPage.homeTabElement).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
     }
 
     /**
@@ -34,12 +34,12 @@ public class NIFESubmitStepsImpl extends PageInitializer {
      */
     public static void clickSubmitMetadataAndViewImages() {
         PlaywrightUtils.page.locator(NIFESubmitPage.submitMetadata).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         PlaywrightUtils.page.locator(NIFESubmitPage.homeTabElement).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(NIFESubmitPage.viewImagesLink)).click();
-        MiscUtils.sleep(2000);
-        PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("NIFESubmit"));
+        CommonUtils.sleep(2000);
+        PlaywrightUtils.page.navigate(getNifeUrl());
     }
 
     /**
@@ -54,7 +54,7 @@ public class NIFESubmitStepsImpl extends PageInitializer {
      */
     public static void verifySubmitMetadata() {
         assertThat(PlaywrightUtils.page.getByText(NIFESubmitPage.importExcelFile)).isVisible();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         assertThat(PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NIFESubmitPage.studyInfoText))).isVisible();
     }
 
@@ -62,9 +62,9 @@ public class NIFESubmitStepsImpl extends PageInitializer {
      * IMPORT EXCEL FILE
      */
     public static void importExcelFile() {
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         PlaywrightUtils.page.getByLabel(NIFESubmitPage.importExcelFile).setInputFiles(Paths.get(NIFESubmit_Constants.UPLOAD_FILE_PATH));
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
     }
 
     /**
@@ -73,7 +73,7 @@ public class NIFESubmitStepsImpl extends PageInitializer {
     public static void verifyNCILink() {
         Page newPage1 = PlaywrightUtils.context.waitForPage(() -> {
             PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(NIFESubmitPage.NCI).setExact(true)).click();});
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         assertThat(newPage1).hasURL(NIFESubmit_Constants.NCI_LINK);newPage1.close();
     }
 
@@ -82,9 +82,9 @@ public class NIFESubmitStepsImpl extends PageInitializer {
      */
     public static void clickAndAssertNewPageTitle() {
         Playwright_Common_Utils.clickAndAssertNewPageTitle(NIFESubmitPage.ccsMicroscopyCore,NIFESubmit_Constants.CCR_MICROSCOPY_CORE_TITLE);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         Playwright_Common_Utils.clickAndAssertNewPageTitle(NIFESubmitPage.cdblMicroscopyCore,NIFESubmit_Constants.CDBL_MICROSCOPY_CORE_TITLE);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         Playwright_Common_Utils.clickAndAssertNewPageTitle(NIFESubmitPage.lcpglMicroscopyCore,NIFESubmit_Constants.LCPG_MICROSCOPY_CORE_TITLE);
     }
 }

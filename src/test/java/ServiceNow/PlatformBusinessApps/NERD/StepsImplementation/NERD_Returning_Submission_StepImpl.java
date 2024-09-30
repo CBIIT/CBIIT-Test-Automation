@@ -3,8 +3,8 @@ package ServiceNow.PlatformBusinessApps.NERD.StepsImplementation;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
+import static com.nci.automation.web.TestProperties.getNerdUrl;
 
 public class NERD_Returning_Submission_StepImpl {
 
@@ -42,7 +42,7 @@ public class NERD_Returning_Submission_StepImpl {
     public static void the_and_field_values_are_not_cleared_and_are_required(String PleaseSpecify, String FiscalYear) {
         ServiceNow_Common_Methods.logOutOfNativeView();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        WebDriverUtils.webDriver.get(getNerdUrl());
         NERDApplicationStepsImplementation.openingNewTabToEditSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
         NERDApplicationStepsImplementation.verifyingThatFieldsOfSubmissionAreClearedAndRequired(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER, PleaseSpecify, FiscalYear);
     }
@@ -59,7 +59,7 @@ public class NERD_Returning_Submission_StepImpl {
     public static void the_options_available_for_the_field_are_and(String PleaseSpecify, String Edited, String NocChange, String Ended, String NotLedByNCI) {
         ServiceNow_Common_Methods.logOutOfNativeView();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        WebDriverUtils.webDriver.get(getNerdUrl());
         NERDApplicationStepsImplementation.verifyingAvailableOptionsOfSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER, PleaseSpecify, Edited, NocChange, Ended, NotLedByNCI);
     }
 

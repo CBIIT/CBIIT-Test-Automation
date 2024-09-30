@@ -2,7 +2,6 @@ package GrantsApps.GPMATS.Steps;
 
 import com.microsoft.playwright.ElementHandle;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import org.testng.Assert;
 import java.util.ArrayList;
@@ -40,7 +39,7 @@ public class GPMATS_Common_Methods {
         Assert.assertEquals(valuesToBeComparedWith, expectedProcessOptions, "- - - VERIFYING PROCESS OPTIONS - - -");
         page.waitForSelector("(//i[contains(@class,'bi bi-dash-circle')])[1]");
         page.locator("(//i[contains(@class,'bi bi-dash-circle')])[1]").click();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
     }
 
     /**
