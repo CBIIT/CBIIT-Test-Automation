@@ -48,7 +48,6 @@ jobs:
           git stash
           git fetch
           git checkout gh-pages
-          git rm -f src/main/resources/conf/cloudEnv.properties
           git checkout stash -- .
           mkdir -p ${{ steps.reportpath.outputs.path }}
           mv target/nerd-smoke-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
