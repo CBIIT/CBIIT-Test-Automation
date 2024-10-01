@@ -1,6 +1,5 @@
 package ServiceNow.OA_Intake.StepsImplementation;
 
-import CustomBusiness.CCR.Constants.CCR_CONSTANTS;
 import ServiceNow.OA_Intake.Constants.OAIntakeConstants;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;

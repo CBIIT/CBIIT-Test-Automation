@@ -105,4 +105,65 @@ public class OAIntakePage {
     /**  Date Concept Peer Review Completed field*/
     @FindBy(xpath = "//input[@id='sp_formfield_date_review_completed']")
     public WebElement dateConceptPeerReviewComField;
+
+    /**  Dropdown PSC Code Status*/
+    @FindBy(xpath = "//*[@id='s2id_sp_formfield_psc_code_status']")
+    public WebElement dropdownPSCCodeStatus;
+
+    /**  Yes PSC Code Status*/
+    @FindBy(xpath = "(//li[@class='select2-results-dept-0 select2-result select2-result-selectable'])[1]")
+    public WebElement yesPSCCodeStatus;
+
+    /**  PSC Code Field*/
+    @FindBy(xpath = "//input[@id='sp_formfield_psc_code']")
+    public WebElement PSCCodeField;
+
+    /**  FITARA dropdown*/
+    @FindBy(xpath = "//div[@id='s2id_sp_formfield_acquisition_components_details']")
+    public WebElement dropdwnFITARA;
+
+    /**  FITARA no*/
+    @FindBy(xpath = "(//li[@class='select2-results-dept-0 select2-result select2-result-selectable'])[2]")
+    public WebElement noFITARA;
+
+    /**   estimated value of IT field*/
+    @FindBy(xpath = "//input[@name='estimated_value_it_bio_comp']")
+    public WebElement estValueITField;
+
+    /**  ISSO Clearance dropdown*/
+    @FindBy(xpath = "//div[@id='s2id_sp_formfield_requested_isso_clearance']")
+    public WebElement dropdownISSO;
+
+    /**  ISSO Clearance yes*/
+    @FindBy(xpath = "(//li[@class='select2-results-dept-0 select2-result select2-result-selectable'])[1]")
+    public WebElement yesISSO;
+
+    /**  SSO Clearance Ticket field*/
+    @FindBy(xpath = "//input[@name='isso_clearance_ticket']")
+    public WebElement ISSOClearanceTicketField;
+
+    /** button Submit Request*/
+    @FindBy(xpath = "(//button[@ng-click='triggerUIAction(action)'])[1]")
+    public WebElement btnSubmitRequest;
+
+    /**Modal Submit buuton*/
+    @FindBy(xpath = "(//button[@ng-click='buttonClicked(button)'])[1]")
+    public WebElement modalSubmitButton;
+
+    /**Confirmation Modal Text Task Order Acquisition Plan*/
+    @FindBy(xpath = "//ul//li[contains(text(),'Task Order Acquisition Plans (TOAPs) are required for both Internal and External Call/ Order submissions.')]")
+    public WebElement textConfModalTaskOrderAcquisitionPlans;
+
+    /**Confirmation Modal Text Concept SPL*/
+    @FindBy(xpath = "//ul//li[contains(text(),'Please attach the concept/SPL approval and BSA minutes /waiver (if received).')]")
+    public WebElement textConfModalConceptSPL;
+
+    /**Confirmation Modal Text draft Statement of Work and IGCE*/
+    @FindBy(xpath = "//ul//li[contains(text(),'In order for your new requirement to be assigned, you must at a minimum submit a draft Statement of Work and IGCE!')]")
+    public WebElement textConfModalDraftStWorkICGE;
+
+
+
+
+
 }

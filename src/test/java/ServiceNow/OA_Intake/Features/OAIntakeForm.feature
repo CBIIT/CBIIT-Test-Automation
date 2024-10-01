@@ -22,18 +22,16 @@ Feature: Create OA Intake form
     Then Submitter User can see alert message "Task Order Acquisition Plans (TOAPs) are required for both Internal and External Call/ Order submissions."
     And Submitter User chooses R&D Support as Yes
     Then Submitter User can fill in a field Date Concept Peer Review Completed as "11/05/2025"
-
-#    When Submitter User chooses PSC Code Status as known
-#    Then Submitter User can fill in PSC Code field as "1234"
-#    And Submitter User chooses FITARA Business Case Clearances as No
-#    Then Submitter User can enter "100000" for Please enter the estimated value of IT and biomedical computing requirement
-#    When Submitter User chooses Yes for ISSO Clearance field
-#    Then Submitter User can enter "12345" for SSO Clearance Ticket field
-#    And  Submitter User can see ISSO Clearance Ticket Status field
-#    When Submitter User clicks Submit Request button
-#    Then Submitter User can verify a submission confirmation modal OA Intake form appears
-#    And Submitter User chooses to submit a request
-#    Then Submitter User can confirm they are redirected to "Requestor (Requested For) Queue for Negotiated Contracts" page
+    When Submitter User chooses PSC Code Status as known
+    Then Submitter User can fill in PSC Code field as "1234"
+    And Submitter User chooses FITARA Business Case Clearances as No
+    Then Submitter User can enter "100000" for Please enter the estimated value of IT and biomedical computing requirement
+    When Submitter User chooses Yes for ISSO Clearance field
+    Then Submitter User can enter "12345" for SSO Clearance Ticket field
+    When Submitter User clicks Submit Request button
+    Then Submitter User can verify a submission confirmation modal OA Intake form appears
+    And Submitter User chooses to submit a request
+    Then Submitter User can confirm they are redirected to Requestor (Requested For) Queue for Negotiated Contracts page
 
 
 
