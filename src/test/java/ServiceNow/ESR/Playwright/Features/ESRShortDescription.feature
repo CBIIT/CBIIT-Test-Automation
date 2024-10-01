@@ -14,3 +14,17 @@ Feature: ESR Short Description Fields
     And navigates to create ESR
     And fills out all required information for ESR-I and clicks submit
     Then user confirms the following fields: ESR ID, Stage, Short Description and Project Name
+
+  @ESR-??? @sarwarahmed1 @Progression @playwright
+  Scenario: Test the listed short descriptions fields in an ESR-Q ticket
+    Given a user logs into Native View on the NCI at your service page
+    And navigates to create ESR
+    And fills out all required information for ESR-Q and clicks submit
+    Then user confirms the following fields: Number, Approval, State and Requested For
+
+#  @ESR-??? @sarwarahmed1 @Prooogression @playwright
+#  Scenario: Test the listed short descriptions fields in an ESR-I ticket
+#    Given a user logs into Native View on the NCI at your service page
+#    And navigates to create ESR
+#    And fills out all required information for ESR-I and clicks submit
+#    Then user confirms the following fields: Number, Approval, State and Requested For
