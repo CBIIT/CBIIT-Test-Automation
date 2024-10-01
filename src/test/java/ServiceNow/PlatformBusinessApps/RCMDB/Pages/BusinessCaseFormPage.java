@@ -12,7 +12,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 
 import ServiceNow.ITPG.Utils.CommonUtils;
@@ -608,7 +607,8 @@ public class BusinessCaseFormPage extends BasePage {
 	}
 
 	public void openApp() {
-			driver.get(EnvUtils.getApplicationUrl("RCMDB"));
+		// THIS WAS POINTING TO NATIVE VIEW AND NOT RCMDB
+			driver.get("");
 			CucumberLogUtils.logScreenshot();
 	}
 

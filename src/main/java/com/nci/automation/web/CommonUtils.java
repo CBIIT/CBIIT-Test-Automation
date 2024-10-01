@@ -19,7 +19,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import com.nci.automation.utils.MiscUtils;
 
 /**
  * This is a utility class which contains all common methods that will be used
@@ -357,7 +356,7 @@ public class CommonUtils extends WebDriverUtils {
                 String checkboxText = checkbox.getAttribute(attribute);
                 if (checkboxText.equals(value)) {
                     checkbox.click();
-                    MiscUtils.sleep(1000);
+                    CommonUtils.sleep(1000);
                     break;
                 }
             }
@@ -377,7 +376,7 @@ public class CommonUtils extends WebDriverUtils {
                 String checkboxText = checkbox.getAttribute(attribute);
                 if (checkboxText.equals(value)) {
                     checkbox.click();
-                    MiscUtils.sleep(500);
+                    CommonUtils.sleep(500);
                     break;
                 }
             }
@@ -460,12 +459,10 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * Compares the actual and expected strings using the Assert.assertEquals() method from the JUnit framework.
-     * If the comparison fails, an AssertionError is caught and printed out.
-     *
-     * @param actual   The actual string value to be compared.
-     * @param expected The expected string value to be compared against.
-     * @param message  An optional message to be printed if the comparison fails.
+     * Compares the actual and expected strings and throws an AssertionError if they are not equal.
+     * @param actual
+     * @param expected
+     * @param message
      */
     public static void assertEqualsWithMessage(String actual, String expected, String message) {
         try {
@@ -529,7 +526,7 @@ public class CommonUtils extends WebDriverUtils {
                 element.click();
                 break;
             } catch (WebDriverException ex) {
-                MiscUtils.sleep(2000);
+                CommonUtils.sleep(2000);
                 count++;
             }
         }
@@ -548,7 +545,7 @@ public class CommonUtils extends WebDriverUtils {
                 element.sendKeys(text);
                 break;
             } catch (WebDriverException ex) {
-                MiscUtils.sleep(2000);
+                CommonUtils.sleep(2000);
                 count++;
             }
         }
@@ -773,6 +770,15 @@ public class CommonUtils extends WebDriverUtils {
         } catch (DateTimeParseException e) {
             System.out.println("Unable to parse date: " + e.getMessage());
             return null;
+        }
+    }
+
+    public static void sleep(long millis) {
+        try {
+            Thread.sleep(millis);
+        }
+        catch(InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }

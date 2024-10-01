@@ -12,7 +12,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 
 import ServiceNow.ITPG.Utils.CommonUtils;
@@ -505,7 +504,7 @@ public class NativeViewPage extends BasePage {
 	}
 
 	public void openApp() {
-			driver.get(EnvUtils.getApplicationUrl("AtoTestUrl"));
+			driver.get("");
 	}
 
 	public void clickOnAllBusiness() {

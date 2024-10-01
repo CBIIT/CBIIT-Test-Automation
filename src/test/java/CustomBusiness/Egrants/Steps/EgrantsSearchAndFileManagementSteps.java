@@ -1,15 +1,19 @@
 package CustomBusiness.Egrants.Steps;
 
 import CustomBusiness.Egrants.StepsImplementation.EgrantsStepImplementation;
+import CustomBusiness.Egrants.Utils.Egrants_Constants;
 import appsCommon.PageInitializers.PageInitializer;
+import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
 
     @Given("searches for {string}")
-    public void searches_for(String string) {
-       EgrantsStepImplementation.searches_for(string);
+    public void searches_for(String grantSerial) {
+       EgrantsStepImplementation.searches_for(grantSerial);
     }
 
     @Given("verifies the Project title as BAYLOR COLLEGE OF MEDICINE CANCER CENTER-CANCER CENTER SUPPO…")
@@ -28,8 +32,8 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     }
 
     @Given("verifies {string} is the landed grant folder")
-    public void verifies_is_the_landed_grant_folder(String string) {
-        EgrantsStepImplementation.verifies_is_the_landed_grant_folder(string);
+    public void verifies_is_the_landed_grant_folder(String landedGrantFolder) {
+        EgrantsStepImplementation.verifies_is_the_landed_grant_folder(landedGrantFolder);
     }
 
     @Given("clicks on Add Document button")
@@ -38,8 +42,8 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     }
 
     @Given("searches for grant {string}")
-    public void searches_for_grant(String string) {
-        EgrantsStepImplementation.searches_for_grant(string);
+    public void searches_for_grant(String grantSerialNum) {
+        EgrantsStepImplementation.searches_for_grant(grantSerialNum);
     }
 
     @Given("selects grant year 18")
@@ -53,8 +57,8 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     }
 
     @Given("passes {string} as subcategory")
-    public void passes_as_subcategory(String string) {
-        EgrantsStepImplementation.passes_as_subcategory(string);
+    public void passes_as_subcategory(String subCatText) {
+        EgrantsStepImplementation.passes_as_subcategory(subCatText);
     }
 
     @Given("clicks on Locate File and Upload tab")
@@ -68,13 +72,59 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     }
 
     @Then("verifies the success message {string}")
-    public void verifies_the_success_message(String string) {
-       EgrantsStepImplementation.verifies_the_success_message(string);
+    public void verifies_the_success_message(String successMessage) {
+       EgrantsStepImplementation.verifies_the_success_message(successMessage);
     }
 
     @Given("clicks on uploaded document")
     public void clicks_on_uploaded_document() {
         EgrantsStepImplementation.clicks_on_uploaded_document();
+    }
+
+    @When("selects grant year 18 from Years")
+    public void selects_year_18() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.year18);
+        CommonUtils.sleep(2000);
+    }
+
+    @When("clicks on update icon")
+    public void clicks_on_update_icon() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.gearIcon);
+        CommonUtils.sleep(2000);
+    }
+
+    @When("selects Funding from Category dropdown")
+    public void selects_from_category_dropdown() {
+        EgrantsStepImplementation.selects_funding_category();
+    }
+
+    @When("selects Transition Approval as Subcategory")
+    public void selects_as_subcategory_and_date() {
+        EgrantsStepImplementation.selects_transition_approval_subCategory_and_date();
+    }
+
+    @Then("clicks on update icon to submit the changes")
+    public void clicks_on_update_icon_to_submit_the_changes() {
+        EgrantsStepImplementation.click_on_update_document_category_button();
+    }
+
+    @When("clicks on Replace icon")
+    public void clicks_on_replace_icon() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.replaceButton);
+    }
+    @Then("clicks on Check Document button to view the uploaded document")
+    public void clicks_on_check_document_button_to_verify_the_uploaded_document() {
+        EgrantsStepImplementation.clicks_on_uploaded_document();
+    }
+
+    @Given("expands the document details and clicks on Delete button")
+    public void expands_the_document_details_and_clicks_on_delete_button() {
+        EgrantsStepImplementation.expand_document_rows();
+    }
+
+    @Then("clicks on OK button to confirm Deletion")
+    public void clicks_on_ok_button_to_confirm_deletion() {
+        EgrantsStepImplementation.confirm_document_deletion();
     }
 
     @Given("clicks on Institutional Files menu")
@@ -91,16 +141,52 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     public void clicks_on_create_new_document_link() {
         EgrantsStepImplementation.clicks_on_create_new_document_link();
     }
+
     @Given("selects Organization Document from category dropdown")
     public void selects_organization_document_from_category_dropdown() {
         EgrantsStepImplementation.selects_organization_document_from_category_dropdown();
     }
+
     @Given("provides {string} as a subcategory")
-    public void provides_as_a_subcategory(String string) {
-        EgrantsStepImplementation.provides_as_a_subcategory(string);
+    public void provides_as_a_subcategory(String subCategory) {
+        EgrantsStepImplementation.provides_as_a_subcategory(subCategory);
     }
+
     @Then("clicks on Create New button")
     public void clicks_on_create_new_button() {
         EgrantsStepImplementation.clicks_on_create_new_button();
+    }
+
+    @Given("searches for {string} on Add New Document page")
+    public void searches_for_on_add_new_document_page(String grantNum) {
+        EgrantsStepImplementation.searches_for_grant_on_add_document_page(grantNum);
+    }
+
+    @Given("clicks Update icon for an uploaded Organization Document")
+    public void clicks_update_icon_for_an_uploaded_organization_document() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.updateIconInstitutionalFiles);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    @Given("selects Follow-Up as the new category")
+    public void selects_follow_up_as_the_new_category() {
+        CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.documentCategoryDropdown, Egrants_Constants.FOLLOWUP_CATEGORY);
+        CucumberLogUtils.logScreenshot();
+     }
+
+    @Given("enters Follow-up facility visit Test as subcategory")
+    public void enters_new_subcategory() {
+        EgrantsStepImplementation.enters_subcategory_for_institutional_file();
+    }
+
+    @Then("clicks on Save Update button")
+    public void clicks_on_save_update_button() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.saveUpdateButton);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    @Given("clicks on Delete button to delete an uploaded document")
+    public void clicks_on_delete_button_for_an_uploaded_organization_document() {
+        EgrantsStepImplementation.click_on_delete_button_institutional_files();
     }
 }

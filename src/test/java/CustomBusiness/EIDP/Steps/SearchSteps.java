@@ -3,7 +3,6 @@ package CustomBusiness.EIDP.Steps;
 import java.util.Map;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
@@ -70,7 +69,7 @@ public class SearchSteps extends PageInitializer {
 			searchStepimpl.selectCurrentIDPStatus("Completed");
 			searchStepimpl.clickOnSearchButton();
 			searchStepimpl.selectActiveTrainee();
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			searchStepimpl.clickYesButtonForRenewal();
 			select_the_reason_as_checkbox("Routine 6 Month follow up");
 			searchStepimpl.clickOnSaveAndSendMailButton();
@@ -195,7 +194,7 @@ public class SearchSteps extends PageInitializer {
 	@Then("User click on {string} on the grid")
 	public void user_click_on_on_the_grid(String button) throws Exception {
 		button = button.trim();
-		MiscUtils.sleep(4000);
+		CommonUtils.sleep(4000);
 		CommonUtils.selectDropDownValue("100", searchPage.advancedSearchResultLength);
 		switch (button) {
 		case "Revise Existing IDP":
@@ -221,7 +220,7 @@ public class SearchSteps extends PageInitializer {
 
 	@Then("Select the reason as {string} checkbox")
 	public void select_the_reason_as_checkbox(String value) {
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		searchStepimpl.selectCheckBox(value);
 	}
 
@@ -251,23 +250,23 @@ public class SearchSteps extends PageInitializer {
 
 	@When("User reads the trainee name from cancel idp confirmation window")
 	public void readPrimaryMentorAndTrainneeNamesFromCancelIdpWindow() {
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		SharedData.traineeName = searchStepimpl.getTraineeeNameFromCancelIdpConformationWindow();
 	}
 
 	@When("User reads the trainee name from undo cancel idp confirmation window")
 	public void readTrainneeNameFromUndoCancelIdpWindow() {
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		SharedData.traineeName = searchStepimpl.getTraineeeNameFromUndoCancelIdpConformationWindow();
 	}
 
 	@When("User enters release hold comments and clicks on ok button")
 	public void enterReleaseHoldComments() {
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		searchStepimpl.enterReleaseHoldComments();
 		searchStepimpl.clickOnReleaseHoldOkbutton();
 		eidpCommonPage.clickOnOkButton();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 	}
 
 	@When("User enters comments and clicks on yes button on cancel idp window")
@@ -285,13 +284,13 @@ public class SearchSteps extends PageInitializer {
 		searchStepimpl.enterUndoCancelIdpComments("Undo cancel idp for testing");
 		searchStepimpl.clickOnUndoCancelYesButton();
 		eidpCommonPage.clickOnOkButton();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 	}
 
 	@When("User selects IDP type as Trainees with IDP")
 	public void traineesWithIDP() {
 		searchStepimpl.checkTraineeWithIDPCheckbox();
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 	}
 
 	@When("User enters {string} to first name input box")
@@ -302,13 +301,13 @@ public class SearchSteps extends PageInitializer {
 	@When("User enters {string} to last name input box")
 	public void user_enters_to_last_name_input_box(String lastName) {
 		searchStepimpl.enterTraineeLastName(lastName);
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 	}
 
 	@When("User will click Search button")
 	public void user_will_click_Search_button() {
 		searchStepimpl.clickOnSearchButton();
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		JavascriptUtils.scrollDown(1000);
 	}
 

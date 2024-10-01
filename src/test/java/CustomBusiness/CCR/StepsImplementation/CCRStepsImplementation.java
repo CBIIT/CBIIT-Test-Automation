@@ -1,18 +1,13 @@
 package CustomBusiness.CCR.StepsImplementation;
 
 import CustomBusiness.CCR.Constants.CCR_CONSTANTS;
-import ServiceNow.PlatformBusinessApps.NERD.Constants.NCI_Staff_Members_Constants;
-import ServiceNow.PlatformBusinessApps.SSJ.selenium.Constants.StadtmanVacanciesConstants;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
@@ -20,20 +15,21 @@ import org.openqa.selenium.support.ui.Select;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import static com.nci.automation.web.TestProperties.getCcrUrl;
 
 public class CCRStepsImplementation extends PageInitializer {
 
     public void ccrApplicantLogin(){
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonate_Any_User_Without_Landing_In_Native_View((CCR_CONSTANTS.APPLICANT));
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CCR"));
+        WebDriverUtils.webDriver.get(getCcrUrl());
         CucumberLogUtils.logScreenshot();
     }
 
     public void ccrAdminLogin(){
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonate_Any_User_Without_Landing_In_Native_View((CCR_CONSTANTS.ADMIN));
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CCR"));
+        WebDriverUtils.webDriver.get(getCcrUrl());
         CucumberLogUtils.logScreenshot();
     }
 
@@ -80,13 +76,13 @@ public class CCRStepsImplementation extends PageInitializer {
             case "CV":
                 CommonUtils.clickOnElement((cCRApplicantPage.uploadFileCV));
                 setClipboardData(CCR_CONSTANTS.CV);
-                MiscUtils.sleep(1000);
+                CommonUtils.sleep(1000);
                 enterFilePathCloseWindowDialogue();
                 break;
             case "Research Goals":
                 CommonUtils.clickOnElement((cCRApplicantPage.uploadFileResearchGoals));
                 setClipboardData(CCR_CONSTANTS.RESEARCH_GOALS);
-                MiscUtils.sleep(1000);
+                CommonUtils.sleep(1000);
                 enterFilePathCloseWindowDialogue();
                 break;
         }
@@ -156,7 +152,7 @@ public class CCRStepsImplementation extends PageInitializer {
         CommonUtils.clickOnElement(cCRApplicantPage.submitButton);
         CommonUtils.waitForVisibility(cCRApplicantPage.submitConfirmationButton);
         CommonUtils.clickOnElement(cCRApplicantPage.submitConfirmationButton);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         Assert.assertTrue(" User failed to submit application", cCRApplicantPage.msgApplicationSubmitted.isDisplayed());
         CommonUtils.waitForVisibility(cCRApplicantPage.closeApplicationSubmittedButton);
         CommonUtils.clickOnElement(cCRApplicantPage.closeApplicationSubmittedButton);
@@ -208,20 +204,20 @@ public class CCRStepsImplementation extends PageInitializer {
         CommonUtils.clickOnElement(cCRAdminUserPage.buttonAddPosition);
         CommonUtils.waitForVisibility(cCRAdminUserPage.fieldPositionTitle);
         CommonUtils.sendKeys(cCRAdminUserPage.fieldPositionTitle, "Chief Technical Officer");
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.switchToFrame(createNewSubmissionPage.DescriptionTextBoxIframe);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CommonUtils.sendKeys(cCRAdminUserPage.fieldDescription, "Added description");
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         WebDriverUtils.webDriver.switchTo().defaultContent();
         JavascriptUtils.scrollIntoView(cCRAdminUserPage.openDateCalendar);
         CommonUtils.clickOnElement(cCRAdminUserPage.openDateCalendar);
         CommonUtils.clickOnElement(cCRAdminUserPage.todaysDateActiveField);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         Select s = new Select(webDriver.findElement(By.id("number_of_references")));
         s.selectByVisibleText("1");
         clickOutside();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(cCRAdminUserPage.buttonSaveNewPosition);
     }
 
@@ -230,11 +226,11 @@ public class CCRStepsImplementation extends PageInitializer {
         CommonUtils.clickOnElement(cCRAdminUserPage.tabPositions);
         CommonUtils.waitForVisibility(cCRAdminUserPage.buttonRemoveNewlyCreatedPosition);
         CommonUtils.clickOnElement(cCRAdminUserPage.buttonRemoveNewlyCreatedPosition);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(cCRAdminUserPage.buttonOkRemovingPositionModal);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         Assert.assertTrue("Position was NOT removed",cCRAdminUserPage.confirmationMessagePositionWasRemoved.isDisplayed());
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(cCRAdminUserPage.acknowledgeConfirmationModalPositionWasRemoved);
     }
 

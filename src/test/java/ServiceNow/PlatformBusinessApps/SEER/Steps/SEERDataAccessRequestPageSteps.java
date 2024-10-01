@@ -3,7 +3,6 @@ package ServiceNow.PlatformBusinessApps.SEER.Steps;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERUserRegistrationPageStepImpl;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,13 +11,12 @@ import io.cucumber.java.en.When;
 public class SEERDataAccessRequestPageSteps extends PageInitializer {
 
 	@Given("a SEER User Registration has been successfully submitted")
-	public void a_SEER_User_Registration_has_been_successfully_submitted() throws TestingException {
+	public void a_SEER_User_Registration_has_been_successfully_submitted()  {
 		SEERUserRegistrationPageStepImpl.aSEERUserRegistrationHasBeenSuccessfullySubmitted();
 	}
 
 	@Given("user verifies email address by clicking on the email verification link that is sent to the user after submitting a SEER User registration form")
-	public void user_verifies_email_address_by_clicking_on_the_email_verification_link_that_is_sent_to_the_user_after_submitting_a_SEER_User_registration_form()
-			throws TestingException {
+	public void user_verifies_email_address_by_clicking_on_the_email_verification_link_that_is_sent_to_the_user_after_submitting_a_SEER_User_registration_form() {
 		SEERDataAccessRequestPageStepsImpl.userVerifiesEmailAddressByClickingOnTheEmailVerificationLinkThatIsSentToTheUserAfterSubmittingASEERUserRegistrationForm();
 	}
 
@@ -121,7 +119,7 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 
 	@When("user confirms their email address by clicking on the email verifation link sent to the users email address")
 	public void user_confirms_their_email_address_by_clicking_on_the_email_verifation_link_sent_to_the_users_email_address()
-			throws TestingException {
+			 {
 		SEERDataAccessRequestPageStepsImpl.userConfirmsTheirEmailAddressByClickingOnTheEmailVerificationLinkSentToTheUsersEmailAddress();
 	}
 

@@ -1,13 +1,11 @@
 package CustomBusiness.EIDP.Pages;
 
 import java.util.List;
-import CustomBusiness.EIDP.Steps.HooksSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
@@ -89,7 +87,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		CommonUtils.clickOnElement(markAsReviewedCheckbox);
 		CommonUtils.clickOnElement(approveIDP);
 		CommonUtils.clickOnElement(finalYesButton);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -197,20 +195,20 @@ public class CoPrimaryMentorPage extends CommonUtils {
 	}
 
 	public void markAsReviewed() {
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(markAsReviewed);
 	}
 
 	public void clickOnApproveAndSubmitButton() {
 		CucumberLogUtils.logScreenshot();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		String locator = "//*[@id='tdAprroveIDP']";
 		if (WebDriverUtils.webDriver.findElements(By.xpath(locator)).size() > 0) {
 			CommonUtils.clickOnElement(approvedAndSubmitButton);
 		} else {
 			CommonUtils.clickOnElement(reviewedButton);
 		}
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 	}
 
 	public void clickOnApproveAndSubmitButtonFORNCI() {

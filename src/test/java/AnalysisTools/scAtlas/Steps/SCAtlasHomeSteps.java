@@ -1,18 +1,17 @@
 package AnalysisTools.scAtlas.Steps;
 
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.*;
+import static com.nci.automation.web.TestProperties.getScatlasUrl;
 
 public class SCAtlasHomeSteps extends PageInitializer {
 
     @Given("the user is on the scAtlas home page")
     public void the_user_is_on_the_sc_atlas_home_page() {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("scAtlas"));
-        MiscUtils.sleep(2000);
+        WebDriverUtils.webDriver.get(getScatlasUrl());
+        CommonUtils.sleep(2000);
     }
 
     @When("the user clicks Sequential NCI-Clarity window")

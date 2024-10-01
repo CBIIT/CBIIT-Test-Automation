@@ -1,7 +1,7 @@
 package CustomBusiness.EIDP.Steps;
 
+import com.nci.automation.web.CommonUtils;
 import org.junit.Assert;
-import com.nci.automation.utils.MiscUtils;
 import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.When;
@@ -32,9 +32,9 @@ public class AligningExpectationsSteps extends PageInitializer {
 
 	@When("User verifies IDP will be placed on hold message")
 	public void verifyIDPHoldMsg() {
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			eidpDashboardStepImpl.clickOnSendIDPToPrimaryMentorButton();
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			String msg = aligningExpectationsStepImpl.getHoldMsg();
 			System.out.println("hold message = " + msg);
 			eidpCommonPage.clickOnYesButton();

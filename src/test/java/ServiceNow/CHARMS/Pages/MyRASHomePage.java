@@ -34,9 +34,13 @@ public class MyRASHomePage {
 	@FindBy(xpath = "//p[@align='center']//parent::div//child::h3")
 	public WebElement rasoptathyRasSurveyPin;
 
-	/* RASopathy Study Consent */
+	/* RASopathy Study Consent Button */
 	@FindBy(xpath = "//div[@class='custom-card-image']//a[@aria-label='Consent']")
 	public WebElement rasopathyStudyConsent;
+
+	/* RASopathy Study Assent Button */
+	@FindBy(xpath = "//div[@class='custom-card-image']//a[@aria-label='Assent']")
+	public WebElement rasopathyStudyAssent;
 
 	/**
 	 * Locates a dynamic module based on the given text.
@@ -53,5 +57,4 @@ public class MyRASHomePage {
 	public MyRASHomePage() {
 		PageFactory.initElements(webDriver, this);
 	}
-
 }

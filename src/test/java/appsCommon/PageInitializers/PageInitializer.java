@@ -3,7 +3,7 @@ package appsCommon.PageInitializers;
 import AnalysisTools.ACT24.Pages.*;
 import AnalysisTools.ACT24.StepsImpl.ACT24ParticipantStepImpl;
 import AnalysisTools.ACT24.StepsImpl.ACT24ResearcherStepImpl;
-import AnalysisTools.Comets2.Pages.*;
+import AnalysisTools.CometsExplorer.Pages.*;
 import AnalysisTools.CometsAnalytics.Pages.*;
 import AnalysisTools.CometsAnalytics.StepsImplementation.*;
 import AnalysisTools.GDSTracking.Pages.*;
@@ -49,8 +49,6 @@ import ServiceNow.CHARMS.Pages.*;
 import ServiceNow.CHARMS.ScenariosData.*;
 import ServiceNow.CHARMS.StepsImplementation.*;
 import ServiceNow.CHARMS.StepsImplementation.RASStudy.*;
-import ServiceNow.CICDBuild.Pages.*;
-import ServiceNow.CICDBuild.StepsImplementation.*;
 import ServiceNow.COVIDCode.Pages.*;
 import ServiceNow.COVIDCode.StepsImplementation.*;
 import ServiceNow.COVIDCode.StepsImplementation.DashboardStepImpl;
@@ -67,8 +65,6 @@ import ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Pages.CTRPCTRO_NV_Page
 import ServiceNow.PlatformBusinessApps.GDC.Pages.GDC_Workflow_NativeView_Page;
 import ServiceNow.PlatformBusinessApps.GCP.Pages.GCPNotifications_NativeViewPage;
 import ServiceNow.PlatformBusinessApps.NERD.Pages.*;
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERDLoginStepsImplementation;
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
@@ -169,12 +165,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static MelanomaHomePage melanomaHomePage;
 	public static MelanomaQuestionnairePage melanomaQuestionnairePage;
 
-	/** CICDBuild instances */
-	// ServiceNow DevOps instances
-	public static DevOpsLoginPage devOpsLoginPage;
-	public static DevOpsNativeViewPage devOpsNativeViewPage;
-	public static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
-
 	/** OA Intake instances */
 	public static OAIntakeStepsImplementation oaIntakeStepsImplementation ;
 	public static OAIntakePage oaIntakePage;
@@ -188,7 +178,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static SEERDataAccessRequestPageStepsImpl seerDataAccessRequestPageStepsImpl;
 
 	/** NERD instances */
-	public static NERDLoginStepsImplementation nerdLoginStepsImplementation;
 	public static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
 	public static CreateNewSubmissionPage createNewSubmissionPage;
 	public static NERDDynamicXPATHS nerdDynamicXpaths;
@@ -348,7 +337,6 @@ public class PageInitializer extends WebDriverUtils {
 
 	/** --------------- NATIVE VIEW INSTANCES --------------- */
 	public static NativeViewHomePage nativeViewHomePage;
-	public static NativeViewImpersonateUser nativeViewImpersonateUser;
 	public static NativeViewImpersonateUserPage nativeViewImpersonateUserPage;
 	public static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
 	public static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
@@ -459,12 +447,6 @@ public class PageInitializer extends WebDriverUtils {
 		melanomaHomePage = new MelanomaHomePage();
 		melanomaQuestionnairePage = new MelanomaQuestionnairePage();
 
-		/** CICDBuild Instance Variables */
-		// ServiceNow DevOps instances
-		devOpsLoginPage = new DevOpsLoginPage();
-		devOpsNativeViewPage = new DevOpsNativeViewPage();
-		devOpsAutomatedBuildStepsImplementation = new DevOpsAutomatedBuildStepsImplementation();
-
 		/** SEER Instance Variables */
 		seerLandingPage = new SEERLandingPage();
 		seerUserRegistrationPage = new SEERUserRegistrationPage();
@@ -474,7 +456,6 @@ public class PageInitializer extends WebDriverUtils {
 		seerDataAccessRequestPageStepsImpl = new SEERDataAccessRequestPageStepsImpl();
 
 		/** NERD Instance Variables */
-		nerdLoginStepsImplementation = new NERDLoginStepsImplementation();
 		nerdCrsKnowledgeDatabaseSubmissionsPage = new NERDSubmissionsPage();
 		createNewSubmissionPage = new CreateNewSubmissionPage();
 		nerdDynamicXpaths = new NERDDynamicXPATHS();
@@ -628,7 +609,6 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
 		nativeViewHomePage = new NativeViewHomePage();
-		nativeViewImpersonateUser = new NativeViewImpersonateUser();
 		nativeViewImpersonateUserPage = new NativeViewImpersonateUserPage();
 		nativeViewEnrollementsPage = new NativeViewEnrollmentsPage();
 		nativeViewEnrollmentViewPage = new NativeViewEnrollmentViewPage();

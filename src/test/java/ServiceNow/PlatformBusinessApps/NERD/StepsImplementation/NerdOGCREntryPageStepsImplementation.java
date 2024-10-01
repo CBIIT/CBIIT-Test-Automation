@@ -4,10 +4,8 @@ import ServiceNow.PlatformBusinessApps.NERD.Constants.NERDOGSRMemberOfCongress_C
 import ServiceNow.PlatformBusinessApps.NERD.Pages.NERDOGCRAddNewEntryPage;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import java.util.ArrayList;
@@ -18,6 +16,22 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
     public static List<String> formPortalCongressPeopleList = new ArrayList<>();
     public static List<String> formCongressPeopleList = new ArrayList<>();
 
+    /**
+     * Sets the drop-down values for the new entry special topic field and verifies the values.
+     *
+     * @param DDValuePayline          The value for the DDValuePayline option.
+     * @param bigDataDataSharing     The value for the bigDataDataSharing option.
+     * @param CCDI                            The value for the CCDI option.
+     * @param COVID19                  The value for the COVID19 option.
+     * @param healthDisparities The value for the healthDisparities option.
+     * @param lowDoseRadiation      The value for the lowDoseRadiation option.
+     * @param mCDEarlyDetection The value for the mCDEarlyDetection option.
+     * @param moonshot                   The value for the moonshot option.
+     * @param pediatric                     The value for the pediatric option.
+     * @param rare                               The value for the rare option.
+     * @param sTARAct                          The value for the sTARAct option.
+     * @param survivorship                 The value for the survivorship option.
+     */
     public static void newEntrySpecialTopicDropDownValues(String DDValuePayline, String bigDataDataSharing,
                                                           String CCDI, String COVID19, String healthDisparities, String lowDoseRadiation,
                                                           String mCDEarlyDetection, String moonshot, String pediatric, String rare, String sTARAct, String survivorship) {
@@ -25,10 +39,10 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
                 lowDoseRadiation, mCDEarlyDetection, moonshot, pediatric, rare, sTARAct, survivorship};
         String[] actualSpecialTopicValue = new String[expectedSpecialTopicValues.length];
         CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrNewEntrySpecialTopic);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         JavascriptUtils.drawBlueBorder(nERDOGCRAddNewEntryPage.nerdOgcrNewEntrySpecialTopic);
         CommonUtils.sendKeys(nERDOGCRAddNewEntryPage.nerdOgcrNewEntrySpecialTopicDropDown, Keys.ENTER);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         for (int i = 1; i < actualSpecialTopicValue.length - 1; i++) {
             actualSpecialTopicValue[i - 1] = NERDOGCRAddNewEntryPage.nerdOgcrNewEntrySpecialTopicDropDownValues("" + i).getText();
@@ -40,6 +54,25 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Sets the drop-down values for the new entry OGCR Content Type field and verifies the values.
+     *
+     * @param none                          The value for the "None" option.
+     * @param billSummaryText               The value for the "Bill Summary Text" option.
+     * @param biography                     The value for the "Biography" option.
+     * @param brainBrief                    The value for the "Brain Brief" option.
+     * @param cACR                          The value for the "CACR" option.
+     * @param formalCorrespondence          The value for the "Formal Correspondence" option.
+     * @param gAOOIG                        The value for the "GAOOIG" option.
+     * @param hearingBriefingVisitSummary   The value for the "Hearing Briefing Visit Summary" option.
+     * @param informalCorrespondence        The value for the "Informal Correspondence" option.
+     * @param preparatoryDocument           The value for the "Preparatory Document" option.
+     * @param presentationLegislativeUpdate The value for the "Presentation Legislative Update" option.
+     * @param qFR                           The value for the "QFR" option.
+     * @param significantItem               The value for the "Significant Item" option.
+     * @param technicalAssistance           The value for the "Technical Assistance" option.
+     * @param other                         The value for the "Other" option.
+     */
     public static void newEntryOGCRContentTypeDropDownValues(String none, String billSummaryText, String biography, String brainBrief, String cACR,
                                                              String formalCorrespondence, String gAOOIG, String hearingBriefingVisitSummary, String informalCorrespondence, String preparatoryDocument,
                                                              String presentationLegislativeUpdate, String qFR, String significantItem, String technicalAssistance, String other) {
@@ -48,11 +81,11 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
                 presentationLegislativeUpdate, qFR, significantItem, technicalAssistance, other};
         String[] actualOGCRContentTypeValue = new String[expectedOGCRContentTypeValues.length];
         CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryOGCRContentType);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         JavascriptUtils.drawBlueBorder(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryOGCRContentType);
         CommonUtils.waitForClickability(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryOGCRContentTypeDropDown);
         CommonUtils.clickOnElement(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryOGCRContentTypeDropDown);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         for (int i = 1; i < actualOGCRContentTypeValue.length - 1; i++) {
             actualOGCRContentTypeValue[i - 1] = NERDOGCRAddNewEntryPage.nerdOgcrNewEntryGCRContentTypeDropDownValues("" + i).getText();
@@ -64,8 +97,13 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Clicks the drop-down filter for the member of congress.
+     *
+     * @param memberOfCongress The value for the member of congress filter.
+     */
     public static void clicksTheDropDownFilter(String memberOfCongress) {
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
         CommonUtils.assertTrue(
                 nERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressFilter.getText()
                         .contentEquals(memberOfCongress));
@@ -74,10 +112,15 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    public static void newEntryMemberOfCongressInfoDropDownValues() throws TestingException {
+    /**
+     * Sets the drop-down values for the "Member of Congress Info" field in the "Add New Entry" form page.
+     * This method selects the option from the drop-down menu, retrieves the congress person's information,
+     * and adds it to the congress people list.
+     */
+    public static void newEntryMemberOfCongressInfoDropDownValues() {
         CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown);
         CommonUtils.sendKeys(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown, Keys.ENTER);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         boolean congressNumber = false;
         int i = 1;
@@ -93,7 +136,7 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
             }
         }
         CommonUtils.sendKeys(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown, Keys.ENTER);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CommonUtils.sendKeys(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown, NERDOGSRMemberOfCongress_Constants.NERD_OGCR_MEMBER_OF_CONGRESS_SENATOR);
         CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressSerchDropDown);
         JavascriptUtils.scrollIntoView(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressSerchDropDown);
@@ -102,14 +145,20 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
         CommonUtils.assertEquals(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressSelectedDropDown("" + 2).getText(), (NERDOGSRMemberOfCongress_Constants.NERD_OGCR_MEMBER_OF_CONGRESS_SENATOR));
         JavascriptUtils.drawBlueBorder(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressSelectedDropDown("" + 1));
         JavascriptUtils.drawBlueBorder(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressSelectedDropDown("" + 2));
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
     }
 
-    public static void allDropDownFieldOptionsAreSameAsTheAddNewEntryFormPageForTheField() throws TestingException {
+    /**
+     * This method verifies that all the drop-down field options in the "Add New Entry" form page
+     * for a Member of COngress field are the same as the drop-down options in the corresponding field in the
+     * portal page. It retrieves the drop-down values in both pages, compares them, and logs screenshots
+     * for verification purposes.
+     */
+    public static void allDropDownFieldOptionsAreSameAsTheAddNewEntryFormPageForTheField() {
         CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressFilter);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         boolean congressNumber = false;
         int i = 2;
@@ -132,7 +181,7 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
         CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressSelectedFieldArea);
         JavascriptUtils.drawBlueBorder(nERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressSelectedFieldArea);
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CommonUtils.clickOnElement(nERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressSelectAll);
         CucumberLogUtils.logScreenshot();
         NERDOGSRMemberOfCongressStepImpl.theOgcrUserClicksTheButton();

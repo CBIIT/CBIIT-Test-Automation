@@ -1,12 +1,11 @@
 package ServiceNow.CHARMS.Steps;
 
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import ServiceNow.CHARMS.StepsImplementation.FHQSubmissionStepsImpl;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import static com.nci.automation.web.TestProperties.getRasLoginUrl;
 
 public class FHQSubmissionSteps extends PageInitializer {	
 	@Given("the study nurse logs into Native View")
@@ -15,42 +14,27 @@ public class FHQSubmissionSteps extends PageInitializer {
 		FHQSubmissionStepsImpl.loginToFHQPatientInNativeView();
 	}	
 	@Given("participant open RASopathies Longitudinal Cohort Study login page")
-	public void participant_open_rasopathies_longitudinal_cohort_study_login_page() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
+	public void participant_open_rasopathies_longitudinal_cohort_study_login_page() {
+		WebDriverUtils.webDriver.get(getRasLoginUrl());
 	}	
 	@Then("logs Rasopathy page via Okta with username {string} and password {string}")
-	public void logs_rasopathy_page_via_okta_with_username_and_password(String username, String password) throws TestingException {
+	public void logs_rasopathy_page_via_okta_with_username_and_password(String username, String password) {
 		FHQSubmissionStepsImpl.loginToRASStudyPage(username, password);
 	}	
 	@Then("clicks CHARMS FHQ Relative Link page")
-	public void clicks_charms_fhq_relative_link_page() throws TestingException {
+	public void clicks_charms_fhq_relative_link_page() {
 		FHQSubmissionStepsImpl.loginToFHQGridPage();
 	}	
 	@Then("participant submits FHQ Relatives Form from excel name {string}")
-	public void participant_submits_fhq_Relatives_form_from_excel_name(String excelName) throws TestingException {
+	public void participant_submits_fhq_Relatives_form_from_excel_name(String excelName) {
 		FHQSubmissionStepsImpl.scenarioSelectorForFHQRelativesList(excelName);
 	}	
 	@Then("user submits FHQ Relative from excel name {string} and excel sheet {string}")
-	public void user_submits_fhq_relative_from_excel_name_and_excel_sheet(String excelName, String sheetName)throws TestingException {
+	public void user_submits_fhq_relative_from_excel_name_and_excel_sheet(String excelName, String sheetName) {
 		FHQSubmissionStepsImpl.scenarioSelectorForFHQRelative(excelName,sheetName); 
 	}	
 	@Then("data submitted for FHQ Relative is verified in FHQ Patient page of NativeView from excel name {string} and excel sheet {string}")
-	public void data_submitted_for_fhq_relative_is_verified_in_fhq_patient_page_of_native_view_from_excel_name_and_excel_sheet(String excelName, String sheetName) throws TestingException {
+	public void data_submitted_for_fhq_relative_is_verified_in_fhq_patient_page_of_native_view_from_excel_name_and_excel_sheet(String excelName, String sheetName)  {
 		FHQSubmissionStepsImpl.scenarioAssertionForFHQ(excelName,sheetName);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

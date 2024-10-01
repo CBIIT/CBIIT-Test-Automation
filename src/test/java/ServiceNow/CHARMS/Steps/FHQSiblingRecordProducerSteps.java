@@ -3,7 +3,6 @@ package ServiceNow.CHARMS.Steps;
 import java.util.ArrayList;
 
 import org.junit.Assert;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import ServiceNow.CHARMS.Constants.FHQSurveyPageConstants;
 import ServiceNow.CHARMS.Utils.ComponentTestResult;
@@ -288,12 +287,12 @@ public class FHQSiblingRecordProducerSteps extends PageInitializer {
 		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.BirthsLabel,
 				"Has this relative ever had any miscarriages, stillbirths, induced abortions, or ectopic pregnancies?");
 
-		MiscUtils.sleep(200);
+		CommonUtils.sleep(200);
 
 		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
 				FHQSurveyPageConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER, 1);
 
-		MiscUtils.sleep(200);
+		CommonUtils.sleep(200);
 
 		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.siblingTotalMiscarriagesLabel,
 				"Total number of Miscarriages");
@@ -348,7 +347,7 @@ public class FHQSiblingRecordProducerSteps extends PageInitializer {
 	@When("fills the patient sibling Resopathy details")
 	public void fills_the_patient_sibling_Resopathy_details() {
 
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 
 		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.relativeDiagnosedWithRasopathyLabel,
 				"Has this relative been diagnosed with a RASopathy?");
@@ -388,7 +387,7 @@ public class FHQSiblingRecordProducerSteps extends PageInitializer {
 
 		fHQSurveyPortalPage.addSiblingRasopathyButton.click();
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		CommonUtils.maximizeWindow();
 
@@ -428,7 +427,7 @@ public class FHQSiblingRecordProducerSteps extends PageInitializer {
 		ComponentTestResult estimatedAgeBanner1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.addRowestimatedAgeBanner1,
 				"An estimated age is preferred over \"Don't Know\". Examples: early 40s = 42; mid-40s = 45; late 40s = 48.");
 
-		MiscUtils.sleep(400);
+		CommonUtils.sleep(400);
 
 		ComponentTestResult dropdownTest4 = FHQUtil.verifySelect2DropDowns(
 				fHQSurveyPortalPage.addRowYearOfDiagnosisDropDown, FHQSurveyPageConstants.yearOfDiagnosis(), 16);
@@ -588,14 +587,14 @@ public class FHQSiblingRecordProducerSteps extends PageInitializer {
 
 		fHQSurveyPortalPage.addCancerButton.click();
 
-		MiscUtils.sleep(100);
+		CommonUtils.sleep(100);
 		CommonUtils.maximizeWindow();
 
 		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.addRowBanner, "Add Row");
 
 		ComponentTestResult labelTest4 = FHQUtil.verifyLabel(fHQSurveyPortalPage.addRowTypeOfDiagnosisLabel, "Cancer");
 
-		MiscUtils.sleep(100);
+		CommonUtils.sleep(100);
 		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(
 				fHQSurveyPortalPage.addRowTypeOfDiagnosisDropDown, FHQSurveyPageConstants.CANCER_TYPE, 41);
 
@@ -792,7 +791,7 @@ public class FHQSiblingRecordProducerSteps extends PageInitializer {
 
 		fHQSurveyPortalPage.addMedicalConditionsButton.click();
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CommonUtils.maximizeWindow();
 
 		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.addRowBanner, "Add Row");
@@ -1106,7 +1105,7 @@ public class FHQSiblingRecordProducerSteps extends PageInitializer {
 
 		fHQSurveyPortalPage.CompleteAndSubmitButton.click();
 
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 
 		StepTestResult stepTestResult = new StepTestResult(
 				"Finally clicked the Complete-Submit Button to submit the Participant Sibling record producer");
@@ -1156,7 +1155,7 @@ public class FHQSiblingRecordProducerSteps extends PageInitializer {
 		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,
 				"Family Cohort Study Management System: RASopathies");
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		ComponentTestResult homeButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.homeButton, "FHQ Home");
 

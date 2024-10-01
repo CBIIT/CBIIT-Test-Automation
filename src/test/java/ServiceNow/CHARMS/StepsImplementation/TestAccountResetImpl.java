@@ -3,12 +3,12 @@ package ServiceNow.CHARMS.StepsImplementation;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
-import com.nci.automation.utils.LocalConfUtils;
-import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.TestProperties;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
+import io.cucumber.java.en.Given;
 
 public class TestAccountResetImpl extends PageInitializer {
 
@@ -16,34 +16,34 @@ public class TestAccountResetImpl extends PageInitializer {
      * This method resets RASopathy Study Test Account Call this method at the end
      * of your test case to rerun test case with same test account
      *
-     * @throws TestingException
+     * @
      */
 
-    public void resetTestAccountSignIn() throws TestingException {
-        if (LocalConfUtils.getProperty("env").equals("test")) {
+    public void resetTestAccountSignIn()  {
+        if (TestProperties.ENV.equals("test")) {
             ServiceNow_Login_Methods.nativeViewSideDoorLogin();
             WebDriverUtils.webDriver.get(
                     "https://service-test.nci.nih.gov/sys_script_fix.do?sys_id=a32b45c21be638106daea681f54bcb81&sysparm_view=&sysparm_domain=null&sysparm_domain_scope=null&sysparm_record_row=1&sysparm_record_rows=940&sysparm_record_list=ORDERBYDESCsys_updated_on");
-            MiscUtils.sleep(2000);
-        } else if (LocalConfUtils.getProperty("env").equals("dev2")) {
+            CommonUtils.sleep(2000);
+        } else if (TestProperties.ENV.equals("dev2")) {
             ServiceNow_Login_Methods.nativeViewSideDoorLogin();
             WebDriverUtils.webDriver.get(
                     "https://service-dev2.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Da32b45c21be638106daea681f54bcb81%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D5%26sysparm_record_rows%3D13%26sysparm_record_list%3DnameCONTAINSreset%255EORDERBYsys_scope");
-            MiscUtils.sleep(2000);
+            CommonUtils.sleep(2000);
         }
 
     }
 
     public void resetTestAccount() {
-        if(LocalConfUtils.getProperty("env").equals("test")){
-            MiscUtils.sleep(2000);
+        if(TestProperties.ENV.equals("test")){
+            CommonUtils.sleep(2000);
             CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
-            MiscUtils.sleep(2000);
+            CommonUtils.sleep(2000);
             testAccountResetPage.nativeViewRunFixScriptButton.click();
-            MiscUtils.sleep(1000);
+            CommonUtils.sleep(1000);
             CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
             testAccountResetPage.nativeViewProceedInBackgroundButton.click();
-            MiscUtils.sleep(10000);
+            CommonUtils.sleep(10000);
         }
     }
 
@@ -65,16 +65,39 @@ public class TestAccountResetImpl extends PageInitializer {
     public static void charmsRasOneTestAccountReset(){
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(
-                "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3D6b09648c877fc6507e87a8a60cbb35f2%26sysparm_view%3D%26sysparm_domain%3Dnull%26sysparm_domain_scope%3Dnull");
-        MiscUtils.sleep(2000);
+                "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=a3ee10cc8790d610ad46326d3fbb350a");
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         testAccountResetPage.nativeViewRunFixScriptButton.click();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
         testAccountResetPage.nativeViewProceedInBackgroundButton.click();
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
+        CucumberLogUtils.logScreenshot();
+        ServiceNow_Common_Methods.logOutOfNativeView();
+    }
+
+    /**
+     * This method navigates to the url with the RASopathy Study Test Account reset script
+     * Call this method at the end of your test case to rerun test case with same test account
+     *
+     * @param url the URL to navigate to the test account reset script
+     */
+    public static void test_automation_account_has_been_reset(String url) {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        WebDriverUtils.webDriver.get(url);
+        CommonUtils.sleep(2000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
+        CommonUtils.sleep(2000);
+        testAccountResetPage.nativeViewRunFixScriptButton.click();
+        CommonUtils.sleep(1000);
+        CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
+        testAccountResetPage.nativeViewProceedInBackgroundButton.click();
+        CommonUtils.sleep(3000);
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
 }

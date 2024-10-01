@@ -8,10 +8,8 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
 
 public class NativeViewStepsImpl extends PageInitializer {
@@ -31,26 +29,26 @@ public class NativeViewStepsImpl extends PageInitializer {
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourBioSexDropDown);
 		CommonUtils.selectDropDownValue("Female",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourBioSexDropDown);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourCurrentHeightDropDown);
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		CommonUtils.selectDropDownValue("Feet/Inches",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourCurrentHeightDropDown);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsHeightField.sendKeys("5");
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsHeightInches.sendKeys("10");
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		CommonUtils.selectDropDownValue("Pounds",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsCurrentWeightDropDown);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWeighPoundtField.sendKeys("200");
 		CommonUtils.selectDropDownValue("Asian",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsHowWouldYouDescribeYourRaceDropDown);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		CommonUtils.selectDropDownValue("No",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsAreYouHispaniceOrLatinoDropDown);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		CucumberLogUtils.logScreenshot();
 
 	}
@@ -120,10 +118,10 @@ public class NativeViewStepsImpl extends PageInitializer {
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewExposuredAndRiskFactorsExposureToCOVID19FrequencyDD);
 		JavascriptUtils.scrollIntoView(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewExposuredAndRiskFactorsDidYouThePatientWearAMaskDD);
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		CommonUtils.selectDropDownValue("Yes",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewExposuredAndRiskFactorsDidYouThePatientWearAMaskDD);
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -134,7 +132,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 	 */
 	public void nativeViewConsentingParticipantEventsSection() {
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsTab.click();
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		JavascriptUtils.selectDateByJS(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsConsentedDate, "01/20/2021");
 
@@ -147,7 +145,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 	public void nativeViewNavigateToCovidCodeEnrollmentQuestionnaire() {
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys("CovidCode App");
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		CucumberLogUtils.logScreenshot();
 		nativeViewEnrollementsPage.nativeViewPanelNavigatorCovidCodeEnrollmentsLink.click();
 	}
@@ -158,7 +156,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 	public void nativeViewNavigateToCovidCodeSpecimens() {
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys("CovidCode App");
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		CucumberLogUtils.logScreenshot();
 		nativeViewEnrollementsPage.nativeViewPanelNavigatorSpecimensLink.click();
 	}
@@ -169,9 +167,9 @@ public class NativeViewStepsImpl extends PageInitializer {
 	 */
 	public void nativeViewNavigateToCovidCodeFollowUpQuestionnaire() {
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys("CovidCode App");
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -182,7 +180,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 	public void nativeViewNavigateToCovidCodeMyInquiryTrackingRecords() {
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys("CovidCode App");
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		CucumberLogUtils.logScreenshot();
 		nativeViewEnrollementsPage.nativeViewPanelNavigatorMyInquiryTrackingRecordsLink.click();
 	}
@@ -194,7 +192,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 	 */
 	public void nativeViewConsentingWithGroupIDandFillPatientBasicInfo(String group, String consent) {
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton.click();
 		CucumberLogUtils.logScreenshot();
 		CommonUtils.selectDropDownValue(group,
@@ -211,7 +209,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewState.sendKeys("MD");
 		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewZipCode);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewZipCode.sendKeys("20850");
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -221,19 +219,19 @@ public class NativeViewStepsImpl extends PageInitializer {
 	 * submitted with the email address email@automatedtest.com
 	 */
 	public void nativeViewVerifyingEnrollmentQuestionnaireWasSubmitted() {
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		/*
 		 * Clicking on the 'All' breadcrumb is necessary to properly search without
 		 * added filters - refer to UI for further review
 		 */
 		nativeViewEnrollmentViewPage.nativeViewAllBreadCrumbLink.click();
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		CommonUtils.selectDropDownValue("for text",
 				nativeViewEnrollementsPage.covidCodeEnrollmentsSearchDropDown);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox.sendKeys("email@automatedtest.com");
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox.sendKeys(Keys.RETURN);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -247,37 +245,37 @@ public class NativeViewStepsImpl extends PageInitializer {
 //				.sendKeys("Alan Orpia");
 		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
 				.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
 				.sendKeys("Janet Bracci");
 		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
 				.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
 				.sendKeys("Laura Harney");
 		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
 				.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
 				.sendKeys("Lisa Leathwood");
 		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
 				.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
 				.sendKeys("Maureen Risch");
 		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
 				.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
 				.sendKeys("Stephanie Steinbart");
 		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
 				.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
 		.sendKeys("Kathryn Nichols");
         nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
 		.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		String[] exp = { "Janet Bracci", "Laura Harney", "Lisa Leathwood", "Maureen Risch",
 				"Stephanie Steinbart", "Kathryn Nichols"};
 		for (WebElement act : nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactListOfAssignedToDD) {
@@ -289,20 +287,20 @@ public class NativeViewStepsImpl extends PageInitializer {
 			}
 			Assert.assertTrue(match);
 		}
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 	}
 	
 	/***
 	 * This method creates a new Enrollment Questionnaire for User Group 1, enters all required information and submits for review
 	 */
-	public void submitForReviewEQGroup1 () throws TestingException {
+	public void submitForReviewEQGroup1 () {
 		ServiceNow_Login_Methods.nativeViewLogin();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeEnrollmentQuestionnaire();
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton.click();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.selectDropDownValue("Group 1", nativeViewEnrollmentViewPage.nativeViewEnrollmentViewUserGroupIDDropDown);
 		CommonUtils.selectDropDownValue("Yes", nativeViewEnrollmentViewPage.nativeViewEnrollmentViewConsentDropDown);
 		CommonUtils.sendKeys(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPatientLastNameField, "TestLastName");
@@ -311,29 +309,29 @@ public class NativeViewStepsImpl extends PageInitializer {
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourBioSexDropDown);
 		CommonUtils.selectDropDownValue("Female",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourBioSexDropDown);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		CommonUtils.selectDropDownValue("Feet/Inches",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourCurrentHeightDropDown);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsHeightField.sendKeys("5");
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsHeightInches.sendKeys("10");
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		CommonUtils.selectDropDownValue("Pounds",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsCurrentWeightDropDown);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWeighPoundtField.sendKeys("200");
 		CommonUtils.selectDropDownValue("Asian",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsHowWouldYouDescribeYourRaceDropDown);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		CommonUtils.selectDropDownValue("No",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsAreYouHispaniceOrLatinoDropDown);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsTab.click();
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		JavascriptUtils.selectDateByJS(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsConsentedDate, "01/20/2021");
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPageSubmitForReviewBtn.click();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 	}
 	
 	/***
@@ -343,16 +341,16 @@ public class NativeViewStepsImpl extends PageInitializer {
 		for(String l : list) {
 			lookupField.sendKeys(l);
 			CommonUtils.sendKeys(lookupField, Keys.ENTER);
-			MiscUtils.sleep(1000);
+			CommonUtils.sleep(1000);
 		}
 	}
 	
 	/** This method asserts actual list of WebElements with expected list of Strings */
 	public void assertTwoLists(List<WebElement> lists, String[] arrayList) {
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		List<String> act = new ArrayList<String>(Arrays.asList(lists.get(0).getText().split("\n")));
 		List<String> exp = new ArrayList<String>(Arrays.asList(arrayList));
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 	    Assert.assertEquals(act, exp);
 	}

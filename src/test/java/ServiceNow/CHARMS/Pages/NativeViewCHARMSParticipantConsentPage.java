@@ -50,6 +50,22 @@ public class NativeViewCHARMSParticipantConsentPage {
     @FindBy(xpath = "//*[@id='x_naci_family_coho_fcsms_consent.participant_response']")
     public WebElement rasStudyConsentConsentAssentStatusDropDown;
 
+    /**Native View Ras Study Parent/Guardian Status Drop Down*/
+    @FindBy(xpath = "//select[contains(@name,'x_naci_family_coho_fcsms_consent.parental_relationship')]")
+    public WebElement rasStudyConsentParentGuardianStatusDropDown;
+
+    /**Native View Ras Study Number of Parent/Guardian Signatures Required Drop Down*/
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_fcsms_consent.number_of_guardian']")
+    public WebElement rasStudyConsentNumberOfParentGuardianSignaturesRequiredDropDown;
+
+    /**Native View Parent/Guardian 1 Signed Drop Down*/
+    @FindBy(xpath = "(//select[@name='x_naci_family_coho_fcsms_consent.guardian_1_signed'])[1]")
+    public WebElement rasStudyConsentParentGuardian1SignedDropDown;
+
+    /**Native View Parent/Guardian 2 Signed Drop Down*/
+    @FindBy(xpath = "(//select[@name='x_naci_family_coho_fcsms_consent.guardian_2_signed'])[1]")
+    public WebElement rasStudyConsentParentGuardian2SignedDropDown;
+
     /**Native View Ras Study Future Use Of Specimens and Data by NIH Drop Down*/
     @FindBy(xpath = "//*[@id='x_naci_family_coho_fcsms_consent.future_use_of_specimens_and_data_by_nih']")
     public WebElement rasStudyConsentFutureSpecimensAndDataDropDown;
@@ -93,6 +109,9 @@ public class NativeViewCHARMSParticipantConsentPage {
     /**Native View Ras Study Participant Records Ready To Progress Message*/
     @FindBy(xpath = "//div[normalize-space()='Participant record ready to progress.']")
     public WebElement rasStudyConsentParticipantRecordsReadyToProgressMessage;
+
+    @FindBy(xpath = "//button[@id='sign_and_complete_client']")
+    public WebElement rasStudyConsentSignAndCompleteButton;
 
     /**Native View Ras Study Consent Record Completed Message*/
     @FindBy(xpath = "//div[normalize-space()='Consent record completed and Family record is now active!']")

@@ -10,101 +10,98 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 
 public class FlowStepsImplementation extends PageInitializer {
 
-	public void dcegLoginMadigan() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("dcegMadigan"));
+	public void dcegLoginMadigan() {
+		WebDriverUtils.webDriver.get("");
 		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "nekrashevicha2Username");
 		iTrustloginPage.enterPassword("nekrashevicha2Password");
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		iTrustloginPage.clickSignInButton();
-		MiscUtils.sleep(3000);
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(3000);
+		CommonUtils.sleep(5000);
 	}
 
-	public void dcegLoginDemetrius() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("dcegDemetrius"));
+	public void dcegLoginDemetrius() {
+		WebDriverUtils.webDriver.get("");
 		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "nekrashevicha2Username");
 		iTrustloginPage.enterPassword("nekrashevicha2Password");
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		iTrustloginPage.clickSignInButton();
-		MiscUtils.sleep(3000);
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(3000);
+		CommonUtils.sleep(5000);
 	}
-	public void dcegLoginChanock() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("dcegChanock"));
+	public void dcegLoginChanock() {
+		WebDriverUtils.webDriver.get("");
 		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "nekrashevicha2Username");
 		iTrustloginPage.enterPassword("nekrashevicha2Password");
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		iTrustloginPage.clickSignInButton();
-		MiscUtils.sleep(3000);
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(3000);
+		CommonUtils.sleep(5000);
 	}
 
-	public void dcegLoginTobias() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("dcegTobias"));
+	public void dcegLoginTobias() {
+		WebDriverUtils.webDriver.get("");
 		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "nekrashevicha2Username");
 		iTrustloginPage.enterPassword("nekrashevicha2Password");
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		iTrustloginPage.clickSignInButton();
-		MiscUtils.sleep(3000);
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(3000);
+		CommonUtils.sleep(5000);
 	}
 	
-	public void dcegLogin(String UserName) throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(UserName));
+	public void dcegLogin(String UserName)  {
+		WebDriverUtils.webDriver.get("");
 		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "Username");
 		iTrustloginPage.enterPassword("Password");
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		iTrustloginPage.clickSignInButton();
-		MiscUtils.sleep(3000);
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(3000);
+		CommonUtils.sleep(5000);
 	}
 	
-	public void dcegLoginHolmes() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("dcegHolmes"));
+	public void dcegLoginHolmes()  {
+		WebDriverUtils.webDriver.get("");
 		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "nekrashevicha2Username");
 		iTrustloginPage.enterPassword("nekrashevicha2Password");
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		iTrustloginPage.clickSignInButton();
-		MiscUtils.sleep(3000);
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(3000);
+		CommonUtils.sleep(5000);
 	}
 	
-	public void dcegLoginBerrington() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("dcegBerrington"));
+	public void dcegLoginBerrington()  {
+		WebDriverUtils.webDriver.get("");
 		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "nekrashevicha2Username");
 		iTrustloginPage.enterPassword("nekrashevicha2Password");
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		iTrustloginPage.clickSignInButton();
-		MiscUtils.sleep(3000);
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(3000);
+		CommonUtils.sleep(5000);
 	}
-	public void dcegLoginGarcia() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("dcegGarcia"));
+	public void dcegLoginGarcia()  {
+		WebDriverUtils.webDriver.get("");
 		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "nekrashevicha2Username");
 		iTrustloginPage.enterPassword("nekrashevicha2Password");
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		iTrustloginPage.clickSignInButton();
-		MiscUtils.sleep(3000);
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(3000);
+		CommonUtils.sleep(5000);
 	}
 	
-	public void dcegLoginAbnet() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("dcegAbnet"));
+	public void dcegLoginAbnet()  {
+		WebDriverUtils.webDriver.get("");
 		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "nekrashevicha2Username");
 		iTrustloginPage.enterPassword("nekrashevicha2Password");
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		iTrustloginPage.clickSignInButton();
-		MiscUtils.sleep(3000);
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(3000);
+		CommonUtils.sleep(5000);
 	}
 	public void checkButton() {
 		String str = WebDriverUtils.webDriver.findElement(By.className("clearanceRequestTypeRadio"))
@@ -115,57 +112,57 @@ public class FlowStepsImplementation extends PageInitializer {
 	}
 
 	public void uploadManuscript() {
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		WebElement uploadFile = WebDriverUtils.webDriver.findElement(By.xpath("//input[@name='upload']"));
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		uploadFile.sendKeys("C:\\Users\\zamant2\\Desktop\\TEST-DATA\\Manuscript.docx");
 		CucumberLogUtils.logScreenshot();
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 	}
 
 	public void uploadDataSharing() {
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		WebElement uploadFile = WebDriverUtils.webDriver.findElement(By.xpath("//input[@name='upload']"));
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		uploadFile.sendKeys("C:\\Users\\zamant2\\Desktop\\TEST-DATA\\DataSharingPLan.pdf");
 		CucumberLogUtils.logScreenshot();
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 	}
 
 	public void uploadAbstract() {
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		WebElement uploadFile = WebDriverUtils.webDriver.findElement(By.xpath("//input[@name='upload']"));
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		uploadFile.sendKeys("C:\\Users\\zamant2\\Desktop\\TEST-DATA\\Abstract.docx");
 		CucumberLogUtils.logScreenshot();
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 	}
 
 	public void selectRole(String role) {
 		switch (role) {
 		case "Reviewer":
 			CommonUtils.clickOnElement(adminFlowPage.dropdownRole);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.selectAllCheckmark);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.reviewerCheckmark);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			break;
 		case "Requestor":
 			CommonUtils.clickOnElement(adminFlowPage.dropdownRole);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.selectAllCheckmark);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.requestorCheckmark);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			break;
 		case "Submitter":
 			CommonUtils.clickOnElement(adminFlowPage.anyDrop);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.checkedRequesterMark);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.submitterCheckmark);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			break;
 		}
 	}
@@ -176,51 +173,51 @@ public class FlowStepsImplementation extends PageInitializer {
 			String clearanceID = adminFlowPage.cR.getText();
 			System.out.println(clearanceID);
 			CommonUtils.clickOnElement(adminFlowPage.firstCRcheckbox);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.reassign);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.reassigName);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.sendKeys(adminFlowPage.reassigName, "DOGBE, NADIA");
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.dogbeNadiaDropdown);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.reassignDialogButton);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 			break;
 		case "HOLMES-LILLIE, SADIE":
 			String clearanceID1 = adminFlowPage.cR.getText();
 			System.out.println(clearanceID1);
 			CommonUtils.clickOnElement(adminFlowPage.firstCRcheckbox);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.reassign);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.reassigName);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.sendKeys(adminFlowPage.reassigName, "HOLMES-LILLIE, SADIE");
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.HOLMESSADIEDropdown);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.reassignDialogButton);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 			break;
 		case "CHANG, VICKY":
 			String clearanceID2 = adminFlowPage.cR.getText();
 			System.out.println(clearanceID2);
 			CommonUtils.clickOnElement(adminFlowPage.firstCRcheckbox);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.reassign);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.reassigName);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.sendKeys(adminFlowPage.reassigName, "CHANG, VICKY");
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.CHANGVICKYDropdown);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.reassignDialogButton);
-			MiscUtils.sleep(2000);
+			CommonUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 			break;
 		}
@@ -283,7 +280,7 @@ public class FlowStepsImplementation extends PageInitializer {
 		return false;
 	}
 	
-	public void loginasUser(String user) throws TestingException {
+	public void loginasUser(String user)  {
 	if (user.equals("Admin")) {
 		dcegLogin("GEOFFREY_TOBIAS");
 		CucumberLogUtils.logScreenshot();
@@ -303,61 +300,61 @@ public class FlowStepsImplementation extends PageInitializer {
 }
 	public void submitCLrequest() {
 		CommonUtils.clickOnElement(createCRPage.createClearanceRequestButton);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.casDropdown);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.genProgramAdministration);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.sendKeys(createCRPage.requesterField, "Albanes");
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.albanesDemetrius);
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		CucumberLogUtils.logScreenshot();
 		CommonUtils.sendKeys(createCRPage.submissionTitleField,"Test submission title");
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.sendKeys(createCRPage.abstractField, "test abstract");
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.publication);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.publicationDropdown);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.originJournlPublicationDropdown);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.nihRightConfirm);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.sendKeys(createCRPage.journalField, "JNCI");
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.publisherCredibilityConfirm);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.publisherCredibilityConfirm);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.genomicDataGenerationConfirm);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.labResourcesDeny);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(createCRPage.dataSharingPlanPublication);
 		CommonUtils.clickOnElement(createCRPage.dataSharingPlanPublication);
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		CucumberLogUtils.logScreenshot();
 		flowStepsImplementation.uploadDataSharing();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.employeeInventionChoice);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.selectAgentNo);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.helixBiowulfYES);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.btrisYES);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.dualUseNO);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.highProfileYES);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CommonUtils.sendKeys(createCRPage.authorsField, "test authors");
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		JavascriptUtils.clickByJS(createCRPage.submitForReview);
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 	}
 }

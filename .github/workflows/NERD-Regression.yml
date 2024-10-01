@@ -1,0 +1,73 @@
+name: PLATFORM BUSINESS - NERD REGRESSION TESTS
+
+on:
+  schedule:
+    # This corresponds to 6:00 AM EDT (10:00 AM UTC)
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+    inputs:
+      testBrowser:
+        description: 'Browser'
+        required: true
+        default: 'chrome'
+
+jobs:
+  build:
+    runs-on: NCI-WINDOWS
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+
+      - name: Run specific runner class
+        run: mvn -B -q -Dtest=Run_NERD_Regression_Test test
+        continue-on-error: true
+
+      - name: Generate timestamp
+        id: timestamp
+        run: echo "timestamp=$(TZ='America/New_York' date +'%Y-%m-%d_%I-%M-%S_%p')" >> $GITHUB_ENV
+
+      - name: Determine report path
+        id: reportpath
+        run: echo "path=nerd-regression-reports" >> $GITHUB_ENV
+
+      - name: Upload Cucumber Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cucumber-report-${{ env.timestamp }}
+          path: target/nerd-regression-reports/*
+
+      - name: Push HTML Report
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git config --global user.email "juarezds@nih.gov"
+          git config --global user.name "iamdez99"
+          git stash
+          git fetch
+          git checkout gh-pages
+          git checkout stash -- .
+          mkdir -p ${{ env.path }}
+          mv target/nerd-regression-reports/*.html ${{ env.path }}/report-${{ env.timestamp }}.html
+          git add .
+          git commit -m "Publishing cucumber report ${{ env.timestamp }}"
+          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+
+      - name: Update Test Results and Append to Index File
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          if [[ -f "nerd-regression-test-results.html" ]]; then
+              sed -i '1s/.*/<h1>NERD Regression Test Results<\/h1>/' nerd-regression-test-results.html
+              echo "<h3><a href='${{ env.path }}/report-${{ env.timestamp }}.html'>Test Report ${{ env.path }}/report-${{ env.timestamp }}.html</a></h3>" >> nerd-regression-test-results.html
+              git add nerd-regression-test-results.html
+              git commit -m "Update nerd-regression-test-results.html"
+          else
+              echo "<h1>NERD Regression Test Results</h1>" > nerd-regression-test-results.html
+              echo "<h3><a href='${{ env.path }}/report-${{ env.timestamp }}.html'>Test Report ${{ env.path }}/report-${{ env.timestamp }}.html</a></h3>" >> nerd-regression-test-results.html
+              git add nerd-regression-test-results.html
+              git commit -m "Create and update nerd-regression-test-results.html"
+          fi
+          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages

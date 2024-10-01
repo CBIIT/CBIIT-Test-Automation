@@ -13,51 +13,32 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    env:
-      DISPLAY: ".99"
-      SCREEN_RESOLUTION: "1280x1024x24"
+    runs-on: NCI-WINDOWS
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
           fetch-depth: 0
-      - name: Set up JDK 1.11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.11
-      - name: Install Google Chrome
-        run: |
-          sudo apt-get install -y wget
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
-      - name: Replace variables in cloudEnv.properties
-        run: |
-          sed -i "s/SIDE_DOOR_USERNAME/${{ secrets.SIDEDOORUSERNAME }}/g" src/main/resources/conf/cloudEnv.properties
-          sed -i "s/SIDE_DOOR_PASSWORD/${{ secrets.SIDEDOORPASSWORD }}/g" src/main/resources/conf/cloudEnv.properties
-          if [ "${{ github.event_name }}" = "schedule" ]; then
-            sed -i "s/BROWSER_VAR/chrome/g" src/main/resources/conf/cloudEnv.properties
-          else
-            sed -i "s/BROWSER_VAR/${{ github.event.inputs.testBrowser }}/g" src/main/resources/conf/cloudEnv.properties
-          fi
-          sed -i "s/ENV_VAR/test/g" src/main/resources/conf/cloudEnv.properties
+
       - name: Run specific runner class
         run: mvn -B -q -Dtest=Run_OBF_Smoke_Test -DisCloud=true test
         continue-on-error: true
+
       - name: Generate timestamp
         id: timestamp
-        run: echo "::set-output name=timestamp::$(TZ='America/New_York' date +'%Y-%m-%d_%I-%M-%S_%p')"
+        run: echo "timestamp=$(TZ='America/New_York' date +'%Y-%m-%d_%I-%M-%S_%p')" >> $GITHUB_ENV
+
       - name: Determine report path
         id: reportpath
-        run: echo "::set-output name=path::obf-smoke-reports"
+        run: echo "path=obf-smoke-reports" >> $GITHUB_ENV
+
       - name: Upload Cucumber Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: cucumber-report-${{ github.run_number }}
+          name: cucumber-report-${{ env.timestamp }}
           path: target/obf-smoke-reports/*
-      - name: Remove Google Chrome installation file
-        run: rm google-chrome-stable_current_amd64.deb
+
       - name: Push HTML Report
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -67,12 +48,13 @@ jobs:
           git stash
           git fetch
           git checkout gh-pages
-          git stash pop
-          mkdir -p ${{ steps.reportpath.outputs.path }}
-          mv target/obf-smoke-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
+          git checkout stash -- .
+          mkdir -p ${{ env.path }}
+          mv target/obf-smoke-reports/*.html ${{ env.path }}/report-${{ env.timestamp }}.html
           git add .
-          git commit -m "Publishing cucumber report ${{ github.run_number }}"
+          git commit -m "Publishing cucumber report ${{ env.timestamp }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+
       - name: Update Test Results and Append to Index File
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -80,7 +62,7 @@ jobs:
           if [ ! -f obf-smoke-test-results.html ]; then
               echo '<h1>OBF Smoke Test Results</h1>' > obf-smoke-test-results.html
           fi
-          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> obf-smoke-test-results.html
+          echo "<h3><a href='${{ env.path }}/report-${{ env.timestamp }}.html'>Test Report ${{ env.path }}/report-${{ env.timestamp }}.html</a></h3>" >> obf-smoke-test-results.html
           git add obf-smoke-test-results.html
           git commit -m "Update obf-smoke-test-results.html"
           git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages

@@ -1,13 +1,7 @@
 package ServiceNow.PlatformBusinessApps.CADSR.StepsImplementation;
 
-import com.nci.automation.utils.MiscUtils;
-import org.openqa.selenium.By;
-
-import com.nci.automation.web.EnvUtils;
-import com.nci.automation.xceptions.TestingException;
-
+import com.nci.automation.web.CommonUtils;
 import ServiceNow.ITPG.Pages.LoginPage;
-import ServiceNow.ITPG.Utils.CommonUtils;
 
 public class LoginStepsImpl extends LoginPage {
 
@@ -16,20 +10,12 @@ public class LoginStepsImpl extends LoginPage {
     }
 
     public void openApp() {
-        MiscUtils.sleep(30000);
-        driver.get(EnvUtils.getApplicationUrl("AtoTestUrl"));
+        CommonUtils.sleep(30000);
+        driver.get("");
     }
 
     public void openApp(String url) {
         driver.get(url);
-    }
-
-    public void openServiceApp() {
-        driver.get(fasturl);
-    }
-
-    public void validateHeader() {
-        driver.findElement(By.xpath("//h1[text()='FISMA ATO Streamlining Tool (FAST ATO)']"));
     }
 
     public Boolean isLoginButtonDisplayed() {
@@ -57,54 +43,10 @@ public class LoginStepsImpl extends LoginPage {
         this.clickOnElement(loginButton);
     }
 
-    public void loginButtonFastAto() {
-        this.clickOnElementByXpath("//div[@class=\"login-text text-center\"]");
-    }
-
     public void clickOnButton(String btnName) {
         String xpath = "//button[text()='" + btnName + "']";
         switchToFrame();
         clickOnElementByXpath(xpath);
-    }
-
-    public void clickOnLeftSideMenuItem(String listItem) throws InterruptedException {
-        CommonUtils.waitBrowser(5000);
-        for (int i = 0; i < filteredList.size(); i++) {
-            if (filteredList.get(i).getText().contains(listItem)) {
-                filteredList.get(i).click();
-            }
-        }
-    }
-
-    public void clickOnHeaderMenu(String menu) throws InterruptedException {
-        switch (menu) {
-            case "Native View": {
-                clickOnElement(nativeviewLink);
-                break;
-            }
-        }
-    }
-
-    public void waitForListToLoad() {
-        try {
-            switchToFrame();
-        } catch (Exception e) {
-
-        }
-        waitForElementToLoad(By.cssSelector(".list2_body"));
-        switchToDefaultFrame();
-    }
-
-    public void setFilterValue(String value) {
-        try {
-            switchToFrame();
-        } catch (Exception e) {
-
-        }
-        waitForElementToLoad(By.cssSelector(".list2_body"));
-        switchToDefaultFrame();
-        enterText(filterId, value);
-
     }
 
     public void clickOnButtonInIframe(String btnName) throws InterruptedException {

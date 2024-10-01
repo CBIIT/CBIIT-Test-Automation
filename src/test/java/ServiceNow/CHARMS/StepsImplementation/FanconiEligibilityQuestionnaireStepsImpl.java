@@ -1,23 +1,22 @@
 package ServiceNow.CHARMS.StepsImplementation;
 
+import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
+import ServiceNow.CHARMS.Utils.CharmsUtil;
+import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
+import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.web.TestProperties;
+import com.nci.automation.web.WebDriverUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
-import com.nci.automation.utils.LocalConfUtils;
-import com.nci.automation.xceptions.TestingException;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.asserts.SoftAssert;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
-import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.web.WebDriverUtils;
-import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
-import ServiceNow.CHARMS.Utils.CharmsUtil;
-import appsCommon.PageInitializers.PageInitializer;
+import static com.nci.automation.web.TestProperties.getFanconiUrl;
+import static com.nci.automation.web.TestProperties.getNCISPUrl;
 
 public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     String referralValue;
@@ -30,15 +29,15 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     /**
      * Login to the Nativeview to run the reset accounts script for the Fanconi screener accounts
      */
-    public void resetTestAccountSignIn() throws TestingException {
-        if (LocalConfUtils.getProperty("env").equals("test")) {
+    public void resetTestAccountSignIn()  {
+        if (TestProperties.ENV.equals("test")) {
             WebDriverUtils.webDriver.get(
-                    "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3D796a23158708d6d07e87a8a60cbb35b8%26sysparm_view%3D%26sysparm_domain%3Dnull%26sysparm_domain_scope%3Dnull");
-            MiscUtils.sleep(2000);
-        } else if (LocalConfUtils.getProperty("env").equals("dev2")) {
+                    "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Db1cf5c0087d0d610ad46326d3fbb3507%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D2%26sysparm_record_rows%3D1263%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
+            CommonUtils.sleep(2000);
+        } else if (TestProperties.ENV.equals("dev2")) {
             WebDriverUtils.webDriver.get(
-                    "https://service-dev2.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Dcde8001587f64a107e87a8a60cbb3598%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D1%26sysparm_record_rows%3D1173%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
-            MiscUtils.sleep(2000);
+                    "https://service-dev2.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Db1cf5c0087d0d610ad46326d3fbb3507%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D2%26sysparm_record_rows%3D1263%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
+            CommonUtils.sleep(2000);
         }
     }
 
@@ -46,16 +45,19 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * Login to the Nativeview and run the reset accounts script for the Fanconi screener accounts
      */
     public void resetTestAccount() {
-        if (LocalConfUtils.getProperty("env").equals("test")) {
-            MiscUtils.sleep(100);
+        if (TestProperties.ENV.equals("test")) {
+            CommonUtils.sleep(100);
             CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
             CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
+            CommonUtils.sleep(500);
             testAccountResetPage.nativeViewRunFixScriptButton.click();
+            CommonUtils.sleep(500);
             CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
             testAccountResetPage.nativeViewProceedInBackgroundButton.click();
+            CommonUtils.sleep(500);
             CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCloseButton);
             testAccountResetPage.nativeViewCloseButton.click();
-            MiscUtils.sleep(300);
+            CommonUtils.sleep(300);
         }
     }
 
@@ -63,14 +65,14 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * LogOut of the account profile in Nativeview
      */
     public void nativeViewProfilelogOut() {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("fanconiLogin"));
+        WebDriverUtils.webDriver.get(getFanconiUrl());
         CommonUtils.waitForVisibility(oktaLoginPage.agreeBtn);
         oktaLoginPage.agreeBtn.click();
         CommonUtils.waitForVisibility(fanconiLoginPage.profileDropDownButton);
         fanconiLoginPage.profileDropDownButton.click();
         CommonUtils.waitForVisibility(fanconiLoginPage.profileLogOutButton);
         fanconiLoginPage.profileLogOutButton.click();
-        MiscUtils.sleep(500);
+        CommonUtils.sleep(500);
     }
 
     /**
@@ -80,7 +82,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         Set<String> allWindowHandles = WebDriverUtils.webDriver.getWindowHandles();
         for (String currentWindow : allWindowHandles) {
             WebDriverUtils.webDriver.switchTo().window(currentWindow);
-            MiscUtils.sleep(2000);
+            CommonUtils.sleep(2000);
         }
         JavascriptUtils.scrollIntoView(fanconiEligibilityQuestionnairePage.nextButton);
         CommonUtils.waitForVisibility(fanconiEligibilityQuestionnairePage.nextButton);
@@ -152,7 +154,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.calendarMonthDropDown,
                 currentRow.get("DOBMonth"));
         fanconiEligibilityQuestionnairePage.calendarYearTextBox.clear();
-        MiscUtils.sleep(300);
+        CommonUtils.sleep(300);
         CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.calendarYearTextBox,
                 currentRow.get("DOBYear"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.calendarDayOption);
@@ -576,7 +578,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             }
         }
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        MiscUtils.sleep(600);
+        CommonUtils.sleep(600);
     }
 
     /**
@@ -586,7 +588,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
                 currentRow.get("HaveYouEverBeenDiagnosedWithBoneMarrowFailure"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        MiscUtils.sleep(600);
+        CommonUtils.sleep(600);
     }
 
     /**
@@ -619,7 +621,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         } else {
         }
-        MiscUtils.sleep(600);
+        CommonUtils.sleep(600);
     }
 
     /**
@@ -632,7 +634,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         } else {
         }
-        MiscUtils.sleep(600);
+        CommonUtils.sleep(600);
     }
 
     /**
@@ -653,7 +655,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         } else {
         }
-        MiscUtils.sleep(600);
+        CommonUtils.sleep(600);
     }
 
     /**
@@ -676,7 +678,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         } else {
         }
-        MiscUtils.sleep(600);
+        CommonUtils.sleep(600);
     }
 
     /**
@@ -721,7 +723,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             }
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         }
-        MiscUtils.sleep(600);
+        CommonUtils.sleep(600);
     }
 
     /**
@@ -821,7 +823,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             }
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         }
-        MiscUtils.sleep(600);
+        CommonUtils.sleep(600);
     }
 
     /**
@@ -914,19 +916,19 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      */
     public void clickSubmitButton() {
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("fanconiLogin"));
+        WebDriverUtils.webDriver.get(getFanconiUrl());
         CommonUtils.waitForVisibility(fanconiLoginPage.profileDropDownButton);
         fanconiLoginPage.profileDropDownButton.click();
         CommonUtils.waitForVisibility(fanconiLoginPage.profileLogOutButton);
         fanconiLoginPage.profileLogOutButton.click();
-        MiscUtils.sleep(500);
+        CommonUtils.sleep(500);
     }
 
     /**
      * PARTICIPANT DETAILS PAGE IN NATIVE VIEW ASSERTIONS
      */
     public void loginToNativeView() {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
+        WebDriverUtils.webDriver.get(getNCISPUrl());
         CommonUtils.waitForVisibility(iTrustloginPage.loginLink);
         CharmsUtil.clickOnElement(iTrustloginPage.loginLink);
         CharmsUtil.sendKeysToElement(iTrustloginPage.userNameField, "jains18");
@@ -1590,7 +1592,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                         " Last Name Intake participates in another study in Fanconi Study Screener page ");
                 CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerBackButton);
                 CommonUtils.scrollIntoView(fanconiScreenerNVPage.nVFScreenerIntakeParticipatesInAnotherStudyTable);
-                MiscUtils.sleep(2000);
+                CommonUtils.sleep(2000);
             }
         }
     }
@@ -1711,7 +1713,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             String username = "charmsparticipant" + i + "@yopmail.com";
             String password = "Charms123";
             System.out.println(username);
-            MiscUtils.sleep(1000);
+            CommonUtils.sleep(1000);
             if (i != 1) {
                 try {
                     CharmsUtil.clickOnElement(fanconiLoginPage.LogoutDropDownLink);
@@ -1719,14 +1721,14 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 } catch (Exception e) {
                 }
             }
-            WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("fanconiLogin"));
+            WebDriverUtils.webDriver.get(getFanconiUrl());
             System.out.println(WebDriverUtils.webDriver.getCurrentUrl());
-            MiscUtils.sleep(1000);
+            CommonUtils.sleep(1000);
             CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton);
             CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton);
             CharmsUtil.sendKeysToElement(oktaLoginPage.usernameTxtBox, username);
             CharmsUtil.sendKeysToElement(oktaLoginPage.passwordTxtBox, password);
-            MiscUtils.sleep(600);
+            CommonUtils.sleep(600);
             CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
             CharmsUtil.clickOnElement(oktaLoginPage.loginBtn);
             CommonUtils.waitForVisibility(fanconiLoginPage.warningAgreeButton);
@@ -1754,24 +1756,24 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 "New Screener Received", " Enrollment Status of the General Information on Participant Details page ");
         CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantSubmitForEligibilityReviewButton);
         cHARMSParticipantDetailsPage.nVParticipantSubmitForEligibilityReviewButton.click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantHoldDateTextBox);
         CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantHoldDateButton);
         CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantHoldGoToTodayButton);
         CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantSubmitForEligibilityReviewButton);
         cHARMSParticipantDetailsPage.nVParticipantSubmitForEligibilityReviewButton.click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus,
                 "Eligibility Review", " Enrollment Status of the General Information on Participant Details page ");
         CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantMarkEligibleButton);
         cHARMSParticipantDetailsPage.nVParticipantMarkEligibleButton.click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus,
                 "Eligible", " Eligibility Status of the General Information on Participant Details page ");
         CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus,
                 "Awaiting Consent", " Enrollment Status of the General Information on Participant Details page ");
         CommonUtils.scrollIntoView(cHARMSParticipantDetailsPage.nVParticipantConsentTableTab);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantConsentTableTab);
         CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantConsentTablePreviewLink);
         CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantOpenRecordButton);
@@ -2227,7 +2229,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                     " Last Name Intake participates in another study in Fanconi Study Screener page ");
             CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerBackButton);
             CommonUtils.scrollIntoView(fanconiScreenerNVPage.nVFScreenerIntakeParticipatesInAnotherStudyTable);
-            MiscUtils.sleep(600);
+            CommonUtils.sleep(600);
         }
         CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerGeneticMutationvariantTab);
         CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerGeneticMutationvariantPreviewRecordButton);

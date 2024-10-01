@@ -2,7 +2,6 @@ package AnalysisTools.LDLink.Steps;
 
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.*;
@@ -30,7 +29,7 @@ public class LDExpressSteps extends PageInitializer {
         CommonUtils.clickOnElement(ldExpressPage.selectTissueDropDown);
         CommonUtils.clickOnElement(ldExpressPage.brainAmygdalaOptionOnTissueDropDown);
         CommonUtils.clickOnElement(ldExpressPage.submitOnLdExpress);
-        MiscUtils.sleep(130000);
+        CommonUtils.sleep(130000);
         CommonUtils.waitForVisibility(ldExpressPage.variantsWithWarningsLink);
         CommonUtils.clickOnElement(ldExpressPage.variantsWithWarningsLink);
     }
@@ -43,6 +42,6 @@ public class LDExpressSteps extends PageInitializer {
         String warningText2 = ldExpressPage.warning2Text.getText();
         Assert.assertEquals(warning1, warningText1);
         Assert.assertEquals(warning2, warningText2);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
     }
 }
