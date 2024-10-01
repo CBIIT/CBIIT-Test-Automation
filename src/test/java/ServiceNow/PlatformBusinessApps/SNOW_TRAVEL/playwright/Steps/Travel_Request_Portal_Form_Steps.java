@@ -116,11 +116,19 @@ public class Travel_Request_Portal_Form_Steps {
         Travel_Request_Portal_Form_StepImpl.the_following_fields_and_under_travel_cash_advance_section_will_be_removed(cashAdvanceRequested, reasonForCashAdvance );
     }
 
+    /**
+     * Impersonates a non-CGH user.
+     *
+     * The method impersonates a non-CGH user by logging in with a test account using the Playwright_ServiceNow_Common_Methods class.
+     */
     @Given("I am not a CGH user")
     public void i_am_not_a_cgh_user() {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate("Warren Kibbe");
     }
 
+    /**
+     * Logs in to the NCI at Your Service Portal.
+     */
     @When("I log in to the NCI at Your Service Portal,")
     public void i_log_in_to_the_nci_at_your_service_portal() {
         page.navigate(TestProperties.getNCISPUrl());

@@ -134,6 +134,12 @@ public class CBIIT_OFFBOARD_Form_Steps {
         OFFBOARD_StepsImpl.should_not_be_required_for_transfer_request(hardwareReturnTicketNumbers);
     }
 
+    /**
+     * Selects an option under the "Departure or Transfer Request" field.
+     *
+     * @param transfer                  The option to be selected.
+     * @param departureOrTransferRequest The field under which the option will be selected.
+     */
     @When("I select {string} under the {string} field")
     public void i_select_under_the_field(String transfer, String departureOrTransferRequest) {
         page.waitForSelector(OFFBOARD_Page.cbiit_OffBoardingRequestFormDepartureOrTransferFieldTextLocator);
