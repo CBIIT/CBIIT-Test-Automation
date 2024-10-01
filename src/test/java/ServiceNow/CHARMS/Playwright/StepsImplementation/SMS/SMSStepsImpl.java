@@ -1,4 +1,4 @@
-package ServiceNow.CHARMS.Playwright.StepsImplementation.FanconiStudy;
+package ServiceNow.CHARMS.Playwright.StepsImplementation.SMS;
 
 public class SMSStepsImpl {
 }

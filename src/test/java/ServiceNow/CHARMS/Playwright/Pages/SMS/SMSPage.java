@@ -1,2 +1,4 @@
-package ServiceNow.CHARMS.Playwright.Pages.FanconiStudy;public class SMSPage {
+package ServiceNow.CHARMS.Playwright.Pages.SMS;
+
+public class SMSPage {
 }

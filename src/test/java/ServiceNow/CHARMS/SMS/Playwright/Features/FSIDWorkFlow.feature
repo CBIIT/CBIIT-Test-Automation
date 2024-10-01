@@ -1,4 +1,4 @@
-Feature: SMS Subject Flags
+Feature: FSID Workflow
   Description:This feature file contains the Participant Details and Participant Study pages that have a Related List for the SMS Subject Flags feature. This list will allow the Study Team to track various Participant statuses
 
   @jains @SubjectFlags @CP2-3671 @playwright @In-Progress
