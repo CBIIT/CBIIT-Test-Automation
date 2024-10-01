@@ -15,7 +15,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
     Then fills the Fanconi Eligibility Questionnaire form for scenario1
     Then clicks the submit button
 
-  @jains @FanconiSubmission @CP2-1949 @Regression @selenium @Smoke1
+  @jains @FanconiSubmission @CP2-1949 @Regression @selenium @Smoke
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 2
     Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
@@ -24,7 +24,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
     Then fills the Fanconi Eligibility Questionnaire form for scenario2
     Then clicks the submit button
 
-  @jains @FanconiSubmission @CP2-1949 @Regression @selenium @Smoke1
+  @jains @FanconiSubmission @CP2-1949 @Regression @selenium @Smoke
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 3
     Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
@@ -33,7 +33,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
     Then fills the Fanconi Eligibility Questionnaire form for scenario3
     Then clicks the submit button
 
-  @jains @FanconiSubmission @CP2-1949 @Regression @selenium @Smoke1
+  @jains @FanconiSubmission @CP2-1949 @Regression @selenium @Smoke
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 4
     Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
@@ -42,7 +42,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
     Then fills the Fanconi Eligibility Questionnaire form for scenario4
     Then clicks the submit button
 
-  @jains @FanconiSubmission @CP2-1949 @Regression @selenium @Smoke1
+  @jains @FanconiSubmission @CP2-1949 @Regression @selenium @Smoke
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 5
     Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
