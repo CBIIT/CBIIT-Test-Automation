@@ -21,15 +21,18 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
+        shell: cmd
         run: mvn -B -q -Dtest=Run_NERD_Regression_Test test
         continue-on-error: true
 
       - name: Generate timestamp
         id: timestamp
+        shell: cmd
         run: echo "timestamp=$(TZ='America/New_York' date +'%Y-%m-%d_%I-%M-%S_%p')" >> $GITHUB_ENV
 
       - name: Determine report path
         id: reportpath
+        shell: cmd
         run: echo "path=nerd-regression-reports" >> $GITHUB_ENV
 
       - name: Upload Cucumber Report
@@ -40,6 +43,7 @@ jobs:
           path: target/nerd-regression-reports/*
 
       - name: Push HTML Report
+        shell: bash
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
@@ -56,6 +60,7 @@ jobs:
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
 
       - name: Update Test Results and Append to Index File
+        shell: bash
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |

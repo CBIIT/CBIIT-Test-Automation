@@ -1,0 +1,37 @@
+name: PLATFORM BUSINESS - NIFE REGRESSION TESTS
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 12 * * 1-5' # 7:15 AM EST (12:15 PM UTC) Monday to Friday
+
+jobs:
+  build:
+    runs-on: NCI-WINDOWS
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+
+      - name: Run specific runner class
+        shell: cmd
+        run: mvn -B -q -Dtest=AnalysisTools.NIFESubmit.NIFESubmit_Runners.RunNIFESubmitRegressionTest test
+        continue-on-error: true
+
+      - name: Generate timestamp
+        id: timestamp
+        shell: cmd
+        run: echo "::set-output name=timestamp::%date:~-4,4%-%date:~-10,2%-%date:~-7,2%_%time:~0,2%-%time:~3,2%-%time:~6,2%"
+
+      - name: Determine report path
+        id: reportpath
+        shell: cmd
+        run: echo "::set-output name=path::NIFE-Regression-reports"
+
+      - name: Upload Cucumber Report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: cucumber-report-${{ github.run_number }}-${{ steps.timestamp.outputs.timestamp }}
+          path: target/NIFE-Regression-reports/*

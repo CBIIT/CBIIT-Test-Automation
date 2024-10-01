@@ -2,6 +2,8 @@ name: PLATFORM BUSINESS - SSJ REGRESSION TESTS
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '45 12 * * 1-6' # 7:45 AM EST (12:45 PM UTC) Monday to Saturday
 
 jobs:
   build:
@@ -31,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: cucumber-report-${{ github.run_number }}
+          name: cucumber-report-${{ github.run_number }}-${{ steps.timestamp.outputs.timestamp }}
           path: target/ssj-regression-reports/*
 
       - name: Push HTML Report
@@ -48,7 +50,7 @@ jobs:
           mkdir -p ssj-regression-reports
           mv target/ssj-regression-reports/*.html ssj-regression-reports/report-${{ steps.timestamp.outputs.timestamp }}.html
           git add .
-          git commit -m "Publishing cucumber report ${{ github.run_number }}"
+          git commit -m "Publishing cucumber report ${{ github.run_number }} on ${{ steps.timestamp.outputs.timestamp }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
 
       - name: Update Test Results and Append to Index File
