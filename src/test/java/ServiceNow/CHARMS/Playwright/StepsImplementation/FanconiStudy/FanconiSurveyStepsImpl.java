@@ -1790,6 +1790,7 @@ public class FanconiSurveyStepsImpl {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.SUBMIT)).click();
     }
 
+    /* This method allows the submissions and assertions of the Surgical And Other Medical History section of the Fanconi Survey for scenario1*/
     public static void surgicalAndOtherMedicalHistorySectionScenario1() {
         var page = PlaywrightUtils.page;
         assertThat(page.getByLabel("Surgical, Medication, and").locator("span")).containsText("Surgical, Medication, and other Medical History");
