@@ -6,8 +6,8 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.TestProperties;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -106,10 +106,6 @@ public class Travel_Request_Portal_Form_Steps {
         Travel_Request_Portal_Form_StepImpl.i_will_not_see_the_following_help_text_language_under_the_field_under_the_section(destinationType, event, helpText);
     }
 
-    @When("I am completing the Travel Planning System form,")
-    public void i_am_completing_the_travel_planning_system_form() {
-    }
-
     @Then("I will not see the Header on the form {string},")
     public void i_will_not_see_the_header_on_the_form(String travelCashAdvance) {
         Travel_Request_Portal_Form_StepImpl.i_will_not_see_the_header_on_the_form(travelCashAdvance);
@@ -127,7 +123,7 @@ public class Travel_Request_Portal_Form_Steps {
 
     @When("I log in to the NCI at Your Service Portal,")
     public void i_log_in_to_the_nci_at_your_service_portal() {
-        page.navigate(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
+        page.navigate(TestProperties.getNCISPUrl());
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -151,6 +147,6 @@ public class Travel_Request_Portal_Form_Steps {
         page.navigate("https://service-test.nci.nih.gov/ncisp?id=nci_sc_cat_item&sys_id=b246963e1b2a7d50344042e2b24bcb64");
         assertThat(page.getByRole(AriaRole.MAIN)).containsText("You are either not authorized to view this content or the record is not valid.");
         CucumberLogUtils.playwrightScreenshot(page);
-        MiscUtils.sleep(6000);
+        CommonUtils.sleep(6000);
     }
 }

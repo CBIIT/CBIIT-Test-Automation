@@ -203,7 +203,8 @@ public class OFFBOARD_StepsImpl {
         CucumberLogUtils.playwrightScreenshot(page);
         assertThat(page.locator("#hardware_ticket_number")).containsText("Hardware Return Ticket Number(s)");
         page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName("Required Hardware Return")).click();
-        page.getByText("NCI-RITM0466083").click();
+        page.locator("//input[@id='s2id_autogen11']").fill("NCI-RITM0472526");
+        page.getByText("NCI-RITM0472526").click();
         assertThat(page.locator("#additional_info")).containsText("Additional Information");
         page.getByLabel("Additional Information", new Page.GetByLabelOptions().setExact(true)).fill("test");
         page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").scrollIntoViewIfNeeded();
@@ -308,7 +309,8 @@ public class OFFBOARD_StepsImpl {
         CucumberLogUtils.playwrightScreenshot(page);
         assertThat(page.locator("#hardware_ticket_number")).containsText("Hardware Return Ticket Number(s)");
         page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName("Hardware Return Ticket Number")).click();
-        page.getByText("NCI-RITM0466083").click();
+        page.locator("//input[@id='s2id_autogen11']").fill("NCI-RITM0472526");
+        page.getByText("NCI-RITM0472526").click();
         assertThat(page.locator("#additional_info")).containsText("Additional Information");
         page.getByLabel("Additional Information", new Page.GetByLabelOptions().setExact(true)).fill("test");
         page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").scrollIntoViewIfNeeded();
@@ -388,7 +390,8 @@ public class OFFBOARD_StepsImpl {
                 "---- VERIFY THAT 'HARDWARE RETURN TICKET NUMBER(S)' FIELD IS REQUIRED WHEN AN EMPLOYEE SUBMITS DEPARTURE REQUEST ----");
         assertThat(page.locator("#hardware_ticket_number")).containsText("Hardware Return Ticket Number(s)");
         page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName("Required Hardware Return")).click();
-        page.getByText("NCI-RITM0466083").click();
+        page.locator("//input[@id='s2id_autogen11']").fill("NCI-RITM0472526");
+        page.getByText("NCI-RITM0472526").click();
         assertThat(page.locator("#additional_info")).containsText("Additional Information");
         page.getByLabel("Additional Information", new Page.GetByLabelOptions().setExact(true)).fill("test");
         page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").scrollIntoViewIfNeeded();
