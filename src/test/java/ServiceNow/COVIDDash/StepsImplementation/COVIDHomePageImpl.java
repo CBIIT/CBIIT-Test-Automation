@@ -1,15 +1,11 @@
 package ServiceNow.COVIDDash.StepsImplementation;
 
+import com.nci.automation.web.CommonUtils;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
-
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
 import appsCommon.Utils.PageCache;
 import appsCommon.PageInitializers.PageInitializer;
@@ -21,32 +17,32 @@ public class COVIDHomePageImpl extends PageInitializer {
 	final static String covid = "covid-19-dashboard";
 	final static String attName = "value";
 
-	public void navigateToCOVIDDashLoginPage() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("covid19dashboard"));
+	public void navigateToCOVIDDashLoginPage()  {
+		WebDriverUtils.webDriver.get("");
 		CucumberLogUtils.logScreenshot();
 	}
 
 	public void clickOnLoginToAccessBtn() {
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		covidHomePage.clickITrustRedirectButton();
 
 	}
 
 	public void verifyUserLoggedIn() {
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		Assert.assertTrue(WebDriverUtils.webDriver.getCurrentUrl().contains(covid));
 		CucumberLogUtils.logScreenshot();
 	}
 
-	public void loginToCovidDashboard() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("covid19dashboard"));
+	public void loginToCovidDashboard()  {
+		WebDriverUtils.webDriver.get("");
 		CucumberLogUtils.logScreenshot();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		covidHomePage.clickITrustRedirectButton();
-		MiscUtils.sleep(2060);
+		CommonUtils.sleep(2060);
 		iTrustLoginPageImpl.loginToITrust();
 		iTrustloginPage.clickSignInButton();
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -62,7 +58,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 	}
 
 	public void checkFieldsAutoPubulated(String inst, String dvsn, String piEml, String piPhn) {
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		Assert.assertEquals(inst, covidHomePage.instituteField().getAttribute(attName));
 		Assert.assertEquals(dvsn, covidHomePage.divisionField().getAttribute(attName));
 		Assert.assertEquals(piEml, covidHomePage.emailAddressField().getAttribute(attName).substring(12));
@@ -121,7 +117,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 
 	public void attachingMultipleURLs() {
 		JavascriptUtils.clickByJS(pageCache.getCOVIDHomePage().urlButton());
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		pageCache.getCOVIDHomePage().urlField().sendKeys(COVIDConstants.GOOGLE_URL);
 		JavascriptUtils.clickByJS(covidHomePage.urlAddButton());
 		covidHomePage.urlField().sendKeys(COVIDConstants.GOOGLE_URL);
@@ -131,7 +127,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 		covidHomePage.urlField().sendKeys(COVIDConstants.GOOGLE_URL);
 		JavascriptUtils.clickByJS(covidHomePage.urlAddButton());
 		JavascriptUtils.clickByJS(covidHomePage.urlSaveButton());
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		boolean addedURL = covidHomePage.addedUrlLink().getText().contains(COVIDConstants.GOOGLE_URL);
 		Assert.assertTrue(addedURL);
 	}

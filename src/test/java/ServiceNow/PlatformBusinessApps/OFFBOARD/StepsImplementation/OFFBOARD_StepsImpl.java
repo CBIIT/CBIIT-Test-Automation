@@ -9,12 +9,13 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.BoundingBox;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
+import com.nci.automation.web.TestProperties;
 import org.testng.Assert;
 import java.util.regex.Pattern;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
+import static com.nci.automation.web.TestProperties.getNerdUrl;
 
 public class OFFBOARD_StepsImpl {
     public static Page returnHardwarePage;
@@ -24,7 +25,7 @@ public class OFFBOARD_StepsImpl {
      * THIS METHOD NAVIGATES TO CBIIT OFFBOARDING PORTAL PAGE
      */
     public static void i_navigate_to_to_the_offboarding_request_form_to_put_in_a_request_to_off_board_or_transfer_an_employee() {
-        page.navigate(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
+        page.navigate(TestProperties.getNCISPUrl());
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Page.servicesLink).setExact(true)).click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Page.cbiit_Business_ServicesLink_Locator)).first().click();
         assertThat(page.getByLabel(CBIIT_OFFBOARD_FORM_Constants.CATEGORY_TEXT, new Page.GetByLabelOptions().setExact(true))).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_BUSINESS_SERVICESLINK);
@@ -36,7 +37,7 @@ public class OFFBOARD_StepsImpl {
      * This method navigates to the offboarding request form and fills in Requester For fields.
      */
     public static void i_open_the_offboarding_request_form() {
-        page.navigate(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
+        page.navigate(getNerdUrl());
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Page.servicesLink).setExact(true)).click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Page.cbiit_Business_ServicesLink_Locator)).first().click();
         assertThat(page.getByLabel(CBIIT_OFFBOARD_FORM_Constants.CATEGORY_TEXT, new Page.GetByLabelOptions().setExact(true))).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_BUSINESS_SERVICESLINK);

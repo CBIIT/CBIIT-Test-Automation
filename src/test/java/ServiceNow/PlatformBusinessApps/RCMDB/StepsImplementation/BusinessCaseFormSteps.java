@@ -4,7 +4,6 @@ import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
-import com.nci.automation.web.ConfUtils;
 
 import ServiceNow.ITPG.Pages.BusinessCaseFormPage;
 import ServiceNow.ITPG.StepsImplementation.LoginStepsImpl;
@@ -48,8 +47,8 @@ public class BusinessCaseFormSteps {
 	public void login() throws Exception {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
-			loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
-			String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
+			loginStepsImpl.enterUsername("");
+			String decyptedPass = EncryptionUtils.decrypt("");
 			// loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
 			// decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
 			loginStepsImpl.enterPassword(decyptedPass);

@@ -3,11 +3,6 @@ package ServiceNow.ATO.Steps;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.support.PageFactory;
-
-import com.nci.automation.utils.EncryptionUtils;
-import com.nci.automation.web.ConfUtils;
-import com.nci.automation.xceptions.TestingException;
-
 import ServiceNow.ATO.Pages.BasePage;
 import ServiceNow.ATO.Pages.CommonPage;
 import ServiceNow.ATO.Pages.NewProjectPage;
@@ -55,11 +50,11 @@ public class LoginSteps {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 		}
-		loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
-		String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
+//		loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
+//		String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
 		// loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
 		// decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
-		loginStepsImpl.enterPassword(decyptedPass);
+//		loginStepsImpl.enterPassword(decyptedPass);
 		// loginPage.enterUsername(ConfigFileReader.getConfigFileReader().getUserName());
 		// loginPage.enterPassword(ConfigFileReader.getConfigFileReader().getPassword());
 		loginStepsImpl.clickOnSignInButton();
@@ -88,7 +83,7 @@ public class LoginSteps {
 //	}
 
 	@When("User will login to the application as \"([^\"]*)\" user into fast ato")
-	public void loginByUsernameFastAto(String username) throws InterruptedException, TestingException {
+	public void loginByUsernameFastAto(String username) throws InterruptedException {
 		loginStepsImpl.loginButtonFastAto();
 		Thread.sleep(3000);
 		loginStepsImpl.enterUsername(username);

@@ -2,10 +2,8 @@ package ServiceNow.PlatformBusinessApps.SSJ.selenium.Steps;
 
 import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializers.PageInitializer;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -140,26 +138,26 @@ public class ApplicantFlowSteps extends PageInitializer {
 
     @Given("User is on Home Page")
     public void user_is_on_Home_Page() {
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         Assert.assertTrue(applicantFlowPage.homeTab.isDisplayed());
     }
 
     @When("User uploads all the needed documents")
     public void user_upload_all_the_needed_documents() throws AWTException {
         CommonUtils.clickOnElement(applicantFlowPage.uploadVisStatement);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         WebElement uploadFile = getWebDriver().findElement(By.xpath("(//input[@type='file'])[1]"));
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         uploadFile.sendKeys("C:\\Users\\nekrashevicha2\\Desktop\\TEST-DATA\\QualificationStatement.docx");
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         applicantFlowStepsImplementation.closeOutlookWindow();
         JavascriptUtils.scrollIntoView(applicantFlowPage.uploadCV);
         CommonUtils.clickOnElement(applicantFlowPage.uploadCV);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         WebElement uploadFile1 = getWebDriver().findElement(By.xpath("(//input[@type='file'])[2]"));
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         uploadFile1.sendKeys("C:\\Users\\nekrashevicha2\\Desktop\\TEST-DATA\\Chris Belles.pdf");
-        MiscUtils.sleep(6000);
+        CommonUtils.sleep(6000);
         applicantFlowStepsImplementation.closeOutlookWindow();
     }
 
@@ -167,15 +165,15 @@ public class ApplicantFlowSteps extends PageInitializer {
     public void user_can_see_References_blurb() {
         JavascriptUtils.scrollIntoView(applicantFlowPage.referencesBlurb);
         Assert.assertTrue(applicantFlowPage.referencesBlurb.isDisplayed());
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
     }
 
     @Then("User  denies for references to be contacted")
     public void user_can_deny_for_references_to_be_contacted() {
         CommonUtils.clickOnElement(applicantFlowPage.contactdirectlyDpReferencesSection);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CommonUtils.clickOnElement(applicantFlowPage.noContactdirectlyDpReferencesSection);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
     }
 
     @When("User is on Your Applications tab")
@@ -186,7 +184,7 @@ public class ApplicantFlowSteps extends PageInitializer {
     @Then("User can navigate to Your Applications tab")
     public void user_can_navigate_to_Your_Applications_tab() {
         CommonUtils.clickOnElement(applicantFlowPage.yourApplicationsTab);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
     }
 
     @Given("User can see SSJ landing page title {string}")

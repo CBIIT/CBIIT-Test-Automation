@@ -3,7 +3,6 @@ package ServiceNow.CHARMS.Steps;
 import java.util.ArrayList;
 
 import org.junit.Assert;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import ServiceNow.CHARMS.Constants.FHQSurveyPageConstants;
 import ServiceNow.CHARMS.Utils.ComponentTestResult;
@@ -112,7 +111,7 @@ public class FHQGrandParentRecordProducerSteps extends PageInitializer {
 
 		fHQSurveyPortalPage.newButtonLinkOnListView.click();
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(
 				fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,
@@ -300,7 +299,7 @@ public class FHQGrandParentRecordProducerSteps extends PageInitializer {
 		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.parentBirthLabelDropDown,
 				FHQSurveyPageConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER, 1);
 
-		MiscUtils.sleep(200);
+		CommonUtils.sleep(200);
 
 		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentbirthsBanner,
 				"Please identify the number of each of the following pregnancy results for this parent.");
@@ -370,7 +369,7 @@ public class FHQGrandParentRecordProducerSteps extends PageInitializer {
 		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown2,
 				FHQSurveyPageConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER, 1);
 
-		MiscUtils.sleep(200);
+		CommonUtils.sleep(200);
 
 		ComponentTestResult labelTest2 = FHQUtil.verifyLabel(
 				fHQSurveyPortalPage.parentDiagnosedWithRasopathyAddButtonInfo,
@@ -399,7 +398,7 @@ public class FHQGrandParentRecordProducerSteps extends PageInitializer {
 
 		fHQSurveyPortalPage.addRasopathyButton.click();
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		CommonUtils.maximizeWindow();
 
@@ -574,7 +573,7 @@ public class FHQGrandParentRecordProducerSteps extends PageInitializer {
 		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown2,
 				FHQSurveyPageConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER, 1);
 
-		MiscUtils.sleep(200);
+		CommonUtils.sleep(200);
 
 		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentDiagnosedWithCancerAddButtonInfo,
 				"Please select the 'Add' button below to add each cancer this relative has had.");
@@ -601,7 +600,7 @@ public class FHQGrandParentRecordProducerSteps extends PageInitializer {
 
 		fHQSurveyPortalPage.addCancerButton.click();
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		CommonUtils.maximizeWindow();
 
 		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.addRowBanner, "Add Row");
@@ -667,7 +666,7 @@ public class FHQGrandParentRecordProducerSteps extends PageInitializer {
 
 		ComponentTestResult labelTest13 = FHQUtil.verifyLabel(fHQSurveyPortalPage.addRowsaveButton, "Add");
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		fHQSurveyPortalPage.addRowsaveButton.click();
 
 		StepTestResult stepTestResult = new StepTestResult(
@@ -777,7 +776,7 @@ public class FHQGrandParentRecordProducerSteps extends PageInitializer {
 		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown2,
 				FHQSurveyPageConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER, 1);
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		ComponentTestResult labelTest2 = FHQUtil.verifyLabel(
 				fHQSurveyPortalPage.parentDiagnosedWithMedicalConditionsAddButtonInfo,
@@ -808,7 +807,7 @@ public class FHQGrandParentRecordProducerSteps extends PageInitializer {
 
 		fHQSurveyPortalPage.addMedicalConditionsButton.click();
 
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		CommonUtils.maximizeWindow();
 
 		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.addRowBanner, "Add Row");
@@ -1031,7 +1030,7 @@ public class FHQGrandParentRecordProducerSteps extends PageInitializer {
 				fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel1,
 				"Family Cohort Study Management System: RASopathies");
 
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 
 		ComponentTestResult homeButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.homeButton, "FHQ Home");
 

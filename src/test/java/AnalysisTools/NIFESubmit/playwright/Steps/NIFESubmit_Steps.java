@@ -7,18 +7,18 @@ import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import static com.nci.automation.web.TestProperties.getNifeUrl;
 
 public class NIFESubmit_Steps extends PageInitializer {
 
     @Given("User navigates to the NIFE Website")
     public void user_navigates_to_the_nife_website() {
-        PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("NIFESubmit"));
-        MiscUtils.sleep(2000);
+        PlaywrightUtils.page.navigate(getNifeUrl());
+        CommonUtils.sleep(2000);
     }
 
     @Then("User clicks on the HOME tab")

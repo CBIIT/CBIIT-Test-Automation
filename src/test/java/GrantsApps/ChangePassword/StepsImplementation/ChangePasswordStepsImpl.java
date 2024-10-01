@@ -1,14 +1,12 @@
 package GrantsApps.ChangePassword.StepsImplementation;
 
 import java.util.Random;
-
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import org.junit.Assert;
+import static com.nci.automation.web.TestProperties.getChangePasswordUrl;
 
 public class ChangePasswordStepsImpl extends PageInitializer {
     public static String newPassword = generateNewPassword();
@@ -26,7 +24,7 @@ public class ChangePasswordStepsImpl extends PageInitializer {
     }
 
     public static void userIsOnLandingPage(String url) {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(url));
+        WebDriverUtils.webDriver.get(getChangePasswordUrl());
         iTrustLoginPageImpl.loginToITrust();
         CucumberLogUtils.logScreenshot();
     }
@@ -48,8 +46,8 @@ public class ChangePasswordStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    public static void userIsBackOnLandingPage() throws TestingException {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ChangePassword"));
+    public static void userIsBackOnLandingPage()  {
+        WebDriverUtils.webDriver.get(getChangePasswordUrl());
         CucumberLogUtils.logScreenshot();
     }
 

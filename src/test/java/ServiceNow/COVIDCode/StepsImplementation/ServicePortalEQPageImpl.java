@@ -7,7 +7,6 @@ import java.util.List;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import appsCommon.PageInitializers.PageInitializer;
@@ -64,23 +63,23 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 		JavascriptUtils.selectDateByJS(covidCodeEQPage.enrollmentQuestionnaireDateFormCompletedBox, "04-06-2020");
 		JavascriptUtils.selectDateByJS(covidCodeEQPage.enrollmentQuestionnaireDOBbox, "04-01-2000");
 		covidCodeEQPage.enrollmentQuestionnaireBiologicalSexDropdown.click();
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		List<WebElement> biologicalSexValues = covidCodeEQPage.enrollmentQuestionnaireBiologicalSexDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(biologicalSexValues, "Male");
 		covidCodeEQPage.enrollmentQuestionnaireCurrentWeightDropdown.click();
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		List<WebElement> currentWeightValues = covidCodeEQPage.enrollmentQuestionnaireCurrentWeightDropdownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(currentWeightValues, "Pounds");
 		covidCodeEQPage.enrollmentQuestionnaireWeightTextBox.sendKeys("200");
 		covidCodeEQPage.enrollmentQuestionnaireRaceDropdown.click();
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		List<WebElement> raceValues = covidCodeEQPage.enrollmentQuestionnaireRaceDropdownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(raceValues, "Asian");
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		covidCodeEQPage.enrollmentQuestionnaireHispanicOrLatinoDropdown.click();
 		List<WebElement> hispanicOrLatinoValues = covidCodeEQPage.enrollmentQuestionnaireHispanicOrLatinoDropdownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(hispanicOrLatinoValues, "Yes");
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		covidCodeEQPage.enrollmentQuestionnaireCurrentHeightDropdown.click();
 		List<WebElement> heightDropdownValues = covidCodeEQPage.enrollmentQuestionnaireCurrentHeightDropdownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(heightDropdownValues, "Feet/Inches");
@@ -119,12 +118,12 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 	 */
 	public void submittingEQ() {
 		covidCodeEQPage.enrollmentQuestionnaireSubmitButton.click();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		covidCodeEQPage.enrollmentQuestionnaireConfirmSubmissionYesButton.click();
 	}
 
 	public static void enrollmentSubmissionConfirmation() {
-		MiscUtils.sleep(10000);
+		CommonUtils.sleep(10000);
 		String text = servicePortalQuestionnairePage.servicePortalEnrollmentQuestionnaireSubmissionConfirmationText
 				.getText();
 		boolean status = text.contains("has been successfully submitted!");
@@ -139,13 +138,13 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 
 	public void servicePortalEnrollmentQuestionnaireExposureAndRiskAssertValueFromBootStrapDropDown(
 			List<WebElement> lists, String[] arrayList) {
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		List<String> act = new ArrayList<String>();
 		for (WebElement l : lists) {
 			act.add(l.getText());
 		}
 		List<String> exp = new ArrayList<String>(Arrays.asList(arrayList));
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 		Assert.assertEquals(act, exp);
 	}

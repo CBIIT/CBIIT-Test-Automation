@@ -265,8 +265,8 @@ You must be logged in to apply for a vacancy.
 Would you like to log in now or go back to the home page?
    """
     And verifies that the text on the buttons is "Create an account" "Log in" "Go Back"
-#    And clicks "Log in" and is redirected to the Okta Login Portal
-#    And verifies that the PIV CAC card button text is "Sign in with PIV / CAC card"
+    And clicks "Log in" and is redirected to the Okta Login Portal
+    And verifies that the PIV CAC card button text is "Sign in with PIV / CAC card"
 
   @TC_APPTRACK-128 @JUAREZDS @Regression @playwright @SNOW_UPDATED
   Scenario Outline: Verification of the Save application functionality
@@ -496,11 +496,12 @@ Would you like to log in now or go back to the home page?
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | address | aptNumber | city   | state | country | zip   | referenceOneFirstName | referenceOneMiddleName | referenceOneLastName | referenceOneEmail     | referenceOnePhoneNumber | referenceOneRelationship | referenceOnePositionTitle | referenceOneOrganizationName                 | referenceTwoFirstName | referenceTwoMiddleName | referenceTwoLastName | referenceTwoEmail     | referenceTwoPhoneNumber | referenceTwoPositionTitle | referenceTwoOrganizationName                 | updatedReferenceOneFirstName | updatedReferenceOneMiddleName | updatedReferenceOneLastName | updatedReferenceOneEmail     | updatedReferenceOnePhoneNumber | updatedReferenceOneRelationship | updatedReferenceOnePositionTitle | updatedReferenceOneOrganizationName                  | updatedReferenceTwoFirstName | updatedReferenceTwoMiddleName | updatedReferenceTwoLastName | updatedReferenceTwoEmail     | updatedReferenceTwoPhoneNumber | updatedReferenceTwoPositionTitle | updatedReferenceTwoOrganizationName                  |
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | 7 Mills | 12378     | Reston | VA    | USA     | 20453 | Fred                  | Trout                  | Laste                | referenceOne@test.com | 7036875816              | Supervisor/Manager       | PROJECT MANAGER           | TESTING ORGANIZATION FIELD FOR REFERENCE ONE | John                  | Steven                 | Vakhutko             | referenceTwo@test.com | 7036875816              | TEST AUTOMATION LEAD      | TESTING ORGANIZATION FIELD FOR REFERENCE TWO | Elizabeth                    | Mary                          | Smith                       | updatedReferenceOne@test.com | 7036875817                     | Colleague                       | BUSINESS ANALYST                 | UPDATED TESTING ORGANIZATION FIELD FOR REFERENCE ONE | Adam                         | Elliot                        | Washington                  | updatedReferenceTwo@test.com | 7036875817                     | PRODUCT OWNER                    | UPDATED TESTING ORGANIZATION FIELD FOR REFERENCE TWO |
 
-  @TC_APPTRACK-827 @cabreralf @InProgress
+  @TC_APPTRACK-827 @cabreralf @Regression @playwright
   Scenario: Banner Notifying an Applicant While They are Editing a Submitted Application That Their Changes Will Not Save
-    Given User logged in as an SCSS Applicant,
-    When User edits an application for a vacancy that already submitted
-    Then User sees a banner notifying that changes will not save to the system automatically
+    Given User is on SSJ Landing page and user is "OKTA_APPLICANT" - PW
+    When user navigates to Your Applications tab
+    And edits an application for a vacancy that status is "Submitted"
+    Then user sees a banner "You are editing a submitted application. Changes are not saved until the application is submitted again."
 
 
 

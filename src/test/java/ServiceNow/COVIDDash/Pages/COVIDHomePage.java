@@ -7,7 +7,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -178,9 +177,9 @@ public class COVIDHomePage extends CommonUtils {
 		CommonUtils.waitForVisibility(principalInvestigatorDD);
 		principalInvestigatorDD.click();
 		pISearchBox.sendKeys(investgatorName);
-		MiscUtils.sleep(700);
+		CommonUtils.sleep(700);
 		pISearchBox.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(1500);
+		CommonUtils.sleep(1500);
 	}
 
 	public WebElement instituteField() {
@@ -303,16 +302,16 @@ public class COVIDHomePage extends CommonUtils {
 	}
 
 	public void attachStudyDocument() {
-		MiscUtils.sleep(1500);
+		CommonUtils.sleep(1500);
 		attachmentButton.sendKeys(COVIDConstants.DOC_PATH);
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		boolean isFileUploaded = uploadedFile.getText().contains(".docx");
 		Assert.assertTrue(isFileUploaded);
 	}
 
 	public void attachURL() {
 		JavascriptUtils.clickByJS(urlButton);
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		urlField.sendKeys(COVIDConstants.TEST_URL);
 		JavascriptUtils.clickByJS(urlAddButton);
 		CommonUtils.waitForVisibility(urlSaveButton);
@@ -322,23 +321,23 @@ public class COVIDHomePage extends CommonUtils {
 	}
 
 	public void deleteURL() {
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		urlDeleteButton.get(1).click();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 	}
 
 	public void clickSubmitAndConfirmSubButton() {
 		CommonUtils.waitForVisibility(submitButton);
 		JavascriptUtils.clickByJS(submitButton);
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		CommonUtils.waitForVisibility(confirmSubmitButton);
 		JavascriptUtils.clickByJS(confirmSubmitButton);
 	}
 
 	public void logOutFromCovid() {
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 		JavascriptUtils.clickByJS(covidHomeLogoutDD);
-		MiscUtils.sleep(500);
+		CommonUtils.sleep(500);
 		JavascriptUtils.clickByJS(covidHomeLogoutLink);
 	}
 

@@ -3,7 +3,7 @@ package appsCommon.PageInitializers;
 import AnalysisTools.ACT24.Pages.*;
 import AnalysisTools.ACT24.StepsImpl.ACT24ParticipantStepImpl;
 import AnalysisTools.ACT24.StepsImpl.ACT24ResearcherStepImpl;
-import AnalysisTools.Comets2.Pages.*;
+import AnalysisTools.CometsExplorer.Pages.*;
 import AnalysisTools.CometsAnalytics.Pages.*;
 import AnalysisTools.CometsAnalytics.StepsImplementation.*;
 import AnalysisTools.GDSTracking.Pages.*;
@@ -49,8 +49,6 @@ import ServiceNow.CHARMS.Pages.*;
 import ServiceNow.CHARMS.ScenariosData.*;
 import ServiceNow.CHARMS.StepsImplementation.*;
 import ServiceNow.CHARMS.StepsImplementation.RASStudy.*;
-import ServiceNow.CICDBuild.Pages.*;
-import ServiceNow.CICDBuild.StepsImplementation.*;
 import ServiceNow.COVIDCode.Pages.*;
 import ServiceNow.COVIDCode.StepsImplementation.*;
 import ServiceNow.COVIDCode.StepsImplementation.DashboardStepImpl;
@@ -68,7 +66,6 @@ import ServiceNow.PlatformBusinessApps.NERD.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
-import ServiceNow.PlatformBusinessApps.SNOW_TRAVEL.Selenium.Pages.Travel_Request_Form_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.*;
 import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.*;
 import appsCommon.Pages.ITrustLoginPage;
@@ -165,12 +162,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static MelanomaLoginPage melanomaLoginPage;
 	public static MelanomaHomePage melanomaHomePage;
 	public static MelanomaQuestionnairePage melanomaQuestionnairePage;
-
-	/** CICDBuild instances */
-	// ServiceNow DevOps instances
-	public static DevOpsLoginPage devOpsLoginPage;
-	public static DevOpsNativeViewPage devOpsNativeViewPage;
-	public static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
 
 	/** SEER instances */
 	public static SEERLandingPage seerLandingPage;
@@ -372,9 +363,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static CometsAnalyticsPage cometsAnalyticsPage;
 	public static CometsAnalyticsStepImp cometsAnalyticsStepImp;
 
-	/** ----------------- TRAVEL REQUEST  -----*/
-	public static Travel_Request_Form_Page travel_Request_Form_Page;
-
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
 		// create instances of all pages and assign them to the variables
@@ -448,12 +436,6 @@ public class PageInitializer extends WebDriverUtils {
 		melanomaLoginPage = new MelanomaLoginPage();
 		melanomaHomePage = new MelanomaHomePage();
 		melanomaQuestionnairePage = new MelanomaQuestionnairePage();
-
-		/** CICDBuild Instance Variables */
-		// ServiceNow DevOps instances
-		devOpsLoginPage = new DevOpsLoginPage();
-		devOpsNativeViewPage = new DevOpsNativeViewPage();
-		devOpsAutomatedBuildStepsImplementation = new DevOpsAutomatedBuildStepsImplementation();
 
 		/** SEER Instance Variables */
 		seerLandingPage = new SEERLandingPage();
@@ -682,8 +664,5 @@ public class PageInitializer extends WebDriverUtils {
 		cometsAnalyticsPage = new CometsAnalyticsPage();
 		cometsAnalyticsStepImp = new CometsAnalyticsStepImp();
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
-
-		/** TRAVEL REQUEST INSTANCE VARIABLES */
-		travel_Request_Form_Page = new Travel_Request_Form_Page();
 	}
 }

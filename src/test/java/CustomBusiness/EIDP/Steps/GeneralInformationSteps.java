@@ -3,7 +3,6 @@ package CustomBusiness.EIDP.Steps;
 import java.util.Map;
 
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializers.PageInitializer;
@@ -24,9 +23,9 @@ public class GeneralInformationSteps extends PageInitializer {
 			throws Exception {
 		Map<String, String> requestData = CommonUtil.getMapFromDataTable(data);
 		generalInformationStepImpl.enterPrimaryMentor(requestData.get("Primary Mentor"));
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		generalInformationStepImpl.enterLabBranchName(requestData.get("Lab Driector name"));
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		String coPrimaryMentor = requestData.get("Co Primary Mentor");
 		System.out.println("coPrimaryMentor = " + coPrimaryMentor);
 		if (coPrimaryMentor != null && !"".equals(coPrimaryMentor)) {
@@ -48,7 +47,7 @@ public class GeneralInformationSteps extends PageInitializer {
 		CommonUtil.waitBrowser(2000);
 		CucumberLogUtils.logScreenshot();
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 	}
 
 	@When("User fills general information for delegate idp case")
@@ -73,7 +72,7 @@ public class GeneralInformationSteps extends PageInitializer {
 		CommonUtil.waitBrowser(2000);
 		CucumberLogUtils.logScreenshot();
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
-		MiscUtils.sleep(1000);
+		CommonUtils.sleep(1000);
 	}
 
 	@When("Edit general information")
@@ -85,7 +84,7 @@ public class GeneralInformationSteps extends PageInitializer {
 	public void selectPrimaryMentor(String name) throws Exception {
 		generalInformationStepImpl.enterPrimaryMentor(name);
 		generalInformationStepImpl.selectRandomHighestDegree();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
 	}
 

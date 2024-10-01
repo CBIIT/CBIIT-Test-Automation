@@ -2,13 +2,9 @@ package ServiceNow.CHARMS.Steps;
 
 import java.util.ArrayList;
 import org.openqa.selenium.By;
-import org.testng.asserts.SoftAssert;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import ServiceNow.CHARMS.Constants.FHQSurveyPageConstants;
 import ServiceNow.CHARMS.StepsImplementation.FHQSubmissionStepsImpl;
 import ServiceNow.CHARMS.Utils.CharmsUtil;
@@ -20,24 +16,25 @@ import appsCommon.Utils.ServiceNow_Login_Methods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import static com.nci.automation.web.TestProperties.getNativeViewSideDoorUrl;
+import static com.nci.automation.web.TestProperties.getRasLoginUrl;
 
 public class FHQpatientRecordProducerSteps extends PageInitializer {
-	SoftAssert softAssert = new SoftAssert();
+
 	private ArrayList<StepTestResult> scenarioReportList = new ArrayList<StepTestResult>();
 
 	@Given("participant open RASopathies Longitudinal Cohort Study log in page")
-	public void participant_open_ra_sopathies_longitudinal_cohort_study_log_in_page() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
+	public void participant_open_ra_sopathies_longitudinal_cohort_study_log_in_page() {
+		WebDriverUtils.webDriver.get(getRasLoginUrl());
 	}
 
 	@Then("logs Rasopathy page via Okta using username {string} and password {string}")
-	public void logs_rasopathy_page_via_okta_using_username_and_password(String username, String password)
-			throws TestingException {
+	public void logs_rasopathy_page_via_okta_using_username_and_password(String username, String password) {
 		FHQSubmissionStepsImpl.loginToRASStudyPage(username, password);
 	}
 
 	@Then("logs in CHARMS FHQ Survey page")
-	public void logs_in_charms_fhq_survey_page() throws TestingException {
+	public void logs_in_charms_fhq_survey_page() {
 		WebDriverUtils.webDriver.get("https://service-test.nci.nih.gov/myras?id=fmi_landing");
 		CommonUtils.maximizeWindow();
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorContainsText("Click here to start your family health questionnai"));
@@ -51,7 +48,7 @@ public class FHQpatientRecordProducerSteps extends PageInitializer {
 				"Click here to start your family health questionnaire");
 		CommonUtils.waitForVisibility(fHQSurveyPortalPage.startYourFamilyHealthQuiestionnaireLink1);
 		fHQSurveyPortalPage.startYourFamilyHealthQuiestionnaireLink.click();
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		StepTestResult stepTestResult = new StepTestResult(
 				"User navigates to CHARMS FHQ Survey page and opens FHQ Landing Page");
 		stepTestResult.add(charmsBannerTest);
@@ -90,7 +87,7 @@ public class FHQpatientRecordProducerSteps extends PageInitializer {
 	}
 
 	@When("the user navigates to CHARMS FHQ Survey page and opens FHQ Landing Page")
-	public void the_user_navigates_to_CHARMS_FHQ_Survey_page_and_opens_FHQ_Landing_Page() throws TestingException {
+	public void the_user_navigates_to_CHARMS_FHQ_Survey_page_and_opens_FHQ_Landing_Page() {
 		WebDriverUtils.webDriver.get("https://service-test.nci.nih.gov/ncifamily");
 		CommonUtils.maximizeWindow();
 		StepTestResult stepTestResult = new StepTestResult(
@@ -106,7 +103,7 @@ public class FHQpatientRecordProducerSteps extends PageInitializer {
 				"Click here to start your family health questionnaire");
 		CommonUtils.waitForVisibility(fHQSurveyPortalPage.startYourFamilyHealthQuiestionnaireLink);
 		fHQSurveyPortalPage.startYourFamilyHealthQuiestionnaireLink.click();
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		StepTestResult stepTestResult = new StepTestResult(
 				"Clicked the link Start your family health questionnaire to take to the Participant FHQ page");
 		stepTestResult.add(bannerTest);
@@ -139,7 +136,7 @@ public class FHQpatientRecordProducerSteps extends PageInitializer {
 				"Gender Identity");
 		ComponentTestResult dropdownTest1 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
 				FHQSurveyPageConstants.GENDER_IDENTITY, 7);
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.otherGenderLabel, "Other gender");
 		ComponentTestResult labelTest4 = FHQUtil.verifyLabel(fHQSurveyPortalPage.otherGenderTextBox, "");
 		fHQSurveyPortalPage.otherGenderTextBox.sendKeys("Other Gender added for the Participant");
@@ -317,7 +314,7 @@ public class FHQpatientRecordProducerSteps extends PageInitializer {
 				"We will ask about donor materials (i.e. sperm, egg) as well as adoptive children in a later question. Please do not count them here.");
 		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
 				FHQSurveyPageConstants.numberUpToNStartingWithOne(10), 3);
-		MiscUtils.sleep(300);
+		CommonUtils.sleep(300);
 		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.partnerMRVSBanner, "Partner");
 		ComponentTestResult labelTest2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.participantPartnerMRVSAddButton,
 				"Add");
@@ -525,7 +522,7 @@ public class FHQpatientRecordProducerSteps extends PageInitializer {
 		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.participantCompleteAndSubmitButton,
 				"Complete and Submit");
 		fHQSurveyPortalPage.participantCompleteAndSubmitButton.click();
-		MiscUtils.sleep(5000);
+		CommonUtils.sleep(5000);
 		StepTestResult stepTestResult = new StepTestResult(
 				"Finally clicked the Complete-Submit Button to submit the Participant Personal record producer");
 		stepTestResult.add(labelTest);
@@ -560,8 +557,8 @@ public class FHQpatientRecordProducerSteps extends PageInitializer {
 
     @Given("a user lands on FHQ Survey Page using the Test Account credentials in Test side door login page")
     public void a_user_lands_on_FHQ_Survey_Page_using_the_Test_Account_credentials_in_Test_side_door_login_page()
-            throws TestingException {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeViewSideDoor"));
+             {
+        WebDriverUtils.webDriver.get(getNativeViewSideDoorUrl());
         WebDriverUtils.webDriver.switchTo()
                 .frame(WebDriverUtils.webDriver.findElement(By.xpath("//iframe[@id='gsft_main']")));
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
@@ -569,20 +566,20 @@ public class FHQpatientRecordProducerSteps extends PageInitializer {
 
     @Given("logs in Rasopathy page via Okta with username {string} and password {string}")
     public void logs_in_Rasopathy_page_via_Okta_with_username_and_password(String username, String password) {
-        MiscUtils.sleep(300);
+        CommonUtils.sleep(300);
         CommonUtils.waitForVisibility(myRASLoginPage.loginToMyRASButton);
         myRASLoginPage.loginToMyRASButton.click();
         oktaLoginPage.usernameTxtBox.sendKeys(username);
         oktaLoginPage.passwordTxtBox.sendKeys(password);
         CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
         oktaLoginPage.loginBtn.click();
-        MiscUtils.sleep(300);
+        CommonUtils.sleep(300);
         oktaLoginPage.agreeBtn.click();
     }
 
     @When("the user navigates to CHARMS FHQ Survey page and opens FHQ Landing Page Qualtrics")
     public void the_user_navigates_to_CHARMS_FHQ_Survey_page_and_opens_FHQ_Landing_Page_Qualtrics()
-            throws TestingException {
+             {
         WebDriverUtils.webDriver.get("https://service-test.nci.nih.gov/myras?id=fmi_landing");
         CommonUtils.maximizeWindow();
         ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(
@@ -595,7 +592,7 @@ public class FHQpatientRecordProducerSteps extends PageInitializer {
                 "Click here to start your family health questionnaire");
         CommonUtils.waitForVisibility(fHQSurveyPortalPage.startYourFamilyHealthQuiestionnaireLink1);
         fHQSurveyPortalPage.startYourFamilyHealthQuiestionnaireLink.click();
-        MiscUtils.sleep(300);
+        CommonUtils.sleep(300);
         StepTestResult stepTestResult = new StepTestResult(
                 "User navigates to CHARMS FHQ Survey page and opens FHQ Landing Page");
         stepTestResult.add(charmsBannerTest);
