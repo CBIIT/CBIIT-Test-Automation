@@ -1,9 +1,9 @@
 package ServiceNow.CHARMS.studyQuestions;
 
-public class RAS_Screener_Questions {
+public class RAS_Screener_Questions_Proband {
 
     /**
-     * THIS JAVA CLASS CONTAINS ALL RAS SCREENER QUESTIONS
+     * THIS JAVA CLASS CONTAINS ALL RAS SCREENER QUESTIONS FOR PROBANDS
      */
     public static final String ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_FOR_YOURSELF = "Are you completing this form for someone else or for yourself?";
     public static final String WHAT_IS_YOUR_NAME = "What is your name?";
