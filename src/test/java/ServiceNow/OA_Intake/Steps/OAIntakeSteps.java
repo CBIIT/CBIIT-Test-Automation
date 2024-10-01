@@ -1,7 +1,6 @@
 package ServiceNow.OA_Intake.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.Given;
@@ -35,7 +34,6 @@ public class OAIntakeSteps extends PageInitializer {
         CommonUtils.clickOnElement(oaIntakePage.userGuideHyperlink);
         ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
         webDriver.switchTo().window(tabs.get(1));
-        MiscUtils.sleep(2000);
         Assert.assertTrue(oaIntakePage.userGuideLoginText.isDisplayed());
         webDriver.close();
         webDriver.switchTo().window(tabs.get(0));

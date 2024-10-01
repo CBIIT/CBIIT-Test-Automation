@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
         , "junit:target/cucumber.xml"
         , "rerun:target/failed.txt", "pretty"}
         , features = "src/test/java/ServiceNow/OA_Intake/Features"
-        , glue = "ServiceNow.OA_Intake.Steps"
+        , glue = {"ServiceNow.OA_Intake.Steps", "Hooks"}
         , tags = "@Progression"
         , dryRun = false
 )
