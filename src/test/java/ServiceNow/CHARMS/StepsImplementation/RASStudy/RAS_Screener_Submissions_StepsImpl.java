@@ -18,6 +18,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.*;
 import org.testng.Assert;
+
 import static Hooks.Hooks.softAssert;
 import static ServiceNow.CHARMS.Pages.RAS_Screener_Page.*;
 import static ServiceNow.CHARMS.studyQuestions.RAS_Screener_Questions_Proband.*;
@@ -76,6 +77,9 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         } else if (sheetName.contentEquals("screenerScenarioAge11-13")) {
             ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
             rasScreenerSubmissions(sheetName);
+        } else if (sheetName.contentEquals("screenerScenarioAge14-17")) {
+            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+            rasScreenerSubmissions(sheetName);
         }
     }
 
@@ -122,8 +126,8 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     rasopathyQuestionnairePage.dynamicTextBoxLocator("First name").sendKeys(ras_Screener_TestDataManager.FIRST_NAME);
                     rasopathyQuestionnairePage.dynamicTextBoxLocator("Middle Initial").sendKeys(ras_Screener_TestDataManager.MIDDLE_INITIAL);
                     rasopathyQuestionnairePage.dynamicTextBoxLocator("Last name").sendKeys(ras_Screener_TestDataManager.LAST_NAME);
-                    CucumberLogUtils.logScreenshot();
                     CommonUtils.sleep(200);
+                    CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
                 /**
@@ -134,8 +138,8 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     rasopathyQuestionnairePage.dynamicTextBoxLocator("First name").sendKeys(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME);
                     rasopathyQuestionnairePage.dynamicTextBoxLocator("Middle Initial").sendKeys(ras_Screener_TestDataManager.PARTICIPANT_MIDDLE_INITIAL);
                     rasopathyQuestionnairePage.dynamicTextBoxLocator("Last name").sendKeys(ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME);
-                    CucumberLogUtils.logScreenshot();
                     CommonUtils.sleep(200);
+                    CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
                 /**
@@ -144,6 +148,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().trim().contentEquals(formatRASQuestionForProxy(WHAT_IS_YOUR_RELATIONSHIP_TO))) {
                     CucumberLogUtils.scenario.log("* * * * * ENTERING THE PROXY'S RELATIONSHIP TO THE PARTICIPANT * * * * *");
                     RAS_Screener_Page.dynamicRadioButtonLocator(ras_Screener_TestDataManager.WHAT_IS_YOUR_RELATIONSHIP_TO_THE_PARTICIPANT).click();
+                    CommonUtils.sleep(200);
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
@@ -153,6 +158,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(formatRASQuestionForProxy(ARE_YOUR_THE_LEGAL_GUARDIAN_OF))) {
                     CucumberLogUtils.scenario.log("* * * * * ARE YOU THE LEGAL GUARDIAN OF THE PARTICIPANT? * * * * *");
                     RAS_Screener_Page.dynamicRadioButtonLocator(ras_Screener_TestDataManager.ARE_YOU_THE_LEGAL_GUARDIAN_OF_THE_PARTICIPANT).click();
+                    CommonUtils.sleep(200);
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
@@ -289,7 +295,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                  */
                 else if (rasopathyQuestionnairePage.question.isDisplayed() && (rasopathyQuestionnairePage.question.getText().contentEquals(ARE_YOU_A_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP_PLEASE_SPECIFY) || rasopathyQuestionnairePage.question.getText().contentEquals(formatRASQuestionForProxy(IS_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP)))) {
                     CucumberLogUtils.scenario.log("* * * * * ARE YOU A PARTICIPANT IN ANY OTHER RESEARCH STUDY OR REGISTRY GROUP?  PLEASE SPECIFY.  * * * * *");
-                    if (sheetName.contentEquals("screenerScenario1") || sheetName.contentEquals("screenerScenarioAge11-13")) {
+                    if (sheetName.contentEquals("screenerScenario1") || sheetName.contentEquals("screenerScenarioAge11-13") || sheetName.contentEquals("screenerScenarioAge14-17")) {
                         dynamicLocator(ras_Screener_TestDataManager.ARE_YOU_A_PARTICIPANT_IN_OTHER_STUDY_GROUP).click();
                     }
                     if (sheetName.contentEquals("screenerScenario2")) {
@@ -317,7 +323,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                  */
                 else if (rasopathyQuestionnairePage.question.isDisplayed() && (rasopathyQuestionnairePage.question.getText().contentEquals(HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS) || rasopathyQuestionnairePage.question.getText().contentEquals(formatRASQuestionForProxy(HAS_PARTICIPANT_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS)))) {
                     CucumberLogUtils.scenario.log("* * * * * HAVE YOU EVER BEEN DIAGNOSED WITH THE FOLLOWING CONDITIONS?  SELECT ALL THAT APPLY.  IF YOU DO NOT SEE THE EXACT CONDITION DIAGNOSED, PLEASE SELECT THE CLOSEST ANSWER.   * * * * *");
-                    if (sheetName.contentEquals("screenerScenario1") || sheetName.contentEquals("screenerScenarioAge11-13")) {
+                    if (sheetName.contentEquals("screenerScenario1") || sheetName.contentEquals("screenerScenarioAge11-13") || sheetName.contentEquals("screenerScenarioAge14-17")) {
                         dynamicLocator(ras_Screener_TestDataManager.HAVE_YOU_BEEN_DIAGNOSED_WITH_FOLLOWING_CONDITIONS).click();
                     }
                     if (sheetName.contentEquals("screenerScenario2")) {
@@ -415,7 +421,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                  */
                 else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY)) {
                     CucumberLogUtils.scenario.log("* * * * * WHAT ARE THE MAIN REASONS FOR PARTICIPATING IN THIS STUDY?  SELECT ALL THAT APPLY.  PLEASE ELABORATE ON THE REASON IN THE CORRESPONDING TEXTBOX. * * * * *");
-                    if (sheetName.contentEquals("screenerScenario1") || sheetName.contentEquals("screenerScenarioAge11-13")) {
+                    if (sheetName.contentEquals("screenerScenario1") || sheetName.contentEquals("screenerScenarioAge11-13")|| sheetName.contentEquals("screenerScenarioAge14-17")) {
                         CommonUtils.scrollIntoView(dynamicLocator(ras_Screener_TestDataManager.WHAT_ARE_MAIN_REASONS_FOR_PARTICIPATING_IN_STUDY));
                         dynamicLocator(ras_Screener_TestDataManager.WHAT_ARE_MAIN_REASONS_FOR_PARTICIPATING_IN_STUDY).click();
                         rasopathyQuestionnairePage.dynamicLocatorForMainReasonForParticipatingInStudy(ras_Screener_TestDataManager.WHAT_ARE_MAIN_REASONS_FOR_PARTICIPATING_IN_STUDY).sendKeys(ras_Screener_TestDataManager.WHAT_ARE_MAIN_REASONS_FOR_PARTICIPATING_IN_STUDY_OTHER_REASON);
