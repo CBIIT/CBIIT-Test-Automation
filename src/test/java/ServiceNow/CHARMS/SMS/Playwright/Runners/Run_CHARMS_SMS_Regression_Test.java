@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/java/ServiceNow/CHARMS/SMS/Playwright/Features",
         glue = {"ServiceNow.CHARMS.SMS.Playwright.Steps","Hooks"},
-        tags = "@In-Progress",
+        tags = "@Regression",
         dryRun = false
 )
 public class Run_CHARMS_SMS_Regression_Test extends AbstractTestNGCucumberTests {

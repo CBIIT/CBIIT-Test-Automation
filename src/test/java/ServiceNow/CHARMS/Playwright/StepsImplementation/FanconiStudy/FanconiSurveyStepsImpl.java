@@ -1,13 +1,12 @@
 package ServiceNow.CHARMS.Playwright.StepsImplementation.FanconiStudy;
+
 import ServiceNow.CHARMS.Playwright.Pages.FanconiStudy.FanconiSurveyLoginPage;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.PlaywrightUtils;
-
 import java.util.regex.Pattern;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 /* This method allows the login to the Fanconi Survey page */
@@ -1791,7 +1790,7 @@ public class FanconiSurveyStepsImpl {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.SUBMIT)).click();
     }
 
-    public static void surgicalAndOtherMedicalHistorySectionScenario1(){
+    public static void surgicalAndOtherMedicalHistorySectionScenario1() {
         var page = PlaywrightUtils.page;
         assertThat(page.getByLabel("Surgical, Medication, and").locator("span")).containsText("Surgical, Medication, and other Medical History");
         page.getByLabel("Surgical, Medication, and").click();
@@ -2429,7 +2428,7 @@ public class FanconiSurveyStepsImpl {
     }
 
     /* This method allows the submissions and assertions of the Sexual History section of the Fanconi Survey for scenario1.*/
-    public static void sexualHistorySectionScenario1(){
+    public static void sexualHistorySectionScenario1() {
         var page = PlaywrightUtils.page;
         assertThat(page.locator("tbody")).containsText("Sexual History");
         page.getByLabel("Sexual History").click();
@@ -2460,4 +2459,3 @@ public class FanconiSurveyStepsImpl {
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("to 2")).click();
     }
 }
-
