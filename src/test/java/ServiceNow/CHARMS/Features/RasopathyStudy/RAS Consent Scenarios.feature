@@ -18,8 +18,8 @@ Feature: RAS Consent Scenarios
 
     Examples:
       | Email                           | Password   | ScreenerScenario         | ConsentStatus | ConsentType                           | ResponseType     | AccountResetScriptURL                                                                                    |
-#      | consent_participant@yopmail.com | Charms123$ | screenerScenario1        | Complete      | Adult                                 | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
-      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAge14-17 | Complete      | Aged 14 - 17, signed consent required | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
+      | consent_participant@yopmail.com | Charms123$ | screenerScenario1        | Complete      | Adult                                 | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
+#      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAge14-17 | Complete      | Aged 14 - 17, signed consent required | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
   @muzipovay2 @RAS_STUDY @CP2-3603 @selenium @RAS_Regression
   Scenario Outline: Verifying consent workflows for an adult participant, and then verifying that a Download Study Consent widget shows on portal and when clicked downloads the most recent Consent Record
