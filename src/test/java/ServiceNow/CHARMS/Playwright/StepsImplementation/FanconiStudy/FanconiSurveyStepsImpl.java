@@ -1,6 +1,5 @@
 package ServiceNow.CHARMS.Playwright.StepsImplementation.FanconiStudy;
-
-import ServiceNow.CHARMS.FanconiSurvey.Playwright.Pages.FanconiSurveyLoginPage;
+import ServiceNow.CHARMS.Playwright.Pages.FanconiStudy.FanconiSurveyLoginPage;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
