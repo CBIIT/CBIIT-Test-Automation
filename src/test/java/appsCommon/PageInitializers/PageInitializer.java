@@ -407,11 +407,9 @@ public class PageInitializer extends WebDriverUtils {
 		servicePortalQuestionnairePageImp = new ServicePortalQuestionnairePageImp();
 		dashboardStepImpl = new DashboardStepImpl();
 
-
 		/** OA Intake Instance Variables */
 		oaIntakePage =  new OAIntakePage();
 		oaIntakeStepsImplementation = new OAIntakeStepsImplementation();
-
 
 		/** CHARMS Instance Variables **/
 		charmsNativeViewPage = new CHARMSNativeViewPage();

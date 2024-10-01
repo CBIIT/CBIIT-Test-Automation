@@ -161,9 +161,4 @@ public class OAIntakePage {
     /**Confirmation Modal Text draft Statement of Work and IGCE*/
     @FindBy(xpath = "//ul//li[contains(text(),'In order for your new requirement to be assigned, you must at a minimum submit a draft Statement of Work and IGCE!')]")
     public WebElement textConfModalDraftStWorkICGE;
-
-
-
-
-
 }

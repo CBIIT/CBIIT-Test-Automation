@@ -32,6 +32,3 @@ Feature: Create OA Intake form
     Then Submitter User can verify a submission confirmation modal OA Intake form appears
     And Submitter User chooses to submit a request
     Then Submitter User can confirm they are redirected to Requestor (Requested For) Queue for Negotiated Contracts page
-
-
-
