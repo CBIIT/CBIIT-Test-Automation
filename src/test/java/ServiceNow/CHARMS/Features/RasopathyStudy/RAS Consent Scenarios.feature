@@ -10,11 +10,11 @@ Feature: RAS Consent Scenarios
     And the e-consent is submitted for "<ScreenerScenario>"
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
-#    And participant clicks on Study Consent and completes form with "<Password>"
-#    Then PI completes consent and verifies "<ScreenerScenario>" "<ConsentStatus>" "<ConsentType>" "<ResponseType>" in Native View
-#    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-#    And logs in via Okta with username "<Email>" and password "<Password>"
-#    And "Download Study Consent" text shows on participant portal and when clicked downloads "Consent Record"
+    And participant clicks on Study Consent and completes form with "<Password>"
+    Then PI completes consent and verifies "<ScreenerScenario>" "<ConsentStatus>" "<ConsentType>" "<ResponseType>" in Native View
+    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+    And logs in via Okta with username "<Email>" and password "<Password>"
+    And "Download Study Consent" text shows on participant portal and when clicked downloads "Consent Record"
 
     Examples:
       | Email                           | Password   | ScreenerScenario         | ConsentStatus | ConsentType                           | ResponseType     | AccountResetScriptURL                                                                                    |
