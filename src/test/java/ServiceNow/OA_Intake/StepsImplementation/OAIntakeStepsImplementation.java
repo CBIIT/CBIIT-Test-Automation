@@ -9,6 +9,10 @@ import com.nci.automation.web.WebDriverUtils;
 import static com.nci.automation.web.TestProperties.getOAntakeUrl;
 
 public class OAIntakeStepsImplementation extends PageInitializer {
+
+    /**
+     * Logs in as a Submitter to OA Intake Portal.
+     */
     public void oaIntakeSubmitterUserLogin(){
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonate_Any_User_Without_Landing_In_Native_View((OAIntakeConstants.SUBMITTER));
