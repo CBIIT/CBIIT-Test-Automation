@@ -18,6 +18,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     @Given("Submitter User can verify that they are on an OA Intake Request page")
     public void submitter_user_can_verify_that_they_are_on_an_oa_intake_request_page() {
+        CommonUtils.sleep(1000);
         Assert.assertTrue(oaIntakePage.newRequestPageHeader.isDisplayed());
     }
 
@@ -37,6 +38,7 @@ public class OAIntakeSteps extends PageInitializer {
         Assert.assertTrue(oaIntakePage.userGuideLoginText.isDisplayed());
         webDriver.close();
         webDriver.switchTo().window(tabs.get(0));
+        CommonUtils.sleep(2000);
     }
 
     @Given("Submitter User clicks on New Request tab")
