@@ -63,6 +63,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter confirms draft status is default for a new request
+     * @param statusDraft
      */
     @Given("Submitter User confirms that Status is {string} by default")
     public void submitter_user_confirms_that_status_is_by_default(String statusDraft) {
@@ -71,6 +72,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter  fills in Request Title field
+     * @param title
      */
     @Given("Submitter User fills in Request Title field as {string}")
     public void submitter_user_fills_in_request_title_field_as(String title) {
@@ -79,6 +81,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter  fills in Request Description field
+     * @param description
      */
     @Given("Submitter User fills in Request Description field as {string}")
     public void submitter_user_fills_in_request_description_field_as(String description) {
@@ -87,6 +90,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter fills in Requested Award Date field
+     * @param awardDate
      */
     @Given("Submitter User fills in Requested Award Date as {string}")
     public void submitter_user_fills_in_requested_award_date_as(String awardDate) {
@@ -102,8 +106,10 @@ public class OAIntakeSteps extends PageInitializer {
         CommonUtils.clickOnElement(oaIntakePage.drpdnNAICSCodeKnownOption);
     }
 
+
     /**
      * Submitter fills in NAICS Code
+     * @param code
      */
     @Then("Submitter User can fill in a NAICS Code Number field as {string}")
     public void submitter_user_can_fill_in_a_naics_code_number_field_as(String code) {
@@ -148,6 +154,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter sees alert message for choosing Task Order Plans
+     * @param alert
      */
     @Then("Submitter User can see alert message {string}")
     public void submitter_user_can_see_alert_message(String alert) {
@@ -165,6 +172,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter fills in Date Concept Peer Review Complete field
+     * @param date
      */
     @Then("Submitter User can fill in a field Date Concept Peer Review Completed as {string}")
     public void submitter_user_can_fill_in_a_field_date_concept_peer_review_completed_as(String date) {
@@ -182,6 +190,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter fills in PSC Code field
+     * @param pscCode
      */
     @Then("Submitter User can fill in PSC Code field as {string}")
     public void submitter_user_can_fill_in_psc_code_field_as(String pscCode) {
@@ -198,7 +207,8 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     * Submitter fills in Please enter the estimated value of IT field
+     * ubmitter fills in Please enter the estimated value of IT field
+     * @param sum
      */
     @Then("Submitter User can enter {string} for Please enter the estimated value of IT and biomedical computing requirement")
     public void submitter_user_can_enter_for_please_enter_the_estimated_value_of_it_and_or_biomedical_computing_requirement_field(String sum) {
@@ -217,6 +227,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter fills in SSO Clearance Ticket field
+     * @param ticket
      */
     @Then("Submitter User can enter {string} for SSO Clearance Ticket field")
     public void submitter_user_can_enter_for_sso_clearance_ticket_field(String ticket) {
