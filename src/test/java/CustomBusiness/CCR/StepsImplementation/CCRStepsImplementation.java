@@ -151,6 +151,7 @@ public class CCRStepsImplementation extends PageInitializer {
         CommonUtils.clickOnElement(cCRApplicantPage.submitButton);
         CommonUtils.clickOnElement(cCRApplicantPage.submitConfirmationButton);
         CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(cCRApplicantPage.closeApplicationSubmittedButton);
         Assert.assertTrue(" User failed to submit application", cCRApplicantPage.msgApplicationSubmitted.isDisplayed());
     }
 
