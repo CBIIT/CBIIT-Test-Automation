@@ -28,12 +28,14 @@ jobs:
       - name: Generate timestamp
         id: timestamp
         shell: cmd
-        run: echo "timestamp=$(TZ='America/New_York' date +'%Y-%m-%d_%I-%M-%S_%p')" >> $GITHUB_ENV
+        run: |
+          for /f "tokens=*" %%i in ('powershell -command "Get-Date -Format yyyy-MM-dd_HH-mm-ss"') do set timestamp=%%i
+          echo timestamp=%timestamp% >> %GITHUB_ENV%
 
       - name: Determine report path
         id: reportpath
         shell: cmd
-        run: echo "path=html-charms-rasopathy-regression-reports" >> $GITHUB_ENV
+        run: echo path=html-charms-rasopathy-regression-reports >> %GITHUB_ENV%
 
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v4
