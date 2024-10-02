@@ -86,7 +86,7 @@ Given User is logged in the application and is on the landing page
     And clicks on Create New button to create grant year
     Then verifies the grant year is created
 
-  @EGRANTS-224 @AuditFileDownload @nesarh2 @selenium @Regression @Progression
+  @EGRANTS-224 @AuditFileDownload @nesarh2 @selenium @Regression
   Scenario: Test audit file download
     And activates the download mode
     And searches for grant "CA125123"
