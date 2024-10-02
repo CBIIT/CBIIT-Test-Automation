@@ -1,4 +1,4 @@
-package CustomBusiness.BusinessAppRunners;
+package ServiceNow.ServiceNowRunners.OAIntakeRunners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -7,10 +7,10 @@ import io.cucumber.testng.CucumberOptions;
         , "json:target/cucumber.json"
         , "junit:target/cucumber.xml"
         , "rerun:target/failed.txt", "pretty"}
-        , features = "src/test/java/CustomBusiness/CCR/Features"
-        , glue = {"CustomBusiness.CCR.Steps", "Hooks"}
-        , tags = "@Regression"
+        , features = "src/test/java/ServiceNow/OA_Intake/Features"
+        , glue = {"ServiceNow.OA_Intake.Steps", "Hooks"}
+        , tags = "@Smoke"
         , dryRun = false
 )
-public class RunCCRRegressionTest extends AbstractTestNGCucumberTests {
+public class OAIntakeSmokeRunner extends AbstractTestNGCucumberTests {
 }

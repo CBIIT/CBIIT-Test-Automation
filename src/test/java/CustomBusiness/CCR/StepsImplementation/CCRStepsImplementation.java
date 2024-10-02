@@ -76,7 +76,7 @@ public class CCRStepsImplementation extends PageInitializer {
             case "CV":
                 CommonUtils.clickOnElement((cCRApplicantPage.uploadFileCV));
                 setClipboardData(CCR_CONSTANTS.CV);
-                CommonUtils.sleep(1000);
+                CommonUtils.sleep(3000);
                 enterFilePathCloseWindowDialogue();
                 break;
             case "Research Goals":
@@ -148,14 +148,10 @@ public class CCRStepsImplementation extends PageInitializer {
     }
 
     public void submitApplication(){
-        CommonUtils.waitForVisibility(cCRApplicantPage.submitButton);
         CommonUtils.clickOnElement(cCRApplicantPage.submitButton);
-        CommonUtils.waitForVisibility(cCRApplicantPage.submitConfirmationButton);
         CommonUtils.clickOnElement(cCRApplicantPage.submitConfirmationButton);
         CommonUtils.sleep(1000);
         Assert.assertTrue(" User failed to submit application", cCRApplicantPage.msgApplicationSubmitted.isDisplayed());
-        CommonUtils.waitForVisibility(cCRApplicantPage.closeApplicationSubmittedButton);
-        CommonUtils.clickOnElement(cCRApplicantPage.closeApplicationSubmittedButton);
     }
 
     public void clickApplyButton(){
@@ -214,6 +210,9 @@ public class CCRStepsImplementation extends PageInitializer {
         CommonUtils.clickOnElement(cCRAdminUserPage.openDateCalendar);
         CommonUtils.clickOnElement(cCRAdminUserPage.todaysDateActiveField);
         CommonUtils.sleep(2000);
+        cCRAdminUserPage.fielOneReqDocuments.clear();
+        CommonUtils.sleep(1000);
+        cCRAdminUserPage.fielTwoReqDocuments.clear();
         Select s = new Select(webDriver.findElement(By.id("number_of_references")));
         s.selectByVisibleText("1");
         clickOutside();
