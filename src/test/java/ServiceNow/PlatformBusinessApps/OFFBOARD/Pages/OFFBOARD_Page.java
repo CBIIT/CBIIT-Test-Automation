@@ -90,10 +90,10 @@ public class OFFBOARD_Page {
     public static String cbiit_Hardware_Return_Ticket_NumberTextBoxFieldLocator = "#s2id_autogen10";
 
     /* CBIIT 'HARDWARE RETURN TICKET NUMBER' REQUIRED FIELD LOCATOR  */
-    public static String cbiit_Hardware_Return_Ticket_Number_Required_FieldLocator = "//label[contains(@for,'s2id_autogen10')]//span[contains(@aria-label,'Required')]";
+    public static String cbiit_Hardware_Return_Ticket_Number_Required_FieldLocator = "//label[contains(@for,'s2id_autogen11')]//span[contains(@aria-label,'Required')]";
 
     /* CBIIT 'HARDWARE RETURN TICKET NUMBER' NON REQUIRED FIELD LOCATOR  */
-    public static String cbiit_Hardware_Return_Ticket_Number_Non_Required_FieldLocator = "//label[contains(@for,'s2id_autogen10')]//span[contains(@aria-label,'')][1]";
+    public static String cbiit_Hardware_Return_Ticket_Number_Non_Required_FieldLocator = "//label[contains(@for,'s2id_autogen11')]//span[contains(@aria-label,'')][1]";
 
     /* CBIIT 'HARDWARE RETURN TICKET NUMBER' REQUIRED FIELD ATTRIBUTE  */
     public static String cbiit_Hardware_Return_Ticket_Number_Required_FieldAttribute = "ng-if";

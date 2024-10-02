@@ -192,4 +192,58 @@ public class Travel_Request_NV_Steps {
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(markParascandola);
         CucumberLogUtils.playwrightScreenshot(page);
     }
+
+    /**
+     * Searches for a Group under System Security.
+     *
+     * @param nciCGHTravelManagers The name of the group to search for.
+     */
+    @When("I search for {string} Group under System Security")
+    public void i_search_for_group_under_system_security(String nciCGHTravelManagers) {
+        //Search the System Security in Filter navigation Native View
+        page.getByPlaceholder("Filter").click();
+        page.getByPlaceholder("Filter").fill("System Security");
+        page.getByPlaceholder("Filter").press("Enter");
+        assertThat(page.getByPlaceholder("Filter")).isVisible();
+        assertThat(page.getByPlaceholder("Filter")).hasValue("System Security");
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        //Look for the Groups under "Users and Groups" and click on Groups
+        assertThat(page.locator("li").filter(new Locator.FilterOptions().setHasText("Users and GroupsUsersEdit"))).isVisible();
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Groups").setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        //Search for the "NCI CGH - Travel Manager" group and open the group record
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Groups"))).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.HEADING)).containsText("Groups");
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(nciCGHTravelManagers);
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).containsText(nciCGHTravelManagers);
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        //click on the group record and click on open record button
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//a[@aria-label='Preview record: NCI CGH - Travel Managers']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Name", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(nciCGHTravelManagers);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Verifies that the given string should be listed under the Group Member tab.
+     *
+     * @param dimetriaBranch The string to be verified.
+     */
+    @Then("I verify that {string} should be listed under the Group Member tab")
+    public void i_verify_that_should_be_listed_under_the_group_member_tab(String dimetriaBranch) {
+        //clicks on Group members Tab on the bottom of the page and verify group members
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (1)")).isVisible();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (1)").click();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members (1)Show").locator("b")).containsText("Group = NCI CGH - Travel Managers");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(dimetriaBranch);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
 }

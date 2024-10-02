@@ -1,4 +1,4 @@
-package ServiceNow.CHARMS.FanconiSurvey.Playwright.Pages;
+package ServiceNow.CHARMS.Playwright.Pages.FanconiStudy;
 
 public class FanconiSurveyLoginPage {
 
@@ -243,7 +243,7 @@ public class FanconiSurveyLoginPage {
 	public static final String USERNAME = "Username";
 
 	/** Email text field */
-	public static final String EMAIL = "charmsras2@yahoo.com";
+	public static final String EMAIL = "charmsras3@yahoo.com";
 
 	/** Password text field */
 	public static final String USER_PASSWORD = "RASTest2023$$";

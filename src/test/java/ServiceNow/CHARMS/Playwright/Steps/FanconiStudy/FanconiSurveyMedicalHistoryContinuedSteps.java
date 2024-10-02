@@ -1,6 +1,6 @@
-package ServiceNow.CHARMS.FanconiSurvey.Playwright.Steps;
+package ServiceNow.CHARMS.Playwright.Steps.FanconiStudy;
 
-import ServiceNow.CHARMS.FanconiSurvey.Playwright.StepsImplementation.FanconiSurveyStepsImpl;
+import ServiceNow.CHARMS.Playwright.StepsImplementation.FanconiStudy.FanconiSurveyStepsImpl;
 import io.cucumber.java.en.Given;
 
 public class FanconiSurveyMedicalHistoryContinuedSteps {
