@@ -82,6 +82,11 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         }
     }
 
+    /**
+     * This method performs a series of actions to submit a screener form for the RAS survey.
+     *
+     * @param sheetName the name of the sheet containing test data
+     */
     public static void rasScreenerSubmissions(String sheetName) {
         CommonUtils.switchToNextWindow();
         CommonUtils.sleep(2000);
@@ -113,8 +118,8 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_FOR_YOURSELF)) {
                     CucumberLogUtils.scenario.log("* * * * ARE YOU COMPLETING THIS FORM FOR SOMEONE ELSE OR FOR YOURSELF? * * * *");
                     dynamicLocator(ras_Screener_TestDataManager.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_YOURSELF).click();
-                    CucumberLogUtils.logScreenshot();
                     CommonUtils.sleep(200);
+                    CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
                 /**
@@ -203,7 +208,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                  * * * * * IS THE PARTICIPANT ALIVE? * * * *
                  */
                 else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(formatRASQuestionForProxy(IS_ALIVE))) {
-                    CucumberLogUtils.scenario.log("* * * * * IS THE PROBAND ALIVE? * * * * *");
+                    CucumberLogUtils.scenario.log("* * * * * IS THE PARTICIPANT ALIVE? * * * * *");
                     dynamicRadioButtonLocator(ras_Screener_TestDataManager.IS_THE_PARTICIPANT_ALIVE).click();
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
@@ -211,8 +216,9 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * ARE YOU ADOPTED? * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && (rasopathyQuestionnairePage.question.getText().contentEquals(ARE_YOU_ADOPTED) || rasopathyQuestionnairePage.question.getText().trim().contentEquals(formatRASQuestionForProxy(IS_ADOPTED)))) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && (rasopathyQuestionnairePage.question.getText().trim().contentEquals(ARE_YOU_ADOPTED) || rasopathyQuestionnairePage.question.getText().trim().contentEquals(formatRASQuestionForProxy(IS_ADOPTED)))) {
                     CucumberLogUtils.scenario.log("* * * * * ARE YOU ADOPTED? * * * * *");
+                    CommonUtils.sleep(200);
                     dynamicLocator(ras_Screener_TestDataManager.ARE_YOU_ADOPTED_OPTION).click();
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
@@ -1385,6 +1391,12 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Executes the second part of the RAS Screener Survey Scenario 1.
+     * This method clicks on various options in the survey and logs screenshots.
+     *
+     * @throws NoSuchElementException if any element specified by the dynamic locators is not found
+     */
     public void rasScreenerSurveyScenario1PartTwo() {
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         try {
@@ -1585,6 +1597,11 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CommonUtils.sleep(2000);
     }
 
+    /**
+     * Performs the third part of the RAS Screener Survey Scenario 1.
+     * This method clicks on various options in the survey, logs screenshots, and verifies text elements.
+     * @throws NoSuchElementException if any element specified by the dynamic locators is not found
+     */
     public void rasScreenerSurveyScenario1PartThree() {
         //*** ATTACHING FILE CAN'T BE AUTOMATED IN QUATRICS. MANUAL TESTING WAS PERFORMED FOR UPLOADING A FILE *******
         CucumberLogUtils.logScreenshot();
@@ -1615,6 +1632,11 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method performs a series of actions to complete the fourth part of the RAS Screener Survey Scenario 1.
+     * It clicks on various options in the survey, logs screenshots, and verifies text elements.
+     * @throws NoSuchElementException if any element specified by the dynamic locators is not found
+     */
     public void rasScreenerSurveyScenario1PartFour() {
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(dynamicLocator(ras_Survey_TestDataManager.haveYouBeenDiagnosedWithARASopathy));
@@ -1660,6 +1682,11 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method performs the fifth part of the RAS Screener Survey Scenario 1.
+     * It clicks on various options in the survey, logs screenshots, and verifies text elements.
+     * @throws NoSuchElementException if any element specified by the dynamic locators is not found
+     */
     public void rasScreenerSurveyScenario1PartFive() {
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(327));
@@ -1688,6 +1715,19 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
     }
 
+    /**
+     * This method represents the sixth part of the RAS screener survey scenario 1.
+     * It handles the interaction with the survey page elements to answer questions about breathing, lung health, and oral health.
+     *
+     * The method performs the following actions:
+     * 1. Waits for the visibility of the top text element with a specific dynamic locator.
+     * 2. Verifies the next set of questions by comparing the expected text with the actual text on the survey page.
+     * 3. Logs a screenshot of the survey page.
+     * 4. Clicks on the "Save and Next" button.
+     * 5. Repeats the above steps for multiple questions about breathing, lung health, and oral health.
+     *
+     * @throws TimeoutException if the visibility of an element is not achieved within a certain timeout period.
+     */
     public void rasScreenerSurveyScenario1PartSix() {
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(305));
         CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutBreathingAndTheLungs, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT BREATHING AND THE LUNGS TEXT --");
@@ -1843,6 +1883,22 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         }
     }
 
+    /**
+     * This method represents the seventh part of the RAS screener survey scenario 1.
+     * It handles the interaction with the survey page elements to answer questions about fluid balance, lymphatic system issues, and kidneys.
+     *
+     * The method performs the following actions:
+     * 1. Waits for the visibility of the top text element with a specific dynamic locator.
+     * 2. Verifies the next set of questions about fluid balance by comparing the expected text with the actual text on the survey page.
+     * 3. Logs a screenshot of the survey page.
+     * 4. Clicks on the "Save and Next" button.
+     * 5. Repeats the above steps for questions about lymphatic system issues and kidneys.
+     * 6. Verifies the next set of questions about hair and skin qualities by comparing the expected text with the actual text on the survey page.
+     * 7. Logs a screenshot of the survey page.
+     *
+     * @throws NoSuchElementException if any element specified by the dynamic locators is not found
+     * @throws TimeoutException if the visibility of an element is not achieved within a certain timeout period
+     */
     public void rasScreenerSurveyScenario1PartSeven() {
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(306));
         CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutFluidBalance, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT FLUID BALANCE AND IF ANY FLUID BUILDS TEXT --");
@@ -1869,6 +1925,13 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method represents the eighth part of the ras screener survey scenario 1.
+     * It performs a series of actions such as clicking on buttons, waiting for elements to be visible,
+     * clicking on checkboxes, and verifying text.
+     * Each step is documented with a comment explaining what it does.
+     * At the end of each step, a screenshot is logged using CucumberLogUtils.
+     */
     public void rasScreenerSurveyScenario1PartEight() {
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(385));
@@ -1930,6 +1993,21 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method is used to complete the ninth part of the RAS Screener Survey.
+     *
+     * The method performs the following actions:
+     * 1. Clicks on the Survey Save and Next button.
+     * 2. Waits for the visibility of a specific dynamic top text element.
+     * 3. Clicks on a specific checkbox option by using JavaScript.
+     * 4. Logs a screenshot using CucumberLogUtils.
+     * 5. Repeats steps 1-4 multiple times with different dynamic elements and checkbox options.
+     * 6. Waits for the visibility of a specific dynamic top text element.
+     * 7. Performs an assertion to verify the displayed text on the page.
+     * 8. Logs a screenshot using CucumberLogUtils.
+     *
+     * No parameters are accepted and no value is returned.
+     */
     public void rasScreenerSurveyScenario1PartNine() {
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(389));
@@ -1965,6 +2043,11 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method is used to perform a series of actions in the RAS screener survey scenario 1 part ten.
+     * It clicks on various survey buttons, waits for visibility of certain elements, clicks on checkboxes,
+     * fills in text boxes, verifies text, takes screenshots, and logs out of a native view.
+     */
     public void rasScreenerSurveyScenario1PartTen() {
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(393));

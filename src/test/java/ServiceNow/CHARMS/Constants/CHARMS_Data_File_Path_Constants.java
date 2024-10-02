@@ -13,5 +13,4 @@ public class CHARMS_Data_File_Path_Constants {
     public static final String IIQ_SAMPLE_FORM = "https://ncidccpssurveys.gov1.qualtrics.com/jfe/form/SV_37PVCadeAqdT6Ki?family_member_id=5671bd521bafa1106daea681f54bcb68&study=RASopathies";
     public static final String FHQ_SCENARIO_ONE_DATA = System.getProperty("user.dir") + "/src/test/java/ServiceNow/CHARMS/Resources/FHQScenario1.xlsx";
     public static final String FHQ_SCENARIO_TWO_DATA = System.getProperty("user.dir") + "/src/test/java/ServiceNow/CHARMS/Resources/FHQScenario2.xlsx";
-
 }
