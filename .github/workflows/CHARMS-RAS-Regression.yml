@@ -56,7 +56,7 @@ jobs:
           set "SHAREPOINT_PASSWORD=%SHAREPOINT_PASSWORD%"
           set "TIMESTAMP=%timestamp%"
           set "REPORT_PATH=target\html-charms-rasopathy-regression-reports\report-%TIMESTAMP%.html"
-          curl -u %SHAREPOINT_USERNAME%:%SHAREPOINT_PASSWORD% -T %REPORT_PATH% %SHAREPOINT_URL%/Shared%20Documents/Reports/CHARMS-RAS-Regression/
+          curl -u %SHAREPOINT_USERNAME%:%SHAREPOINT_PASSWORD% -T %REPORT_PATH% "%SHAREPOINT_URL%/Shared%20Documents/Platform%20Scientific%20-%20CHARMS/TEST%20AUTOMATION%20REPORTS/"
 
 #      - name: Push HTML Report
 #        shell: bash
