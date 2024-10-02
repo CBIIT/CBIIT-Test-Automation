@@ -42,6 +42,20 @@ jobs:
           name: CHARMS-RAS-REGRESSION-${{ env.timestamp }}
           path: target/html-charms-rasopathy-regression-reports/*
 
+      - name: Upload to SharePoint
+        shell: cmd
+        env:
+          SHAREPOINT_URL: ${{ secrets.SHAREPOINT_URL }}
+          SHAREPOINT_USERNAME: ${{ secrets.SHAREPOINT_USERNAME }}
+          SHAREPOINT_PASSWORD: ${{ secrets.SHAREPOINT_PASSWORD }}
+        run: |
+          set "SHAREPOINT_URL=%SHAREPOINT_URL%"
+          set "SHAREPOINT_USERNAME=%SHAREPOINT_USERNAME%"
+          set "SHAREPOINT_PASSWORD=%SHAREPOINT_PASSWORD%"
+          set "TIMESTAMP=%timestamp%"
+          set "REPORT_PATH=target\html-charms-rasopathy-regression-reports\report-%TIMESTAMP%.html"
+          curl -u %SHAREPOINT_USERNAME%:%SHAREPOINT_PASSWORD% -T %REPORT_PATH% %SHAREPOINT_URL%/Shared%20Documents/Reports/CHARMS-RAS-Regression/
+
 #      - name: Push HTML Report
 #        shell: bash
 #        env:

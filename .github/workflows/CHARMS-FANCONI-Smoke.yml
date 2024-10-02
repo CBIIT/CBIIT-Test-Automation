@@ -36,37 +36,37 @@ jobs:
           name: cucumber-report-${{ github.run_number }}-${{ steps.timestamp.outputs.timestamp }}
           path: target/fanconi-smoke-reports/*
 
-      - name: Push HTML Report
-        shell: bash
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          git config --global user.email "dsjnih@gmail.com"
-          git config --global user.name "iamdez99"
-          git stash
-          git fetch
-          git checkout gh-pages
-          git stash pop
-          mkdir -p fanconi-smoke-reports
-          mv target/fanconi-smoke-reports/*.html fanconi-smoke-reports/report-${{ steps.timestamp.outputs.timestamp }}.html
-          git add .
-          git commit -m "Publishing cucumber report ${{ github.run_number }} on ${{ steps.timestamp.outputs.timestamp }}"
-          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
-
-      - name: Update Test Results and Append to Index File
-        shell: bash
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          if [[ -f "fanconi-smoke-test-results.html" ]]; then
-            sed -i 's/<h1>.*<\/h1>/<h1>CHARMS - FANCONI Study Smoke Test Results<\/h1>/' fanconi-smoke-test-results.html
-            echo "<h3><a href='fanconi-smoke-reports/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report fanconi-smoke-reports/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> fanconi-smoke-test-results.html
-            git add fanconi-smoke-test-results.html
-            git commit -m "Update fanconi-smoke-test-results.html"
-          else
-            echo "<h1>CHARMS - FANCONI Study Smoke Test Results</h1>" > fanconi-smoke-test-results.html
-            echo "<h3><a href='fanconi-smoke-reports/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report fanconi-smoke-reports/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> fanconi-smoke-test-results.html
-            git add fanconi-smoke-test-results.html
-            git commit -m "Create and update fanconi-smoke-test-results.html"
-          fi
-          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+#      - name: Push HTML Report
+#        shell: bash
+#        env:
+#          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+#        run: |
+#          git config --global user.email "dsjnih@gmail.com"
+#          git config --global user.name "iamdez99"
+#          git stash
+#          git fetch
+#          git checkout gh-pages
+#          git stash pop
+#          mkdir -p fanconi-smoke-reports
+#          mv target/fanconi-smoke-reports/*.html fanconi-smoke-reports/report-${{ steps.timestamp.outputs.timestamp }}.html
+#          git add .
+#          git commit -m "Publishing cucumber report ${{ github.run_number }} on ${{ steps.timestamp.outputs.timestamp }}"
+#          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+#
+#      - name: Update Test Results and Append to Index File
+#        shell: bash
+#        env:
+#          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+#        run: |
+#          if [[ -f "fanconi-smoke-test-results.html" ]]; then
+#            sed -i 's/<h1>.*<\/h1>/<h1>CHARMS - FANCONI Study Smoke Test Results<\/h1>/' fanconi-smoke-test-results.html
+#            echo "<h3><a href='fanconi-smoke-reports/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report fanconi-smoke-reports/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> fanconi-smoke-test-results.html
+#            git add fanconi-smoke-test-results.html
+#            git commit -m "Update fanconi-smoke-test-results.html"
+#          else
+#            echo "<h1>CHARMS - FANCONI Study Smoke Test Results</h1>" > fanconi-smoke-test-results.html
+#            echo "<h3><a href='fanconi-smoke-reports/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report fanconi-smoke-reports/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> fanconi-smoke-test-results.html
+#            git add fanconi-smoke-test-results.html
+#            git commit -m "Create and update fanconi-smoke-test-results.html"
+#          fi
+#          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
