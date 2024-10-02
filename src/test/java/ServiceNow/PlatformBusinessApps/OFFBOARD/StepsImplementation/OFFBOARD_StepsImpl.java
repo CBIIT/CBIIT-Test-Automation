@@ -1,7 +1,6 @@
 package ServiceNow.PlatformBusinessApps.OFFBOARD.StepsImplementation;
 
 import ServiceNow.PlatformBusinessApps.OFFBOARD.Constants.CBIIT_OFFBOARD_FORM_Constants;
-import ServiceNow.PlatformBusinessApps.OFFBOARD.Pages.NCISP_Page;
 import ServiceNow.PlatformBusinessApps.OFFBOARD.Pages.OFFBOARD_Page;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.Locator;
@@ -9,13 +8,11 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.BoundingBox;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.web.PlaywrightUtils;
 import com.nci.automation.web.TestProperties;
 import org.testng.Assert;
 import java.util.regex.Pattern;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
-import static com.nci.automation.web.TestProperties.getNerdUrl;
 
 public class OFFBOARD_StepsImpl {
     public static Page returnHardwarePage;
@@ -26,8 +23,8 @@ public class OFFBOARD_StepsImpl {
      */
     public static void i_navigate_to_to_the_offboarding_request_form_to_put_in_a_request_to_off_board_or_transfer_an_employee() {
         page.navigate(TestProperties.getNCISPUrl());
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Page.servicesLink).setExact(true)).click();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Page.cbiit_Business_ServicesLink_Locator)).first().click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Services").setExact(true)).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CBIIT Business Services")).first().click();
         assertThat(page.getByLabel(CBIIT_OFFBOARD_FORM_Constants.CATEGORY_TEXT, new Page.GetByLabelOptions().setExact(true))).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_BUSINESS_SERVICESLINK);
         page.getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_PAGE_LINK_TEXT).click();
         CucumberLogUtils.playwrightScreenshot(page);
@@ -37,15 +34,15 @@ public class OFFBOARD_StepsImpl {
      * This method navigates to the offboarding request form and fills in Requester For fields.
      */
     public static void i_open_the_offboarding_request_form() {
-        page.navigate(getNerdUrl());
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Page.servicesLink).setExact(true)).click();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Page.cbiit_Business_ServicesLink_Locator)).first().click();
+        page.navigate(TestProperties.getNCISPUrl());
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Services").setExact(true)).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CBIIT Business Services")).first().click();
         assertThat(page.getByLabel(CBIIT_OFFBOARD_FORM_Constants.CATEGORY_TEXT, new Page.GetByLabelOptions().setExact(true))).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_BUSINESS_SERVICESLINK);
         page.getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_PAGE_LINK_TEXT).click();
         CucumberLogUtils.playwrightScreenshot(page);
         assertThat(page.locator(OFFBOARD_Page.cbiit_OffBoardingFormTitleTextOnTheTopLocator)).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_TEXT_PAGE_TITLE);
         page.locator(OFFBOARD_Page.cbiit_OffBoardingFormTRequestedForTextBoxLocator).click();
-        page.locator(OFFBOARD_Page.cbiit_OffBoardingFormRequestedForSearchTextBoxLocator).fill(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_REQUESTED_FOR_NAME);
+        page.locator("//input[@id='sp_formfield_requested_for_off']").fill(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_REQUESTED_FOR_NAME);
         page.getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_REQUESTED_FOR_NAME).click();
         page.getByLabel(OFFBOARD_Page.cbiit_OffBoardingNonNihEmailTextBoxGetByLabel, new Page.GetByLabelOptions().setExact(true)).click();
         page.getByLabel(OFFBOARD_Page.cbiit_OffBoardingNonNihEmailTextBoxGetByLabel, new Page.GetByLabelOptions().setExact(true)).fill(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_REQUESTED_FOR_NON_NIH_EMAIL);
@@ -76,8 +73,8 @@ public class OFFBOARD_StepsImpl {
         page.getByLabel(OFFBOARD_Page.cbiit_ShowCalendarForDateAndTimeFieldLocator).click();
         page.getByLabel(OFFBOARD_Page.cbiit_DateTimePickerIsOpenedFieldLocator).click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_OK_OPTION_SELECTED)).click();
-        page.locator(OFFBOARD_Page.cbiit_OffBoardingFormPointOfContactSearchTextBoxLocator).click();
-        page.locator(OFFBOARD_Page.cbiit_OffBoardingFormPointOfContactSearchLocator).fill(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_POINT_OF_CONTACT_NAME);
+        assertThat(page.getByLabel("Required - Point of Contact")).containsText("Point of Contact");
+        page.locator("#s2id_sp_formfield_fedSupervisor").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
         page.getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_POINT_OF_CONTACT_NAME).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -187,23 +184,35 @@ public class OFFBOARD_StepsImpl {
     }
 
     /**
-     * If the user selects "Yes" for the "Hardware Return Ticket Already Created" field,
-     * then just show the "Hardware Return Ticket Number" field.
+     * This method select "yes" for the "Hardware Return Ticket Already Created" field
+     * and selects the "Hardware Return Ticket Number(s)"
+     * and submits the Travel request
+     * As part of new enhancement, "Hardware Return Ticket Number(s)" field will be displayed
+     * even if the user selects "None", "Yes" or "No" for the "Hardware Return Ticket Already Created" field
      */
     public static void if_user_selects_yes_for_the_hardwareReturnTicketAlreadyCreated_field_then_just_show_hardwareReturnTicketNumber_field() {
         assertThat(page.locator(OFFBOARD_Page.cbiit_SpanLocator).filter(new Locator.FilterOptions().setHasText(Pattern.compile(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_ALREADY_CREATED_FIELD_TEXT)))).isVisible();
-        assertThat(page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberFieldLocator).getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_TEXT)).isHidden();
+
+        //updated for the field "Hardware Return Ticket Number(s)" is being displayed as a new enhancement
+        assertThat(page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberFieldLocator).getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_TEXT)).isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
-        page.locator(OFFBOARD_Page.cbiit_aLocator).filter(new Locator.FilterOptions().setHasText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_NONE_OPTION)).click();
-        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_YES_OPTION_SELECTED)).click();
+        page.locator("#s2id_sp_formfield_already_created a").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Yes")).click();
         assertThat(page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberFieldLocator)).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_S_TEXT);
         assertThat(page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberFieldLocator).getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_TEXT)).isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
-        page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberTextBoxFieldLocator).click();
-        page.getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_HARDWARE_RETURN_TICKET_NUMBERTEXTBOXVALUE).click();
-        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_SUBMIT_BUTTON))).isVisible();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_SUBMIT_BUTTON)).click();
-        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_SERVICESLINK).setExact(true))).isVisible();
+        assertThat(page.locator("#hardware_ticket_number")).containsText("Hardware Return Ticket Number(s)");
+        page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName("Required Hardware Return")).click();
+        page.locator("//input[@id='s2id_autogen11']").fill("NCI-RITM0472526");
+        page.getByText("NCI-RITM0472526").click();
+        assertThat(page.locator("#additional_info")).containsText("Additional Information");
+        page.getByLabel("Additional Information", new Page.GetByLabelOptions().setExact(true)).fill("test");
+        page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").scrollIntoViewIfNeeded();
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true))).isVisible();
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").click();
+        page.waitForSelector("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']");
+        assertThat(page.locator("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']")).isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -219,6 +228,10 @@ public class OFFBOARD_StepsImpl {
         CucumberLogUtils.playwrightScreenshot(page);
         page.locator(OFFBOARD_Page.cbiit_OffBoardingDepartureOrTransferRequestDropDownLocator).click();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(transfer)).click();
+        assertThat(page.locator("#within_or_outside_transfer")).containsText("Is this transfer within or outside of NCI?");
+        assertThat(page.locator("span").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Is this transfer within or outside of NCI\\?$")))).isVisible();
+        page.locator("#s2id_sp_formfield_within_or_outside_transfer a").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Within NCI")).click();
         assertThat(page.getByLabel(OFFBOARD_Page.cbiit_RequestDetails).getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_DATE_OF_TRANSFER_TEXT)).isVisible();
         assertThat(page.locator(OFFBOARD_Page.cbiit_DateOfTransferFieldLocator)).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_DATE_OF_TRANSFER_TEXT);
         page.getByLabel(OFFBOARD_Page.cbiit_ShowCalendarForDateOfTransferFieldLocator).click();
@@ -228,8 +241,8 @@ public class OFFBOARD_StepsImpl {
         page.getByLabel(CBIIT_OFFBOARD_FORM_Constants.CBIIT_HN_SAC_CODE_TRANSFER_TO_TEXT).click();
         page.getByLabel(CBIIT_OFFBOARD_FORM_Constants.CBIIT_HN_SAC_CODE_TRANSFER_TO_TEXT).fill(CBIIT_OFFBOARD_FORM_Constants.CBIIT_HN_SAC_CODE_TRANSFER_TO_TEXT_BOX_Value);
         page.getByLabel(CBIIT_OFFBOARD_FORM_Constants.CBIIT_HN_SAC_CODE_TRANSFER_TO_TEXT).press(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_ENTER_KEY);
-        page.locator(OFFBOARD_Page.cbiit_OffBoardingFormPointOfContactSearchTextBoxLocator).click();
-        page.locator(OFFBOARD_Page.cbiit_OffBoardingFormPointOfContactSearchLocator).fill(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_POINT_OF_CONTACT_NAME);
+        assertThat(page.getByLabel("Required - Point of Contact")).containsText("Point of Contact");
+        page.locator("#s2id_sp_formfield_fedSupervisor").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
         page.getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_POINT_OF_CONTACT_NAME).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -240,14 +253,16 @@ public class OFFBOARD_StepsImpl {
      */
     public static void if_user_select_yes_for_the_answer_to_isTheEmployeeLocatedOnSite_field_show_onsiteLocation_field() {
         page.waitForSelector(OFFBOARD_Page.cbiit_OffBoardingFormIsTheEmployeeLocatedOnSiteLocator);
-        assertThat(page.locator(OFFBOARD_Page.cbiit_EmployeeAddressFieldLocator).getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_EMPLOYEE_ADDRESS_FIELD_TEXT)).isHidden();
-        assertThat(page.locator(OFFBOARD_Page.cbiit_OnlineLocationFieldLocator).getByLabel(CBIIT_OFFBOARD_FORM_Constants.CBIIT_ONSITE_LOCATION_TEXT)).isHidden();
+        page.waitForSelector("//span[normalize-space()='Is the employee located On Site?']");
+        assertThat(page.locator("//span[@aria-label='Onsite Location']").getByText("Onsite Location")).isHidden();
         CucumberLogUtils.playwrightScreenshot(page);
-        page.locator(OFFBOARD_Page.cbiit_OffBoardingFormIsTheEmployeeLocatedOnSiteDropDownLocator).click();
-        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_YES_OPTION_SELECTED).setExact(true)).click();
-        assertThat(page.locator(OFFBOARD_Page.cbiit_OnlineLocationFieldLocator).getByLabel(CBIIT_OFFBOARD_FORM_Constants.CBIIT_ONSITE_LOCATION_TEXT)).isVisible();
-        assertThat(page.locator(OFFBOARD_Page.cbiit_OnlineLocationFieldLocator)).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_ONSITE_LOCATION_TEXT);
-        page.locator(OFFBOARD_Page.cbiit_OnlineLocationFieldDropDownLocator).click();
+        assertThat(page.locator("#onsite_offsite")).containsText("Is the employee located On Site?");
+        page.locator("#s2id_sp_formfield_onsite_offsite a").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Yes")).click();
+        page.locator("//span[@aria-label='Onsite Location']").scrollIntoViewIfNeeded();
+        assertThat(page.locator("//span[@aria-label='Onsite Location']")).containsText("Onsite Location");
+        assertThat(page.locator("//span[@aria-label='Onsite Location']").getByText("Onsite Location")).isVisible();
+        page.locator("#s2id_sp_formfield_location").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_ONSITE_LOCATION_SELECTED_DROP_DOWN_VALUE)).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -270,7 +285,7 @@ public class OFFBOARD_StepsImpl {
         assertThat(page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberFieldLocator).getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_TEXT)).isVisible();
         assertThat(page.getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_TEXT)).isVisible();
         assertThat(page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberFieldLocator)).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_TEXT);
-        assertThat(page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberTextBoxFieldLocator)).isVisible();
+        assertThat(page.locator("#hardware_url")).isVisible();
     }
 
     /**
@@ -279,6 +294,7 @@ public class OFFBOARD_StepsImpl {
      * @param expectedURL the expected URL of the "Return Hardware Request" link
      */
     public static void verify_that_the_hardware_request_link_url_should_be(String expectedURL) {
+        assertThat(page.locator("#hardware_url")).containsText("Return Hardware Form URL");
         returnHardwarePage = page.waitForPopup(() -> {
             page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_RETURN_HARDWARE_FORM_URL_TEXT)).click();
         });
@@ -288,12 +304,21 @@ public class OFFBOARD_StepsImpl {
         returnHardwarePage.close();
         CucumberLogUtils.playwrightScreenshot(page);
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_RETURN_HARDWARE_FORM_URL_TEXT)).scrollIntoViewIfNeeded();
-        page.waitForSelector(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberTextBoxFieldLocator);
-        page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberTextBoxFieldLocator).click();
-        page.getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_HARDWARE_RETURN_TICKET_NUMBERTEXTBOXVALUE).click();
-        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_SUBMIT_BUTTON))).isVisible();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_SUBMIT_BUTTON)).click();
-        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_SERVICESLINK).setExact(true))).isVisible();
+        assertThat(page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberFieldLocator)).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_S_TEXT);
+        assertThat(page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberFieldLocator).getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_TEXT)).isVisible();
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.locator("#hardware_ticket_number")).containsText("Hardware Return Ticket Number(s)");
+        page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName("Hardware Return Ticket Number")).click();
+        page.locator("//input[@id='s2id_autogen11']").fill("NCI-RITM0472526");
+        page.getByText("NCI-RITM0472526").click();
+        assertThat(page.locator("#additional_info")).containsText("Additional Information");
+        page.getByLabel("Additional Information", new Page.GetByLabelOptions().setExact(true)).fill("test");
+        page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").scrollIntoViewIfNeeded();
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true))).isVisible();
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").click();
+        page.waitForSelector("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']");
+        assertThat(page.locator("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']")).isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -325,8 +350,8 @@ public class OFFBOARD_StepsImpl {
         page.getByLabel(OFFBOARD_Page.cbiit_ShowCalendarForDateAndTimeFieldLocator).click();
         page.getByLabel(OFFBOARD_Page.cbiit_DateTimePickerIsOpenedFieldLocator).click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_OK_OPTION_SELECTED)).click();
-        page.locator(OFFBOARD_Page.cbiit_OffBoardingFormPointOfContactSearchTextBoxLocator).click();
-        page.locator(OFFBOARD_Page.cbiit_OffBoardingFormPointOfContactSearchLocator).fill(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_POINT_OF_CONTACT_NAME);
+        assertThat(page.getByLabel("Required - Point of Contact")).containsText("Point of Contact");
+        page.locator("#s2id_sp_formfield_fedSupervisor").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
         page.getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_POINT_OF_CONTACT_NAME).click();
         CucumberLogUtils.playwrightScreenshot(page);
         if_user_select_yes_for_the_answer_to_isTheEmployeeLocatedOnSite_field_show_onsiteLocation_field();
@@ -347,26 +372,34 @@ public class OFFBOARD_StepsImpl {
     }
 
     /**
-     * Verifies that the 'Hardware Return Ticket Number(s)' field is required only for departure request.
+     * Verifies that the 'Hardware Return Ticket Number(s)' field is required for departure request.
      *
      * @param hardwareReturnTicketNumbers the value of the hardware return ticket number(s) field
      */
     public static void should_be_required_only_for_departure_request(String hardwareReturnTicketNumbers) {
         assertThat(page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberFieldLocator).getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_TEXT)).isVisible();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_SUBMIT_BUTTON)).scrollIntoViewIfNeeded();
+        page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").scrollIntoViewIfNeeded();
         assertThat(page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberFieldLocator)).containsText(hardwareReturnTicketNumbers);
         assertThat(page.getByRole(AriaRole.IMG, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_REQUIRED_TEXT))).isVisible();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_SUBMIT_BUTTON)).click();
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true))).isVisible();
+        page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").click();
         assertThat(page.locator(OFFBOARD_Page.cbiit_ErrorLocator)).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_REQUIRED_FIELDS_ARE_INCOMPLETE_TEXT);
         CucumberLogUtils.playwrightScreenshot(page);
         String actualAttributeValue = page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_Number_Required_FieldLocator).getAttribute(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_Number_Required_FieldAttribute);
         Assert.assertEquals(actualAttributeValue, CBIIT_OFFBOARD_FORM_Constants.MANDATORY_FIELD,
                 "---- VERIFY THAT 'HARDWARE RETURN TICKET NUMBER(S)' FIELD IS REQUIRED WHEN AN EMPLOYEE SUBMITS DEPARTURE REQUEST ----");
-        page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberTextBoxFieldLocator).click();
-        page.getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_HARDWARE_RETURN_TICKET_NUMBERTEXTBOXVALUE).click();
-        assertThat(PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_SUBMIT_BUTTON))).isVisible();
-        PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_SUBMIT_BUTTON)).click();
-        assertThat(PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_SERVICESLINK).setExact(true))).isVisible();
+        assertThat(page.locator("#hardware_ticket_number")).containsText("Hardware Return Ticket Number(s)");
+        page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName("Required Hardware Return")).click();
+        page.locator("//input[@id='s2id_autogen11']").fill("NCI-RITM0472526");
+        page.getByText("NCI-RITM0472526").click();
+        assertThat(page.locator("#additional_info")).containsText("Additional Information");
+        page.getByLabel("Additional Information", new Page.GetByLabelOptions().setExact(true)).fill("test");
+        page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").scrollIntoViewIfNeeded();
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true))).isVisible();
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").click();
+        page.waitForSelector("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']");
+        assertThat(page.locator("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']")).isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -382,6 +415,10 @@ public class OFFBOARD_StepsImpl {
         CucumberLogUtils.playwrightScreenshot(page);
         page.locator(OFFBOARD_Page.cbiit_OffBoardingDepartureOrTransferRequestDropDownLocator).click();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(transfer)).click();
+        assertThat(page.locator("#within_or_outside_transfer")).containsText("Is this transfer within or outside of NCI?");
+        assertThat(page.locator("span").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Is this transfer within or outside of NCI\\?$")))).isVisible();
+        page.locator("#s2id_sp_formfield_within_or_outside_transfer a").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Within NCI")).click();
         assertThat(page.getByLabel(OFFBOARD_Page.cbiit_RequestDetails).getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_DATE_OF_TRANSFER_TEXT)).isVisible();
         assertThat(page.locator(OFFBOARD_Page.cbiit_DateOfTransferFieldLocator)).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_DATE_OF_TRANSFER_TEXT);
         page.getByLabel(OFFBOARD_Page.cbiit_ShowCalendarForDateOfTransferFieldLocator).click();
@@ -391,29 +428,32 @@ public class OFFBOARD_StepsImpl {
         page.getByLabel(CBIIT_OFFBOARD_FORM_Constants.CBIIT_HN_SAC_CODE_TRANSFER_TO_TEXT).click();
         page.getByLabel(CBIIT_OFFBOARD_FORM_Constants.CBIIT_HN_SAC_CODE_TRANSFER_TO_TEXT).fill(CBIIT_OFFBOARD_FORM_Constants.CBIIT_HN_SAC_CODE_TRANSFER_TO_TEXT_BOX_Value);
         page.getByLabel(CBIIT_OFFBOARD_FORM_Constants.CBIIT_HN_SAC_CODE_TRANSFER_TO_TEXT).press(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_ENTER_KEY);
-        page.locator(OFFBOARD_Page.cbiit_OffBoardingFormPointOfContactSearchTextBoxLocator).click();
-        page.locator(OFFBOARD_Page.cbiit_OffBoardingFormPointOfContactSearchLocator).fill(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_POINT_OF_CONTACT_NAME);
+        assertThat(page.getByLabel("Required - Point of Contact")).containsText("Point of Contact");
+        page.locator("#s2id_sp_formfield_fedSupervisor").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
         page.getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_POINT_OF_CONTACT_NAME).click();
         CucumberLogUtils.playwrightScreenshot(page);
         if_user_select_yes_for_the_answer_to_isTheEmployeeLocatedOnSite_field_show_onsiteLocation_field();
     }
 
     /**
-     * Verifies that the 'Hardware Return Ticket Number(s)' field is not required for a transfer request.
+     * Verifies that the 'Hardware Return Ticket Number(s)' field is not required for a transfer request except "transfer outside of NCI".
      *
      * @param hardwareReturnTicketNumbers the value of the hardware return ticket number(s) field
      */
     public static void should_not_be_required_for_transfer_request(String hardwareReturnTicketNumbers) {
         assertThat(page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberFieldLocator).getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_TEXT)).isVisible();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_SUBMIT_BUTTON)).scrollIntoViewIfNeeded();
+        page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").scrollIntoViewIfNeeded();
         assertThat(page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_NumberFieldLocator)).containsText(hardwareReturnTicketNumbers);
         assertThat(page.getByRole(AriaRole.IMG, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_REQUIRED_TEXT))).isHidden();
         String actualAttributeValue = page.locator(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_Number_Non_Required_FieldLocator).getAttribute(OFFBOARD_Page.cbiit_Hardware_Return_Ticket_Number_Required_FieldAttribute);
         Assert.assertNotEquals(actualAttributeValue, CBIIT_OFFBOARD_FORM_Constants.MANDATORY_FIELD,
                 "-- VERIFY THAT 'HARDWARE RETURN TICKET NUMBER(S)' FIELD IS NOT REQUIRED WHEN AN EMPLOYEE SUBMITS TRANSFER REQUEST --");
-        assertThat(PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_SUBMIT_BUTTON))).isVisible();
-        PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_FORM_SUBMIT_BUTTON)).click();
-        assertThat(PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(CBIIT_OFFBOARD_FORM_Constants.CBIIT_SERVICESLINK).setExact(true))).isVisible();
+        page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").scrollIntoViewIfNeeded();
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true))).isVisible();
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").click();
+        page.waitForSelector("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']");
+        assertThat(page.locator("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']")).isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }
