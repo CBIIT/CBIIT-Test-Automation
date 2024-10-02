@@ -5,8 +5,10 @@ import CustomBusiness.Egrants.Utils.Egrants_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import static com.nci.automation.web.TestProperties.getEGrantsUrl;
 
@@ -446,6 +448,85 @@ public class EgrantsStepImplementation extends PageInitializer {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.deleteIconInstitutionalFiles);
 		EgrantsStepImplementation.confirm_document_deletion();
 		CommonUtils.sleep(2000);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/***
+	 * THIS METHOD SELECTS CREATE GRANT YEAR
+	 */
+	public static void selects_create_grant_year() {
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.grantsDropdown);
+		CommonUtils.sleep(2000);
+		JavascriptUtils.scrollIntoView(egrantsSearchandFileManagementScenariosPage.createNewGrantYearText);
+		CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.grantsDropdown, Egrants_Constants.CREATE_GRANT_YEAR);
+		CucumberLogUtils.logScreenshot();
+		CommonUtils.switchToNextWindow();
+	}
+
+	/***
+	 * THIS METHOD SELECTS APPLICATION TYPE
+	 */
+	public static void selects_application_type(Integer type) {
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.applicationType);
+		CommonUtils.sleep(2000);
+		CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.applicationType, Egrants_Constants.APPLICATION_TYPE);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/***
+	 * THIS METHOD SELECTS ACTIVITY CODE
+	 */
+	public static void selects_activity_code() {
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.activityCode);
+		CommonUtils.sleep(2000);
+		CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.activityCode, Egrants_Constants.ACITIVTY_CODE);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/***
+	 * THIS METHOD ENTERS GRANT YEAR
+	 */
+	public static void enters_grant_year() {
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.yearTextBox);
+		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.yearTextBox, Egrants_Constants.GRANT_YEAR);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/***
+	 * THIS METHOD ENTERS SUFFIX CODE
+	 */
+	public static void enters_suffix_code() {
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.suffixCodeTextBox);
+		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.suffixCodeTextBox, Egrants_Constants.SUFFIX_CODE);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/***
+	 * THIS METHOD VERIFIES THE CREATED GRANT YEAR AND IF IT ALREADY EXISTS, IT CREATES A NEW ONE
+	 */
+	public static void verifies_the_created_grant_year() {
+		String actualGrantYearMessage = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.grantYearHasBeenCreated);
+		if (actualGrantYearMessage.contentEquals(Egrants_Constants.GRANT_YEAR_HAS_BEEN_CREATED_MESSAGE)){
+			System.out.println(actualGrantYearMessage);
+			CucumberLogUtils.logScreenshot();
+		} else if (actualGrantYearMessage.contentEquals(Egrants_Constants.DUPLICATE_GRANT_YEAR_EXISTS_MESSAGE)){
+			System.out.println(actualGrantYearMessage+" Creating a new grant year");
+			CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.applicationType, Egrants_Constants.APPLICATION_TYPE);
+			CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.activityCode, Egrants_Constants.ACITIVTY_CODE);
+			CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.yearTextBox);
+			CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.yearTextBox, Egrants_Constants.GRANT_YEAR);
+			CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.suffixCodeTextBox, Egrants_Constants.SUFFIX_CODE_S2);
+			CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.createNewGrantYearButton);
+			CucumberLogUtils.logScreenshot();
+		}
+	}
+
+	/***
+	 * THIS METHOD VERIFIES THE SUCCESS MESSAGE FOR DOWNLOADED FILES
+	 */
+	public static void verifies_the_success_message_for_downloaded_files() {
+		CommonUtils.waitForVisibility(egrantsSearchandFileManagementScenariosPage.downloadSuccessMessage);
+		Assert.assertTrue(egrantsSearchandFileManagementScenariosPage.downloadSuccessMessage.isDisplayed());
 		CucumberLogUtils.logScreenshot();
 	}
 }

@@ -73,3 +73,24 @@ Given User is logged in the application and is on the landing page
     And clicks on Institutional Files menu
     And clicks on AAVOGEN, INC.
     Then clicks on Delete button to delete an uploaded document
+
+  @CreateGrantYear @nesarh2 @selenium @Regression
+  Scenario: Test adding a grant year
+    And clicks on Add Document button
+    And searches for "125123" on Add New Document page
+    And selects create grant year from Grant dropdown
+    And selects type 3 as the grant type
+    And selects P30 as the activity code
+    And types 21 as the Year
+    And types S1 as the Suffix Code
+    And clicks on Create New button to create grant year
+    Then verifies the grant year is created
+
+  @EGRANTS-224 @AuditFileDownload @nesarh2 @selenium @Regression @Progression
+  Scenario: Test audit file download
+    And activates the download mode
+    And searches for grant "CA125123"
+    And selects grant year 18S1 from Years
+    And selects all files within the grant folder
+    And clicks on Download button
+    Then verifies the success message for downloaded files

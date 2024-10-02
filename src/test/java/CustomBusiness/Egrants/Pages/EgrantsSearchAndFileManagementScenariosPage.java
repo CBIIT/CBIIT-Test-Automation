@@ -241,6 +241,93 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     @FindBy (xpath = "(//a[@title='Click here to delete this document'])[1]")
     public WebElement deleteIconInstitutionalFiles;
 
+    /**
+     * Application type dropdown
+     */
+    @FindBy (xpath = "//select[@id='ddlAppls']//option[@value='CreateGrantYear']")
+    public WebElement createNewGrantYearText;
+
+    /**
+     * Application type dropdown
+     */
+    @FindBy (xpath = "//select[@id='ddlAppltype']")
+    public WebElement applicationType;
+
+    /**
+     * Activity Code dropdown
+     */
+    @FindBy (xpath = "//select[@id='ddlActivitycode']")
+    public WebElement activityCode;
+
+    /**
+     * Grant year text box
+     */
+    @FindBy (xpath = "//input[@id='txtSupportyear']")
+    public WebElement yearTextBox;
+
+    /**
+     * Grant year text box
+     */
+    @FindBy (xpath = "//input[@id='txtSuffixcode']")
+    public WebElement suffixCodeTextBox;
+
+    /**
+     * Create New button for grant year
+     */
+    @FindBy (xpath = "//button[@name='submit']")
+    public WebElement createNewGrantYearButton;
+
+    /**
+     * Success message for created grant year
+     */
+    @FindBy (xpath = "//b[@id='notice']")
+    public WebElement grantYearHasBeenCreated;
+
+    /**
+     * Resources Menu
+     */
+    @FindBy (xpath = "//li[@id='navDropDown1']")
+    public WebElement resourcesMenu;
+
+    /**
+     * Audit File Download Mode
+     */
+    @FindBy (xpath = "//a[@title='Audit File Download (Chrome Only)']")
+    public WebElement auditFileDownloadMode;
+
+    /**
+     * Check All checkbox
+     */
+    @FindBy (xpath = "//input[@title='Check All']")
+    public WebElement checkAllCheckbox;
+
+    /**
+     * Download button
+     */
+    @FindBy (xpath = "//div/button[contains(text(), 'ownload')]")
+    public WebElement downloadButton;
+
+    /**
+     * Download success message
+     */
+    @FindBy (xpath = "(//td/img[@title='File Download Successful!'])[1]")
+    public WebElement downloadSuccessMessage;
+
+    /**
+     * Download success message
+     */
+    @FindBy (xpath = "(//td/img[@title='Downloading ...'])[1]")
+    public WebElement downloadingMessage;
+
+    /**
+     * Grant year 18S1
+     */
+    @FindBy(css = "div[id='appls_10_687129'] a[title='View All Documents for 3P30CA125123-18S1']")
+    public WebElement year18S1;
+
+    /**
+     * Constructor
+     */
     public EgrantsSearchAndFileManagementScenariosPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
