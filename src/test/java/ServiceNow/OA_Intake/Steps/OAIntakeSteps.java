@@ -207,7 +207,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     * ubmitter fills in Please enter the estimated value of IT field
+     * Submitter fills in Please enter the estimated value of IT field
      * @param sum
      */
     @Then("Submitter User can enter {string} for Please enter the estimated value of IT and biomedical computing requirement")
