@@ -187,9 +187,7 @@ public class CCRStepsImplementation extends PageInitializer {
     }
 
     public void logOutOfCCRCareersApp(){
-        CommonUtils.waitForVisibility(cCRApplicantPage.userDropdownMenu);
         CommonUtils.clickOnElement(cCRApplicantPage.userDropdownMenu);
-        CommonUtils.waitForVisibility(cCRApplicantPage.optionLogOut);
         CommonUtils.clickOnElement(cCRApplicantPage.optionLogOut);
     }
 
