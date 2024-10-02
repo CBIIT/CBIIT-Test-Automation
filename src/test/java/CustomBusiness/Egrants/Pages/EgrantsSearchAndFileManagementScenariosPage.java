@@ -314,7 +314,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement downloadSuccessMessage;
 
     /**
-     * Download success message
+     * Downloading spin message
      */
     @FindBy (xpath = "(//td/img[@title='Downloading ...'])[1]")
     public WebElement downloadingMessage;

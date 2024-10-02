@@ -30,6 +30,4 @@ public class Egrants_Constants {
     public static final String DUPLICATE_GRANT_YEAR_EXISTS_MESSAGE = "The grand year you want to create is duplicate";
     public static final String DOWNLOAD_SUCCESS_MESSAGE = "File Download Successful!";
     public static final String DOWNLOADING_MESSAGE = "Downloading ...";
-
-
 }

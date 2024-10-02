@@ -8,7 +8,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import static com.nci.automation.web.TestProperties.getEGrantsUrl;
 
@@ -465,6 +464,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD SELECTS APPLICATION TYPE
+	 * @param type
 	 */
 	public static void selects_application_type(Integer type) {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.applicationType);
@@ -522,7 +522,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	}
 
 	/***
-	 * THIS METHOD VERIFIES THE SUCCESS MESSAGE FOR DOWNLOADED FILES
+	 * THIS METHOD VERIFIES THE SUCCESS ICON FOR DOWNLOADED FILES
 	 */
 	public static void verifies_the_success_message_for_downloaded_files() {
 		CommonUtils.waitForVisibility(egrantsSearchandFileManagementScenariosPage.downloadSuccessMessage);

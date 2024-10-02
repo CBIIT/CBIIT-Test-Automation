@@ -81,8 +81,8 @@ Given User is logged in the application and is on the landing page
     And selects create grant year from Grant dropdown
     And selects type 3 as the grant type
     And selects P30 as the activity code
-    And types 21 as the Year
-    And types S1 as the Suffix Code
+    And enters 21 as the Year
+    And enters S1 as the Suffix Code
     And clicks on Create New button to create grant year
     Then verifies the grant year is created
 
@@ -93,4 +93,4 @@ Given User is logged in the application and is on the landing page
     And selects grant year 18S1 from Years
     And selects all files within the grant folder
     And clicks on Download button
-    Then verifies the success message for downloaded files
+    Then verifies the success icon for downloaded files

@@ -223,13 +223,13 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
         EgrantsStepImplementation.selects_activity_code();
     }
 
-    @Given("types {int} as the Year")
-    public void types_as_the_year(Integer year) {
+    @Given("enters {int} as the Year")
+    public void enters_as_the_year(Integer year) {
         EgrantsStepImplementation.enters_grant_year();
     }
 
-    @Given("types S1 as the Suffix Code")
-    public void types_s1_as_the_suffix_code() {
+    @Given("enters S1 as the Suffix Code")
+    public void enters_s1_as_the_suffix_code() {
         EgrantsStepImplementation.enters_suffix_code();
     }
 
@@ -284,8 +284,8 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    @Then("verifies the success message for downloaded files")
-    public void verifies_the_success_message_for_downloaded_files() {
+    @Then("verifies the success icon for downloaded files")
+    public void verifies_the_success_icon_for_downloaded_files() {
         EgrantsStepImplementation.verifies_the_success_message_for_downloaded_files();
     }
 }
