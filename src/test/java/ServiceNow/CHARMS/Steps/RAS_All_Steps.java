@@ -1,7 +1,9 @@
 package ServiceNow.CHARMS.Steps;
 
 import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
+import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
+import ServiceNow.CHARMS.Pages.NativeViewCHARMSParticipantConsentPage;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.ServiceNow_Common_Methods;
@@ -14,6 +16,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -201,6 +205,7 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.waitForVisibility(locateByXpath("//button[normalize-space()='OK']"));
         CommonUtils.clickOnElement(locateByXpath("//button[normalize-space()='OK']"));
         CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(500);
     }
 
     /**
@@ -305,6 +310,7 @@ public class RAS_All_Steps extends PageInitializer {
         String pdfUrl = webDriver.getCurrentUrl();
         String downloadPath = System.getProperty("user.dir") + "/src/test/resources/" + pdfName + ".pdf";
         CucumberLogUtils.scenario.log("* * * * * DOWNLOADING " + pdfName.toUpperCase() + " PDF * * * * *");
+        CucumberLogUtils.logScreenshot();
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL(pdfUrl).openConnection();
             String cookies = String.join(";", webDriver.manage().getCookies().stream()
@@ -359,8 +365,21 @@ public class RAS_All_Steps extends PageInitializer {
      * @param numberOfGuardianSignaturesRequired       the number of guardian signatures required for the consent
      * @param numberOfParentGuardianSignaturesReceived the number of parent/guardian signatures received for the consent
      */
-    @Then("Study Team member logs in to Native View and completest consent call {string}, {string}, {string}, {string}, {string}, {string}, {string}")
-    public void study_team_member_logs_in_to_native_view_and_completest_consent_call(String sheetName, String consentStatus, String consentType, String responseType, String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
+    @Then("Study Team member logs in to Native View and completes consent call {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void study_team_member_logs_in_to_native_view_and_completes_consent_call(String sheetName, String consentStatus, String consentType, String responseType, String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
         nativeViewConsentAssentFlowProcess(sheetName, consentStatus, consentType, responseType, parentGuardianStatus, numberOfGuardianSignaturesRequired, numberOfParentGuardianSignaturesReceived);
+    }
+
+    /**
+     * Study Team member logs in to Native View and verifies that the field Assent signed is true.
+     *
+     * @param sheetName the name of the sheet for which the field Assent signed is being verified.
+     */
+    @Then("Study Team member logs in to Native View and verifies that the field Assent signed is true {string}")
+    public void study_team_member_logs_in_to_native_view_and_verifies_that_the_field_assent_signed_is_true(String sheetName) {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        navigateToParticipantRecordInNativeView(sheetName);
+        CommonUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyAssentSignedCheckBox);
+        Assert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyAssentSignedCheckBox.isSelected());
     }
 }

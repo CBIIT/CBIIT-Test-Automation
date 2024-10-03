@@ -97,7 +97,7 @@ public class RAS_Common_Methods extends PageInitializer {
      * @param numberOfGuardianSignaturesRequired       The number of guardian signatures required for consent.
      * @param numberOfParentGuardianSignaturesReceived The number of parent/guardian signatures received.
      */
-    public static void nativeViewFillParentGuardianSignatures(String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
+    public static void nativeViewFillParentGuardianSignatures(String responseType, String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown);
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown);
         CommonUtils.selectDropDownValue(parentGuardianStatus, nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown);
@@ -105,8 +105,18 @@ public class RAS_Common_Methods extends PageInitializer {
         CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentNumberOfParentGuardianSignaturesRequiredDropDown, numberOfGuardianSignaturesRequired);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
-        if (numberOfParentGuardianSignaturesReceived.equals("1")) {
-            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
+        if(responseType.equalsIgnoreCase("CHARMS e-consent")) {
+            if(numberOfGuardianSignaturesRequired.equals("1")) {
+//                CommonUtils.verifyingDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown, "Pending", "* * * * * Parent/Guardian 1 Signed should default to Pending until the Consent form is signed * * * * *");
+                CommonUtils.selectDropDownValue("Pending", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
+            } else if(numberOfGuardianSignaturesRequired.equals("2")) {
+                CommonUtils.verifyingDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown, "Pending", "* * * * * Parent/Guardian 1 Signed should default to Pending until the Consent form is signed * * * * *");
+                CommonUtils.verifyingDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2SignedDropDown, "Pending", "* * * * * Parent/Guardian 2 Signed should default to Pending until the Consent form is signed * * * * *");
+            }
+        } else {
+            if (numberOfParentGuardianSignaturesReceived.equals("1")) {
+                CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
+            }
         }
     }
 
@@ -254,7 +264,10 @@ public class RAS_Common_Methods extends PageInitializer {
             CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown);
             CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown, 4);
         }
-        nativeViewFillParentGuardianSignatures(parentGuardianStatus, numberOfGuardianSignaturesRequired, numberOfParentGuardianSignaturesReceived);
+        if(consentType.equalsIgnoreCase("Aged 11 - 13, signed assent required") && consentStatus.equalsIgnoreCase("CHARMS e-consent")) {
+
+        }
+        nativeViewFillParentGuardianSignatures(responseType, parentGuardianStatus, numberOfGuardianSignaturesRequired, numberOfParentGuardianSignaturesReceived);
         CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureSpecimensAndDataDropDown, 4);
         CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureUseCollaboratorsDropDown, 4);
         CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown, 4);
