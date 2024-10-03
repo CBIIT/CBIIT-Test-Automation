@@ -3,18 +3,13 @@ package CustomBusiness.BusinessAppRunners;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(plugin = {"html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
-        "junit:target/cucumber.xml", "rerun:target/failed.txt",
-        "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
-        features = "src/test/java/CustomBusiness/CCR/Features",
-        glue = "CustomBusiness.CCR.Steps",
-        tags = "@Regression",
-        dryRun = false
+@CucumberOptions(plugin = {"html:target/html-reports/cucumber-default-report.html",
+        "rerun:target/failed.txt",
+        "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
+        , features = "src/test/java/CustomBusiness/CCR/Features"
+        , glue = {"CustomBusiness.CCR.Steps", "Hooks"}
+        , tags = "@Regression"
+        , dryRun = false
 )
-/**
- *
- * @author juarezds
- */
-
-public class RunCCRRegressionTest extends AbstractTestNGCucumberTests{
+public class RunCCRRegressionTest extends AbstractTestNGCucumberTests {
 }

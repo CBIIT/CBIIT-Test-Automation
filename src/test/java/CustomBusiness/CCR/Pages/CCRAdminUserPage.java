@@ -20,6 +20,14 @@ import org.openqa.selenium.support.PageFactory;
         @FindBy(xpath = "//a[@class='btn btn-default btn-sm border-0 mt-0 mb-0 ng-scope']")
         public WebElement buttonAddPosition;
 
+        /**  field 1 required documents**/
+        @FindBy(xpath = "//input[@id='upload_0']")
+        public WebElement fielOneReqDocuments;
+
+        /**  field 2 required documents**/
+        @FindBy(xpath = "//input[@id='upload_1']")
+        public WebElement fielTwoReqDocuments;
+
         /**  field Position Title**/
         @FindBy(xpath = "//input[@id='title']")
         public WebElement fieldPositionTitle;
