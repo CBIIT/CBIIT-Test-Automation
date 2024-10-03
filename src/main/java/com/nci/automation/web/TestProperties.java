@@ -88,6 +88,13 @@ public class TestProperties {
     public static String CCR_URL;
 
     /**
+     * OA Intake
+     */
+    public static final String OAINTAKE_TEST_URL = "https://service-test.nci.nih.gov/oa_intake";
+    public static final String OAINTAKE_STAGE_URL = "https://service-stage.nci.nih.gov/oa_intake";
+    public static String OAINTAKE_URL;
+
+    /**
      * E-GRANTS URLS
      */
     public static final String E_GRANTS_TEST_URL = "https://egrants-web-test.nci.nih.gov/";
@@ -710,5 +717,17 @@ public class TestProperties {
                 break;
         }
         return GWAS_TARGET_URL;
+    }
+
+    public static String getOAntakeUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                OAINTAKE_URL = OAINTAKE_STAGE_URL;
+                break;
+            case "test":
+                OAINTAKE_URL = OAINTAKE_TEST_URL;
+                break;
+        }
+        return OAINTAKE_URL;
     }
 }
