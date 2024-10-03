@@ -181,6 +181,25 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 		scenarioReportList.add(stepTestResult);
 	}
 
+	@When("fills Are any of the following individuals a biological parent of this child")
+	public void fills_are_any_of_the_following_individuals_a_biological_parent_of_this_child() {
+		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.biologicalParentOfThisChildLabel,"Are any of the following individuals a biological parent of this child?");
+		ComponentTestResult dropdownTest1 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.isOtherBiologicalParentOfThisRelativeChildDropDown,FHQSurveyPageConstants.OTHER_BIOLOGICAL_PARENT, 1);
+		ComponentTestResult bannerTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.partnerDetailBanner,
+				"If the partner name is not visible in the dropdown, that means the partner record is incomplete on the home page. Please return to the homepage and complete the partner record(s) before completing the children records.");
+		ComponentTestResult bannerTest2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.partnerDetailBanner,
+				"");
+		ComponentTestResult dropdownTest2 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.isOtherBiologicalParentOfThisRelativeChildDropDown,FHQSurveyPageConstants.OTHER_BIOLOGICAL_PARENT, 1);
+
+		StepTestResult stepTestResult = new StepTestResult("Are any of the following individuals a biological parent of this child are filled and verified");
+		stepTestResult.add(labelTest);
+		stepTestResult.add(dropdownTest1);
+		stepTestResult.add(bannerTest1);
+		stepTestResult.add(bannerTest2);
+		stepTestResult.add(dropdownTest2);
+		scenarioReportList.add(stepTestResult);
+	}
+
 	@When("fills the other biological parent of this relative")
 	public void fills_the_other_biological_parent_of_this_relative() {
 		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.isOtherBiologicalParentOfThisRelativeLabel,"Is the other biological parent of this relative one of the partners you have entered?");
