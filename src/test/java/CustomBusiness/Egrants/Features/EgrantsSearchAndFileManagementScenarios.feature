@@ -74,7 +74,7 @@ Given User is logged in the application and is on the landing page
     And clicks on AAVOGEN, INC.
     Then clicks on Delete button to delete an uploaded document
 
-  @CreateGrantYear @nesarh2 @selenium @Regression
+  @EGRANTS-622 @CreateGrantYear @nesarh2 @selenium @Regression
   Scenario: Test adding a grant year
     And clicks on Add Document button
     And searches for "125123" on Add New Document page
