@@ -58,6 +58,8 @@ import ServiceNow.COVIDDash.StepsImplementation.*;
 import ServiceNow.ESR.Selenium.Pages.ESRShortDescriptionPage;
 import ServiceNow.ESR.Selenium.Pages.ESRTicketCreationPage;
 import ServiceNow.ESR.Selenium.Pages.NCINativeViewPage;
+import ServiceNow.OA_Intake.Pages.OAIntakePage;
+import ServiceNow.OA_Intake.StepsImplementation.OAIntakeStepsImplementation;
 import ServiceNow.PlatformBusinessApps.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
 import ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Pages.CTRPCTRO_NV_Page;
 import ServiceNow.PlatformBusinessApps.GDC.Pages.GDC_Workflow_NativeView_Page;
@@ -162,6 +164,10 @@ public class PageInitializer extends WebDriverUtils {
 	public static MelanomaLoginPage melanomaLoginPage;
 	public static MelanomaHomePage melanomaHomePage;
 	public static MelanomaQuestionnairePage melanomaQuestionnairePage;
+
+	/** OA Intake instances */
+	public static OAIntakeStepsImplementation oaIntakeStepsImplementation ;
+	public static OAIntakePage oaIntakePage;
 
 	/** SEER instances */
 	public static SEERLandingPage seerLandingPage;
@@ -388,6 +394,10 @@ public class PageInitializer extends WebDriverUtils {
 		servicePortalQuestionnairePage = new ServicePortalQuestionnairePage();
 		servicePortalQuestionnairePageImp = new ServicePortalQuestionnairePageImp();
 		dashboardStepImpl = new DashboardStepImpl();
+
+		/** OA Intake Instance Variables */
+		oaIntakePage =  new OAIntakePage();
+		oaIntakeStepsImplementation = new OAIntakeStepsImplementation();
 
 		/** CHARMS Instance Variables **/
 		charmsNativeViewPage = new CHARMSNativeViewPage();
