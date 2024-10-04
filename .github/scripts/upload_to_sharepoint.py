@@ -1,5 +1,6 @@
 import os
 import requests
+import glob
 from requests_ntlm import HttpNtlmAuth
 
 # Get environment vars
