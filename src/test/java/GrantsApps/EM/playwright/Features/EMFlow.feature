@@ -64,3 +64,9 @@ Feature: EM Flow
     Then user can navigate to "USA.gov" hyperlink and verify hyperlink URL "https://www.usa.gov/"
     Then user can confirm the application version number "v2.4.0"
     Then user can verify NIH motto "NIH … Turning Discovery Into Health®"
+
+@Progression @playwright
+    Scenario: UI Page Header
+  Given User is logged in as Primary ITwoE Coordinator - PW
+  Then first and last name "Diego Juarez" of logged in user are displayed
+  And user is on Manage I2E Users page

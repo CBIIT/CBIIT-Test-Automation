@@ -3,9 +3,12 @@ package GrantsApps.EM.playwright.Steps;
 import GrantsApps.EM.playwright.StepsImplementation.EM_Steps_Implementation;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import com.nci.automation.utils.CucumberLogUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
+
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class EMFlowSteps {
@@ -128,6 +131,12 @@ public class EMFlowSteps {
     @When("user clicks on Business Area drop down")
     public void user_clicks_on_business_area_drop_down() {
         page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("All")).click();
+    }
+
+    @Then("user is on Manage I2E Users page")
+    public void user_is_on_manage_i2e_users_page() {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Assert.assertEquals(page.url(),"https://i2e-test.nci.nih.gov/em/#/search");
     }
 
     @Then("{string} option contains the description expected {string}")

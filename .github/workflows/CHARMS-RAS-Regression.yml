@@ -45,18 +45,15 @@ jobs:
           path: target/html-charms-rasopathy-regression-reports/*
 
       - name: Upload to SharePoint
-        shell: cmd
-        env:
-          SHAREPOINT_URL: ${{ secrets.SHAREPOINT_URL }}
-          SHAREPOINT_USERNAME: ${{ secrets.SHAREPOINT_USERNAME }}
-          SHAREPOINT_PASSWORD: ${{ secrets.SHAREPOINT_PASSWORD }}
-        run: |
-          set "SHAREPOINT_URL=%SHAREPOINT_URL%"
-          set "SHAREPOINT_USERNAME=%SHAREPOINT_USERNAME%"
-          set "SHAREPOINT_PASSWORD=%SHAREPOINT_PASSWORD%"
-          set "TIMESTAMP=%timestamp%"
-          set "REPORT_PATH=target\html-charms-rasopathy-regression-reports\report-%TIMESTAMP%.html"
-          curl -u %SHAREPOINT_USERNAME%:%SHAREPOINT_PASSWORD% -T %REPORT_PATH% "%SHAREPOINT_URL%/Shared%20Documents/Platform%20Scientific%20-%20CHARMS/TEST%20AUTOMATION%20REPORTS/"
+        uses: pnp/action-sp-upload-file@v2.0.0
+        with:
+          file_path: target/html-charms-rasopathy-regression-reports/*
+          host_name: 'nih.sharepoint.com'
+          site_name: 'sites/NCI-CBIITQualityAssuranceandTestingTeam'
+          upload_path: 'Shared%20Documents/Platform%20Scientific%20-%20CHARMS/TEST%20AUTOMATION%20REPORTS'
+          tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
+          client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
+          client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}
 
 #      - name: Push HTML Report
 #        shell: bash
