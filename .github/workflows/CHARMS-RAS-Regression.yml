@@ -5,7 +5,7 @@ on:
 
 jobs:
   test:
-    runs-on: self-hosted
+    runs-on: NCI-WINDOWS
     steps:
       - name: Run a one-line script
         run: Write-Host "Hello, world!"
