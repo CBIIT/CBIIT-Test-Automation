@@ -57,6 +57,9 @@ jobs:
           name: CHARMS-RAS-REGRESSION-${{ env.timestamp }}
           path: target/html-charms-rasopathy-regression-reports/*
 
+      - name: Add Powershell to PATH
+        run: echo "C:\Windows\System32\WindowsPowerShell\v1.0\" >> $GITHUB_PATH
+
       - name: Setup Python Environment
         uses: actions/setup-python@v2
         with:
