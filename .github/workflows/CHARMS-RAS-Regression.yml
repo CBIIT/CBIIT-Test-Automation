@@ -60,7 +60,9 @@ jobs:
 
       - name: Upload to SharePoint
         shell: bash
-        run: python .github/scripts/upload_to_sharepoint.py
+        run: |
+          export PATH="/c/Users/juarezds/AppData/Local/Programs/Python/Python312:$PATH"
+          python .github/scripts/upload_to_sharepoint.py
         env:
           file_path: target/html-charms-rasopathy-regression-reports/*
           host_name: 'nih.sharepoint.com'
