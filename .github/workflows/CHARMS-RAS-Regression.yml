@@ -45,7 +45,7 @@ jobs:
           path: target/html-charms-rasopathy-regression-reports/*
 
       - name: Upload to SharePoint
-        uses: pnp/action-sp-upload-file@v2.0.0
+        uses: pnp/sp-dev-build-extensions@v1.3.0
         with:
           file_path: target/html-charms-rasopathy-regression-reports/*
           host_name: 'nih.sharepoint.com'
