@@ -1,69 +1,82 @@
-name: CHARMS-RAS-REGRESSION
+name: PowerShell Test
 
 on:
-  schedule:
-    # This corresponds to 6:00 AM EDT (10:00 AM UTC)
-    - cron: '0 10 * * *'
   workflow_dispatch:
-    inputs:
-      testBrowser:
-        description: 'Browser'
-        required: true
-        default: 'chrome'
 
 jobs:
-  build:
-    runs-on: NCI-WINDOWS
+  test:
+    runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref }}
-          fetch-depth: 0
+      - name: Run a one-line script
+        run: Write-Host "Hello, world!"
+        shell: powershell
 
-      - name: Run specific runner class
-        shell: cmd
-        run: mvn -B -q -Dtest=ServiceNow.CHARMS.Runners.Run_CHARMS_RAS_Regression_Test test
-        continue-on-error: true
-
-      - name: Generate timestamp
-        id: timestamp
-        shell: cmd
-        run: |
-          for /f "tokens=*" %%i in ('powershell -command "Get-Date -Format yyyy-MM-dd_HH-mm-ss"') do set timestamp=%%i
-          echo timestamp=%timestamp% >> %GITHUB_ENV%
-
-      - name: Determine report path
-        id: reportpath
-        shell: cmd
-        run: echo path=html-charms-rasopathy-regression-reports >> %GITHUB_ENV%
-
-      - name: Upload Cucumber Report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: CHARMS-RAS-REGRESSION-${{ env.timestamp }}
-          path: target/html-charms-rasopathy-regression-reports/*
-
-      - name: Setup Python Environment
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
-
-      - name: Install Requirements
-        run: |
-          pip install requests
-          pip install requests_ntlm
-
-      - name: Upload to SharePoint
-        run: python .github/scripts/upload_to_sharepoint.py
-        env:
-          file_path: target/html-charms-rasopathy-regression-reports/*
-          host_name: 'nih.sharepoint.com'
-          site_name: 'sites/NCI-CBIITQualityAssuranceandTestingTeam'
-          upload_path: 'Shared%20Documents/Platform%20Scientific%20-%20CHARMS/TEST%20AUTOMATION%20REPORTS'
-          tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
-          client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
-          client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}
+#name: CHARMS-RAS-REGRESSION
+#
+#on:
+#  schedule:
+#    # This corresponds to 6:00 AM EDT (10:00 AM UTC)
+#    - cron: '0 10 * * *'
+#  workflow_dispatch:
+#    inputs:
+#      testBrowser:
+#        description: 'Browser'
+#        required: true
+#        default: 'chrome'
+#
+#jobs:
+#  build:
+#    runs-on: NCI-WINDOWS
+#    steps:
+#      - uses: actions/checkout@v4
+#        with:
+#          ref: ${{ github.ref }}
+#          fetch-depth: 0
+#
+#      - name: Run specific runner class
+#        shell: cmd
+#        run: mvn -B -q -Dtest=ServiceNow.CHARMS.Runners.Run_CHARMS_RAS_Regression_Test test
+#        continue-on-error: true
+#
+#      - name: Generate timestamp
+#        id: timestamp
+#        shell: cmd
+#        run: |
+#          for /f "tokens=*" %%i in ('powershell -command "Get-Date -Format yyyy-MM-dd_HH-mm-ss"') do set timestamp=%%i
+#          echo timestamp=%timestamp% >> %GITHUB_ENV%
+#
+#      - name: Determine report path
+#        id: reportpath
+#        shell: cmd
+#        run: echo path=html-charms-rasopathy-regression-reports >> %GITHUB_ENV%
+#
+#      - name: Upload Cucumber Report
+#        uses: actions/upload-artifact@v4
+#        if: always()
+#        with:
+#          name: CHARMS-RAS-REGRESSION-${{ env.timestamp }}
+#          path: target/html-charms-rasopathy-regression-reports/*
+#
+#      - name: Setup Python Environment
+#        uses: actions/setup-python@v2
+#        with:
+#          python-version: '3.8'
+#
+#      - name: Install Requirements
+#        run: |
+#          pip install requests
+#          pip install requests_ntlm
+#
+#      - name: Upload to SharePoint
+#        run: python .github/scripts/upload_to_sharepoint.py
+#        env:
+#          file_path: target/html-charms-rasopathy-regression-reports/*
+#          host_name: 'nih.sharepoint.com'
+#          site_name: 'sites/NCI-CBIITQualityAssuranceandTestingTeam'
+#          upload_path: 'Shared%20Documents/Platform%20Scientific%20-%20CHARMS/TEST%20AUTOMATION%20REPORTS'
+#          tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
+#          client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
+#          client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}
 
 #      - name: Push HTML Report
 #        shell: bash
