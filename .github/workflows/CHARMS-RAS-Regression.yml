@@ -44,9 +44,19 @@ jobs:
           name: CHARMS-RAS-REGRESSION-${{ env.timestamp }}
           path: target/html-charms-rasopathy-regression-reports/*
 
-      - name: Upload to SharePoint
-        uses: pnp/sp-dev-build-extensions@v1.3.0
+      - name: Setup Python Environment
+        uses: actions/setup-python@v2
         with:
+          python-version: '3.8'
+
+      - name: Install Requirements
+        run: |
+          pip install requests
+          pip install requests_ntlm
+
+      - name: Upload to SharePoint
+        run: python .github/scripts/upload_to_sharepoint.py
+        env:
           file_path: target/html-charms-rasopathy-regression-reports/*
           host_name: 'nih.sharepoint.com'
           site_name: 'sites/NCI-CBIITQualityAssuranceandTestingTeam'
