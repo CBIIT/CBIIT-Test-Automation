@@ -17,6 +17,7 @@ on:
   schedule:
     # This corresponds to 6:00 AM EDT (10:00 AM UTC)
     - cron: '0 10 * * *'
+
   workflow_dispatch:
     inputs:
       testBrowser:
@@ -34,21 +35,21 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        shell: cmd
+        shell: powershell
         run: mvn -B -q -Dtest=ServiceNow.CHARMS.Runners.Run_CHARMS_RAS_Regression_Test test
         continue-on-error: true
 
       - name: Generate timestamp
         id: timestamp
-        shell: cmd
+        shell: powershell
         run: |
-          for /f "tokens=*" %%i in ('powershell -command "Get-Date -Format yyyy-MM-dd_HH-mm-ss"') do set timestamp=%%i
-          echo timestamp=%timestamp% >> %GITHUB_ENV%
+          $timestamp = Get-Date -Format "yyyy-MM-dd_HH-mm-ss"
+          echo "timestamp=$timestamp" | Out-File -FilePath $env:GITHUB_ENV -Append
 
       - name: Determine report path
         id: reportpath
-        shell: cmd
-        run: echo path=html-charms-rasopathy-regression-reports >> %GITHUB_ENV%
+        shell: powershell
+        run: echo "path=html-charms-rasopathy-regression-reports" | Out-File -FilePath $env:GITHUB_ENV -Append
 
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v4
@@ -57,20 +58,18 @@ jobs:
           name: CHARMS-RAS-REGRESSION-${{ env.timestamp }}
           path: target/html-charms-rasopathy-regression-reports/*
 
-      - name: Add Powershell to PATH
-        run: echo "C:\Windows\System32\WindowsPowerShell\v1.0\" >> $GITHUB_PATH
+      - name: Install Python using Chocolatey
+        shell: powershell
+        run: choco install -y python --version 3.8
 
-      - name: Setup Python Environment
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
-
-      - name: Install Requirements
+      - name: Install Python Requirements
+        shell: powershell
         run: |
           pip install requests
           pip install requests_ntlm
 
       - name: Upload to SharePoint
+        shell: powershell
         run: python .github/scripts/upload_to_sharepoint.py
         env:
           file_path: target/html-charms-rasopathy-regression-reports/*
