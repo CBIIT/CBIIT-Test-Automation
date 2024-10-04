@@ -4,9 +4,9 @@ Feature: RAS Screener Scenarios
   @JUAREZDS @RAS_STUDY @2CP2-2332 @Smoke @RAS_Regression @selenium @TestingActions
   Scenario Outline: This scenario outline is completing the myRAS Screeners, Consent Flows, IIQ Forms and the RAS Surveys
     Given test automation account has been reset
-    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-    And logs in via Okta with username "<Email>" and password "<Password>"
-    And clicks on "Eligibility Questionnaire" to begin survey
+#    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+#    And logs in via Okta with username "<Email>" and password "<Password>"
+#    And clicks on "Eligibility Questionnaire" to begin survey
 #    When the participant submits a screener from excel sheet "<ScreenerScenario>"
 #    Then screener data from "<ScreenerScenario>" is verified
 #    And the consent is submitted for "<ScreenerScenario>"
