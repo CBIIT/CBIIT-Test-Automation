@@ -36,7 +36,7 @@ jobs:
 
       - name: Run specific runner class
         shell: powershell
-        run: mvn -B -q -Dtest=ServiceNow.CHARMS.Runners.Run_CHARMS_RAS_Regression_Test test
+        run: mvn -B -q -Dtest="ServiceNow.CHARMS.Runners.Run_CHARMS_RAS_Regression_Test" test
         continue-on-error: true
 
       - name: Generate timestamp
