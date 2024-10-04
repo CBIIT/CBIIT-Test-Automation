@@ -58,10 +58,6 @@ jobs:
           name: CHARMS-RAS-REGRESSION-${{ env.timestamp }}
           path: target/html-charms-rasopathy-regression-reports/*
 
-      - name: Install Python using Chocolatey
-        shell: powershell
-        run: choco install -y python --version 3.8
-
       - name: Install Python Requirements
         shell: powershell
         run: |
