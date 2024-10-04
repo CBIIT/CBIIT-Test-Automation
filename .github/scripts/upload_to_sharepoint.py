@@ -24,3 +24,8 @@ for file in glob.glob(file_path):
         data=file_content,
         auth=HttpNtlmAuth(client_id, client_secret)
     )
+
+    print(f"Response: {r}")  # Print the entire response object
+    print(f"Response Status Code: {r.status_code}")  # Print the status code of the response
+    if r.status_code >= 400:
+        print(f"Error occurred: {r.text}")  # Print the error text if any error occurred
