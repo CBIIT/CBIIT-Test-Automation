@@ -10,7 +10,7 @@ upload_path = os.getenv('upload_path')
 client_id = os.getenv('client_id')
 client_secret = os.getenv('client_secret')
 
-upload_url = f"http://{url}/{site_name}/{upload_path}"
+upload_url = f"https://{url}/{site_name}/{upload_path}"
 
 # use a wildcard to upload all files in the directory
 file_path = os.getenv('file_path')
