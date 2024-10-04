@@ -16,8 +16,8 @@ upload_url = f"http://{url}/{site_name}/{upload_path}"
 file_path = os.getenv('file_path')
 
 for file in glob.glob(file_path):
-    with open(file, 'r') as content_file:
-        file_content = content_file.read()
+    with open(file, 'rb') as content_file:  # Open in binary mode
+        file_content = content_file.read().decode(errors='ignore')  # Decode the content
 
     r = requests.put(
         url=upload_url,
