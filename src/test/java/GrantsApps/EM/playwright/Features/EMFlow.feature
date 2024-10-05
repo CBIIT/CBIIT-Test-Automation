@@ -65,8 +65,29 @@ Feature: EM Flow
     Then user can confirm the application version number "v2.4.0"
     Then user can verify NIH motto "NIH … Turning Discovery Into Health®"
 
-@Progression @playwright
-    Scenario: UI Page Header
-  Given User is logged in as Primary ITwoE Coordinator - PW
-  Then first and last name "Diego Juarez" of logged in user are displayed
-  And user is on Manage I2E Users page
+  @Regression @Jira943 @playwright
+  Scenario: UI Page Header
+    Given User is logged in as Primary ITwoE Coordinator - PW
+    Then first and last name "Diego Juarez" of logged in user are displayed
+    And user is on Manage I2E Users page
+    And verifies NIH IMPAC II hyperlink
+    And verifies Workbench hyperlink
+    And verifies IMPAC II hyperlink
+    And verifies that the Other Modules dropdown contains PD Assignment option
+    And verifies that the Help dropDown has the following options User Guide, Video Tutorials and Release Notes
+    And verifies that Contact contains Email Technical support and Email business policy questions
+
+  @Progression @Jira966 @playwright
+  Scenario: Verify UI Elements- Deactivated Account scenario
+    Given User is logged in as Primary ITwoE Coordinator - PW
+    Then first and last name "Diego Juarez" of logged in user are displayed
+    And clicks on the Show Advanced Filters link
+    And selects Deactivated in ITwoE Account Status dropdown list
+    And clicks on the Search
+    And views the first record
+    And verifies that the page title is View Account
+    And verifies the account full name
+    And User can verify the respective wording of Full Name tooltip
+    #And verifies that the following fields are filled in for deactivated account user
+    And verifies that Account Status is displayed as Deactivated
+
