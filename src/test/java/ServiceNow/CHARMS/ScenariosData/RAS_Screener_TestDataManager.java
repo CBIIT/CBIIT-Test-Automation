@@ -3,6 +3,7 @@ package ServiceNow.CHARMS.ScenariosData;
 import ServiceNow.CHARMS.Constants.CHARMS_Data_File_Path_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.ExcelReader;
+
 import java.util.Map;
 
 public class RAS_Screener_TestDataManager extends PageInitializer {
@@ -140,12 +141,24 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
         /**
          * FETCHING DATA FROM EXCEL BEFORE SUBMITTING SCREENER
          */
-        if (sheetName.equals("screenerScenario1") || sheetName.equals("screenerScenario2") || sheetName.equals("screenerScenarioAge11-13") || sheetName.equals("screenerScenarioAge14-17")) {
+        if (sheetName.equals("screenerScenario1") || sheetName.equals("screenerScenario2") || sheetName.equals("screenerScenarioAdult") || sheetName.equals("screenerScenarioAdult-NeedsLAR") ||sheetName.equals("screenerScenarioAgeUnder7") || sheetName.equals("screenerScenarioAge7-10") || sheetName.equals("screenerScenarioAge11-13") || sheetName.equals("screenerScenarioAge14-17")) {
             if (sheetName.equals("screenerScenario1")) {
                 TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ONE_DATA, sheetName);
             }
             if (sheetName.equals("screenerScenario2")) {
                 TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_TWO_DATA, sheetName);
+            }
+            if (sheetName.equals("screenerScenarioAdult")) {
+                TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ADULT, sheetName);
+            }
+            if (sheetName.equals("screenerScenarioAdult-NeedsLAR")) {
+                TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ADULT_NEEDS_LAR, sheetName);
+            }
+            if (sheetName.equals("screenerScenarioAgeUnder7")) {
+                TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_UNDER_7, sheetName);
+            }
+            if (sheetName.equals("screenerScenarioAge7-10")) {
+                TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_7_10_DATA, sheetName);
             }
             if (sheetName.equals("screenerScenarioAge11-13")) {
                 TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_11_13_DATA, sheetName);
@@ -153,7 +166,6 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
             if (sheetName.equals("screenerScenarioAge14-17")) {
                 TEST_DATA_FOR_RAS_SCREENER = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_14_17_DATA, sheetName);
             }
-
             ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_YOURSELF = TEST_DATA_FOR_RAS_SCREENER.get("Are you completing this form for someone else or for yourself?");
             FIRST_NAME = TEST_DATA_FOR_RAS_SCREENER.get("First name");
             MIDDLE_INITIAL = TEST_DATA_FOR_RAS_SCREENER.get("Middle Initial");

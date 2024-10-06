@@ -67,8 +67,12 @@ public class NativeViewCHARMSParticipantConsentPage {
     public WebElement rasStudyConsentParentGuardian2SignedDropDown;
 
     /**Native View Assent signed checkbox*/
-    @FindBy(xpath = "//input[@id='x_naci_family_coho_fcsms_consent.assent_signed']")
+    @FindBy(xpath = "//input[@id='ni.x_naci_family_coho_fcsms_consent.assent_signed']")
     public WebElement rasStudyAssentSignedCheckBox;
+
+    /**Native View hidden Assent signed checkbox*/
+    @FindBy(xpath = "//input[@id='ni.x_naci_family_coho_fcsms_consent.assent_signed']")
+    public WebElement rasStudyHiddenAssentSignedInput;
 
     /**Native View Ras Study Future Use Of Specimens and Data by NIH Drop Down*/
     @FindBy(xpath = "//*[@id='x_naci_family_coho_fcsms_consent.future_use_of_specimens_and_data_by_nih']")
