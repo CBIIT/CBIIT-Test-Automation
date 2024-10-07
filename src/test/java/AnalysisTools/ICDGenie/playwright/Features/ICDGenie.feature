@@ -36,7 +36,6 @@ Feature: These are the PlayWright scenarios for the ICDGenie Application
     When the user enters "Stomach" in the home pages search bar
     Then the "INDEX TABLE", "NEOPLASM TABLE", "DRUG TABLE", and "INJURY TABLE" are displayed
 
-
   @NCIATWP-4676 @matakevin @Smoke @playwright
   Scenario:About page text is displayed
     When the user navigates to the About page
