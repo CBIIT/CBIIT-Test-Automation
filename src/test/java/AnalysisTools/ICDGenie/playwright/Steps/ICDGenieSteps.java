@@ -96,8 +96,6 @@ public class ICDGenieSteps extends PlaywrightUtils {
 
     @Then("the {string}")
     public void the(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
     }
 
     @When("the user enters {string} in the home pages search bar")
@@ -132,8 +130,6 @@ public class ICDGenieSteps extends PlaywrightUtils {
 
     @Given("TBD")
     public void tbd() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
     }
 
     @Given("the user is on ICDGenies Search page")
