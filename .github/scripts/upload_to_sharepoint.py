@@ -1,7 +1,7 @@
 import requests
 import json
 import os
-from requests.auth import HTTPBasicAuth
+import glob
 
 # Azure AD App details
 client_id = os.environ['client_id']
@@ -41,13 +41,14 @@ def upload_file_to_sharepoint(file_name, file_content):
 
 
 # Get the file content
-file_path = os.environ['file_path']
+file_paths = glob.glob('target/html-charms-rasopathy-regression-reports/*')
 
-# Make sure it's a single file, you might want to set up a loop if it's multiple files
-with open(file_path, 'rb') as f:
-    file_content = f.read()
+# Iterate over all files in the directory and upload
+for file_path in file_paths:
+    with open(file_path, 'rb') as f:
+        file_content = f.read()
 
-# Use the filename from file_path for the SharePoint upload
-file_name = file_path.split('/')[-1]  # gets the file name
+    # Use the filename from file_path for the SharePoint upload
+    file_name = file_path.split('/')[-1]  # gets the file name
 
-upload_file_to_sharepoint(file_name, file_content)
+    upload_file_to_sharepoint(file_name, file_content)
