@@ -2,6 +2,7 @@ import os
 import requests
 import glob
 from requests_ntlm import HttpNtlmAuth
+import urllib.parse
 
 # Get environment vars
 url = os.getenv('host_name')
@@ -10,7 +11,8 @@ upload_path = os.getenv('upload_path')
 client_id = os.getenv('client_id')
 client_secret = os.getenv('client_secret')
 
-upload_url = f"https://{url}/{site_name}/{upload_path}"
+# Prepare the base part of the upload_url
+upload_url_base = f"https://{url}/sites/{site_name}/_api/web/getfolderbyserverrelativeurl('{urllib.parse.quote(upload_path)}')/files/add(url="
 
 # use a wildcard to upload all files in the directory
 file_path = os.getenv('file_path')
@@ -18,6 +20,10 @@ file_path = os.getenv('file_path')
 for file in glob.glob(file_path):
     with open(file, 'rb') as content_file:  # Open in binary mode
         file_content = content_file.read().decode(errors='ignore')  # Decode the content
+
+    # Prepare the upload_url for this file
+    filename = os.path.basename(file)
+    upload_url = upload_url_base + f"'{urllib.parse.quote(filename)}',overwrite=true)"
 
     r = requests.put(
         url=upload_url,
