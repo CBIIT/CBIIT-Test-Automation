@@ -1,9 +1,7 @@
 package CustomBusiness.CCR.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import java.awt.*;
 
@@ -34,13 +32,13 @@ public class ApplicantUserSteps extends PageInitializer {
     @Given("User submits CCR Careers application")
     public void user_submits_CCR_Careers_application() {
         cCRStepsImplementation.submitApplication();
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
     }
 
     @Given("User applies for that vacancy")
     public void user_applies_for_that_vacancy() {
         cCRStepsImplementation.clickApplyButton();
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
     }
 
     @Given("User enters {string} into a first name field")
@@ -134,12 +132,12 @@ public class ApplicantUserSteps extends PageInitializer {
     }
 
     @Given("User selects United States from a country dropdown for {string} section")
-    public void user_selects_united_states_from_a_country_dropdown_for_section(String country) throws TestingException {
+    public void user_selects_united_states_from_a_country_dropdown_for_section(String country)  {
         cCRStepsImplementation.chooseUSA(country);
     }
 
     @Given("User clicks Next button for {string} section")
-    public void user_clicks_next_button_for_section(String sectionName) throws TestingException {
+    public void user_clicks_next_button_for_section(String sectionName)  {
         cCRStepsImplementation.clickNextButton(sectionName);
     }
 

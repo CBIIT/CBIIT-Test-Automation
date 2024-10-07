@@ -1,21 +1,15 @@
 package CustomBusiness.EIDP.Steps;
 
-import appsCommon.Pages.Playwright_Common_Locators;
 import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
-import appsCommon.Utils.Dynamic_Locators;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-
 import java.util.List;
-import java.util.regex.Pattern;
-
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class EIDP_All_Steps {
@@ -23,7 +17,7 @@ public class EIDP_All_Steps {
 
     @Given("a user logs in to EIDP {string}")
     public void a_user_logs_in_to_eidp(String url) {
-        page.navigate(EnvUtils.getApplicationUrl(url));
+        page.navigate("");
         Playwright_Common_Utils.iTrustLogin();
     }
 
@@ -32,7 +26,7 @@ public class EIDP_All_Steps {
         page.waitForLoadState();
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Change User")).click();
         page.getByText("Enter Last Name, First Name").click();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         page.locator("//input[@role='textbox']").fill(user);
         page.locator("//*[contains(text(), '" + user + "')]").click();
     }
@@ -59,7 +53,7 @@ public class EIDP_All_Steps {
     @When("clicks {string} button")
     public void clicks_button(String buttonText) {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(buttonText).setExact(true)).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
     }
 
     @Then("user verifies the search results display")

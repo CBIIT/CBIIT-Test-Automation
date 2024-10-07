@@ -1,39 +1,36 @@
 package ServiceNow.COVIDCode.StepsImplementation;
 
 import java.util.List;
-
+import com.nci.automation.web.CommonUtils;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
 
 public class FollowUpFormPageImpl extends PageInitializer{
 	
-	public void accessingFollowUpForm() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
+	public void accessingFollowUpForm()  {
+		WebDriverUtils.webDriver.get("");
 		CucumberLogUtils.logScreenshot();
 		covidCodeLoginPage.LogInButton.click();
 		CucumberLogUtils.logScreenshot();
 		iTrustLoginPageImpl.loginToITrust();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 		//ADDING TEMPORARY WORK AROUND TO LOG INTO FOLLOW UP FORM
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
+		WebDriverUtils.webDriver.get("");
 		servicePortalQuestionnairePage.startNewFollowUpButton.click();
 
 	}
 	
 	public void selectingExistingFollowUPEnrollment() {
 		followUpFormPage.enrollmentSearchDropDown.click();
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys("AutomatedFN");
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
 		CucumberLogUtils.logScreenshot();
 	}
@@ -41,14 +38,14 @@ public class FollowUpFormPageImpl extends PageInitializer{
 	public void searchEnrollmentByPatientIDLastNameFirstNameNIHMedicalRecordNumber() {
 		followUpFormPage.enrollmentSearchDropDown.click();
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys("AutomatedFN");	
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
 		CucumberLogUtils.logScreenshot();
 		followUpFormPage.enrollmentSearchXbutton.click();
 		followUpFormPage.enrollmentSearchDropDown.click();
 		//followUpFormPage.enrollmentSearchTxtBox.sendKeys("NVAutomatedLN");
 		List<WebElement>existingFormsList=followUpFormPage.enrollmentSearchValues;
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		String name=existingFormsList.get(0).getText();
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys(name);
 		followUpFormPage.enrollmentSearchValuesAfterInput.click();
@@ -56,7 +53,7 @@ public class FollowUpFormPageImpl extends PageInitializer{
 		followUpFormPage.enrollmentSearchXbutton.click();
 		followUpFormPage.enrollmentSearchDropDown.click();
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys("HCC");
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
 		CucumberLogUtils.logScreenshot();
 		followUpFormPage.enrollmentSearchXbutton.click();
@@ -65,7 +62,7 @@ public class FollowUpFormPageImpl extends PageInitializer{
 	public void searchEnrollmentByPatientID() {
 		followUpFormPage.enrollmentSearchDropDown.click();
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys("AutomatedLN");	
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
 		CucumberLogUtils.logScreenshot();
 	}
@@ -73,7 +70,7 @@ public class FollowUpFormPageImpl extends PageInitializer{
 		JavascriptUtils.scrollIntoView(followUpFormPage.diseaseCourseNewButton);
 		CucumberLogUtils.logScreenshot();
 		followUpFormPage.diseaseCourseNewButton.click();
-		MiscUtils.sleep(3000);
+		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
 	}
 	
@@ -87,7 +84,7 @@ public class FollowUpFormPageImpl extends PageInitializer{
 		Assert.assertTrue(followUpFormPage.exposiresAndRiskFactorsWalkingPaceQuestionText.getText().contentEquals(patientsWalkingPaceText));
 		JavascriptUtils.scrollIntoView(followUpFormPage.exposuresAndRiskFactorsHoursSpentSittingQuestionText);
 		Assert.assertTrue(followUpFormPage.exposuresAndRiskFactorsHoursSpentSittingQuestionText.getText().contentEquals(hoursSpentSittingText));
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(followUpFormPage.exposureAndRiskFactorsVapeHabit);
 		Assert.assertTrue(followUpFormPage.exposureAndRiskFactorsVapeHabit.getText().contentEquals(patientVapeCigarettesText));
 		Assert.assertTrue(followUpFormPage.exposureAndRiskFactorsSmokeQuestionText.getText().contentEquals(patientSmokeAtLeast100cigarettesText));

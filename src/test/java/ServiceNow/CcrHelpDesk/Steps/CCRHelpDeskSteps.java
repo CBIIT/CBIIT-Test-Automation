@@ -1,7 +1,6 @@
 package ServiceNow.CcrHelpDesk.Steps;
 
 import com.nci.automation.utils.EncryptionUtils;
-import com.nci.automation.web.ConfUtils;
 import ServiceNow.CcrHelpDesk.Pages.CCRHelpDeskPage;
 import ServiceNow.CcrHelpDesk.Pages.LoginStepsImplCCR;
 import appsCommon.PageInitializers.PageInitializer;
@@ -25,9 +24,9 @@ public class CCRHelpDeskSteps extends PageInitializer {
 		if(loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 		}
-		loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
-		String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
-		loginStepsImpl.enterPassword(decyptedPass);
+//		loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
+//		String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
+//		loginStepsImpl.enterPassword(decyptedPass);
 		loginStepsImpl.clickOnSignInButton();
 	}
 	

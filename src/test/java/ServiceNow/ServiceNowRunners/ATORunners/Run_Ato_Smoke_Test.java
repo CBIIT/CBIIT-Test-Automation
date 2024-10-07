@@ -1,10 +1,7 @@
 package ServiceNow.ServiceNowRunners.ATORunners;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
+import io.cucumber.testng.CucumberOptions;
 
-@RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/serviceNow/ATO/features", glue = {
 		"com/serviceNow/ATO" }, tags = "@Smoke",
   				dryRun = true,
@@ -12,5 +9,4 @@ import org.junit.runner.RunWith;
 				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 				"json:test-output/cucumber-report.json" })
 public class Run_Ato_Smoke_Test {
-
 }

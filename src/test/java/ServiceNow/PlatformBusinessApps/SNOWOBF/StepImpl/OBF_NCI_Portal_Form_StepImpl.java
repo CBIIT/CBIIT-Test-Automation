@@ -6,9 +6,9 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+import static com.nci.automation.web.TestProperties.getNCISPUrl;
 
 public class OBF_NCI_Portal_Form_StepImpl {
 
@@ -17,7 +17,7 @@ public class OBF_NCI_Portal_Form_StepImpl {
      * @param obfSupportSystemTitle
      */
     public static void i_navigate_to_the_nci_service_now_homepage_portal_form(String obfSupportSystemTitle) {
-        PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
+        PlaywrightUtils.page.navigate(getNCISPUrl());
         CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         assertThat(PlaywrightUtils.page.locator(NCISP_Portal_Page.nciPageLinksLocator)).containsText(NCISP_Portal_Page.servicesLink);
         PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.servicesLink).setExact(true)).click();

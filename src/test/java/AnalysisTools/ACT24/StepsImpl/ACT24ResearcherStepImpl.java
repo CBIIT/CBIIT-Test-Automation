@@ -1,7 +1,6 @@
 package AnalysisTools.ACT24.StepsImpl;
 
 import appsCommon.PageInitializers.PageInitializer;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import java.text.SimpleDateFormat;
 
@@ -15,7 +14,7 @@ public class ACT24ResearcherStepImpl extends PageInitializer {
     public void researcherLogin (String userEmail, String userPassword){
         CommonUtils.sendKeys(act24ResearcherPortalPage.email, userEmail);
         CommonUtils.sendKeys(act24ResearcherPortalPage.password, userPassword);
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CommonUtils.clickOnElement(act24ResearcherPortalPage.loginButton);
     }
 
@@ -32,7 +31,7 @@ public class ACT24ResearcherStepImpl extends PageInitializer {
     public void createNewStudy(String studyName, String studyDescription, String studyAbbreviation, String expectedParticipants, String recallPerParticipant, String studyStartDate, String studyEndDate){
         String timeStamp = new SimpleDateFormat("MMdd").format(new java.util.Date());
         CommonUtils.clickOnElement(act24ResearcherPortalPage.createNewStudyLink);
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(act24ResearcherPortalPage.actualFieldStudyRadioButton);
         CommonUtils.sendKeys(act24ResearcherPortalPage.studyNameTextBox, studyName);
         CommonUtils.sendKeys(act24ResearcherPortalPage.studyDescriptionTextBox, studyDescription);

@@ -1,19 +1,13 @@
 package ServiceNow.CHARMS.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
-import com.google.gson.JsonIOException;
-import com.google.gson.JsonSyntaxException;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.xceptions.TestingException;
+import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
     @Given("run the Fanconi reset script to reset the accounts")
-    public void run_Fanconi_reset_script_to_reset_the_accounts() throws TestingException {
+    public void run_Fanconi_reset_script_to_reset_the_accounts()  {
         fanconiEligibilityQuestionnaireStepsImpl.loginToNativeView();
         fanconiEligibilityQuestionnaireStepsImpl.resetTestAccountSignIn();
         fanconiEligibilityQuestionnaireStepsImpl.resetTestAccount();
@@ -21,8 +15,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
     }
 
     @Given("All scenarios are submitted")
-    public void all_scenarios_are_submitted()
-            throws TestingException, JsonIOException, JsonSyntaxException, FileNotFoundException {
+    public void all_scenarios_are_submitted()  {
         fanconiEligibilityQuestionnaireStepsImpl.fanconiEligibilityAllScenariosQuestionnaireSubmission();
     }
 
@@ -82,20 +75,18 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
     }
 
     @Given("the study nurse log in Native View")
-    public void the_study_nurse_log_in_Native_View() throws InvalidFormatException, IOException, TestingException {
+    public void the_study_nurse_log_in_Native_View() {
         fanconiEligibilityQuestionnaireStepsImpl.loginToNativeView();
         fanconiEligibilityQuestionnaireStepsImpl.loginToParticipantDetailsPageInNativeView();
     }
 
     @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for all scenarios")
-    public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Participant_Details_page_for_all_scenarios()
-            throws InvalidFormatException, IOException, TestingException {
+    public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Participant_Details_page_for_all_scenarios() {
         fanconiEligibilityQuestionnaireStepsImpl.allScenariosParticipantDetailPageAssertion();
     }
 
     @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for each scenario")
-    public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Participant_Details_page_for_each_scenario()
-            throws InvalidFormatException, IOException, TestingException {
+    public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Participant_Details_page_for_each_scenario() {
         int rowcount = 0;
         fanconiEligibilityQuestionnaireStepsImpl.participantDetailPageAssertion(rowcount);
     }
@@ -107,19 +98,17 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
     }
 
     @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page for all scenarios")
-    public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Fanconi_Study_Screener_page_for_all_scenarios()
-            throws InvalidFormatException, IOException, TestingException {
+    public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Fanconi_Study_Screener_page_for_all_scenarios() {
         for (int i = 0; i <= 9; i++) {
             fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyPreviewRecordClicked(i);
             fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyPageAssertions(i);
             fanconiScreenerNVPage.nVFScreenerBackButton.click();
-            MiscUtils.sleep(2000);
+            CommonUtils.sleep(2000);
         }
     }
 
     @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page for each scenario")
-    public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Fanconi_Study_Screener_page_for_each_scenario()
-            throws InvalidFormatException, IOException, TestingException {
+    public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Fanconi_Study_Screener_page_for_each_scenario() {
         int rowcount = 0;
         fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyPreviewRecordClicked(rowcount);
         fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyPageAssertions(rowcount);
@@ -127,8 +116,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
     }
 
     @Then("data submitted is verified in Fanconi Study page")
-    public void data_submitted_is_verified_in_fanconi_study_page()
-            throws InvalidFormatException, IOException, TestingException {
+    public void data_submitted_is_verified_in_fanconi_study_page() {
         fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyCompleteAssertion(0);
     }
 

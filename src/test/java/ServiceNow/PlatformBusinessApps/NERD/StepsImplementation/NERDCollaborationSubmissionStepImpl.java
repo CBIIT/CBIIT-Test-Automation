@@ -6,11 +6,10 @@ import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
+import static com.nci.automation.web.TestProperties.getNerdUrl;
 
 public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
 
@@ -27,7 +26,7 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
      */
     public static void aRegularUserHasSubmittedACollaboration() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        WebDriverUtils.webDriver.get(getNerdUrl());
         NERDApplicationStepsImplementation.creatingNewSubmission(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
         NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
@@ -43,7 +42,7 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
     public static void theDOCPlanningContactLocatesTheRecordInTheirCollaborationQueue(String docPlanningContact,String nameOfRecord) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        WebDriverUtils.webDriver.get(getNerdUrl());
         NERDApplicationStepsImplementation.clickingOnCollaborationsLink();
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration(nameOfRecord));
         CucumberLogUtils.logScreenshot();
@@ -55,7 +54,7 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
      * @param nameOfRecord The name/id of the record to be edited.
      */
     public static void clicksTheEditButtonForTheRecord(String nameOfRecord) {
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         CommonUtils.waitForClickability(nerdDynamicXpaths.editButton(nameOfRecord));
         nerdDynamicXpaths.editButton(nameOfRecord).click();
         CucumberLogUtils.logScreenshot();
@@ -68,7 +67,7 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
      */
     public static void landsOnTheSubmissionEditPageForAuthor(String author) {
         CommonUtils.switchToAnotherWindow();
-        MiscUtils.sleep(3000);
+        CommonUtils.sleep(3000);
         String actualText = NERDDOCCollaborationsPage.authorText(author).getText();
         JavascriptUtils.drawBlueBorder(NERDDOCCollaborationsPage.authorText(author));
         CommonUtils.assertEquals(actualText, author);
@@ -82,16 +81,16 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
      */
     public static void aDOCPlanningContactClicksTheSubmitToCRSButtonForACollaboration(String docPlanningContact) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        WebDriverUtils.webDriver.get(getNerdUrl());
         NERDApplicationStepsImplementation.creatingNewSubmission(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
         NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
         ServiceNow_Common_Methods.logOutOfNativeView();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        WebDriverUtils.webDriver.get(getNerdUrl());
         NERDApplicationStepsImplementation.clickingOnCollaborationsLink();
-        MiscUtils.sleep(1000);
+        CommonUtils.sleep(1000);
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION));
         nerdDynamicXpaths.submitToCRSButton(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION).click();
         CommonUtils.waitForVisibility(

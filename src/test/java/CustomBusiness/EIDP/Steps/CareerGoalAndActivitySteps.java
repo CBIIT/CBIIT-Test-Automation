@@ -1,8 +1,8 @@
 package CustomBusiness.EIDP.Steps;
 
-import com.nci.automation.utils.MiscUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializers.PageInitializer;
+import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.When;
 
 public class CareerGoalAndActivitySteps extends PageInitializer{
@@ -32,8 +32,8 @@ public class CareerGoalAndActivitySteps extends PageInitializer{
 	@When("User adds new career training activities")
 	public void editTrainning() {
 		careerGoalAndActiveStepImpl.addNewCareerGoal();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 		careerGoalAndActiveStepImpl.clickOnSaveAndContinueButton();
-		MiscUtils.sleep(2000);
+		CommonUtils.sleep(2000);
 	}
 }

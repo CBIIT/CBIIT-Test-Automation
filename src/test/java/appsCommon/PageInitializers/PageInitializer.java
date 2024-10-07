@@ -3,9 +3,9 @@ package appsCommon.PageInitializers;
 import AnalysisTools.ACT24.Pages.*;
 import AnalysisTools.ACT24.StepsImpl.ACT24ParticipantStepImpl;
 import AnalysisTools.ACT24.StepsImpl.ACT24ResearcherStepImpl;
-import AnalysisTools.CervicalCP.selenium.Pages.CCPHomePage;
-import AnalysisTools.CervicalCP.selenium.Pages.CCPRunScenarioPage;
-import AnalysisTools.Comets2.Pages.*;
+import AnalysisTools.CometsExplorer.Pages.*;
+import AnalysisTools.CervicalCP.playwright.Pages.CCPHomePage;
+import AnalysisTools.CervicalCP.playwright.Pages.CCPRunScenarioPage;
 import AnalysisTools.CometsAnalytics.Pages.*;
 import AnalysisTools.CometsAnalytics.StepsImplementation.*;
 import AnalysisTools.GDSTracking.Pages.*;
@@ -62,6 +62,8 @@ import ServiceNow.COVIDDash.StepsImplementation.*;
 import ServiceNow.ESR.Selenium.Pages.ESRShortDescriptionPage;
 import ServiceNow.ESR.Selenium.Pages.ESRTicketCreationPage;
 import ServiceNow.ESR.Selenium.Pages.NCINativeViewPage;
+import ServiceNow.OA_Intake.Pages.OAIntakePage;
+import ServiceNow.OA_Intake.StepsImplementation.OAIntakeStepsImplementation;
 import ServiceNow.PlatformBusinessApps.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
 import ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Pages.CTRPCTRO_NV_Page;
 import ServiceNow.PlatformBusinessApps.GDC.Pages.GDC_Workflow_NativeView_Page;
@@ -168,11 +170,9 @@ public class PageInitializer extends WebDriverUtils {
 	public static MelanomaHomePage melanomaHomePage;
 	public static MelanomaQuestionnairePage melanomaQuestionnairePage;
 
-	/** CICDBuild instances */
-	// ServiceNow DevOps instances
-	public static DevOpsLoginPage devOpsLoginPage;
-	public static DevOpsNativeViewPage devOpsNativeViewPage;
-	public static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
+	/** OA Intake instances */
+	public static OAIntakeStepsImplementation oaIntakeStepsImplementation ;
+	public static OAIntakePage oaIntakePage;
 
 	/** SEER instances */
 	public static SEERLandingPage seerLandingPage;
@@ -404,6 +404,10 @@ public class PageInitializer extends WebDriverUtils {
 		servicePortalQuestionnairePageImp = new ServicePortalQuestionnairePageImp();
 		dashboardStepImpl = new DashboardStepImpl();
 
+		/** OA Intake Instance Variables */
+		oaIntakePage =  new OAIntakePage();
+		oaIntakeStepsImplementation = new OAIntakeStepsImplementation();
+
 		/** CHARMS Instance Variables **/
 		charmsNativeViewPage = new CHARMSNativeViewPage();
 		testAccountResetImpl = new TestAccountResetImpl();
@@ -451,12 +455,6 @@ public class PageInitializer extends WebDriverUtils {
 		melanomaLoginPage = new MelanomaLoginPage();
 		melanomaHomePage = new MelanomaHomePage();
 		melanomaQuestionnairePage = new MelanomaQuestionnairePage();
-
-		/** CICDBuild Instance Variables */
-		// ServiceNow DevOps instances
-		devOpsLoginPage = new DevOpsLoginPage();
-		devOpsNativeViewPage = new DevOpsNativeViewPage();
-		devOpsAutomatedBuildStepsImplementation = new DevOpsAutomatedBuildStepsImplementation();
 
 		/** SEER Instance Variables */
 		seerLandingPage = new SEERLandingPage();

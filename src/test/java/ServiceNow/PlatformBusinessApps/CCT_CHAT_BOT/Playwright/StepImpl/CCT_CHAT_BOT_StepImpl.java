@@ -8,7 +8,7 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import org.testng.Assert;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
@@ -55,7 +55,7 @@ public class CCT_CHAT_BOT_StepImpl {
      * THIS METHOD SELECTS YES FOR QUESTION ONE ON CCT CHATBOT WINDOW
      */
     public static void selects_yes_to_q1_regarding_finding_funding_opportunities() {
-        MiscUtils.sleep(5000); //wait for pop-up CCT ChatBot Window
+        CommonUtils.sleep(5000); //wait for pop-up CCT ChatBot Window
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Q_One_Locator)).containsText(CCT_CHAT_BOT_Constants.NV_CCT_CHAT_WINDOW_Q_ONE_TEXT);
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(CCT_CHAT_BOT_Constants.NV_CCT_CHAT_WINDOW_Q_OPTION_YES_TEXT))).isVisible();
         CucumberLogUtils.playwrightScreenshot(cctChatBotWindow);
@@ -113,7 +113,7 @@ public class CCT_CHAT_BOT_StepImpl {
      * @param expectedURL
      */
     public static void the_link_to_career_development_award_for_community_oncology_and_prevention_research_k12_pi_should_be_clickable(String expectedURL) {
-        MiscUtils.sleep(5000); //wait for the link to open in new tab
+        CommonUtils.sleep(5000); //wait for the link to open in new tab
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator).getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Expected_Link_Selected))).isVisible();
         nciMcCaskillStevensK12AwardsPage = cctChatBotWindow.waitForPopup(() -> {
             cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator).getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Expected_Link_Selected)).click();

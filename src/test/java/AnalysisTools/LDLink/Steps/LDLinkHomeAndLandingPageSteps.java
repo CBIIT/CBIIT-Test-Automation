@@ -1,18 +1,18 @@
 package AnalysisTools.LDLink.Steps;
 
+import org.junit.Assert;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.*;
-import org.testng.Assert;
+import static com.nci.automation.web.TestProperties.getAnalysisToolsUrl;
+import static com.nci.automation.web.TestProperties.getLdLinkUrl;
 
 public class LDLinkHomeAndLandingPageSteps extends PageInitializer {
 
 	@Given("a LDlink user opens Analysis Tools page")
-	public void a_LDlink_user_opens_Analysis_Tools_page() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("Analysistools"));
+	public void a_LDlink_user_opens_Analysis_Tools_page() {
+		WebDriverUtils.webDriver.get(getAnalysisToolsUrl());
 	}
 
 	@Then("user verifies {string} present on the screen")
@@ -47,7 +47,7 @@ public class LDLinkHomeAndLandingPageSteps extends PageInitializer {
 	}
 
 	@When("a LDlink user opens home page")
-	public void a_LDlink_user_opens_home_page() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("LDLink"));
+	public void a_LDlink_user_opens_home_page() {
+		WebDriverUtils.webDriver.get(getLdLinkUrl());
 	}
 }

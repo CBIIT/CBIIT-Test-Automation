@@ -12,11 +12,5 @@ import io.cucumber.testng.CucumberOptions;
         dryRun = false
 )
 
-/*
- * This class is annotated with @RunWith(Cucumber.class) and it will run
- * cucumber feature(s).
- *
- * @author sohilz2
- */
 public class RunICDGenieRegressionTest extends AbstractTestNGCucumberTests{
 }

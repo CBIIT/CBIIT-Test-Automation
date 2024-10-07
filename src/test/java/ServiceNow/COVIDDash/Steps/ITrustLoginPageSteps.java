@@ -1,7 +1,6 @@
 package ServiceNow.COVIDDash.Steps;
 
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.xceptions.TestingException;
 
 import appsCommon.Utils.PageCache;
 import appsCommon.PageInitializers.PageInitializer;
@@ -16,7 +15,7 @@ public class ITrustLoginPageSteps extends PageInitializer {
 	
 	
 	@When("logs in by entering iTrust credentials")
-	public void logs_in_by_entering_iTrust_credentials() throws TestingException {
+	public void logs_in_by_entering_iTrust_credentials()  {
 		pageCache.getITrustLoginPageImpl().loginToITrust();
 		CucumberLogUtils.logScreenshot();
 	}

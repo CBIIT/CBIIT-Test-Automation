@@ -6,11 +6,12 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.CommonUtils;
 import org.testng.Assert;
 import java.util.regex.Pattern;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
+import static com.nci.automation.web.TestProperties.getNCISPUrl;
 
 public class Travel_Request_Portal_Form_StepImpl {
 
@@ -18,7 +19,7 @@ public class Travel_Request_Portal_Form_StepImpl {
      * Navigates to the NCI at Your Service Portal.
      */
     public static void i_navigate_to_the_nci_at_your_service_portal() {
-        page.navigate(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
+        page.navigate(getNCISPUrl());
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -85,6 +86,7 @@ public class Travel_Request_Portal_Form_StepImpl {
         page.getByLabel("Show Calendar for Event End").click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("OK").setExact(true)).click();
         assertThat(page.locator("#registration_fees")).containsText(Travel_Request_Portal_Form_Constants.REGISTRATION_FEES_FIELD_TEXT);
+        CommonUtils.sleep(2000);
         page.getByRole(AriaRole.GROUP, new Page.GetByRoleOptions().setName("Registration Fee").setExact(true)).locator("a").click();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("No").setExact(true)).click();
         CucumberLogUtils.playwrightScreenshot(page);

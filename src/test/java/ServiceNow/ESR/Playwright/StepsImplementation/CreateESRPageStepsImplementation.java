@@ -6,7 +6,7 @@ import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.CommonUtils;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
@@ -19,7 +19,7 @@ public class CreateESRPageStepsImplementation {
         page.getByPlaceholder(CreateESRPage.filterBoxNativeView).click();
         page.getByPlaceholder(CreateESRPage.filterBoxNativeView).fill(CreateESRPage.ESRText);
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(CreateESRPage.createESRText)).click();
-        MiscUtils.sleep(2000);
+        CommonUtils.sleep(2000);
     }
 
     /**
