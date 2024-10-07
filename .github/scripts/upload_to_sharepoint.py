@@ -7,12 +7,12 @@ import urllib.parse
 # Get environment vars
 url = os.getenv('host_name')
 site_name = os.getenv('site_name')
-upload_path = os.getenv('upload_path')
+upload_path = os.getenv('upload_path').replace('%20', ' ')
 client_id = os.getenv('client_id')
 client_secret = os.getenv('client_secret')
 
 # Prepare the base part of the upload_url
-upload_url_base = f"https://{url}/sites/{site_name}/_api/web/getfolderbyserverrelativeurl('{urllib.parse.quote(upload_path)}')/files/add(url="
+upload_url_base = f"https://{url}/_api/web/getfolderbyserverrelativeurl('/sites/{site_name}/{urllib.parse.quote(upload_path)}')/files/add(url="
 
 # use a wildcard to upload all files in the directory
 file_path = os.getenv('file_path')
