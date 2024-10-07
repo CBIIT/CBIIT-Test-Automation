@@ -14,11 +14,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Set;
 import static ServiceNow.CHARMS.Pages.MyRASHomePage.dynamicModuleLocator;
 import static ServiceNow.CHARMS.Steps.RAS_Common_Methods.*;
 import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
@@ -383,5 +381,38 @@ public class RAS_All_Steps extends PageInitializer {
     @Then("participant logs out of RAS portal")
     public void participant_logs_out_of_ras_portal() {
         ServiceNow_Common_Methods.logOutOfNativeView();
+    }
+
+    /**
+     * Logs out the study team member from Native View.
+     */
+    @Then("Study Team member logs out of Native View")
+    public static void nativeViewStudyTeamMemberLogsOut() {
+        ServiceNow_Common_Methods.logOutOfNativeView();
+    }
+
+    /**
+     * Study Team member logs in to Native View and verifies that a new screener has been submitted.
+     *
+     * @param sheetName the name of the sheet corresponding to the new screener submitted
+     */
+    @Then("Study Team member logs in to Native View and verifies that a new screener has been submitted {string}")
+    public void study_team_member_logs_in_to_native_view_and_verifies_that_a_new_screener_has_been_submitted(String sheetName) {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        CommonUtils.sleep(4000);
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(3000);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
+        CommonUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        if (sheetName.equals("screenerScenarioAdult")) {
+            CommonUtils.assertEquals(locateByXpath("//td[normalize-space()='" + ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME + "']/following-sibling::td[4]").getText(), "New Screener Received");
+        } else {
+            CommonUtils.assertEquals(locateByXpath("//td[normalize-space()='" + ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME + "']/following-sibling::td[4]").getText(), "New Screener Received");
+        }
     }
 }
