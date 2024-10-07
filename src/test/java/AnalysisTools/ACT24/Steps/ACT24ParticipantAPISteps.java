@@ -22,7 +22,6 @@ public class ACT24ParticipantAPISteps {
     @Then("the GET call to retrieve participant list is requested and the {int} status code is returned")
     public void the_get_call_to_retrieve_participant_list_is_requested_and_the_status_code_is_returned(int statusCode) throws IOException {
         //base request
-        RestAssured.baseURI = baseURL;
         String urlString = baseURL + "studyList/";
 
         // Create a Url object from the urlString.
@@ -69,7 +68,6 @@ public class ACT24ParticipantAPISteps {
     public void the_study_and_recall_data_and_status_code_is_returned(int statusCode) throws IOException {
 
         //base request
-        RestAssured.baseURI = baseURL;
         String urlString = baseURL + "participantList/7685/";
 
         // Create a Url object from the urlString.
@@ -116,7 +114,6 @@ public class ACT24ParticipantAPISteps {
     @Then("the Studys {int} Recall Data and {int} status code is returned")
     public void the_studys_recall_data_and_status_code_is_returned(int studyNumber, int statusCode) throws IOException {
         //base request
-        RestAssured.baseURI = baseURL;
         String urlString = baseURL + "participantList/"+studyNumber+"/";
 
         // Create a Url object from the urlString.
@@ -162,7 +159,6 @@ public class ACT24ParticipantAPISteps {
     @Then("the Study {int} Recall Data and {int} status code is returned")
     public void the_study_recall_data_and_status_code_is_returned(int studyNumber, int statusCode) throws IOException {
         //base request
-        RestAssured.baseURI = baseURL;
         String urlString = baseURL + "participantList/" + studyNumber + "/";
 
         // Create a Url object from the urlString.
@@ -208,7 +204,6 @@ public class ACT24ParticipantAPISteps {
     @Then("the selected participants {string} with specified StudyIDs are returned with status code {int}")
     public void the_selected_participants_with_specified_study_i_ds_are_returned_with_status_code(String studyID, int statusCode) throws IOException{
         //base request
-        RestAssured.baseURI = baseURL;
         String urlString = baseURL + "summaryReportQC/"+studyID+"/";
 
         // Create a Url object from the urlString.
@@ -252,7 +247,6 @@ public class ACT24ParticipantAPISteps {
     @Then("the selected participants with specified StudyID {string} detailed reports are returned with status code {int}")
     public void the_selected_participants_with_specified_study_id_detailed_reports_are_returned_with_status_code(String studyID, int statusCode) throws IOException{
         //base request
-        RestAssured.baseURI = baseURL;
         String urlString = baseURL + "detailReportQC/"+studyID+"/";
 
         // Create a Url object from the urlString.
