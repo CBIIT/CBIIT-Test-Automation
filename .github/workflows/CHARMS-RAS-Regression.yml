@@ -45,7 +45,6 @@ jobs:
         run: |
           timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
           echo "timestamp=${timestamp}" >> $GITHUB_ENV
-
       - name: Determine report path
         id: reportpath
         shell: bash
