@@ -283,7 +283,7 @@ public class RAS_All_Steps extends PageInitializer {
      * @param pdfName                   The name of the PDF file to be downloaded.
      */
     @Given("{string} text shows on participant portal and when clicked downloads {string}")
-    public static void text_shows_on_participant_portal_and_when_clicked_downloads_consent_form(String expectedDownloadStudyText, String pdfName) throws IOException {
+    public static void text_shows_on_participant_portal_and_when_clicked_downloads_consent_form(String expectedDownloadStudyText, String pdfName) {
         CommonUtils.webDriver.navigate().refresh();
         dynamicModuleLocator(expectedDownloadStudyText);
         CommonUtils.waitForVisibility(dynamicModuleLocator(expectedDownloadStudyText));
