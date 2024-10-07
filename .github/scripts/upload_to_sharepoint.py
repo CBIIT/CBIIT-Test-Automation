@@ -8,7 +8,7 @@ client_id = os.environ['client_id']
 client_secret = os.environ['client_secret']
 tenant_id = os.environ['tenant_id']
 sharepoint_site = os.environ['site_name']
-sharepoint_document_library = 'your_actual_document_library'
+sharepoint_document_library = 'Shared Documents/Platform Scientific - CHARMS/TEST AUTOMATION REPORTS'
 
 
 # Step 1: Get access token from Microsoft
@@ -28,7 +28,7 @@ def get_access_token():
 # Step 2: Upload file to SharePoint
 def upload_file_to_sharepoint(file_name, file_content):
     access_token = get_access_token()
-    upload_url = f"https://graph.microsoft.com/v1.0/sites/{sharepoint_site}/drive/root:/{file_name}:/content"
+    upload_url = f"https://graph.microsoft.com/v1.0/sites/{sharepoint_site}/drive/root:/'{sharepoint_document_library}/{file_name}':/content"
     headers = {
         'Authorization': f'Bearer {access_token}',
         'Content-Type': 'application/octet-stream'
