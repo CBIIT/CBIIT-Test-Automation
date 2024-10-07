@@ -16,14 +16,13 @@ public class ACT24ParticipantAPISteps {
 
     String baseURL = "https://act24-test.cancer.gov/act24/";
     HttpURLConnection conn;
-    String globalPass = "ACT24Research!";
+    String username = "matakevin";
+    String password = "ACT24Research!";
 
     @Then("the GET call to retrieve participant list is requested and the {int} status code is returned")
     public void the_get_call_to_retrieve_participant_list_is_requested_and_the_status_code_is_returned(int statusCode) throws IOException {
         //base request
         RestAssured.baseURI = baseURL;
-        String username = "matakevin";
-        String password = globalPass;
         String urlString = baseURL + "studyList/";
 
         // Create a Url object from the urlString.
@@ -41,6 +40,7 @@ public class ACT24ParticipantAPISteps {
                         (username + ":" + password).getBytes()
                 )
         );
+
         // Get the response code.
         int responseCode = conn.getResponseCode();
         System.out.println("Sending 'GET' request to URL: " + urlString);
@@ -70,8 +70,6 @@ public class ACT24ParticipantAPISteps {
 
         //base request
         RestAssured.baseURI = baseURL;
-        String username = "matakevin";
-        String password = globalPass;
         String urlString = baseURL + "participantList/7685/";
 
         // Create a Url object from the urlString.
@@ -89,6 +87,7 @@ public class ACT24ParticipantAPISteps {
                         (username + ":" + password).getBytes()
                 )
         );
+
         // Get the response code.
         int responseCode = conn.getResponseCode();
         System.out.println("Sending 'GET' request to URL: " + urlString);
@@ -118,8 +117,6 @@ public class ACT24ParticipantAPISteps {
     public void the_studys_recall_data_and_status_code_is_returned(int studyNumber, int statusCode) throws IOException {
         //base request
         RestAssured.baseURI = baseURL;
-        String username = "matakevin";
-        String password = globalPass;
         String urlString = baseURL + "participantList/"+studyNumber+"/";
 
         // Create a Url object from the urlString.
@@ -166,8 +163,6 @@ public class ACT24ParticipantAPISteps {
     public void the_study_recall_data_and_status_code_is_returned(int studyNumber, int statusCode) throws IOException {
         //base request
         RestAssured.baseURI = baseURL;
-        String username = "matakevin";
-        String password = globalPass;
         String urlString = baseURL + "participantList/" + studyNumber + "/";
 
         // Create a Url object from the urlString.
@@ -214,8 +209,6 @@ public class ACT24ParticipantAPISteps {
     public void the_selected_participants_with_specified_study_i_ds_are_returned_with_status_code(String studyID, int statusCode) throws IOException{
         //base request
         RestAssured.baseURI = baseURL;
-        String username = "matakevin";
-        String password = globalPass;
         String urlString = baseURL + "summaryReportQC/"+studyID+"/";
 
         // Create a Url object from the urlString.
@@ -233,6 +226,7 @@ public class ACT24ParticipantAPISteps {
                         (username + ":" + password).getBytes()
                 )
         );
+
         // Get the response code.
         int responseCode = conn.getResponseCode();
         System.out.println("Sending 'GET' request to URL: " + urlString);
@@ -259,8 +253,6 @@ public class ACT24ParticipantAPISteps {
     public void the_selected_participants_with_specified_study_id_detailed_reports_are_returned_with_status_code(String studyID, int statusCode) throws IOException{
         //base request
         RestAssured.baseURI = baseURL;
-        String username = "matakevin";
-        String password = globalPass;
         String urlString = baseURL + "detailReportQC/"+studyID+"/";
 
         // Create a Url object from the urlString.
@@ -278,6 +270,7 @@ public class ACT24ParticipantAPISteps {
                         (username + ":" + password).getBytes()
                 )
         );
+
         // Get the response code.
         int responseCode = conn.getResponseCode();
         System.out.println("Sending 'GET' request to URL: " + urlString);
