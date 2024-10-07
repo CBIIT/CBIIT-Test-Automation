@@ -10,7 +10,6 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import org.openqa.selenium.Keys;
-import static ServiceNow.CHARMS.Steps.RAS_All_Steps.nativeViewStudyTeamMemberLogsOut;
 import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
 
 public class RAS_Common_Methods extends PageInitializer {
@@ -222,7 +221,7 @@ public class RAS_Common_Methods extends PageInitializer {
         CommonUtils.assertEquals(locateByXpath("//td[normalize-space()='" + consentType + "']").getText(), consentType);
         CommonUtils.assertEquals(locateByXpath("//td[normalize-space()='" + responseType + "']").getText(), responseType);
         CucumberLogUtils.logScreenshot();
-        nativeViewStudyTeamMemberLogsOut();
+        RAS_All_Steps.nativeViewStudyTeamMemberLogsOut();
     }
 
     /**
