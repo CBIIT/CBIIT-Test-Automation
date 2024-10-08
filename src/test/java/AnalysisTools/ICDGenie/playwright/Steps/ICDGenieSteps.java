@@ -94,10 +94,6 @@ public class ICDGenieSteps extends PlaywrightUtils {
         assertThat(page.frameLocator("iframe[title=\"batch\"]").locator("vb-overlay-play-controls div").first()).isVisible();
     }
 
-    @Then("the {string}")
-    public void the(String string) {
-    }
-
     @When("the user enters {string} in the home pages search bar")
     public void the_user_enters_in_the_home_pages_search_bar(String searchTextValue) {
         page.getByPlaceholder("Search ICD Genie").click();
@@ -126,10 +122,6 @@ public class ICDGenieSteps extends PlaywrightUtils {
         assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(neoplasmTableText))).isVisible();
         assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(drugTableText))).isVisible();
         assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(injuryTableText))).isVisible();
-    }
-
-    @Given("TBD")
-    public void tbd() {
     }
 
     @Given("the user is on ICDGenies Search page")
