@@ -12,5 +12,6 @@ import io.cucumber.testng.CucumberOptions;
 		, tags = "@Progression"
 		, dryRun = false
 )
+
 public class RunMCAExplorerProgressionTest extends AbstractTestNGCucumberTests{
 }

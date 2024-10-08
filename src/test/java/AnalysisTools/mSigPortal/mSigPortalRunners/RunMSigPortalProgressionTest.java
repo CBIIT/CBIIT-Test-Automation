@@ -12,6 +12,6 @@ import io.cucumber.testng.CucumberOptions;
 		, tags="@Progression"
 		, dryRun = false	
 )
-/* @author sohilz2 */
-public class RunMSigPortalProgressionTest extends AbstractTestNGCucumberTests{	
+
+public class RunMSigPortalProgressionTest extends AbstractTestNGCucumberTests{
 }

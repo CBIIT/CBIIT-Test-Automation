@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class BrowsePhenotypesPage {
 
     /** Browse Phenotype Tab **/
-    @FindBy(xpath = "(//a[contains(text(),'Browse')])[1]")
+    @FindBy(xpath = "/html/body/main/div[1]/div[1]/div/div[3]/a")
     public WebElement lnkBrowsePhenotype;
 
     /** Select A Phenotype Text **/

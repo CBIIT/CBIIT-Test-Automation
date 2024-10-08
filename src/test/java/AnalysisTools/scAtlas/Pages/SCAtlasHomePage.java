@@ -13,15 +13,15 @@ public class SCAtlasHomePage extends CommonUtils {
     public WebElement homeTab;
 
     /* This is the NCI-CLARITY window */
-    @FindBy(xpath = "(//h3[contains(text(),'NCI-CLARITY')])[1]")
+    @FindBy(xpath = "(//h2[contains(text(),'NCI-CLARITY')])[1]")
     public WebElement nciClarityWindow;
 
     /* This is the Multi-Regional window */
-    @FindBy(xpath = "//h3[contains(text(),'Multi-Regional')]")
+    @FindBy(xpath = "//h2[contains(text(),'Multi-Regional')]")
     public WebElement multiRegionalWindow;
 
     /* This is the Sequential NCI-CLARITY window */
-    @FindBy(xpath = "//h3[contains(text(),'Sequential NCI-CLARITY')]")
+    @FindBy(xpath = "//h2[contains(text(),'Sequential NCI-CLARITY')]")
     public WebElement sequentialNciClarityWindow;
 
     public SCAtlasHomePage() {

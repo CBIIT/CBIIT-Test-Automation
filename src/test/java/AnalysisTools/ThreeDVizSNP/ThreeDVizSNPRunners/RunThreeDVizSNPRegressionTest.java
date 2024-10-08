@@ -12,5 +12,6 @@ import io.cucumber.testng.CucumberOptions;
         , tags = "@Regression"
         , dryRun = false
 )
+
 public class RunThreeDVizSNPRegressionTest extends AbstractTestNGCucumberTests{
 }

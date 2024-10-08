@@ -8,16 +8,10 @@ import io.cucumber.testng.CucumberOptions;
 		, "junit:target/cucumber.xml"
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/AnalysisTools/Comets2/Features"
-		, glue="AnalysisTools.Comets2.Steps"
+		, glue={"AnalysisTools.Comets2.Steps", "Hooks"}
 		, tags="@Smoke"
 		, dryRun = false
 )
 
-/**
- * This class is annotated with @RunWith(Cucumber.class) and it will run
- * cucumber feature(s).
- * 
- * @author sohilz2
- */
 public class RunComets2SmokeTest extends AbstractTestNGCucumberTests {
 }

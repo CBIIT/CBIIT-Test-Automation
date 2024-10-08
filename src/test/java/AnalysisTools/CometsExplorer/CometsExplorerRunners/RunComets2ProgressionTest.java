@@ -8,13 +8,10 @@ import io.cucumber.testng.CucumberOptions;
 		, "junit:target/cucumber.xml"
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/AnalysisTools/Comets2/Features"
-		, glue="AnalysisTools.Comets2.Steps"
+		, glue={"AnalysisTools.Comets2.Steps", "Hooks"}
 		, tags="@Progression"
 		, dryRun = false
 		)
-/**
- * 
- * @author sohilz2
- */
+
 public class RunComets2ProgressionTest extends AbstractTestNGCucumberTests{
 }

@@ -12,9 +12,6 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 		, tags="@Smoke"
 		, dryRun = false
 )
-/* 
- * @author sohilz2
- */
-public class RunMSigPortalSmokeTest extends AbstractTestNGCucumberTests{	
 
+public class RunMSigPortalSmokeTest extends AbstractTestNGCucumberTests{
 }

@@ -12,5 +12,6 @@ import io.cucumber.testng.CucumberOptions;
 		, tags = "@Progression"
 		, dryRun = false 
 )
+
 public class RunThreeDVizSNPProgressionTest extends AbstractTestNGCucumberTests{	
 }

@@ -9,11 +9,5 @@ import io.cucumber.testng.CucumberOptions;
         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, features = "src/test/java/AnalysisTools/ezQTL/Features", glue = {"AnalysisTools.ezQTL.Steps", "Hooks"}, tags = "@Smoke", dryRun = false
 )
 
-/**
- * This class is annotated with @RunWith(Cucumber.class) and it will run
- * cucumber feature(s).
- * 
- * @author sohilz2
- */
 public class RunEZqtlSmokeTest extends AbstractTestNGCucumberTests {
 }
