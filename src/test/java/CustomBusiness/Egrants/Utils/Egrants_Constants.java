@@ -20,4 +20,14 @@ public class Egrants_Constants {
     public static final String DELETE_ALERT_MESSAGE = "Are you sure that you want to delete selected document(s)?";
     public static final String TEST_FILE_PATH = System.getProperty("user.dir")+"/src/test/java/CustomBusiness/Egrants/Resources/TESTDOCUMENT.pdf";
     public static final String TEST_GRANT_SERIAL_NUMBER = "CA125123";
+    public static final String CREATE_GRANT_YEAR = "CreateGrantYear";
+    public static final String APPLICATION_TYPE = "3";
+    public static final String ACITIVTY_CODE = "P30";
+    public static final String GRANT_YEAR = "21";
+    public static final String SUFFIX_CODE = "S1";
+    public static final String SUFFIX_CODE_S2 = "S2";
+    public static final String GRANT_YEAR_HAS_BEEN_CREATED_MESSAGE = "3P30CA125123-21S1 has been created";
+    public static final String DUPLICATE_GRANT_YEAR_EXISTS_MESSAGE = "The grand year you want to create is duplicate";
+    public static final String DOWNLOAD_SUCCESS_MESSAGE = "File Download Successful!";
+    public static final String DOWNLOADING_MESSAGE = "Downloading ...";
 }
