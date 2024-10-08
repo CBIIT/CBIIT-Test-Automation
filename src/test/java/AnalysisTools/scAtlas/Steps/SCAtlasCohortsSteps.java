@@ -9,7 +9,7 @@ public class SCAtlasCohortsSteps extends PageInitializer {
 
     @When("the user enters {string} in the gene filter")
     public void the_user_enters_in_the_gene_filter(String geneFilter) {
-        MiscUtils.sleep(5000);
+        CommonUtils.sleep(5000);
         CommonUtils.waitForClickability(scAtlasCohortsPage.geneFilterTextBox);
         CommonUtils.scrollIntoView(scAtlasCohortsPage.geneFilterTextBox);
         CommonUtils.sendKeys(scAtlasCohortsPage.geneFilterTextBox, geneFilter);
