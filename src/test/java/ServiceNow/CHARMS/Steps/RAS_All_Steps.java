@@ -12,6 +12,7 @@ import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import java.io.*;
@@ -54,6 +55,8 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleDateCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVerionCalendar);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVerionCalendar);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVerionCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
@@ -80,8 +83,8 @@ public class RAS_All_Steps extends PageInitializer {
      *
      * @param password the password to be used for completing the form
      */
-    @Given("proxy clicks on Study Consent and completes form with {string}")
-    public void proxy_clicks_on_study_consent_and_completes_form_with(String password) {
+    @Given("proxy clicks on Study Consent and completes form with {string} {string}")
+    public void proxy_clicks_on_study_consent_and_completes_form_with(String password, String sheetName) {
         CommonUtils.waitForVisibility(myRASHomePage.rasopathyStudyConsent);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(myRASHomePage.rasopathyStudyConsent);
@@ -109,12 +112,21 @@ public class RAS_All_Steps extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(locateByXpath("//div[@class='form-group']//input[@id='signature_password']"));
         CommonUtils.sendKeys(locateByXpath("//div[@class='form-group']//input[@id='signature_password']"), password);
-        CommonUtils.waitForVisibility(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
-        CommonUtils.clickOnElement(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.sleep(500);
-        CommonUtils.assertEquals(CommonUtils.getAlertText(), "To complete enrollment, please have your 11-13 year-old minor click through the \"Study Assent\" tile. If your minor declines participation, please contact the study team.");
-        CommonUtils.acceptAlert();
+        if (sheetName.equals("screenerScenarioAge14-17")) {
+            CommonUtils.assertEquals(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']").getText().trim(), "I voluntarily give my assent to participate in this research. (The minor should check this box)");
+            locateByXpath("//div[@class='form-group ng-scope']//input[@role='checkbox']").click();
+            CucumberLogUtils.logScreenshot();
+            locateByXpath("//button[@ng-click='c.confirm()']").click();
+        } else {
+            CommonUtils.waitForVisibility(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
+            CommonUtils.clickOnElement(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.sleep(500);
+            if (sheetName.equals("screenerScenarioAge11-13")) {
+                CommonUtils.assertEquals(CommonUtils.getAlertText(), "To complete enrollment, please have your 11-13 year-old minor click through the \"Study Assent\" tile. If your minor declines participation, please contact the study team.");
+                CommonUtils.acceptAlert();
+            }
+        }
         CommonUtils.sleep(500);
         CommonUtils.waitForVisibility(locateByXpath("//button[normalize-space()='OK']"));
         CommonUtils.clickOnElement(locateByXpath("//button[normalize-space()='OK']"));
@@ -175,6 +187,7 @@ public class RAS_All_Steps extends PageInitializer {
     @Given("participant clicks on Study Assent and completes form with {string}")
     public static void participant_clicks_on_Study_Assent_and_completes_form_with(String password) {
         CommonUtils.waitForVisibility(myRASHomePage.rasopathyStudyAssent);
+        Assert.assertTrue(myRASHomePage.rasopathyStudyAssent.isDisplayed());
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(myRASHomePage.rasopathyStudyAssent);
         CommonUtils.sleep(3000);
@@ -182,12 +195,13 @@ public class RAS_All_Steps extends PageInitializer {
         JavascriptUtils.scrollIntoView(locateByXpath("//input[@id='consent_read']"));
         WebElement readConsentCheckbox = locateByXpath("//input[@id='consent_read']");
         CommonUtils.assertEquals(locateByXpath("//b[contains(text(),'Yes, I have read and assent to the terms and condi')]").getText(), "Yes, I have read and assent to the terms and conditions.");
+        CommonUtils.assertTrue(!locateByXpath("//button[normalize-space()='Assent']").isEnabled());
         CommonUtils.waitForClickability(readConsentCheckbox);
         CommonUtils.clickOnElement(readConsentCheckbox);
         CucumberLogUtils.logScreenshot();
-        WebElement toConsentButton = locateByXpath("//button[@id='toConsentBtn']");
-        CommonUtils.waitForClickability(toConsentButton);
-        CommonUtils.clickOnElement(toConsentButton);
+        CommonUtils.waitForClickability(locateByXpath("//button[normalize-space()='Assent']"));
+        CommonUtils.clickOnElement(locateByXpath("//button[normalize-space()='Assent']"));
+        CommonUtils.assertTrue(locateByXpath("//button[normalize-space()='Assent']").isEnabled());
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(locateByXpath("//div[@class='form-group']//input[@id='signature_password']"));
         CommonUtils.sendKeys(locateByXpath("//div[@class='form-group']//input[@id='signature_password']"), password);
@@ -342,16 +356,15 @@ public class RAS_All_Steps extends PageInitializer {
      * Logs in a Study Team member to the Native View and completes a consent call.
      *
      * @param sheetName                                the name of the sheet for which the consent is being processed
-     * @param consentStatus                            the expected status of the consent
      * @param consentType                              the expected type of the consent
      * @param responseType                             the expected response type of the consent
      * @param parentGuardianStatus                     the status of the parent/guardian for the consent
      * @param numberOfGuardianSignaturesRequired       the number of guardian signatures required for the consent
      * @param numberOfParentGuardianSignaturesReceived the number of parent/guardian signatures received for the consent
      */
-    @Then("Study Team member logs in to Native View and completes consent call {string}, {string}, {string}, {string}, {string}, {string}, {string}")
-    public void study_team_member_logs_in_to_native_view_and_completes_consent_call(String sheetName, String consentStatus, String consentType, String responseType, String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
-        nativeViewConsentAssentFlowProcess(sheetName, consentStatus, consentType, responseType, parentGuardianStatus, numberOfGuardianSignaturesRequired, numberOfParentGuardianSignaturesReceived);
+    @Then("Study Team member logs in to Native View and completes consent call {string}, {string}, {string}, {string}, {string}, {string}")
+    public void study_team_member_logs_in_to_native_view_and_completes_consent_call(String sheetName, String consentType, String responseType, String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
+        nativeViewConsentAssentFlowProcess(sheetName, consentType, responseType, parentGuardianStatus, numberOfGuardianSignaturesRequired, numberOfParentGuardianSignaturesReceived);
     }
 
     /**
