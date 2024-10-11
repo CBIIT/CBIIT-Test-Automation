@@ -18,4 +18,3 @@ Feature: ESR Tasks
     And user clicks on Intake Preparation catalog task
     And user fills out all required information for Intake Preparation
     Then the user confirms the Intake Preparation task is completed
-
