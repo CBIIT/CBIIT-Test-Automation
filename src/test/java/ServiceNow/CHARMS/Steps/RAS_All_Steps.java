@@ -14,13 +14,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Set;
-import static Hooks.Hooks.softAssert;
 import static ServiceNow.CHARMS.Pages.MyRASHomePage.dynamicModuleLocator;
 import static ServiceNow.CHARMS.Steps.RAS_Common_Methods.*;
 import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
@@ -117,7 +113,7 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.clickOnElement(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
         CucumberLogUtils.logScreenshot();
         CommonUtils.sleep(500);
-        softAssert.assertEquals(CommonUtils.getAlertText(), "To complete enrollment, please have your 11-13 year-old minor click through the \"Study Assent\" tile. If your minor declines participation, please contact the study team.");
+        CommonUtils.assertEquals(CommonUtils.getAlertText(), "To complete enrollment, please have your 11-13 year-old minor click through the \"Study Assent\" tile. If your minor declines participation, please contact the study team.");
         CommonUtils.acceptAlert();
         CommonUtils.sleep(500);
         CommonUtils.waitForVisibility(locateByXpath("//button[normalize-space()='OK']"));
@@ -185,7 +181,7 @@ public class RAS_All_Steps extends PageInitializer {
         System.out.println("* * * * * PARTICIPANT FILLING OUT ASSENT FORM * * * * *");
         JavascriptUtils.scrollIntoView(locateByXpath("//input[@id='consent_read']"));
         WebElement readConsentCheckbox = locateByXpath("//input[@id='consent_read']");
-        softAssert.assertEquals(locateByXpath("//b[contains(text(),'Yes, I have read and assent to the terms and condi')]").getText(), "Yes, I have read and assent to the terms and conditions.");
+        CommonUtils.assertEquals(locateByXpath("//b[contains(text(),'Yes, I have read and assent to the terms and condi')]").getText(), "Yes, I have read and assent to the terms and conditions.");
         CommonUtils.waitForClickability(readConsentCheckbox);
         CommonUtils.clickOnElement(readConsentCheckbox);
         CucumberLogUtils.logScreenshot();
@@ -201,6 +197,7 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.waitForVisibility(locateByXpath("//button[normalize-space()='OK']"));
         CommonUtils.clickOnElement(locateByXpath("//button[normalize-space()='OK']"));
         CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(500);
     }
 
     /**
@@ -243,6 +240,10 @@ public class RAS_All_Steps extends PageInitializer {
             CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
             CucumberLogUtils.logScreenshot();
             CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+        } else if (sheetName.contentEquals("screenerScenarioAge14-17")) {
+            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
         }
         CommonUtils.sleep(1000);
         if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
@@ -251,7 +252,7 @@ public class RAS_All_Steps extends PageInitializer {
         }
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='Awaiting PI Signature']"));
+        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='" + consentType + "']"));
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(500);
@@ -268,9 +269,9 @@ public class RAS_All_Steps extends PageInitializer {
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CucumberLogUtils.logScreenshot();
-        softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + consentStatus + "']").getText(), consentStatus);
-        softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + consentType + "']").getText(), consentType);
-        softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + responseType + "']").getText(), responseType);
+        CommonUtils.assertEquals(locateByXpath("//td[normalize-space()='" + consentStatus + "']").getText(), consentStatus);
+        CommonUtils.assertEquals(locateByXpath("//td[normalize-space()='" + consentType + "']").getText(), consentType);
+        CommonUtils.assertEquals(locateByXpath("//td[normalize-space()='" + responseType + "']").getText(), responseType);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
@@ -286,21 +287,14 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.webDriver.navigate().refresh();
         dynamicModuleLocator(expectedDownloadStudyText);
         CommonUtils.waitForVisibility(dynamicModuleLocator(expectedDownloadStudyText));
-        softAssert.assertEquals(dynamicModuleLocator(expectedDownloadStudyText).getText(), expectedDownloadStudyText);
+        CommonUtils.assertEquals(dynamicModuleLocator(expectedDownloadStudyText).getText(), expectedDownloadStudyText);
         CommonUtils.waitForClickability(dynamicModuleLocator(expectedDownloadStudyText));
+        String pdfUrl = dynamicModuleLocator(expectedDownloadStudyText).getAttribute("href");
         dynamicModuleLocator(expectedDownloadStudyText).click();
         CucumberLogUtils.logScreenshot();
-        String mainWindowHandle = webDriver.getWindowHandle();
-        Set<String> windowHandles = webDriver.getWindowHandles();
-        for (String handle : windowHandles) {
-            if (!handle.equals(mainWindowHandle)) {
-                webDriver.switchTo().window(handle);
-                break;
-            }
-        }
-        String pdfUrl = webDriver.getCurrentUrl();
         String downloadPath = System.getProperty("user.dir") + "/src/test/resources/" + pdfName + ".pdf";
         CucumberLogUtils.scenario.log("* * * * * DOWNLOADING " + pdfName.toUpperCase() + " PDF * * * * *");
+        CucumberLogUtils.logScreenshot();
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL(pdfUrl).openConnection();
             String cookies = String.join(";", webDriver.manage().getCookies().stream()
@@ -321,7 +315,7 @@ public class RAS_All_Steps extends PageInitializer {
             e.printStackTrace();
         }
         File downloadedFile = new File(downloadPath);
-        softAssert.assertTrue(downloadedFile.exists());
+        CommonUtils.assertTrue(downloadedFile.exists());
         if (downloadedFile.delete()) {
             CucumberLogUtils.scenario.log("* * * * * " + pdfName.toUpperCase() + " PDF DELETED SUCCESSFULLY * * * * *");
         } else {
@@ -355,8 +349,70 @@ public class RAS_All_Steps extends PageInitializer {
      * @param numberOfGuardianSignaturesRequired       the number of guardian signatures required for the consent
      * @param numberOfParentGuardianSignaturesReceived the number of parent/guardian signatures received for the consent
      */
-    @Then("Study Team member logs in to Native View and completest consent call {string}, {string}, {string}, {string}, {string}, {string}, {string}")
-    public void study_team_member_logs_in_to_native_view_and_completest_consent_call(String sheetName, String consentStatus, String consentType, String responseType, String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
+    @Then("Study Team member logs in to Native View and completes consent call {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void study_team_member_logs_in_to_native_view_and_completes_consent_call(String sheetName, String consentStatus, String consentType, String responseType, String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
         nativeViewConsentAssentFlowProcess(sheetName, consentStatus, consentType, responseType, parentGuardianStatus, numberOfGuardianSignaturesRequired, numberOfParentGuardianSignaturesReceived);
+    }
+
+    /**
+     * Study Team member logs in to Native View and verifies that the field Assent signed is true.
+     *
+     * @param sheetName the name of the sheet for which the field Assent signed is being verified.
+     */
+    @Then("Study Team member logs in to Native View and verifies that the field Assent signed is true {string}")
+    public void study_team_member_logs_in_to_native_view_and_verifies_that_the_field_assent_signed_is_true(String sheetName) {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        navigateToParticipantRecordInNativeView(sheetName);
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
+        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='Awaiting Patient Signature(s)']"));
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
+        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(500);
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyAssentSignedCheckBox);
+        CommonUtils.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyHiddenAssentSignedInput.isSelected());
+        CommonUtils.sleep(200);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Logs out the participant from the RAS portal.
+     */
+    @Then("participant logs out of RAS portal")
+    public void participant_logs_out_of_ras_portal() {
+        ServiceNow_Common_Methods.logOutOfNativeView();
+    }
+
+    /**
+     * Logs out the study team member from Native View.
+     */
+    @Then("Study Team member logs out of Native View")
+    public static void nativeViewStudyTeamMemberLogsOut() {
+        ServiceNow_Common_Methods.logOutOfNativeView();
+    }
+
+    /**
+     * Study Team member logs in to Native View and verifies that a new screener has been submitted.
+     *
+     * @param sheetName the name of the sheet corresponding to the new screener submitted
+     */
+    @Then("Study Team member logs in to Native View and verifies that a new screener has been submitted {string}")
+    public void study_team_member_logs_in_to_native_view_and_verifies_that_a_new_screener_has_been_submitted(String sheetName) {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        CommonUtils.sleep(4000);
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(3000);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
+        CommonUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        if (sheetName.equals("screenerScenarioAdult")) {
+            CommonUtils.assertEquals(locateByXpath("//td[normalize-space()='" + ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME + "']/following-sibling::td[4]").getText(), "New Screener Received");
+        } else {
+            CommonUtils.assertEquals(locateByXpath("//td[normalize-space()='" + ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME + "']/following-sibling::td[4]").getText(), "New Screener Received");
+        }
     }
 }
