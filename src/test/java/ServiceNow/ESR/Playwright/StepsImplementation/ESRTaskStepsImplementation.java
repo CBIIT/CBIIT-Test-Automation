@@ -3,7 +3,6 @@ package ServiceNow.ESR.Playwright.StepsImplementation;
 import ServiceNow.ESR.Playwright.Pages.CreateESRPage;
 import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.options.AriaRole;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
@@ -16,7 +15,6 @@ public class ESRTaskStepsImplementation {
         page.frameLocator(CreateESRPage.iframeSelector).locator(CreateESRPage.newESRTicketSelector).click();
         page.frameLocator(CreateESRPage.iframeSelector).locator("(//td[@class='vt']/a)[1]").click();
     }
-
 
     /**
      * Fills out all required information in the Intake Preparation catalog task
