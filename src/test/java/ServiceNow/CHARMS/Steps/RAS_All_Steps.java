@@ -14,7 +14,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -48,31 +47,37 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
         CucumberLogUtils.logScreenshot();
+        CucumberLogUtils.scenario.log("* * * * * CONSENT CALL SCHEDULED TIME * * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeAcceptButton);
+        CucumberLogUtils.scenario.log("* * * * * CONSENT CALL DATE * * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleDateCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVerionCalendar);
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVerionCalendar);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVerionCalendar);
+        CucumberLogUtils.scenario.log("* * * * * RESPONSE TYPE * * * * *");
+        CommonUtils.selectDropDownValue("CHARMS e-consent", nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown);
+        CucumberLogUtils.scenario.log("* * * * * CONSENT CALL VERSION * * * * *");
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-        CommonUtils.selectDropDownValue("CHARMS e-consent", nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown);
+        CucumberLogUtils.scenario.log("* * * * * CONSENT DATE * * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CucumberLogUtils.scenario.log("* * * * * CONSENTED BY * * * * *");
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, CHARMSRASScreenerConstants.CONSENTED_BY_USER_NAME);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
-        CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCurrentDropDown, 1);
-        CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown, 4);
-        CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureSpecimensAndDataDropDown, 4);
-        CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureUseCollaboratorsDropDown, 4);
-        CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown, 4);
+        CucumberLogUtils.scenario.log("* * * * * CURRENT/PREVIOUS * * * * *");
+        CommonUtils.selectDropDownValue("Current", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCurrentDropDown);
+        CucumberLogUtils.scenario.log("* * * * * COPY OF CONSENT/ASSENT PROVIDED PROVIDED BEFORE SIGNING * * * * *");
+        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
+        CucumberLogUtils.scenario.log("* * * * * CALL COMPLETE * * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallCompleteButton);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
@@ -91,35 +96,29 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.sleep(5000);
         CucumberLogUtils.logScreenshot();
         System.out.println("* * * * * PROXY FILLING OUT CONSENT FORM * * * * *");
-        JavascriptUtils.scrollIntoView(locateByXpath("//input[@id='consent_read']"));
-        WebElement readConsentCheckbox = locateByXpath("//input[@id='consent_read']");
-        CommonUtils.waitForClickability(readConsentCheckbox);
-        CommonUtils.clickOnElement(readConsentCheckbox);
+        JavascriptUtils.scrollIntoView(myRasStudyConsentPage.yesIhaveReadTheTermsAndConditionsCheckbox);
+        CommonUtils.waitForClickability(myRasStudyConsentPage.yesIhaveReadTheTermsAndConditionsCheckbox);
+        CommonUtils.clickOnElement(myRasStudyConsentPage.yesIhaveReadTheTermsAndConditionsCheckbox);
         CucumberLogUtils.logScreenshot();
-        WebElement IAmThisPersonRadioButton = locateByXpath("//input[@aria-label='Yes']");
-        WebElement futureResearchYesRadioButton = locateByXpath("(//input[@id='future_research_yes'])[2]");
-        WebElement specimenShareYesRadioButton = locateByXpath("//input[@id='specimen_share_yes']");
-        WebElement specimenShareForFutureYesRadioButton = locateByXpath("//input[@id='specimen_share_for_future_yes']");
-        CommonUtils.waitForClickability(IAmThisPersonRadioButton);
-        CommonUtils.clickOnElement(IAmThisPersonRadioButton);
-        CommonUtils.clickOnElement(futureResearchYesRadioButton);
-        CommonUtils.clickOnElement(specimenShareYesRadioButton);
-        CommonUtils.clickOnElement(specimenShareForFutureYesRadioButton);
+        CommonUtils.waitForClickability(myRasStudyConsentPage.iAmThisPersonsParentGuardianRadioButton);
+        CommonUtils.clickOnElement(myRasStudyConsentPage.iAmThisPersonsParentGuardianRadioButton);
+        CommonUtils.clickOnElement(myRasStudyConsentPage.iDoGivePermissionForMyIdentifiableSpecimensAndDataToBeStoredAndUsedByTheStudyTeamRadioButton);
+        CommonUtils.clickOnElement(myRasStudyConsentPage.iDoGivePermissionForMyDeIdentifiedSpecimensAndDataToBeSharedWithAndUsedByOtherResearchersRadioButton);
+        CommonUtils.clickOnElement(myRasStudyConsentPage.iDoGivePermissionForMyIdentifiableSpecimensAndDataToBeSharedWithAndUsedByOtherResearchersForFutureStudiesRadioButton);
         CucumberLogUtils.logScreenshot();
-        WebElement toConsentButton = locateByXpath("//button[@id='toConsentBtn']");
-        CommonUtils.waitForClickability(toConsentButton);
-        CommonUtils.clickOnElement(toConsentButton);
+        CommonUtils.waitForClickability(myRasStudyConsentPage.consentButton);
+        CommonUtils.clickOnElement(myRasStudyConsentPage.consentButton);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForVisibility(locateByXpath("//div[@class='form-group']//input[@id='signature_password']"));
-        CommonUtils.sendKeys(locateByXpath("//div[@class='form-group']//input[@id='signature_password']"), password);
+        CommonUtils.waitForVisibility(myRasStudyConsentPage.signingPasswordTextBox);
+        myRasStudyConsentPage.signingPasswordTextBox.sendKeys(password);
         if (sheetName.equals("screenerScenarioAge14-17")) {
-            CommonUtils.assertEquals(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']").getText().trim(), "I voluntarily give my assent to participate in this research. (The minor should check this box)");
-            locateByXpath("//div[@class='form-group ng-scope']//input[@role='checkbox']").click();
+            CommonUtils.assertEquals(myRasStudyConsentPage.iVoluntarilyGiveMyAssentToParticipateInThisResearchText.getText().trim(), "I voluntarily give my assent to participate in this research. (The minor should check this box)");
+            myRasStudyConsentPage.iVoluntarilyGiveMyAssentToParticipateInThisResearchCheckBox.click();
             CucumberLogUtils.logScreenshot();
-            locateByXpath("//button[@ng-click='c.confirm()']").click();
+            myRasStudyConsentPage.signButton.click();
         } else {
-            CommonUtils.waitForVisibility(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
-            CommonUtils.clickOnElement(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
+            CommonUtils.waitForVisibility(myRasStudyConsentPage.signButton);
+            CommonUtils.clickOnElement(myRasStudyConsentPage.signButton);
             CucumberLogUtils.logScreenshot();
             CommonUtils.sleep(500);
             if (sheetName.equals("screenerScenarioAge11-13")) {
@@ -128,11 +127,10 @@ public class RAS_All_Steps extends PageInitializer {
             }
         }
         CommonUtils.sleep(500);
-        CommonUtils.waitForVisibility(locateByXpath("//button[normalize-space()='OK']"));
-        CommonUtils.clickOnElement(locateByXpath("//button[normalize-space()='OK']"));
+        CommonUtils.waitForVisibility(myRasStudyConsentPage.yourConsentFormHasBeenSubmittedOKbutton);
+        CommonUtils.clickOnElement(myRasStudyConsentPage.yourConsentFormHasBeenSubmittedOKbutton);
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
-        ServiceNow_Common_Methods.logOutOfNativeView();
     }
 
     /**
@@ -148,33 +146,34 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.sleep(5000);
         CucumberLogUtils.logScreenshot();
         System.out.println("* * * * * PARTICIPANT FILLING OUT CONSENT FORM * * * * *");
-        JavascriptUtils.scrollIntoView(locateByXpath("//input[@id='consent_read']"));
-        WebElement readConsentCheckbox = locateByXpath("//input[@id='consent_read']");
-        CommonUtils.waitForClickability(readConsentCheckbox);
-        CommonUtils.clickOnElement(readConsentCheckbox);
+        JavascriptUtils.scrollIntoView(myRasStudyConsentPage.yesIhaveReadTheTermsAndConditionsCheckbox);
+        CommonUtils.waitForClickability(myRasStudyConsentPage.yesIhaveReadTheTermsAndConditionsCheckbox);
+        CommonUtils.clickOnElement(myRasStudyConsentPage.yesIhaveReadTheTermsAndConditionsCheckbox);
         CucumberLogUtils.logScreenshot();
-        WebElement IAmThisPersonRadioButton = locateByXpath("//input[@aria-label='I am this person.']");
-        WebElement futureResearchYesRadioButton = locateByXpath("(//input[@id='future_research_yes'])[2]");
-        WebElement specimenShareYesRadioButton = locateByXpath("//input[@id='specimen_share_yes']");
-        WebElement specimenShareForFutureYesRadioButton = locateByXpath("//input[@id='specimen_share_for_future_yes']");
-        CommonUtils.waitForClickability(IAmThisPersonRadioButton);
-        CommonUtils.clickOnElement(IAmThisPersonRadioButton);
-        CommonUtils.clickOnElement(futureResearchYesRadioButton);
-        CommonUtils.clickOnElement(specimenShareYesRadioButton);
-        CommonUtils.clickOnElement(specimenShareForFutureYesRadioButton);
+        CommonUtils.assertEquals(myRasStudyConsentPage.consentButton.getAttribute("disabled"), "disabled");
+        CommonUtils.waitForClickability(myRasStudyConsentPage.iAmThisPersonRadioButton);
+        CommonUtils.clickOnElement(myRasStudyConsentPage.iAmThisPersonRadioButton);
+        CommonUtils.clickOnElement(myRasStudyConsentPage.iDoGivePermissionForMyIdentifiableSpecimensAndDataToBeStoredAndUsedByTheStudyTeamRadioButton);
+        CommonUtils.clickOnElement(myRasStudyConsentPage.iDoGivePermissionForMyDeIdentifiedSpecimensAndDataToBeSharedWithAndUsedByOtherResearchersRadioButton);
+        CommonUtils.clickOnElement(myRasStudyConsentPage.iDoGivePermissionForMyIdentifiableSpecimensAndDataToBeSharedWithAndUsedByOtherResearchersForFutureStudiesRadioButton);
         CucumberLogUtils.logScreenshot();
-        WebElement toConsentButton = locateByXpath("//button[@id='toConsentBtn']");
-        CommonUtils.waitForClickability(toConsentButton);
-        CommonUtils.clickOnElement(toConsentButton);
+        CommonUtils.assertEquals(myRasStudyConsentPage.consentButton.getAttribute("type"), "submit");
+        CommonUtils.assertTrue(myRasStudyConsentPage.consentButton.isEnabled());
+        CommonUtils.waitForClickability(myRasStudyConsentPage.consentButton);
+        CommonUtils.clickOnElement(myRasStudyConsentPage.consentButton);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForVisibility(locateByXpath("//div[@class='form-group']//input[@id='signature_password']"));
-        CommonUtils.sendKeys(locateByXpath("//div[@class='form-group']//input[@id='signature_password']"), password);
-        CommonUtils.waitForVisibility(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
-        CommonUtils.clickOnElement(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
+        CommonUtils.waitForVisibility(myRasStudyConsentPage.signingPasswordTextBox);
+        CommonUtils.sendKeys(myRasStudyConsentPage.signingPasswordTextBox, password);
+        CommonUtils.waitForVisibility(myRasStudyConsentPage.signButton);
+        CommonUtils.clickOnElement(myRasStudyConsentPage.signButton);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForVisibility(locateByXpath("//button[normalize-space()='OK']"));
-        CommonUtils.clickOnElement(locateByXpath("//button[normalize-space()='OK']"));
+        CommonUtils.assertEquals(myRasStudyConsentPage.yourConsentFormHasBeenSubmittedSuccessfullyMessage.getText(), "Your Consent Form has been submitted successfully !\n" +
+                "Thank you for your interest in NCI Family Studies Hub: RASopathies at the NIH. Your Consent Form has been successfully submitted! Once the study team reviews your documents, the study team will contact you about the next steps for your participation in this study.\n" +
+                "Please feel free to speak to your study contact should you have any questions. Again, thank you for your interest in NCI Family Studies Hub: RASopathies, and we look forward to working with you!");
+        CommonUtils.sleep(200);
         CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForVisibility(myRasStudyConsentPage.yourConsentFormHasBeenSubmittedOKbutton);
+        CommonUtils.clickOnElement(myRasStudyConsentPage.yourConsentFormHasBeenSubmittedOKbutton);
         ServiceNow_Common_Methods.logOutOfNativeView();
         CucumberLogUtils.logScreenshot();
     }
@@ -192,24 +191,29 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.clickOnElement(myRASHomePage.rasopathyStudyAssent);
         CommonUtils.sleep(3000);
         System.out.println("* * * * * PARTICIPANT FILLING OUT ASSENT FORM * * * * *");
-        JavascriptUtils.scrollIntoView(locateByXpath("//input[@id='consent_read']"));
-        WebElement readConsentCheckbox = locateByXpath("//input[@id='consent_read']");
-        CommonUtils.assertEquals(locateByXpath("//b[contains(text(),'Yes, I have read and assent to the terms and condi')]").getText(), "Yes, I have read and assent to the terms and conditions.");
-        CommonUtils.assertTrue(!locateByXpath("//button[normalize-space()='Assent']").isEnabled());
-        CommonUtils.waitForClickability(readConsentCheckbox);
-        CommonUtils.clickOnElement(readConsentCheckbox);
+        JavascriptUtils.scrollIntoView(myRASStudyAssentPage.yesIHaveReadAndAssentToTheTermsAndConditionsCheckbox);
+        CommonUtils.assertEquals(myRASStudyAssentPage.yesIHaveReadAndAssentToTheTermsAndConditionsText.getText(), "Yes, I have read and assent to the terms and conditions.");
+        CommonUtils.assertEquals(myRASStudyAssentPage.assentButton.getAttribute("ng-if"), "!c.disabled");
+        CommonUtils.waitForClickability(myRASStudyAssentPage.yesIHaveReadAndAssentToTheTermsAndConditionsCheckbox);
+        CommonUtils.clickOnElement(myRASStudyAssentPage.yesIHaveReadAndAssentToTheTermsAndConditionsCheckbox);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForClickability(locateByXpath("//button[normalize-space()='Assent']"));
-        CommonUtils.clickOnElement(locateByXpath("//button[normalize-space()='Assent']"));
-        CommonUtils.assertTrue(locateByXpath("//button[normalize-space()='Assent']").isEnabled());
+        CommonUtils.waitForClickability(myRASStudyAssentPage.assentButton);
+        CommonUtils.clickOnElement(myRASStudyAssentPage.assentButton);
+        CommonUtils.assertEquals(myRASStudyAssentPage.assentButton.getAttribute("ng-if"), "c.disabled");
         CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForVisibility(locateByXpath("//div[@class='form-group']//input[@id='signature_password']"));
-        CommonUtils.sendKeys(locateByXpath("//div[@class='form-group']//input[@id='signature_password']"), password);
-        CommonUtils.waitForVisibility(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
-        CommonUtils.clickOnElement(locateByXpath("//div[@class='modal-footer']//button[@id='consentBtn']"));
+        CommonUtils.waitForVisibility(myRASStudyAssentPage.signaturePasswordTextBox);
+        CommonUtils.sendKeys(myRASStudyAssentPage.signaturePasswordTextBox, password);
+        CommonUtils.waitForClickability(myRASStudyAssentPage.signButton);
+        CommonUtils.clickOnElement(myRASStudyAssentPage.signButton);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForVisibility(locateByXpath("//button[normalize-space()='OK']"));
-        CommonUtils.clickOnElement(locateByXpath("//button[normalize-space()='OK']"));
+        CommonUtils.waitForVisibility(myRASStudyAssentPage.yourAssentFormHasBeenSubmittedSuccessfullyMessage);
+        CommonUtils.assertEquals(myRASStudyAssentPage.yourAssentFormHasBeenSubmittedSuccessfullyMessage.getText(), "Your Assent Form has been submitted successfully !\n" +
+                "Thank you for your interest in the NCI Family Studies Hub: RASopathies at the NIH. Your Assent Form has been successfully submitted! Once the study team reviews your documents, the study team will contact you about the next steps for your participation in this study.\n" +
+                "Please feel free to speak to your study contact should you have any questions. Again, thank you for your interest in NCI Family Studies Hub: RASopathies, and we look forward to working with you!");
+        CommonUtils.sleep(200);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForVisibility(myRASStudyAssentPage.youAssentFormHasBeenSubmittedOKButton);
+        CommonUtils.clickOnElement(myRASStudyAssentPage.youAssentFormHasBeenSubmittedOKButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.sleep(500);
     }
@@ -405,6 +409,26 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
+     * Study Team member logs in to Native View and navigates to participant's record using the specified sheet name.
+     *
+     * @param sheetName the name of the sheet corresponding to the participant's record
+     */
+    @When("Study Team member logs in to Native View and navigates to participant's record {string}")
+    public void study_team_member_logs_in_to_native_view_and_navigates_to_participant_s_record(String sheetName) {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        navigateToParticipantRecordInNativeView(sheetName);
+    }
+
+    /**
+     * Study Team member submits a participant for review and marks them as eligible for further processing.
+     * This method triggers the submission process and eligibility marking within the study team workflow.
+     */
+    @When("Study Team member submits participant for review and marks them eligible")
+    public void study_team_member_submits_participant_for_review_and_marks_them_eligible() {
+        submitParticipantForReviewAndEligibility();
+    }
+
+    /**
      * Study Team member logs in to Native View and verifies that a new screener has been submitted.
      *
      * @param sheetName the name of the sheet corresponding to the new screener submitted
@@ -427,5 +451,50 @@ public class RAS_All_Steps extends PageInitializer {
         } else {
             CommonUtils.assertEquals(locateByXpath("//td[normalize-space()='" + ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME + "']/following-sibling::td[4]").getText(), "New Screener Received");
         }
+    }
+
+    /**
+     * Study Team member navigates to the Consent Record and selects the response type and interpreter used for the consent record.
+     * Verifies that two new fields, Interpreter Name or ID and Interpreter Language, display on the page.
+     *
+     * @param responseType            the response type to be selected
+     * @param interpreterUsed         the interpreter used selection
+     * @param interpreterNameOrIdText the text for Interpreter Name or ID field
+     * @param interpreterLanguageText the text for Interpreter Language field
+     */
+    @Then("Study Team member navigates to the Consent Record and selects {string} for the response type, {string} for Interpreter Used, and verifies that two new fields {string} and {string} display")
+    public void study_team_member_navigates_to_the_consent_record_and_selects_for_the_response_type_for_interpreter_used_and_verifies_that_two_new_fields_and_display(String responseType, String interpreterUsed, String interpreterNameOrIdText, String interpreterLanguageText) {
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
+        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
+        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown);
+        CommonUtils.selectDropDownValue(responseType, nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.assertEquals(locateByXpath("//span[normalize-space()='Interpreter used?']").getText(), "Interpreter used?");
+        CommonUtils.assertTrue(locateByXpath("//span[normalize-space()='Interpreter used?']").isDisplayed());
+        CommonUtils.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown.isDisplayed());
+        CommonUtils.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown.isEnabled());
+        CommonUtils.selectDropDownValue(interpreterUsed, nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='Interpreter Name or ID']"));
+        CommonUtils.assertEquals(locateByXpath("//span[normalize-space()='Interpreter Name or ID']").getText(), interpreterNameOrIdText);
+        CommonUtils.assertTrue(locateByXpath("//span[normalize-space()='Interpreter Name or ID']").isDisplayed());
+        CommonUtils.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterNameOrIdTextField.isDisplayed());
+        CommonUtils.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterNameOrIdTextField.isEnabled());
+        nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterNameOrIdTextField.sendKeys("FirstName LastName");
+        CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='Interpreter Language']"));
+        CommonUtils.assertEquals(locateByXpath("//span[normalize-space()='Interpreter Language']").getText(), interpreterLanguageText);
+        CommonUtils.assertTrue(locateByXpath("//span[normalize-space()='Interpreter Language']").isDisplayed());
+        CommonUtils.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterLanguageTextField.isDisplayed());
+        CommonUtils.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterLanguageTextField.isEnabled());
+        nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterLanguageTextField.sendKeys("English");
+        CucumberLogUtils.logScreenshot();
     }
 }
