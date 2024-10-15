@@ -21,13 +21,25 @@ public class MyRASStudyConsentPage {
 	@FindBy(xpath = "//input[@aria-label='Yes']")
 	public WebElement iAmThisPersonsParentGuardianRadioButton;
 
+	/* Question 2 Text: I DO give permission for my identifiable specimens and data to be stored and used by the study team for future studies as described above. */
+	@FindBy(xpath = "(//label[contains(@class,'ng-binding')])[2]")
+	public WebElement iDoGivePermissionForMyIdentifiableSpecimensAndDataToBeStoredAndUsedByTheStudyTeamText;
+
 	/* I DO give permission for my identifiable specimens and data to be stored and used by the study team for future studies as described above. Radio Button */
 	@FindBy(xpath = "//input[@aria-label=\"I DO give permission for the participant's identifiable specimens and data to be stored and used by the study team for future studies as described above.\"]")
 	public WebElement iDoGivePermissionForMyIdentifiableSpecimensAndDataToBeStoredAndUsedByTheStudyTeamRadioButton;
 
+	/* Question 3 Text: I DO give permission for my de-identified specimens and data to be shared with and used by other researchers for future research. Text */
+	@FindBy(xpath = "(//label[contains(@class,'ng-binding')])[3]")
+	public WebElement iDoGivePermissionForMyDeIdentifiedSpecimensAndDataToBeSharedWithAndUsedByOtherResearchersText;
+
 	/* I DO give permission for my de-identified specimens and data to be shared with and used by other researchers for future research. Radio Button */
-	@FindBy(xpath = "//div[10]//div[1]//input[1]")
+	@FindBy(xpath = "//input[@id='specimen_share_yes']")
 	public WebElement iDoGivePermissionForMyDeIdentifiedSpecimensAndDataToBeSharedWithAndUsedByOtherResearchersRadioButton;
+
+	/* Question 4 Text: I DO give permission for my identifiable specimens and data to be shared with and used by other researchers for future studies. Text */
+	@FindBy(xpath = "(//label[contains(@class,'ng-binding')])[4]")
+	public WebElement iDoGivePermissionForMyIdentifiableSpecimensAndDataToBeSharedWithAndUsedByOtherResearchersForFutureStudiesText;
 
 	/* I DO give permission for my identifiable specimens and data to be shared with and used by other researchers for future studies. Radio Button */
 	@FindBy(xpath = "//input[@aria-label='I DO give permission for this participants identifiable specimens and data to be shared with and used by other researchers for future studies.']")
