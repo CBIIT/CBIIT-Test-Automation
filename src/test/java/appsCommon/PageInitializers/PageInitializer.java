@@ -137,6 +137,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static IIQ_Constants iiq_Constants;
 	public static TestAccountResetPage testAccountResetPage;
 	public static MyRASStudyConsentPage myRasStudyConsentPage;
+	public static MyRASStudyAssentPage myRASStudyAssentPage;
 	public static CGBIIQPage cgbIIQPage;
 	public static CGBIIQPages cGBIIQPages;
 	public static RAS_Survey_Page rAS_Survey_Page;
@@ -419,6 +420,7 @@ public class PageInitializer extends WebDriverUtils {
 		iiq_Constants = new IIQ_Constants();
 		testAccountResetPage = new TestAccountResetPage();
 		myRasStudyConsentPage = new MyRASStudyConsentPage();
+		myRASStudyAssentPage = new MyRASStudyAssentPage();
 		ras_Screener_TestDataManager = new RAS_Screener_TestDataManager();
 		ras_Survey_TestDataManager = new RAS_Survey_TestDataManager();
 		iiq_TestDataManager = new IIQ_TestDataManager();
