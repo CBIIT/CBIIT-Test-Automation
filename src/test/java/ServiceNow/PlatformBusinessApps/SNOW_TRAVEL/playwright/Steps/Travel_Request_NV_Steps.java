@@ -246,4 +246,112 @@ public class Travel_Request_NV_Steps {
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(dimetriaBranch);
         CucumberLogUtils.playwrightScreenshot(page);
     }
+
+    /**
+     * Searches for the "NCI CGH - Travel Request Branch Directors" group under System Security.
+     *
+     * @param nciCGHTravelRequestBranchDirectors The name of the group to search for
+     */
+    @When("I search for the {string} Groups under System Security")
+    public void i_search_for_the_groups_under_system_security(String nciCGHTravelRequestBranchDirectors) {
+        //Search the System Security in Filter navigation Native View
+        page.getByPlaceholder("Filter").click();
+        page.getByPlaceholder("Filter").fill("System Security");
+        page.getByPlaceholder("Filter").press("Enter");
+        assertThat(page.getByPlaceholder("Filter")).isVisible();
+        assertThat(page.getByPlaceholder("Filter")).hasValue("System Security");
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        //Look for the Groups under "Users and Groups" and click on Groups
+        assertThat(page.locator("li").filter(new Locator.FilterOptions().setHasText("Users and GroupsUsersEdit"))).isVisible();
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Groups").setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        //Search for the ""NCI CGH - Travel Request Branch Directors" group and open the group record
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Groups"))).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.HEADING)).containsText("Groups");
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(nciCGHTravelRequestBranchDirectors);
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).containsText(nciCGHTravelRequestBranchDirectors);
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        //click on the group record and click on open record button
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//a[@aria-label='Preview record: NCI CGH - Travel Request Branch Directors']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Name", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(nciCGHTravelRequestBranchDirectors);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Clicks on Group members Tab on the bottom of the page and verifies that the Dimetria Branch is added to the CGH Branch Director Assignment Group.
+     *
+     * @param dimetriaBranch the name of the user to be verified in the group
+     */
+    @Then("I will see user {string} added to the CGH Branch Director Assignment Group.")
+    public void i_will_see_user_added_to_the_cgh_branch_director_assignment_group(String dimetriaBranch) {
+        //clicks on Group members Tab on the bottom of the page and verify that Dimetria Branch is also added to the group
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (3)")).isVisible();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (3)").click();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members (3)Show").locator("b")).containsText("Group = NCI CGH - Travel Request Branch Directors");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(dimetriaBranch);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Searches for "NCI CGH - Travel Request Travel Planners" group under System Security.
+     *
+     * @param nciCGHTravelRequestTravelPlanners The name of the group to search for.
+     */
+    @When("I search for {string} Groups under System Security:")
+    public void i_search_for_groups_under_system_security(String nciCGHTravelRequestTravelPlanners) {
+        //Search the System Security in Filter navigation Native View
+        page.getByPlaceholder("Filter").click();
+        page.getByPlaceholder("Filter").fill("System Security");
+        page.getByPlaceholder("Filter").press("Enter");
+        assertThat(page.getByPlaceholder("Filter")).isVisible();
+        assertThat(page.getByPlaceholder("Filter")).hasValue("System Security");
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        //Look for the Groups under "Users and Groups" and click on Groups
+        assertThat(page.locator("li").filter(new Locator.FilterOptions().setHasText("Users and GroupsUsersEdit"))).isVisible();
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Groups").setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        //Search for the ""NCI CGH - Travel Request Travel Planners" group and open the group record
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Groups"))).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.HEADING)).containsText("Groups");
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(nciCGHTravelRequestTravelPlanners);
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).containsText(nciCGHTravelRequestTravelPlanners);
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        //click on the group record and click on open record button
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//a[@aria-label='Preview record: NCI CGH - Travel Request Travel Planners']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Name", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(nciCGHTravelRequestTravelPlanners);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Verifies that the Karen Grady is added to the NCI CGH - Travel Request Travel Planners Group.
+     *
+     * @param karenGrady The name of the user to be verified in the group.
+     */
+    @Then("I will see user {string} added to the CGH Travel Planners Assignment Group.")
+    public void i_will_see_user_added_to_the_cgh_travel_planners_assignment_group(String karenGrady) {
+        //clicks on Group members Tab on the bottom of the page and verify that Karen Grady is also added to the group
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (6)")).isVisible();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (6)").click();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members (6)Show").locator("b")).containsText("Group = NCI CGH - Travel Request Travel Planners");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(karenGrady);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
 }
