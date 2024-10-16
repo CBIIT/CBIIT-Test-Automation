@@ -23,3 +23,15 @@ Feature: SNOWTRAVEL Native View Form Scenarios
     Given that I am logged into ServiceNow Native View
     When I search for "NCI CGH - Travel Managers" Group under System Security
     Then I verify that "Dimetria Branch" should be listed under the Group Member tab
+
+  @SNOWTRAVEL-190 @Chaudhryma @Regression @playwright
+  Scenario: Test Add Dimetria Branch to the CGH Branch Director Assignment Group
+    Given that I am logged into ServiceNow Native View
+    When I search for the "NCI CGH - Travel Request Branch Directors" Groups under System Security
+    Then I will see user "Dimetria Branch" added to the CGH Branch Director Assignment Group.
+
+  @SNOWTRAVEL-186 @Chaudhryma @Regression @playwright
+  Scenario: Test Add user Karen Grady to the CGH Travel Planners Assignment Group
+    Given that I am logged into ServiceNow Native View
+    When I search for "NCI CGH - Travel Request Travel Planners" Groups under System Security:
+    Then I will see user "Karen Grady" added to the CGH Travel Planners Assignment Group.

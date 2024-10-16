@@ -49,7 +49,7 @@ public class RAS_Common_Methods extends PageInitializer {
         } else if (sheetName.contentEquals("screenerScenarioAdult")) {
             CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
             CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
         } else if (sheetName.contentEquals("screenerScenarioAdult-NeedsLAR")) {
             CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
             CucumberLogUtils.logScreenshot();
@@ -110,30 +110,51 @@ public class RAS_Common_Methods extends PageInitializer {
     /**
      * Fills the parent/guardian signatures in the Native View consent form.
      *
-     * @param parentGuardianStatus                     The status of the parent/guardian (e.g. "Yes", "No").
-     * @param numberOfGuardianSignaturesRequired       The number of guardian signatures required for consent.
-     * @param numberOfParentGuardianSignaturesReceived The number of parent/guardian signatures received.
+     * @param responseType
+     * @param parentGuardianStatus
+     * @param numberOfGuardianSignaturesRequired
+     * @param numberOfParentGuardianSignaturesReceived
      */
     public static void nativeViewFillParentGuardianSignatures(String responseType, String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown);
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown);
         CommonUtils.selectDropDownValue(parentGuardianStatus, nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentNumberOfParentGuardianSignaturesRequiredDropDown);
-        CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentNumberOfParentGuardianSignaturesRequiredDropDown, numberOfGuardianSignaturesRequired);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
         if (responseType.equalsIgnoreCase("CHARMS e-consent")) {
-            if (numberOfGuardianSignaturesRequired.equals("1")) {
+            if (parentGuardianStatus.equalsIgnoreCase("Parents, Married")) {
                 CommonUtils.selectDropDownValue("Pending", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
-            } else if (numberOfGuardianSignaturesRequired.equals("2")) {
+            } else if (parentGuardianStatus.equalsIgnoreCase("Parents, Separated - Joint Custody")) {
                 CommonUtils.selectDropDownValue("Pending", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
                 CommonUtils.selectDropDownValue("Pending", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2SignedDropDown);
+                CommonUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2SignedDropDown);
+            } else if (parentGuardianStatus.equalsIgnoreCase("Parent, Separated or Widowed - Single Custody") && numberOfGuardianSignaturesRequired.equals("1")) {
+                CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentNumberOfParentGuardianSignaturesRequiredDropDown, numberOfGuardianSignaturesRequired);
+                CommonUtils.selectDropDownValue("Pending", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
+                CommonUtils.selectDropDownValue("N/A", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2SignedDropDown);
+                CommonUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2SignedDropDown);
+            } else if (parentGuardianStatus.equalsIgnoreCase("Parent, Separated or Widowed - Single Custody") && numberOfGuardianSignaturesRequired.equals("2")) {
+                CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentNumberOfParentGuardianSignaturesRequiredDropDown, numberOfGuardianSignaturesRequired);
+                CommonUtils.selectDropDownValue("Pending", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
+                CommonUtils.selectDropDownValue("Pending", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2SignedDropDown);
+            } else if (parentGuardianStatus.equalsIgnoreCase("Other Legal Guardian - 1")) {
+                CommonUtils.selectDropDownValue("Pending", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
+            } else if (parentGuardianStatus.equalsIgnoreCase("Other Guardian - 2")) {
+                CommonUtils.selectDropDownValue("Pending", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
+                CommonUtils.selectDropDownValue("Pending", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2SignedDropDown);
+                CommonUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2SignedDropDown);
             }
         } else {
             if (numberOfParentGuardianSignaturesReceived.equals("1")) {
                 CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
+            } else if (numberOfParentGuardianSignaturesReceived.equals("2")) {
+                CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
+                CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2SignedDropDown);
             }
         }
+        CucumberLogUtils.logScreenshot();
     }
 
     /**
@@ -161,25 +182,39 @@ public class RAS_Common_Methods extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
         CucumberLogUtils.logScreenshot();
+        CucumberLogUtils.scenario.log("* * * * CONSENT CALL SCHEDULED TIME * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeAcceptButton);
+        CucumberLogUtils.scenario.log("* * * * CONSENT CALL DATE * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleDateCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVerionCalendar);
+        CucumberLogUtils.scenario.log("* * * * RESPONSE TYPE * * * *");
+        CommonUtils.selectDropDownValue(responseType, nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown);
+        CucumberLogUtils.scenario.log("* * * * CONSENT CALL VERSION * * * *");
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-        CommonUtils.selectDropDownValue(responseType, nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown);
+        CucumberLogUtils.scenario.log("* * * * CONSENT DATE * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CucumberLogUtils.scenario.log("* * * * CONSENTED BY * * * *");
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, CHARMSRASScreenerConstants.CONSENTED_BY_USER_NAME);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
-        CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCurrentDropDown, 1);
+        CucumberLogUtils.scenario.log("* * * * CURRENT/PREVIOUS * * * *");
+        CommonUtils.selectDropDownValue("Current", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCurrentDropDown);
         CommonUtils.sleep(500);
         if (!responseType.equalsIgnoreCase("iMed")) {
+            CucumberLogUtils.scenario.log("* * * * COPY OF CONSENT/ASSENT PROVIDED PROVIDED BEFORE SIGNING * * * *");
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
+        }
+        if(!consentType.equalsIgnoreCase("Adult")) {
             CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown);
             CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown);
             CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown, 4);
@@ -228,11 +263,10 @@ public class RAS_Common_Methods extends PageInitializer {
      * Performs the consent flow process for a given scenario (iMed, Participant upload to portal, Mail/Fax/Email/Other)
      *
      * @param sheetName     The name of the sheet containing the scenario data.
-     * @param consentStatus The consent status data.
      * @param consentType   The consent type data.
      * @param responseType  The response type data.
      */
-    public static void nativeViewConsentAssentFlowProcess(String sheetName, String consentStatus, String consentType, String responseType, String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
+    public static void nativeViewConsentAssentFlowProcess(String sheetName, String consentType, String responseType, String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         navigateToParticipantRecordInNativeView(sheetName);
         submitParticipantForReviewAndEligibility();
@@ -249,31 +283,38 @@ public class RAS_Common_Methods extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
         CucumberLogUtils.logScreenshot();
+        CucumberLogUtils.scenario.log("* * * * CONSENT CALL SCHEDULED TIME * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeAcceptButton);
+        CucumberLogUtils.scenario.log("* * * * CONSENT CALL DATE * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleDateCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVerionCalendar);
+        CucumberLogUtils.scenario.log("* * * * RESPONSE TYPE * * * *");
+        CommonUtils.selectDropDownValue(responseType, nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown);
+        CucumberLogUtils.scenario.log("* * * * CONSENT CALL VERSION * * * *");
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-        CommonUtils.selectDropDownValue(responseType, nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown);
+        CucumberLogUtils.scenario.log("* * * * CONSENT DATE * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CucumberLogUtils.scenario.log("* * * * CONSENTED BY * * * *");
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, CHARMSRASScreenerConstants.CONSENTED_BY_USER_NAME);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
-        CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCurrentDropDown, 1);
+        CucumberLogUtils.scenario.log("* * * * CURRENT/PREVIOUS * * * *");
+        CommonUtils.selectDropDownValue("Current", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCurrentDropDown);
         CommonUtils.sleep(500);
         if (!responseType.equalsIgnoreCase("iMed")) {
             CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown);
             CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown);
             CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown, 4);
-        }
-        if (consentType.equalsIgnoreCase("Aged 11 - 13, signed assent required") && consentStatus.equalsIgnoreCase("CHARMS e-consent")) {
-
         }
         nativeViewFillParentGuardianSignatures(responseType, parentGuardianStatus, numberOfGuardianSignaturesRequired, numberOfParentGuardianSignaturesReceived);
         CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureSpecimensAndDataDropDown, 4);
@@ -281,9 +322,14 @@ public class RAS_Common_Methods extends PageInitializer {
         CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown, 4);
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
+        CucumberLogUtils.scenario.log("* * * * COPY OF CONSENT/ASSENT PROVIDED PROVIDED BEFORE SIGNING * * * *");
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
+        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
+        CucumberLogUtils.logScreenshot();
+        CucumberLogUtils.scenario.log("* * * * * CALL COMPLETE * * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallCompleteButton);
         CommonUtils.sleep(1000);
-        if (consentType.equalsIgnoreCase("Mail/Fax/Email/Other") || consentType.equalsIgnoreCase("iMed") || consentType.equalsIgnoreCase("Participant upload to portal")) {
+        if (responseType.equalsIgnoreCase("Mail/Fax/Email/Other") || responseType.equalsIgnoreCase("iMed") || responseType.equalsIgnoreCase("Participant upload to portal")) {
             CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
             CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
             CucumberLogUtils.logScreenshot();
@@ -294,8 +340,12 @@ public class RAS_Common_Methods extends PageInitializer {
             CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileCloseButton);
             CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
             CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
-            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
+            CucumberLogUtils.scenario.log("* * * * COPY OF CONSENT/ASSENT PROVIDED PROVIDED BEFORE SIGNING * * * *");
+            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
+            CucumberLogUtils.logScreenshot();
+            CucumberLogUtils.scenario.log("* * * * * CALL COMPLETE * * * * *");
+            CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallCompleteButton);
         }
         CucumberLogUtils.logScreenshot();
     }

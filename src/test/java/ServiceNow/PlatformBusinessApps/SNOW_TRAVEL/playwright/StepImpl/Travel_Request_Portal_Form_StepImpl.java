@@ -148,6 +148,8 @@ public class Travel_Request_Portal_Form_StepImpl {
      * @param travelStartDate the value to be entered for the travel start date field
      */
     public static void the_field_will_map_to_the_travel_start_date_field_in_the_variables_section_of_the_ritm_in_nv(String travelStartDate) {
+        page.locator("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']").waitFor();
+        page.locator("//h1[@class='text-center text-4x m-b-lg sp-tagline-color _700']").isVisible();
         assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Services").setExact(true))).isVisible();
         page.locator("//span[normalize-space()='Native View']").isVisible();
         page.locator("//span[normalize-space()='Native View']").click();
