@@ -8,12 +8,6 @@ import io.cucumber.testng.CucumberOptions;
 		"pretty",
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, features = "src/test/java/AnalysisTools/ICRP/Features", glue = {"AnalysisTools.ICRP.Steps", "Hooks"}, tags = "@Smoke", dryRun = false
 )
-/**
- * This class is annotated with @RunWith(Cucumber.class) and it will run
- * cucumber feature(s).
- * 
- * @author sohilz2
- */
-public class RunICRPSmokeTest extends AbstractTestNGCucumberTests {
 
+public class RunICRPSmokeTest extends AbstractTestNGCucumberTests {
 }
