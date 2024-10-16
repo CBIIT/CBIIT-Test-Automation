@@ -1,6 +1,5 @@
 package AnalysisTools.scAtlas.Steps;
 
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.*;
