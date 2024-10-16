@@ -12,7 +12,6 @@ import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -194,7 +193,7 @@ public class RAS_All_Steps extends PageInitializer {
     @Given("participant clicks on Study Assent and completes form with {string}")
     public static void participant_clicks_on_Study_Assent_and_completes_form_with(String password) {
         CommonUtils.waitForVisibility(myRASHomePage.rasopathyStudyAssent);
-        Assert.assertTrue(myRASHomePage.rasopathyStudyAssent.isDisplayed());
+        CommonUtils.assertTrue(myRASHomePage.rasopathyStudyAssent.isDisplayed());
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(myRASHomePage.rasopathyStudyAssent);
         CommonUtils.sleep(3000);
