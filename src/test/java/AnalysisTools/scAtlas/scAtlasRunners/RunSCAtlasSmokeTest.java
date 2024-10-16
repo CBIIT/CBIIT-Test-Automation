@@ -8,11 +8,6 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
         "pretty",
         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, features = "src/test/java/AnalysisTools/scAtlas/Features", glue = {"AnalysisTools.scAtlas.Steps", "Hooks"}, tags = "@Smoke", dryRun = false
 )
-/**
- * This class is annotated with @RunWith(Cucumber.class) and it will run
- * cucumber feature(s).
- * 
- * @author sohilz2
- */
+
 public class RunSCAtlasSmokeTest extends AbstractTestNGCucumberTests {
 }
