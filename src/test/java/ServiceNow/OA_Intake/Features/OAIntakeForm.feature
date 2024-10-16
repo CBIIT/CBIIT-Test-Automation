@@ -1,7 +1,7 @@
 Feature: Create OA Intake form
   Description: This feature file contains scenarios relating to OA Intake form
 
-  @selenium @OAIntake-576 @OAIntake-544 @OAIntake-575 @OAIntake-499 @OAIntake-657 @OAIntake-430 @OAIntake-408 @OAIntake-623 @Alena @Smoke
+  @selenium @OAIntake-576 @OAIntake-544 @OAIntake-575 @OAIntake-499 @OAIntake-657 @OAIntake-430 @OAIntake-408 @OAIntake-623 @Alena
   Scenario: Create OA Intake form
     Given Submitter User logged in to OA Intake Portal
     When Submitter User clicks on New Request button
@@ -32,3 +32,56 @@ Feature: Create OA Intake form
     Then Submitter User can verify a submission confirmation modal OA Intake form appears
     And Submitter User chooses to submit a request
     Then Submitter User can confirm they are redirected to Requestor (Requested For) Queue for Negotiated Contracts page
+
+
+  @selenium @Alena @Smoke @OAIntake-8 @OAIntake-417 @OAIntake-425 @OAIntake-426 @OAIntake-439 @OAIntake-260 @OAIntake-261 @OAIntake-263
+  Scenario: OA Intake Home Page tabs and options for various roles
+    Given Leadership User logged in to OA Intake Portal
+    Then User can verify the Home page header
+    And User can verify Home page header text
+    And User can verify text for Important info part
+    And User can verify "New Request" tab is displayed
+    And User can verify "CO/CS Queue" tab is displayed
+    And User can verify "Requestor(Requested For) Queue" tab is displayed
+    And User can verify "Management Dashboard" tab is displayed
+    And User can verify "Leadership Queue(Pending Action)" tab is displayed
+    When User clicks on Menu dropdown
+    Then Leadership User can verify the menu options displayed
+    When User clicks on Instructions
+    Then User can verify they are redirected to Instructions page
+    When User clicks on their username
+    Then User can see menu options as Profile and Log Out
+    And User clicks on New Request tab
+    When User clicks on  OA Intake Home button
+    Then User can verify they are redirected to Home Page
+    And User logs out of OA Intake application
+    Given Submitter User logged in to OA Intake Portal
+    Then User can verify the Home page header
+    And User can verify Home page header text
+    And User can verify text for Important info part
+    And User can verify "New Request" tab is displayed
+    And User can verify "Requestor(Requested For) Queue" tab is displayed
+    When User clicks on Menu dropdown
+    Then Submitter User can verify the menu options displayed
+    When User clicks on Instructions
+    Then User can verify they are redirected to Instructions page
+    When User clicks on their username
+    Then User can see menu options as Profile and Log Out
+    And User clicks on New Request tab
+    When User clicks on  OA Intake Home button
+    Then User can verify they are redirected to Home Page
+    And User logs out of OA Intake application
+
+
+
+
+
+
+
+
+
+
+
+
+
+
