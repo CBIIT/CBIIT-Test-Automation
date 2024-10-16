@@ -8,6 +8,8 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import java.util.List;
 
+import static com.nci.automation.web.PlaywrightUtils.page;
+
 public class SSJ_Common_Utils {
 
     /**
@@ -54,4 +56,11 @@ public class SSJ_Common_Utils {
             }
         }
     }
+
+    public static String getTextFromHeader(String h2Text) {
+        String xpathExpression = String.format("//h2[text()='%s']/following-sibling::span[1]", h2Text);
+        ElementHandle spanElement = page.querySelector(xpathExpression);
+        return spanElement.textContent();
+    }
+
 }

@@ -503,10 +503,49 @@ Would you like to log in now or go back to the home page?
     And edits an application for a vacancy that status is "Submitted"
     Then user sees a banner "You are editing a submitted application. Changes are not saved until the application is submitted again."
 
+  @TC_APPTRACK-127 @playwright @cabreralf @Progression @BUG_OPEN
+  Scenario Outline: Verify the edit application functionality from review application page
+    Given User is on SSJ Landing page and user is "OKTA_APPLICANT" - PW
+    When user navigates to Your Applications tab
+    And edits an application for a vacancy that status is "Draft"
+    And user verifies is on the "Application Documents" section of the vacancy application
+    And uploads cover letter if cover letter option is displayed
+    And uploads qualification statement if qualification statement is displayed
+    And uploads a Curriculum Vitae if Curriculum Vitae option is displayed
+    And uploads a Vision Statement if Vision Statement option is displayed
+    And clicks "Next"
+    And user verifies is on the "References" section of the vacancy application
+    And clicks "Next"
+    And user verifies is on the "Demographic Information" section of the vacancy application
+    And clicks "Next"
+    And user verifies is on the "Review" section of the vacancy application
+    And user clicks on "Demographics" Edit Section button
+    And user verifies is on the "Demographic Information" section of the vacancy application
+    And user makes changes to "<sex>", "<ethnicity>", "<race>", "<disabilitySeriousHealthCondition>"
+    And clicks "Next"
+    Then user verifies the updated "<sex>", "<ethnicity>", "<race>", "<disabilitySeriousHealthCondition>" values
+    And clicks "Back"
+    And user resets the demographics information for test to run again
+
+    Examples:
+      | sex    | ethnicity                | race                                      | disabilitySeriousHealthCondition                                                   |
+      | Male   | Hispanic or Latino       | Asian                                     | Missing an arm, leg, hand or foot                                                  |
+      | Female | Not Hispanic or Latino   | Black or African-American                 | Epilepsy or other seizure disorder                                                 |
+      | Female | Not Hispanic or Latino   | Native Hawaiian or other Pacific Islander | Deaf or serious difficulty hearing                                                 |
+      | Male   | Hispanic or Latino       | White                                     | Blind or serious difficulty seeing even when wearing glasses                       |
+      | Female | Not Hispanic or Latino   | American Indian or Alaska Native          | Traumatic brain injury                                                             |
+      | Female | Not Hispanic or Latino   | White                                     | Developmental disability: for example, cerebral palsy or autism spectrum disorder  |
+      | Male   | Hispanic or Latino       | Black or African-American                 | Paralysis: partial or complete paralysis (any cause)                               |
+      | Female | Not Hispanic or Latino   | American Indian or Alaska Native          | Intellectual disability (formerly described as mental retardation)                 |
+      | Male   | Hispanic or Latino       | White                                     | None of the conditions listed above apply to me.                                   |
+      | Female | Not Hispanic or Latino   | American Indian or Alaska Native          | I do not wish to answer questions regarding my disability/health conditions.       |
+      | Female | Not Hispanic or Latino   | Asian                                     | Other disability or serious health condition: for example, diabetes, cancer, cardiovascular disease, anxiety disorder or HIV infection; a learning disability, a speech impairment or a hearing impairment |
+      | Female | Hispanic or Latino       | Black or African-American                 | None of the conditions listed above apply to me.                                   |
+      | Female | Not Hispanic or Latino   | Asian                                     | I do not wish to answer questions regarding my disability/health conditions.       |
+
 
 
 #APPTRACK-370 - review
-#APPTRACK-127
 #APPTRACK-928
 #APPTRACK-928
 #APPTRACK-927
