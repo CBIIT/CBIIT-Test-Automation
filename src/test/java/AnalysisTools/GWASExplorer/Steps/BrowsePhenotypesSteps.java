@@ -4,7 +4,6 @@ import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.*;
-import org.testng.Assert;
 
 public class BrowsePhenotypesSteps extends PageInitializer {
 
