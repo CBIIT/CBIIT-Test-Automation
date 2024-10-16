@@ -7,12 +7,14 @@ import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class ESRApprovalStepsImplementation {
 
-    // Put Java Docs here
+    /**
+     * This method approves the ESR from a Federal Lead
+     */
     public static void federalLeadApproval() {
         page.frameLocator(CreateESRPage.iframeSelector).locator("#tabs2_list").getByText("Approvers (1)").click();
         page.frameLocator(CreateESRPage.iframeSelector).getByLabel("Requested - Open record:").click();
         page.frameLocator(CreateESRPage.iframeSelector).locator("#approve").click();
-        CommonUtils.sleep(1000);
+        CommonUtils.sleep(2000);
         page.frameLocator(CreateESRPage.iframeSelector).locator("#sysverb_update").click();
     }
 
@@ -20,7 +22,7 @@ public class ESRApprovalStepsImplementation {
      * This method confirms that the Federal Intake Approval is completed
      */
     public static void confirmFederalIntakeApprovalisCompleted() {
-        assertThat(page.frameLocator(CreateESRPage.iframeSelector).locator("//select[@aria-label='Stage']")).containsText("Engineering Project Execution");
+        assertThat(page.frameLocator(CreateESRPage.iframeSelector).locator("//select[@aria-label='Stage']")).containsText("ESR Board Intake Review");
     }
 
 }

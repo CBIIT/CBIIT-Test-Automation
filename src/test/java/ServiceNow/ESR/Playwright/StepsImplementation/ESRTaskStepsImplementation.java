@@ -100,6 +100,8 @@ public class ESRTaskStepsImplementation {
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Definition of Done")).fill("Test");
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Assumptions/Risks/Constraints")).click();
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Assumptions/Risks/Constraints")).fill("Test");
+        page.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@style='width: 100%; line-height: 32px;']/span)[7]").click();
+        page.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@style='width: 100%; line-height: 32px;']/span)[9]").click();
         page.frameLocator(CreateESRPage.iframeSelector).getByLabel("Catalog Task form section").getByLabel("State").selectOption("3");
         page.frameLocator(CreateESRPage.iframeSelector).locator("#sysverb_update").click();
     }
