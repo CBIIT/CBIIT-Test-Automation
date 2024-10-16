@@ -1,7 +1,7 @@
 Feature: ESR Approvals
   Description: This feature file contains scenarios relating to approvals in ESR tickets
 
-  @ESR-562 @sarwarahmed1 @Progression @playwright
+  @ESR-562 @sarwarahmed1 @Regression @playwright
   Scenario: Test the Federal Intake Approval in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
@@ -11,7 +11,7 @@ Feature: ESR Approvals
     And the user is approved from a federal lead
     Then the user confirms the Federal Intake Approval is completed
 
-  @ESR-563 @sarwarahmed1 @Progression @playwright
+  @ESR-563 @sarwarahmed1 @Regression @playwright
   Scenario: Test the Federal Intake Approval in an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR

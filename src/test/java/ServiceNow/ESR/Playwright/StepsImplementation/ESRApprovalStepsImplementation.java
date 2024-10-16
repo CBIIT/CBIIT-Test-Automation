@@ -24,5 +24,4 @@ public class ESRApprovalStepsImplementation {
     public static void confirmFederalIntakeApprovalisCompleted() {
         assertThat(page.frameLocator(CreateESRPage.iframeSelector).locator("//select[@aria-label='Stage']")).containsText("ESR Board Intake Review");
     }
-
 }
