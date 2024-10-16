@@ -4,6 +4,8 @@ import AnalysisTools.ACT24.Pages.*;
 import AnalysisTools.ACT24.StepsImpl.ACT24ParticipantStepImpl;
 import AnalysisTools.ACT24.StepsImpl.ACT24ResearcherStepImpl;
 import AnalysisTools.CometsExplorer.Pages.*;
+import AnalysisTools.CervicalCP.playwright.Pages.CCPHomePage;
+import AnalysisTools.CervicalCP.playwright.Pages.CCPRunScenarioPage;
 import AnalysisTools.CometsAnalytics.Pages.*;
 import AnalysisTools.CometsAnalytics.StepsImplementation.*;
 import AnalysisTools.GDSTracking.Pages.*;
@@ -49,6 +51,8 @@ import ServiceNow.CHARMS.Pages.*;
 import ServiceNow.CHARMS.ScenariosData.*;
 import ServiceNow.CHARMS.StepsImplementation.*;
 import ServiceNow.CHARMS.StepsImplementation.RASStudy.*;
+import ServiceNow.CICDBuild.Pages.*;
+import ServiceNow.CICDBuild.StepsImplementation.*;
 import ServiceNow.COVIDCode.Pages.*;
 import ServiceNow.COVIDCode.StepsImplementation.*;
 import ServiceNow.COVIDCode.StepsImplementation.DashboardStepImpl;
@@ -75,6 +79,7 @@ import appsCommon.Pages.NativeViewHomePage;
 import appsCommon.Pages.ServiceNow_NCISP_Page;
 import appsCommon.StepsImplementation.ITrustLoginPageImpl;
 import com.nci.automation.web.WebDriverUtils;
+
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
@@ -314,6 +319,10 @@ public class PageInitializer extends WebDriverUtils {
 	/** CProSite instances **/
 	public static CProSiteExplorePage cProSiteExplorePage;
 
+	/** Cervical Cancer Prevention instances **/
+	public static CCPRunScenarioPage ccpRunScenarioPage;
+	public static CCPHomePage ccpHomePage;
+
 	/** ACT24 instances **/
 	public static ACT24ParticipantPortalPage act24ParticipantPortalPage;
 	public static ACT24ResearcherPortalPage act24ResearcherPortalPage;
@@ -536,6 +545,10 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GDS Tracking Instance Variables **/
 		gdsLoginPage = new GDSLoginPage();
+
+		/** Cervical Cancer Prevention Instance Variables **/
+		ccpRunScenarioPage = new CCPRunScenarioPage();
+		ccpHomePage = new CCPHomePage();
 
 		/** LDLink Instance Variables **/
 		ldLinkHomePage = new LDLinkHomePage();

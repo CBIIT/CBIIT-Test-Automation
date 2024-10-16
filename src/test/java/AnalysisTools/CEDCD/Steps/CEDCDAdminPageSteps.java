@@ -2,12 +2,10 @@ package AnalysisTools.CEDCD.Steps;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import appsCommon.PageInitializers.PageInitializer;
-
 
 public class CEDCDAdminPageSteps extends PageInitializer {
 
@@ -75,7 +73,7 @@ public class CEDCDAdminPageSteps extends PageInitializer {
 		/** This step is confirming the Publishing of the cohort */
 		CommonUtils.sleep(1000);
 		CucumberLogUtils.logScreenshot();
-		Assert.assertTrue(cedcdAdminPage.publishCohortPopUp.isDisplayed());
+		CommonUtils.isElementDisplayed(cedcdAdminPage.publishCohortPopUp);
 		JavascriptUtils.clickByJS(cedcdAdminPage.publishButton);
 		CommonUtils.sleep(500);
 		CucumberLogUtils.logScreenshot();
@@ -88,6 +86,6 @@ public class CEDCDAdminPageSteps extends PageInitializer {
 
 	@Then("the timeout alert box is shown")
 	public void the_timeout_alert_box_is_shown() {
-		Assert.assertTrue(cedcdAdminPage.sessionTimeout.isDisplayed());
+		CommonUtils.isElementDisplayed(cedcdAdminPage.sessionTimeout);
 	}
 }

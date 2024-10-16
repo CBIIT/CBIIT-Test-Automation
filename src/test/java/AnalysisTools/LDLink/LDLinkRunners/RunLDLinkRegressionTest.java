@@ -12,6 +12,6 @@ import io.cucumber.testng.CucumberOptions;
 		, tags="@Regression"
 		, dryRun = false
 		)
-/* @author sohilz2 */
+
 public class RunLDLinkRegressionTest extends AbstractTestNGCucumberTests {
 }
