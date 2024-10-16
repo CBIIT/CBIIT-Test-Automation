@@ -10,9 +10,14 @@ public class ESRTaskSteps {
     public void user_clicks_on_intake_preparation_catalog_task() {
         ESRTaskStepsImplementation.clickOnIntakePreparationCatalogTask();
     }
-    @And("user fills out all required information for Intake Preparation")
-    public void user_fills_out_all_required_information_for_intake_preparation() {
-        ESRTaskStepsImplementation.fillOutAllRequiredInformationForIntakePreparation();
+    @And("user fills out all required information for ESR-Q Intake Preparation")
+    public void user_fills_out_all_required_information_for_esr_q_intake_preparation() {
+        ESRTaskStepsImplementation.fillOutAllRequiredInformationForESRQIntakePreparation();
+    }
+
+    @And("user fills out all required information for ESR-I Intake Preparation")
+    public void user_fills_out_all_required_information_for_esr_i_intake_preparation() {
+        ESRTaskStepsImplementation.fillOutAllRequiredInformationForESRIIntakePreparation();
     }
 
     @Then("the user confirms the Intake Preparation task is completed")

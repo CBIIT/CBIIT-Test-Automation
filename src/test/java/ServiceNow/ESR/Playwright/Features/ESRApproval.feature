@@ -1,20 +1,22 @@
-Feature: ESR Tasks
-  Description: This feature file contains scenarios relating to catalog tasks in ESR tickets
+Feature: ESR Approvals
+  Description: This feature file contains scenarios relating to approvals in ESR tickets
 
-  @ESR-560 @sarwarahmed1 @Regression @playwright
-  Scenario: Test the Intake Preparation catalog task in an ESR-Q ticket
+  @ESR-562 @sarwarahmed1 @Progression @playwright
+  Scenario: Test the Federal Intake Approval in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
     And fills out all required information for ESR-Q and clicks submit
     And user clicks on Intake Preparation catalog task
     And user fills out all required information for ESR-Q Intake Preparation
-    Then the user confirms the Intake Preparation task is completed
+    And the user is approved from a federal lead
+    Then the user confirms the Federal Intake Approval is completed
 
-  @ESR-561 @sarwarahmed1 @Regression @playwright
-  Scenario: Test the Intake Preparation catalog task in an ESR-I ticket
+  @ESR-563 @sarwarahmed1 @Progression @playwright
+  Scenario: Test the Federal Intake Approval in an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
     And fills out all required information for ESR-I and clicks submit
     And user clicks on Intake Preparation catalog task
     And user fills out all required information for ESR-I Intake Preparation
-    Then the user confirms the Intake Preparation task is completed
+    And the user is approved from a federal lead
+    Then the user confirms the Federal Intake Approval is completed
