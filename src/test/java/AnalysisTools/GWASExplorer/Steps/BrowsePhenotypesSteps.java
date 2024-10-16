@@ -17,6 +17,6 @@ public class BrowsePhenotypesSteps extends PageInitializer {
 
     @Then("browse phenotype page displays {string}")
     public void browse_phenotype_page_displays(String selectPhenotype) {
-        Assert.assertTrue(browsePhenotypesPage.txtSelectPhenotype.getText().contentEquals(selectPhenotype));
+        CommonUtils.assertTrue(browsePhenotypesPage.txtSelectPhenotype.getText().contentEquals(selectPhenotype));
     }
 }
