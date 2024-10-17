@@ -36,7 +36,7 @@ Feature: RAS Consent Scenarios
       | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | Complete      | Adult       | iMed                         | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
       | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | Complete      | Adult       | Mail/Fax/Email/Other         | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
-  @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3637 @CP2-3738 @CP2-3751 @CP2-3738 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3637 @CP2-3738 @CP2-3751 @CP2-3738 @CP2-3808 @CP2-3758 @selenium @RAS_Regression
   Scenario Outline: Verifying e-consent workflow for minors aged 11-13, and then verifying that Download Study Consent/Assent widgets show on portal and when clicked download the most recent Consent/Assent Record
     Given test automation account "<AccountResetScriptURL>" has been reset
     And a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
