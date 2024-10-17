@@ -24,9 +24,17 @@ public class SCAtlasCohortsPage extends CommonUtils {
     @FindBy(xpath = "(//button[contains(text(),'AAAS')])[1]")
     public WebElement aaasGeneResults;
 
-    /* This is the AAAS results Cell Count */
+    /* This is the RP11 results Cell Count */
     @FindBy(xpath = "//button[contains(text(),'RP11-1260E13.2')]")
     public WebElement rp11GeneResults;
+
+    /* This is the SS18L1 results Cell Count */
+    @FindBy(xpath = "//button[contains(text(),'SS18L1')]")
+    public WebElement ss18l1GeneResults;
+
+    /* This is the MCCC1 results Cell Count */
+    @FindBy(xpath = "//button[contains(text(),'MCCC1')]")
+    public WebElement mccc1GeneResults;
 
     public SCAtlasCohortsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);

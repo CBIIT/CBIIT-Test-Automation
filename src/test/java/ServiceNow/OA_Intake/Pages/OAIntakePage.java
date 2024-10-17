@@ -12,7 +12,7 @@ public class OAIntakePage {
 
     /** New request tab */
     @FindBy(xpath = "//div//h2[.='New Request']")
-    public WebElement newRequestTab;
+    public WebElement tabnNewRequest;
 
     /** New request page header */
     @FindBy(xpath = "//div//h3[contains(text(),'Office of Acquisitions (OA) New Request ')]")
@@ -161,4 +161,88 @@ public class OAIntakePage {
     /**Confirmation Modal Text draft Statement of Work and IGCE*/
     @FindBy(xpath = "//ul//li[contains(text(),'In order for your new requirement to be assigned, you must at a minimum submit a draft Statement of Work and IGCE!')]")
     public WebElement textConfModalDraftStWorkICGE;
+
+    /**OA Intake Page header*/
+    @FindBy(xpath = "//h1[.='Office of Acquisitions (OA) Portal']")
+    public WebElement pageHeaderOAIntake;
+
+    /**OA Intake Page header text*/
+    @FindBy(xpath = "//h3[.='Welcome to the National Cancer Institute Office of Acquisitions (OA)']")
+    public WebElement pageHeaderTextOAIntake;
+
+    /**OA Intake Page IMPORTANT text*/
+    @FindBy(xpath = "//h3[.='Welcome to the National Cancer Institute Office of Acquisitions (OA)']")
+    public WebElement importantTextOAIntake;
+
+    /**New Request tab*/
+    @FindBy(xpath = "//h2[.='New Request']")
+    public WebElement tabNewRequest;
+
+    /**CO/CS Queue tab*/
+    @FindBy(xpath = "//h2[.='CO/CS Queue']")
+    public WebElement tabCOCSQueue;
+
+    /**Requestor (Requested For) Queue tab*/
+    @FindBy(xpath = "//h2[.='Requestor (Requested For) Queue']")
+    public WebElement tabRequestorQueue;
+
+    /**Management Dashboard tab*/
+    @FindBy(xpath = "//h2[.='Management Dashboard']")
+    public WebElement tabManagementDashboard;
+
+    /**Leadership Queue(Pending Action) tab*/
+    @FindBy(xpath = "//h2[.='Leadership Queue (Pending Action)']")
+    public WebElement tabLeadershipQueue;
+
+    /**Menu dropdown*/
+    @FindBy(xpath = "//*[@id='x08f52ac01bb17550344042e2b24bcbe1']/li[1]/a")
+    public WebElement menuDrpdwn;
+
+    /**Menu Home option*/
+    @FindBy(xpath = "(//a[@class='ng-scope']//span[.='Home'])[1]")
+    public WebElement menuHome;
+
+    /**Menu Requestor Queue*/
+    @FindBy(xpath = "//a[@class='ng-scope']//span[.='Requestor (Requested For) Queue']")
+    public WebElement menuRequestorQueue;
+
+    /**Menu Leadership Queue*/
+    @FindBy(xpath = "//a[@class='ng-scope']//span[.='Leadership Queue (Pending Action)']")
+    public WebElement menuLeadershipQueue;
+
+    /**Menu Leadership Queue*/
+    @FindBy(xpath = "//a[@class='ng-scope']//span[.='CO/CS Queue']")
+    public WebElement menuCOCSQueue;
+
+    /**Menu Management Dashboard*/
+    @FindBy(xpath = "//a[@class='ng-scope']//span[.='Management Dashboard']")
+    public WebElement menuManagementDashboard;
+
+    /**Menu User Guide*/
+    @FindBy(xpath = "//a[@class='ng-scope']//span[.='User Guide']")
+    public WebElement menuUserGuide;
+
+    /**Instructions hyperlink*/
+    @FindBy(xpath = "//a[@href='/oa_intake?id=oa_intake_form_instructions']")
+    public WebElement hyperlinkInstructions;
+
+    /**Instructions page header*/
+    @FindBy(xpath = "//div//h2[contains(text(),'Instructional Page')]")
+    public WebElement pageHeaderInstructions;
+
+    /**home button*/
+    @FindBy(xpath = "//*[@id='x08f52ac01bb17550344042e2b24bcbe1']/li[3]/a")
+    public WebElement homeButton;
+
+    /**profile usrename*/
+    @FindBy(xpath = "(//div[@class='sub-avatar'])[1]")
+    public WebElement profileUsername;
+
+    /**profile Profile option*/
+    @FindBy(xpath = "//a[.='Profile']")
+    public WebElement profileProfileOption;
+
+    /**profile Log Out option*/
+    @FindBy(xpath = "(//a[.='Log out'])[1]")
+    public WebElement profileLogOutOption;
 }
