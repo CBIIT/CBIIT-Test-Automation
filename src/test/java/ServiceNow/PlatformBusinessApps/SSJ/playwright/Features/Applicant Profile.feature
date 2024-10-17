@@ -547,7 +547,6 @@ Would you like to log in now or go back to the home page?
 
 #APPTRACK-370 - review
 #APPTRACK-928
-#APPTRACK-928
 #APPTRACK-927
 #APPTRACK-1130
 #APPTRACK-594
