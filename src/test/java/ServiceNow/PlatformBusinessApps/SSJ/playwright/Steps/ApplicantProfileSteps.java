@@ -745,7 +745,6 @@ public class ApplicantProfileSteps {
     @When("user verifies is on the {string} section of the vacancy application")
     public void user_verifies_is_on_the_section_of_the_vacancy_application(String sectionTitle) {
         ApplicantProfileStepsImpl.user_verifies_is_on_the_section_of_the_vacancy_application(sectionTitle);
-
     }
 
     @When("user clicks on {string} Edit Section button")
@@ -757,7 +756,6 @@ public class ApplicantProfileSteps {
     public void user_makes_changes_to(String sex, String ethnicity, String race, String disabilitySeriousHealthCondition) {
         ApplicantProfileStepsImpl.user_makes_changes_to(sex,ethnicity,race,disabilitySeriousHealthCondition);
     }
-
 
     @Then("user verifies the updated {string}, {string}, {string}, {string} values")
     public void user_verifies_the_updated_values(String sex, String ethnicity, String race, String disabilitySeriousHealthCondition) {
