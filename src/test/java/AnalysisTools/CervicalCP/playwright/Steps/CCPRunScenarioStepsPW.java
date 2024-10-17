@@ -1,5 +1,6 @@
 package AnalysisTools.CervicalCP.playwright.Steps;
 
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.web.CommonUtils;
@@ -10,6 +11,20 @@ import io.cucumber.java.en.When;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class CCPRunScenarioStepsPW extends PlaywrightUtils {
+
+    @Given("the user is on the CCP home page")
+    public void the_user_is_on_the_ccp_home_page() {
+        PlaywrightUtils.page.navigate("https://globalcxca-stage.cancer.gov/");
+        assertThat(PlaywrightUtils.page.getByLabel("Select Language:")).isVisible();
+    }
+
+    @Then("the navbar reads {string}, {string}, {string}, {string} in order")
+    public void the_navbar_reads_in_order(String homeTab, String aboutTab, String runScenario, String compareScenario) {
+        assertThat(PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(homeTab))).isVisible();
+        assertThat(PlaywrightUtils.page.getByLabel("CC3S Navigation").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName(aboutTab))).isVisible();
+        assertThat(PlaywrightUtils.page.getByLabel("CC3S Navigation").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName(runScenario))).isVisible();
+        assertThat(PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(compareScenario))).isVisible();
+    }
 
     @Then("the translation drop down is displayed")
     public void the_translation_drop_down_is_displayed() {
@@ -90,5 +105,20 @@ public class CCPRunScenarioStepsPW extends PlaywrightUtils {
     @Then("the {string} is displayed")
         public void isSectionDisplayed(String sectionName) {
             // Code to check if section is displayed
+    }
+
+    @Given("the user is on the Compare Scenarios tab")
+    public void the_user_is_on_the_compare_scenarios_tab() {
+        //code pending
+    }
+
+    @When("the user adds {string}, {string}, {string} scenario files")
+    public void the_user_adds_scenario_files(String string, String string2, String string3) {
+        //code pending
+    }
+
+    @Then("the {string} link is displayed")
+    public void the_link_is_displayed(String string) {
+        //code pending
     }
 }
