@@ -1,9 +1,6 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.Utils;
 
-import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Vacancy_Dashboard_Page;
-import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import com.microsoft.playwright.ElementHandle;
-import com.microsoft.playwright.Locator;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import java.util.List;
