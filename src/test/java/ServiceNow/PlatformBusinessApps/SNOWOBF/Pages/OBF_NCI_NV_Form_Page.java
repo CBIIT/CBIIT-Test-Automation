@@ -30,7 +30,7 @@ public class OBF_NCI_NV_Form_Page {
     /***
      * OBF APP NATIVE VIEW OBF SYSTEMS SUPPORT SEARCH MENU ONESTREAM/BUS OPTION
      */
-    public static String obf_App_NV_OBF_Systems_Support_Search_Menu_OneStream_BUS_Option = "OneStream/BUS";
+    public static String obf_App_NV_OBF_Systems_Support_Search_Menu_OneStream_BUS_Option = "Budget Unification System (BUS)";
 
     /***
      * OBF APP NATIVE VIEW SEARCH FILTER MENU LOCATOR

@@ -29,11 +29,11 @@ public class GwasExplorerHomePage extends CommonUtils {
     /*** ABOUT TAB ELEMENTS ***/
 
     /** About Page Tab **/
-    @FindBy(xpath = "//*[@id='root']/div[1]/div[1]/div/div[6]/a")
+    @FindBy(xpath = "/html/body/main/div[1]/div[1]/div/div[3]/a")
     public WebElement lnkAbout;
 
     /** About Page Github Link **/
-    @FindBy(linkText = "GitHub")
+    @FindBy(xpath = "//a[contains(text(),'GitHub')]")
     public WebElement lnkGitHub;
 
     /*** HOME TAB ELEMENTS ***/

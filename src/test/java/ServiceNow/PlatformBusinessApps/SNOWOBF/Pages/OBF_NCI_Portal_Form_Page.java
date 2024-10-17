@@ -167,7 +167,7 @@ public class OBF_NCI_Portal_Form_Page {
     /***
      * OBF REQUEST FORM APPLICATION FIELD DROP DOWN SELECT OPTION ONESTREAM/BUS
      */
-    public static String obf_Request_Form_ApplicationFieldDropDownSelectOneStreamBus = "OneStream/BUS";
+    public static String obf_Request_Form_ApplicationFieldDropDownSelectOneStreamBus = "Budget Unification System (BUS)";
 
     /***
      * OBF REQUEST FORM TOPIC FIELD LOCATOR
