@@ -51,8 +51,6 @@ import ServiceNow.CHARMS.Pages.*;
 import ServiceNow.CHARMS.ScenariosData.*;
 import ServiceNow.CHARMS.StepsImplementation.*;
 import ServiceNow.CHARMS.StepsImplementation.RASStudy.*;
-import ServiceNow.CICDBuild.Pages.*;
-import ServiceNow.CICDBuild.StepsImplementation.*;
 import ServiceNow.COVIDCode.Pages.*;
 import ServiceNow.COVIDCode.StepsImplementation.*;
 import ServiceNow.COVIDCode.StepsImplementation.DashboardStepImpl;
