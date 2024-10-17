@@ -71,7 +71,3 @@ Feature: Create OA Intake form
     Then User can verify they are redirected to Home Page
     And User logs out of OA Intake application
 
-
-
-
-
