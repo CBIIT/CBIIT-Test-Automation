@@ -34,7 +34,13 @@ Feature: These are the scenarios that are under the Run Scenario tab on Cervical
     When the Triage slider is moved to "0"
     Then the Colposcopy value is still "0"
 
-  @forCoverage @NEEDTOCREATEONJIRA
+  @inProgress @matakevin @NCIATWP-6596 @playwright
+  Scenario: Verify compare scenario functionality
+    Given the user is on the Compare Scenarios tab
+    When the user adds "Compare Scenario 1.scenario", "Compare Scenario 2.scenario", "Compare Scenario 3.scenario" scenario files
+    Then the "Scenario Assumptions" link is displayed
+
+  @inProgress @forCoverage @NEEDTOCREATEONJIRA
   Scenario: Ensure the CIN and NIC values are present in English and Spanish
 #    Given the user is on Cervical CP Run Scenario page
 #    When the user opens the "Cervical screening test chosen" menu

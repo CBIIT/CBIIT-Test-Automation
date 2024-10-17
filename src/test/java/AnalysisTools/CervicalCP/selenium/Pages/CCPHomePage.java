@@ -12,6 +12,4 @@ public class CCPHomePage {
 
     @FindBy (xpath = "//select[@id='languageSelect']")
     public static WebElement translationDropdown;
-
-
 }
