@@ -12,5 +12,6 @@ import io.cucumber.testng.CucumberOptions;
         , tags = "@Smoke"
         , dryRun = false      
 )
+
 public class RunCometsAnalyticsSmokeTest extends AbstractTestNGCucumberTests{
 }
