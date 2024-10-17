@@ -17,10 +17,10 @@ public class JPSurvHomePage extends CommonUtils {
 	public String nonExampledicFilePath = "./src/test/resources/75surv_jpsurv_example_CTPR.dic";
 	public String nonExampletxtFilePath = "./src/test/resources/75surv_jpsurv_example_CTPR.txt";
 	public String csvFilePath = "./src/test/resources/Breast_RelativeSurvival_Head_NA0.csv";
-	public String workspaceFilePath = "./src/test/resources/6f0198be-e61b-4528-815d-5716267aa5cc-Tutorial_JPSURV_2.jpsurv";
-	public String nonExampleworkspaceFilePath = "./src/test/resources/1458ff97-5106-49ef-a3c4-9df94babe692-75surv_jpsurv_example_CTPR.jpsurv";
+	public String workspaceFilePath = "./src/test/resources/ced3c838-28b4-41d9-ab63-d00e2324aac3-Tutorial_JPSURV.jpsurv";
+	public String nonExampleworkspaceFilePath = "./src/test/resources/ced3c838-28b4-41d9-ab63-d00e2324aac3-Tutorial_JPSURV.jpsurv";
 
-	/** ===== Input Section ====== */
+	/* ===== Input Section ====== */
 
 	/** Files Format Text */
 	@FindBy(xpath = "//*[@id = 'inputTypeLabel'")
@@ -35,11 +35,11 @@ public class JPSurvHomePage extends CommonUtils {
 	public WebElement csvRadioBtn;
 
 	/** Work Space Radio Button */
-	@FindBy(xpath = "//*[@aria-label = 'importRadioButton'")
+	@FindBy(xpath = "//*[@aria-label = 'importRadioButton']")
 	public WebElement importRadioBtn;
 
 	/** SEER Stat Dictionary/Data Files */
-	@FindBy(xpath = "//*[@for='file-control'")
+	@FindBy(xpath = "//*[@for='file-control']")
 	public WebElement seerDictionaryDataFiletxt;
 
 	/** Dic Example Text **/
@@ -74,7 +74,11 @@ public class JPSurvHomePage extends CommonUtils {
 	@FindBy(xpath = "//label[normalize-space()='Workspace']")
 	public WebElement WorkspaceRadiobtn;
 
-	/** ====== Cohort Model and Specification ======= */
+	/** Collapse Icon Btn **/
+	@FindBy (xpath = "//i[@id='icon']")
+	public  WebElement collapseIcon;
+
+	/* ====== Cohort Model and Specification ======= */
 
 	/** Year of Diagnosis drop down **/
 	@FindBy(xpath = "//select[@id='selectYear']")
@@ -117,7 +121,7 @@ public class JPSurvHomePage extends CommonUtils {
 	public WebElement calculateButton;
 
 	/** Survival vs. Year at Diagnosis tab **/
-	@FindBy(xpath = "//ul[@id='jpsurv-tabs']//a[text()='Survival vs. Year at Diagnosis']")
+	@FindBy(xpath = "//*[@id='graph-year-link']")
 	public WebElement survivalVsYearAtDiagnosisTab;
 
 	/** Download full dataset button **/
@@ -162,8 +166,7 @@ public class JPSurvHomePage extends CommonUtils {
 	@FindBy(id = "1975")
 	public WebElement yearOfDiagnosed;
 
-	/**
-	 * ====== CSV Dropdown ===== */
+	/* ====== CSV Dropdown ===== */
 
 	/** age_rec drop down **/
 	@FindBy(xpath = "//th[@id='type_1']/select")

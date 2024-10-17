@@ -58,7 +58,7 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @Given("Submitter User clicks on New Request tab")
     public void submitter_user_clicks_on_new_request_tab() {
-        CommonUtils.clickOnElement(oaIntakePage.newRequestTab);
+        CommonUtils.clickOnElement(oaIntakePage.tabNewRequest);
     }
 
     /**
@@ -273,6 +273,165 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @When("Submitter User clicks on New Request button")
     public void submitter_user_clicks_on_new_request_button() {
-        CommonUtils.clickOnElement(oaIntakePage.newRequestTab);
+        CommonUtils.clickOnElement(oaIntakePage.tabNewRequest);
+    }
+
+    /**
+     * Leadership User logs in to OA Intake Portal
+     */
+    @Given("Leadership User logged in to OA Intake Portal")
+    public void leadership_user_logged_in_to_oa_intake_portal() {
+        oaIntakeStepsImplementation.oaIntakeLeadershipUserLogin();
+    }
+
+    /**
+     * User verifies the Home page header
+     */
+    @Then("User can verify the Home page header")
+    public void user_can_verify_the_home_page_header() {
+        CommonUtils.waitForVisibility(oaIntakePage.pageHeaderOAIntake);
+        Assert.assertTrue(oaIntakePage.pageHeaderOAIntake.isDisplayed());
+    }
+
+    /**
+     * User verifies the Home page header text
+     */
+    @Then("User can verify Home page header text")
+    public void user_can_verify_home_page_header_text() {
+        CommonUtils.waitForVisibility(oaIntakePage.pageHeaderTextOAIntake);
+        Assert.assertTrue(oaIntakePage.pageHeaderTextOAIntake.isDisplayed());
+    }
+
+    /**
+     * User verifies the text for Important info
+     */
+    @Then("User can verify text for Important info part")
+    public void user_can_verify_text_for_important_info_part() {
+        CommonUtils.waitForVisibility(oaIntakePage.importantTextOAIntake);
+        Assert.assertTrue(oaIntakePage.importantTextOAIntake.isDisplayed());
+    }
+
+    /**
+     * User verifies various tabs are displayed
+     * @param option
+     */
+    @Given("User can verify {string} tab is displayed")
+    public void user_can_verify_tab_is_displayed(String option) {
+        oaIntakeStepsImplementation.verifyTabDisplayed(option);
+    }
+
+    /**
+     * User clicks on Menu dropdown
+     */
+    @When("User clicks on Menu dropdown")
+    public void user_clicks_on_menu_dropdown() {
+     CommonUtils.clickOnElement(oaIntakePage.menuDrpdwn);
+    }
+
+    /**
+     *  Leadership User verifies Menu options are displayed
+     */
+    @Then("Leadership User can verify the menu options displayed")
+    public void leadership_user_can_verify_the_menu_options_displayed() {
+     CommonUtils.waitForVisibility(oaIntakePage.menuHome);
+     Assert.assertTrue(oaIntakePage.menuHome.isDisplayed());
+     CommonUtils.waitForVisibility(oaIntakePage.menuRequestorQueue);
+     Assert.assertTrue(oaIntakePage.menuRequestorQueue.isDisplayed());
+     CommonUtils.waitForVisibility(oaIntakePage.menuLeadershipQueue);
+     Assert.assertTrue(oaIntakePage.menuLeadershipQueue.isDisplayed());
+     CommonUtils.waitForVisibility(oaIntakePage.menuCOCSQueue);
+     Assert.assertTrue(oaIntakePage.menuCOCSQueue.isDisplayed());
+     CommonUtils.waitForVisibility(oaIntakePage.menuManagementDashboard);
+     Assert.assertTrue(oaIntakePage.menuManagementDashboard.isDisplayed());
+     CommonUtils.waitForVisibility(oaIntakePage.menuUserGuide);
+     Assert.assertTrue(oaIntakePage.menuUserGuide.isDisplayed());
+    }
+
+    /**
+     * User clicks on Instructions
+     */
+    @When("User clicks on Instructions")
+    public void user_clicks_on_instructions() {
+    CommonUtils.clickOnElement(oaIntakePage.hyperlinkInstructions);
+    }
+
+    /**
+     * User can verify they are redirected to Instructions page
+     */
+    @Then("User can verify they are redirected to Instructions page")
+    public void user_can_verify_they_are_redirected_to_instructions_page() {
+        ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
+        webDriver.switchTo().window(tabs.get(1));
+        Assert.assertTrue(oaIntakePage.pageHeaderInstructions.isDisplayed());
+        webDriver.close();
+        webDriver.switchTo().window(tabs.get(0));
+        CommonUtils.sleep(2000);
+    }
+
+    /**
+     * User clicks on New Request tab
+     */
+    @Then("User clicks on New Request tab")
+    public void user_clicks_on_new_request_tab() {
+        CommonUtils.clickOnElement(oaIntakePage.tabNewRequest);
+    }
+
+    /**
+     * User clicks on  OA Intake Home button
+     */
+    @When("User clicks on  OA Intake Home button")
+    public void user_clicks_on_oa_intake_home_button() {
+        CommonUtils.clickOnElement(oaIntakePage.homeButton);
+    }
+
+    /**
+     * User can verify they are redirected to Home Page
+     */
+    @Then("User can verify they are redirected to Home Page")
+    public void user_can_verify_they_are_redirected_to_home_page() {
+        CommonUtils.waitForVisibility(oaIntakePage.pageHeaderOAIntake);
+        Assert.assertTrue(oaIntakePage.pageHeaderOAIntake.isDisplayed());;
+    }
+
+    /**
+     * User clicks on their username
+     */
+    @When("User clicks on their username")
+    public void user_clicks_on_their_username() {
+        CommonUtils.clickOnElement(oaIntakePage.profileUsername);
+    }
+
+    /**
+     * User can see menu options as Profile and Log Out
+     */
+    @Then("User can see menu options as Profile and Log Out")
+    public void user_can_see_menu_options_as_profile_and_log_out() {
+        CommonUtils.waitForVisibility(oaIntakePage.profileProfileOption);
+        Assert.assertTrue(oaIntakePage.profileProfileOption.isDisplayed());
+        CommonUtils.waitForVisibility(oaIntakePage.profileLogOutOption);
+        Assert.assertTrue(oaIntakePage.profileLogOutOption.isDisplayed());
+    }
+
+    /**
+     * User logs out of OA Intake application
+     */
+    @Then("User logs out of OA Intake application")
+    public void user_logs_out_of_oa_intake_application() {
+        CommonUtils.clickOnElement(oaIntakePage.profileUsername);
+        CommonUtils.waitForVisibility(oaIntakePage.profileLogOutOption);
+        CommonUtils.clickOnElement(oaIntakePage.profileLogOutOption);
+    }
+
+    /**
+     * Submitter User can verify the menu options displayed
+     */
+    @Then("Submitter User can verify the menu options displayed")
+    public void submitter_user_can_verify_the_menu_options_displayed() {
+        CommonUtils.waitForVisibility(oaIntakePage.menuHome);
+        Assert.assertTrue(oaIntakePage.menuHome.isDisplayed());
+        CommonUtils.waitForVisibility(oaIntakePage.menuRequestorQueue);
+        Assert.assertTrue(oaIntakePage.menuRequestorQueue.isDisplayed());
+        CommonUtils.waitForVisibility(oaIntakePage.menuUserGuide);
+        Assert.assertTrue(oaIntakePage.menuUserGuide.isDisplayed());
     }
 }
