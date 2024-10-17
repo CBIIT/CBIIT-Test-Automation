@@ -503,7 +503,7 @@ Would you like to log in now or go back to the home page?
     And edits an application for a vacancy that status is "Submitted"
     Then user sees a banner "You are editing a submitted application. Changes are not saved until the application is submitted again."
 
-  @TC_APPTRACK-127 @playwright @cabreralf @Regression @BUG_OPEN @Progression
+  @TC_APPTRACK-127 @playwright @cabreralf @Regression @BUG_OPEN
   Scenario Outline: Verify the edit application functionality from review application page
     Given User is on SSJ Landing page and user is "OKTA_APPLICANT" - PW
     When user navigates to Your Applications tab
