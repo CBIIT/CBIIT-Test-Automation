@@ -276,7 +276,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static EZQTLAnalysesPage ezQTLAnalysesPage;
 	public static EZQTLDocumentationPage ezQTLDocumentationPage;
 	public static EZQTLPublicDataSourcePage ezQTLPublicDataSourcePage;
-	
+
 	/** GWAS Explorer instances **/
 	public static ExploreGWASPage exploreGWASPage;
 	public static BrowsePhenotypesPage browsePhenotypesPage;
