@@ -87,10 +87,70 @@ public class EgrantsQuickLinkAndManagementMenuPage {
 	public WebElement routeButton;
 
 	/**
-	 * TEST USER
+	 * ADMIN MENU
 	 */
-	@FindBy (xpath = "//div[3]/div[2]/div/div[3]/table/tbody/tr/td[2]/select/option[@value='3928']")
-	public WebElement testUser;
+	@FindBy (xpath = "//a[@title='Admin [shift + alt + A]']")
+	public WebElement adminMenu;
+
+	/**
+	 * MENU OPTIONS - ADMIN MENU
+	 */
+	@FindBy (xpath = "//select[@id='ddlMenus']")
+	public WebElement menuOptions;
+
+	/**
+	 * SETUP FLAGS LINK
+	 */
+	@FindBy (xpath = "//div/a[@href='/FlagMaintenance/To_Setup']")
+	public WebElement setupFlagsLink;
+
+	/**
+	 * FLAG TYPE
+	 */
+	@FindBy (xpath = "//select[@id='ddlFlagTypes']")
+	public WebElement flagType;
+
+	/**
+	 * SERIAL NUMBER TEXT BOX
+	 */
+	@FindBy (xpath = "//input[@id='txtSerialnum']")
+	public WebElement serialNumberTextBox;
+
+	/**
+	 * SETUP FLAG PAGE - SEARCH BUTTON
+	 */
+	@FindBy (xpath = "//div[@id='ShowSearch']")
+	public WebElement flagMaintenanceSearchButton;
+
+	/**
+	 * SETUP FLAG PAGE - YEAR 17 CHECKBOX
+	 */
+	@FindBy (xpath = "//tr/td/input[@id='10674535']")
+	public WebElement year17CheckBox;
+
+	/**
+	 * SETUP FLAG PAGE - SETUP FLAGS BUTTON
+	 */
+	@FindBy (xpath = "//button[@onclick='return setup_flags();']")
+	public WebElement setupFlagsButton;
+
+	/**
+	 * FLAG MAINTENANCE PAGE - SEARCH BUTTON
+	 */
+	@FindBy (xpath = "//button[@title='Click here to load available appls [shift + alt + S]']")
+	public WebElement searchButtonFlagMaintenance;
+
+	/**
+	 * FLAG MAINTENANCE PAGE - REMOVE BUTTON
+	 */
+	@FindBy (xpath = "//button[@title='Click here to remove selected flags [shift + alt + S]']")
+	public WebElement removeButtonFlagMaintenance;
+
+	/**
+	 * SETUP FLAG PAGE - YEAR 17 CHECKBOX
+	 */
+	@FindBy (xpath = "//tr/td/input[@id='15514']")
+	public WebElement year17CheckBoxRemoveFlag;
 
 	/**
 	 * THIS METHOD DYNAMICALLY LOCATES THE LOGGED IN USER NAME

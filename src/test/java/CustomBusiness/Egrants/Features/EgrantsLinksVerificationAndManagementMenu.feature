@@ -22,3 +22,23 @@ Feature: This Feature File contains Quick Link, logged in user verifications and
     And User clicks on To dropdown to select Quality Associates
     And User selects 10% of the documents
     Then User clicks on Route button to confirm the routing
+
+  @FlagMaintenance-Add @nesarh2 @selenium @Regression
+  Scenario: Test adding a flag to grant
+    Given User is on the Admin menu
+    And User selects Flag Maintenance from the dropdown
+    And User clicks on Setup Flag link
+    And User selects DS flag from the Flag Types
+    And User provides 125123 as the grant serial number
+    And User clicks on search button
+    And User selects grant year 17
+    Then User clicks on Setup Flags button to confirm adding DS flag for the selected grant year
+
+  @FlagMaintenance-Remove @nesarh2 @selenium @Regression
+  Scenario: Test removing a flag from a grant
+    Given User is on the Admin menu
+    And User selects Flag Maintenance from the dropdown
+    And User selects DS flag from the Flag Types
+    And User searches for 125123
+    And User selects grant year 17 from the search results
+    Then User clicks on Remove button to confirm removing the DS flag from the selected grant year

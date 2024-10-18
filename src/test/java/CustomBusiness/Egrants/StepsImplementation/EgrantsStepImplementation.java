@@ -8,7 +8,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
-import org.testng.Assert;
 import static com.nci.automation.web.TestProperties.getEGrantsUrl;
 
 public class EgrantsStepImplementation extends PageInitializer {
@@ -43,7 +42,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 				CommonUtils.switchToNextWindow();
 				String actualPMSPageTitle = WebDriverUtils.webDriver.getTitle();
 				String expectedPMSPageTitle = Egrants_Constants.PMS_PAGE_TITLE;
-				Assert.assertEquals(actualPMSPageTitle, expectedPMSPageTitle);
+				CommonUtils.assertEquals(actualPMSPageTitle, expectedPMSPageTitle);
 				CucumberLogUtils.logScreenshot();
 				CommonUtils.sleep(3000);
 				WebDriverUtils.webDriver.switchTo().window(emWindowHandle);
@@ -57,7 +56,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void verifies_that_the_logged_in_user_is_shown(String user) {
 		String actualUser = egrantsQuickLinkAndManagementMenuPage.dynamicUserTextLocator(user).getText();
-		Assert.assertEquals(actualUser, user);
+		CommonUtils.assertEquals(actualUser, user);
 		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
 	}
@@ -80,7 +79,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	public static void verifies_the_project_title_as() {
 		String actualProjectTitle = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.projectTitle);
 		String expectedProjectTitle = Egrants_Constants.PROJECT_TITLE;
-		Assert.assertEquals(actualProjectTitle, expectedProjectTitle);
+		CommonUtils.assertEquals(actualProjectTitle, expectedProjectTitle);
 		System.out.println(expectedProjectTitle);
 		CucumberLogUtils.logScreenshot();
 	}
@@ -91,7 +90,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	public static void verifies_the_institution_name_as() {
 		String actualInstitutionName = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.institutionName);
 		String expectedInstitutionName = Egrants_Constants.INSTITUTION_NAME;
-		Assert.assertEquals(actualInstitutionName, expectedInstitutionName);
+		CommonUtils.assertEquals(actualInstitutionName, expectedInstitutionName);
 		System.out.println(expectedInstitutionName);
 		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
@@ -112,7 +111,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void verifies_is_the_landed_grant_folder(String grantFolder) {
 		String actualFullGrantSerialNumber = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.fullGrantSerialNumber);
-		Assert.assertEquals(actualFullGrantSerialNumber, grantFolder);
+		CommonUtils.assertEquals(actualFullGrantSerialNumber, grantFolder);
 		System.out.println(grantFolder);
 		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
@@ -189,7 +188,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void verifies_the_success_message(String uploadSuccessMessage) {
 		String actualSuccessMessage = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.successMessage);
-		Assert.assertEquals(actualSuccessMessage, uploadSuccessMessage);
+		CommonUtils.assertEquals(actualSuccessMessage, uploadSuccessMessage);
 		System.out.println(uploadSuccessMessage);
 		CucumberLogUtils.logScreenshot();
 	}
@@ -526,7 +525,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void verifies_the_success_message_for_downloaded_files() {
 		CommonUtils.waitForVisibility(egrantsSearchandFileManagementScenariosPage.downloadSuccessMessage);
-		Assert.assertTrue(egrantsSearchandFileManagementScenariosPage.downloadSuccessMessage.isDisplayed());
+		CommonUtils.assertTrue(egrantsSearchandFileManagementScenariosPage.downloadSuccessMessage.isDisplayed());
 		CucumberLogUtils.logScreenshot();
 	}
 }
