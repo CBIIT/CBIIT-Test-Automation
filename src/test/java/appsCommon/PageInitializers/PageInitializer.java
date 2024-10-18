@@ -4,7 +4,6 @@ import AnalysisTools.ACT24.Pages.*;
 import AnalysisTools.ACT24.StepsImpl.ACT24ParticipantStepImpl;
 import AnalysisTools.ACT24.StepsImpl.ACT24ResearcherStepImpl;
 import AnalysisTools.CometsExplorer.Pages.*;
-import AnalysisTools.CervicalCP.selenium.Pages.*;
 import AnalysisTools.CometsAnalytics.Pages.*;
 import AnalysisTools.CometsAnalytics.StepsImplementation.*;
 import AnalysisTools.GDSTracking.Pages.*;
@@ -277,6 +276,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static EZQTLAnalysesPage ezQTLAnalysesPage;
 	public static EZQTLDocumentationPage ezQTLDocumentationPage;
 	public static EZQTLPublicDataSourcePage ezQTLPublicDataSourcePage;
+	
 	/** GWAS Explorer instances **/
 	public static ExploreGWASPage exploreGWASPage;
 	public static BrowsePhenotypesPage browsePhenotypesPage;
@@ -314,10 +314,6 @@ public class PageInitializer extends WebDriverUtils {
 
 	/** CProSite instances **/
 	public static CProSiteExplorePage cProSiteExplorePage;
-
-	/** Cervical Cancer Prevention instances **/
-	public static CCPRunScenarioPage ccpRunScenarioPage;
-	public static CCPHomePage ccpHomePage;
 
 	/** ACT24 instances **/
 	public static ACT24ParticipantPortalPage act24ParticipantPortalPage;
@@ -540,10 +536,6 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GDS Tracking Instance Variables **/
 		gdsLoginPage = new GDSLoginPage();
-
-		/** Cervical Cancer Prevention Instance Variables **/
-		ccpRunScenarioPage = new CCPRunScenarioPage();
-		ccpHomePage = new CCPHomePage();
 
 		/** LDLink Instance Variables **/
 		ldLinkHomePage = new LDLinkHomePage();
