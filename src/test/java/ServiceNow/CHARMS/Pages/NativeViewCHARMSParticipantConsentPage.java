@@ -29,7 +29,7 @@ public class NativeViewCHARMSParticipantConsentPage {
      * Native View Ras Study Consent version Calendar
      */
     @FindBy(xpath = "//*[@id='element.x_naci_family_coho_fcsms_consent.consent_version']//child::div[2]//child::span[1]//child::span[1]//child::a")
-    public WebElement rasStudyConsentCallScheduleVerionCalendar;
+    public WebElement rasStudyConsentCallScheduleVersionCalendar;
 
     /**
      * Native View Ras Study Consent Call Schedule Time Go To Today Button
@@ -65,6 +65,12 @@ public class NativeViewCHARMSParticipantConsentPage {
     public WebElement rasStudyConsentCurrentDropDown;
 
     /**
+     * Native View Ras Study Copy of Consent/Assent Provided Before Signing Drop Down
+     */
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_fcsms_consent.copy_of_consent_assent_provided']")
+    public WebElement rasStudyConsentCopyOfConsentAssentProvidedDropDown;
+
+    /**
      * Native View Ras Study Consent/Assent Status Drop Down
      */
     @FindBy(xpath = "//*[@id='x_naci_family_coho_fcsms_consent.participant_response']")
@@ -95,16 +101,34 @@ public class NativeViewCHARMSParticipantConsentPage {
     public WebElement rasStudyConsentParentGuardian2SignedDropDown;
 
     /**
-     * Native View Assent signed checkbox
+     * Native View Ras Study Assent signed checkbox
      */
     @FindBy(xpath = "//input[@id='ni.x_naci_family_coho_fcsms_consent.assent_signed']")
     public WebElement rasStudyAssentSignedCheckBox;
 
     /**
-     * Native View hidden Assent signed checkbox
+     * Native View Ras Study hidden Assent signed checkbox
      */
     @FindBy(xpath = "//input[@id='ni.x_naci_family_coho_fcsms_consent.assent_signed']")
     public WebElement rasStudyHiddenAssentSignedInput;
+
+    /**
+     * Native View Ras Study Interpreter Used? drop down
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_fcsms_consent.interpreter_used']")
+    public WebElement rasStudyConsentInterpreterUsedDropDown;
+
+    /**
+     * Native View Ras Study Interpreter Name or ID text field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_fcsms_consent.interpreter_name_or_id']")
+    public WebElement rasStudyConsentInterpreterNameOrIdTextField;
+
+    /**
+     * Native View Ras Study Interpreter Language text field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_fcsms_consent.interpreter_language']")
+    public WebElement rasStudyConsentInterpreterLanguageTextField;
 
     /**
      * Native View Ras Study Future Use Of Specimens and Data by NIH Drop Down
@@ -123,6 +147,12 @@ public class NativeViewCHARMSParticipantConsentPage {
      */
     @FindBy(xpath = "//*[@id='x_naci_family_coho_fcsms_consent.future_identifiable_use_by_collaborators']")
     public WebElement rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown;
+
+    /**
+     * Native View Ras Study Comments Text Area
+     */
+    @FindBy(xpath = "//textarea[@name='x_naci_family_coho_fcsms_consent.comments']")
+    public WebElement rasStudyConsentCommentsTextArea;
 
     /**
      * Native View Ras Study Call Complete Button
