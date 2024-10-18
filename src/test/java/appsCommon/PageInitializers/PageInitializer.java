@@ -138,6 +138,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static IIQ_Constants iiq_Constants;
 	public static TestAccountResetPage testAccountResetPage;
 	public static MyRASStudyConsentPage myRasStudyConsentPage;
+	public static MyRASStudyAssentPage myRASStudyAssentPage;
 	public static CGBIIQPage cgbIIQPage;
 	public static CGBIIQPages cGBIIQPages;
 	public static RAS_Survey_Page rAS_Survey_Page;
@@ -276,7 +277,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static EZQTLAnalysesPage ezQTLAnalysesPage;
 	public static EZQTLDocumentationPage ezQTLDocumentationPage;
 	public static EZQTLPublicDataSourcePage ezQTLPublicDataSourcePage;
-
 	/** GWAS Explorer instances **/
 	public static ExploreGWASPage exploreGWASPage;
 	public static BrowsePhenotypesPage browsePhenotypesPage;
@@ -363,10 +363,10 @@ public class PageInitializer extends WebDriverUtils {
 	/** ------------ MCA EXPLORER INSTANCES ------------*/
 	public static MCAExplorerPage mcaExplorerPage;
 	public static MCAExplorerStepImp mcaExplorerStepImp;
-	
+
 	/** --------------- THREEDVIZSNP INSTANCES --------*/
 	public static ThreeDVizSNPPage threeDVizSNPPage;
-	
+
 	/** ----------------- COMETS ANALYTICS INSTANCES -----*/
 	public static CometsAnalyticsPage cometsAnalyticsPage;
 	public static CometsAnalyticsStepImp cometsAnalyticsStepImp;
@@ -421,6 +421,7 @@ public class PageInitializer extends WebDriverUtils {
 		iiq_Constants = new IIQ_Constants();
 		testAccountResetPage = new TestAccountResetPage();
 		myRasStudyConsentPage = new MyRASStudyConsentPage();
+		myRASStudyAssentPage = new MyRASStudyAssentPage();
 		ras_Screener_TestDataManager = new RAS_Screener_TestDataManager();
 		ras_Survey_TestDataManager = new RAS_Survey_TestDataManager();
 		iiq_TestDataManager = new IIQ_TestDataManager();
@@ -668,10 +669,10 @@ public class PageInitializer extends WebDriverUtils {
 		/** MCAEXPLORER INSTANCE VARIABLES */
 		mcaExplorerPage = new MCAExplorerPage();
 		mcaExplorerStepImp = new MCAExplorerStepImp();
-		
+
 		/** THREEDVIZSNP INSTANCE VARIABLES  */
 		threeDVizSNPPage =  new ThreeDVizSNPPage();
-		
+
 		/** COMETS ANALYTICS INSTANCE VARIABLES */
 		cometsAnalyticsPage = new CometsAnalyticsPage();
 		cometsAnalyticsStepImp = new CometsAnalyticsStepImp();
