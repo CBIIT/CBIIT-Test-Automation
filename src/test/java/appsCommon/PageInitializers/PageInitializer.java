@@ -139,6 +139,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static IIQ_Constants iiq_Constants;
 	public static TestAccountResetPage testAccountResetPage;
 	public static MyRASStudyConsentPage myRasStudyConsentPage;
+	public static MyRASStudyAssentPage myRASStudyAssentPage;
 	public static CGBIIQPage cgbIIQPage;
 	public static CGBIIQPages cGBIIQPages;
 	public static RAS_Survey_Page rAS_Survey_Page;
@@ -315,10 +316,6 @@ public class PageInitializer extends WebDriverUtils {
 	/** CProSite instances **/
 	public static CProSiteExplorePage cProSiteExplorePage;
 
-	/** Cervical Cancer Prevention instances **/
-	public static CCPRunScenarioPage ccpRunScenarioPage;
-	public static CCPHomePage ccpHomePage;
-
 	/** ACT24 instances **/
 	public static ACT24ParticipantPortalPage act24ParticipantPortalPage;
 	public static ACT24ResearcherPortalPage act24ResearcherPortalPage;
@@ -425,6 +422,7 @@ public class PageInitializer extends WebDriverUtils {
 		iiq_Constants = new IIQ_Constants();
 		testAccountResetPage = new TestAccountResetPage();
 		myRasStudyConsentPage = new MyRASStudyConsentPage();
+		myRASStudyAssentPage = new MyRASStudyAssentPage();
 		ras_Screener_TestDataManager = new RAS_Screener_TestDataManager();
 		ras_Survey_TestDataManager = new RAS_Survey_TestDataManager();
 		iiq_TestDataManager = new IIQ_TestDataManager();
@@ -540,10 +538,6 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GDS Tracking Instance Variables **/
 		gdsLoginPage = new GDSLoginPage();
-
-		/** Cervical Cancer Prevention Instance Variables **/
-		ccpRunScenarioPage = new CCPRunScenarioPage();
-		ccpHomePage = new CCPHomePage();
 
 		/** LDLink Instance Variables **/
 		ldLinkHomePage = new LDLinkHomePage();
