@@ -15,6 +15,7 @@ Feature: All FHQ Child Record Producers submisiion and verification in the FHQ S
     And fills the First Name, First Initial of LAST name, Year of Birth, Vital Status,Year of Death, Age of Death information for the Child
     And fills the Sex assigned at birth, Gender Identity information
     And fills the Which best describes this relative? information
+    And fills Are any of the following individuals a biological parent of this child
     And fills the other biological parent of this relative
     And fills the Type of birth, Which best describes this child? information
     And fills Total Miscarriages, Total Still births, Total Induced Abortions, Total Tubal Ectopic Molar Pregnancies details of this child

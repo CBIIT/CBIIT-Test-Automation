@@ -2238,6 +2238,10 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//span[normalize-space()=\"Which best describes this relative?\"]")
 	public WebElement bestDescribeThisRelativeLabel;
 
+	/* CHILD RP: :Which best describes this relative? Label */
+	@FindBy(xpath = "//span[normalize-space()=\"Are any of the following individuals a biological parent of this child?\"]")
+	public WebElement biologicalParentOfThisChildLabel;
+
 	/*CHILD RP: Is the other biological parent of this relative one of the partners you have entered? Label*/
 	@FindBy(xpath = "//span[normalize-space()=\"Is the other biological parent of this relative one of the partners you have entered?\"]")
 	public WebElement isOtherBiologicalParentOfThisRelativeLabel;
@@ -2245,6 +2249,10 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	/* CHILD RP: Is the other biological parent of this relative one of the partners you have entered? DropDown */
 	@FindBy(xpath = "(//span[@id='select2-chosen-10'])[1]")
 	public WebElement isOtherBiologicalParentOfThisRelativeChildDropDown;
+
+	/* CHILD RP: If the partner name is not visible in the dropdown, that means the partner record is incomplete on the home page. Please return to the homepage and complete the partner record(s) before completing the children records. Banner */
+	@FindBy(xpath = "(//span[contains(text(),'If the partner name is not visible in the dropdown, that means the partner record is incomplete on the home page. Please return to the homepage and complete the partner record(s) before completing the children records.')])[1]")
+	public WebElement partnerDetailBanner;
 
 	/* CHILD RP: Which best describes this relative? DropDown */
 	@FindBy(xpath = "(//span[@id='select2-chosen-9'])[1]")
