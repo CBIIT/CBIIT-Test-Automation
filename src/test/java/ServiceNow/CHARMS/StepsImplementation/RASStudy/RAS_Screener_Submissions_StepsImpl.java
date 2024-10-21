@@ -818,7 +818,6 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
-
         if (sheetName.contentEquals("screenerScenario1")) {
             CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
             CucumberLogUtils.logScreenshot();
