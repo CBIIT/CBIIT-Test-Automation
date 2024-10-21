@@ -38,6 +38,7 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 	}
 
 	@Given("verifies the Child List View details")
+	/* verifies the Child List View details */
 	public void verifies_the_Child_List_View_details() {
 		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,"Family Cohort Study Management System: RASopathies");
 		ComponentTestResult homeButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.homeButton, "FHQ Home");

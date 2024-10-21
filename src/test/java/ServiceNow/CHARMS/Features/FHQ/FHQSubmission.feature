@@ -2,7 +2,7 @@
 Feature: FHQ Form Submission Scenarios
   Description:This feature file contains scenarios which submit FHQ Screener by Participant or Legal guardian of the participant in the portal and assertion of data in the NativeView
 
-  @jains @FHQSubmissionInPortal @CP2-562 @CP2-930 @CP2-559 @Regression1 @selenium
+  @jains @FHQSubmissionInPortal @CP2-562 @CP2-930 @CP2-559 @Regression @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for all the Relatives
     Given participant open RASopathies Longitudinal Cohort Study login page
     Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
@@ -66,7 +66,7 @@ Feature: FHQ Form Submission Scenarios
       | Email                | Password      | FHQScenario  | FHQRelative |
       | charmsras1@yahoo.com | RASTest2022$$ | FHQScenario1 | Children    |
 
-  @jains @FHQSubmissionInPortal @CP2-603 @CP2-1020 @Regression1 @selenium
+  @jains @FHQSubmissionInPortal @CP2-603 @CP2-1020 @Regression @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
     Given participant open RASopathies Longitudinal Cohort Study login page
     Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
