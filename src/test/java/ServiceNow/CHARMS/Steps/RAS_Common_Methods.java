@@ -105,6 +105,7 @@ public class RAS_Common_Methods extends PageInitializer {
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText);
         CucumberLogUtils.logScreenshot();
         CommonUtils.assertEqualsWithMessage(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), CHARMSRASScreenerConstants.CONSENT_ADDED_TEXT, "---- VERIFYING SCREENER RECORD RASOPATHY HISTORY DATA ----");
+
     }
 
     /**
@@ -348,5 +349,11 @@ public class RAS_Common_Methods extends PageInitializer {
             CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallCompleteButton);
         }
         CucumberLogUtils.logScreenshot();
+    }
+
+    public static void nativeViewConsentRecordCallSubmission(String sheetName) {
+        if (sheetName.contentEquals("rasAdultConsentRecord")) {
+
+        }
     }
 }

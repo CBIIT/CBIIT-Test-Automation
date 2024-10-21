@@ -13,9 +13,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
 import static ServiceNow.CHARMS.Pages.MyRASHomePage.dynamicModuleLocator;
 import static ServiceNow.CHARMS.Steps.RAS_Common_Methods.*;
 import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
@@ -502,6 +505,126 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterLanguageTextField.isDisplayed());
         CommonUtils.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterLanguageTextField.isEnabled());
         nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterLanguageTextField.sendKeys("English");
+        CucumberLogUtils.logScreenshot();
+    }
+
+
+    /**
+     * Logs in a Study Team member to the Native View and completes a consent call.
+     *
+     * @param sheetName the name of the sheet for which the consent is being processed
+     */
+    @When("Study Team member logs in to Native View and completes consent call {string} {string}")
+    public void study_team_member_logs_in_to_Native_View_and_completes_consent_call(String sheetName, String consentRecordSheetName) {
+        ras_NV_Consent_Record_TestDataManager.dataInitializerRasConsentRecord(consentRecordSheetName);
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        navigateToParticipantRecordInNativeView(sheetName);
+        submitParticipantForReviewAndEligibility();
+        /**
+         * BEGINNING: CONSENT FLOW PROCESS
+         */
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
+        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
+        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        if (ras_NV_Consent_Record_TestDataManager.RESPONSE_TYPE != null) {
+            CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown);
+            CommonUtils.selectDropDownValue(ras_NV_Consent_Record_TestDataManager.RESPONSE_TYPE, nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown);
+        }
+    }
+
+    /**
+     * Study Team member logs in to Native View and navigates to All Participant Details.
+     * This method is responsible for performing the steps to log in to the Native View as a Study Team member
+     * and navigating to the All Participant Details page.
+     * It first logs in using the nativeViewSideDoorLogin method from ServiceNow_Login_Methods class.
+     * Then it sleeps for 4 seconds before waiting for the visibility of the filterNavigatorTextBox element
+     * on the Native View SideDoor Dashboard page.
+     * The method uses the filterNavigatorTextBox element to enter "All Participant Details",
+     * logs a screenshot using CucumberLogUtils, then sleeps for 3 seconds.
+     * After that, it clicks on the allParticipantDetailsLink element, sleeps for 3 seconds again,
+     * switches to the nativeViewiFrame frame, sleeps for 2 seconds, and finally logs another screenshot.
+     */
+    @Given("Study Team member logs in to Native View and navigates to All Participant Details")
+    public void study_team_member_logs_in_to_native_view_and_navigates_to_all_participant_details() {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        CommonUtils.sleep(4000);
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(3000);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
+        CommonUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Given method to simulate a study team member clicking on the "Add New Participant" button and completing the form with provided details.
+     *
+     * @param study                 The study to be entered in the form.
+     * @param relationshipToProband The relationship to the proband to be selected from the dropdown.
+     * @param firstName             The first name of the participant to be entered in the form.
+     * @param lastName              The last name of the participant to be entered in the form.
+     */
+    @Given("Study Team member clicks Add New Participant and completes the form with:  FSID {string}, Study {string}, Relationship to Proband {string}, First Name {string}, Last Name {string}")
+    public void study_team_member_clicks_add_new_participant_and_completes_the_form(String existingFSID, String study, String relationshipToProband, String firstName, String lastName) {
+        CommonUtils.waitForClickability(nativeViewCHARMSDashboardPage.nativeViewAddNewParticipantButton);
+        nativeViewCHARMSDashboardPage.nativeViewAddNewParticipantButton.click();
+        CucumberLogUtils.logScreenshot();
+        if (!existingFSID.isEmpty()) {
+            nativeViewCHARMSAddNewParticipantPage.isThereAnExistingFSIDCheckbox.click();
+            CommonUtils.waitForVisibility(nativeViewCHARMSAddNewParticipantPage.FSIDToUseTextBox);
+            CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.FSIDToUseTextBox, existingFSID);
+        }
+        CommonUtils.clickOnElement(nativeViewCHARMSAddNewParticipantPage.unlockStudiesButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSAddNewParticipantPage.studiesTextBox);
+        CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studiesTextBox, study);
+        CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studiesTextBox, Keys.ENTER);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForClickability(nativeViewCHARMSAddNewParticipantPage.relationshipToProbandDropdown);
+        CommonUtils.selectDropDownValue(relationshipToProband, nativeViewCHARMSAddNewParticipantPage.relationshipToProbandDropdown);
+        if (existingFSID.isEmpty() && (relationshipToProband.equals("Other") || relationshipToProband.equals("Unknown"))) {
+            CommonUtils.waitForVisibility(nativeViewCHARMSAddNewParticipantPage.warningFSIDWillNotGenerateForOtherOrUnknownRelationshipText);
+            CommonUtils.assertEquals(nativeViewCHARMSAddNewParticipantPage.warningFSIDWillNotGenerateForOtherOrUnknownRelationshipText.getText(), "WARNING: FSID will not generate for Other or Unknown relationship. But if you have an existing FSID, you may go ahead to enter below and save the data.");
+            CucumberLogUtils.logScreenshot();
+        }
+        CommonUtils.scrollIntoView(nativeViewCHARMSAddNewParticipantPage.firstNameTextBox);
+        CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.firstNameTextBox, firstName);
+        CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.lastNameTextBox, lastName);
+        CommonUtils.clickOnElement(nativeViewCHARMSAddNewParticipantPage.saveRecordAndRemainHereButton);
+        if (existingFSID.isEmpty() && (relationshipToProband.equals("Other") || relationshipToProband.equals("Unknown"))) {
+            CommonUtils.waitForVisibility(nativeViewCHARMSAddNewParticipantPage.errorNewParticipantDataWillNOTBeSavedForOtherOrUnknownRelationshipText);
+            CommonUtils.assertEquals(nativeViewCHARMSAddNewParticipantPage.errorNewParticipantDataWillNOTBeSavedForOtherOrUnknownRelationshipText.getText(), "ERROR: New participant data will NOT be saved for Other or Unknown relationship");
+            CommonUtils.assertEquals(nativeViewCHARMSAddNewParticipantPage.subjectIDTextBox.getAttribute("value"), "");
+            CommonUtils.assertEquals(nativeViewCHARMSAddNewParticipantPage.firstNameTextBox.getAttribute("value"), "");
+            CucumberLogUtils.logScreenshot();
+        } else {
+            CommonUtils.waitForVisibility(nativeViewCHARMSAddNewParticipantPage.familyIDTextBox);
+            CommonUtils.assertEquals(nativeViewCHARMSAddNewParticipantPage.subjectIDTextBox.getAttribute("value").split("-")[0], nativeViewCHARMSAddNewParticipantPage.familyIDTextBox.getAttribute("value"));
+            CucumberLogUtils.logScreenshot();
+        }
+    }
+
+    /**
+     * This method represents the functionality where a Study Team member deletes a record in order to prepare for re-running a test.
+     * The method triggers the deletion of a record by clicking on the "delete" button and accepting the alert prompt that follows.
+     * In case of any exceptions during the deletion process, they are caught and no action is taken.
+     * Additionally, a screenshot of the current view is logged for reference using the CucumberLogUtils after the deletion process.
+     */
+    @Given("Study Team member deletes record so that the test can be run again")
+    public void study_team_member_deletes_record_so_that_the_test_can_be_run_again() {
+        try {
+            nativeViewCHARMSAddNewParticipantPage.deleteRecordButton.click();
+            CommonUtils.acceptAlert();
+        } catch (Exception e) {
+        }
         CucumberLogUtils.logScreenshot();
     }
 }

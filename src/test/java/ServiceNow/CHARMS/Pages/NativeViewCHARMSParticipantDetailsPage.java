@@ -31,6 +31,14 @@ public class NativeViewCHARMSParticipantDetailsPage {
     @FindBy(xpath = "//*[@id='x_naci_family_coho_family_history_details.x_naci_family_coho_fcsms_consent.family_member_table']//child::tbody//child::tr//child::td[2]//child::a")
     public WebElement nativeViewPatientDetailsConsentsPreviewButton;
 
+    /** Native View Participant Subject ID */
+    @FindBy(xpath = "//input[@id='sys_readonly.x_naci_family_coho_family_history_details.full_family_id']")
+    public WebElement nativeViewPatientDetailsSubjectID;
+
+    /** Native View Participant Family ID */
+    @FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_family_history_details.family']")
+    public WebElement nativeViewPatientDetailsFamilyID;
+
     public NativeViewCHARMSParticipantDetailsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

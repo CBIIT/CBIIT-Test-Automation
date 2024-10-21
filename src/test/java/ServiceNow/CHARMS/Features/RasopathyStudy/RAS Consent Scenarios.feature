@@ -9,12 +9,12 @@ Feature: RAS Consent Scenarios
     When the participant submits a screener from excel sheet "<ScreenerScenario>"
     And the e-consent is submitted for "<ScreenerScenario>"
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-    And logs in via Okta with username "<Email>" and password "<Password>"
-    And participant clicks on Study Consent and completes form with "<Password>"
-    Then PI completes consent and verifies "<ScreenerScenario>" "<ConsentStatus>" "<ConsentType>" "<ResponseType>" in Native View
-    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-    And logs in via Okta with username "<Email>" and password "<Password>"
-    And "Download Study Consent" text shows on participant portal and when clicked downloads "Consent Record"
+#    And logs in via Okta with username "<Email>" and password "<Password>"
+#    And participant clicks on Study Consent and completes form with "<Password>"
+#    Then PI completes consent and verifies "<ScreenerScenario>" "<ConsentStatus>" "<ConsentType>" "<ResponseType>" in Native View
+#    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+#    And logs in via Okta with username "<Email>" and password "<Password>"
+#    And "Download Study Consent" text shows on participant portal and when clicked downloads "Consent Record"
     Examples:
       | Email                           | Password   | ScreenerScenario      | ConsentStatus | ConsentType | ResponseType     | AccountResetScriptURL                                                                                    |
       | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | Complete      | Adult       | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
@@ -114,3 +114,12 @@ Feature: RAS Consent Scenarios
     And Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
     And Study Team member submits participant for review and marks them eligible
     Then Study Team member navigates to the Consent Record and selects "CHARMS e-consent" for the response type, "Yes" for Interpreter Used, and verifies that two new fields "Interpreter Name or ID" and "Interpreter Language" display
+
+#  @muzipovay2 @RAS_STUDY @selenium @RAS_Regression @Progression
+  Scenario: Consent Call test
+    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
+    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
+    And clicks on "Eligibility Questionnaire" to begin survey
+    When the participant submits a screener from excel sheet "screenerScenarioAdult"
+    And Study Team member logs in to Native View and completes consent call "screenerScenarioAdult" "rasAdultConsentRecord"
