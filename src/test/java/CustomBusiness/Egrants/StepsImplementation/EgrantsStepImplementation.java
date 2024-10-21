@@ -44,7 +44,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 				CommonUtils.switchToNextWindow();
 				String actualPMSPageTitle = WebDriverUtils.webDriver.getTitle();
 				String expectedPMSPageTitle = Egrants_Constants.PMS_PAGE_TITLE;
-				Hooks.softAssert.assertEquals(actualPMSPageTitle, expectedPMSPageTitle, "Page title does not match");
+				Hooks.softAssert.assertEquals(actualPMSPageTitle, expectedPMSPageTitle, "*** PAGE TITLE DOES NOT MATCH ***");
 				CucumberLogUtils.logScreenshot();
 				CommonUtils.sleep(3000);
 				WebDriverUtils.webDriver.switchTo().window(emWindowHandle);
@@ -58,7 +58,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void verifies_that_the_logged_in_user_is_shown(String user) {
 		String actualUser = egrantsQuickLinkAndManagementMenuPage.dynamicUserTextLocator(user).getText();
-		Hooks.softAssert.assertEquals(actualUser, user, "User name does not match");
+		Hooks.softAssert.assertEquals(actualUser, user, "*** USER NAME DOES NOT MATCH ***");
 		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
 	}
@@ -81,7 +81,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	public static void verifies_the_project_title_as() {
 		String actualProjectTitle = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.projectTitle);
 		String expectedProjectTitle = Egrants_Constants.PROJECT_TITLE;
-		Hooks.softAssert.assertEquals(actualProjectTitle, expectedProjectTitle, "Project title does not match");
+		Hooks.softAssert.assertEquals(actualProjectTitle, expectedProjectTitle, "*** PROJECT TITLE DOES NOT MATCH ***");
 		System.out.println(expectedProjectTitle);
 		CucumberLogUtils.logScreenshot();
 	}
@@ -92,7 +92,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	public static void verifies_the_institution_name_as() {
 		String actualInstitutionName = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.institutionName);
 		String expectedInstitutionName = Egrants_Constants.INSTITUTION_NAME;
-		Hooks.softAssert.assertEquals(actualInstitutionName, expectedInstitutionName, "Institution name does not match");
+		Hooks.softAssert.assertEquals(actualInstitutionName, expectedInstitutionName, "*** INSTITUTION NAME DOES NOT MATCH ***");
 		System.out.println(expectedInstitutionName);
 		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
@@ -113,7 +113,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void verifies_is_the_landed_grant_folder(String grantFolder) {
 		String actualFullGrantSerialNumber = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.fullGrantSerialNumber);
-		Hooks.softAssert.assertEquals(actualFullGrantSerialNumber, grantFolder, "Grant folder does not match");
+		Hooks.softAssert.assertEquals(actualFullGrantSerialNumber, grantFolder, "*** GRANT FOLDER DOES NOT MATCH ***");
 		System.out.println(grantFolder);
 		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
