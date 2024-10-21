@@ -2,8 +2,8 @@ name: CHARMS-RAS-REGRESSION
 
 on:
   schedule:
-    # This corresponds to 6:00 AM EDT (10:00 AM UTC)
-    - cron: '0 10 * * *'
+    # This corresponds to 6:00 AM EDT (10:00 AM UTC) from Monday to Friday
+    - cron: '0 10 * * MON-FRI'
   workflow_dispatch:
     inputs:
       testBrowser:
