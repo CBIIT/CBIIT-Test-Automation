@@ -2,8 +2,8 @@ name: PLATFORM BUSINESS - OBF SMOKE TESTS
 
 on:
   schedule:
-    # This corresponds to 5:30 AM EST (9:30 AM UTC)
-    - cron: '30 9 * * *'
+    # This corresponds to 5:30 AM EST (9:30 AM UTC) from Monday to Friday
+    - cron: '30 9 * * MON-FRI'
   workflow_dispatch:
     inputs:
       testBrowser:
