@@ -2221,7 +2221,6 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	/* *************************************************************** */
 	/* ********************* FHQ NEW CHILD RECORD PRODUCER *********** */
 	/* *************************************************************** */
-
 	/* CHILD RP: Banner(CHILD)(for Child to Patient) Page banner */
 	@FindBy(xpath = "(//h2[normalize-space()='Son/Daughter'])[1]")
 	public WebElement fHQChildBanner;
@@ -2235,15 +2234,15 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	public WebElement fHQChildBanner1;
 
 	/* CHILD RP: :Which best describes this relative? Label */
-	@FindBy(xpath = "//span[normalize-space()=\"Which best describes this relative?\"]")
+	@FindBy(xpath = "//span[normalize-space()='Which best describes this relative?']")
 	public WebElement bestDescribeThisRelativeLabel;
 
 	/* CHILD RP: :Which best describes this relative? Label */
-	@FindBy(xpath = "//span[normalize-space()=\"Are any of the following individuals a biological parent of this child?\"]")
+	@FindBy(xpath = "//span[normalize-space()='Are any of the following individuals a biological parent of this child?']")
 	public WebElement biologicalParentOfThisChildLabel;
 
 	/*CHILD RP: Is the other biological parent of this relative one of the partners you have entered? Label*/
-	@FindBy(xpath = "//span[normalize-space()=\"Is the other biological parent of this relative one of the partners you have entered?\"]")
+	@FindBy(xpath = "//span[normalize-space()='Is the other biological parent of this relative one of the partners you have entered?']")
 	public WebElement isOtherBiologicalParentOfThisRelativeLabel;
 
 	/* CHILD RP: Is the other biological parent of this relative one of the partners you have entered? DropDown */

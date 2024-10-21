@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 		"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 features = "src/test/java/ServiceNow/CHARMS/Features/FHQ",
 glue = {"ServiceNow.CHARMS.Steps", "Hooks"},
-tags = "@Regression",
+tags = "@FHQ_Regression",
 dryRun = false
 )
 public class RunCHARMSFHQRegressionTest extends AbstractTestNGCucumberTests{
