@@ -13,12 +13,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
-
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
 import static ServiceNow.CHARMS.Pages.MyRASHomePage.dynamicModuleLocator;
 import static ServiceNow.CHARMS.Steps.RAS_Common_Methods.*;
 import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
@@ -507,7 +504,6 @@ public class RAS_All_Steps extends PageInitializer {
         nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterLanguageTextField.sendKeys("English");
         CucumberLogUtils.logScreenshot();
     }
-
 
     /**
      * Logs in a Study Team member to the Native View and completes a consent call.

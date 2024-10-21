@@ -353,7 +353,6 @@ public class RAS_Common_Methods extends PageInitializer {
 
     public static void nativeViewConsentRecordCallSubmission(String sheetName) {
         if (sheetName.contentEquals("rasAdultConsentRecord")) {
-
         }
     }
 }
