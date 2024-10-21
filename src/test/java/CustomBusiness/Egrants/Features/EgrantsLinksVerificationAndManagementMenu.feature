@@ -6,7 +6,7 @@ Feature: This Feature File contains Quick Link, logged in user verifications and
   Scenario: Test Egrants Quick Links and logged in user
     And User expands Quick Links
     And User is able to navigate to "PMS" hyperlink
-    And verifies that the logged in user "Logged in as:Hamid Nesar" is shown
+    And verifies that the logged in user "Logged in as:Diego Juarez" is shown
 
   @QCAssignmentReport @nesarh2 @selenium @Regression
   Scenario: Test QC Assignment Report
