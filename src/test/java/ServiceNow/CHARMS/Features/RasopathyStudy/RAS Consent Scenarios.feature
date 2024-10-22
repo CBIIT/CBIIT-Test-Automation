@@ -115,7 +115,7 @@ Feature: RAS Consent Scenarios
     And Study Team member submits participant for review and marks them eligible
     Then Study Team member navigates to the Consent Record and selects "CHARMS e-consent" for the response type, "Yes" for Interpreter Used, and verifies that two new fields "Interpreter Name or ID" and "Interpreter Language" display
 
-  @muzipovay2 @RAS_STUDY @selenium @RAS_Regression @In-Progress
+  @muzipovay2 @RAS_STUDY @selenium @In-Progress
   Scenario: Consent Call
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
