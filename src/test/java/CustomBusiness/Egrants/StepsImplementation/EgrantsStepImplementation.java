@@ -9,7 +9,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
-
 import static com.nci.automation.web.TestProperties.getEGrantsUrl;
 
 public class EgrantsStepImplementation extends PageInitializer {
