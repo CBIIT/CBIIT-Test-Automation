@@ -3,7 +3,7 @@ Feature: All FHQ Child Record Producers submisiion and verification in the FHQ S
   
   Description: This feature file contains all scenarios which verify questionnaires for all FHQ Child Record Producers submisiion and verification
 
-  @jains @Regression
+  @jains @FHQ_Regression
   Scenario: FHQ Child Record
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -15,6 +15,7 @@ Feature: All FHQ Child Record Producers submisiion and verification in the FHQ S
     And fills the First Name, First Initial of LAST name, Year of Birth, Vital Status,Year of Death, Age of Death information for the Child
     And fills the Sex assigned at birth, Gender Identity information
     And fills the Which best describes this relative? information
+    And fills Are any of the following individuals a biological parent of this child
     And fills the other biological parent of this relative
     And fills the Type of birth, Which best describes this child? information
     And fills Total Miscarriages, Total Still births, Total Induced Abortions, Total Tubal Ectopic Molar Pregnancies details of this child
@@ -37,7 +38,7 @@ Feature: All FHQ Child Record Producers submisiion and verification in the FHQ S
     And click the new Child added and verify the completed record producer data
     And click the FHQ Home button
 
-  @jains @Regression
+  @jains @FHQ_Regression
   Scenario: FHQ Child Record
     Given a proband is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -47,7 +48,7 @@ Feature: All FHQ Child Record Producers submisiion and verification in the FHQ S
     And click the new Child added and verify the completed record producer data
     And click the FHQ Home button
 
-  @jains @Regression
+  @jains @FHQ_Regression
   Scenario: FHQ Parent Record
     Given a proband is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -56,7 +57,7 @@ Feature: All FHQ Child Record Producers submisiion and verification in the FHQ S
     And user clicks the Children Grid link on FHQ Grid page to land on the FHQ Childs list view page
     And click the new Child added and verify the completed record producer data
 
-  @jains @Regression
+  @jains @FHQ_Regression
   Scenario: FHQ Child Record
     Given a user is logged on FHQ Landing Page after filling out patient data using the Test Account credentials in Test side door login page
     And user clicks the Children Grid link on FHQ Grid page to land on the FHQ Childs list view page
