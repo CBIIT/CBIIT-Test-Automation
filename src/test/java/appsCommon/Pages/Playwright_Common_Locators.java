@@ -63,6 +63,6 @@ public class Playwright_Common_Locators {
      * @return the FrameLocator for the iframe
      */
     public static FrameLocator iframeLocator() {
-        return page.frameLocator("iframe[name=\"gsft_main\"]");
+        return page.frameLocator("iframe[name='gsft_main']");
     }
 }
