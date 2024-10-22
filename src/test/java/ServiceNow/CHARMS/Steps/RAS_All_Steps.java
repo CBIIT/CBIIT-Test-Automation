@@ -506,9 +506,10 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * Logs in a Study Team member to the Native View and completes a consent call.
+     * When Study Team member logs in to Native View and completes consent call with provided sheet names.
      *
-     * @param sheetName the name of the sheet for which the consent is being processed
+     * @param sheetName The name of the sheet containing participant record details.
+     * @param consentRecordSheetName The name of the sheet containing consent record details.
      */
     @When("Study Team member logs in to Native View and completes consent call {string} {string}")
     public void study_team_member_logs_in_to_Native_View_and_completes_consent_call(String sheetName, String consentRecordSheetName) {
