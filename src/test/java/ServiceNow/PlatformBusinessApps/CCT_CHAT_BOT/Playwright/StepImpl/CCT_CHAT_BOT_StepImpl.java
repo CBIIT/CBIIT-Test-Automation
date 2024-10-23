@@ -245,4 +245,32 @@ public class CCT_CHAT_BOT_StepImpl {
         cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(clinicalFellow)).click();
         CucumberLogUtils.playwrightScreenshot(cctChatBotWindow);
     }
+
+    /**
+     * selects "Outside the USA" for "Let's start with where do you plan to conduct your cancer research training?" Question
+     *
+     * @param outsideTheUSA The response to where the user plans to conduct cancer research training
+     * @param letsStartWithWhereDOYouPlanToConductYourCancerResearchTraining The initial chatbot question text
+     */
+    public static void selects_for(String outsideTheUSA, String letsStartWithWhereDOYouPlanToConductYourCancerResearchTraining) {
+        cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("span").filter(new Locator.FilterOptions().setHasText("Let's start with where do you")).click();
+        assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText(letsStartWithWhereDOYouPlanToConductYourCancerResearchTraining);
+        assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText(outsideTheUSA);
+        cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(outsideTheUSA)).click();
+        assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText(outsideTheUSA);
+        CucumberLogUtils.playwrightScreenshot(cctChatBotWindow);
+    }
+
+    /**
+     * Verifies that the "Global Research Training (D43)" text should appear in the chatbot chat window.
+     * It scrolls the chat window into view, checks if the text is present, and captures a screenshot.
+     *
+     * @param globalResearchTrainingD43 The text that is expected to appear in the chat window
+     */
+    public static void the_following_links_should_appear(String globalResearchTrainingD43) {
+        cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window").scrollIntoViewIfNeeded();
+        assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText(globalResearchTrainingD43);
+        CucumberLogUtils.playwrightScreenshot(cctChatBotWindow);
+    }
+
 }
