@@ -2,14 +2,8 @@ package ServiceNow.ESR.Playwright.StepsImplementation;
 
 import ServiceNow.ESR.Playwright.Pages.CreateESRPage;
 import appsCommon.Pages.Playwright_Common_Locators;
-import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
-import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
-import com.microsoft.playwright.impl.PlaywrightImpl;
 import com.microsoft.playwright.options.AriaRole;
-import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.PlaywrightUtils;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class ESRTaskStepsImplementation {

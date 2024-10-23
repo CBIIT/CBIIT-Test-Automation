@@ -1,7 +1,6 @@
 package ServiceNow.ESR.Playwright.StepsImplementation;
 
 import appsCommon.Pages.Playwright_Common_Locators;
-import com.nci.automation.web.CommonUtils;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class ESRApprovalStepsImplementation {
