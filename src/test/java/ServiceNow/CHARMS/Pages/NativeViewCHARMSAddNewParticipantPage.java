@@ -1,18 +1,11 @@
 package ServiceNow.CHARMS.Pages;
 
 import com.nci.automation.web.WebDriverUtils;
-import io.github.sukgu.support.FindElementBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class NativeViewCHARMSAddNewParticipantPage {
-
-    /**
-     *  Main Content iFrame
-     */
-    @FindElementBy(css = "iframe[title='Main Content']")
-    public static WebElement nativeViewiFrame;
 
     /**
      * Subject ID text box
