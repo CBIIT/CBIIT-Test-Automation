@@ -123,7 +123,6 @@ public class ESRTaskStepsImplementation {
      * Completes the ESR Board Intake Review catalog task
      */
     public static void completeESRBoardIntakeReviewCatalogTask() {
-        CommonUtils.sleep(3000);
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (2)").click();
         Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[1]").click();
         Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").fill("Kui Wu");
@@ -135,6 +134,6 @@ public class ESRTaskStepsImplementation {
      * Confirms that the ESR Board Intake Review catalog task is completed
      */
     public static void confirmESRBoardIntakeReviewCatalogTaskIsCompleted() {
-
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Approval']")).containsText("Requested");
     }
 }

@@ -19,7 +19,7 @@ Feature: ESR Tasks
     And user fills out all required information for ESR-I Intake Preparation
     Then the user confirms the Intake Preparation task is completed
 
-  @ESR-??? @sarwarahmed1 @Progression @playwright
+  @ESR-572 @sarwarahmed1 @Progression @playwright
   Scenario: Test the ESR Board Intake Review catalog task in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
@@ -30,7 +30,7 @@ Feature: ESR Tasks
     And ESR Board Intake Review catalog task is completed
     Then the user confirms the ESR Board Intake Review catalog task is completed
 
-  @ESR-??? @sarwarahmed1 @Proooogression @playwright
+  @ESR-573 @sarwarahmed1 @Progression @playwright
   Scenario: Test the ESR Board Intake Review catalog task in an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
