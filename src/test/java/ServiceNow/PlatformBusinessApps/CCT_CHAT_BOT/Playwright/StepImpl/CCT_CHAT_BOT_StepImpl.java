@@ -272,5 +272,4 @@ public class CCT_CHAT_BOT_StepImpl {
         assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText(globalResearchTrainingD43);
         CucumberLogUtils.playwrightScreenshot(cctChatBotWindow);
     }
-
 }

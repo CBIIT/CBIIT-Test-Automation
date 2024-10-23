@@ -71,7 +71,6 @@ Feature: CCT CHAT BOT Scenarios
     And the link to "NCI Mentored Research Scientist Development Award (K01)" as "https://www.cancer.gov/grants-training/training/funding/k01" should be clickable
     And the "NCI Mentored Research Scientist Development Award (K01)" link should open in a new tab
 
-
   @SNOWPROJ-35 @Chaudhryma @Chaudhryma @Regression @playwright
   Scenario: Test 1: Verify that the Global Research Training (D43) link appears
     Given the user opens the Find Funding Chatbot on the NV
@@ -80,7 +79,6 @@ Feature: CCT CHAT BOT Scenarios
     And selects "Outside the USA" for "Let's start with where do you plan to conduct your cancer research training?"
     When the user selects "Yes" for Q5 "Do you consider yourself to belong to an underrepresented group in the biomedical research workforce?"
     Then the following links should appear "Global Research Training (D43)"
-
 
   @SNOWPROJ-35 @Chaudhryma @Chaudhryma @Regression @playwright
   Scenario: Test 2: Verify that the Global Research Training (D43) link appears
