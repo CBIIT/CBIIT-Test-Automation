@@ -72,7 +72,7 @@ Feature: CCT CHAT BOT Scenarios
     And the "NCI Mentored Research Scientist Development Award (K01)" link should open in a new tab
 
 
-  @SNOWPROJ-35 @Chaudhryma @Chaudhryma @Progression @playwright
+  @SNOWPROJ-35 @Chaudhryma @Chaudhryma @Regression @playwright
   Scenario: Verify that the Global Research Training (D43) link appears
     Given the user opens the Find Funding Chatbot on the NV
     When selects Yes to Q1 regarding finding funding opportunities
@@ -82,7 +82,7 @@ Feature: CCT CHAT BOT Scenarios
     Then the following links should appear "Global Research Training (D43)"
 
 
-  @SNOWPROJ-35 @Chaudhryma @Chaudhryma @Progression @playwright @In-Progress
+  @SNOWPROJ-35 @Chaudhryma @Chaudhryma @Regression @playwright
   Scenario: Verify that the Global Research Training (D43) link appears
     Given the user opens the Find Funding Chatbot on the NV
     When selects Yes to Q1 regarding finding funding opportunities
