@@ -12,7 +12,7 @@ public class CreateESRPage {
     public static String filterBoxNativeView = "Filter";
 
     /* FRAME SELECTOR IN NATIVE VIEW PAGES OR APPLICATIONS */
-    public static String iframeSelector = "iframe[name=\"gsft_main\"]";
+    public static String iframeSelector = "iframe[name='gsft_main']";
 
     /* ENGINEERING SUPPORT REQUESTS MODULE */
     public static String fullESRText = "Engineering Support Request";
