@@ -7,35 +7,51 @@ import org.openqa.selenium.support.PageFactory;
 
 public class NativeViewCHARMSParticipantDetailsPage {
 
-    /** Native View Participant Details Submit For Eligibility Review Button */
+    /**
+     * Native View Participant Details Submit For Eligibility Review Button
+     */
     @FindBy(xpath = "//*[@id='study_panel_review']")
     public WebElement nativeViewPatientDetailsSubmitForEligibilityButton;
 
-    /** Native View Subject Flag Button */
+    /**
+     * Native View Subject Flag Button
+     */
     @FindBy(xpath = "//*[@id='tabs2_section']//child::span[6]//child::span")
     public WebElement nativeSubjectFlagButton;
 
-    /** Native View Participant Details Mark As Eligible Button */
+    /**
+     * Native View Participant Details Mark As Eligible Button
+     */
     @FindBy(xpath = "//*[@id='mark_eligible']")
     public WebElement nativeViewPatientDetailsMarkEligibleButton;
 
-    /** Native View Participant Consent added Text */
+    /**
+     * Native View Participant Consent added Text
+     */
     @FindBy(xpath = "//*[@id='output_messages']/div/div/div")
     public WebElement nativeViewPatientDetailsConsentAddedText;
 
-    /** Native View Participant Consents Button */
+    /**
+     * Native View Participant Consents Button
+     */
     @FindBy(xpath = "//span[normalize-space()='Consents (1)']")
     public WebElement nativeViewPatientDetailsConsentsTab;
 
-    /** Native View Participant Consents Preview Button */
+    /**
+     * Native View Participant Consents Preview Button
+     */
     @FindBy(xpath = "//*[@id='x_naci_family_coho_family_history_details.x_naci_family_coho_fcsms_consent.family_member_table']//child::tbody//child::tr//child::td[2]//child::a")
     public WebElement nativeViewPatientDetailsConsentsPreviewButton;
 
-    /** Native View Participant Subject ID */
+    /**
+     * Native View Participant Subject ID
+     */
     @FindBy(xpath = "//input[@id='sys_readonly.x_naci_family_coho_family_history_details.full_family_id']")
     public WebElement nativeViewPatientDetailsSubjectID;
 
-    /** Native View Participant Family ID */
+    /**
+     * Native View Participant Family ID
+     */
     @FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_family_history_details.family']")
     public WebElement nativeViewPatientDetailsFamilyID;
 
