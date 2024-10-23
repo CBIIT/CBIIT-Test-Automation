@@ -40,6 +40,7 @@ public class RAS_NV_Consent_Record_TestDataManager extends PageInitializer {
     public String SENT_TO_MEDIDATA;
 
     public void dataInitializerRasConsentRecord(String sheetName) {
+
         /**
          * FETCHING DATA FROM EXCEL SHEET BEFORE SUBMITTING CONSENT CALL
          */
@@ -61,7 +62,6 @@ public class RAS_NV_Consent_Record_TestDataManager extends PageInitializer {
         if (sheetName.equals("screenerScenarioAge14-17")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_14_17_DATA, sheetName);
         }
-
         CONSENT_CALL_SCHEDULED_TIME = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Consent call scheduled time");
         CONSENT_CALL_DATE = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Consent Call Date");
         COHORT = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Cohort");
