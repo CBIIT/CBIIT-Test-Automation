@@ -86,4 +86,14 @@ public class CCT_CHAT_BOT_Steps {
     public void user_selects_for_question2_regarding_career_stage(String clinicalFellow) {
         CCT_CHAT_BOT_StepImpl.user_selects_for_question2_regarding_career_stage(clinicalFellow);
     }
+
+    @When("selects {string} for {string}")
+    public void selects_for(String outsideTheUSA, String letsStartWithWhereDOYouPlanToConductYourCancerResearchTraining) {
+        CCT_CHAT_BOT_StepImpl.selects_for(outsideTheUSA, letsStartWithWhereDOYouPlanToConductYourCancerResearchTraining);
+    }
+
+    @Then("the following links should appear {string}")
+    public void the_following_links_should_appear(String globalResearchTrainingD43) {
+        CCT_CHAT_BOT_StepImpl.the_following_links_should_appear(globalResearchTrainingD43);
+    }
 }
