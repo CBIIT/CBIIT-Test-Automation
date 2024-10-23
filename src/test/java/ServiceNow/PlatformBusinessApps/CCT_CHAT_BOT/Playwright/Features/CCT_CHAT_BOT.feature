@@ -73,7 +73,7 @@ Feature: CCT CHAT BOT Scenarios
 
 
   @SNOWPROJ-35 @Chaudhryma @Chaudhryma @Regression @playwright
-  Scenario: Verify that the Global Research Training (D43) link appears
+  Scenario: Test 1: Verify that the Global Research Training (D43) link appears
     Given the user opens the Find Funding Chatbot on the NV
     When selects Yes to Q1 regarding finding funding opportunities
     And selects "Established Investigator" for Q2 regarding career stage
@@ -83,7 +83,7 @@ Feature: CCT CHAT BOT Scenarios
 
 
   @SNOWPROJ-35 @Chaudhryma @Chaudhryma @Regression @playwright
-  Scenario: Verify that the Global Research Training (D43) link appears
+  Scenario: Test 2: Verify that the Global Research Training (D43) link appears
     Given the user opens the Find Funding Chatbot on the NV
     When selects Yes to Q1 regarding finding funding opportunities
     And selects "Established Investigator" for Q2 regarding career stage
