@@ -12,8 +12,7 @@ public class ESRApprovalStepsImplementation {
     public static void federalLeadApproval() {
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (1)").click();
         Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
-        Playwright_Common_Locators.iframeLocator().locator("#approve").click();
-        CommonUtils.sleep(2000);
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
     }
 

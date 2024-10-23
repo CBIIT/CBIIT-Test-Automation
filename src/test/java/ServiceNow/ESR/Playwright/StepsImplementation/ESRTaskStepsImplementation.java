@@ -2,9 +2,13 @@ package ServiceNow.ESR.Playwright.StepsImplementation;
 
 import ServiceNow.ESR.Playwright.Pages.CreateESRPage;
 import appsCommon.Pages.Playwright_Common_Locators;
+import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
+import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
+import com.microsoft.playwright.impl.PlaywrightImpl;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.PlaywrightUtils;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
@@ -120,8 +124,9 @@ public class ESRTaskStepsImplementation {
      */
     public static void completeESRBoardIntakeReviewCatalogTask() {
         CommonUtils.sleep(3000);
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (2)").click();
         Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[1]").click();
-        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Assigned to")).fill("Kui Wu");
+        Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").fill("Kui Wu");
         Playwright_Common_Locators.iframeLocator().getByLabel("Catalog Task form section").getByLabel("State").selectOption("3");
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
     }
