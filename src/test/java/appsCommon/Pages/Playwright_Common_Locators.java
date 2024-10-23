@@ -2,6 +2,7 @@ package appsCommon.Pages;
 
 import com.microsoft.playwright.ElementHandle;
 import static com.nci.automation.web.PlaywrightUtils.page;
+import com.microsoft.playwright.FrameLocator;
 
 public class Playwright_Common_Locators {
 
@@ -54,5 +55,14 @@ public class Playwright_Common_Locators {
             return null;
         }
         return element.textContent();
+    }
+
+    /**
+     * Returns the FrameLocator for the iframe in native view pages or applications.
+     *
+     * @return the FrameLocator for the iframe
+     */
+    public static FrameLocator iframeLocator() {
+        return page.frameLocator("iframe[name='gsft_main']");
     }
 }

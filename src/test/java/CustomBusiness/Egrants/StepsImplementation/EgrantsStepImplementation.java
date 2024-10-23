@@ -2,13 +2,13 @@ package CustomBusiness.Egrants.StepsImplementation;
 
 import CustomBusiness.Egrants.Pages.EgrantsQuickLinkAndManagementMenuPage;
 import CustomBusiness.Egrants.Utils.Egrants_Constants;
+import Hooks.Hooks;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
-import org.testng.Assert;
 import static com.nci.automation.web.TestProperties.getEGrantsUrl;
 
 public class EgrantsStepImplementation extends PageInitializer {
@@ -43,7 +43,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 				CommonUtils.switchToNextWindow();
 				String actualPMSPageTitle = WebDriverUtils.webDriver.getTitle();
 				String expectedPMSPageTitle = Egrants_Constants.PMS_PAGE_TITLE;
-				Assert.assertEquals(actualPMSPageTitle, expectedPMSPageTitle);
+				Hooks.softAssert.assertEquals(actualPMSPageTitle, expectedPMSPageTitle, "*** PAGE TITLE DOES NOT MATCH ***");
 				CucumberLogUtils.logScreenshot();
 				CommonUtils.sleep(3000);
 				WebDriverUtils.webDriver.switchTo().window(emWindowHandle);
@@ -57,7 +57,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void verifies_that_the_logged_in_user_is_shown(String user) {
 		String actualUser = egrantsQuickLinkAndManagementMenuPage.dynamicUserTextLocator(user).getText();
-		Assert.assertEquals(actualUser, user);
+		Hooks.softAssert.assertEquals(actualUser, user, "*** USER NAME DOES NOT MATCH ***");
 		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
 	}
@@ -80,7 +80,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	public static void verifies_the_project_title_as() {
 		String actualProjectTitle = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.projectTitle);
 		String expectedProjectTitle = Egrants_Constants.PROJECT_TITLE;
-		Assert.assertEquals(actualProjectTitle, expectedProjectTitle);
+		Hooks.softAssert.assertEquals(actualProjectTitle, expectedProjectTitle, "*** PROJECT TITLE DOES NOT MATCH ***");
 		System.out.println(expectedProjectTitle);
 		CucumberLogUtils.logScreenshot();
 	}
@@ -91,7 +91,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	public static void verifies_the_institution_name_as() {
 		String actualInstitutionName = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.institutionName);
 		String expectedInstitutionName = Egrants_Constants.INSTITUTION_NAME;
-		Assert.assertEquals(actualInstitutionName, expectedInstitutionName);
+		Hooks.softAssert.assertEquals(actualInstitutionName, expectedInstitutionName, "*** INSTITUTION NAME DOES NOT MATCH ***");
 		System.out.println(expectedInstitutionName);
 		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
@@ -112,7 +112,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void verifies_is_the_landed_grant_folder(String grantFolder) {
 		String actualFullGrantSerialNumber = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.fullGrantSerialNumber);
-		Assert.assertEquals(actualFullGrantSerialNumber, grantFolder);
+		Hooks.softAssert.assertEquals(actualFullGrantSerialNumber, grantFolder, "*** GRANT FOLDER DOES NOT MATCH ***");
 		System.out.println(grantFolder);
 		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
@@ -189,7 +189,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void verifies_the_success_message(String uploadSuccessMessage) {
 		String actualSuccessMessage = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.successMessage);
-		Assert.assertEquals(actualSuccessMessage, uploadSuccessMessage);
+		Hooks.softAssert.assertEquals(actualSuccessMessage, uploadSuccessMessage);
 		System.out.println(uploadSuccessMessage);
 		CucumberLogUtils.logScreenshot();
 	}
@@ -526,7 +526,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void verifies_the_success_message_for_downloaded_files() {
 		CommonUtils.waitForVisibility(egrantsSearchandFileManagementScenariosPage.downloadSuccessMessage);
-		Assert.assertTrue(egrantsSearchandFileManagementScenariosPage.downloadSuccessMessage.isDisplayed());
+		Hooks.softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.downloadSuccessMessage.isDisplayed());
 		CucumberLogUtils.logScreenshot();
 	}
 }
