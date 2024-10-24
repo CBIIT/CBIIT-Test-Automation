@@ -25,4 +25,14 @@ public class ESRTaskSteps {
     public void the_user_confirms_the_intake_preparation_task_is_completed() {
         ESRTaskStepsImplementation.confirmIntakePreparationTaskIsCompleted();
     }
+
+    @And("ESR Board Intake Review catalog task is completed")
+    public void esr_board_intake_review_catalog_task_is_completed() {
+        ESRTaskStepsImplementation.completeESRBoardIntakeReviewCatalogTask();
+    }
+
+    @Then("the user confirms the ESR Board Intake Review catalog task is completed")
+    public void the_user_confirms_the_esr_board_intake_review_catalog_task_is_completed() {
+        ESRTaskStepsImplementation.confirmESRBoardIntakeReviewCatalogTaskIsCompleted();
+    }
 }
