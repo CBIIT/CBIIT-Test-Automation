@@ -126,7 +126,7 @@ public class TestProperties {
     /**
      * NIFE URLS
      */
-    public static final String NIFE_TEST_URL = "https://nife-qa.cancer.gov/";
+    public static final String NIFE_TEST_URL = "https://nife-dev.cancer.gov/";
     public static final String NIFE_STAGE_URL = "https://nife-stage.cancer.gov/";
     public static String NIFE_URL;
 

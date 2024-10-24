@@ -65,7 +65,7 @@ public class FORGEdb_Constants {
     /***
      * UCSC GENOME PAGE TITLE
      */
-    public static String UCSC_GENOME_PAGE_TITLE = "Human hg19 chr7:155592223-155605565 UCSC Genome Browser v471";
+    public static String UCSC_GENOME_PAGE_TITLE = "Human hg19 chr7:155592223-155605565 UCSC Genome Browser v472";
 
     /***
      * FORGEDB RESULT TEXT IN ABOUT TAB

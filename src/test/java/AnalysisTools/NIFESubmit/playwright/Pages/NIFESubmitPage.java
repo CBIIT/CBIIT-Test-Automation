@@ -100,7 +100,7 @@ public class NIFESubmitPage {
     /***
      * VOLUME ELECTRON MICROSCOPY LOCATOR
      */
-    public static String volumeElectronMicroscopy = "Volume Electron Microscopy";
+    public static String volumeElectronMicroscopy = "Volume Electron Microscopy Facility";
 
     /***
      * OPTICAL MICROSCOPY AND IMAGE LOCATOR

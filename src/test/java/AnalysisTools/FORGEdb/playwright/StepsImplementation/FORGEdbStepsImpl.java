@@ -13,7 +13,6 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class FORGEdbStepsImpl extends PageInitializer {
@@ -64,39 +63,54 @@ public class FORGEdbStepsImpl extends PageInitializer {
     public static String  baseUrlVersionedDataset;
     public static String  baseUrlVersionedDatasetForAnRSID;
 
+    /**
+     * SETTING REST HELP CLASS BASE URL
+     */
     public static void setApiBaseUrlForAllVersionedDataset() {
         baseUrlDataset = "https://forgedb-qa.cancer.gov/api/datasets.json";
     }
 
+    /**
+     * VERIFY THE RESPONSE IS 200
+     */
     public static void verifyAPIResponseForAllVersionedDataset() {
         RestAssured.baseURI = baseUrlDataset;
         RequestSpecification request = RestAssured.given();
         Response response = request.get();
-        Assert.assertTrue(response.getStatusCode()==200);
-        System.out.println(response.prettyPrint());
+        Assert.assertEquals(response.getStatusCode(), 200);
     }
 
+    /**
+     * SETTING REST HELP CLASS BASE URL
+     */
     public static void setBaseUrlForADataSet() {
         baseUrlVersionedDataset = "https://forgedb-qa.cancer.gov/api/closest_gene/v1.0/schema.json";
     }
 
+    /**
+     * VERIFY THE RESPONSE IS 200
+     */
     public static void verifyAPIResponseForADataset() {
         RestAssured.baseURI = baseUrlVersionedDataset;
         RequestSpecification request = RestAssured.given();
         Response response = request.get();
-        Assert.assertTrue(response.getStatusCode()==200);
-        System.out.println(response.prettyPrint());
+        Assert.assertEquals(response.getStatusCode(), 200);
     }
 
+    /**
+     * SETTING REST HELP CLASS BASE URL
+     */
     public static void setBaseUrlForAVersionedDataSetForAnRSID() {
         baseUrlVersionedDatasetForAnRSID = "https://forgedb-qa.cancer.gov/api/closest_gene/v1.0/rs12203592.json";
     }
 
+    /**
+     * VERIFY THE RESPONSE IS 200
+     */
     public static void verifyAPIResponseForAVersionedDataSetForAnRSID() {
         RestAssured.baseURI = baseUrlVersionedDatasetForAnRSID;
         RequestSpecification request = RestAssured.given();
         Response response = request.get();
-        Assert.assertTrue(response.getStatusCode()==200);
-        System.out.println(response.prettyPrint());
+        Assert.assertEquals(response.getStatusCode(), 200);
     }
 }
