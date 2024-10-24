@@ -1,6 +1,6 @@
 Feature: RAS Consent Scenarios
 
-  @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3637 @CP2-3680 @CP2-3825 @CP2-3640 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3637 @CP2-3680 @CP2-3825 @CP2-3640 @CP2-3805 @selenium @RAS_Regression
   Scenario Outline: Verifying e-consent workflow, and then verifying that a Download Study Consent widget shows on portal and when clicked downloads the most recent Consent Record
     Given test automation account "<AccountResetScriptURL>" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -36,7 +36,7 @@ Feature: RAS Consent Scenarios
       | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | Complete      | Adult       | iMed                         | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
       | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | Complete      | Adult       | Mail/Fax/Email/Other         | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
-  @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3637 @CP2-3738 @CP2-3751 @CP2-3738 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3637 @CP2-3738 @CP2-3751 @CP2-3738 @CP2-3808 @CP2-3758 @selenium @RAS_Regression
   Scenario Outline: Verifying e-consent workflow for minors aged 11-13, and then verifying that Download Study Consent/Assent widgets show on portal and when clicked download the most recent Consent/Assent Record
     Given test automation account "<AccountResetScriptURL>" has been reset
     And a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -114,3 +114,12 @@ Feature: RAS Consent Scenarios
     And Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
     And Study Team member submits participant for review and marks them eligible
     Then Study Team member navigates to the Consent Record and selects "CHARMS e-consent" for the response type, "Yes" for Interpreter Used, and verifies that two new fields "Interpreter Name or ID" and "Interpreter Language" display
+
+  @muzipovay2 @RAS_STUDY @selenium @In-Progress
+  Scenario: Consent Call
+    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
+    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
+    And clicks on "Eligibility Questionnaire" to begin survey
+    When the participant submits a screener from excel sheet "screenerScenarioAdult"
+    And Study Team member logs in to Native View and completes consent call "screenerScenarioAdult" "rasAdultConsentRecord"

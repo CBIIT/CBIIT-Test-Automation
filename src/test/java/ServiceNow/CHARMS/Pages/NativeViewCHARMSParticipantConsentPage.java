@@ -71,6 +71,42 @@ public class NativeViewCHARMSParticipantConsentPage {
     public WebElement rasStudyConsentCopyOfConsentAssentProvidedDropDown;
 
     /**
+     * Native View Ras Protocol Discussed in Private Setting Drop Down
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_fcsms_consent.protocol_discussed_in_private_setting']")
+    public WebElement rasStudyConsentProtocolDiscussedInPrivateSettingDropDown;
+
+    /**
+     * Native View Ras Participant Verbalized Understanding of Study Conditions and Participation Drop Down
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_fcsms_consent.participant_verbalized']")
+    public WebElement rasStudyConsentParticipantVerbalizedUnderstandingOfStudyConditionsAndParticipationDropDown;
+
+    /**
+     * Native View Ras Questions Addressed Before Signing Drop Down
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_fcsms_consent.questions_addressed_before_signing']")
+    public WebElement rasStudyConsentQuestionsAddressedBeforeSigningDropDown;
+
+    /**
+     * Native View Ras Consent/Assent Obtained Before Study Procedures Drop Down
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_fcsms_consent.consent_assent_obtained_before_study_procedures']")
+    public WebElement rasStudyConsentConsentAssentObtainedBeforeStudyProceduresDropDown;
+
+    /**
+     * Native View Ras Copy of Signed/Dated Consent/Assent Given to Participant Drop Down
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_fcsms_consent.copy_of_signed_dated_consent_assent_given_to_participant']")
+    public WebElement rasStudyConsentCopyOfSignedDatedConsentAssentGivenToParticipantDropDown;
+
+    /**
+     * Native View Ras Short Form Consent Checkbox
+     */
+    @FindBy(xpath = "//label[@id='label.ni.x_naci_family_coho_fcsms_consent.short_form_consent']")
+    public WebElement rasStudyConsentShortFormConsentCheckBox;
+
+    /**
      * Native View Ras Study Consent/Assent Status Drop Down
      */
     @FindBy(xpath = "//*[@id='x_naci_family_coho_fcsms_consent.participant_response']")
@@ -202,6 +238,9 @@ public class NativeViewCHARMSParticipantConsentPage {
     @FindBy(xpath = "//div[normalize-space()='Participant record ready to progress.']")
     public WebElement rasStudyConsentParticipantRecordsReadyToProgressMessage;
 
+    /**
+     * Native View Ras Sign And Complete Button
+     */
     @FindBy(xpath = "//button[@id='sign_and_complete_client']")
     public WebElement rasStudyConsentSignAndCompleteButton;
 
