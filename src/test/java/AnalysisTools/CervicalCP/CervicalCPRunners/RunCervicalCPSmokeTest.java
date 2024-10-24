@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
         "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = {"src/test/java/AnalysisTools/CervicalCP/playwright/Features", "src/test/java/AnalysisTools/CervicalCP/selenium/Features"},
-        glue = {"AnalysisTools.CervicalCP.playwright.Steps", "AnalysisTools.CervicalCP.selenium.Steps", "Hooks"},
+        glue = {"AnalysisTools.CervicalCP.playwright.Steps", "Hooks"},
         tags = "@Smoke",
         dryRun = false
 )
