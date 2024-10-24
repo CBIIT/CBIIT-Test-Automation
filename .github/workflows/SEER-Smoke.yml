@@ -2,8 +2,8 @@ name: PLATFORM BUSINESS - SEER SMOKE TESTS
 
 on:
   schedule:
-    # This corresponds to 6:00 AM EDT (10:00 AM UTC) from Monday to Friday
-    - cron: '0 10 * * MON-FRI'
+    # This corresponds to 9:30 AM EST (2:30 PM UTC) from Monday to Friday
+    - cron: '30 14 * * MON-FRI'
   workflow_dispatch:
     inputs:
       testBrowser:
