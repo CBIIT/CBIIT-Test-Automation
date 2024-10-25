@@ -59,7 +59,7 @@ Feature: This Feature File contains Quick Link, logged in user verifications and
     And the IC Coordinator selects "Qaulity, Associates" as the Coordinator
     Then the IC Coordinator clicks on Add New button to confirm adding the new user
 
-  @AddExistingUser @nesarh2 @selenium @Regression @EGRANTS-58600
+  @AddExistingUser @nesarh2 @selenium @Regression @EGRANTS-586
   Scenario: Try adding an existing userid to verify if system restricts duplicate user ids
     Given the IC Coordinator is on the Admin menu
     And the IC Coordinator selects eGrants Access Control from the dropdown

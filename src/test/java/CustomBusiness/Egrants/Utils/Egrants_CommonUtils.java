@@ -30,7 +30,7 @@ public class Egrants_CommonUtils {
             Alert alert = wait.until(ExpectedConditions.alertIsPresent());
             alert.accept();
         } catch (TimeoutException e) {
-            System.out.println("Alert not present");
+            System.out.println("ALERT NOT PRESENT");
         }
     }
 }
