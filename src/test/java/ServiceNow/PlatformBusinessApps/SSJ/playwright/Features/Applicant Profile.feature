@@ -251,7 +251,7 @@ Feature: Applicant Profile Scenarios
     And verifies Application Documents text "APPLICATION DOCUMENTS"
     And verifies required documents with required references needed to apply to this test Vacancy
 
-  @TC_APPTRACK-144 @JUAREZDS @Regression_NFF @playwright @NEEDS_FIX
+  @TC_APPTRACK-144 @JUAREZDS @Regression_NF @playwright @NEEDS_FIX
   Scenario: Applying for vacancy as unauthenticated applicant
     Given an unauthenticated applicant is on the SSJ homepage "SSJPortalView"
     And verifies that the drop drown text is "Login"

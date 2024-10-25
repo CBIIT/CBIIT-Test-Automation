@@ -1,16 +1,12 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
-import Hooks.Hooks;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.*;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
-import com.microsoft.playwright.ElementHandle;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.apache.commons.collections4.bag.SynchronizedSortedBag;
-
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class ApplicantProfileSteps {
