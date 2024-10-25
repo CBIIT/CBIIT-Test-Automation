@@ -9,12 +9,6 @@ import io.cucumber.testng.CucumberOptions;
         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, features = "src/test/java/AnalysisTools/GWASTarget/Features", glue = {"AnalysisTools.GWASTarget.Steps", "Hooks"}, tags = "@Progression", dryRun = false
 
 )
-/**
- * This class is annotated with @RunWith(Cucumber.class) and it will run
- * cucumber feature(s).
- *
- * @author sohilz2
- */
-public class RunGWASTargetProgressionTest extends AbstractTestNGCucumberTests {
 
+public class RunGWASTargetProgressionTest extends AbstractTestNGCucumberTests {
 }

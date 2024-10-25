@@ -58,6 +58,8 @@ import ServiceNow.COVIDDash.StepsImplementation.*;
 import ServiceNow.ESR.Selenium.Pages.ESRShortDescriptionPage;
 import ServiceNow.ESR.Selenium.Pages.ESRTicketCreationPage;
 import ServiceNow.ESR.Selenium.Pages.NCINativeViewPage;
+import ServiceNow.OA_Intake.Pages.OAIntakePage;
+import ServiceNow.OA_Intake.StepsImplementation.OAIntakeStepsImplementation;
 import ServiceNow.PlatformBusinessApps.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
 import ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Pages.CTRPCTRO_NV_Page;
 import ServiceNow.PlatformBusinessApps.GDC.Pages.GDC_Workflow_NativeView_Page;
@@ -73,6 +75,7 @@ import appsCommon.Pages.NativeViewHomePage;
 import appsCommon.Pages.ServiceNow_NCISP_Page;
 import appsCommon.StepsImplementation.ITrustLoginPageImpl;
 import com.nci.automation.web.WebDriverUtils;
+
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
@@ -135,6 +138,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static IIQ_Constants iiq_Constants;
 	public static TestAccountResetPage testAccountResetPage;
 	public static MyRASStudyConsentPage myRasStudyConsentPage;
+	public static MyRASStudyAssentPage myRASStudyAssentPage;
 	public static CGBIIQPage cgbIIQPage;
 	public static CGBIIQPages cGBIIQPages;
 	public static RAS_Survey_Page rAS_Survey_Page;
@@ -146,6 +150,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static FHQConstants fHQConstants;
 	public static FHQ_TestDataManager fHQ_TestDataManager;
 	public static RAS_Screener_TestDataManager ras_Screener_TestDataManager;
+	public static RAS_NV_Consent_Record_TestDataManager ras_NV_Consent_Record_TestDataManager;
 	public static RAS_Survey_TestDataManager ras_Survey_TestDataManager;
 	public static IIQ_TestDataManager iiq_TestDataManager;
 	public static ParticipantDetailsPage participantDetailsPage;
@@ -162,6 +167,10 @@ public class PageInitializer extends WebDriverUtils {
 	public static MelanomaLoginPage melanomaLoginPage;
 	public static MelanomaHomePage melanomaHomePage;
 	public static MelanomaQuestionnairePage melanomaQuestionnairePage;
+
+	/** OA Intake instances */
+	public static OAIntakeStepsImplementation oaIntakeStepsImplementation ;
+	public static OAIntakePage oaIntakePage;
 
 	/** SEER instances */
 	public static SEERLandingPage seerLandingPage;
@@ -346,6 +355,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
+	public static NativeViewCHARMSAddNewParticipantPage nativeViewCHARMSAddNewParticipantPage;
 
 	/** --------------- EGRANTS INSTANCES --------------- */
 	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;
@@ -355,10 +365,10 @@ public class PageInitializer extends WebDriverUtils {
 	/** ------------ MCA EXPLORER INSTANCES ------------*/
 	public static MCAExplorerPage mcaExplorerPage;
 	public static MCAExplorerStepImp mcaExplorerStepImp;
-	
+
 	/** --------------- THREEDVIZSNP INSTANCES --------*/
 	public static ThreeDVizSNPPage threeDVizSNPPage;
-	
+
 	/** ----------------- COMETS ANALYTICS INSTANCES -----*/
 	public static CometsAnalyticsPage cometsAnalyticsPage;
 	public static CometsAnalyticsStepImp cometsAnalyticsStepImp;
@@ -389,6 +399,10 @@ public class PageInitializer extends WebDriverUtils {
 		servicePortalQuestionnairePageImp = new ServicePortalQuestionnairePageImp();
 		dashboardStepImpl = new DashboardStepImpl();
 
+		/** OA Intake Instance Variables */
+		oaIntakePage =  new OAIntakePage();
+		oaIntakeStepsImplementation = new OAIntakeStepsImplementation();
+
 		/** CHARMS Instance Variables **/
 		charmsNativeViewPage = new CHARMSNativeViewPage();
 		testAccountResetImpl = new TestAccountResetImpl();
@@ -409,7 +423,9 @@ public class PageInitializer extends WebDriverUtils {
 		iiq_Constants = new IIQ_Constants();
 		testAccountResetPage = new TestAccountResetPage();
 		myRasStudyConsentPage = new MyRASStudyConsentPage();
+		myRASStudyAssentPage = new MyRASStudyAssentPage();
 		ras_Screener_TestDataManager = new RAS_Screener_TestDataManager();
+		ras_NV_Consent_Record_TestDataManager = new RAS_NV_Consent_Record_TestDataManager();
 		ras_Survey_TestDataManager = new RAS_Survey_TestDataManager();
 		iiq_TestDataManager = new IIQ_TestDataManager();
 		cgbIIQPage = new CGBIIQPage();
@@ -613,6 +629,7 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSParticipantDetailsPage = new NativeViewCHARMSParticipantDetailsPage();
 		nativeViewCHARMSParticipantConsentPage = new NativeViewCHARMSParticipantConsentPage();
 		nativeViewCHARMSParticipantStudyPage = new NativeViewCHARMSParticipantStudyPage();
+		nativeViewCHARMSAddNewParticipantPage = new NativeViewCHARMSAddNewParticipantPage();
 		nativeViewSSJReportsPage = new NativeViewSSJReportsPage();
 
 		/****** GRANTS INSTANCES *******/
@@ -656,10 +673,10 @@ public class PageInitializer extends WebDriverUtils {
 		/** MCAEXPLORER INSTANCE VARIABLES */
 		mcaExplorerPage = new MCAExplorerPage();
 		mcaExplorerStepImp = new MCAExplorerStepImp();
-		
+
 		/** THREEDVIZSNP INSTANCE VARIABLES  */
 		threeDVizSNPPage =  new ThreeDVizSNPPage();
-		
+
 		/** COMETS ANALYTICS INSTANCE VARIABLES */
 		cometsAnalyticsPage = new CometsAnalyticsPage();
 		cometsAnalyticsStepImp = new CometsAnalyticsStepImp();

@@ -11,12 +11,6 @@ import io.cucumber.testng.CucumberOptions;
 		tags = "@Progression",
 		dryRun = false
 )
-/**
- * This class is annotated with @RunWith(Cucumber.class) and it will run
- * cucumber feature(s).
- *
- * @author sohilz2
- */
 
 public class RunCEDCDProgressionTest extends AbstractTestNGCucumberTests{
 }

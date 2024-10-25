@@ -2,7 +2,8 @@ name: CHARMS - FANCONI STUDY SMOKE TESTS
 
 on:
   schedule:
-    - cron: '30 12 * * *'
+    # This corresponds to 7:30 AM EST (12:30 PM UTC) from Monday to Friday
+    - cron: '30 12 * * MON-FRI'
   workflow_dispatch:
     inputs:
       testBrowser:

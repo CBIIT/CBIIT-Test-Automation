@@ -88,6 +88,13 @@ public class TestProperties {
     public static String CCR_URL;
 
     /**
+     * OA Intake
+     */
+    public static final String OAINTAKE_TEST_URL = "https://service-test.nci.nih.gov/oa_intake";
+    public static final String OAINTAKE_STAGE_URL = "https://service-stage.nci.nih.gov/oa_intake";
+    public static String OAINTAKE_URL;
+
+    /**
      * E-GRANTS URLS
      */
     public static final String E_GRANTS_TEST_URL = "https://egrants-web-test.nci.nih.gov/";
@@ -107,6 +114,13 @@ public class TestProperties {
     public static final String SCATLAS_TEST_URL = "https://scatlaslc-qa.ccr.cancer.gov/#/";
     public static final String SCATLAS_STAGE_URL = "https://scatlaslc-stage.ccr.cancer.gov/#/";
     public static String SCATLAS_URL;
+
+    /**
+     * CERVICAL CP URLS
+     */
+    public static final String CERVICAL_CP_TEST_URL = "https://globalcxca-qa.cancer.gov/";
+    public static final String CERVICAL_CP_STAGE_URL = "https://globalcxca-stage.cancer.gov/";
+    public static String CERVICAL_CP_URL;
 
     /**
      * EZ-QTL URLS
@@ -478,6 +492,18 @@ public class TestProperties {
         return EZ_QTL_URL;
     }
 
+    public static String getCervicalCPUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                CERVICAL_CP_URL = CERVICAL_CP_STAGE_URL;
+                break;
+            case "test":
+                CERVICAL_CP_URL = CERVICAL_CP_TEST_URL;
+                break;
+        }
+        return CERVICAL_CP_URL;
+    }
+
     public static String getAct24ResearcherUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
@@ -492,13 +518,13 @@ public class TestProperties {
     public static String getAct24ParticipantUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
-                ACT_24_RESEARCHER_URL = ACT_24_PARTICIPANT_TEST_URL;
+                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_TEST_URL;
                 break;
             case "test":
-                ACT_24_RESEARCHER_URL = ACT_24_PARTICIPANT_STAGE_URL;
+                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_STAGE_URL;
                 break;
         }
-        return ACT_24_RESEARCHER_URL;
+        return ACT_24_PARTICIPANT_URL;
     }
 
     public static String getSeerOdsUrl() {
@@ -748,5 +774,17 @@ public class TestProperties {
                 break;
         }
         return BCRAT_URL;
+    }
+
+    public static String getOAntakeUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                OAINTAKE_URL = OAINTAKE_STAGE_URL;
+                break;
+            case "test":
+                OAINTAKE_URL = OAINTAKE_TEST_URL;
+                break;
+        }
+        return OAINTAKE_URL;
     }
 }

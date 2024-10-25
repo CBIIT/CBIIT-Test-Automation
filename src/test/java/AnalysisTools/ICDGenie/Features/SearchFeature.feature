@@ -1,1 +1,0 @@
-Feature: These are the scenarios on the Getting Started tab of the ICDGenie Application

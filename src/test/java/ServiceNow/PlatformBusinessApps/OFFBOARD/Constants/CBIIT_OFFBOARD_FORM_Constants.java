@@ -8,9 +8,6 @@ public class CBIIT_OFFBOARD_FORM_Constants {
     /* CATEGORY TEXT */
     public static String CATEGORY_TEXT = "Category";
 
-    /* CBIIT SERVICES LINK */
-    public static String CBIIT_SERVICESLINK = "Services";
-
     /* CBIIT BIZ SERVICES LINK */
     public static String CBIIT_BUSINESS_SERVICESLINK = "CBIIT Business Services";
 
@@ -32,17 +29,11 @@ public class CBIIT_OFFBOARD_FORM_Constants {
     /* CBIIT OFFBOARD FORM NO OPTION SELECTED */
     public static String CBIIT_OFFBOARD_FORM_NO_OPTION_SELECTED = "No";
 
-    /* CBIIT OFFBOARD FORM NONE OPTION  */
-    public static String CBIIT_OFFBOARD_FORM_NONE_OPTION = "-- None --";
-
     /* CBIIT OFFBOARD FORM OK OPTION SELECTED */
     public static String CBIIT_OFFBOARD_FORM_OK_OPTION_SELECTED = "OK";
 
     /* CBIIT OFFBOARD PHONE NUMBER ENTERED */
     public static String CBIIT_OFFBOARD_PHONE_NUMBER_ENTERED = "1223334444";
-
-    /* CBIIT OFFBOARD DEPARTURE OPTION SELECTED  */
-    public static String CBIIT_OFFBOARD_DEPARTURE_OPTION_SELECTED = "Departure";
 
     /* CBIIT OFFBOARDING BEFORE 5 PM TEXT  */
     public static String CBIIT_OFFBOARDING_BEFORE_FIVE_PM_TEXT = "Offboarding before 5:00 PM";
@@ -81,16 +72,10 @@ public class CBIIT_OFFBOARD_FORM_Constants {
     public static String CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_ALREADY_CREATED_FIELD_TEXT = "^Hardware Return Ticket Already Created$";
 
     /* CBIIT OFFBOARDING HARDWARE RETURN TICKET NUMBER TEXT  */
-    public static String CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_TEXT = "Hardware Return Ticket Number";
+    public static String CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_TEXT = "Hardware Return Ticket Number(s)";
 
     /* CBIIT OFFBOARDING HARDWARE RETURN TICKET NUMBER(S) TEXT  */
     public static String CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_S_TEXT = "Hardware Return Ticket Number(s)";
-
-    /* CBIIT OFFBOARD FORM SUBMIT BUTTON */
-    public static String CBIIT_OFFBOARD_FORM_SUBMIT_BUTTON = "Submit";
-
-    /* CBIIT 'HARDWARE RETURN TICKET NUMBER' TEXT BOX VALUE  */
-    public static String CBIIT_HARDWARE_RETURN_TICKET_NUMBERTEXTBOXVALUE = "NCI-RITM0139815";
 
     /* CBIIT "DATE OF TRANSFER" TEXT  */
     public static String CBIIT_OFFBOARDING_DATE_OF_TRANSFER_TEXT = "Date of Transfer";
@@ -100,9 +85,6 @@ public class CBIIT_OFFBOARD_FORM_Constants {
 
     /* CBIIT "HN/SAC CODE (TRANSFER TO)" TEXT BOX VALUE  */
     public static String CBIIT_HN_SAC_CODE_TRANSFER_TO_TEXT_BOX_Value = "Test Free Text field &^$%6";
-
-    /* CBIIT "ONSITE LOCATION" TEXT  */
-    public static String CBIIT_ONSITE_LOCATION_TEXT = "Onsite Location";
 
     /* CBIIT 'ONSITE LOCATION' SELECTED DROP DOWN VALUE  */
     public static String CBIIT_ONSITE_LOCATION_SELECTED_DROP_DOWN_VALUE = "Pennsylvania";

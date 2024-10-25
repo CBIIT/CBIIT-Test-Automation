@@ -731,4 +731,39 @@ public class ApplicantProfileSteps {
     public void selects_for_number_of_scoring_categories(String scoringNumber) {
         ApplicantProfileStepsImpl.selects_for_number_of_scoring_categories(scoringNumber);
     }
+
+    @When("edits an application for a vacancy that status is {string}")
+    public void edits_an_application_for_a_vacancy_that_status_is(String applicationStatus) {
+        ApplicantProfileStepsImpl.edits_an_application_for_a_vacancy_that_status_is(applicationStatus);
+    }
+
+    @Then("user sees a banner {string}")
+    public void user_sees_a_banner(String expectedBanner) {
+        ApplicantProfileStepsImpl.user_sees_a_banner(expectedBanner);
+    }
+
+    @When("user verifies is on the {string} section of the vacancy application")
+    public void user_verifies_is_on_the_section_of_the_vacancy_application(String sectionTitle) {
+        ApplicantProfileStepsImpl.user_verifies_is_on_the_section_of_the_vacancy_application(sectionTitle);
+    }
+
+    @When("user clicks on {string} Edit Section button")
+    public void user_clicks_on_edit_section_button(String string) {
+        page.locator("(//span[contains(text(),'Edit Section')])[1]").click();
+    }
+
+    @When("user makes changes to {string}, {string}, {string}, {string}")
+    public void user_makes_changes_to(String sex, String ethnicity, String race, String disabilitySeriousHealthCondition) {
+        ApplicantProfileStepsImpl.user_makes_changes_to(sex,ethnicity,race,disabilitySeriousHealthCondition);
+    }
+
+    @Then("user verifies the updated {string}, {string}, {string}, {string} values")
+    public void user_verifies_the_updated_values(String sex, String ethnicity, String race, String disabilitySeriousHealthCondition) {
+        ApplicantProfileStepsImpl.user_verifies_the_updated_values(sex,ethnicity,race,disabilitySeriousHealthCondition);
+    }
+
+    @Then("user resets the demographics information for test to run again")
+    public void user_resets_the_demographics_information_for_test_to_run_again() {
+        ApplicantProfileStepsImpl.user_resets_the_demographics_information_for_test_to_run_again();
+    }
 }

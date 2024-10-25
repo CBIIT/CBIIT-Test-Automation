@@ -483,9 +483,9 @@ public class FHQSurveyPageConstants {
 	public static final ArrayList<String> OTHER_BIOLOGICAL_PARENT = new ArrayList<String>() {
 		{
 			add("-- None --");
-			add("It is a partner I have entered");
-			add("It is a partner I have NOT entered");
-			add("It is an Egg/Sperm Donor");
+			add("Yes, a partner I have reported in this questionnaire");
+			add("Yes, a partner I have NOT yet reported in this questionnaire");
+			add("Yes, an Egg/Sperm Donor");
 			add("None of the Above");
 			add("Don't Know");
 			add("Prefer not to answer");

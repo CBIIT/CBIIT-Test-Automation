@@ -2,8 +2,8 @@ name: PLATFORM BUSINESS - NERD REGRESSION TESTS
 
 on:
   schedule:
-    # This corresponds to 6:00 AM EDT (10:00 AM UTC)
-    - cron: '0 10 * * *'
+    # This corresponds to 8:30 AM EST (1:30 PM UTC) from Monday to Friday
+    - cron: '30 13 * * MON-FRI'
   workflow_dispatch:
     inputs:
       testBrowser:
