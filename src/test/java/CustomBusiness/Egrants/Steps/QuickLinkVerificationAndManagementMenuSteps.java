@@ -156,8 +156,7 @@ public class QuickLinkVerificationAndManagementMenuSteps extends PageInitializer
 	@Then("User clicks on Setup Flags button to confirm adding DS flag for the selected grant year")
 	public void user_clicks_on_setup_flags_button_to_confrim_adding_ds_flag_for_the_selected_grant_year() {
 		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.setupFlagsButton);
-		CommonUtils.sleep(3000);
-		CommonUtils.acceptAlert();
+		Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
  		CucumberLogUtils.logScreenshot();
 	}
 
@@ -192,8 +191,7 @@ public class QuickLinkVerificationAndManagementMenuSteps extends PageInitializer
 	@Then("User clicks on Remove button to confirm removing the DS flag from the selected grant year")
 	public void user_clicks_on_remove_button_to_confirm_removing_ds_flag_for_the_selected_grant_year() {
 		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.removeButtonFlagMaintenance);
-		CommonUtils.sleep(3000);
-		CommonUtils.acceptAlert();
+		Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
 		CucumberLogUtils.logScreenshot();
 	}
 	/**
