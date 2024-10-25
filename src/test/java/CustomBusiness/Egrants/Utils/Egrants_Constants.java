@@ -32,4 +32,12 @@ public class Egrants_Constants {
     public static final String DOWNLOADING_MESSAGE = "Downloading ...";
     public static final String FLAG_MAINTENANCE = "FlagMaintenance";
     public static final String FLAG_TYPE_DS = "A";
+    public static final String EGRANTS_ACCESS_CONTROL = "EgrantsAccess/Index?index_id=2&active_id=1";
+    public static final String PROGRAM_STAFF_ROLE = "1";
+    public static final String QUALITY_ASSOCIATES_COORDINATOR = "Quality, Associates";
+    public static final String ADD_USER_CONFIRMATION_MESSAGE = " does not exist in the system. Do you want to create a new account?";
+    public static final String FIRST_NAME = "AUTOMATEDTEST";
+    public static final String LAST_NAME = "USERACCOUNT";
+    public static final String EMAIL_ADDRESS = "automatedtest.useraccount@test.com";
+    public static final String USER_EXISTS_MESSAGE = " already exists in the system";
 }
