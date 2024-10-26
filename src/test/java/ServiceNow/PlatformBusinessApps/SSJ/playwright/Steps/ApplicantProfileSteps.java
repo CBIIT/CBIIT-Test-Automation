@@ -766,4 +766,29 @@ public class ApplicantProfileSteps {
     public void user_resets_the_demographics_information_for_test_to_run_again() {
         ApplicantProfileStepsImpl.user_resets_the_demographics_information_for_test_to_run_again();
     }
+
+    @When("user inspects the color of the Edit button")
+    public void user_inspects_the_color_of_the_edit_button() {
+        page.waitForSelector("(//button[@class='ant-btn ant-btn-primary'])[1]");
+    }
+
+    @Then("verifies it is the correct blue color")
+    public void verifies_it_is_the_correct_blue_color() {
+        ApplicantProfileStepsImpl.verifies_it_is_the_correct_blue_color();
+    }
+
+    @Given("user clicks on Edit button")
+    public void user_clicks_on_edit_button() {
+        page.locator("(//button[@class='ant-btn ant-btn-primary'])[1]").click();
+    }
+
+    @When("User is on the Phone number field will see a tool tip notifying on the proper formatting")
+    public void user_is_on_the_phone_number_field_will_see_a_tool_tip_notifying_on_the_proper_formatting() {
+        ApplicantProfileStepsImpl.user_is_on_the_phone_number_field_will_see_a_tool_tip_notifying_on_the_proper_formatting();
+    }
+
+    @When("User is on the Business Phone number field will see a tool tip notifying on the proper formatting")
+    public void user_is_on_the_business_phone_number_field_will_see_a_tool_tip_notifying_on_the_proper_formatting() {
+        ApplicantProfileStepsImpl.user_is_on_the_business_phone_number_field_will_see_a_tool_tip_notifying_on_the_proper_formatting();
+    }
 }
