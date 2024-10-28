@@ -66,7 +66,7 @@ public class BCRATStepsImpl extends PageInitializer {
     public static void clickCCTBCTreatmentLink() {
         PlaywrightUtils.page.goBack();
         PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(BCRATPage.cctBreastCancerTreatmentLocator)).click();
-     CommonUtils.sleep(2000);
+        CommonUtils.sleep(2000);
         assertThat(PlaywrightUtils.page).hasTitle(BCRAT_Constants.CCT_BREAST_CANCER_TREATMENT);
     }
 
@@ -92,6 +92,6 @@ public class BCRATStepsImpl extends PageInitializer {
      */
     public static void clickRiskCalculatorTab() {
         PlaywrightUtils.page.locator(BCRATPage.calculateRiskTabLocator).click();
-      CommonUtils.sleep(2000);
+        CommonUtils.sleep(2000);
     }
 }

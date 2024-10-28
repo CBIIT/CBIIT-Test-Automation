@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 		, "rerun:target/failed.txt"
 		, "pretty"}
 		, features ={"src/test/java/AnalysisTools/FORGEdb/playwright/Features"}
-		, glue = {"AnalysisTools.FORGEdb.playwright.Steps","Hooks"}
+		, glue = {"AnalysisTools.FORGEdb.playwright.Steps", "Hooks"}
 		, tags = "@Smoke"
 		, dryRun = false
 )

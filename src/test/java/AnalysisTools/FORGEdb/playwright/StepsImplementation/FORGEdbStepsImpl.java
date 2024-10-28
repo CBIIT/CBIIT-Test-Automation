@@ -12,7 +12,6 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class FORGEdbStepsImpl extends PageInitializer {
