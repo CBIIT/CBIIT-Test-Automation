@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 		, "rerun:target/failed.txt"
 		, "pretty"}
 		, features ={"src/test/java/AnalysisTools/BCRAT/playwright/Features"}
-		, glue = "AnalysisTools.BBCRAT.playwright.Steps"
+		, glue = {"AnalysisTools.BBCRAT.playwright.Steps", "Hooks"}
 		, tags = "@Regression"
 		, dryRun = false
 )

@@ -16,7 +16,6 @@ public class RestApiHelper {
 	String resourceUrl = null;
 	Response response;
 	static RestApiHelper rest;
-	static RestApiHelper rest1;
 	
 	public static void main(String[] args) {
 		  rest = new RestApiHelper("https://exploregwas-qa.cancer.gov/plco-atlas/api");
