@@ -18,9 +18,7 @@ public class Soccer_Steps extends PageInitializer {
 
     @Given("User navigates to soccer home page")
     public void user_navigates_to_soccer_home_page() {
-        System.out.println(getSoccerUrl());
         PlaywrightUtils.page.navigate(getSoccerUrl());
-
     }
 
     @Then("User click on run soccer button")

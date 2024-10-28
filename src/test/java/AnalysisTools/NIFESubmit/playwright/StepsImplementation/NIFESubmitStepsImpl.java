@@ -71,22 +71,16 @@ public class NIFESubmitStepsImpl extends PageInitializer {
      * CLICK LINK AND ASSERT THE TITLE OF NEW PAGE
      */
     public static void clickAndAssertNewPageTitle() {
+        CommonUtils.sleep(2000);
         Playwright_Common_Utils.clickAndAssertNewPageTitle(NIFESubmitPage.ccrMicroscopyCore, NIFESubmit_Constants.CCR_MICROSCOPY_CORE_TITLE);
-        CommonUtils.sleep(2000);
         Playwright_Common_Utils.clickAndAssertNewPageTitle(NIFESubmitPage.cdblMicroscopyCore, NIFESubmit_Constants.CDBL_MICROSCOPY_CORE_TITLE);
-        CommonUtils.sleep(2000);
         Playwright_Common_Utils.clickAndAssertNewPageTitle(NIFESubmitPage.lcpglMicroscopyCore, NIFESubmit_Constants.LCPG_MICROSCOPY_CORE_TITLE);
         CommonUtils.sleep(2000);
         Playwright_Common_Utils.clickAndAssertNewPageTitle(NIFESubmitPage.spatialImagingTechnology, NIFESubmit_Constants.SPATIAL_IMAGING_TECHNOLOGY_RESOURCE_TITLE);
-        CommonUtils.sleep(2000);
         Playwright_Common_Utils.clickAndAssertNewPageTitle(NIFESubmitPage.nciImagingFacility, NIFESubmit_Constants.NCI_HIGH_THROUGHPUT_IMAGING_FACILITY_TITLE);
-        CommonUtils.sleep(2000);
         Playwright_Common_Utils.clickAndAssertNewPageTitle(NIFESubmitPage.biologyAndGeneLab, NIFESubmit_Constants.LABORATORY_OF_RECEPTOR_BIOLOGY_AND_GENE_TITLE);
-        CommonUtils.sleep(2000);
         Playwright_Common_Utils.clickAndAssertNewPageTitle(NIFESubmitPage.cancerGenomicsResearchLab, NIFESubmit_Constants.CANCER_GENOMICS_RESEARCH_LABORATORY_TITLE);
-        CommonUtils.sleep(2000);
         Playwright_Common_Utils.clickAndAssertNewPageTitle(NIFESubmitPage.opticalMicroscopyImage, NIFESubmit_Constants.OPTICAL_MICROSCOPY_IMAGE_TITLE);
-        CommonUtils.sleep(4000);
         Playwright_Common_Utils.clickAndAssertNewPageTitle(NIFESubmitPage.volumeElectronMicroscopy, NIFESubmit_Constants.VOLUME_ELECTRON_MICROSCOPY_TITLE);
         CommonUtils.sleep(2000);
     }

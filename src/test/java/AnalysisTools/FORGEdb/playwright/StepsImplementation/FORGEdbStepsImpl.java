@@ -37,14 +37,7 @@ public class FORGEdbStepsImpl extends PageInitializer {
         CommonUtils.sleep(10000);
         assertThat(newPage1.locator("thead")).containsText(FORGEdbPage.runningText);
         CommonUtils.sleep(55000);
-        try {
-            String str = newPage1.locator("#col3_content").textContent();
-            SoftAssert soft = new SoftAssert();
-            soft.assertEquals(str, FORGEdbPage.doneText);
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
+        assertThat(newPage1.locator("#col3_content")).containsText(FORGEdbPage.doneText);
         newPage1.close();
     }
 
