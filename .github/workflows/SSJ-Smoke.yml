@@ -2,8 +2,8 @@ name: PLATFORM BUSINESS - SSJ SMOKE TESTS
 
 on:
   schedule:
-    # This corresponds to 7:00 AM EST (12:00 PM UTC) from Monday to Friday
-    - cron: '0 12 * * MON-FRI'
+    # This corresponds to 10:00 AM EST (3:00 PM UTC) from Monday to Friday
+    - cron: '0 15 * * MON-FRI'
   workflow_dispatch:
     inputs:
       testBrowser:
