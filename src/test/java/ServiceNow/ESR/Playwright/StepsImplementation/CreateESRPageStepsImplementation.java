@@ -167,7 +167,7 @@ public class CreateESRPageStepsImplementation {
      */
     public static void verifyESRQPortalCreation() {
         page.navigate("https://service-test.nci.nih.gov/ncisp?id=nci_home");
-        page.locator("//li[@class='list-group-item ng-scope'][1]").click();
+        page.locator("(//div[@role='button'])[3]").click();
         assertThat(page.getByRole(AriaRole.MAIN)).containsText("ESR-Q");
         Page page1 = page.waitForPopup(() -> {
             page.locator("//span[@ng-if=\"data.table == 'sc_req_item'\"]//a").click();
@@ -201,7 +201,7 @@ public class CreateESRPageStepsImplementation {
      */
     public static void verifyESRIPortalCreation() {
         page.navigate("https://service-test.nci.nih.gov/ncisp?id=nci_home");
-        page.locator("//li[@class='list-group-item ng-scope'][1]").click();
+        page.locator("(//div[@role='button'])[3]").click();
         assertThat(page.getByRole(AriaRole.MAIN)).containsText("Implementation");
         Page page1 = page.waitForPopup(() -> {
             page.locator("//span[@ng-if=\"data.table == 'sc_req_item'\"]//a").click();
