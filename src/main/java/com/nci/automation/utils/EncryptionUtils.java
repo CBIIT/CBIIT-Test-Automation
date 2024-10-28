@@ -31,7 +31,7 @@ public class EncryptionUtils {
 	}
 
 	public static void main(String args[]) {
-		String pwd = "=UtGc49Ic9=h0-U";
+		String pwd = "";
 		System.out.println(EncryptionUtils.encrypt(pwd));
 	}
 }
