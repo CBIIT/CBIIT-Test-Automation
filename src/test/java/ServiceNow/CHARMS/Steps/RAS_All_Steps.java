@@ -838,6 +838,15 @@ public class RAS_All_Steps extends PageInitializer {
         softAssert.assertFalse(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown.isDisplayed());
     }
 
+    /**
+     * PI verifies that the fields ConsentAssent Obtained Before Study Procedures and Copy of SignedDated ConsentAssent
+     * Given to Participant must be answered before clicking Sign and Complete. This method waits for the Sign and
+     * Complete button to be clickable, then clicks on it. It also verifies that specific messages appear on the page
+     * prompting the PI to mark whether the Consent/Assent was obtained before study procedures and if the copy of
+     * signed/dated Consent/Assent was given to the participant. The method then selects 'Yes' from dropdown menus
+     * corresponding to these fields, logs screenshots, and clicks on the Sign and Complete button again after the
+     * selections are made. Finally, a sleep timeout is added for 2000 milliseconds before logging another screenshot.
+     */
     @Given("PI verifies that the fields ConsentAssent Obtained Before Study Procedures and Copy of SignedDated ConsentAssent Given to Participant must be answered before clicking Sign and Complete")
     public void pi_verifies_that_the_fields_consent_assent_obtained_before_study_procedures_and_copy_of_signed_dated_consent_assent_given_to_participant_must_be_answered_before_clicking_sign_and_complete() {
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentSignAndCompleteButton);
@@ -858,6 +867,11 @@ public class RAS_All_Steps extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Signs the PI into the Native View and completes consent by signing.
+     *
+     * @param sheetName the name of the sheet containing participant consent record
+     */
     @Then("PI signs into to Native View and completes consent by signing {string}")
     public void pi_signs_into_to_native_view_and_completes_consent_by_signing(String sheetName) {
         study_team_member_logs_in_to_native_view_and_navigates_to_participant_consent_record(sheetName);
