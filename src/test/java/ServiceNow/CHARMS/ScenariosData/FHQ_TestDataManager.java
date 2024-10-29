@@ -78,7 +78,6 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String  siblings;
 	public String  typesOfSiblingRelation;
 	public String  firstNameOfSibling;
-	public String  firstInitialOfLASTNameOfSibling;
 	public String  vitalStatusOfSibling;
 	public String  isThereAnythingElseYouWouldLikeUsToKnowAboutTheParticipant;
 	public String  addAdditionalInformation;
@@ -190,7 +189,6 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String siblingFirstNameValue;
 	public String siblingFirstInitialOfLastNameValue;
 	public String siblingVitalStatusValue;
-	public String siblingFirstInitialOfLastName;
 	public String siblingVitalStatus;
 	public String pleaseSelectTheAddButtonBelowToAddEachSiblingThisRelativeHas;
 	public String isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative;
@@ -218,14 +216,16 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String childGenderIdentitySelected;
 	public String whichBestDescribesThisRelative;
 	public String whichBestDescribesThisRelativeSelected;
-	public String isTheOtherBiologicalParentOfThisRelativeOneOfThePartnersYouHaveEntered;
+	public String areAnyOfTheFollowingIndividualsABiologicalParentOfThisChild;
+	public String areAnyOfTheFollowingIndividualsABiologicalParentOfThisChildSelected;
+	public String whichOfTheFollowingIndividualsIsABiologicalParentOfThisChild;
+	public String whichOfTheFollowingIndividualsIsABiologicalParentOfThisChildSelected;
 	public String isTheOtherBiologicalParentOfThisRelativeOneOfThePartnersYouHaveEnteredSelected;
 	public String partnerNameHelpBanner;
-	public String otherBiologicalParent;
 	public String otherBiologicalParentHelpBanner;
 	public String otherBiologicalParentSelected;
 	public String typeOfBirth;
-	public String pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResultsForThisPerson;
+	//public String pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResultsForThisPerson;
 	public String howManyTotalChildrenAliveAndDeceasedHasThisRelaiveHad;
 	public String childBanner;
 	public String pleaseSelectTheAddButtonBelowToAddEachChildThisRelativeHas;
@@ -237,14 +237,9 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String siblingFirstName;
 	public String siblingFirstInitialOfLASTNameValue;
 	public String siblingfirstInitialOfLASTName;
-	public String siblingYearOfBirthValue;
 	public String typeOfSiblingValue;
-	public String youAreCurrentlyFillingOutInformationForTheParticipantsSibling; //
 	public String siblingBanner;
 	public String siblingBasicInformation;
-	public String siblingYearOfBirthSelected;
-	public String siblingSexAssignedAtBirthSelected;
-	public String siblingGenderIdentitySelected;
 	public String pleaseSelectTheAddButtonBelowToAddEachChildThisRelativeHasHad;
 	/* AUNT/UNCLE */
 	public String auntUncles;
@@ -268,7 +263,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String auntUncleYearOfBirthSelected;
 	public String auntUncleSexAssignedAtBirthSelected;
 	public String auntUncleGenderIdentitySelected;
-	public String addAdditionalInformationForAuntUncle;	
+//	public String addAdditionalInformationForAuntUncle;
 	public String siblingTo;
 	public String typeOfSiblingNV;
 	public String typeOfSiblingValueNV;
@@ -282,13 +277,12 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String nieceNephewYearOfBirthValue;
 	public String nieceNephewSexAssignedAtBirthValue;
 	public String nieceNephew;
-	public String youAreCurrentlyFillingOutInformationForTheParticipantsNieceNephew; //Check
+	public String youAreCurrentlyFillingOutInformationForTheParticipantsNieceNephew;
 	public String pleaseMakeSureYouHaveCompletedAllSiblingRecords;
 	public String nieceNephewBasicInformation;
 	public String neiceNephewYearOfBirthSelected;
 	public String neiceNephewSexAssignedAtBirthSelected;
 	public String neiceNephewGenderIdentitySelected;
-	public String addAdditionalInformationForNeiceNephew;
 	/* GrandParents */
 	public String grandParents;
 	public String addNewGrandParents;
@@ -346,7 +340,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 	
 	/* FETCHING DATA FROM EXCEL BEFORE SUBMITTING FHQ */		
 	public void dataInitializerFHQ(String sheetName) {
-		/******* PARTICIPANT FORM ******/
+		/* ****** PARTICIPANT FORM ***** */
 		if (sheetName.equals("Participant")) {	
 			testDataForFHQ = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.FHQ_SCENARIO_ONE_DATA, sheetName);
 			nCIFamilyStudiesHubRASopathies = testDataForFHQ.get(FHQConstants.NCI_FAMILY_STUDIES_HUB_RASOPATHIES);
@@ -521,7 +515,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			twinOrPartOfAMultipleBirthValueAdded = testDataForFHQ.get(FHQConstants.TWIN__OR_PART_OF_A_MULTIPLE_BIRTH_VALUE_ADDED);
 			typeOfBirth = testDataForFHQ.get(FHQConstants.PARTICIPANT_TYPE_OF_BIRTH);
 			typeOfBirthValueAdded = testDataForFHQ.get(FHQConstants.TYPE_OF_BIRTH_VALUE_ADDED);
-			/* Misscariages Info */
+			/* Miscarriages Info */
 			hasThisRelativeEverHadAnyMiscarriagesOrStillbirths = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS);
 			hasThisRelativeEverHadAnyMiscarriagesOrStillbirthsValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS_VALUE);
 			pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResults = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS);
@@ -794,10 +788,11 @@ public class FHQ_TestDataManager extends PageInitializer {
 			childGenderIdentitySelected = testDataForFHQ.get(FHQConstants.CHILD_GENDER_IDENTITY_SELECTED);
 			whichBestDescribesThisRelative = testDataForFHQ.get(FHQConstants.WHICH_BEST_DESCRIBES_THIS_RELATIVE);
 			whichBestDescribesThisRelativeSelected = testDataForFHQ.get(FHQConstants.WHICH_BEST_DESCRIBES_THIS_RELATIVE_SELECTED);
-			isTheOtherBiologicalParentOfThisRelativeOneOfThePartnersYouHaveEntered = testDataForFHQ.get(FHQConstants.IS_THE_OTHER_BIOLOGICAL_PARENT_OF_THIS_RELATIVE_ONE_OF_THE_PARTNERS_YOU_HAVE_ENTERED);
-			isTheOtherBiologicalParentOfThisRelativeOneOfThePartnersYouHaveEnteredSelected = testDataForFHQ.get(FHQConstants.IS_THE_OTHER_BIOLOGICAL_PARENT_OF_THIS_RELATIVE_ONE_OF_THE_PARTNERS_YOU_HAVE_ENTERED_SELECTED);
+			areAnyOfTheFollowingIndividualsABiologicalParentOfThisChild = testDataForFHQ.get(FHQConstants.ARE_ANY_OF_THE_FOLLOWING_INDIVIDUALS_A_BIOLOGICAL_PARENT_OF_THIS_CHILD);
+			areAnyOfTheFollowingIndividualsABiologicalParentOfThisChildSelected = testDataForFHQ.get(FHQConstants.ARE_ANY_OF_THE_FOLLOWING_INDIVIDUALS_A_BIOLOGICAL_PARENT_OF_THIS_CHILD_SELECTED);
 			partnerNameHelpBanner = testDataForFHQ.get(FHQConstants.PARTNER_NAME_HELP_BANNER);
-			otherBiologicalParent = testDataForFHQ.get(FHQConstants.CHILD_OTHER_BIOLOGICAL_PARENT);
+			whichOfTheFollowingIndividualsIsABiologicalParentOfThisChild = testDataForFHQ.get(FHQConstants.WHICH_OF_THE_FOLLOWING_INDIVIDUALS_IS_A_BIOLOGICAL_PARENT_OF_THIS_CHILD);
+			whichOfTheFollowingIndividualsIsABiologicalParentOfThisChildSelected = testDataForFHQ.get(FHQConstants.WHICH_OF_THE_FOLLOWING_INDIVIDUALS_IS_A_BIOLOGICAL_PARENT_OF_THIS_CHILD_SELECTED);
 			otherBiologicalParentHelpBanner = testDataForFHQ.get(FHQConstants.OTHER_BIOLOGICAL_PARENT_HELP_BANNER);
 			otherBiologicalParentSelected = testDataForFHQ.get(FHQConstants.OTHER_BIOLOGICAL_PARENT_SELECTED);
 			isThisRelativeATwinOrPartOfAMultipleBirth = testDataForFHQ.get(FHQConstants.IS_THIS_RELATIVE_A_TWIN_OR_PART_OF_A_MULTIPLE_BIRTH);

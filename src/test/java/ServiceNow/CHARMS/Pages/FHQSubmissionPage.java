@@ -28,10 +28,6 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement dynamicLocatorForAddedRelatives(String text1,String text2) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//td[@class='vt'][normalize-space()='" + text1 +"']/parent::tr//td[@class='vt'][normalize-space()='"+text2+"']/parent::tr/td[3]"));
 	}
-	/* Method to dynamically locate GrandParents element in FHQ participant page in Native View */
-	public WebElement dynamicLocatorForGrandParent(String text1,String text2) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("(//div[@aria-label=\"Grandparent(s) related list\"]//table[@role=\"presentation\"])[1]//tr//td[normalize-space()='" +text1 +"']/parent::tr/td[3][normalize-space()='" + text2 +"']"));
-	}	
 	/* Method to dynamically locate Labels in Relative Information form section of FHQ participant page in Native View */
 	public WebElement dynamicLocatorForLabels() {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//div[@aria-label=\"Relative Information form section\"]//label"));
@@ -64,10 +60,6 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement dynamicLocatorTextBoxUsingInput(int i) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@type=\"text\"])[" + i + "]"));
 	}
-	/* Method to dynamically locate TEXT BOXES with Values ON FHQ FORMS and Native View */
-	public WebElement dynamicLocatorTextBoxUsingValue(String text) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("//input[@value='" + text + "']"));
-	}
 	/* Method to dynamically locate Selected DROP down Value in NativeView For the Patient form */
 	public WebElement dynamicLocatorForSelectedDropDown(int i) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@aria-required=\"false\"])[" + i + "]"));
@@ -84,28 +76,9 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement dynamicLocatorTextBoxForReadOnlyInput1(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//textarea[@aria-label='" + text + "']"));
 	}
-	/* Use This Method To Dynamically Locate Record Buttons On */
-	public WebElement dynamicFHQRelativePreviewButtonLocator(String text) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record: " + text + "'])[1]"));
-	}
-	/* Use This Method To Dynamically Locate Record Buttons On */
-	public WebElement dynamicFHQPatientPreviewButtonLocator(String text) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record: " + text + "'])[1]"));
-	}
-	public WebElement dynamicLocatorForSelectedDropDown(String text) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='" + text + "']"));
-	}	
 	/* Method to dynamically locate elements in FHQ */
 	public WebElement dynamicLocatorUsingAnchorTag(String text, int i) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='" + text + "'])["+ i +"]"));
-	}	
-	/* Method to dynamically locate elements in FHQ */
-	public WebElement dynamicLocatorUsingAnchorTag1(String text, int i) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record: " + text + "'])["+ i +"]"));
-	}	
-	/* Method to dynamically locate elements in FHQ */
-	public WebElement dynamicLocatorUsingAnchorTag2(String text, int i) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label=\"" + text +" - Open record: \"])[" + i +"]"));
 	}
 	/* Method to dynamically locate elements in FHQ */
 	public WebElement dynamicLocatorUsingSpanLabel(String text) {
@@ -127,10 +100,6 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement dynamicLocatorForButtonUsingText(String text, int i) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//td[@data-th='" + text + "'])["+i+"]"));
 	}
-	/* Method to dynamically locate elements in FHQ  USING TEXT */
-	public WebElement dynamicLocatorUsingText(String text) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']"));
-	}
 	/* Method to dynamically locate elements in FHQ */
 	public WebElement dynamicLocatorUsingNormalizeSpace(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//*[normalize-space()='" + text + "']"));
@@ -151,17 +120,9 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement dynamicLocatorForButton(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//button[@aria-label='" + text + "']"));
 	}
-	/* Method to dynamically locate Button elements in FHQ */	
-	public WebElement dynamicLocatorByNameForButton(String text) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("//button[@name='" + text + "']"));
-	}
 	/* Method to dynamically locate titles using contains in FHQ */
 	public WebElement dynamicLocatorUsingTitle(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(@title,'" + text + "')]"));
-	}
-	/* Method to dynamically locate titles in FHQ */
-	public WebElement dynamicLocatorForTitle(String text) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("//*[@title='" + text + "')]"));
 	}
 	/* Method to dynamically locate Banners In FHQ */
 	public WebElement dynamicLocatorForBanner(String text, int i) {
@@ -202,18 +163,6 @@ public class FHQSubmissionPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@class='select2-chosen'][normalize-space()='-- None --'])[2]")
 	public WebElement fHQFieldDropDown1;
 
-	@FindBy(xpath = "(//span[@class='select2-chosen'][normalize-space()='-- None --'])[3]")
-	public WebElement fHQFieldDropDown2;
-
-	@FindBy(xpath = "(//span[@class='select2-chosen'][normalize-space()='-- None --'])[4]")
-	public WebElement fHQFieldDropDown3;
-
-	@FindBy(xpath = "(//*[contains(text(),\"Is this your (the participant's) current partner\")])[1]")
-	public static WebElement currentPartnerLabel;
-
-	@FindBy(xpath = "//input[@id=\"sys_display.x_naci_family_coho_fhq_child.other_biological_parent_partner\"]")
-	public static WebElement otherBiologicalParentTextBox;
-
 	@FindBy(xpath = "(//*[contains(text(),\"Is there anything else you would like us to know about this participant?\")])[1]")
 	public static WebElement additionalInformation;
 
@@ -238,17 +187,21 @@ public class FHQSubmissionPage extends CommonUtils {
 	@FindBy(xpath = "(//div[@class='h1 text-center text-white ng-binding'])[1]")
 	public WebElement familyCohortStudyManagementSystemLabel;
 
-	/* Other Biological Parent Dropdown*/
-	@FindBy(xpath = "(//a[@class='select2-choice select2-default form-control'])[4]")
-	public WebElement otherBiologicalParentDropdown;
+	/* Which of the following individuals is a biological parent of this child? Selected Dropdown*/
+	@FindBy(xpath = "(//a[@href='javascript:void(0)'])[1]")
+	public WebElement biologicalParentOfThisChildDropdown;
 
 	/* RELATION RP:Short Description Information Banner on a new RP */
 	@FindBy(xpath = "//span[contains(text(),'We would like to ask some questions about Siblings')]")
 	public WebElement siblingInformationBanner;
 
-	/* Other Biological Parent Dropdown Value */
-	@FindBy(xpath = "(//div[@id='select2-result-label-37'])[1]")
-	public WebElement otherBiologicalParentDropdownValue;
+	/* Which of the following individuals is a biological parent of this child? Selected Dropdown Value */
+	@FindBy(xpath = "(//input[@id='s2id_autogen24_search'])[1]")
+	public WebElement biologicalParentOfThisChildDropdownSearch;
+
+	/* Which of the following individuals is a biological parent of this child? Selected Dropdown Value */
+	@FindBy(xpath = "(//Li[@class='select2-results-dept-0 select2-result select2-result-selectable select2-highlighted'])[1]")
+	public WebElement biologicalParentOfThisChildDropdownValue;
 
 	@FindBy(xpath ="(//h2[@class='h2 m-t-none m-b-sm font-thin ng-binding ng-scope'])[1]")
 	public WebElement parentTypeHeading;
@@ -394,7 +347,6 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement completeButton;
 
 	/* ************* NATIVE VIEW * ************* */
-
 	/* NV: Native View Side Door UserName */
 	@FindBy(xpath = "(//input[@id='user_name'])[1]")
 	public WebElement nVSideDoorUserName;
