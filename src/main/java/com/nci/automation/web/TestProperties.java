@@ -116,6 +116,13 @@ public class TestProperties {
     public static String SCATLAS_URL;
 
     /**
+     * CERVICAL CP URLS
+     */
+    public static final String CERVICAL_CP_TEST_URL = "https://globalcxca-qa.cancer.gov/";
+    public static final String CERVICAL_CP_STAGE_URL = "https://globalcxca-stage.cancer.gov/";
+    public static String CERVICAL_CP_URL;
+
+    /**
      * EZ-QTL URLS
      */
     public static final String EZ_QTL_TEST_URL = "https://analysistools-qa.cancer.gov/ezqtl/#/home";
@@ -471,6 +478,18 @@ public class TestProperties {
         return EZ_QTL_URL;
     }
 
+    public static String getCervicalCPUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                CERVICAL_CP_URL = CERVICAL_CP_STAGE_URL;
+                break;
+            case "test":
+                CERVICAL_CP_URL = CERVICAL_CP_TEST_URL;
+                break;
+        }
+        return CERVICAL_CP_URL;
+    }
+
     public static String getAct24ResearcherUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
@@ -485,13 +504,13 @@ public class TestProperties {
     public static String getAct24ParticipantUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
-                ACT_24_RESEARCHER_URL = ACT_24_PARTICIPANT_TEST_URL;
+                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_TEST_URL;
                 break;
             case "test":
-                ACT_24_RESEARCHER_URL = ACT_24_PARTICIPANT_STAGE_URL;
+                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_STAGE_URL;
                 break;
         }
-        return ACT_24_RESEARCHER_URL;
+        return ACT_24_PARTICIPANT_URL;
     }
 
     public static String getSeerOdsUrl() {

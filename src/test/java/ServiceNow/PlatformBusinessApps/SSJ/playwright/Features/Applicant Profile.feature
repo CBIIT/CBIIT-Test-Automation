@@ -1,7 +1,7 @@
 Feature: Applicant Profile Scenarios
   Description: This Feature file contains Applicant Profile Scenarios
 
-  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @JUAREZDS @Regression @playwright @SNOW_UPDATED
+  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @JUAREZDS @Regression_NF @playwright @SNOW_UPDATED
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
@@ -42,7 +42,7 @@ Feature: Applicant Profile Scenarios
       | SSJTest   | Marianna   | Mollick    | mollickja@nih.gov  | 7018211343 | 2123323454           | Masters          | Yes            | 11 Kolls | 6         | Sausalito  | CA    | USA     | 97712 |
       | SSJTest   | Elena      | Andrew     | andrewkl@nih.gov   | 8233212333 | 2202122234           | Bachelors        | Yes            | 11 Bells | 39        | Sacramento | CA    | USA     | 95512 |
 
-  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @SSJ-712 @JUAREZDS @Regression @playwright @SNOW_UPDATED
+  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @SSJ-712 @JUAREZDS @Regression_NF @playwright @SNOW_UPDATED
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
@@ -84,7 +84,7 @@ Feature: Applicant Profile Scenarios
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | US Citizenship | address | aptNumber | city   | state | country | zip   |
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
 
-  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright @SNOW_UPDATED
+  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression_NF @playwright @SNOW_UPDATED
   Scenario Outline: Verifying applicant is able to see "Your Applications" tab and page content after applying to a Vacancy
 #    Given an Okta user "" is on the SSJ home page and logs in - PLEASE LEAVE THIS HERE! NEED TO CONNECT WITH OKTA TEAM
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
@@ -251,7 +251,7 @@ Feature: Applicant Profile Scenarios
     And verifies Application Documents text "APPLICATION DOCUMENTS"
     And verifies required documents with required references needed to apply to this test Vacancy
 
-  @TC_APPTRACK-144 @JUAREZDS @Regression @playwright @NEEDS_FIX
+  @TC_APPTRACK-144 @JUAREZDS @Regression_NF @playwright @NEEDS_FIX
   Scenario: Applying for vacancy as unauthenticated applicant
     Given an unauthenticated applicant is on the SSJ homepage "SSJPortalView"
     And verifies that the drop drown text is "Login"
@@ -268,7 +268,7 @@ Would you like to log in now or go back to the home page?
     And clicks "Log in" and is redirected to the Okta Login Portal
     And verifies that the PIV CAC card button text is "Sign in with PIV / CAC card"
 
-  @TC_APPTRACK-128 @JUAREZDS @Regression @playwright @SNOW_UPDATED
+  @TC_APPTRACK-128 @JUAREZDS @Regression_NF @playwright @SNOW_UPDATED
   Scenario Outline: Verification of the Save application functionality
     Given a test account "SSJTest" is reset before executing a test
     And a test vacancy "DIEGO TEST" is reset before creating a vacancy
@@ -336,7 +336,7 @@ Would you like to log in now or go back to the home page?
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | address | aptNumber | city   | state | country | zip   |
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
 
-  @TC_APPTRACK-360 @JUAREZDS @Regression @playwright @SNOW_UPDATED
+  @TC_APPTRACK-360 @JUAREZDS @Regression_NF @playwright @SNOW_UPDATED
   Scenario Outline: Verification of the Save application functionality
     Given a test account "SSJTest" is reset before executing a test
     And User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
@@ -543,11 +543,22 @@ Would you like to log in now or go back to the home page?
       | Female | Hispanic or Latino       | Black or African-American                 | None of the conditions listed above apply to me.                                   |
       | Female | Not Hispanic or Latino   | Asian                                     | I do not wish to answer questions regarding my disability/health conditions.       |
 
+  @TC_APPTRACK-928 @playwright @Regression @cabreralf
+  Scenario: Profile Edit button is blue
+    Given User is on SSJ Landing page and user is "OKTA_APPLICANT" - PW
+    And User is on Profile tab - PW
+    When user inspects the color of the Edit button
+    Then verifies it is the correct blue color
 
+  @TC_APPTRACK-928 @playwright @Regression @cabreralf
+  Scenario: Tool Tip for "Phone" and "Business Phone" field in the Profile
+    Given User is on SSJ Landing page and user is "OKTA_APPLICANT" - PW
+    And User is on Profile tab - PW
+    And user clicks on Edit button
+    When User is on the Phone number field will see a tool tip notifying on the proper formatting
+    Then User is on the Business Phone number field will see a tool tip notifying on the proper formatting
 
 #APPTRACK-370 - review
-#APPTRACK-928
-#APPTRACK-927
 #APPTRACK-1130
 #APPTRACK-594
 #APPTRACK-359
