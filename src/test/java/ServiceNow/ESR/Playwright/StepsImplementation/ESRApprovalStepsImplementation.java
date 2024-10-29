@@ -18,7 +18,21 @@ public class ESRApprovalStepsImplementation {
     /**
      * This method confirms that the Federal Intake Approval is completed
      */
-    public static void confirmFederalIntakeApprovalisCompleted() {
+    public static void confirmFederalIntakeApprovalIsCompleted() {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("ESR Board Intake Review");
+    }
+
+    /**
+     * This method completes the required ESR Board Intake approvals
+     */
+    public static void esrBoardIntakeApprovals() {
+
+    }
+
+    /**
+     * This method confirms that the ESR Board Intake Approvals are completed
+     */
+    public static void confirmESRBoardIntakeApprovalsAreCompleted() {
+
     }
 }
