@@ -352,7 +352,7 @@ public class QuickLinkVerificationAndManagementMenuSteps extends PageInitializer
 	@Then("the system notifies the IC Coordinator that userid already exists in the system")
 	public void the_system_notifies_the_ic_coordinator_that_userid_already_exists_in_the_system() {
 		String alertText = WebDriverUtils.webDriver.switchTo().alert().getText();
-		Assert.assertTrue(alertText.contains(Egrants_Constants.USER_EXISTS_MESSAGE), "*** VALIDATION TEXT DOES NOT MATCH ***");
+		Hooks.softAssert.assertTrue(alertText.contains(Egrants_Constants.USER_EXISTS_MESSAGE), "*** VALIDATION TEXT DOES NOT MATCH ***");
 		Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
 		CucumberLogUtils.logScreenshot();
 	}
