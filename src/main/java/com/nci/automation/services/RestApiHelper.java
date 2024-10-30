@@ -21,7 +21,7 @@ public class RestApiHelper {
 		  rest = new RestApiHelper("https://exploregwas-qa.cancer.gov/plco-atlas/api");
 		  rest.setResourceUrl("/phenotypes?q=cancer");
 		  rest.getRequestByChromeVersion86(); 
-		  System.out.println(rest.getResponseBody().asString()); 
+		  System.out.println(rest.getResponseBody().asString());
 	}
 	
 	public RestApiHelper(String baseUri) {

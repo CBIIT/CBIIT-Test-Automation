@@ -1,7 +1,6 @@
 package AnalysisTools.CometsAnalytics.StepsImplementation;
 
 import java.util.Set;
-
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import com.nci.automation.web.CommonUtils;
@@ -80,8 +79,13 @@ public class CometsAnalyticsStepImp extends PageInitializer {
     public void clickOnAboutComment() {
         CommonUtils.sleep(4000);
         CommonUtils.waitForVisibility(cometsAnalyticsPage.aboutCometsButton);
+        String parent = WebDriverUtils.webDriver.getWindowHandle();
         cometsAnalyticsPage.aboutCometsButton.click();
         assertMoreThanOneWindowIsPresent();
+        CommonUtils.switchToAnotherTabWindow();
+        CommonUtils.sleep(2000);
+        webDriver.close();
+        webDriver.switchTo().window(parent);
     }
 
     /**
@@ -196,16 +200,28 @@ public class CometsAnalyticsStepImp extends PageInitializer {
      * METHOD TO CLICK ON TUTORIALS AND VERIFYING THE WINDOW IS PRESENT OR NOT
      */
     public void clickOnTutorials() {
+        CommonUtils.sleep(2000);
+        String parent = WebDriverUtils.webDriver.getWindowHandle();
         JavascriptUtils.clickByJS(cometsAnalyticsPage.tutorialsButton);
         assertMoreThanOneWindowIsPresent();
+        CommonUtils.switchToAnotherTabWindow();
+        CommonUtils.sleep(2000);
+        webDriver.close();
+        webDriver.switchTo().window(parent);
     }
 
     /**
      * METHOD TO CLICK ON VIGENETTE BUTTON
      */
     public void clickOnVigenette() {
+        CommonUtils.sleep(2000);
+        String parent = WebDriverUtils.webDriver.getWindowHandle();
         JavascriptUtils.clickByJS(cometsAnalyticsPage.vignettesButton);
         assertMoreThanOneWindowIsPresent();
+        CommonUtils.switchToAnotherTabWindow();
+        CommonUtils.sleep(2000);
+        webDriver.close();
+        webDriver.switchTo().window(parent);
     }
 
     /**

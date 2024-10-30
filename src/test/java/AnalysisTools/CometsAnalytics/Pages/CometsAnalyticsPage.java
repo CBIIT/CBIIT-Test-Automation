@@ -21,7 +21,7 @@ public class CometsAnalyticsPage extends CommonUtils {
 	public WebElement checkIntegretyButton;
 
 	/* TUTORIALS BUTTON */
-	@FindBy(xpath = "//a[text()='Tutorials']")
+	@FindBy(xpath = "//a[normalize-space()='Tutorials']")
 	public WebElement tutorialsButton;
 
 	/* ABOUT COMETS BUTTON */
@@ -29,7 +29,7 @@ public class CometsAnalyticsPage extends CommonUtils {
 	public WebElement aboutCometsButton;
 
 	/* VIGNETTES BUTTON */
-	@FindBy(xpath = "//a[text()='Vignettes']")
+	@FindBy(xpath = "//a[normalize-space()='Vignettes']")
 	public WebElement vignettesButton;
 
 	/** ABOUT BUTTON **/
