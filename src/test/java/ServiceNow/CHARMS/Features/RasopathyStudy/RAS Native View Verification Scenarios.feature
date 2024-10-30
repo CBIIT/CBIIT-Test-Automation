@@ -22,5 +22,5 @@ Feature: RAS Native View Verification Scenarios
     Examples:
       | Existing FSID | Study                        | Relationship to Proband | First Name                       | Last Name |
       |               | Fanconi                      | Proband                 | FanconiProband                   | TestIBMFS |
-      |               | RASopathy                    | Proband                 | RASopathyProbandIBMFS            | TestIBMFS |
+      |               | RASopathy                    | Proband                 | RASopathyProband            | TestIBMFS |
       |               | Bone Marrow Failure Syndrome | Proband                 | BoneMarrowFailureSyndromeProband | TestIBMFS |
