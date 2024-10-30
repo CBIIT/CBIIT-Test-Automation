@@ -14,6 +14,12 @@ public class NativeViewCHARMSAddNewParticipantPage {
     public WebElement subjectIDTextBox;
 
     /**
+     * Subject Name text box
+     */
+    @FindBy(xpath = "//input[@id='sys_readonly.x_naci_family_coho_family_history_details.name']")
+    public WebElement subjectNameTextBox;
+
+    /**
      * Family text box
      */
     @FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_family_history_details.family']")
