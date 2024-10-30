@@ -13,7 +13,7 @@ Feature: RAS Native View Verification Scenarios
       |               | Fanconi   | Unknown                 | ParticipantUnknown | NoExistingFSID |
       | 09949-01-001  | RASopathy | Other                   | ParticipantOther   | ExistingFSID   |
 
-  @muzipovay2 @RAS_STUDY @CP2-3898 @selenium @RAS_Regression @Progression
+  @muzipovay2 @RAS_STUDY @CP2-3898 @selenium @RAS_Regression
   Scenario Outline: Verifying that IBMFS Affected Status displays in the Subject Flags record when the study is "Fanconi" or "Bone Marrow Failure Syndrome".
     Given Study Team member logs in to Native View and navigates to All Participant Details
     And Study Team member clicks Add New Participant and completes the form with:  FSID "<Existing FSID>", Study "<Study>", Relationship to Proband "<Relationship to Proband>", First Name "<First Name>", Last Name "<Last Name>"
