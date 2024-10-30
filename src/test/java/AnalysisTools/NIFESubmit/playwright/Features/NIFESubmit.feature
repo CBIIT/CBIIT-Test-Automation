@@ -8,19 +8,59 @@ Feature:These are the scenarios for the NIFESubmit application
     Then User clicks on the Submit Metadata and View Images
 
   @satya @Smoke @Regression @playwright @NCIATWP-6715
-  Scenario: Verify SUBMIT METADATA tab is available in the NIFE Website
+  Scenario: Verify User imports the excel file in the submit metadata tab
     Given User navigates to the NIFE Website
     Then User clicks on the SUBMIT METADATA tab
     Then Verify User is on the SUBMIT METADATA Tab
     Then User imports the excel file
 
+  @satya @Smoke @Regression @playwright @NCIATWP-6715
+  Scenario: Validate the error message if user clicks submit button without entering any details in the submit metadata tab
+    Given User navigates to the NIFE Website
+    Then User clicks on the SUBMIT METADATA tab
+    Then User clicks on the submit button in NIFESubmit
+    Then Verify the validation error message in the submit metadata tab
+
   @satya @Smoke @Regression @playwright @NCIATWP-6716
-  Scenario: Verify SUBMIT METADATA tab is available in the NIFE Website
+  Scenario: Verify User is able to submit metadata successfully
+    Given User navigates to the NIFE Website
+    Then User clicks on the SUBMIT METADATA tab
+    And User enters all the required details in study information section
+    Then User clicks on the submit button in NIFESubmit
+    Then Verify metadata has been submitted successfully
+
+  @satya @Smoke @Regression @playwright @NCIATWP-6717
+  Scenario: Verify User is able to reset and download metadata file
+    Given User navigates to the NIFE Website
+    Then User clicks on the SUBMIT METADATA tab
+    And User enters all the required details in study information section
+    Then User clicks on the reset button
+    Then Verify user is not able to submit metadata successfully
+    Then User downloads the metadata file using download button
+
+  @satya @Smoke @Regression @playwright @NCIATWP-6720
+  Scenario: Verify User is able to submit metadata after adding biosample
+    Given User navigates to the NIFE Website
+    Then User clicks on the SUBMIT METADATA tab
+    And User enters all the required details in study information section
+    Then User clicks on the add biosample
+    Then User enters all the required details in the biosample section
+    Then User clicks on the submit button in NIFESubmit
+    Then Verify metadata has been submitted successfully
+
+  @satya @Smoke @Regression @playwright @NCIATWP-6726
+  Scenario: Verify the OMERO web login page on the NIFE IMAGE SERVER tab
+    Given User navigates to the NIFE Website
+    Then User clicks on the NIFE IMAGE SERVER tab
+    Then Verify User is on the OMERO login page
+
+  @satya @Smoke @Regression @playwright @NCIATWP-6726
+  Scenario: Verify the associated title of pages navigated through the links on the about tab
     Given User navigates to the NIFE Website
     Then User clicks on the About tab
     Then User clicks on the links and verify the associated title
 
-  @satya @Regression @Smoke @NCIATWP-6717 @playwright
+  @satya @Regression @Smoke @playwright @NCIATWP-6784
   Scenario: Verify user is able to click and validate urls of footer links
     Given User navigates to the NIFE Website
     Then User clicks on policies link and verify it in NIFE
@@ -29,7 +69,7 @@ Feature:These are the scenarios for the NIFESubmit application
     Then User clicks on the viewing file link and verify it in NIFE
     Then User clicks on the FIOS link and verify it in NIFE
 
-  @satya @Regression @Smoke @NCIATWP-6720 @playwright
+  @satya @Regression @Smoke @playwright @NCIATWP-6785 @NCIATWP-6800
   Scenario: Verify user is able to click and validate urls of footer links
     Given User navigates to the NIFE Website
     Then User clicks on hhs link and verify it in NIFE
