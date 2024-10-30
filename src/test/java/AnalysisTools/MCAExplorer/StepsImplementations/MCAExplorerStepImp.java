@@ -16,6 +16,7 @@ public class MCAExplorerStepImp extends PageInitializer {
 	 */
 	public void isCircleImageIsAvailable() {
 		CommonUtils.waitForThePresenceOfEl(mcaExplorerPage.summaryCircleXpath, Duration.ofSeconds(40));
+		CommonUtils.sleep(4000);
 		Assert.assertTrue(CommonUtils.isElementDisplayed(mcaExplorerPage.summaryCircle));
 	}
 
