@@ -48,7 +48,7 @@ Given User is logged in the application and is on the landing page
     And expands the document details and clicks on Delete button
     Then clicks on OK button to confirm Deletion
 
-  @InstitutionalFileUpload @nesarh2 @selenium @Regression1
+  @InstitutionalFileUpload @nesarh2 @selenium @Regression
   Scenario: Test Institutional file upload
     And clicks on Institutional Files menu
     And clicks on AAVOGEN, INC.

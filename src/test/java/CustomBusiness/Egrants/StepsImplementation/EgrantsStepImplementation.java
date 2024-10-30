@@ -9,10 +9,7 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-
 import static com.nci.automation.web.TestProperties.getEGrantsUrl;
 
 public class EgrantsStepImplementation extends PageInitializer {
@@ -191,13 +188,11 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 * THIS METHOD REPLACES AN EXISTING FILE
 	 */
 	public static void replaces_a_file() {
-		//CommonUtils.waitForVisibility(egrantsSearchandFileManagementScenariosPage.replaceFile);
 		CommonUtils.sleep(2000);
 		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.replaceFile, Egrants_Constants.TEST_FILE_PATH);
-		CommonUtils.sleep(2000);
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addFileButton);
-		CommonUtils.sleep(5000);
-		//CucumberLogUtils.logScreenshot();
+		CommonUtils.sleep(2000);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	/**
