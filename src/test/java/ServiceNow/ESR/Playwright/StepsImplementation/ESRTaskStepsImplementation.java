@@ -121,6 +121,7 @@ public class ESRTaskStepsImplementation {
         Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[1]").click();
         Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").fill("Kui Wu");
         Playwright_Common_Locators.iframeLocator().getByLabel("Catalog Task form section").getByLabel("State").selectOption("3");
+        Playwright_Common_Locators.iframeLocator().locator("//input[@id='sc_task.short_description']").click();
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
     }
 

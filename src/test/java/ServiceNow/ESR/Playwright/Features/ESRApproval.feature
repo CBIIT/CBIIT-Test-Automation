@@ -22,7 +22,7 @@ Feature: ESR Approvals
     Then the user confirms the Federal Intake Approval is completed
 
   @ESR-??? @sarwarahmed1 @Progression @playwright
-  Scenario: Test the ESR Board Intake Approvals in an ESR-Q ticket
+  Scenario: Test the ESR Board Intake Review catalog task in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
     And fills out all required information for ESR-Q and clicks submit
@@ -34,7 +34,7 @@ Feature: ESR Approvals
     Then the user confirms the ESR Board Intake Approvals are completed
 
   @ESR-??? @sarwarahmed1 @Progression @playwright
-  Scenario: Test the ESR Board Intake Approvals in an ESR-I ticket
+  Scenario: Test the ESR Board Intake Review catalog task in an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
     And fills out all required information for ESR-I and clicks submit
