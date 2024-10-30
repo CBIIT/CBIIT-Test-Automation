@@ -9,13 +9,16 @@ import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
 import static Hooks.Hooks.softAssert;
 import static ServiceNow.CHARMS.Pages.MyRASHomePage.dynamicModuleLocator;
 import static ServiceNow.CHARMS.Steps.RAS_Common_Methods.*;
@@ -824,7 +827,7 @@ public class RAS_All_Steps extends PageInitializer {
      * and checks that the Parent Guardian fields are disabled.
      *
      * @param consentStatus The expected Consent Status value
-     * @param consentType The expected Consent Type value
+     * @param consentType   The expected Consent Type value
      */
     @Given("Study Team member verifies that Consent Status equals {string}, Consent Type equals {string}, and that Parent Guardian fields are disabled")
     public void study_team_member_verifies_consent_status_consent_type_guardian_and_that_parent_guardian_fields_are_disabled(String consentStatus, String consentType) {
@@ -883,6 +886,57 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentSignAndCompleteButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentSignAndCompleteButton);
         CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Method to navigate to Participant Study in Native View.
+     */
+    @Given("Study Team member navigates to Participant Study")
+    public void study_team_member_navigates_to_participant_study() {
+        CommonUtils.sleep(2000);
+        String participantName = locateByXpath("//input[@aria-label='Name']").getAttribute("value");
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSAddNewParticipantPage.participantStudiesTab);
+        CommonUtils.clickOnElement(nativeViewCHARMSAddNewParticipantPage.participantStudiesTab);
+        CommonUtils.hoverOverElement(locateByXpath("//a[normalize-space()='Eligible']"));
+        CommonUtils.sleep(500);
+        JavascriptUtils.clickByJS(locateByXpath("(//a[@aria-label='Preview record: " + participantName + "'])[2]"));
+        CommonUtils.sleep(500);
+        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
+        CommonUtils.sleep(200);
+        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Study Team member creates a new Subject Flags and verifies that the field IBMFS Affected Status displays if the specified study is Fanconi or Bone Marrow Failure Syndrome.
+     *
+     * @param study the study type to verify the IBMFS Affected Status field for (e.g. "Fanconi" or "Bone Marrow Failure Syndrome")
+     */
+    @Then("Study Team member creates a new Subject Flags and verifies that the field IBMFS Affected Status displays if the {string} is Fanconi or Bone Marrow Failure Syndrome")
+    public void study_team_member_creates_a_new_subject_flags_and_verifies_that_the_field_ibmfs_affected_status_displays_if_the_is_fanconi_or_bone_marrow_failure_syndrome(String study) {
+        CommonUtils.sleep(800);
+        JavascriptUtils.scrollIntoView(locateByXpath("//span[@class='tab_caption_text'][normalize-space()='Subject Flags']"));
+        JavascriptUtils.clickByJS(locateByXpath("//span[@class='tab_caption_text'][normalize-space()='Subject Flags']"));
+        JavascriptUtils.clickByJS(locateByXpath("//div[@aria-label='Subject Flags, filtering toolbar']//button[@value='sysverb_new'][normalize-space()='New']"));
+        CommonUtils.sendKeys(nativeViewCHARMSSubjectFlagsPage.subjectFlagsParticipantTextBox, Keys.ENTER);
+        if(study.equalsIgnoreCase("Fanconi") || study.equalsIgnoreCase("Bone Marrow Failure Syndrome")) {
+            CommonUtils.waitForVisibility(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusText);
+            softAssert.assertTrue(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusText.isDisplayed());
+            softAssert.assertTrue(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusDropDown.isEnabled());
+            softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusDropDown.getAttribute("mandatory"), "true");
+        } else {
+            softAssert.assertFalse(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusText.isDisplayed());
+            softAssert.assertFalse(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusDropDown.isEnabled());
+            softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusDropDown.getAttribute("mandatory"), "false");
+        }
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSSubjectFlagsPage.subjectFlagsPreviewRecordForFieldStudyButton);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(500);
+        CommonUtils.waitForVisibility(locateByXpath("//input[@id='sys_readonly.x_naci_family_coho_mock_up_study.study_name']"));
+        softAssert.assertEquals(locateByXpath("//input[@id='sys_readonly.x_naci_family_coho_mock_up_study.study_name']").getAttribute("value"), study);
+        CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
     }
 }
