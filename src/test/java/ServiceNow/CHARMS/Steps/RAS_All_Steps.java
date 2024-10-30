@@ -920,19 +920,21 @@ public class RAS_All_Steps extends PageInitializer {
         JavascriptUtils.clickByJS(locateByXpath("//span[@class='tab_caption_text'][normalize-space()='Subject Flags']"));
         JavascriptUtils.clickByJS(locateByXpath("//div[@aria-label='Subject Flags, filtering toolbar']//button[@value='sysverb_new'][normalize-space()='New']"));
         CommonUtils.sendKeys(nativeViewCHARMSSubjectFlagsPage.subjectFlagsParticipantTextBox, Keys.ENTER);
+        CommonUtils.sleep(800);
         if(study.equalsIgnoreCase("Fanconi") || study.equalsIgnoreCase("Bone Marrow Failure Syndrome")) {
             CommonUtils.waitForVisibility(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusText);
-            softAssert.assertTrue(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusText.isDisplayed());
-            softAssert.assertTrue(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusDropDown.isEnabled());
-            softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusDropDown.getAttribute("mandatory"), "true");
+            softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusText.getText(), "IBMFS Affected Status");
+            softAssert.assertTrue(locateByXpath("//span[@id='status.x_naci_family_coho_subject_flag.ibmfs_affected_status']").getAttribute("data-dynamic-title").equals("Mandatory - must be populated before Submit"));
+            softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusDropDown.getAttribute("aria-required"), "true", "* * * * * ERROR: IBMFS Affected Status dropdown is not displayed. * * * * *");
+            nativeViewCHARMSSubjectFlagsPage.subjectFlagsSaveButton.click();
+            CommonUtils.waitForVisibility(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusNotFilledInErrorText);
+            softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusNotFilledInErrorText.getText(), "The following mandatory fields are not filled in: IBMFS Affected Status");
         } else {
-            softAssert.assertFalse(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusText.isDisplayed());
-            softAssert.assertFalse(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusDropDown.isEnabled());
-            softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusDropDown.getAttribute("mandatory"), "false");
+            softAssert.assertTrue(locateByXpath("//span[@id='status.x_naci_family_coho_subject_flag.ibmfs_affected_status']").getAttribute("data-dynamic-title").equals(""));
+            softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusDropDown.getAttribute("aria-required"), "false", "* * * * * ERROR: IBMFS Affected Status dropdown should NOT display for this study. * * * *");
         }
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSSubjectFlagsPage.subjectFlagsPreviewRecordForFieldStudyButton);
-        CucumberLogUtils.logScreenshot();
         CommonUtils.sleep(500);
         CommonUtils.waitForVisibility(locateByXpath("//input[@id='sys_readonly.x_naci_family_coho_mock_up_study.study_name']"));
         softAssert.assertEquals(locateByXpath("//input[@id='sys_readonly.x_naci_family_coho_mock_up_study.study_name']").getAttribute("value"), study);

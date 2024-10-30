@@ -31,6 +31,19 @@ public class NativeViewCHARMSSubjectFlagsPage {
     @FindBy(xpath = "//select[@id='x_naci_family_coho_subject_flag.ibmfs_affected_status']")
     public WebElement subjectFlagsIBMFSAffectedStatusDropDown;
 
+    /**
+     * Native View Subject Flags Save Button
+     */
+    @FindBy(xpath = "//button[@id='sysverb_insert_and_stay']")
+    public WebElement subjectFlagsSaveButton;
+
+    /**
+     * Native View Subject Flags The following mandatory fields are not filled in: IBMFS Affected Status. Error Text
+     */
+    @FindBy(xpath = "//span[@class='outputmsg_text']")
+    public WebElement subjectFlagsIBMFSAffectedStatusNotFilledInErrorText;
+
+
     public NativeViewCHARMSSubjectFlagsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
