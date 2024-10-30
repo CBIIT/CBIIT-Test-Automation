@@ -6,7 +6,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
   Scenario: Participant fills the Fanconi screener for all different scenarios
     Given All scenarios are submitted
 
-  @jains @FanconiSubmission @CP2-1949 @Fanconi_Regression @selenium @Smoke
+  @jains @FanconiSubmission @CP2-1949 @Fanconi_Regression @selenium @Smoke1
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 1
     Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page

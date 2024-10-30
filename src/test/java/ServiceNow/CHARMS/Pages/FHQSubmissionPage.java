@@ -188,8 +188,13 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement familyCohortStudyManagementSystemLabel;
 
 	/* Which of the following individuals is a biological parent of this child? Selected Dropdown*/
-	@FindBy(xpath = "(//a[@href='javascript:void(0)'])[1]")
+	//@FindBy(xpath = "(//div[@id='s2id_sp_formfield_other_biological_parent_partner'])[1]")
+	//@FindBy(xpath = "//a[@class='select2-choice form-control select2-default']")
+	@FindBy(xpath = "(//div[@id='s2id_sp_formfield_other_biological_parent_partner'])[1]")
+	//@FindBy(xpath = "//a[@aria-label='Review Family History Questionnaire']//span[contains(text(),'Family History Questionnaire')]")
 	public WebElement biologicalParentOfThisChildDropdown;
+
+
 
 	/* RELATION RP:Short Description Information Banner on a new RP */
 	@FindBy(xpath = "//span[contains(text(),'We would like to ask some questions about Siblings')]")
@@ -200,7 +205,9 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement biologicalParentOfThisChildDropdownSearch;
 
 	/* Which of the following individuals is a biological parent of this child? Selected Dropdown Value */
-	@FindBy(xpath = "(//Li[@class='select2-results-dept-0 select2-result select2-result-selectable select2-highlighted'])[1]")
+	//@FindBy(xpath = "(//span[@id='select2-chosen-24'])[1]")
+//	@FindBy(xpath = "(//div[@id='select2-result-label-206'])[1]")
+	@FindBy(xpath = "(//ul[@id='select2-results-24'])[1]/li[1]")
 	public WebElement biologicalParentOfThisChildDropdownValue;
 
 	@FindBy(xpath ="(//h2[@class='h2 m-t-none m-b-sm font-thin ng-binding ng-scope'])[1]")
