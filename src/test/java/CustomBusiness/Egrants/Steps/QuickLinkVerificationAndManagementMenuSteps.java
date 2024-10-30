@@ -46,7 +46,7 @@ public class QuickLinkVerificationAndManagementMenuSteps extends PageInitializer
 	}
 
 	@When("User selects {string} as QC Person")
-	public void user_selects_as_qc_person() {
+	public void user_selects_as_qc_person(String qcPerson) {
 		EgrantsStepImplementation.selects_qc_person();
 	}
 

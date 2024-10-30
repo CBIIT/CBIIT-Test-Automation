@@ -1,6 +1,7 @@
 package CustomBusiness.Egrants.StepsImplementation;
 
 import CustomBusiness.Egrants.Pages.EgrantsQuickLinkAndManagementMenuPage;
+import CustomBusiness.Egrants.Utils.Egrants_CommonUtils;
 import CustomBusiness.Egrants.Utils.Egrants_Constants;
 import Hooks.Hooks;
 import appsCommon.PageInitializers.PageInitializer;
@@ -8,7 +9,10 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+
 import static com.nci.automation.web.TestProperties.getEGrantsUrl;
 
 public class EgrantsStepImplementation extends PageInitializer {
@@ -183,6 +187,19 @@ public class EgrantsStepImplementation extends PageInitializer {
 		CucumberLogUtils.logScreenshot();
 	}
 
+	/***
+	 * THIS METHOD REPLACES AN EXISTING FILE
+	 */
+	public static void replaces_a_file() {
+		//CommonUtils.waitForVisibility(egrantsSearchandFileManagementScenariosPage.replaceFile);
+		CommonUtils.sleep(2000);
+		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.replaceFile, Egrants_Constants.TEST_FILE_PATH);
+		CommonUtils.sleep(2000);
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addFileButton);
+		CommonUtils.sleep(5000);
+		//CucumberLogUtils.logScreenshot();
+	}
+
 	/**
 	 * THIS METHOD VERIFIES THE DOCUMENT UPLOAD MESSAGE
 	 * @param uploadSuccessMessage
@@ -203,7 +220,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 		CommonUtils.switchToNextWindow();
 		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
-		CommonUtils.webDriver.close();
 	}
 
 	/***
@@ -405,10 +421,13 @@ public class EgrantsStepImplementation extends PageInitializer {
 		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.expandIconFirstRow);
 		CommonUtils.sleep(2000);
-		if (CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.createdOnTextFirstRow).contains(Egrants_Constants.DOC_CREATOR_NAME)) {
+		String docCreatorText = egrantsSearchandFileManagementScenariosPage.createdByText.getText();
+		String docCreatorName = docCreatorText.split("by")[1].split(";")[0].trim();
+
+		if (CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.createdOnTextFirstRow).contains(docCreatorName)) {
 			CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.deleteButtonFirstRow);
 			CommonUtils.sleep(2000);
-		} else if (CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.createdOnTextSecondRow).contains(Egrants_Constants.DOC_CREATOR_NAME)) {
+		} else if (CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.createdOnTextSecondRow).contains(docCreatorName)) {
 			CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.expandIconSecondRow);
 			CommonUtils.sleep(1000);
 			CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.deleteButtonSecondRow);
@@ -420,8 +439,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void confirm_document_deletion() {
 		if (CommonUtils.getAlertText().contentEquals(Egrants_Constants.DELETE_ALERT_MESSAGE)){
-			CucumberLogUtils.logScreenshot();
-			CommonUtils.acceptAlert();
+			Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
 			System.out.println("Alert Present and condition is true");
 		} else {
 			CommonUtils.dismissAlert();
@@ -445,7 +463,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void click_on_delete_button_institutional_files() {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.deleteIconInstitutionalFiles);
-		EgrantsStepImplementation.confirm_document_deletion();
+		Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
 		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 	}

@@ -37,7 +37,7 @@ Given User is logged in the application and is on the landing page
     And selects grant year 18 from Years
     When clicks on Replace icon
     And clicks on Locate File and Upload tab
-    And uploads a file
+    And selects a replacement file
     Then verifies the success message "Done! New document has been created"
     And clicks on Check Document button to view the uploaded document
 
@@ -48,7 +48,7 @@ Given User is logged in the application and is on the landing page
     And expands the document details and clicks on Delete button
     Then clicks on OK button to confirm Deletion
 
-  @InstitutionalFileUpload @nesarh2 @selenium @Regression
+  @InstitutionalFileUpload @nesarh2 @selenium @Regression1
   Scenario: Test Institutional file upload
     And clicks on Institutional Files menu
     And clicks on AAVOGEN, INC.
