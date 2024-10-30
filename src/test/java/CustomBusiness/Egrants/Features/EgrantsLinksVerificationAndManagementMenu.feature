@@ -67,3 +67,22 @@ Feature: This Feature File contains Quick Link, logged in user verifications and
     And User provides "qa" as the User ID
     And the IC Coordinator clicks on Check button
     Then the system notifies the IC Coordinator that userid already exists in the system
+
+    @ActivateAnAccount @nesarh2 @selenium @Regression
+    Scenario: Test activating an account
+    Given the IC Coordinator is on the Admin menu
+    And the IC Coordinator selects eGrants Access Control from the dropdown
+    And the IC Coordinator navigates to the index U
+    And the IC Coordinator selects Inactive from the Status dropdown
+    And the IC Coordinator clicks on the green arrow to edit the user information for "USERACCOUNT, AUTOMATEDTEST"
+    And the IC Coordinator selects Active from the Status dropdown
+    Then the IC Coordinator clicks on Update button to confirm activating the account
+
+    @DeactivateAnAccount @nesarh2 @selenium @Regression
+    Scenario: Test deactivating an account
+    Given the IC Coordinator is on the Admin menu
+    And the IC Coordinator selects eGrants Access Control from the dropdown
+    And the IC Coordinator navigates to the index U
+    And the IC Coordinator clicks on the green arrow to edit the user information for "USERACCOUNT, AUTOMATEDTEST"
+    And the IC Coordinator selects Inactive to deactivate the selected user account
+    Then the IC Coordinator clicks on Update button to confirm deactivating the account

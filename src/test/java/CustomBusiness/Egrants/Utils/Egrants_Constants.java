@@ -40,4 +40,7 @@ public class Egrants_Constants {
     public static final String LAST_NAME = "USERACCOUNT";
     public static final String EMAIL_ADDRESS = "automatedtest.useraccount@test.com";
     public static final String USER_EXISTS_MESSAGE = " already exists in the system";
+    public static final String INACTIVE_STATUS = "0";
+    public static final String DEACTIVATE = "Inactive";
+    public static final String ACTIVATE = "Active";
 }
