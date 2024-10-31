@@ -1,4 +1,4 @@
-package AnalysisTools.NIFESubmit.NIFESubmit_Runners;
+package AnalysisTools.BCRAT.BCRAT_Runner;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -7,10 +7,10 @@ import io.cucumber.testng.CucumberOptions;
 		, "json:target/cucumber.json"
 		, "rerun:target/failed.txt"
 		, "pretty"}
-		, features ={"src/test/java/AnalysisTools/NIFESubmit/playwright/Features"}
-		, glue = {"AnalysisTools.NIFESubmit.playwright.Steps", "Hooks"}
+		, features ={"src/test/java/AnalysisTools/BCRAT/playwright/Features"}
+		, glue = {"AnalysisTools.BBCRAT.playwright.Steps", "Hooks"}
 		, tags = "@Regression"
 		, dryRun = false
 )
-public class RunNIFESubmitRegressionTest extends AbstractTestNGCucumberTests {
+public class RunBCRATRegressionTest extends AbstractTestNGCucumberTests {
 }
