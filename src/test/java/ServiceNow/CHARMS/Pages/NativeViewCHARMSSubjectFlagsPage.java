@@ -43,7 +43,6 @@ public class NativeViewCHARMSSubjectFlagsPage {
     @FindBy(xpath = "//span[@class='outputmsg_text']")
     public WebElement subjectFlagsIBMFSAffectedStatusNotFilledInErrorText;
 
-
     public NativeViewCHARMSSubjectFlagsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

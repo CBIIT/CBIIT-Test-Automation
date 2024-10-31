@@ -12,7 +12,6 @@ import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -923,7 +922,7 @@ public class RAS_All_Steps extends PageInitializer {
         JavascriptUtils.clickByJS(locateByXpath("//div[@aria-label='Subject Flags, filtering toolbar']//button[@value='sysverb_new'][normalize-space()='New']"));
         CommonUtils.sendKeys(nativeViewCHARMSSubjectFlagsPage.subjectFlagsParticipantTextBox, Keys.ENTER);
         CommonUtils.sleep(800);
-        if(study.equalsIgnoreCase("Fanconi") || study.equalsIgnoreCase("Bone Marrow Failure Syndrome")) {
+        if (study.equalsIgnoreCase("Fanconi") || study.equalsIgnoreCase("Bone Marrow Failure Syndrome")) {
             CommonUtils.waitForVisibility(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusText);
             softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusText.getText(), "IBMFS Affected Status");
             softAssert.assertTrue(locateByXpath("//span[@id='status.x_naci_family_coho_subject_flag.ibmfs_affected_status']").getAttribute("data-dynamic-title").equals("Mandatory - must be populated before Submit"));
