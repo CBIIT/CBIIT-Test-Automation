@@ -40,13 +40,13 @@ public class QuickLinkVerificationAndManagementMenuSteps extends PageInitializer
 		EgrantsStepImplementation.clicks_on_management_menu();
 	}
 
-	@When("User selects {string} as the QC Reason")
-	public void user_selects_as_the_qc_reason(String change) {
+	@When("User selects Change as the QC Reason")
+	public void user_selects_as_the_qc_reason() {
 		EgrantsStepImplementation.selects_qc_reason();
 	}
 
-	@When("User selects {string} as QC Person")
-	public void user_selects_as_qc_person(String qcPerson) {
+	@When("User selects Quality Associates as QC Person")
+	public void user_selects_as_qc_person() {
 		EgrantsStepImplementation.selects_qc_person();
 	}
 
