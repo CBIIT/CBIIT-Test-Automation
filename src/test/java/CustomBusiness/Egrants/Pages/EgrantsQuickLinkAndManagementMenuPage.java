@@ -219,6 +219,36 @@ public class EgrantsQuickLinkAndManagementMenuPage {
 	public WebElement addNewButton;
 
 	/**
+	 * INDEX U
+	 */
+	@FindBy (xpath = "//b[normalize-space()='U']")
+	public WebElement indexU;
+
+	/**
+	 * ACCOUNT STATUS DROPDOWN
+	 */
+	@FindBy (xpath = "//select[@id='ddlActiveType']")
+	public WebElement accountStatusDropDown;
+
+	/**
+	 * EDIT USER INFORMATION BUTTON
+	 */
+	@FindBy (xpath = "//tr[td[contains(text(), 'USERACCOUNT, AUTOMATEDTEST')] and td[contains(text(), 'user8145c7af')]]//img[@title='Cilck here to edit user information']")
+	public WebElement editUserInformationButton;
+
+	/**
+	 * STATUS DROPDOWN CONTAINING ACTIVE AND INACTIVE
+	 */
+	@FindBy (xpath = "//select[@id='ddlStatus']")
+	public WebElement activeInactiveDropDown;
+
+	/**
+	 * ACCOUNT PAGE - UPDATE BUTTON
+	 */
+	@FindBy (xpath = "//button[contains(., 'pdate')]")
+	public WebElement updateAccountButton;
+
+	/**
 	 * THIS METHOD DYNAMICALLY LOCATES THE LOGGED IN USER NAME
 	 */
 	public static WebElement dynamicUserTextLocator(String user) {
