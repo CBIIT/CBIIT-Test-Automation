@@ -131,4 +131,17 @@ public class ESRTaskStepsImplementation {
     public static void confirmESRBoardIntakeReviewCatalogTaskIsCompleted() {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Approval']")).containsText("Requested");
     }
+
+    public static void completeEngineeringProjectExecutionCatalogTask() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (3)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[1]").click();
+        Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").fill("CBIIT Test Account");
+        Playwright_Common_Locators.iframeLocator().getByLabel("Catalog Task form section").getByLabel("State").selectOption("3");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    public static void confirmEngineeringProjectExecutionCatalogTaskIsCompleted() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Closeout Preparation");
+    }
 }
