@@ -40,12 +40,12 @@ public class QuickLinkVerificationAndManagementMenuSteps extends PageInitializer
 		EgrantsStepImplementation.clicks_on_management_menu();
 	}
 
-	@When("User selects {string} as the QC Reason")
-	public void user_selects_as_the_qc_reason(String change) {
+	@When("User selects Change as the QC Reason")
+	public void user_selects_as_the_qc_reason() {
 		EgrantsStepImplementation.selects_qc_reason();
 	}
 
-	@When("User selects {string} as QC Person")
+	@When("User selects Quality Associates as QC Person")
 	public void user_selects_as_qc_person() {
 		EgrantsStepImplementation.selects_qc_person();
 	}
@@ -353,6 +353,84 @@ public class QuickLinkVerificationAndManagementMenuSteps extends PageInitializer
 	public void the_system_notifies_the_ic_coordinator_that_userid_already_exists_in_the_system() {
 		String alertText = WebDriverUtils.webDriver.switchTo().alert().getText();
 		Hooks.softAssert.assertTrue(alertText.contains(Egrants_Constants.USER_EXISTS_MESSAGE), "*** VALIDATION TEXT DOES NOT MATCH ***");
+		Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/**
+	 * This method is used to click on Index U
+	 *
+	 */
+	@Given("the IC Coordinator navigates to the index U")
+	public void the_ic_coordinator_navigates_to_the_index_u() {
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.indexU);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/**
+	 * This method is used to click on the Status dropdown and select Inactive
+	 *
+	 */
+	@Given("the IC Coordinator selects Inactive from the Status dropdown")
+	public void the_ic_coordinator_selects_inactive_from_the_status_dropdown() {
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.accountStatusDropDown);
+		CommonUtils.selectDropDownValue(egrantsQuickLinkAndManagementMenuPage.accountStatusDropDown, Egrants_Constants.INACTIVE_STATUS);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/**
+	 * This method is used to click on the Edit User Information button
+	 *
+	 * @param userAccount
+	 */
+	@Given("the IC Coordinator clicks on the green arrow to edit the user information for {string}")
+	public void the_ic_coordinator_clicks_on_the_green_arrow_to_edit_the_user_information_for(String userAccount) {
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.editUserInformationButton);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/**
+	 * This method is used to click on the Status dropdown and select Active to activate the selected user account
+	 *
+	 */
+	@Given("the IC Coordinator selects Active from the Status dropdown")
+	public void the_ic_coordinator_selects_active_from_the_status_dropdown() {
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.activeInactiveDropDown);
+		CommonUtils.selectDropDownValue(Egrants_Constants.ACTIVATE, egrantsQuickLinkAndManagementMenuPage.activeInactiveDropDown);
+		Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/**
+	 * This method is used to click on Update button to confirm activating the account
+	 *
+	 */
+	@Then("the IC Coordinator clicks on Update button to confirm activating the account")
+	public void the_ic_coordinator_clicks_on_update_button_to_confirm_activating_the_account() {
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.updateAccountButton);
+		Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/**
+	 * This method is used to click on the Status dropdown and select Inactive to deactivate the selected user account
+	 *
+	 */
+	@Given("the IC Coordinator selects Inactive to deactivate the selected user account")
+	public void the_ic_coordinator_selects_inactive_to_deactivate_the_selected_user_account() {
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.activeInactiveDropDown);
+		CommonUtils.selectDropDownValue(Egrants_Constants.DEACTIVATE, egrantsQuickLinkAndManagementMenuPage.activeInactiveDropDown);
+		Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/**
+	 * This method is used to click on Update button to confirm deactivating the account
+	 *
+	 */
+	@Then("the IC Coordinator clicks on Update button to confirm deactivating the account")
+	public void the_ic_coordinator_clicks_on_update_button_to_confirm_deactivating_the_account() {
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.updateAccountButton);
 		Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
 		CucumberLogUtils.logScreenshot();
 	}
