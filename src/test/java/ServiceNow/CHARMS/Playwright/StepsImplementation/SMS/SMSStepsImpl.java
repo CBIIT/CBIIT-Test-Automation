@@ -1,4 +1,154 @@
 package ServiceNow.CHARMS.Playwright.StepsImplementation.SMS;
 
+import ServiceNow.CHARMS.Playwright.Pages.FanconiStudy.FanconiSurveyLoginPage;
+import ServiceNow.CHARMS.Playwright.Pages.SMS.SMSPage;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
+import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.PlaywrightUtils;
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+
 public class SMSStepsImpl {
+    /* This method allows the login to the RAS Study screener page */
+        public static void login() {
+            var page = PlaywrightUtils.page;
+            page.navigate(SMSPage.RAS_STUDY_URL);
+            page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("login")).click();
+            page.getByLabel(SMSPage.USERNAME).fill(SMSPage.EMAIL);
+            page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Next")).click();
+            page.getByLabel(SMSPage.PASSWORD).click();
+            page.getByLabel(SMSPage.PASSWORD).fill(SMSPage.PASSWORD_VALUE);
+            page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Verify")).click();
+            page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Agree")).click();
+            Page page1 = page.waitForPopup(() -> {
+                page.locator("a").filter(new Locator.FilterOptions().setHasText("Eligibility Questionnaire")).click();
+            });
+            page1.getByLabel("Next").click();
+            page1.getByText("I am completing this form for someone else").click();
+            page1.getByLabel("Next").click();
+            page1.getByLabel("First name").click();
+            page1.getByLabel("First name").fill("SMS Clinic Visits");
+            page1.getByLabel("Last name").click();
+            page1.getByLabel("Last name").fill("Scenario1");
+            page1.getByLabel("Next").click();
+            page1.getByLabel("First name").click();
+            page1.getByLabel("First name").fill("SMS clinic Visits");
+            page1.getByLabel("Last name").click();
+            page1.getByLabel("Last name").fill("Test1");
+            page1.getByLabel("Next").click();
+            page1.locator("#QID4-8-label").click();
+            page1.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Other")).click();
+            page1.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Other")).fill("Friend");
+            page1.getByLabel("Next").click();
+            page1.locator("#QID5-2-label").click();
+            page1.getByLabel("Next").click();
+            page1.getByLabel("Next").click();
+            page1.getByLabel("Year").click();
+            page1.getByLabel("Year").fill("1987");
+            page1.getByPlaceholder("MM/DD/YYYY").fill("10/31/1987");
+            page1.getByLabel("October 31,").click();
+            page1.getByLabel("Next").click();
+            page1.locator("#QID10-1-label").click();
+            page1.getByLabel("Next").click();
+            page1.locator("#QID11-2-label").click();
+            page1.getByLabel("Next").click();
+            page1.locator("#QID12-1-label").click();
+            page1.getByLabel("Next").click();
+            page1.getByLabel("In which country does SMS").selectOption("187");
+            page1.getByLabel("Next").click();
+            page1.getByLabel("Street", new Page.GetByLabelOptions().setExact(true)).click();
+            page1.getByLabel("Street", new Page.GetByLabelOptions().setExact(true)).fill("Street");
+            page1.getByLabel("City").click();
+            page1.getByLabel("City").fill("City");
+            page1.getByLabel("State (Abbreviation)").click();
+            page1.getByLabel("State (Abbreviation)").fill("MD");
+            page1.getByLabel("Zip Code").click();
+            page1.getByLabel("Zip Code").fill("27890");
+            page1.getByLabel("Next").click();
+            page1.getByLabel("What is your email address?").click();
+            page1.getByLabel("What is your email address?").fill(SMSPage.EMAIL);
+            page1.getByLabel("Next").click();
+            page1.getByLabel("Please confirm your email").click();
+            page1.getByLabel("Please confirm your email").fill(SMSPage.EMAIL);
+            page1.getByLabel("Next").click();
+            page1.locator("input[name=\"QR\\~QID17\\~4\\~TEXT\"]").click();
+            page1.locator("input[name=\"QR\\~QID17\\~4\\~TEXT\"]").fill("1232342345");
+            page1.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("Home phone number 1232342345")).click();
+            page1.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("Home phone number 1232342345")).locator("label").first().click();
+            page1.locator("input[name=\"QR\\~QID17\\~4\\~TEXT\"]").click();
+            page1.locator("input[name=\"QR\\~QID17\\~4\\~TEXT\"]").click();
+            page1.locator("input[name=\"QR\\~QID17\\~4\\~TEXT\"]").click();
+            page1.locator("input[name=\"QR\\~QID17\\~4\\~TEXT\"]").fill("5");
+            page1.locator("input[name=\"QR\\~QID17\\~4\\~TEXT\"]").press("ArrowRight");
+            page1.locator("input[name=\"QR\\~QID17\\~4\\~TEXT\"]").fill("1232342345");
+            page1.getByLabel("Next").click();
+            page1.locator("input[name=\"QR\\~QID17\\~4\\~TEXT\"]").click();
+            page1.locator("input[name=\"QR\\~QID17\\~4\\~TEXT\"]").fill("5");
+            page1.locator("input[name=\"QR\\~QID17\\~4\\~TEXT\"]").press("ArrowRight");
+            page1.locator("input[name=\"QR\\~QID17\\~4\\~TEXT\"]").fill("240-345-3456");
+            page1.getByLabel("Next").click();
+            page1.getByText("Hispanic/Latino", new Page.GetByTextOptions().setExact(true)).click();
+            page1.getByLabel("Next").click();
+            page1.locator("#QID19-2-label").click();
+            page1.getByLabel("Next").click();
+            page1.locator("#QID115-1-label").click();
+            page1.getByLabel("Next").click();
+            page1.getByLabel("Next").click();
+            page1.getByText("Neurocognitive/ developmental delay such as: Intellectual disability and").click();
+            page1.getByLabel("Next").click();
+            page1.locator("#QID32-2-label").click();
+            page1.getByLabel("Next").click();
+            page1.locator("#QID27-2-label").click();
+            page1.getByLabel("Next").click();
+            page1.getByLabel("Next").click();
+            page1.locator("#QID123-2-label").click();
+            page1.getByLabel("Next").click();
+            page1.locator("#QID36-2-label").click();
+            page1.getByLabel("Next").click();
+            page1.getByLabel("Next").click();
+            page1.locator("#QID70-1-label").click();
+            page1.getByLabel("Next").click();
+            page1.locator("#QID127-2-label").click();
+            page1.getByLabel("Next").click();
+            page1.locator("#QID81-1-label").click();
+            page1.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Participate in research")).click();
+            page1.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Participate in research")).press("CapsLock");
+            page1.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Participate in research")).fill("TEST");
+            page1.getByLabel("Next").click();
+            page1.getByLabel("Next").click();
+
+
+
+
+
+
+            page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.LOGIN_BUTTON_LINK)).click();
+            page.getByLabel(FanconiSurveyLoginPage.USERNAME).fill(FanconiSurveyLoginPage.EMAIL);
+            page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.NEXT)).click();
+            page.getByLabel(FanconiSurveyLoginPage.PASSWORD).fill(FanconiSurveyLoginPage.USER_PASSWORD);
+            page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.VERIFY)).click();
+            page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.AGREE)).click();
+            assertThat(page.getByText(FanconiSurveyLoginPage.NCI_FAMILY_STUDIES_HUB)).containsText(FanconiSurveyLoginPage.NCI_FAMILY_STUDIES_HUB);
+            assertThat(page.getByText(FanconiSurveyLoginPage.PLEASE_COMPLETE_THE_AVAILABLE)).containsText(FanconiSurveyLoginPage.PLEASE_COMPLETE_THE_AVAILABLE);
+            assertThat(page.getByText(FanconiSurveyLoginPage.ELIGIBILITY_QUESTIONNAIRE).first()).containsText(FanconiSurveyLoginPage.ELIGIBILITY_QUESTIONNAIRE);
+            assertThat(page.locator(FanconiSurveyLoginPage.SELECTOR).filter(new Locator.FilterOptions().setHasText(FanconiSurveyLoginPage.FANCONI_STUDY_SURVEY))).containsText(FanconiSurveyLoginPage.FANCONI_STUDY_SURVEY);
+            assertThat(page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.UPLOAD_ATTACHMENT))).containsText(FanconiSurveyLoginPage.UPLOAD_ATTACHMENT);
+            assertThat(page.getByText(FanconiSurveyLoginPage.IF_YOU_HAVE_ANY_QUESTIONS)).containsText(FanconiSurveyLoginPage.IF_YOU_HAVE_ANY_QUESTIONS);
+            page.locator(FanconiSurveyLoginPage.SELECTOR).filter(new Locator.FilterOptions().setHasText(FanconiSurveyLoginPage.FANCONI_STUDY_SURVEY)).click();
+            assertThat(page.getByRole(AriaRole.BANNER)).containsText(FanconiSurveyLoginPage.NCI_FAMILY_STUDIES_HUB_FANCONI_CANCER);
+            assertThat(page.getByText(FanconiSurveyLoginPage.THANK_YOU_FOR_STARTING)).containsText(FanconiSurveyLoginPage.THANK_YOU_FOR_STARTING);
+            assertThat(page.getByText(FanconiSurveyLoginPage.THIS_IS_A_STUDY)).containsText(FanconiSurveyLoginPage.THIS_IS_A_STUDY);
+            assertThat(page.getByText(FanconiSurveyLoginPage.THIS_QUESTIONNAIRE_MAY_TAKE)).containsText(FanconiSurveyLoginPage.THIS_QUESTIONNAIRE_MAY_TAKE);
+            assertThat(page.getByText(FanconiSurveyLoginPage.NOTE_THE_STUDY_TEAM_REQUESTS)).containsText(FanconiSurveyLoginPage.NOTE_THE_STUDY_TEAM_REQUESTS);
+            assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.SURVEY_SECTIONS))).containsText(FanconiSurveyLoginPage.SURVEY_SECTIONS);
+            assertThat(page.getByLabel(FanconiSurveyLoginPage.BACKGROUND_INFORMATION).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.BACKGROUND_INFORMATION);
+            assertThat(page.getByLabel(FanconiSurveyLoginPage.DEMOGRAPHICS).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.DEMOGRAPHICS);
+            assertThat(page.getByLabel(FanconiSurveyLoginPage.MEDICAL_HISTORY, new Page.GetByLabelOptions().setExact(true)).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.MEDICAL_HISTORY);
+            assertThat(page.getByLabel(FanconiSurveyLoginPage.MEDICAL_HISTORY_CONTINUED).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.MEDICAL_HISTORY_CONTINUED);
+            assertThat(page.getByLabel(FanconiSurveyLoginPage.REPRODUCTIVE_HISTORY).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.REPRODUCTIVE_HISTORY);
+            assertThat(page.getByLabel(FanconiSurveyLoginPage.SURGICAL_MEDICATION_AND_OTHER_MEDICAL_HISTORY).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.SURGICAL_MEDICATION_AND_OTHER_MEDICAL_HISTORY);
+            assertThat(page.getByLabel(FanconiSurveyLoginPage.SEXUAL_HISTORY).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.SEXUAL_HISTORY);
+            CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
+        }
 }

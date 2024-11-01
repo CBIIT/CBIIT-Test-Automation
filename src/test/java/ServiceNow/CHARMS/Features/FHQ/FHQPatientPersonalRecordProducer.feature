@@ -2,7 +2,7 @@
 Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal for the Initial visit of the Participant or Legal guardian of the participant
   Description: This feature file contains the scenario for the the Initial visit of the Participant or Legal guardian of the participant on the FHQ Survey landing page
 
-  @FHQ
+  @FHQ   @InProgress
   Scenario: User Fills the Patient Personal Record Producer on the Landing FHQ pag
     Given participant open RASopathies Longitudinal Cohort Study log in page
     Then logs Rasopathy page via Okta using username "charmsras3@yahoo.com" and password "RASTest2023$$"
@@ -28,6 +28,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And Generate Scenario Report for the Initial visit of the Participant on the FHQ Survey landing page
     And Grid View page is verified
 
+  @FHQ   @InProgress
   Scenario: User Fills the Patient Personal Record Producer on the Landing FHQ page
     Given participant open RASopathies Longitudinal Cohort Study log in page
     Then logs Rasopathy page via Okta using username "charmsras1@yahoo.com" and password "RASTest2022$$"

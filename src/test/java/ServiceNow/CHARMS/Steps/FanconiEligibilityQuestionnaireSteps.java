@@ -1,6 +1,7 @@
 package ServiceNow.CHARMS.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -76,8 +77,10 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
     @Given("the study nurse log in Native View")
     public void the_study_nurse_log_in_Native_View() {
-        fanconiEligibilityQuestionnaireStepsImpl.loginToNativeView();
-        fanconiEligibilityQuestionnaireStepsImpl.loginToParticipantDetailsPageInNativeView();
+       fanconiEligibilityQuestionnaireStepsImpl.loginToNativeView();
+       fanconiEligibilityQuestionnaireStepsImpl.loginToParticipantDetailsPageInNativeView();
+       ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+       fanconiEligibilityQuestionnaireStepsImpl.loginToParticipantDetailsPageInNativeView1();
     }
 
     @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for all scenarios")
