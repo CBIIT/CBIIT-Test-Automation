@@ -1,7 +1,6 @@
 package ServiceNow.CHARMS.StepsImplementation;
 
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
-import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import ServiceNow.CHARMS.Utils.CharmsUtil;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
@@ -1011,8 +1010,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 //            CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
 //        }
     }
-
-
+    
     /**
      * Method to click the participant detail record in list view page
      */

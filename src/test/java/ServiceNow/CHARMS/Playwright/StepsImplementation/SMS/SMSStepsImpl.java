@@ -117,12 +117,6 @@ public class SMSStepsImpl {
             page1.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Participate in research")).fill("TEST");
             page1.getByLabel("Next").click();
             page1.getByLabel("Next").click();
-
-
-
-
-
-
             page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.LOGIN_BUTTON_LINK)).click();
             page.getByLabel(FanconiSurveyLoginPage.USERNAME).fill(FanconiSurveyLoginPage.EMAIL);
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.NEXT)).click();

@@ -225,7 +225,6 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String otherBiologicalParentHelpBanner;
 	public String otherBiologicalParentSelected;
 	public String typeOfBirth;
-	//public String pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResultsForThisPerson;
 	public String howManyTotalChildrenAliveAndDeceasedHasThisRelaiveHad;
 	public String childBanner;
 	public String pleaseSelectTheAddButtonBelowToAddEachChildThisRelativeHas;
@@ -263,7 +262,6 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String auntUncleYearOfBirthSelected;
 	public String auntUncleSexAssignedAtBirthSelected;
 	public String auntUncleGenderIdentitySelected;
-//	public String addAdditionalInformationForAuntUncle;
 	public String siblingTo;
 	public String typeOfSiblingNV;
 	public String typeOfSiblingValueNV;
