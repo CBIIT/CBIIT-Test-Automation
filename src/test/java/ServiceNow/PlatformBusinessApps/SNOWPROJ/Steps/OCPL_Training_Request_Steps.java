@@ -47,7 +47,7 @@ public class OCPL_Training_Request_Steps {
         page.getByLabel("Training Location").fill("21");
         CucumberLogUtils.playwrightScreenshot(page);
 
-        //Registration Link
+        CucumberLogUtils.scenario.log("---- FILLING THE REGISTRATION LINK FIELD ON THE OCPL TRAINING FORM ----");
         assertThat(page.locator("#registration_link")).containsText("Registration Link");
         page.getByLabel("Edit Registration Link").click();
         page.getByLabel("Registration Link", new Page.GetByLabelOptions().setExact(true)).fill("https://service-test.nci.nih.gov/ncisp?id=nci_sc_cat_item&sys_id=68b210fbdb2a77004c89ff621f961942");
@@ -55,26 +55,26 @@ public class OCPL_Training_Request_Steps {
         page.getByLabel("Lock Registration Link").click();
         CucumberLogUtils.playwrightScreenshot(page);
 
-        //Justification
+        CucumberLogUtils.scenario.log("---- FILLING THE JUSTIFICATION FIELD ON THE OCPL TRAINING FORM ----");
         assertThat(page.locator("#justification")).containsText("Justification");
         page.getByLabel("Justification").click();
         page.getByLabel("Justification").fill("Test");
 
-        //Training Provider
+        CucumberLogUtils.scenario.log("---- FILLING THE TRAINING PROVIDER FIELD ON THE OCPL TRAINING FORM ----");
         assertThat(page.locator("#training_provider")).containsText("Training Provider");
         page.getByLabel("Training Provider").click();
         page.getByLabel("Training Provider").fill("Test");
 
-        //Provider Phone
+        CucumberLogUtils.scenario.log("---- FILLING THE PROVIDER PHONE FIELD ON THE OCPL TRAINING FORM ----");
         assertThat(page.locator("#provider_phone")).containsText("Provider Phone");
         page.getByLabel("Provider Phone").click();
         page.getByLabel("Provider Phone").fill("12");
 
-        //Transportation By
+        CucumberLogUtils.scenario.log("---- SELECTING THE 'Metro' for THE TRANSPORTATION BY FIELD ON THE OCPL TRAINING FORM ----");
         assertThat(page.locator("#transportation_by_metro_personal_vehicle")).containsText("Transportation By");
         page.getByText("Metro").click();
 
-        //Other Notes or Special Arrangements
+        CucumberLogUtils.scenario.log("---- FILLING THE OTHER NOTES OR SPECIAL ARRANGEMENTS FIELD ON THE OCPL TRAINING FORM ----");
         assertThat(page.locator("#other_notes_or_special_arrangements")).containsText("Other Notes or Special Arrangements");
         page.getByLabel("Other Notes or Special").click();
         page.getByLabel("Other Notes or Special").fill("test");
@@ -97,10 +97,11 @@ public class OCPL_Training_Request_Steps {
      */
     @Then("the user will see the following two required fields, {string} and {string}")
     public void the_user_will_see_the_following_two_required_fields_and(String compensatoryTimeForTravel_CTT, String compTime_CT) {
+        CucumberLogUtils.scenario.log("---- ASSERTION OF REQUIRED CTT FIELD ----");
         assertThat(page.locator("#are_you_requesting_compensatory_time_for_travel_ctt_during_this_training").getByLabel("Required", new Locator.GetByLabelOptions().setExact(true))).isVisible();
         assertThat(page.locator("//span[normalize-space()='Are you requesting Compensatory Time for Travel (CTT) during this training?']")).containsText(compensatoryTimeForTravel_CTT);
 
-        //Assertion for Required CT field
+        CucumberLogUtils.scenario.log("---- ASSERTION OF REQUIRED CT FIELD ----");
         assertThat(page.locator("#are_you_requesting_comp_time_ct_during_this_training").getByLabel("Required", new Locator.GetByLabelOptions().setExact(true))).isVisible();
         assertThat(page.locator("#are_you_requesting_comp_time_ct_during_this_training")).containsText(compTime_CT);
         CucumberLogUtils.playwrightScreenshot(page);
@@ -111,10 +112,10 @@ public class OCPL_Training_Request_Steps {
      */
     @Then("both of the above fields have Yes and No Radion button options")
     public void both_of_the_above_fields_have_yes_and_no_radion_button_options() {
-        //Yes and No Radio button options for CTT field
+        CucumberLogUtils.scenario.log("---- ASSERTION OF YES AND NO RADIO BUTTON OPTIONS FOR CTT FIELD ----");
         assertThat(page.getByLabel("Required -Are you requesting Compensatory Time for Travel (CTT) during this").getByRole(AriaRole.RADIOGROUP)).containsText("YesNo");
 
-        //Yes and No radio button options for CT field
+        CucumberLogUtils.scenario.log("---- ASSERTION OF YES AND NO RADIO BUTTON OPTIONS FOR CT FIELD ----");
         assertThat(page.getByLabel("Required -Are you requesting Comp Time (CT) during this training?").getByRole(AriaRole.RADIOGROUP)).containsText("YesNo");
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -132,7 +133,7 @@ public class OCPL_Training_Request_Steps {
         page.getByLabel("More information for Are you requesting Compensatory Time for Travel (CTT)").click();
         assertThat(page.locator("#are_you_requesting_compensatory_time_for_travel_ctt_during_this_training")).containsText(docString);
 
-        //Selects "Yes" for "Are you requesting Compensatory Time for Travel (CTT) during this" field
+        CucumberLogUtils.scenario.log("---- SELECTS 'YES' FOR 'ARE YOU REQUESTING COMPENSATORY TIME FOR TRAVEL (CTT) DURING THIS' FIELD ----");
         page.getByLabel("Required -Are you requesting Compensatory Time for Travel (CTT) during this").getByText("Yes").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -150,7 +151,7 @@ public class OCPL_Training_Request_Steps {
         page.getByLabel("More information for Are you requesting Comp Time (CT) during this training?").click();
         assertThat(page.locator("#are_you_requesting_comp_time_ct_during_this_training")).containsText(ctDocString);
 
-        //Selects "No" for "Are you requesting Comp Time (CT) during this training?" field
+        CucumberLogUtils.scenario.log("---- SELECTS 'NO' FOR 'ARE YOU REQUESTING COMP TIME (CT) DURING THIS TRAINING?' FIELD ----");
         page.getByLabel("Required -Are you requesting Comp Time (CT) during this training?").getByText("No").click();
     }
 
