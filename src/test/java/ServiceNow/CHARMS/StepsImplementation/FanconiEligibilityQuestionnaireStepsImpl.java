@@ -1892,7 +1892,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * Method to assert the Participant Detail: Complete page
      */
     public void allScenariosParticipantDetailPageAssertion() {
-        for (int i = 0; i <= 0; i++) {
+        for (int i = 0; i <= 9; i++) {
             fanconiEligibilityQuestionnaireStepsImpl.participantDetailPageAssertion(i);
             CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.nVAllParticipantDetailsBackButton);
         }
