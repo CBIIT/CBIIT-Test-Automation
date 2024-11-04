@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class NCCRPage  extends CommonUtils {
+public class NCCRPage {
     public NCCRPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
@@ -90,6 +90,4 @@ public class NCCRPage  extends CommonUtils {
     /** x Filter */
     @FindBy(xpath = "//button[@id='x_g_nci_nccr_data_access_requests-close-filter-button']")
     public WebElement xFilter;
-
-
 }
