@@ -1,12 +1,12 @@
 Feature: CCR Landing Page Scenarios
 
-  @Alena @Smoke @CAMS-7 @selenium
+  @Alena @Smoke @CAMS-7 @selenium @Regression
   Scenario: Verify CCR Landing Page items
     Given User is on CCR Landing page and user is "internal user"
     And User can see "Home" tab displayed
     And User can see "Positions" tab displayed
 
-  @Alena @Smoke @fillApplication @CAMS-9 @CAMS-5  @CAMS-17 @CAMS-38 @selenium
+  @Alena @Smoke @fillApplication @CAMS-9 @CAMS-5  @CAMS-17 @CAMS-38 @selenium @Regression
   Scenario Outline: Fill In An Application As An Internal User End to End flow
     Given User is on CCR Landing page and user is "admin user"
     And Admin User creates a new vacancy

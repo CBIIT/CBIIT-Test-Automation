@@ -95,6 +95,12 @@ public class TestProperties {
     public static String OAINTAKE_URL;
 
     /**
+     * NCCR
+     */
+    public static final String NCCR_TEST_URL = "https://service-test.nci.nih.gov/nccr";
+    public static String NCCR_URL;
+
+    /**
      * E-GRANTS URLS
      */
     public static final String E_GRANTS_TEST_URL = "https://egrants-web-test.nci.nih.gov/";
@@ -783,6 +789,15 @@ public class TestProperties {
                 break;
             case "test":
                 OAINTAKE_URL = OAINTAKE_TEST_URL;
+                break;
+        }
+        return OAINTAKE_URL;
+    }
+
+    public static String getNCCRUrl() {
+        switch (ENV.toLowerCase()) {
+            case "test":
+                NCCR_URL = NCCR_TEST_URL;
                 break;
         }
         return OAINTAKE_URL;

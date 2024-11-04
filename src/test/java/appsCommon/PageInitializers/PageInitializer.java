@@ -58,6 +58,8 @@ import ServiceNow.COVIDDash.StepsImplementation.*;
 import ServiceNow.ESR.Selenium.Pages.ESRShortDescriptionPage;
 import ServiceNow.ESR.Selenium.Pages.ESRTicketCreationPage;
 import ServiceNow.ESR.Selenium.Pages.NCINativeViewPage;
+import ServiceNow.NCCR.Pages.NCCRPage;
+import ServiceNow.NCCR.StepsImplementation.NCCRStepsImplementation;
 import ServiceNow.OA_Intake.Pages.OAIntakePage;
 import ServiceNow.OA_Intake.StepsImplementation.OAIntakeStepsImplementation;
 import ServiceNow.PlatformBusinessApps.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
@@ -169,8 +171,12 @@ public class PageInitializer extends WebDriverUtils {
 	public static MelanomaQuestionnairePage melanomaQuestionnairePage;
 
 	/** OA Intake instances */
-	public static OAIntakeStepsImplementation oaIntakeStepsImplementation ;
+	public static OAIntakeStepsImplementation oaIntakeStepsImplementation;
 	public static OAIntakePage oaIntakePage;
+
+	/** NCCR instances */
+	public static NCCRStepsImplementation nccrStepsImplementation;
+	public static NCCRPage nccrPage;
 
 	/** SEER instances */
 	public static SEERLandingPage seerLandingPage;
@@ -402,6 +408,10 @@ public class PageInitializer extends WebDriverUtils {
 		/** OA Intake Instance Variables */
 		oaIntakePage =  new OAIntakePage();
 		oaIntakeStepsImplementation = new OAIntakeStepsImplementation();
+
+		/** NCCR Instance Variables */
+		nccrPage =  new NCCRPage();
+		nccrStepsImplementation = new NCCRStepsImplementation();
 
 		/** CHARMS Instance Variables **/
 		charmsNativeViewPage = new CHARMSNativeViewPage();
