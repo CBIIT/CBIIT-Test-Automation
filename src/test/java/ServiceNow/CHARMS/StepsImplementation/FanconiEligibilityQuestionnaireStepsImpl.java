@@ -941,7 +941,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     }
 
     /**
-     * Method to Login to the Participant details page in Native View
+     * Method to Log in to the Participant details page in Native View
      */
     public void loginToParticipantDetailsPageInNativeView() {
         CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
@@ -952,6 +952,10 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CommonUtils.waitForVisibility(CHARMSParticipantDetailsPage.nVParticipantDetailsListViewiFrame);
         CommonUtils.switchToFrame(CHARMSParticipantDetailsPage.nVParticipantDetailsListViewiFrame);
     }
+
+    /**
+     * Method to Log in to the Participant details page in Native View
+     */
     public void loginToParticipantDetailsPageInNativeView1() {
         CommonUtils.sleep(4000);
         CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
@@ -1904,9 +1908,9 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void participantDetailPageAssertion(int rowNumForAssertion) {
         fanconiEligibilityQuestionnaireStepsImpl.participantDetailRecordClicked(rowNumForAssertion);
         fanconiEligibilityQuestionnaireStepsImpl.generalInformationAssertionOnparticipantDetailPage(rowNumForAssertion);
-     //   fanconiEligibilityQuestionnaireStepsImpl.personalInformationAssertionOnparticipantDetailPage(rowNumForAssertion);
-     //   fanconiEligibilityQuestionnaireStepsImpl.demographicsAssertionOnparticipantDetailPage(rowNumForAssertion);
-     //   fanconiEligibilityQuestionnaireStepsImpl.contactInformationAssertionOnparticipantDetailPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.personalInformationAssertionOnparticipantDetailPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.demographicsAssertionOnparticipantDetailPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.contactInformationAssertionOnparticipantDetailPage(rowNumForAssertion);
         softAssert.assertAll();
     }
 
