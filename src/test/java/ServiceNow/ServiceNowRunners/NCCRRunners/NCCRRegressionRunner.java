@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
         , features = "src/test/java/ServiceNow/NCCR/Features"
         , glue = {"ServiceNow.NCCR.Steps", "Hooks"}
-        , tags = "@NCCRRegression"
+        , tags = "@Regression"
         , dryRun = false
 )
 public class NCCRRegressionRunner  extends AbstractTestNGCucumberTests {

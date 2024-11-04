@@ -54,11 +54,17 @@ public class NCCRSteps  extends PageInitializer {
         CommonUtils.sleep(2000);
     }
 
+    /**
+     * User clicks NCCR Platform hyperlink
+     */
     @When("User clicks Go to the NCCR Platform hyperlink")
     public void user_clicks_go_to_the_nccr_platform_hyperlink() {
         CommonUtils.clickOnElement(nccrPage.nccrDataPlatformHyperlink);
     }
 
+    /**
+     * User confirms Data Platform page
+     */
     @Then("User can confirm that it redirects them to Data Platform page")
     public void user_can_confirm_that_it_redirects_them_to_data_platform_page() {
         ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
@@ -69,69 +75,78 @@ public class NCCRSteps  extends PageInitializer {
         CommonUtils.sleep(2000);
     }
 
+    /**
+     * User confirms  Data Requests Awaiting My Review tab is displayed
+     */
     @Then("User can see Data Requests Awaiting My Review tab")
     public void user_can_see_data_requests_awaiting_my_review_tab() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       org.testng.Assert.assertTrue(nccrPage.dataRequestsAwaitingMyReviewTab.isDisplayed());
     }
 
-    @Then("User can confirm the right columns ar displayed for Data Requests Awaiting My Review tab")
-    public void user_can_confirm_the_right_columns_ar_displayed_for_data_requests_awaiting_my_review_tab() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
+    /**
+     * User can see Data Requests Awaiting My Review tab search text field
+     */
     @Then("User can see Data Requests Awaiting My Review tab search text field")
     public void user_can_see_data_requests_awaiting_my_review_tab_search_text_field() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        org.testng.Assert.assertTrue(nccrPage.searchFieldDataRequestsAwaitingMyReviewTab.isDisplayed());
     }
 
+    /**
+     * User asserts pagination for Data Requests Awaiting My Review tab
+     */
     @Then("User can see pagination for Data Requests Awaiting My Review tab")
     public void user_can_see_pagination_for_data_requests_awaiting_my_review_tab() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        org.testng.Assert.assertTrue(nccrPage.rowsPaginationDataRequestsAwaitingMyReviewTab.isDisplayed());
     }
 
+    /**
+     * User clicks on All Data Requests tab
+     */
     @Then("User clicks on All Data Requests tab")
     public void user_clicks_on_all_data_requests_tab() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       CommonUtils.clickOnElement(nccrPage.allDataRequestsTab);
     }
 
-    @Then("User can confirm the right columns ar displayed for All Data Requests tab")
-    public void user_can_confirm_the_right_columns_ar_displayed_for_all_data_requests_tab() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
+    /**
+     * User can see All Data Requests tab search text field
+     */
     @Then("User can see All Data Requests tab search text field")
     public void user_can_see_all_data_requests_tab_search_text_field() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        org.testng.Assert.assertTrue(nccrPage.searchFieldAllDataRequestsTab.isDisplayed());
     }
 
+    /**
+     * User clicks show filter button
+     */
     @When("User clicks Show Filter icon")
     public void user_clicks_show_filter_icon() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        CommonUtils.clickOnElement(nccrPage.showFilterButton);
     }
 
+    /**
+     * User can see Load Filter, Save Filter, Add Sort, and New Criteria buttons
+     */
     @Then("User can see Load Filter, Save Filter, Add Sort, and New Criteria buttons")
     public void user_can_see_load_filter_save_filter_add_sort_and_new_criteria_buttons() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        org.testng.Assert.assertTrue(nccrPage.loadFilterButton.isDisplayed());
+        org.testng.Assert.assertTrue(nccrPage.saveFilterButton.isDisplayed());
+        org.testng.Assert.assertTrue(nccrPage.addSortFilterButton.isDisplayed());
+        org.testng.Assert.assertTrue(nccrPage.newCriteriaButton.isDisplayed());
     }
 
+    /**
+     * User closes filter
+     */
     @Then("User can close filter")
     public void user_can_close_filter() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       CommonUtils.clickOnElement(nccrPage.xFilter);
     }
 
+    /**
+     * User sees pagination for All Data Requests tab
+     */
     @Then("User can see pagination for All Data Requests tab")
     public void user_can_see_pagination_for_all_data_requests_tab() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        org.testng.Assert.assertTrue(nccrPage.rowsPaginationAllDataRequestTab.isDisplayed());
     }
 }

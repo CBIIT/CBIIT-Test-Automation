@@ -1,11 +1,12 @@
 package ServiceNow.NCCR.Pages;
 
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class NCCRPage {
+public class NCCRPage  extends CommonUtils {
     public NCCRPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
@@ -39,6 +40,56 @@ public class NCCRPage {
     public WebElement nccrDataPlatformHyperlink;
 
     /** Data Platform page header */
-    @FindBy(xpath = "  //span[.='National Childhood Cancer Registry']")
+    @FindBy(xpath = "//span[.='National Childhood Cancer Registry']")
     public WebElement dataPlatformPageHeader;
+
+    /** Data Requests awaiting my review tab */
+    @FindBy(xpath = "//a[.='Data Requests Awaiting My Review']")
+    public WebElement dataRequestsAwaitingMyReviewTab;
+
+    /** All Data Data Requests  tab */
+    @FindBy(xpath = "//a[.='All Data Requests']")
+    public WebElement allDataRequestsTab;
+
+    /** search text field Data Requests awaiting my review tab */
+    @FindBy(xpath = "(//input[@name='datatable-search'])[1]")
+    public WebElement searchFieldDataRequestsAwaitingMyReviewTab;
+
+    /** search text field All Data Requests tab */
+    @FindBy(xpath = "(//input[@name='datatable-search'])[2]")
+    public WebElement searchFieldAllDataRequestsTab;
+
+    /** Rows pagination */
+    @FindBy(xpath = "(//div[@class='m-t-xs panel-title ng-binding'])[1]")
+    public WebElement rowsPaginationDataRequestsAwaitingMyReviewTab;
+
+    /** Rows pagination */
+    @FindBy(xpath = "(//div[@class='m-t-xs panel-title ng-binding'])[2]")
+    public WebElement rowsPaginationAllDataRequestTab;
+
+    /** show filter button */
+    @FindBy(xpath = "//button[@id='filterToggle']")
+    public WebElement showFilterButton;
+
+    /** load filter button */
+    @FindBy(xpath = "//button[@id='x_g_nci_nccr_data_access_requests-load-filter-button']")
+    public WebElement loadFilterButton;
+
+    /** save filter button */
+    @FindBy(xpath = "//button[@id='x_g_nci_nccr_data_access_requests-save-filter-button']")
+    public WebElement saveFilterButton;
+
+    /** add Sort filter button */
+    @FindBy(xpath = "//button[@id='x_g_nci_nccr_data_access_requests-sort-filter-button']")
+    public WebElement addSortFilterButton;
+
+    /** new criteria button */
+    @FindBy(xpath = "//button[@id='x_g_nci_nccr_data_access_requests-add-new-section']")
+    public WebElement newCriteriaButton;
+
+    /** x Filter */
+    @FindBy(xpath = "//button[@id='x_g_nci_nccr_data_access_requests-close-filter-button']")
+    public WebElement xFilter;
+
+
 }
