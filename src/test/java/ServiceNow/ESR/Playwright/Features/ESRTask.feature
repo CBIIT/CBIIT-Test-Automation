@@ -41,7 +41,7 @@ Feature: ESR Tasks
     And ESR Board Intake Review catalog task is completed
     Then the user confirms the ESR Board Intake Review catalog task is completed
 
-  @ESR-602 @sarwarahmed1 @Progression @playwright
+  @ESR-602 @sarwarahmed1 @Regression @playwright
   Scenario: Test the Engineering Project Execution catalog task in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
@@ -54,7 +54,7 @@ Feature: ESR Tasks
     And the Engineering Project Execution catalog task is completed
     Then the user confirms the Engineering Project Execution catalog task is completed
 
-  @ESR-603 @sarwarahmed1 @Progression @playwright
+  @ESR-603 @sarwarahmed1 @Regression @playwright
   Scenario: Test the Engineering Project Execution catalog task in an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR

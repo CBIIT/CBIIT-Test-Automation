@@ -132,6 +132,9 @@ public class ESRTaskStepsImplementation {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Approval']")).containsText("Requested");
     }
 
+    /**
+     * Completes the Engineering Project Execution catalog task
+     */
     public static void completeEngineeringProjectExecutionCatalogTask() {
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (3)").click();
         Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[1]").click();
@@ -141,6 +144,9 @@ public class ESRTaskStepsImplementation {
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
     }
 
+    /**
+     * Confirms that the Engineering Project Execution catalog task is completed
+     */
     public static void confirmEngineeringProjectExecutionCatalogTaskIsCompleted() {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Closeout Preparation");
     }
