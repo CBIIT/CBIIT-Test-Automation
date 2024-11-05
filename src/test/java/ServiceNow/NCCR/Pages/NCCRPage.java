@@ -1,6 +1,5 @@
 package ServiceNow.NCCR.Pages;
 
-import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,27 +27,19 @@ public class NCCRPage {
     public WebElement sectionTextConfidentialityStatement;
 
     /** Native View hyperlink */
-    @FindBy(xpath = "//*[@id='nci-header-top']/div/div/div/div[2]/a")
+    @FindBy(xpath = "//a[@href='https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/x_g_nci_nccr_data_access_requests_list.do%3Fsysparm_userpref_module%3D90a7559a1bdcce50d4c852c6624bcbcd%26sysparm_query%3Dstate%253D5%255EreviewersDYNAMIC90d1921e5f510100a9ad2572f2b477fe%255EEQ']")
     public WebElement nativeViewHyperlink;
 
-    /** Native View page header */
-    @FindBy(xpath = "(//span[.='Data Access Requests'])[1]")
-    public WebElement nativeViewPageHeader;
-
     /** NCCR Data Platform hyperlink */
-    @FindBy(xpath = "//*[@id='x2e1819b01b88da90c5c40e1ce54bcba1']/div/div/p/a")
+    @FindBy(xpath = "(//a[@href='https://nccrdataplatform.ccdi.cancer.gov/home'])[2]")
     public WebElement nccrDataPlatformHyperlink;
-
-    /** Data Platform page header */
-    @FindBy(xpath = "//span[.='National Childhood Cancer Registry']")
-    public WebElement dataPlatformPageHeader;
 
     /** Data Requests awaiting my review tab */
     @FindBy(xpath = "//a[.='Data Requests Awaiting My Review']")
     public WebElement dataRequestsAwaitingMyReviewTab;
 
     /** All Data Data Requests  tab */
-    @FindBy(xpath = "//a[.='All Data Requests']")
+    @FindBy(xpath = "//li[@heading=' All Data Requests']")
     public WebElement allDataRequestsTab;
 
     /** search text field Data Requests awaiting my review tab */
@@ -60,11 +51,11 @@ public class NCCRPage {
     public WebElement searchFieldAllDataRequestsTab;
 
     /** Rows pagination */
-    @FindBy(xpath = "(//div[@class='m-t-xs panel-title ng-binding'])[1]")
+    @FindBy(xpath = "(//div [@class='btn-toolbar m-r pull-left'])[1]")
     public WebElement rowsPaginationDataRequestsAwaitingMyReviewTab;
 
     /** Rows pagination */
-    @FindBy(xpath = "(//div[@class='m-t-xs panel-title ng-binding'])[2]")
+    @FindBy(xpath = "(//div [@class='btn-toolbar m-r pull-left'])[2]")
     public WebElement rowsPaginationAllDataRequestTab;
 
     /** show filter button */

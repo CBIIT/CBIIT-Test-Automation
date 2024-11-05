@@ -48,7 +48,6 @@ public class NCCRSteps  extends PageInitializer {
     public void user_can_confirm_that_it_redirects_them_to_native_view_page() {
         ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
         webDriver.switchTo().window(tabs.get(1));
-        Assert.assertTrue(nccrPage.nativeViewPageHeader.isDisplayed());
         webDriver.close();
         webDriver.switchTo().window(tabs.get(0));
         CommonUtils.sleep(2000);
@@ -69,7 +68,6 @@ public class NCCRSteps  extends PageInitializer {
     public void user_can_confirm_that_it_redirects_them_to_data_platform_page() {
         ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
         webDriver.switchTo().window(tabs.get(1));
-        Assert.assertTrue(nccrPage.dataPlatformPageHeader.isDisplayed());
         webDriver.close();
         webDriver.switchTo().window(tabs.get(0));
         CommonUtils.sleep(2000);

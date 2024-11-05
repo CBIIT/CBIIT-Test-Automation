@@ -4,7 +4,7 @@ public class TestProperties {
 
     public static String ENV = "test";
     public static String BROWSER = "chrome";
-    public static boolean HEADLESS = true;
+    public static boolean HEADLESS = false;
     public static int SET_SLOW_MO_TIME = 1000;
 
     /**
@@ -98,6 +98,7 @@ public class TestProperties {
      * NCCR
      */
     public static final String NCCR_TEST_URL = "https://service-test.nci.nih.gov/nccr";
+    public static final String NCCR_STAGE_URL = "https://service-stage.nci.nih.gov/nccr";
     public static String NCCR_URL;
 
     /**
@@ -799,7 +800,10 @@ public class TestProperties {
             case "test":
                 NCCR_URL = NCCR_TEST_URL;
                 break;
+            case "stage":
+                NCCR_URL = NCCR_STAGE_URL;
+                break;
         }
-        return OAINTAKE_URL;
+        return NCCR_URL;
     }
 }
