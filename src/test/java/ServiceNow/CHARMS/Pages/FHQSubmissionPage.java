@@ -188,13 +188,9 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement familyCohortStudyManagementSystemLabel;
 
 	/* Which of the following individuals is a biological parent of this child? Selected Dropdown*/
-	//@FindBy(xpath = "(//div[@id='s2id_sp_formfield_other_biological_parent_partner'])[1]")
-	//@FindBy(xpath = "//a[@class='select2-choice form-control select2-default']")
 	@FindBy(xpath = "(//div[@id='s2id_sp_formfield_other_biological_parent_partner'])[1]")
 	//@FindBy(xpath = "//a[@aria-label='Review Family History Questionnaire']//span[contains(text(),'Family History Questionnaire')]")
 	public WebElement biologicalParentOfThisChildDropdown;
-
-
 
 	/* RELATION RP:Short Description Information Banner on a new RP */
 	@FindBy(xpath = "//span[contains(text(),'We would like to ask some questions about Siblings')]")
@@ -205,8 +201,6 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement biologicalParentOfThisChildDropdownSearch;
 
 	/* Which of the following individuals is a biological parent of this child? Selected Dropdown Value */
-	//@FindBy(xpath = "(//span[@id='select2-chosen-24'])[1]")
-//	@FindBy(xpath = "(//div[@id='select2-result-label-206'])[1]")
 	@FindBy(xpath = "(//ul[@id='select2-results-24'])[1]/li[1]")
 	public WebElement biologicalParentOfThisChildDropdownValue;
 
@@ -418,46 +412,57 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement dynamicLocatorForParticipant(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@aria-labelledby='label.x_naci_family_coho_fhq_" + text + ".participant'])[1]"));
 	}
+
 	/* Method to dynamically locate year_of_birth elements in FHQ */
 	public WebElement dynamicLocatorForInputYearOfBirth(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@aria-labelledby='label.x_naci_family_coho_fhq_" + text + ".year_of_birth'])[1]"));
 	}
+
 	/* Method to dynamically locate total_number_of_miscarriages elements in FHQ */
 	public WebElement dynamicLocatorForInputTotalMiscarriages(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@aria-labelledby='label.x_naci_family_coho_fhq_" + text + ".total_number_of_miscarriages'])[1]"));
 	}
+
 	/* Method to dynamically locate total_number_of_miscarriages elements in FHQ */
 	public WebElement dynamicLocatorForInputTotalMiscarriage(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_display.x_naci_family_coho_fhq_" + text + ".miscarriages_less_than_20_weeks_of_pregnancy'])[1]"));
-	}	
+	}
+
 	/* Method to dynamically locate total_number_of_stillbirths elements in FHQ */
 	public WebElement dynamicLocatorForInputTotalStillbirths(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@aria-labelledby='label.x_naci_family_coho_fhq_" + text + ".total_number_of_stillbirths'])[1]"));
 	}
+
 	/* Method to dynamically locate total_number_of_stillbirths elements in FHQ */
 	public WebElement dynamicLocatorForInputTotalStillbirth(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_display.x_naci_family_coho_fhq_" + text + ".stillbirths_more_than_20_weeks_of_pregnancy'])[1]"));
 	}
+
 	/* Method to dynamically locate how_many_siblings elements in FHQ */
 	public WebElement dynamicLocatorForInputTotalSiblings(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@aria-labelledby='label.x_naci_family_coho_fhq_" + text + ".how_many_siblings'])[1]"));
 	}
+
 	/* Method to dynamically locate how_many_siblings elements in FHQ */
 	public WebElement dynamicLocatorForInputTotalChildren(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@name='x_naci_family_coho_fhq_" + text + ".how_many_total_children_alive_and_deceased_has_child_had'])[1]"));
 	}
+
 	/* Method to dynamically locate how_many_children elements in FHQ in siblings form */
 	public WebElement dynamicLocatorForInputTotalChildrenForSibling(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@name='x_naci_family_coho_fhq_" + text + ".total_num_children'])[1]"));
 	}
+
 	/* Method to dynamically locate how_many_children elements in FHQ in siblings form */
 	public WebElement dynamicLocatorForInputTotalChildrenForAuntUncle(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='x_naci_family_coho_fhq_" + text + ".how_many_total_children_does_this_relative_have'])[1]"));
 	}
+
 	/* Method to dynamically locate benign_tumor elements in FHQ */
 	public WebElement dynamicLocatorForInputBenignTumor(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='x_naci_family_coho_fhq_" + text + ".has_benign_tumor'])[1]"));
 	}
+
 	/* Method to dynamically locate is_there_anything_else_you_would_like_us_to_know_about_this_parent_grandparent elements in FHQ */
 	public WebElement dynamicLocatorForInputAnythingElse(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='x_naci_family_coho_fhq_" + text + ".has_benign_tumor'])[1]"));

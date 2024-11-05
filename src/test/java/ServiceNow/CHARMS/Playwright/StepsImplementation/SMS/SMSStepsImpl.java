@@ -9,8 +9,8 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
+/* This method allows the login to the RAS Study screener page */
 public class SMSStepsImpl {
-    /* This method allows the login to the RAS Study screener page */
         public static void login() {
             var page = PlaywrightUtils.page;
             page.navigate(SMSPage.RAS_STUDY_URL);
