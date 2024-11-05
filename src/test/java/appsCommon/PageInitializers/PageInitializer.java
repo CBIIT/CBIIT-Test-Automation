@@ -362,6 +362,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
 	public static NativeViewCHARMSAddNewParticipantPage nativeViewCHARMSAddNewParticipantPage;
+	public static NativeViewCHARMSSubjectFlagsPage nativeViewCHARMSSubjectFlagsPage;
 
 	/** --------------- EGRANTS INSTANCES --------------- */
 	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;
@@ -641,6 +642,7 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSParticipantStudyPage = new NativeViewCHARMSParticipantStudyPage();
 		nativeViewCHARMSAddNewParticipantPage = new NativeViewCHARMSAddNewParticipantPage();
 		nativeViewSSJReportsPage = new NativeViewSSJReportsPage();
+		nativeViewCHARMSSubjectFlagsPage = new NativeViewCHARMSSubjectFlagsPage();
 
 		/****** GRANTS INSTANCES *******/
 		/** Grants ChangePassword app **/
