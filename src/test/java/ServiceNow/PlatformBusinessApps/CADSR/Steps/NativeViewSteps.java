@@ -73,16 +73,16 @@ public class NativeViewSteps {
 		nativeViewPage.saveContinueButton();
 	}
 
-//	@Then("Open Latest Idea Case")
-//	public void openLatestIdeaCase() {
-//		nativeViewPage.clickOnFirstIdeaCase();
-//	}
+	@Then("Open Latest Idea Case")
+	public void openLatestIdeaCase() {
+		nativeViewPage.clickOnFirstIdeaCase();
+	}
 
-//	@Then("Click on approve request")
-//	public void approveRequest() throws InterruptedException {
-//		Thread.sleep(2000);
-//		nativeViewPage.approveRequest();
-//	}
+	@Then("Click on approve request")
+	public void approveRequest() throws InterruptedException {
+		Thread.sleep(2000);
+		nativeViewPage.approveRequest();
+	}
 
 	@Then("State is Updated to {string}")
 	public void verifystate(String expectedState) throws Exception {
@@ -95,10 +95,10 @@ public class NativeViewSteps {
 		}
 	}
 
-//	@Then("Open Latest Business Case")
-//	public void openLatestBusinessCase() {
-//		nativeViewPage.clickOnFirstBusinessCase();
-//	}
+	@Then("Open Latest Business Case")
+	public void openLatestBusinessCase() {
+		nativeViewPage.clickOnFirstBusinessCase();
+	}
 
 	@Then("Update details on Business form and submit")
 	public void FillBusinessForm() throws InterruptedException {

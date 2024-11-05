@@ -71,47 +71,47 @@ public class PortalViewSteps {
 		portalViewPage.programaticSUpportCheckBox();
 	}
 	
-//	@Then("Click on Save and Continue")
-//	public void saveContinue() {
-//		portalViewPage.saveContinueButton();
-//	}
-//
-//	@Then("Open Latest Idea Case")
-//	public void openLatestIdeaCase() {
-//		portalViewPage.clickOnFirstIdeaCase();
-//	}
+	@Then("Click on Save and Continue")
+	public void saveContinue() {
+		portalViewPage.saveContinueButton();
+	}
+
+	@Then("Open Latest Idea Case")
+	public void openLatestIdeaCase() {
+		portalViewPage.clickOnFirstIdeaCase();
+	}
 	
-//	@Then("Click on approve request")
-//	public void approveRequest() throws InterruptedException {
-//		Thread.sleep(2000);
-//		portalViewPage.approveRequest();
-//	}
+	@Then("Click on approve request")
+	public void approveRequest() throws InterruptedException {
+		Thread.sleep(2000);
+		portalViewPage.approveRequest();
+	}
 	
-//	@Then("State is Updated to {string}")
-//	public void verifystate(String expectedState) throws Exception {
-//		Thread.sleep(2000);
-//		String actualState = portalViewPage.getState();
-//		CucumberLogUtils.logScreenshot();
-//		if (actualState != null) {
-//			actualState = actualState.trim();openLatestBusinessCase()
-//			Assert.assertEquals(expectedState, actualState);
-//		}
-//	}
+	@Then("State is Updated to {string}")
+	public void verifystate(String expectedState) throws Exception {
+		Thread.sleep(2000);
+		String actualState = portalViewPage.getState();
+		CucumberLogUtils.logScreenshot();
+		if (actualState != null) {
+			actualState = actualState.trim();openLatestBusinessCase();
+			Assert.assertEquals(expectedState, actualState);
+		}
+	}
 	
-//	@Then("Open Latest Business Case")
-//	public void openLatestBusinessCase() {
-//		portalViewPage.clickOnFirstBusinessCase();
-//	}
+	@Then("Open Latest Business Case")
+	public void openLatestBusinessCase() {
+		portalViewPage.clickOnFirstBusinessCase();
+	}
 	
-//	@Then("Update details on Business form and submit")
-//	public void FillBusinessForm() throws InterruptedException {
-//		portalViewPage.enterTextInBusinessNeedBox("TestingAutomtaionTesting");
-//	}
+	@Then("Update details on Business form and submit")
+	public void FillBusinessForm() throws InterruptedException {
+		portalViewPage.enterTextInBusinessNeedBox("TestingAutomtaionTesting");
+	}
 	
-//	@Then("Open Request Approval form and approve")
-//	public void approve() throws InterruptedException {
-//		portalViewPage.approveRequestForm();
-//	}
+	@Then("Open Request Approval form and approve")
+	public void approve() throws InterruptedException {
+		portalViewPage.approveRequestForm();
+	}
 	
 	@Then("Click on Elevate Permision")
 	public void elevatePermission() throws InterruptedException {
