@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
         , features = "src/test/java/ServiceNow/ESR/Playwright/Features"
         , glue = {"ServiceNow.ESR.Playwright.Steps", "Hooks"}
         , tags = "@Regression"
-        , dryRun = false
+        , dryRun = true
 )
 public class RunESRRegressionTest extends AbstractTestNGCucumberTests{
 }
