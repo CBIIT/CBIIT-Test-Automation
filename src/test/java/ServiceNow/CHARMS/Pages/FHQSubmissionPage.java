@@ -189,7 +189,6 @@ public class FHQSubmissionPage extends CommonUtils {
 
 	/* Which of the following individuals is a biological parent of this child? Selected Dropdown*/
 	@FindBy(xpath = "(//div[@id='s2id_sp_formfield_other_biological_parent_partner'])[1]")
-	//@FindBy(xpath = "//a[@aria-label='Review Family History Questionnaire']//span[contains(text(),'Family History Questionnaire')]")
 	public WebElement biologicalParentOfThisChildDropdown;
 
 	/* RELATION RP:Short Description Information Banner on a new RP */
