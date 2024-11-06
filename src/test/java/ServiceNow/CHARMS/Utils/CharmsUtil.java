@@ -186,6 +186,7 @@ public class CharmsUtil {
 	/* Method to select a value from the Drop down List */
 	public static boolean selectDropDownValue(WebElement webElement, String selectedValue) {
 		CharmsUtil.labelHighlight(webElement);
+		CharmsUtil.clickOnElement(webElement);
 		CommonUtils.sleep(500);
 		Select dropDown = new Select(webElement);
 		List<WebElement> e = dropDown.getOptions();
@@ -204,6 +205,14 @@ public class CharmsUtil {
 			}
 		}
 		return false;
+	}
+
+	public static void clickAutoPopulatedReference (WebElement webElement, List<String> referenceElements, String dropDownValue){
+		CharmsUtil.labelHighlight(webElement);
+		CharmsUtil.clickOnElement(webElement);
+		CommonUtils.sleep(500);
+		WebElement select2ElementResults = WebDriverUtils.webDriver
+				.findElement(By.xpath("s2id_sp_formfield_other_biological_parent_partner"));
 	}
 	
 	public static void SelectValueFromDropDown(WebElement webElement, List<String> dropdownList, String dropDownValue) {
