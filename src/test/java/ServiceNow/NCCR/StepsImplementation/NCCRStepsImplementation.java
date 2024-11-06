@@ -24,7 +24,7 @@ public class NCCRStepsImplementation extends PageInitializer {
 
     /**
      * User verifies section is displayed
-     * @param section
+     * @param section (My Assigned Data Requests and Confidentiality Statement sections)
      */
     public void verifySectionDisplayed(String section) {
         switch (section) {
@@ -41,7 +41,7 @@ public class NCCRStepsImplementation extends PageInitializer {
 
     /**
      * User verifies section text is correct
-     * @param text
+     * @param text (Sections description)
      */
     public void verifySectionTexDisplayed(String text) {
         switch (text) {
