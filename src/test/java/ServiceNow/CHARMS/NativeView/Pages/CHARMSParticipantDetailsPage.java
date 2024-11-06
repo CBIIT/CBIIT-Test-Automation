@@ -16,12 +16,14 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	public static WebElement dynamicPreviewButtonLocator(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//a[normalize-space()='" + text + "'])[1]"));
 	}
+	public static WebElement dynamicPreviewButtonLocators(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record:’” +text+”'])[1]"));
+	}
 
 	/* VERIFIES DATA In Participant Details Page */
 	public CHARMSParticipantDetailsPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
-
 	/* **************************** */
 	/* VERIFIES NAVIGATION PANEL */
 	/* ***************************/
@@ -37,6 +39,10 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	/* CHARMS Navigation-> All Participant Details in Navigation Panel */
 	@FindBy(xpath = "(//div[@id='gsft_nav']//a[.='All Participant Details'])[1]")
 	public static WebElement nVAllParticipantDetailsLinkInNavigator1;
+
+	/* CHARMS Navigation-> All Participant Open Record for the Preview Button */
+	@FindBy(xpath = "(//button[@aria-label='Back'])[1]")
+	public static WebElement nVAllParticipantOpenRecordButton;
 
 	/* CHARMS Navigation-> All Participant Details Back Button */
 	@FindBy(xpath = "(//button[@aria-label='Back'])[1]")
@@ -57,6 +63,21 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	/* VERIFIES GENERAL INFORMATION DATA */
 	/* *************************************************************** */
 
+	/* Method to dynamically locate elements in Native View */
+	public WebElement dynamicLocatorContainsText(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'" + text + "')]"));
+	}
+
+	/* Method to dynamically locate elements in Native View */
+	public WebElement dynamicLocatorUsingNormalizeSpace(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//*[normalize-space()='" + text + "']"));
+	}
+
+	/* Method to dynamically locate elements in Native View */
+	public WebElement dynamicLocatorUsingNormalizeSpaceInSpan(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//span[@class='label-text'][normalize-space()='" + text + "']"));
+	}
+
 	/* Participant--> Subject ID TextBox */
 	@FindBy(xpath = "(//input[@aria-label='Subject ID'])[1]")
 	public WebElement nVParticipantSubjectID;
@@ -73,29 +94,37 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	@FindBy(xpath = "(//input[@name='x_naci_family_coho_family_history_details.family_member_id'])[1]")
 	public WebElement nVParticipantFamilyMemberID;
 
-	/*
-	 * Participant--> May we have your permission to contact this relative? DropDown
-	 */
+	/* Participant--> May we have your permission to contact this relative? DropDown */
 	@FindBy(xpath = "(//select[@id='x_naci_family_coho_family_history_details.permission_to_contact'])[1]")
-	public WebElement nVpermissionToContactThisRelative;
+	public WebElement nVPermissionToContactThisRelative;
 
-	/*
-	 * Participant--> May we have your permission to contact this relative?DropDown
-	 */
-	@FindBy(xpath = "(//select[@id='sys_readonly.x_naci_family_coho_family_history_details.enrollment_status'])[1]")
-	public WebElement nVpermissionEnrollmentStatus;
-
-	/* Participant--> Study */
-	@FindBy(xpath = "(//input[@name='sys_display.x_naci_family_coho_family_history_details.family.study'])[1]")
-	public WebElement nVParticipantStudy;
+	/* Participant--> FHQ Patients */
+	@FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_family_history_details.fhq_patient']")
+	public WebElement nVParticipantFHQPatients;
 
 	/* Participant--> Eligibility Status */
-	@FindBy(xpath = "//select[contains(@name,'sys_readonly.x_naci_family_coho_family_history_details.eligibility_status')]")
+	@FindBy(xpath = "(//select[@id='sys_readonly.x_naci_family_coho_family_history_details.eligibility_status'])[1]")
 	public WebElement nVParticipantEligibilityStatus;
+
+	/* Participant--> May we have your permission to contact this relative?DropDown */
+	@FindBy(xpath = "(//select[@id='sys_readonly.x_naci_family_coho_family_history_details.enrollment_status'])[1]")
+	public WebElement nVpermissionEnrollmentStatus;
 
 	/* Participant--> Enrollment Status */
 	@FindBy(xpath = "(//select[@id='sys_readonly.x_naci_family_coho_family_history_details.enrollment_status'])[1]")
 	public WebElement nVParticipantEnrollmentStatus;
+
+	/* Participant--> Studies */
+	@FindBy(xpath = "(//span[@id='x_naci_family_coho_family_history_details.studies_edit'] | //p[@id='x_naci_family_coho_family_history_details.studies_nonedit'])[2]")
+	public WebElement nVParticipantStudies;
+
+	/* Participant--> NIH MRN number */
+	@FindBy(xpath = "(//input[@id='x_naci_family_coho_family_history_details.nih_number'])[1]")
+	public WebElement nVParticipantNIHMRNnumber;
+
+	/* Participant--> NIH MRN number Info =NIH MRN number should include the dashes */
+	@FindBy(xpath = "(//div[@class='fieldmsg notification notification-info'])[1]")
+	public WebElement nVParticipantNIHMRNnumberInfo;
 
 	/* Participant--> Referral */
 	@FindBy(xpath = "(//input[@id='sys_display.x_naci_family_coho_family_history_details.proband_screener'])[1]")
