@@ -21,13 +21,16 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest=ServiceNow.CHARMS.Runners.Run_CHARMS_RAS_Regression_Test test
+        run: mvn -B -q -Dtest="ServiceNow.CHARMS.Runners.Run_CHARMS_RAS_Regression_Test" test
         continue-on-error: true
 
       - name: Generate timestamp
         id: timestamp
-        run: echo "timestamp=$(TZ='America/New_York' date +'%Y-%m-%d_%I-%M-%S_%p')" >> $GITHUB_ENV
-
+        run: |
+          $timeZone = [System.TimeZoneInfo]::FindSystemTimeZoneById("Eastern Standard Time")
+          $dateTime = [System.TimeZoneInfo]::ConvertTime([System.DateTime]::UtcNow, $timeZone)
+          $timestamp = $dateTime.ToString("yyyy-MM-dd_hh-mm-ss_tt")
+          Add-Content -Path $env:GITHUB_ENV -Value "timestamp=$timestamp"
       - name: Determine report path
         id: reportpath
         run: echo "path=html-charms-rasopathy-regression-reports" >> $GITHUB_ENV
@@ -54,7 +57,6 @@ jobs:
           git add .
           git commit -m "Publishing cucumber report ${{ env.timestamp }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
-
       - name: Update Test Results and Append to Index File
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
