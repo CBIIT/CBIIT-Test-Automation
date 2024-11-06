@@ -167,7 +167,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
      * @param topAccomplishmentsAccordionText The text of the header label for the accordion.
      */
     public static void thereIsACollapsedAccordionWithRheHeaderLabeled(String topAccomplishmentsAccordionText) {
-        CommonUtils.sleep(7000);
+        CommonUtils.sleep(20000); //THIS SLEEP TIME IS NEEDED FOR THE NERD PAGE TO LOAD THE RECORDS
         CommonUtils.waitForVisibility(NERDKnowledgebasePage
                 .dynamicAccordion(topAccomplishmentsAccordionText));
         boolean isTopAccomplishmentAccordionDisplayed = NERDKnowledgebasePage
@@ -238,7 +238,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
      * @param publishedArticleTitle the title of the published article to search for
      */
     public void thereIsARecordCalled(String publishedArticleTitle) {
-        CommonUtils.sleep(10000);
+        CommonUtils.sleep(20000); //THIS SLEEP TIME IS NEEDED FOR THE NERD PAGE TO LOAD THE RECORDS
         CommonUtils.waitForVisibility(NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion));
         CommonUtils.sendKeysToElement(nerdKnowledgeBasePage.topAccomplishmentsNerdKnowledgeBaseSearchTextBox, publishedArticleTitle);
         CommonUtils.sleep(500);
