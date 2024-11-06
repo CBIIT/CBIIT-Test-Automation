@@ -31,12 +31,10 @@ public class FHQConstants {
 	public static final String THE_FOLLOWING_QUESTIONS_ARE_ABOUT_THE_STUDY_PARTICIPANT = "The following questions are about the study participant.";
 	public static final String FIRST_NAME_OF_THE_PARTICIPANT = "First Name of the participant";
 	public static final String PARTICIPANT_FIRST_NAME = "Participant First Name";
-	public static final String FIRST_INITIAL_OF_LAST_NAME_OF_THE_PARTICIPANT_LABEL = "First Initial of LAST Name of the participant";
 	public static final String FIRST_INITIAL_OF_LAST_NAME_OF_THE_PARTICIPANT = "First Initial of LAST Name of the participant";
 	public static final String PARTICIPANT_SEX_ASSIGNED_AT_BIRTH = "Sex assigned at birth";
 	public static final String PARTICIPANT_GENDER_IDENTITY = "Gender Identity";
 	public static final String PARTICIPANT_TYPE_OF_BIRTH = "Type of birth";
-	public static final String HAS_THE_PARTICIPANT_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS_LABEL = "Has the participant ever had any miscarriages or stillbirths?";
 	public static final String HAS_THE_PARTICIPANT_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS = "Has the participant ever had any miscarriages or stillbirths?";
 	public static final String HAS_PARTICIPANT_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS = "Has participant had any miscarriage, stillbirth?";
 	public static final String LESS_THAN_20_WEEKS_OF_PREGNANCY = "less than 20 weeks of pregnancy";
@@ -87,14 +85,12 @@ public class FHQConstants {
 	public static final String FIRST_NAME_OF_SIBLING = "First name of Sibling";
 	public static final String SIBLING_FIRST_NAME = "Sibling First Name";
 	public static final String SIBLING_FIRST_NAME_VALUE = "Sibling First Name Value";
-	public static final String FIRST_NAME_OF_SIBLING_SELECTED = "First name of Sibling selected";
 	public static final String SIBLING_FIRST_INITIAL_OF_LAST_NAME = "Sibling First Initial of LAST Name";
 	public static final String SIBLING_FIRST_INITIAL_OF_LAST_NAME_VALUE = "Sibling First Initial of LAST Name Value";
 	public static final String VITAL_STATUS_OF_SIBLING = "Vital Status of Sibling";
 	public static final String SIBLING_VITAL_STATUS_VALUE = "Sibling Vital Status Value";
 	public static final String SIBLING_VITAL_STATUS = "Sibling Vital Status";
 	public static final String IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THE_PARTICIPANT = "Is there anything else you would like us to know about the participant?";
-	public static final String IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_PARTICIPANT = "Is there anything else you would like us to know about this participant?";
 	public static final String ADD_ADDITIONAL_INFORMATION = "Add Additional Information";
 	public static final String YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_COMPLETE = "You will not be able to modify this record after you click Complete.";
 	public static final String COMPLETE = "Complete";
@@ -125,13 +121,10 @@ public class FHQConstants {
 	public static final String IS_THERE_ANY_ADDITIONAL_INFORMATION_YOU_WOULD_LIKE_US_TO_KNOW_OR_UNDERSTAND_ABOUT_THIS_RELATIVE = "Is there any additional information you would like us to know or understand about this relative?";
 	public static final String PARENTS = "Parents";
 	public static final String RELATIONS_TO_PATIENT = "Relation to Patient";
-	public static final String ADD_NEW_PARENTS = "Add New Parents";
 	public static final String RELATION_TO_PATIENT_PARENT = "Relation to Patient in (Biological Mother, Biological Father)";
 	public static final String MOTHER = "Mother";
-	public static final String YOU_ARE_CURRENTLY_FILLING_OUT_INFORMATION_FOR_THE_PARTICIPANTS_MOTHER = "You are currently filling out information for the";
 	public static final String I_DO_NOT_KNOW_ANY_INFORMATION_ABOUT_THIS_BIOLOGICAL_RELATIVE = "I do not know any information about this biologica";
 	public static final String WAS_THIS_RELATIVE_ADOPTED = "Was this relative adopted?";
-	public static final String RELATIVE_ADOPTED_VALUE = "Relative Adopted Value";  //Check
 	public static final String RELATIVE_ADOPTED_VALUE_SELECTED = "Relative Adopted Value? Selected";
 	public static final String IS_THIS_RELATIVE_A_TWIN_OR_PART_OF_A_MULTIPLE_BIRTH = "Is this relative a twin or part of a multiple birth?";
 	public static final String TWIN__OR_PART_OF_A_MULTIPLE_BIRTH_VALUE = "Twin or part of a multiple birth Value";
@@ -175,7 +168,6 @@ public class FHQConstants {
 	public static final String HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR_VALUE = "Has this relative ever been diagnosed with a benign tumor Value";
 	public static final String PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_BENIGN_TUMOR_THIS_RELATIVE_HAS_HAD = "Please select the 'Add' button below to add each benign tumor this relative has had.";
 	public static final String BENIGN_TUMOR = "Benign Tumor(s)";
-	public static final String SPECIFY_OTHER_BENIGN_TUMOR = "Specify other benign tumor";
 	public static final String BENIGN_TUMOR_OPTION_SELECTED = "Benign Tumor option selected";
 	public static final String YEAR_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED = "Year of diagnosis for Benign Tumor selected";
 	public static final String AGE_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED = "Age of diagnosis for Benign Tumor selected";
@@ -193,7 +185,6 @@ public class FHQConstants {
 	public static final String AGE_OF_DIAGNOSIS_FOR_MEDICAL_CONDITION_SELECTED = "Age of diagnosis for Medical Condition selected";
 	public static final String ADDITIONAL_INFORMATION_ADDED_FOR_MEDICAL_CONDITION = "Additional Information added for Medical Condition";
 	public static final String IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE = "Is there anything else you would like us to know about this relative?";
-	public static final String ADD_ADDITIONAL_INFORMATION_FOR_MOTHER = "Add Additional Information for Mother";	
 	public static final String SONS_DAUGHTERS = "Sons/Daughters";
 	public static final String SON_DAUGHTER = "Son/Daughter";
 	public static final String ADD_NEW_SONS_DAUGHTERS = "Add New Sons/Daughters";
@@ -217,33 +208,26 @@ public class FHQConstants {
 	public static final String CHILD_GENDER_IDENTITY_SELECTED = "Child Gender Identity Selected";
 	public static final String WHICH_BEST_DESCRIBES_THIS_RELATIVE = "Which best describes this relative?";
 	public static final String WHICH_BEST_DESCRIBES_THIS_RELATIVE_SELECTED = "Which best describes this relative? Selected";
-	public static final String IS_THE_OTHER_BIOLOGICAL_PARENT_OF_THIS_RELATIVE_ONE_OF_THE_PARTNERS_YOU_HAVE_ENTERED = "Is the other biological parent of this relative one of the partners you have entered?";
-	public static final String IS_THE_OTHER_BIOLOGICAL_PARENT_OF_THIS_RELATIVE_ONE_OF_THE_PARTNERS_YOU_HAVE_ENTERED1 = "Is the other biological parent of this relative on";
-	public static final String IS_THE_OTHER_BIOLOGICAL_PARENT_OF_THIS_RELATIVE_ONE_OF_THE_PARTNERS_YOU_HAVE_ENTERED_SELECTED = "Is the other biological parent of this relative one of the partners you have entered? Selected";
+	public static final String ARE_ANY_OF_THE_FOLLOWING_INDIVIDUALS_A_BIOLOGICAL_PARENT_OF_THIS_CHILD ="Are any of the following individuals a biological parent of this child?";
+	public static final String ARE_ANY_OF_THE_FOLLOWING_INDIVIDUALS_A_BIOLOGICAL_PARENT_OF_THIS_CHILD_SELECTED ="Are any of the following individuals a biological parent of this child? Selected";
 	public static final String PARTNER_NAME_HELP_BANNER = "Partner Name Help Banner";
+	public static final String WHICH_OF_THE_FOLLOWING_INDIVIDUALS_IS_A_BIOLOGICAL_PARENT_OF_THIS_CHILD = "Which of the following individuals is a biological parent of this child?";
 	public static final String OTHER_BIOLOGICAL_PARENT_HELP_BANNER = "If you are not seeing any \"Other Biological parents\" available, please complete the associated partner record.";
-	public static final String CHILD_OTHER_BIOLOGICAL_PARENT ="Other Biological Parent";
+	public static final String WHICH_OF_THE_FOLLOWING_INDIVIDUALS_IS_A_BIOLOGICAL_PARENT_OF_THIS_CHILD_SELECTED ="Which of the following individuals is a biological parent of this child? Selected";
 	public static final String OTHER_BIOLOGICAL_PARENT_SELECTED = "Other Biological Parent Selected";
-	public static final String PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS_FOR_THIS_PERSON = "Please identify the number of each of the following pregnancy results for this person.";
 	public static final String TYPE_OF_BIRTHS = "Type of birth";
 	public static final String HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THIS_RELATIVE_HAD = "How many total children (alive and deceased) has this relative had?";
 	public static final String CHILD_BANNER = "Please include living and deceased children. You may include biologic and non-biologic (eg. Step, adopted, etc.) children. Please do NOT include miscarriages or stillbirths.";
 	public static final String HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THIS_RELATIVE_HAD_SELECTED = "How many total children (alive and deceased) has this relative had? Selected";	
 	public static final String PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_CHILD_THIS_RELATIVE_HAS = "Please select the 'Add' button below to add each child this relative has.";
-	public static final String ADD_ADDITIONAL_INFORMATION_FOR_CHILD = "Add Additional Information for Child";	
 	public static final String SIBLING = "Sibling";
 	public static final String ADD_NEW_SIBLINGS = "Add New  Siblings";
 	public static final String TYPE_OF_SIBLING ="Type of Sibling";
 	public static final String TYPE_OF_SIBLING_VALUE ="Type of Sibling Value";
 	public static final String SIBLING_BANNER = "We would like to ask some questions about Siblings. Please answer to the best of your ability and skip any questions you do not know.";
 	public static final String SIBLING_BASIC_INFORMATION = "Basic Information";
-	public static final String YOU_ARE_CURRENTLY_FILLING_OUT_INFORMATION_FOR_THE_PARTICIPANTS_SIBLING = "You are currently filling out information for the participant's sibling.";
-	public static final String SIBLING_YEAR_OF_BIRTH_SELECTED = "Sibling Year of Birth Selected";
-	public static final String SIBLING_SEX_ASSIGNED_AT_BIRTH_SELECTED = "Sibling Sex assigned at birth Selected";	
-	public static final String SIBLING_GENDER_IDENTITY_SELECTED = "Sibling Gender Identity Selected";
 	public static final String PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_CHILD_THIS_RELATIVE_HAS_HAD = "Please select the 'Add' button below to add each Child this relative has had.";
-	public static final String ADD_ADDITIONAL_INFORMATION_FOR_SIBLING = "Add Additional Information for Sibling";	
-	public static final String AUNT_UNCLES = "Aunt/Uncles";	
+	public static final String AUNT_UNCLES = "Aunt/Uncles";
 	public static final String ADD_NEW_AUNT_UNCLES = "Add New Aunt/Uncles";
 	public static final String AUNT_UNCLE_FIRST_NAME_VALUE_1 = "Aunt/Uncle First Name Value 1";
 	public static final String AUNT_UNCLE_FIRST_INITIAL_OF_LAST_NAME_VALUE_1 = "Aunt/Uncle First Initial of LAST Name Value 1";
@@ -264,7 +248,6 @@ public class FHQConstants {
 	public static final String AUNT_UNCLE_YEAR_OF_BIRTH_SELECTED = "Aunt/Uncle Year of Birth Selected";
 	public static final String AUNT_UNCLE_SEX_ASSIGNED_AT_BIRTH_SELECTED = "Aunt/Uncle Sex assigned at birth Selected";	
 	public static final String AUNT_UNCLE_GENDER_IDENTITY_SELECTED = "Aunt/Uncle Gender Identity Selected";
-	public static final String ADD_ADDITIONAL_INFORMATION_FOR_AUNT_UNCLE = "Add Additional Information for Aunt/Uncle";	
 	public static final String TYPE_OF_SIBLING_NV ="Type of sibling";
 	public static final String TYPE_OF_SIBLING_VALUE_NV ="Type of sibling Value";
 	public static final String NIECES_NEPHEWS = "Nieces/Nephews";
@@ -281,11 +264,9 @@ public class FHQConstants {
 	public static final String YOU_ARE_CURRENTLY_FILLING_OUT_INFORMATION_FOR_THE_PARTICIPANTS_NIECE_NEPHEW = "You are currently filling out information for the participant's niece/nephew.";
 	public static final String NIECE_NEPHEW_BASIC_INFORMATION = "Basic Information";
 	public static final String NIECE_NEPHEW_YEAR_OF_BIRTH_SELECTED = "Niece/Nephew Year of Birth Selected";
-	public static final String NIECE_NEPHEW_VITAL_STATUS_SELECTED = "Niece/Nephew Vital Status Selected";
 	public static final String NIECE_NEPHEW_SEX_ASSIGNED_AT_BIRTH_SELECTED = "Niece/Nephew Sex assigned at birth Selected";
 	public static final String NIECE_NEPHEW_GENDER_IDENTITY_SELECTED = "Niece/Nephew Gender Identity Selected";
-	public static final String ADD_ADDITIONAL_INFORMATION_FOR_NIECE_NEPHEW = "Add Additional Information for Niece/Nephew";	
-	public static final String SIBLING_TO = "Sibling to";	
+	public static final String SIBLING_TO = "Sibling to";
 	public static final String GRANDPARENTS ="Grandparents";
 	public static final String ADD_NEW_GRANDPARENTS = "Add New Grandparents";
 	public static final String RELATION_TO_PATIENT_GRANDPARENT = "Relation to Patient in (Paternal grandfather (Father's Father), Paternal grandmother (Father's Mother),)";
@@ -337,17 +318,7 @@ public class FHQConstants {
 	public static final String COUSIN = "Cousin";
 	public static final String ADD_NEW_COUSINS = "Add New Cousins";
 	public static final String RELATION_TO_PATIENT_COUSIN = "Relation to patient = Cousin";
-	
-	@SuppressWarnings("serial")
-	public static final ArrayList<String> VITAL_STATUS_LIST1 = new ArrayList<String>() {
-		{
-			add("-- None --");
-			add("Alive");
-			add("Deceased");
-			add("Prefer not to answer");
-			add("Don't Know");
-		}
-	};
+
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> VITAL_STATUS_LIST = new ArrayList<String>() {
 		{
@@ -367,92 +338,11 @@ public class FHQConstants {
 		}
 	};
 	@SuppressWarnings("serial")
-	public static final ArrayList<String> YES_NO_PREFER_NOT_TO_ANSWER = new ArrayList<String>() {
-		{
-			add("-- None --");
-			add("Yes");
-			add("No");
-			add("Prefer not to answer");
-		}
-	};
-	@SuppressWarnings("serial")
 	public static final ArrayList<String> YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER = new ArrayList<String>() {
 		{
 			add("-- None --");
 			add("Yes");
 			add("No");
-			add("Don't Know");
-			add("Prefer not to answer");
-		}
-	};
-	@SuppressWarnings("serial")
-	public static final ArrayList<String> YES_NO_PREFER_NOT_TO_ANSWER_DONT_KNOW = new ArrayList<String>() {
-		{
-			add("-- None --");
-			add("Yes");
-			add("No");
-			add("Prefer not to answer");
-			add("Don't Know");
-		}
-	};
-	@SuppressWarnings("serial")
-	public static final ArrayList<String> TYPES_OF_PARENTS = new ArrayList<String>() {
-		{
-			add("-- None --");
-			add("Biological Mother");
-			add("Biological Father");
-		}
-	};
-	/*
-	 * @SuppressWarnings("serial") public static final ArrayList<String>
-	 * PARENT_SIBLING = new ArrayList<String>() { { add("Participant Mother FN"); }
-	 * };
-	 * 
-	 * @SuppressWarnings("serial") public static final ArrayList<String>
-	 * NIECE_SIBLING = new ArrayList<String>() { { add("Participant Sibling FN"); }
-	 * };
-	 * 
-	 * @SuppressWarnings("serial") public static final ArrayList<String>
-	 * GRANDCHILD_PARENT = new ArrayList<String>() { {
-	 * add("Participant New Child FN"); } };
-	 * 
-	 * @SuppressWarnings("serial") public static final ArrayList<String>
-	 * PARENT_COUSIN = new ArrayList<String>() { { add("Participant AuntUncle FN");
-	 * } };
-	 * 
-	 * @SuppressWarnings("serial") public static final ArrayList<String>
-	 * PARENT_OF_COUSIN = new ArrayList<String>() { {
-	 * add("Participant AuntUncle FN"); } };
-	 * 
-	 */	
-	@SuppressWarnings("serial")
-	public static final ArrayList<String> TYPES_OF_RELATIVES = new ArrayList<String>() {
-		{
-			add("-- None --");
-			add("Aunt");
-			add("Uncle");
-		}
-	};
-	@SuppressWarnings("serial")
-	public static final ArrayList<String> TYPES_OF_GRANDPARENTS = new ArrayList<String>() {
-		{
-			add("-- None --");
-			add("Paternal grandfather");
-			add("Paternal grandmother");
-			add("Maternal grandfather");
-			add("Maternal grandmother");
-		}
-	};
-	@SuppressWarnings("serial")
-	public static final ArrayList<String> TYPES_OF_SIBLINGS = new ArrayList<String>() {
-		{
-			add("-- None --");
-			add("Sister");
-			add("Brother");
-			add("Half-sister (same father)");
-			add("Half-sister (same mother)");
-			add("Half-brother (same father)");
-			add("Half-brother (same mother)");
 			add("Don't Know");
 			add("Prefer not to answer");
 		}
@@ -471,18 +361,6 @@ public class FHQConstants {
 			add("Prefer not to answer");
 		}
 	};
-	@SuppressWarnings("serial")
-	public static final ArrayList<String> TYPE_OF_RELATION = new ArrayList<String>() {
-		{
-			add("-- None --");
-			add("Parent");
-			add("Aunt/Uncle");
-			add("Sibling");
-			add("Child");
-			add("Grandparent");
-			add("Patient");
-		}
-	};
 	public static final List<String> firstInitialLastName() {
 		ArrayList<String> numberList = new ArrayList<String>();
 		numberList.add("-- None --");
@@ -491,17 +369,6 @@ public class FHQConstants {
 		}
 		numberList.add("Don't Know");
 		numberList.add("Prefer not to answer");
-		return numberList;
-	}
-	public static final List<String> firstInitialLastName1() {
-		ArrayList<String> numberList = new ArrayList<String>();
-
-		numberList.add("-- None --");
-		for (int i = 65; i <= 90; i++) {
-			numberList.add(Character.toString((char) i));
-		}
-		numberList.add("Prefer not to answer");
-		numberList.add("Don't Know");
 		return numberList;
 	}
 	public static final List<String> numberUpToN(int n) {
@@ -535,34 +402,11 @@ public class FHQConstants {
 		numberList.add("Don't Know");
 		return numberList;
 	}
-	public static final List<String> currentAge1(int n) {
-		ArrayList<String> numberList = new ArrayList<String>();
-		numberList.add("-- None --");
-		for (int i = 19; i <= 120; i++) {
-			numberList.add(i + "");
-		}
-		numberList.add("Under 18");
-		numberList.add("Don't Know");
-		numberList.add("Prefer not to answer");
-		return numberList;
-	}
 	public static final List<String> yearOfBirthOrDeathAfter1900() {
 		ArrayList<String> numberList = new ArrayList<String>();
 		numberList.add("-- None --");
 		numberList.add("Don't Know");
 		numberList.add("Prefer not to answer");
-
-		for (int i = 1900; i <= 2025; i++) {
-			numberList.add(i + "");
-		}
-		return numberList;
-	}
-	public static final List<String> yearOfBirthOrDeath() {
-		ArrayList<String> numberList = new ArrayList<String>();
-		numberList.add("-- None --");
-		numberList.add("Don't Know");
-		numberList.add("Prefer not to answer");
-		numberList.add("Before 1900");
 		for (int i = 1900; i <= 2025; i++) {
 			numberList.add(i + "");
 		}
@@ -606,16 +450,6 @@ public class FHQConstants {
 			add("Female");
 			add("Don't Know");
 			add("Prefer not to answer");
-		}
-	};
-	@SuppressWarnings("serial")
-	public static final ArrayList<String> SEX_ASSIGNED_AT_BIRTH1 = new ArrayList<String>() {
-		{
-			add("-- None --");
-			add("Male");
-			add("Female");
-			add("Prefer not to answer");
-			add("Don't Know");
 		}
 	};
 	@SuppressWarnings("serial")
@@ -669,16 +503,6 @@ public class FHQConstants {
 		}
 	};
 	@SuppressWarnings("serial")
-	public static final ArrayList<String> YEAR_OR_AGE_OF_DIAGNOSIS1 = new ArrayList<String>() {
-		{
-			add("-- None --");
-			add("Year of diagnosis");
-			add("Age of diagnosis");
-			add("Prefer not to answer");
-			add("Don't Know");
-		}
-	};
-	@SuppressWarnings("serial")
 	public static final ArrayList<String> CHILD_DISCRIPTION = new ArrayList<String>() {
 		{
 			add("-- None --");
@@ -696,9 +520,9 @@ public class FHQConstants {
 	public static final ArrayList<String> OTHER_BIOLOGICAL_PARENT = new ArrayList<String>() {
 		{
 			add("-- None --");
-			add("Yes, a partner I have reported in this questionnaire");
-			add("Yes, a partner I have NOT yet reported in this questionnaire");
-			add("Yes, an Egg/Sperm Donor");
+			add("A partner I have reported in this questionnaire");
+			add("A partner I have NOT yet reported in this questionnaire");
+			add("An Egg/Sperm Donor");
 			add("None of the Above");
 			add("Don't Know");
 			add("Prefer not to answer");
