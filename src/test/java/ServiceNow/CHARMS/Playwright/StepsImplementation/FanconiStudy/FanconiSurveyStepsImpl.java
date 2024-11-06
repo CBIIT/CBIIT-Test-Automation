@@ -11,6 +11,10 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 
 /* This method allows the login to the Fanconi Survey page */
 public class FanconiSurveyStepsImpl {
+
+    public static void resetAccount(){
+
+    }
     public static void login() {
         var page = PlaywrightUtils.page;
         page.navigate(FanconiSurveyLoginPage.FANCONI_SURVEY_URL);
