@@ -42,7 +42,7 @@ public class OFFBOARD_StepsImpl {
         CucumberLogUtils.playwrightScreenshot(page);
         assertThat(page.locator(OFFBOARD_Page.cbiit_OffBoardingFormTitleTextOnTheTopLocator)).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_TEXT_PAGE_TITLE);
         page.locator(OFFBOARD_Page.cbiit_OffBoardingFormTRequestedForTextBoxLocator).click();
-        page.locator("//input[@id='sp_formfield_requested_for_off']").fill(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_REQUESTED_FOR_NAME);
+        page.locator("//input[@id='s2id_autogen12_search']").fill(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_REQUESTED_FOR_NAME);
         page.getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_REQUESTED_FOR_NAME).click();
         page.getByLabel(OFFBOARD_Page.cbiit_OffBoardingNonNihEmailTextBoxGetByLabel, new Page.GetByLabelOptions().setExact(true)).click();
         page.getByLabel(OFFBOARD_Page.cbiit_OffBoardingNonNihEmailTextBoxGetByLabel, new Page.GetByLabelOptions().setExact(true)).fill(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARD_REQUESTED_FOR_NON_NIH_EMAIL);

@@ -30,11 +30,6 @@ public class OBF_NCI_Portal_Form_Page {
     public static String obf_Request_Form_RequestedForName = "Ben Foulkes";
 
     /***
-     * OBF REQUEST FORM SUPERVISOR FIELD TITLE
-     */
-    public static String obf_Request_Form_SupervisorFieldTitle = "Supervisor";
-
-    /***
      * OBF REQUEST FORM SUPERVISOR FIELD LABEL
      */
     public static String obf_Request_Form_SupervisorFieldLabel = "#s2id_autogen5-label";
@@ -47,7 +42,7 @@ public class OBF_NCI_Portal_Form_Page {
     /***
      * OBF REQUEST FORM SUPERVISOR FIELD TEXT BOX
      */
-    public static String obf_Request_Form_SupervisorFieldTextBox = "#s2id_autogen5_search";
+    public static String obf_Request_Form_SupervisorFieldTextBox = "#s2id_autogen6_search";
 
     /***
      * OBF REQUEST FORM SUPERVISOR NAME
@@ -58,11 +53,6 @@ public class OBF_NCI_Portal_Form_Page {
      * OBF REQUEST FORM ADMINISTRATIVE OFFICER (AO) FIELD TITLE NAME
      */
     public static String obf_Request_Form_AdministrativeOfficerFieldTitleName = "Administrative Officer (AO)";
-
-    /***
-     * OBF REQUEST FORM ADMINISTRATIVE OFFICER (AO) FIELD LABEL
-     */
-    public static String obf_Request_Form_AdministrativeOfficerFieldLabel = "#s2id_autogen6-label";
 
     /***
      * OBF REQUEST FORM ADMINISTRATIVE OFFICER (AO) FIELD
@@ -83,11 +73,6 @@ public class OBF_NCI_Portal_Form_Page {
      * OBF REQUEST FORM ADMINISTRATIVE RESOURCE DIRECTOR (ARC) FIELD TITLE NAME
      */
     public static String obf_Request_Form_AdministrativeResourceDirectorARCFieldTitleName = "Administrative Resource Director (ARC)";
-
-    /***
-     * OBF REQUEST FORM ADMINISTRATIVE RESOURCE DIRECTOR (ARC) FIELD LABEL
-     */
-    public static String obf_Request_Form_AdministrativeResourceDirectorARCFieldLabel = "#s2id_autogen7-label";
 
     /***
      * OBF REQUEST FORM ADMINISTRATIVE RESOURCE DIRECTOR (ARC) FIELD
