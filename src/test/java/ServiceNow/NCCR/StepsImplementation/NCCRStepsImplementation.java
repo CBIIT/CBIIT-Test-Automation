@@ -43,7 +43,7 @@ public class NCCRStepsImplementation extends PageInitializer {
      * User verifies section text is correct
      * @param text (Sections description)
      */
-    public void verifySectionTexDisplayed(String text) {
+    public void verifySectionTextDisplayed(String text) {
         switch (text) {
             case "My Assigned Data Requests":
                 CommonUtils.waitForVisibility(nccrPage.sectionTextMyAssignedDataRequest);

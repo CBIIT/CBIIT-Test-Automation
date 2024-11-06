@@ -30,7 +30,7 @@ public class NCCRSteps  extends PageInitializer {
 
     @Given("User confirms that the text of {string} section is correct")
     public void user_confirms_that_the_text_of_section_is_correct(String text) {
-        nccrStepsImplementation.verifySectionTexDisplayed(text);
+        nccrStepsImplementation.verifySectionTextDisplayed(text);
     }
 
     /**
