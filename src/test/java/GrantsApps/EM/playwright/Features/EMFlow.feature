@@ -77,7 +77,7 @@ Feature: EM Flow
     And verifies that the Help dropDown has the following options User Guide, Video Tutorials and Release Notes
     And verifies that Contact contains Email Technical support and Email business policy questions
 
-  @Progression @Jira966 @playwright
+  @In-Progress @Jira966 @playwright
   Scenario: Verify UI Elements- Deactivated Account scenario
     Given User is logged in as Primary ITwoE Coordinator - PW
     Then first and last name "Diego Juarez" of logged in user are displayed
