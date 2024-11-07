@@ -1,9 +1,9 @@
-name: CHARMS - FANCONI STUDY SMOKE TESTS
+name: CHARMS-FANCONI-REGRESSION
 
 on:
   schedule:
-    # This corresponds to 7:30 AM EST (12:30 PM UTC) from Monday to Friday
-    - cron: '30 12 * * MON-FRI'
+    # This corresponds to 8:00 AM EDT (1:00 AM UTC) from Monday to Friday
+    - cron: '0 13 * * MON-FRI'
   workflow_dispatch:
     inputs:
       testBrowser:
@@ -13,83 +13,63 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    env:
-      DISPLAY: ".99"
-      SCREEN_RESOLUTION: "1280x1024x24"
+    runs-on: NCI-WINDOWS
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
           fetch-depth: 0
-      - name: Set up JDK 1.11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.11
-      - name: Install Google Chrome
-        run: |
-          sudo apt-get install -y wget
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
-      - name: Check and remove Chromedriver if exists
-        run: |
-          if type chromedriver >/dev/null 2>&1; then
-            echo "Chromedriver found, removing..."
-            sudo rm -f $(which chromedriver)
-          else
-            echo "Chromedriver not found, proceeding..."
-          fi
-      - name: Replace variables in cloudEnv.properties
-        run: |
-          sed -i "s/SIDE_DOOR_USERNAME/${{ secrets.SIDEDOORUSERNAME }}/g" src/main/resources/conf/cloudEnv.properties
-          sed -i "s/SIDE_DOOR_PASSWORD/${{ secrets.SIDEDOORPASSWORD }}/g" src/main/resources/conf/cloudEnv.properties
-          if [ "${{ github.event_name }}" = "schedule" ]; then
-            sed -i "s/BROWSER_VAR/chrome/g" src/main/resources/conf/cloudEnv.properties
-          else
-            sed -i "s/BROWSER_VAR/${{ github.event.inputs.testBrowser }}/g" src/main/resources/conf/cloudEnv.properties
-          fi
-          sed -i "s/ENV_VAR/test/g" src/main/resources/conf/cloudEnv.properties
+
       - name: Run specific runner class
-        run: mvn -B -q -Dtest=Run_CHARMS_Fanconi_Smoke_Test -DisCloud=true test
+        run: mvn -B -q -Dtest="ServiceNow.CHARMS.Runners.Run_CHARMS_Fanconi_Regression_Test" test
         continue-on-error: true
+
       - name: Generate timestamp
         id: timestamp
-        run: echo "::set-output name=timestamp::$(TZ='America/New_York' date +'%Y-%m-%d_%I-%M-%S_%p')"
+        run: |
+          $timeZone = [System.TimeZoneInfo]::FindSystemTimeZoneById("Eastern Standard Time")
+          $dateTime = [System.TimeZoneInfo]::ConvertTime([System.DateTime]::UtcNow, $timeZone)
+          $timestamp = $dateTime.ToString("yyyy-MM-dd_hh-mm-ss_tt")
+          Add-Content -Path $env:GITHUB_ENV -Value "timestamp=$timestamp"
       - name: Determine report path
         id: reportpath
-        run: echo "::set-output name=path::fanconi-smoke-reports"
+        run: echo "path=html-charms-fanconi-regression-reports" >> $GITHUB_ENV
+
       - name: Upload Cucumber Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: cucumber-report-${{ github.run_number }}
-          path: target/fanconi-smoke-reports/*
-      - name: Remove Google Chrome installation file
-        run: rm google-chrome-stable_current_amd64.deb
-      - name: Push HTML Report
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          git config --global user.email "diegojuarezbusiness@gmail.com"
-          git config --global user.name "iamdez99"
-          git stash
-          git fetch
-          git checkout gh-pages
-          git rm -f src/main/resources/conf/cloudEnv.properties
-          git checkout stash -- .
-          mkdir -p ${{ steps.reportpath.outputs.path }}
-          mv target/fanconi-smoke-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
-          git add .
-          git commit -m "Publishing cucumber report ${{ github.run_number }}"
-          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
-      - name: Update Test Results and Append to Index File
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          if [ ! -f fanconi-smoke-test-results.html ]; then
-              echo '<h1>CHARMS - FANCONI Study Smoke Test Results</h1>' > fanconi-smoke-test-results.html
-          fi
-          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> fanconi-smoke-test-results.html
-          git add fanconi-smoke-test-results.html
-          git commit -m "Update fanconi-smoke-test-results.html"
-          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+          name: CHARMS-FANCONI-REGRESSION-${{ env.timestamp }}
+          path: target/html-charms-fanconi-regression-reports/*
+
+#      - name: Push HTML Report
+#        env:
+#          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+#        run: |
+#          git config --global user.email "juarezds@nih.gov"
+#          git config --global user.name "iamdez99"
+#          git stash
+#          git fetch
+#          git checkout gh-pages
+#          git checkout stash -- .
+#          mkdir -p ${{ env.path }}
+#          mv target/html-charms-fanconi-regression-reports/*.html ${{ env.path }}/report-${{ env.timestamp }}.html
+#          git add .
+#          git commit -m "Publishing cucumber report ${{ env.timestamp }}"
+#          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+#      - name: Update Test Results and Append to Index File
+#        env:
+#          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+#        run: |
+#          if [[ -f "charms-fanconi-test-results.html" ]]; then
+#              sed -i '1s/.*/<h1>CHARMS FANCONI Test Results<\/h1>/' charms-fanconi-test-results.html
+#              echo "<h3><a href='${{ env.path }}/report-${{ env.timestamp }}.html'>Test Report ${{ env.path }}/report-${{ env.timestamp }}.html</a></h3>" >> charms-fanconi-test-results.html
+#              git add charms-fanconi-test-results.html
+#              git commit -m "Update charms-fanconi-test-results.html"
+#          else
+#              echo "<h1>CHARMS FANCONI Test Results</h1>" > charms-fanconi-test-results.html
+#              echo "<h3><a href='${{ env.path }}/report-${{ env.timestamp }}.html'>Test Report ${{ env.path }}/report-${{ env.timestamp }}.html</a></h3>" >> charms-fanconi-test-results.html
+#              git add charms-fanconi-test-results.html
+#              git commit -m "Create and update charms-fanconi-test-results.html"
+#          fi
+#          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
