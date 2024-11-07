@@ -4,5 +4,7 @@ Feature: Background Information section of the Fanconi Survey on the Fanconi Lon
 
   @jains @BackgroundInformation @CP2-3178 @CP2-3133 @playwright @Regression
   Scenario: Participant fills and submit the Background Information section for scenario 1
+    Given a Participant runs reset Fanconi screener and Survey script
+    And fills the Fanconi Screener
     Given a Participant is on the Fanconi Study login page and logs with user credentials via Okta
     And fills the Background Information section for scenario 1

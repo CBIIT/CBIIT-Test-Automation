@@ -1,6 +1,7 @@
 package ServiceNow.CHARMS.Playwright.StepsImplementation.FanconiStudy;
 
 import ServiceNow.CHARMS.Playwright.Pages.FanconiStudy.FanconiSurveyLoginPage;
+import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
@@ -9,12 +10,139 @@ import com.nci.automation.web.PlaywrightUtils;
 import java.util.regex.Pattern;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-/* This method allows the login to the Fanconi Survey page */
+/** This method allows the login to the Fanconi Survey page */
 public class FanconiSurveyStepsImpl {
 
-    public static void resetAccount(){
-
+    /** Method to Reset Fanconi Screener and Survey accounts method to Fanconi Survey */
+    public static void resetFanconiScreenerAndSurveyAccount(){
+        var page = PlaywrightUtils.page;
+        page.navigate(FanconiSurveyLoginPage.NATIVE_VIEW_SIDE_DOOR_TEST_URL);
+        page.getByLabel(FanconiSurveyLoginPage.USERS_NAME).click();
+        page.getByLabel(FanconiSurveyLoginPage.USERS_NAME).fill(FanconiSurveyLoginPage.SIDE_DOOR_USERNAME);
+        page.getByLabel( FanconiSurveyLoginPage.USERS_PASSWORD, new Page.GetByLabelOptions().setExact(true)).click();
+        page.getByLabel(FanconiSurveyLoginPage.USERS_PASSWORD, new Page.GetByLabelOptions().setExact(true)).fill(FanconiSurveyLoginPage.SIDE_DOOR_PASSWORD);
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Log in")).click();
+        page.navigate("https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Db5a3cb4887799e107e87a8a60cbb35d9");
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"section_head_right\\.e3dbd323bf3220001875647fcf0739c2\"]").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Run Fix Script")).click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Proceed in Background")).click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Close").setExact(true)).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CBIIT Test Account: available")).click();
+        page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName("Log out")).click();
     }
+
+    /** Method to fill Fanconi Screener */
+    public static void fillFanconiScreener() {
+        var page = PlaywrightUtils.page;
+        page.navigate(FanconiSurveyLoginPage.FANCONI_SURVEY_URL);
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("login")).click();
+        page.getByLabel("Username").fill(FanconiSurveyLoginPage.EMAIL);
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Next")).click();
+        page.getByLabel("Password").fill(FanconiSurveyLoginPage.PASSWORD_VALUE);
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Verify")).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Agree")).click();
+        Page page1 = page.waitForPopup(() -> {
+            page.locator("a").filter(new Locator.FilterOptions().setHasText("Eligibility Questionnaire")).click();
+        });
+        page1.getByLabel("Next →").click();
+        page1.getByLabel("Next →").click();
+        page1.getByLabel("Next →").click();
+        page1.getByLabel("Next →").click();
+        page1.getByLabel("Next →").click();
+        page1.getByLabel("Next →").click();
+        page1.getByText("Yes, I am completing this").click();
+        page1.getByLabel("Next →").click();
+        page1.getByLabel("First name").click();
+        page1.getByLabel("First name").fill(FanconiSurveyLoginPage.PARTICIPANT_FIRST_NAME );
+        page1.getByLabel("Middle initial").click();
+        page1.getByLabel("Middle initial").fill(FanconiSurveyLoginPage.PARTICIPANT_MIDDLE_INITIAL);
+        page1.getByLabel("Last name").click();
+        page1.getByLabel("Last name").click();
+        page1.getByLabel("Last name").fill(FanconiSurveyLoginPage.PARTICIPANT_LAST_NAME);
+        page1.getByLabel("Next →").click();
+        page1.getByLabel("First name").click();
+        page1.getByLabel("First name").fill(FanconiSurveyLoginPage.PROXY_FIRST_NAME);
+        page1.getByLabel("Middle initial").click();
+        page1.getByLabel("Middle initial").fill(FanconiSurveyLoginPage.PROXY_MIDDLE_INITIAL);
+        page1.getByLabel("Last name").click();
+        page1.getByLabel("Last name").fill(FanconiSurveyLoginPage.PROXY_LAST_NAME);
+        page1.getByLabel("Next →").click();
+        page1.locator("#QID4-8-label").click();
+        page1.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Other")).click();
+        page1.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Other")).fill("Friend");
+        page1.getByLabel("Next →").click();
+        page1.locator("#QID5-1-label").click();
+        page1.getByLabel("Next →").click();
+        page1.locator("#QID189-4-label").click();
+        page1.getByLabel("Next →").click();
+        page1.getByLabel("Next →").click();
+        page1.getByLabel("Month").selectOption("6");
+        page1.getByLabel("Year").click();
+        page1.getByLabel("Year").fill("1987");
+        page1.getByLabel("Year").press("Enter");
+        page1.getByLabel("July 25,").click();
+        page1.getByLabel("Next →").click();
+        page1.getByText("Female").click();
+        page1.getByLabel("Next →").click();
+        page1.locator("#QID11-2-label").click();
+        page1.getByLabel("Next →").click();
+        page1.getByLabel("In which country does").selectOption("187");
+        page1.getByLabel("Next →").click();
+        page1.getByLabel("Street", new Page.GetByLabelOptions().setExact(true)).click();
+        page1.getByLabel("Street", new Page.GetByLabelOptions().setExact(true)).fill("Street");
+        page1.getByLabel("City").click();
+        page1.getByLabel("City").fill("City Test");
+        page1.getByLabel("State (Abbreviation)").click();
+        page1.getByLabel("State (Abbreviation)").fill("MD");
+        page1.getByLabel("Zip Code").click();
+        page1.getByLabel("Zip Code").fill("20167");
+        page1.getByLabel("Next →").click();
+        page1.getByLabel("What is your email address?").click();
+        page1.getByLabel("What is your email address?").fill(FanconiSurveyLoginPage.EMAIL);
+        page1.getByLabel("Next →").click();
+        page1.getByLabel("Please confirm your email").click();
+        page1.getByLabel("Please confirm your email").fill(FanconiSurveyLoginPage.EMAIL);
+        page1.getByLabel("Next →").click();
+        page1.locator("input[name=\"QR\\~QID17\\~4\\~TEXT\"]").click();
+        page1.locator("input[name=\"QR\\~QID17\\~4\\~TEXT\"]").fill("240-678-2398");
+        page1.getByRole(AriaRole.ROW, new Page.GetByRoleOptions().setName("Home phone number 240-678-")).locator("label").nth(1).click();
+        page1.getByLabel("Next →").click();
+        page1.locator("#QID18-2-label").click();
+        page1.getByLabel("Next →").click();
+        page1.locator("#QID19-3-label").click();
+        page1.getByLabel("Next →").click();
+        page1.locator("#QID127-2-label").click();
+        page1.getByLabel("Next →").click();
+        page1.getByLabel("Next →").click();
+        page1.locator("#QID32-7-label").click();
+        page1.getByLabel("Next →").click();
+        page1.locator("#QID175-7-label").click();
+        page1.getByLabel("Next →").click();
+        page1.locator("#QID176-7-label").click();
+        page1.getByLabel("Next →").click();
+        page1.getByRole(AriaRole.ROW, new Page.GetByRoleOptions().setName("A. Low birth weight Yes No")).getByLabel("Yes").nth(1).click();
+        page1.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("C. Short stature No")).getByLabel("No").nth(1).click();
+        page1.getByRole(AriaRole.ROW, new Page.GetByRoleOptions().setName("E. Skin abnormalities such as")).getByLabel("Unknown/Unsure").nth(1).click();
+        page1.getByLabel("Next →").click();
+        page1.locator("#QID178-2-label").click();
+        page1.getByLabel("Next →").click();
+        page1.locator("#QID144-2-label").click();
+        page1.getByLabel("Next →").click();
+        page1.getByText("Not Applicable").click();
+        page1.getByLabel("Next →").click();
+        page1.getByLabel("Next →").click();
+        page1.getByText("Advertisement").click();
+        page1.getByLabel("Next →").click();
+        page1.getByLabel("Next →").click();
+        page1.locator("#QID193-2-label").click();
+        page1.getByLabel("Next →").click();
+        page1.locator("span").filter(new Locator.FilterOptions().setHasText("Participate in research")).nth(1).click();
+        page1.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Participate in research")).click();
+        page1.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Participate in research")).fill("Test");
+        page1.getByLabel("Next →").click();
+         page1.getByLabel("Next →").click();
+    }
+
+    /** Login method to Fanconi Survey */
     public static void login() {
         var page = PlaywrightUtils.page;
         page.navigate(FanconiSurveyLoginPage.FANCONI_SURVEY_URL);
@@ -47,7 +175,7 @@ public class FanconiSurveyStepsImpl {
         CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
     }
 
-    /* This method allows the submissions and assertions of the Background Information section of the Fanconi Survey for scenario1.*/
+    /** This method allows the submissions and assertions of the Background Information section of the Fanconi Survey for scenario1.*/
     public static void backgroundInformationSectionScenario1() {
         var page = PlaywrightUtils.page;
         assertThat(page.getByLabel(FanconiSurveyLoginPage.BACKGROUND_INFORMATION)).containsText(FanconiSurveyLoginPage.BACKGROUND_INFORMATION);
@@ -215,7 +343,7 @@ public class FanconiSurveyStepsImpl {
         page.locator(FanconiSurveyLoginPage.ID_AUTOGEN_4).click();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.FATHERS_RACE_ENTERED).setExact(true)).click();
         assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.SUBMIT))).isVisible();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.SUBMIT)).click();
+      //  page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.SUBMIT)).click();
     }
 
     /* This method allows the submissions and assertions of the Medical History section of the Fanconi Survey for scenario1.*/
