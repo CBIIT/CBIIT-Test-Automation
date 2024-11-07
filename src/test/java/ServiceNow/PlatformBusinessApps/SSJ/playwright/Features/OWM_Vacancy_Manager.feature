@@ -1,7 +1,7 @@
 Feature: OWM Vacancy Manager Scenarios
   Description: This Feature file contains OWM Vacancy Manager Scenarios
 
-  @SSJ-7 @SSJ-8 @juarezds @Regression @playwright @Smoke @SNOW_UPDATED
+  @SSJ-7 @SSJ-8 @juarezds @Regression @playwright @Smoke @SNOW_UPDATED @Progression
   Scenario: Verification of Basic Vacancy Information section while creating an NCI Vacancy
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -78,7 +78,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks button "Save" - PW
     Then User confirms that User is on "Vacancy Committee" section
 
-  @SSJ-185 @SSJ-306 @juarezds @Regression_NF @playwright @SNOW_UPDATED
+  @SSJ-185 @SSJ-306 @juarezds @Regression @playwright @SNOW_UPDATED
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Positive Flow
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -140,7 +140,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks "Save" for Actions
     Then User can see "A committee member can only be listed once on a committee. Please remove duplicate committee members." alert
 
-  @BUGFIX_APPTRACK-1332 @playwright @Regression_NF @cabreralf
+  @BUGFIX_APPTRACK-1332 @playwright @Regression @cabreralf
   Scenario: BUG - Vacancy not showing for assigned Exec Secretary in Your Vacancies tab
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -149,6 +149,7 @@ Feature: OWM Vacancy Manager Scenarios
     And enters Vacancy Description "THIS IS A TEST AUTOMATION TEST" - PW
     And selects "Yes" for point of contact - PW
     And User sets an "Open Date" entry as today's date
+    And User sets a "Close Date" entry a month from the Open Date
     And selects "0" for Full Contact Details for References
     And User verifies that Number of Scoring Categories slider is set to "4" by default
     And selects "4" for Number of Scoring Categories
@@ -171,6 +172,71 @@ Feature: OWM Vacancy Manager Scenarios
     And clicks "Close"
     And User navigates to tab "Your Vacancies" - PW
     And verifies Vacancy Title "Testing Automation Title SSJ-1332" is on the Your Vacancies page
+
+  @APPTRACK-151 @cabreralf @playwright @Progression1
+  Scenario: Live vacancies View verification
+#    Given User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
+#    And User navigates to tab "Vacancy Dashboard" - PW
+#    When User clicks on the "live vacancies" tab
+#    Then User can see the filters "All","Live","Extended"
+#    And User can verify All is by default selected
+#    And User can verify that All subfilter displays vacancies in the open state
+#    And User can verify that vacancies with subfilter All are by default sorted by number of applicants in ascending order
+#    And User can verify that Live subfilter displays vacancies in the open state
+#    And User can verify that vacancies with subfilter Live are by default sorted by number of applicants in ascending order
+#    And User can verify the table columns are displayed as "Vacancy Title","Applicants","Open Date","Close Date","Actions"
+
+    When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
+    And clicks on "Vacancy Dashboard" - PW
+    And clicks on "+ Create Vacancy" - PW
+    And enters Vacancy Title name "DIEGO TEST" - PW
+    And enters Vacancy Description "THIS IS A TEST AUTOMATION TEST" - PW
+    And User checks "Utilizing a Set Close Date" option
+    And selects "Yes" for point of contact - PW
+    And User sets an "Open Date" entry as today's date
+    And User sets a "Close Date" entry a month from the Open Date
+    And unselects the option for cover letter
+    And checks "Enable Reference Collection" check box
+    And selects a Reference Collection Date Ten days from today
+    And selects "2" for Full Contact Details for References
+    And selects "Research Fellow" for Position Classification drop down
+    And selects "HNC" for Organizational Code drop down
+    And clicks "Save"
+    And clicks Save for Mandatory Statements
+    And selects "David Rampulla" for Committee Member with chair role
+    And selects "Jason Levine" for Committee Member with Executive Secretary role
+    And clicks "Save"
+    And clicks Save for Email Templates
+    Then user is able to see the Review and Finalize section with the vacancy information submitted
+    And verifies Vacancy Title "DIEGO TEST"
+    And verifies Utilize a Set Close Date is "No"
+    And verifies Allow HR Specialist to Triage is "No"
+    And verifies Vacancy Description "THIS IS A TEST AUTOMATION TEST"
+    And verifies Vacancy Point of Contact Information is "Holly Gemar-Griffith" with email address "holly.gemar-griffith@nih.gov"
+    And verifies Open Date is todays date
+    And verifies Application Documents "Curriculum Vitae (CV)", "Cover Letter", "Vision Statement", "Qualification Statement"
+    And verifies Reference Collection is "Yes"
+    And verifies Collection Date is ten days from today
+    And verifies "2 recommendation(s)" reference recommendations are required for this vacancy
+    And verifies "4 categories" scoring categories are required for this vacancy
+    And verifies Organizational Code is "HNC"
+    And verifies Position Classification is "Research Fellow"
+    And verifies Personnel Action Tracking Solution (PATS) Initiator is "Holly Gemar-Griffith"
+    And verifies Mandatory Statements "Equal Opportunity Employment", "Standards of Conduct/Financial Disclosure", "Foreign Education", and "Reasonable Accomodation" are displayed
+    And verifies Committee Member "David Rampulla" is displayed with role "Chair"
+    And verifies Committee Member "Jason Levine" is displayed with role "Executive Secretary (non-voting)"
+    And verifies Email Templates "Application saved", "Application submitted confirmation", "Applicant Reference Request", "Applicant Reference Received", "Applicant Reference Received - Applicant"
+    And clicks "Save and Finalize"
+    And clicks "OK"
+    And clicks "Close"
+    And OWM Vacancy Manager logs out
+
+#    And User can edit a vacancy
+#    And User can copy link of a vacancy
+#    And User can extend a vacancy
+#    And User can sort vacancies by Applicants in ascending order
+#    And User can sort vacancies by Open Date in descending order
+#    And User can sort vacancies by Close Date in ascending order
 
   @SSJ-310 @SSJ-158 @SSJ-71 @playwright
   Scenario: Verification of Email Templates section while creating an NCI Vacancy Positive Flow

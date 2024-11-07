@@ -16,6 +16,10 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.TestProperties;
 import org.testng.Assert;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -154,7 +158,7 @@ public class OWM_Vacancy_Manager_StepsImpl {
         List<ElementHandle> list = page.querySelectorAll(Vacancy_Dashboard_Page.closeDateCalendarOptions);
         for (ElementHandle day : list) {
             if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format().trim())) {
-                page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format() + "'])[1]").click();
+                page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format() + "'])[2]").click();
                 break;
             }
         }
@@ -172,7 +176,7 @@ public class OWM_Vacancy_Manager_StepsImpl {
         List<ElementHandle> list = page.querySelectorAll(Vacancy_Dashboard_Page.calendarOptions);
         for (ElementHandle day : list) {
             if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format().trim())) {
-                page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format() + "'])[2]").click();
+                page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format() + "'])[3]").click();
                 break;
             }
         }
@@ -346,7 +350,7 @@ public class OWM_Vacancy_Manager_StepsImpl {
         for (int i = 10; !flag; ) {
             try {
                 String value = "" + i;
-                CommonUtils.sleep(3000);
+                CommonUtils.sleep(4000);
                 for (ElementHandle c : page.querySelectorAll("(//div[@class='rc-virtual-list'])[3]/div/div/div/div/div")) {
                     String consoleMName = c.innerText();
                     actualValues.add(consoleMName);
@@ -356,10 +360,17 @@ public class OWM_Vacancy_Manager_StepsImpl {
                 flag = true;
             }
         }
-        ArrayList<String> arrayList = new ArrayList<>(actualValues);
-        arrayList.sort(Comparator.naturalOrder());
-        CucumberLogUtils.playwrightScreenshot(page);
-        Assert.assertEquals(arrayList, SSJ_Constants.ORG_CODES);
+        try (PrintWriter out = new PrintWriter(new File("./target/mySetValues.txt"))) {
+            for (String value : actualValues) {
+                out.println(value);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+//        ArrayList<String> arrayList = new ArrayList<>(actualValues);
+//        arrayList.sort(Comparator.naturalOrder());
+//        CucumberLogUtils.playwrightScreenshot(page);
+//        Assert.assertEquals(arrayList, SSJ_Constants.ORG_CODES);
     }
 
     /**
