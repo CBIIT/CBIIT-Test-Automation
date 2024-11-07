@@ -33,14 +33,14 @@ jobs:
           Add-Content -Path $env:GITHUB_ENV -Value "timestamp=$timestamp"
       - name: Determine report path
         id: reportpath
-        run: echo "path=fanconi-smoke-reports" >> $GITHUB_ENV
+        run: echo "path=html-reports" >> $GITHUB_ENV
 
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: CHARMS-FANCONI-REGRESSION-${{ env.timestamp }}
-          path: target/fanconi-smoke-reports/*
+          path: target/html-reports/*
 
 #      - name: Push HTML Report
 #        env:
