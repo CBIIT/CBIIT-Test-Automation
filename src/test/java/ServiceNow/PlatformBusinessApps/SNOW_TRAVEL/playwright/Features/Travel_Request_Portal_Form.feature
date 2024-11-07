@@ -40,3 +40,9 @@ Feature: SNOWTRAVEL Portal Form Scenarios
     When I am on the "Travel Planning System" form
     Then I will not see the Header on the form "Travel Cash Advance",
     And the following fields "Cash (Direct Deposit) Advance Requested" and "Reason for Cash Advance" under Travel Cash Advance section will be removed
+
+  @SNOWTRAVEL-121 @Chaudhryma @Smoke @Regression @playwright
+  Scenario: Test 2: Travel Request Form invisibility to non-CGH users
+    Given I am not a CGH user
+    When I log in to the NCI at Your Service Portal,
+    Then I should not see the Travel Planning System in the catalog item.

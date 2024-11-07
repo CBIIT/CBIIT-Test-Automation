@@ -1,10 +1,7 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation;
 
 import Hooks.Hooks;
-import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.ApplicationDocumentsPage;
-import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_After_Submission_Page;
-import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_Page;
-import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Vacancy_Dashboard_Page;
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.*;
 import ServiceNow.PlatformBusinessApps.SSJ.utils.SSJ_Constants;
 import appsCommon.Pages.Playwright_Common_Locators;
 import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
@@ -1983,5 +1980,98 @@ public class ApplicantProfileStepsImpl {
         String alertDescription = page.textContent(".ant-alert-description");
         String actualAlertMessage = alertMessage + " " + alertDescription;
         Hooks.softAssert.assertEquals(actualAlertMessage, expectedBanner);
+    }
+
+    /**
+     * Verifies that the user is on the specified section of the vacancy application.
+     *
+     * @param sectionTitle the title of the section to verify
+     */
+    public static void user_verifies_is_on_the_section_of_the_vacancy_application(String sectionTitle) {
+        String actualSectionTitle = page.locator("(//h3[normalize-space()='" + sectionTitle + "'])[1]").innerText();
+        System.out.println(actualSectionTitle);
+        Hooks.softAssert.assertEquals(actualSectionTitle, sectionTitle);
+    }
+
+    /**
+     * Update the user's demographic information with the provided details.
+     *
+     * @param sex The gender of the user
+     * @param ethnicity The ethnicity of the user
+     * @param race The race of the user
+     * @param disabilitySeriousHealthCondition Indicates if the user has a disability or serious health condition
+     */
+    public static void user_makes_changes_to(String sex, String ethnicity, String race, String disabilitySeriousHealthCondition) {
+        page.locator(Demographic_Information_Page.iWantToShareDemographicsRadioButton).click();
+        page.locator(Playwright_Common_Locators.dynamicSpanNormalizeSpaceLocator(sex)).click();
+        page.locator(Playwright_Common_Locators.dynamicSpanNormalizeSpaceLocator(ethnicity)).click();
+        page.locator(Playwright_Common_Locators.dynamicSpanNormalizeSpaceLocator(race)).click();
+        page.locator(Playwright_Common_Locators.dynamicSpanNormalizeSpaceLocator(disabilitySeriousHealthCondition)).click();
+    }
+
+    /**
+     * Method to verify the updated values for sex, ethnicity, race, and disability/serious health condition on the sharing demographics page.
+     *
+     * @param sex The expected sex value to verify.
+     * @param ethnicity The expected ethnicity value to verify.
+     * @param race The expected race value to verify.
+     * @param disabilitySeriousHealthCondition The expected disability/serious health condition value to verify.
+     */
+    public static void user_verifies_the_updated_values(String sex, String ethnicity, String race, String disabilitySeriousHealthCondition) {
+        String sharingText = Playwright_Common_Locators.getTextFromHeaderOrNormalizedSpan("Sharing demographics");
+        String sexText = Playwright_Common_Locators.getTextFromHeaderOrNormalizedSpan(sex);
+        String ethnicityText = Playwright_Common_Locators.getTextFromHeaderOrNormalizedSpan(ethnicity);
+        String raceText = Playwright_Common_Locators.getTextFromHeaderOrNormalizedSpan(race);
+        String disabilitySeriousHealthConditionText = Playwright_Common_Locators.getTextFromHeaderOrNormalizedSpan(disabilitySeriousHealthCondition);
+        Hooks.softAssert.assertEquals(sharingText,"Yes");
+        Hooks.softAssert.assertEquals(sexText,sex);
+        Hooks.softAssert.assertEquals(ethnicityText,ethnicity);
+        Hooks.softAssert.assertEquals(raceText,race);
+        Hooks.softAssert.assertEquals(disabilitySeriousHealthConditionText,disabilitySeriousHealthCondition);
+    }
+
+    /**
+     * Method to reset the demographics information for the test to run again.
+     * It clicks on the 'I do not want to share' radio button on the demographics information page,
+     * clicks on the 'Save Application' button, and asserts that the alert message is as expected.
+     */
+    public static void user_resets_the_demographics_information_for_test_to_run_again() {
+        page.locator(Demographic_Information_Page.iDoNotWantToShareRadioButton).click();
+        page.locator(Playwright_Common_Locators.dynamicSpanNormalizeSpaceLocator("Save Application")).click();
+        String alertMessage = page.textContent(".ant-message-notice-content");
+        Hooks.softAssert.assertEquals(alertMessage,"Application successfully saved Back to Applications Home?x");
+    }
+
+    /**
+     * Verifies that the specified button element on the page is displaying the correct blue color.
+     * This method first waits for the button element to be present, then retrieves the background color
+     * of the element and asserts that it matches the expected blue color (rgb(1, 94, 162)).
+     */
+    public static void verifies_it_is_the_correct_blue_color() {
+        page.waitForSelector("(//button[@class='ant-btn ant-btn-primary'])[1]");
+        var buttonElement = page.locator("(//button[@class='ant-btn ant-btn-primary'])[1]");
+        Object colorObject = buttonElement.evaluate("element => getComputedStyle(element)['background-color']");
+        String color = String.valueOf(colorObject);
+        Hooks.softAssert.assertEquals(color,"rgb(1, 94, 162)");
+    }
+
+    /**
+     * Indicates that when the user is on the phone number field, a tool tip will be displayed
+     * to notify the user about the proper formatting for the phone number*/
+    public static void user_is_on_the_phone_number_field_will_see_a_tool_tip_notifying_on_the_proper_formatting() {
+        page.locator("(//input[@id='basic_phone'])[1]").click();
+        String textPhone = page.locator("(//div[@class='ant-tooltip-content'])[1]").innerText();
+        Hooks.softAssert.assertEquals(textPhone,"Example format: 1112223333");
+    }
+
+    /**
+     * Description: This method verifies that when a user is on the business phone number field,
+     * a tool tip will be displayed notifying the proper formatting. The expected format is "Example format: 1112223333".
+     * It clicks on the business phone number field and retrieves the tool tip text to compare it with the expected format.
+     */
+    public static void user_is_on_the_business_phone_number_field_will_see_a_tool_tip_notifying_on_the_proper_formatting() {
+        page.locator("(//input[@id='basic_businessPhone'])[1]").click();
+        String textBusinessPhone = page.locator("(//div[@role='tooltip'][normalize-space()='Example format: 1112223333'])[1]").innerText();
+        Hooks.softAssert.assertEquals(textBusinessPhone,"Example format: 1112223333");
     }
 }

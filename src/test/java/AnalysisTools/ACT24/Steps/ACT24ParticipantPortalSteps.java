@@ -19,6 +19,7 @@ public class ACT24ParticipantPortalSteps extends PageInitializer {
 
     @Then("the splash screen is displayed")
     public void the_splash_screen_is_displayed() {
+        CommonUtils.waitForVisibility(act24ParticipantPortalPage.splashScreenText);
         Assert.assertTrue(act24ParticipantPortalPage.splashScreenText.isDisplayed());
     }
 

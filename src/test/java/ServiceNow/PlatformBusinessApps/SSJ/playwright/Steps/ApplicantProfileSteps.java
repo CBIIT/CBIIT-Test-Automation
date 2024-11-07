@@ -741,4 +741,54 @@ public class ApplicantProfileSteps {
     public void user_sees_a_banner(String expectedBanner) {
         ApplicantProfileStepsImpl.user_sees_a_banner(expectedBanner);
     }
+
+    @When("user verifies is on the {string} section of the vacancy application")
+    public void user_verifies_is_on_the_section_of_the_vacancy_application(String sectionTitle) {
+        ApplicantProfileStepsImpl.user_verifies_is_on_the_section_of_the_vacancy_application(sectionTitle);
+    }
+
+    @When("user clicks on {string} Edit Section button")
+    public void user_clicks_on_edit_section_button(String string) {
+        page.locator("(//span[contains(text(),'Edit Section')])[1]").click();
+    }
+
+    @When("user makes changes to {string}, {string}, {string}, {string}")
+    public void user_makes_changes_to(String sex, String ethnicity, String race, String disabilitySeriousHealthCondition) {
+        ApplicantProfileStepsImpl.user_makes_changes_to(sex,ethnicity,race,disabilitySeriousHealthCondition);
+    }
+
+    @Then("user verifies the updated {string}, {string}, {string}, {string} values")
+    public void user_verifies_the_updated_values(String sex, String ethnicity, String race, String disabilitySeriousHealthCondition) {
+        ApplicantProfileStepsImpl.user_verifies_the_updated_values(sex,ethnicity,race,disabilitySeriousHealthCondition);
+    }
+
+    @Then("user resets the demographics information for test to run again")
+    public void user_resets_the_demographics_information_for_test_to_run_again() {
+        ApplicantProfileStepsImpl.user_resets_the_demographics_information_for_test_to_run_again();
+    }
+
+    @When("user inspects the color of the Edit button")
+    public void user_inspects_the_color_of_the_edit_button() {
+        page.waitForSelector("(//button[@class='ant-btn ant-btn-primary'])[1]");
+    }
+
+    @Then("verifies it is the correct blue color")
+    public void verifies_it_is_the_correct_blue_color() {
+        ApplicantProfileStepsImpl.verifies_it_is_the_correct_blue_color();
+    }
+
+    @Given("user clicks on Edit button")
+    public void user_clicks_on_edit_button() {
+        page.locator("(//button[@class='ant-btn ant-btn-primary'])[1]").click();
+    }
+
+    @When("User is on the Phone number field will see a tool tip notifying on the proper formatting")
+    public void user_is_on_the_phone_number_field_will_see_a_tool_tip_notifying_on_the_proper_formatting() {
+        ApplicantProfileStepsImpl.user_is_on_the_phone_number_field_will_see_a_tool_tip_notifying_on_the_proper_formatting();
+    }
+
+    @When("User is on the Business Phone number field will see a tool tip notifying on the proper formatting")
+    public void user_is_on_the_business_phone_number_field_will_see_a_tool_tip_notifying_on_the_proper_formatting() {
+        ApplicantProfileStepsImpl.user_is_on_the_business_phone_number_field_will_see_a_tool_tip_notifying_on_the_proper_formatting();
+    }
 }

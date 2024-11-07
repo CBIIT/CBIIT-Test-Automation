@@ -71,22 +71,36 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
         EgrantsStepImplementation.uploads_a_file();
     }
 
+    @Given("selects a replacement file")
+    public void selects_a_replacement_file() {
+        EgrantsStepImplementation.replaces_a_file();
+    }
+
     @Then("verifies the success message {string}")
     public void verifies_the_success_message(String successMessage) {
        EgrantsStepImplementation.verifies_the_success_message(successMessage);
     }
 
+    /**
+     * This method is used to click on Check Document button
+     */
     @Given("clicks on uploaded document")
     public void clicks_on_uploaded_document() {
         EgrantsStepImplementation.clicks_on_uploaded_document();
     }
 
+    /**
+     * This method is used to click on year 18 from the Years
+     */
     @When("selects grant year 18 from Years")
     public void selects_year_18() {
         CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.year18);
         CommonUtils.sleep(2000);
     }
 
+    /**
+     * This method is used to click on Update icon
+     */
     @When("clicks on update icon")
     public void clicks_on_update_icon() {
         CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.gearIcon);
@@ -108,6 +122,9 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
         EgrantsStepImplementation.click_on_update_document_category_button();
     }
 
+    /**
+     * This method is used to click on Replace icon
+     */
     @When("clicks on Replace icon")
     public void clicks_on_replace_icon() {
         CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.replaceButton);
@@ -162,12 +179,18 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
         EgrantsStepImplementation.searches_for_grant_on_add_document_page(grantNum);
     }
 
+    /**
+     * This method is used to click on update icon for an uploaded Organization Document
+     */
     @Given("clicks Update icon for an uploaded Organization Document")
     public void clicks_update_icon_for_an_uploaded_organization_document() {
         CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.updateIconInstitutionalFiles);
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method is used to select Follow-Up as the new category
+     */
     @Given("selects Follow-Up as the new category")
     public void selects_follow_up_as_the_new_category() {
         CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.documentCategoryDropdown, Egrants_Constants.FOLLOWUP_CATEGORY);
@@ -179,6 +202,9 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
         EgrantsStepImplementation.enters_subcategory_for_institutional_file();
     }
 
+    /**
+     * This method is used to click on Save Update button to save the changes
+     */
     @Then("clicks on Save Update button")
     public void clicks_on_save_update_button() {
         CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.saveUpdateButton);
@@ -188,5 +214,86 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     @Given("clicks on Delete button to delete an uploaded document")
     public void clicks_on_delete_button_for_an_uploaded_organization_document() {
         EgrantsStepImplementation.click_on_delete_button_institutional_files();
+    }
+
+    @Given("selects create grant year from Grant dropdown")
+    public void selects_create_grant_year_from_grant_dropdown() {
+        EgrantsStepImplementation.selects_create_grant_year();
+    }
+
+    @Given("selects type {int} as the grant type")
+    public void selects_type_as_the_grant_type(Integer type) {
+        EgrantsStepImplementation.selects_application_type(type);
+    }
+
+    @Given("selects P30 as the activity code")
+    public void selects_p30_as_the_activity_code() {
+        EgrantsStepImplementation.selects_activity_code();
+    }
+
+    @Given("enters {int} as the Year")
+    public void enters_as_the_year(Integer year) {
+        EgrantsStepImplementation.enters_grant_year();
+    }
+
+    @Given("enters S1 as the Suffix Code")
+    public void enters_s1_as_the_suffix_code() {
+        EgrantsStepImplementation.enters_suffix_code();
+    }
+
+    /**
+     * This method is used to click on Create New button to create grant year
+     */
+    @Given("clicks on Create New button to create grant year")
+    public void clicks_on_create_new_button_to_create_grant_year() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.createNewGrantYearButton);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    @Then("verifies the grant year is created")
+    public void verifies_the_grant_year_is_created() {
+        EgrantsStepImplementation.verifies_the_created_grant_year();
+    }
+
+    /**
+     * This method is used to activate audit file download mode
+     */
+    @Given("activates the download mode")
+    public void activates_the_download_mode() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.resourcesMenu);
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.auditFileDownloadMode);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to select year 18S1 from the Years
+     */
+    @Given("selects grant year 18S1 from Years")
+    public void selects_grant_year_18s1_from_years() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.year18S1);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to select all the files within the grant folder
+     */
+    @Given("selects all files within the grant folder")
+    public void selects_all_files_within_the_grant_folder() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.checkAllCheckbox);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Download button
+     */
+    @Given("clicks on Download button")
+    public void clicks_on_download_button() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.downloadButton);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    @Then("verifies the success icon for downloaded files")
+    public void verifies_the_success_icon_for_downloaded_files() {
+        EgrantsStepImplementation.verifies_the_success_message_for_downloaded_files();
     }
 }

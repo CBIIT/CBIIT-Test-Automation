@@ -1,23 +1,9 @@
-#name: PowerShell Test
-#
-#on:
-#  workflow_dispatch:
-#
-#jobs:
-#  test:
-#    runs-on: NCI-WINDOWS
-#    steps:
-#      - name: Run a one-line script
-#        run: Write-Host "Hello, world!"
-#        shell: powershell
-
 name: CHARMS-RAS-REGRESSION
 
 on:
   schedule:
-    # This corresponds to 6:00 AM EDT (10:00 AM UTC)
-    - cron: '0 10 * * *'
-
+    # This corresponds to 8:00 AM EDT (1:00 AM UTC) from Monday to Friday
+    - cron: '0 13 * * MON-FRI'
   workflow_dispatch:
     inputs:
       testBrowser:
@@ -35,19 +21,18 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        shell: bash
         run: mvn -B -q -Dtest="ServiceNow.CHARMS.Runners.Run_CHARMS_RAS_Regression_Test" test
         continue-on-error: true
 
       - name: Generate timestamp
         id: timestamp
-        shell: bash
         run: |
-          timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
-          echo "timestamp=${timestamp}" >> $GITHUB_ENV
+          $timeZone = [System.TimeZoneInfo]::FindSystemTimeZoneById("Eastern Standard Time")
+          $dateTime = [System.TimeZoneInfo]::ConvertTime([System.DateTime]::UtcNow, $timeZone)
+          $timestamp = $dateTime.ToString("yyyy-MM-dd_hh-mm-ss_tt")
+          Add-Content -Path $env:GITHUB_ENV -Value "timestamp=$timestamp"
       - name: Determine report path
         id: reportpath
-        shell: bash
         run: echo "path=html-charms-rasopathy-regression-reports" >> $GITHUB_ENV
 
       - name: Upload Cucumber Report
@@ -57,22 +42,7 @@ jobs:
           name: CHARMS-RAS-REGRESSION-${{ env.timestamp }}
           path: target/html-charms-rasopathy-regression-reports/*
 
-      - name: Upload to SharePoint
-        shell: bash
-        run: |
-          export PATH="/c/Users/juarezds/AppData/Local/Programs/Python/Python312:$PATH"
-          python .github/scripts/upload_to_sharepoint.py
-        env:
-          file_path: target/html-charms-rasopathy-regression-reports/*
-          host_name: 'nih.sharepoint.com'
-          site_name: NCI-CBIITQualityAssuranceandTestingTeam
-          upload_path: 'Shared%20Documents/Platform%20Scientific%20-%20CHARMS/TEST%20AUTOMATION%20REPORTS'
-          tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
-          client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
-          client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}
-
 #      - name: Push HTML Report
-#        shell: bash
 #        env:
 #          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 #        run: |
@@ -87,9 +57,7 @@ jobs:
 #          git add .
 #          git commit -m "Publishing cucumber report ${{ env.timestamp }}"
 #          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
-#
 #      - name: Update Test Results and Append to Index File
-#        shell: bash
 #        env:
 #          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 #        run: |

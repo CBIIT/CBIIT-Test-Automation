@@ -7,8 +7,8 @@ import io.cucumber.testng.CucumberOptions;
 		"rerun:target/failed.txt",
 		"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 features = "src/test/java/ServiceNow/CHARMS/Features/FHQ",
-glue = "ServiceNow.CHARMS.Steps", 
-tags = "@Regression", 
+glue = {"ServiceNow.CHARMS.Steps", "Hooks"},
+tags = "@FHQ_Regression",
 dryRun = false
 )
 public class RunCHARMSFHQRegressionTest extends AbstractTestNGCucumberTests{

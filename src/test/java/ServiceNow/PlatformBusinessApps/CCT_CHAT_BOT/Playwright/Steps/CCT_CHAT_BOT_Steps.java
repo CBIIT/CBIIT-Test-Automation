@@ -51,4 +51,49 @@ public class CCT_CHAT_BOT_Steps {
     public void the_user_selects_for_question4_indicating_they_belong_to_an_underrepresented_group(String no) {
         CCT_CHAT_BOT_StepImpl.the_user_selects_for_question4_indicating_they_belong_to_an_underrepresented_group(no);
     }
+
+    @When("User selects {string} for Q2 regarding career stage")
+    public void user_selects_for_q2_regarding_career_stage(String postDoctoral) {
+        CCT_CHAT_BOT_StepImpl.user_selects_for_q2_regarding_career_stage(postDoctoral);
+    }
+
+    @When("selects {string} for Q4 {string}")
+    public void selects_for_q4(String yes, String areYouACitizenOfTheUSA) {
+        CCT_CHAT_BOT_StepImpl.selects_for_q4(yes, areYouACitizenOfTheUSA);
+    }
+
+    @When("the user selects {string} for Q5 {string}")
+    public void the_user_selects_for_q5(String yes, String doYouConsiderYourselfToBelongToAnUnderrepresentedGroup) {
+        CCT_CHAT_BOT_StepImpl.the_user_selects_for_q5(yes, doYouConsiderYourselfToBelongToAnUnderrepresentedGroup);
+    }
+
+    @Then("the {string} link should be displayed at the top of the funding list")
+    public void the_link_should_be_displayed_at_the_top_of_the_funding_list(String nciMentoredResearchScientistDevelopmentAwardK01Link) {
+        CCT_CHAT_BOT_StepImpl.the_link_should_be_displayed_at_the_top_of_the_funding_list(nciMentoredResearchScientistDevelopmentAwardK01Link);
+    }
+
+    @Then("the link to {string} as {string} should be clickable")
+    public void the_link_to_as_should_be_clickable(String nciMentoredResearchScientistDevelopmentAwardK01Label, String expectedURL) {
+        CCT_CHAT_BOT_StepImpl.the_link_to_as_should_be_clickable(nciMentoredResearchScientistDevelopmentAwardK01Label, expectedURL);
+    }
+
+    @Then("the {string} link should open in a new tab")
+    public void the_link_should_open_in_a_new_tab(String nciMentoredResearchScientistDevelopmentAwardK01Link) {
+        CCT_CHAT_BOT_StepImpl.the_link_should_open_in_a_new_tab(nciMentoredResearchScientistDevelopmentAwardK01Link);
+    }
+
+    @When("User selects {string} for Question2 regarding career stage")
+    public void user_selects_for_question2_regarding_career_stage(String clinicalFellow) {
+        CCT_CHAT_BOT_StepImpl.user_selects_for_question2_regarding_career_stage(clinicalFellow);
+    }
+
+    @When("selects {string} for {string}")
+    public void selects_for(String outsideTheUSA, String letsStartWithWhereDOYouPlanToConductYourCancerResearchTraining) {
+        CCT_CHAT_BOT_StepImpl.selects_for(outsideTheUSA, letsStartWithWhereDOYouPlanToConductYourCancerResearchTraining);
+    }
+
+    @Then("the following links should appear {string}")
+    public void the_following_links_should_appear(String globalResearchTrainingD43) {
+        CCT_CHAT_BOT_StepImpl.the_following_links_should_appear(globalResearchTrainingD43);
+    }
 }

@@ -64,4 +64,49 @@ public class NIFESubmit_Constants {
      * LCPG MICROSCOPY CORE TITLE
      */
     public static String LCPG_MICROSCOPY_CORE_TITLE = "Laboratory of Cancer Biology and Genetics Microscopy Core – Confocal";
+
+    /***
+     * VOLUME ELECTRON MICROSCOPY TITLE
+     */
+    public static String VOLUME_ELECTRON_MICROSCOPY_TITLE = "CCR volume Electron Microscopy (CvEM) – Center for Molecular Microscopy";
+
+    /***
+     * VOLUME ELECTRON MICROSCOPY TITLE
+     */
+    public static String OPTICAL_MICROSCOPY_IMAGE_TITLE = "Optical Microscopy and Analysis Laboratory – Confocal";
+
+    /***
+     * NCI HIGH THROUGHPUT IMAGING FACILITY TITLE
+     */
+    public static String NCI_HIGH_THROUGHPUT_IMAGING_FACILITY_TITLE = "NCI High-Throughput Imaging Facility (HiTIF) – Confocal";
+
+    /***
+     * SPATIAL IMAGING TECHNOLOGY RESOURCE TITLE
+     */
+    public static String SPATIAL_IMAGING_TECHNOLOGY_RESOURCE_TITLE = "SpITR – Spatial Imaging Technology Resource";
+
+    /***
+     * CANCER GENOMICS RESEARCH LABORATORY TITLE
+     */
+    public static String CANCER_GENOMICS_RESEARCH_LABORATORY_TITLE = "Cancer Genomics Research Laboratory - NCI";
+
+    /***
+     * LABORATORY OF RECEPTOR BIOLOGY AND GENE TITLE
+     */
+    public static String LABORATORY_OF_RECEPTOR_BIOLOGY_AND_GENE_TITLE = "Laboratory of Receptor Biology and Gene Expression – Confocal";
+
+    /***
+     * SUBMIT METADATA SUCCESS MESSAGE ON SUBMITTING METADATA
+     */
+    public static String SUBMIT_METADATA_SUCCESS_MESSAGE = "Metadata submitted successfully.";
+
+    /***
+     * VALIDATION ERROR MESSAGE AFTER CLICKING ON SUBMIT BUTTON WITH NO DETAILS
+     */
+    public static String SUBMIT_BUTTON_ERROR_MESSAGE = "Please fill out all required fields.";
+
+    /***
+     * OMERO WEB PAGE TITLE
+     */
+    public static String OMERO_PAGE_TITLE = "OMERO.web - Login";
 }
