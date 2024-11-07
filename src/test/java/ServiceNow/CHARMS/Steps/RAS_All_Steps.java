@@ -13,17 +13,11 @@ import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
 import static Hooks.Hooks.softAssert;
 import static ServiceNow.CHARMS.Pages.MyRASHomePage.dynamicModuleLocator;
 import static ServiceNow.CHARMS.Steps.RAS_Common_Methods.*;
@@ -1034,15 +1028,15 @@ public class RAS_All_Steps extends PageInitializer {
     /**
      * Study Team syncs fields in Subject Flags and verifies their values based on the provided parameters.
      *
-     * @param expectedParticipantName The expected participant name for verification.
-     * @param expectedStudy The expected study for verification.
-     * @param expectedParticipationStatusRow1 The expected participation status for the first row in verification.
-     * @param expectedParticipationStatusRow2 The expected participation status for the second row in verification.
-     * @param expectedHoldNonParticipationDateRow1 The expected hold non-participation date for the first row in verification.
-     * @param expectedHoldNonParticipationDateRow2 The expected hold non-participation date for the second row in verification.
+     * @param expectedParticipantName           The expected participant name for verification.
+     * @param expectedStudy                     The expected study for verification.
+     * @param expectedParticipationStatus1      The expected participation status for the first row in verification.
+     * @param expectedParticipationStatus2      The expected participation status for the second row in verification.
+     * @param expectedHoldNonParticipationDate1 The expected hold non-participation date for the first row in verification.
+     * @param expectedHoldNonParticipationDate2 The expected hold non-participation date for the second row in verification.
      */
     @Then("Study Team syncs fields and verifies their values: Participant Name {string}, Study {string}, Participation Status {string} {string}, Hold Non-Participation Date {string} {string}")
-    public void study_team_syncs_fields_and_verifies_their_values(String expectedParticipantName, String expectedStudy, String expectedParticipationStatusRow1, String expectedParticipationStatusRow2, String expectedHoldNonParticipationDateRow1,  String expectedHoldNonParticipationDateRow2) {
+    public void study_team_syncs_fields_and_verifies_their_values(String expectedParticipantName, String expectedStudy, String expectedParticipationStatus1, String expectedParticipationStatus2, String expectedHoldNonParticipationDate1, String expectedHoldNonParticipationDate2) {
         WebDriverUtils.webDriver.navigate().refresh();
         CommonUtils.sleep(2000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
@@ -1054,7 +1048,10 @@ public class RAS_All_Steps extends PageInitializer {
         ((JavascriptExecutor) WebDriverUtils.webDriver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'end'});", locateByXpath("//i[@aria-label='Hold/Non-Participation Date column options']"));
         CommonUtils.sleep(800);
         CucumberLogUtils.logScreenshot();
-        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='" + expectedParticipationStatusRow1 + "']/parent::td/preceding-sibling::td[3]/a[@aria-label='Preview record: " + expectedParticipantName + "']"));
+        String sf1Row = locateByXpath("//a[normalize-space()='" + expectedParticipationStatus1 + "']/parent::td/parent::tr").getAttribute("class");
+        String sf2Row = locateByXpath("//a[normalize-space()='" + expectedParticipationStatus2 + "']/parent::td/parent::tr").getAttribute("class");
+        locateByXpath("//tr[@class='" + sf1Row + "']//a[@aria-label='Open record: " + expectedParticipantName + "'][normalize-space()='" + expectedParticipantName + "']");
+        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='" + expectedParticipationStatus1 + "']/parent::td/preceding-sibling::td[3]/a[@aria-label='Preview record: " + expectedParticipantName + "']"));
         CommonUtils.sleep(1000);
         locateByXpath("//a[normalize-space()='Open Record']").click();
         CommonUtils.sleep(1000);
@@ -1062,9 +1059,9 @@ public class RAS_All_Steps extends PageInitializer {
         nativeViewCHARMSSubjectFlagsPage.syncUpdatesToRelatedRecordsButton.click();
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(nativeViewCHARMSSubjectFlagsPage.alertYesContinueButton);
-        softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.syncUpdatesToRelatedRecordsAlertText, "This action will sync subject flags across all CGB study records associated with this individual. Do you wish to continue?");
-        softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.alertNoCancelButton, "No, cancel");
-        softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.alertYesContinueButton, "Yes, continue");
+        softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.syncUpdatesToRelatedRecordsAlertText.getText(), "This action will sync subject flags across all CGB study records associated with this individual. Do you wish to continue?");
+        softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.alertNoCancelButton.getText(), "No, cancel");
+        softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.alertYesContinueButton.getText(), "Yes, continue");
         nativeViewCHARMSSubjectFlagsPage.alertYesContinueButton.click();
         CommonUtils.sleep(500);
         softAssert.assertTrue(nativeViewCHARMSSubjectFlagsPage.syncCompletedMessage.isDisplayed());
@@ -1077,29 +1074,26 @@ public class RAS_All_Steps extends PageInitializer {
         JavascriptUtils.clickByJS(locateByXpath("//span[@class='tab_caption_text'][contains(text(), 'Subject Flags')]"));
         CommonUtils.sleep(2000);
         CucumberLogUtils.scenario.log("* * * * SUBJECT FLAGS: VERIFYING STUDY AFTER SYNC * * * *");
-        softAssert.assertEquals(locateByXpath("//tr[@data-list_id='x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study'][1]/td[3]").getText(), expectedStudy);
-        softAssert.assertEquals(locateByXpath("//tr[@data-list_id='x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study'][2]/td[3]").getText(), expectedStudy);
+        softAssert.assertEquals(locateByXpath("//tr[@class='" + sf1Row + "']//td[3]").getText(), expectedStudy);
+        softAssert.assertEquals(locateByXpath("//tr[@class='" + sf2Row + "']//td[3]").getText(), expectedStudy);
         CucumberLogUtils.scenario.log("* * * * SUBJECT FLAGS: VERIFYING PARTICIPANT NAME AFTER SYNC  * * * *");
-        softAssert.assertEquals(locateByXpath("//tr[@data-list_id='x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study'][1]/td[4]").getText(), expectedParticipantName);
-        softAssert.assertEquals(locateByXpath("//tr[@data-list_id='x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study'][2]/td[4]").getText(), expectedParticipantName);
+        softAssert.assertEquals(locateByXpath("//tr[@class='" + sf1Row + "']//td[4]").getText(), expectedParticipantName);
+        softAssert.assertEquals(locateByXpath("//tr[@class='" + sf2Row + "']//td[4]").getText(), expectedParticipantName);
         CucumberLogUtils.scenario.log("* * * * SUBJECT FLAGS: VERIFYING PARTICIPANT STATUS AFTER SYNC  * * * *");
-        softAssert.assertEquals(locateByXpath("//tr[@data-list_id='x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study'][1]/td[5]").getText(), expectedParticipationStatusRow1);
-        softAssert.assertEquals(locateByXpath("//tr[@data-list_id='x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study'][2]/td[5]").getText(), expectedParticipationStatusRow1);
-        System.out.println("* * * * SUBJECT FLAGS: expectedParticipationStatusRow1  * * * *" + expectedParticipationStatusRow1);
+        softAssert.assertEquals(locateByXpath("//tr[@class='" + sf1Row + "']//td[5]").getText(), expectedParticipationStatus1);
+        softAssert.assertEquals(locateByXpath("//tr[@class='" + sf2Row + "']//td[5]").getText(), expectedParticipationStatus1);
         CucumberLogUtils.logScreenshot();
         ((JavascriptExecutor) WebDriverUtils.webDriver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'end'});", locateByXpath("//i[@aria-label='Hold/Non-Participation Date column options']"));
         CommonUtils.sleep(800);
         CucumberLogUtils.scenario.log("* * * * SUBJECT FLAGS: HOLD/NON-PARTICIPATION DATE AFTER SYNC  * * * *");
         CucumberLogUtils.logScreenshot();
-        String actualHoldNonParticipatingDateRow1 = locateByXpath("//tr[@data-list_id='x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study'][1]/td[10]").getText();
-        String actualHoldNonParticipatingDateRow2 = locateByXpath("//tr[@data-list_id='x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study'][2]/td[10]").getText();
-        if(actualHoldNonParticipatingDateRow1.isEmpty() && actualHoldNonParticipatingDateRow2.equalsIgnoreCase("Today")) {
-            softAssert.assertEquals(actualHoldNonParticipatingDateRow1, "");
-            softAssert.assertEquals(actualHoldNonParticipatingDateRow2, CommonUtils.getTodayDate());
+        if (expectedHoldNonParticipationDate1.isEmpty() && expectedHoldNonParticipationDate2.equalsIgnoreCase("Today")) {
+            softAssert.assertEquals(locateByXpath("//tr[@class='" + sf1Row + "']//td[10]").getText(), "");
+            softAssert.assertEquals(locateByXpath("//tr[@class='" + sf2Row + "']//td[10]").getText(), CommonUtils.getTodayDate());
         }
-        if(actualHoldNonParticipatingDateRow1.equalsIgnoreCase("1st of Next Month") && actualHoldNonParticipatingDateRow2.equalsIgnoreCase("Today")) {
-            softAssert.assertEquals(actualHoldNonParticipatingDateRow1, RAS_Common_Methods.getFirstDayNextMonth());
-            softAssert.assertEquals(actualHoldNonParticipatingDateRow2, CommonUtils.getTodayDate());
+        if (expectedHoldNonParticipationDate1.equalsIgnoreCase("1st of Next Month") && expectedHoldNonParticipationDate2.equalsIgnoreCase("Today")) {
+            softAssert.assertEquals(locateByXpath("//tr[@class='" + sf1Row + "']//td[10]").getText(), RAS_Common_Methods.getFirstDayNextMonth());
+            softAssert.assertEquals(locateByXpath("//tr[@class='" + sf2Row + "']//td[10]").getText(), CommonUtils.getTodayDate());
         }
     }
 }

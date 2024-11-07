@@ -9,16 +9,9 @@ import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.web.WebDriverUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
-
 import static Hooks.Hooks.softAssert;
 import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
 
@@ -122,12 +115,12 @@ public class RAS_Common_Methods extends PageInitializer {
     }
 
     /**
-     * Fills the parent/guardian signatures in the Native View consent form.
+     * Fills out parent/guardian signatures in the native view based on given parameters.
      *
-     * @param responseType
-     * @param parentGuardianStatus
-     * @param numberOfGuardianSignaturesRequired
-     * @param numberOfParentGuardianSignaturesReceived
+     * @param responseType The type of response for the consent process.
+     * @param parentGuardianStatus The status indicating the relationship between parent/guardians.
+     * @param numberOfGuardianSignaturesRequired The number of guardian signatures required for the consent process.
+     * @param numberOfParentGuardianSignaturesReceived The number of parent/guardian signatures already received.
      */
     public static void nativeViewFillParentGuardianSignatures(String responseType, String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown);
