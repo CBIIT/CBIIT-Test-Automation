@@ -40,7 +40,7 @@ jobs:
         if: always()
         with:
           name: CHARMS-FANCONI-REGRESSION-${{ env.timestamp }}
-          path: /target/fanconi-smoke-reports/*
+          path: target/fanconi-smoke-reports/*
 
 #      - name: Push HTML Report
 #        env:
