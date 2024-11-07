@@ -9,7 +9,16 @@ import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.web.WebDriverUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
 import static Hooks.Hooks.softAssert;
 import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
 
@@ -101,7 +110,7 @@ public class RAS_Common_Methods extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
         CommonUtils.sleep(1500);
-        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubjectID.getText().split("-")[0] , nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsFamilyID.getText());
+        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubjectID.getText().split("-")[0], nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsFamilyID.getText());
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
@@ -236,7 +245,7 @@ public class RAS_Common_Methods extends PageInitializer {
             CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentQuestionsAddressedBeforeSigningDropDown);
             CucumberLogUtils.logScreenshot();
         }
-        if(!consentType.equalsIgnoreCase("Adult")) {
+        if (!consentType.equalsIgnoreCase("Adult")) {
             CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown);
             CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown);
             CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown, 4);
@@ -290,9 +299,9 @@ public class RAS_Common_Methods extends PageInitializer {
     /**
      * Performs the consent flow process for a given scenario (iMed, Participant upload to portal, Mail/Fax/Email/Other)
      *
-     * @param sheetName     The name of the sheet containing the scenario data.
-     * @param consentType   The consent type data.
-     * @param responseType  The response type data.
+     * @param sheetName    The name of the sheet containing the scenario data.
+     * @param consentType  The consent type data.
+     * @param responseType The response type data.
      */
     public static void nativeViewConsentAssentFlowProcess(String sheetName, String consentType, String responseType, String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
         ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
@@ -351,7 +360,7 @@ public class RAS_Common_Methods extends PageInitializer {
         CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown, 4);
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
-        if(!responseType.equals("iMed")) {
+        if (!responseType.equals("iMed")) {
             CucumberLogUtils.scenario.log("* * * * COPY OF CONSENT/ASSENT PROVIDED PROVIDED BEFORE SIGNING * * * *");
             CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
             CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
@@ -378,5 +387,17 @@ public class RAS_Common_Methods extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallCompleteButton);
         CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Retrieves the formatted string representation of the first day of the next month based on the current system date.
+     *
+     * @return A string representing the first day of the next month formatted as 'MM/dd/yyyy'.
+     */
+    public static String getFirstDayNextMonth() {
+        LocalDate currentDate = LocalDate.now();
+        LocalDate firstDayOfNextMonth = currentDate.plusMonths(1).withDayOfMonth(1);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        return firstDayOfNextMonth.format(formatter);
     }
 }
