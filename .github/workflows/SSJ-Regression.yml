@@ -3,7 +3,7 @@ name: PLATFORM BUSINESS - SSJ REGRESSION TESTS
 on:
   workflow_dispatch:
   schedule:
-    - cron: '45 12 * * 1-6' # 7:45 AM EST (12:45 PM UTC) Monday to Saturday
+    - cron: '15 12 * * MON-FRI' # 7:15 AM EST (12:15 PM UTC) Monday to Friday
 
 jobs:
   build:
@@ -35,38 +35,3 @@ jobs:
         with:
           name: cucumber-report-${{ github.run_number }}-${{ steps.timestamp.outputs.timestamp }}
           path: target/ssj-regression-reports/*
-
-      - name: Push HTML Report
-        shell: bash
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          git config --global user.email "dsjnih@gmail.com"
-          git config --global user.name "iamdez99"
-          git stash
-          git fetch
-          git checkout gh-pages
-          git stash pop
-          mkdir -p ssj-regression-reports
-          mv target/ssj-regression-reports/*.html ssj-regression-reports/report-${{ steps.timestamp.outputs.timestamp }}.html
-          git add .
-          git commit -m "Publishing cucumber report ${{ github.run_number }} on ${{ steps.timestamp.outputs.timestamp }}"
-          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
-
-      - name: Update Test Results and Append to Index File
-        shell: bash
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          if [[ -f "ssj-regression-test-results.html" ]]; then
-            sed -i 's/<h1>.*<\/h1>/<h1>SSJ Regression Test Results<\/h1>/' ssj-regression-test-results.html
-            echo "<h3><a href='ssj-regression-reports/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ssj-regression-reports/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> ssj-regression-test-results.html
-            git add ssj-regression-test-results.html
-            git commit -m "Update ssj-regression-test-results.html"
-          else
-            echo "<h1>SSJ Regression Test Results</h1>" > ssj-regression-test-results.html
-            echo "<h3><a href='ssj-regression-reports/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ssj-regression-reports/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> ssj-regression-test-results.html
-            git add ssj-regression-test-results.html
-            git commit -m "Create and update ssj-regression-test-results.html"
-          fi
-          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
