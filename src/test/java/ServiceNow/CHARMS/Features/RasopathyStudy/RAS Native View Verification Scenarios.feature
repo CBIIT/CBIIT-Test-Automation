@@ -37,6 +37,3 @@ Feature: RAS Native View Verification Scenarios
       | Existing FSID | Study     | Relationship to Proband | First Name   | Last Name            | Participation Status Row 1 | Hold/Non-Participation Date Row 1 | Participation Status Row 2 | Hold/Non-Participation Date Row 2 |
       |               | RASopathy | Proband                 | SubjectFlags | HoldTest             | Hold                       | Today                             | Participating              |                                   |
       |               | RASopathy | Proband                 | SubjectFlags | NotParticipatingTest | Hold                       | Today                             | Not Participating          | 1st of Next Month                 |
-
-
-
