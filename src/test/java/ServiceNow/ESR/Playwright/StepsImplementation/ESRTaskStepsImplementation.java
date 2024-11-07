@@ -184,6 +184,27 @@ public class ESRTaskStepsImplementation {
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
     }
 
+    public static void completeCloseoutPreparationCatalogTaskForESRI() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (4)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[1]").click();
+        Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").fill("CBIIT Test Account");
+
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.ROW, new FrameLocator.GetByRoleOptions().setName("Actual Start Date  Choose")).getByRole(AriaRole.LINK).first().click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Go to Today", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.CELL, new FrameLocator.GetByRoleOptions().setName("Actual Start Date 11/07/2024")).getByRole(AriaRole.LINK).nth(1).click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Go to Today", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Outcomes")).click();
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Outcomes")).fill("Outcomes Test");
+        Playwright_Common_Locators.iframeLocator().locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[2]").selectOption("Proceed to Operations and Maintanence");
+        Playwright_Common_Locators.iframeLocator().getByText("Linked all artifacts from the").click();
+        Playwright_Common_Locators.iframeLocator().getByText("Conducted knowledge sharing").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Catalog Task form section").getByLabel("State").selectOption("3");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+
+
+    }
+
     public static void confirmCloseoutPreparationCatalogTaskIsCompleted() {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Federal Lead Closeout Approval");
     }

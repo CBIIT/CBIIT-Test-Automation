@@ -51,6 +51,11 @@ public class ESRTaskSteps {
         ESRTaskStepsImplementation.completeCloseoutPreparationCatalogTaskForESRQ();
     }
 
+    @And("the Closeout Preparation catalog task for ESR-I is completed")
+    public void the_closeout_preparation_catalog_task_for_esr_i_is_completed() {
+        ESRTaskStepsImplementation.completeCloseoutPreparationCatalogTaskForESRI();
+    }
+
     @Then("the user confirms the Closeout Preparation catalog task is completed")
     public void the_user_confirms_the_closeout_preparation_catalog_task_is_completed() {
         ESRTaskStepsImplementation.confirmCloseoutPreparationCatalogTaskIsCompleted();
