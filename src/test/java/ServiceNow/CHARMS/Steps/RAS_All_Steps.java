@@ -1045,6 +1045,7 @@ public class RAS_All_Steps extends PageInitializer {
         JavascriptUtils.clickByJS(locateByXpath("//span[@role='tab']/span[contains(text(), 'Subject Flags')]"));
         CommonUtils.sleep(800);
         CucumberLogUtils.logScreenshot();
+        verifySubjectFlagsColumns();
         ((JavascriptExecutor) WebDriverUtils.webDriver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'end'});", locateByXpath("//i[@aria-label='Hold/Non-Participation Date column options']"));
         CommonUtils.sleep(800);
         CucumberLogUtils.logScreenshot();
@@ -1087,13 +1088,17 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.sleep(800);
         CucumberLogUtils.scenario.log("* * * * SUBJECT FLAGS: HOLD/NON-PARTICIPATION DATE AFTER SYNC  * * * *");
         CucumberLogUtils.logScreenshot();
+        if (expectedHoldNonParticipationDate1.equalsIgnoreCase("Today") && expectedHoldNonParticipationDate2.isEmpty()) {
+            softAssert.assertEquals(locateByXpath("//tr[@class='" + sf1Row + "']//td[10]").getText(), CommonUtils.getTodayDate());
+            softAssert.assertEquals(locateByXpath("//tr[@class='" + sf2Row + "']//td[10]").getText(), CommonUtils.getTodayDate());
+        }
         if (expectedHoldNonParticipationDate1.isEmpty() && expectedHoldNonParticipationDate2.equalsIgnoreCase("Today")) {
             softAssert.assertEquals(locateByXpath("//tr[@class='" + sf1Row + "']//td[10]").getText(), "");
             softAssert.assertEquals(locateByXpath("//tr[@class='" + sf2Row + "']//td[10]").getText(), CommonUtils.getTodayDate());
         }
         if (expectedHoldNonParticipationDate1.equalsIgnoreCase("1st of Next Month") && expectedHoldNonParticipationDate2.equalsIgnoreCase("Today")) {
             softAssert.assertEquals(locateByXpath("//tr[@class='" + sf1Row + "']//td[10]").getText(), RAS_Common_Methods.getFirstDayNextMonth());
-            softAssert.assertEquals(locateByXpath("//tr[@class='" + sf2Row + "']//td[10]").getText(), CommonUtils.getTodayDate());
+            softAssert.assertEquals(locateByXpath("//tr[@class='" + sf2Row + "']//td[10]").getText(), RAS_Common_Methods.getFirstDayNextMonth());
         }
     }
 }

@@ -1,6 +1,7 @@
 package ServiceNow.CHARMS.Steps;
 
 import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
+import ServiceNow.CHARMS.Constants.CHARMS_RAS_Subject_Flags_Constants;
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
 import appsCommon.PageInitializers.PageInitializer;
@@ -392,5 +393,14 @@ public class RAS_Common_Methods extends PageInitializer {
         LocalDate firstDayOfNextMonth = currentDate.plusMonths(1).withDayOfMonth(1);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         return firstDayOfNextMonth.format(formatter);
+    }
+
+    /**
+     * Verifying data and order Subject Flags of Subject Flags.
+     */
+    public static void verifySubjectFlagsColumns() {
+        for(int i = 0; i < CHARMS_RAS_Subject_Flags_Constants.subjectFlagsColumns.size(); i++) {
+            softAssert.assertEquals(CHARMS_RAS_Subject_Flags_Constants.subjectFlagsColumns.get(i), locateByXpath("//tr[@id='hdr_x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study']//th[@class='text-align-left list_header_cell list_hdr '][" + (i+1) + "]").getText());
+        }
     }
 }
