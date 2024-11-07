@@ -42,34 +42,34 @@ jobs:
           name: CHARMS-RAS-REGRESSION-${{ env.timestamp }}
           path: target/html-charms-rasopathy-regression-reports/*
 
-      - name: Push HTML Report
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          git config --global user.email "juarezds@nih.gov"
-          git config --global user.name "iamdez99"
-          git stash
-          git fetch
-          git checkout gh-pages
-          git checkout stash -- .
-          mkdir -p ${{ env.path }}
-          mv target/html-charms-rasopathy-regression-reports/*.html ${{ env.path }}/report-${{ env.timestamp }}.html
-          git add .
-          git commit -m "Publishing cucumber report ${{ env.timestamp }}"
-          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
-      - name: Update Test Results and Append to Index File
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          if [[ -f "charms-ras-test-results.html" ]]; then
-              sed -i '1s/.*/<h1>CHARMS RAS Test Results<\/h1>/' charms-ras-test-results.html
-              echo "<h3><a href='${{ env.path }}/report-${{ env.timestamp }}.html'>Test Report ${{ env.path }}/report-${{ env.timestamp }}.html</a></h3>" >> charms-ras-test-results.html
-              git add charms-ras-test-results.html
-              git commit -m "Update charms-ras-test-results.html"
-          else
-              echo "<h1>CHARMS RAS Test Results</h1>" > charms-ras-test-results.html
-              echo "<h3><a href='${{ env.path }}/report-${{ env.timestamp }}.html'>Test Report ${{ env.path }}/report-${{ env.timestamp }}.html</a></h3>" >> charms-ras-test-results.html
-              git add charms-ras-test-results.html
-              git commit -m "Create and update charms-ras-test-results.html"
-          fi
-          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+#      - name: Push HTML Report
+#        env:
+#          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+#        run: |
+#          git config --global user.email "juarezds@nih.gov"
+#          git config --global user.name "iamdez99"
+#          git stash
+#          git fetch
+#          git checkout gh-pages
+#          git checkout stash -- .
+#          mkdir -p ${{ env.path }}
+#          mv target/html-charms-rasopathy-regression-reports/*.html ${{ env.path }}/report-${{ env.timestamp }}.html
+#          git add .
+#          git commit -m "Publishing cucumber report ${{ env.timestamp }}"
+#          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+#      - name: Update Test Results and Append to Index File
+#        env:
+#          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+#        run: |
+#          if [[ -f "charms-ras-test-results.html" ]]; then
+#              sed -i '1s/.*/<h1>CHARMS RAS Test Results<\/h1>/' charms-ras-test-results.html
+#              echo "<h3><a href='${{ env.path }}/report-${{ env.timestamp }}.html'>Test Report ${{ env.path }}/report-${{ env.timestamp }}.html</a></h3>" >> charms-ras-test-results.html
+#              git add charms-ras-test-results.html
+#              git commit -m "Update charms-ras-test-results.html"
+#          else
+#              echo "<h1>CHARMS RAS Test Results</h1>" > charms-ras-test-results.html
+#              echo "<h3><a href='${{ env.path }}/report-${{ env.timestamp }}.html'>Test Report ${{ env.path }}/report-${{ env.timestamp }}.html</a></h3>" >> charms-ras-test-results.html
+#              git add charms-ras-test-results.html
+#              git commit -m "Create and update charms-ras-test-results.html"
+#          fi
+#          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
