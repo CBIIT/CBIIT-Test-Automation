@@ -67,7 +67,7 @@ Feature: ESR Tasks
     And the Engineering Project Execution catalog task is completed
     Then the user confirms the Engineering Project Execution catalog task is completed
 
-  @ESR-607 @sarwarahmed1 @Prooogression @playwright
+  @ESR-607 @sarwarahmed1 @Progression @playwright
   Scenario: Test the Closeout Preparation catalog task in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR

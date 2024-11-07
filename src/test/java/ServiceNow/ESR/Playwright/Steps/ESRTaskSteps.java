@@ -60,6 +60,4 @@ public class ESRTaskSteps {
     public void the_user_confirms_the_closeout_preparation_catalog_task_is_completed() {
         ESRTaskStepsImplementation.confirmCloseoutPreparationCatalogTaskIsCompleted();
     }
-
-
 }
