@@ -1,15 +1,11 @@
 package GrantsApps.EM.selenium.Utils;
 
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
 import java.time.Duration;
-
 import static com.nci.automation.web.WebDriverUtils.webDriver;
-import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class EM_Common_Methods {
 
