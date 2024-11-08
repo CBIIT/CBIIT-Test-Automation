@@ -150,6 +150,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static FHQConstants fHQConstants;
 	public static FHQ_TestDataManager fHQ_TestDataManager;
 	public static RAS_Screener_TestDataManager ras_Screener_TestDataManager;
+	public static RAS_NV_Consent_Record_TestDataManager ras_NV_Consent_Record_TestDataManager;
 	public static RAS_Survey_TestDataManager ras_Survey_TestDataManager;
 	public static IIQ_TestDataManager iiq_TestDataManager;
 	public static ParticipantDetailsPage participantDetailsPage;
@@ -354,6 +355,8 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
+	public static NativeViewCHARMSAddNewParticipantPage nativeViewCHARMSAddNewParticipantPage;
+	public static NativeViewCHARMSSubjectFlagsPage nativeViewCHARMSSubjectFlagsPage;
 
 	/** --------------- EGRANTS INSTANCES --------------- */
 	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;
@@ -423,6 +426,7 @@ public class PageInitializer extends WebDriverUtils {
 		myRasStudyConsentPage = new MyRASStudyConsentPage();
 		myRASStudyAssentPage = new MyRASStudyAssentPage();
 		ras_Screener_TestDataManager = new RAS_Screener_TestDataManager();
+		ras_NV_Consent_Record_TestDataManager = new RAS_NV_Consent_Record_TestDataManager();
 		ras_Survey_TestDataManager = new RAS_Survey_TestDataManager();
 		iiq_TestDataManager = new IIQ_TestDataManager();
 		cgbIIQPage = new CGBIIQPage();
@@ -626,7 +630,9 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSParticipantDetailsPage = new NativeViewCHARMSParticipantDetailsPage();
 		nativeViewCHARMSParticipantConsentPage = new NativeViewCHARMSParticipantConsentPage();
 		nativeViewCHARMSParticipantStudyPage = new NativeViewCHARMSParticipantStudyPage();
+		nativeViewCHARMSAddNewParticipantPage = new NativeViewCHARMSAddNewParticipantPage();
 		nativeViewSSJReportsPage = new NativeViewSSJReportsPage();
+		nativeViewCHARMSSubjectFlagsPage = new NativeViewCHARMSSubjectFlagsPage();
 
 		/****** GRANTS INSTANCES *******/
 		/** Grants ChangePassword app **/

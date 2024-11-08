@@ -2041,4 +2041,37 @@ public class ApplicantProfileStepsImpl {
         String alertMessage = page.textContent(".ant-message-notice-content");
         Hooks.softAssert.assertEquals(alertMessage,"Application successfully saved Back to Applications Home?x");
     }
+
+    /**
+     * Verifies that the specified button element on the page is displaying the correct blue color.
+     * This method first waits for the button element to be present, then retrieves the background color
+     * of the element and asserts that it matches the expected blue color (rgb(1, 94, 162)).
+     */
+    public static void verifies_it_is_the_correct_blue_color() {
+        page.waitForSelector("(//button[@class='ant-btn ant-btn-primary'])[1]");
+        var buttonElement = page.locator("(//button[@class='ant-btn ant-btn-primary'])[1]");
+        Object colorObject = buttonElement.evaluate("element => getComputedStyle(element)['background-color']");
+        String color = String.valueOf(colorObject);
+        Hooks.softAssert.assertEquals(color,"rgb(1, 94, 162)");
+    }
+
+    /**
+     * Indicates that when the user is on the phone number field, a tool tip will be displayed
+     * to notify the user about the proper formatting for the phone number*/
+    public static void user_is_on_the_phone_number_field_will_see_a_tool_tip_notifying_on_the_proper_formatting() {
+        page.locator("(//input[@id='basic_phone'])[1]").click();
+        String textPhone = page.locator("(//div[@class='ant-tooltip-content'])[1]").innerText();
+        Hooks.softAssert.assertEquals(textPhone,"Example format: 1112223333");
+    }
+
+    /**
+     * Description: This method verifies that when a user is on the business phone number field,
+     * a tool tip will be displayed notifying the proper formatting. The expected format is "Example format: 1112223333".
+     * It clicks on the business phone number field and retrieves the tool tip text to compare it with the expected format.
+     */
+    public static void user_is_on_the_business_phone_number_field_will_see_a_tool_tip_notifying_on_the_proper_formatting() {
+        page.locator("(//input[@id='basic_businessPhone'])[1]").click();
+        String textBusinessPhone = page.locator("(//div[@role='tooltip'][normalize-space()='Example format: 1112223333'])[1]").innerText();
+        Hooks.softAssert.assertEquals(textBusinessPhone,"Example format: 1112223333");
+    }
 }

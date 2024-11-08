@@ -11,8 +11,8 @@ Feature: This Feature File contains Quick Link, logged in user verifications and
   @QCAssignmentReport @nesarh2 @selenium @Regression
   Scenario: Test QC Assignment Report
     Given User is on the Management menu
-    When User selects "Change" as the QC Reason
-    And User selects "Quality, Associates" as QC Person
+    When User selects Change as the QC Reason
+    And User selects Quality Associates as QC Person
     Then User clicks on Assign button to confirm the assignment
 
   @QCRouteReport @nesarh2 @selenium @Regression
@@ -42,3 +42,47 @@ Feature: This Feature File contains Quick Link, logged in user verifications and
     And User searches for 125123
     And User selects grant year 17 from the search results
     Then User clicks on Remove button to confirm removing the DS flag from the selected grant year
+
+  @AddNewUser @nesarh2 @selenium @Regression @EGRANTS-586
+  Scenario: Add a new user to the system through Admin menu > eGrants Access Control
+    Given the IC Coordinator is on the Admin menu
+    And the IC Coordinator selects eGrants Access Control from the dropdown
+    And the IC Coordinator clicks on Add New button
+    And the IC Coordinator provides a RandomUserId as the User ID
+    And the IC Coordinator clicks on Check button
+    And verifies that the system shows a message the provided user does not exist in the system and do you want to create a new account?
+    And the IC Coordinator provides the First Name
+    And the IC Coordinator provides the Last Name
+    And the IC Coordinator provides the Email Address
+    And the IC Coordinator provides access to Management and Dashboard tabs
+    And the IC Coordinator selects Program Staff as the Role
+    And the IC Coordinator selects "Qaulity, Associates" as the Coordinator
+    Then the IC Coordinator clicks on Add New button to confirm adding the new user
+
+  @AddExistingUser @nesarh2 @selenium @Regression @EGRANTS-586
+  Scenario: Try adding an existing userid to verify if system restricts duplicate user ids
+    Given the IC Coordinator is on the Admin menu
+    And the IC Coordinator selects eGrants Access Control from the dropdown
+    And the IC Coordinator clicks on Add New button
+    And User provides "qa" as the User ID
+    And the IC Coordinator clicks on Check button
+    Then the system notifies the IC Coordinator that userid already exists in the system
+
+    @ActivateAnAccount @nesarh2 @selenium @Regression
+    Scenario: Test activating an account
+    Given the IC Coordinator is on the Admin menu
+    And the IC Coordinator selects eGrants Access Control from the dropdown
+    And the IC Coordinator navigates to the index U
+    And the IC Coordinator selects Inactive from the Status dropdown
+    And the IC Coordinator clicks on the green arrow to edit the user information for "USERACCOUNT, AUTOMATEDTEST"
+    And the IC Coordinator selects Active from the Status dropdown
+    Then the IC Coordinator clicks on Update button to confirm activating the account
+
+    @DeactivateAnAccount @nesarh2 @selenium @Regression
+    Scenario: Test deactivating an account
+    Given the IC Coordinator is on the Admin menu
+    And the IC Coordinator selects eGrants Access Control from the dropdown
+    And the IC Coordinator navigates to the index U
+    And the IC Coordinator clicks on the green arrow to edit the user information for "USERACCOUNT, AUTOMATEDTEST"
+    And the IC Coordinator selects Inactive to deactivate the selected user account
+    Then the IC Coordinator clicks on Update button to confirm deactivating the account

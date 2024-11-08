@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 		, "rerun:target/failed.txt"
 		, "pretty"}
 		, features ={"src/test/java/AnalysisTools/NIFESubmit/playwright/Features"}
-		, glue = "AnalysisTools.NIFESubmit.playwright.Steps"
+		, glue = {"AnalysisTools.NIFESubmit.playwright.Steps", "Hooks"}
 		, tags = "@Progression"
 		, dryRun = false
 )

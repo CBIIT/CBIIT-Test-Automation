@@ -2,10 +2,7 @@ package ServiceNow.CHARMS.StepsImplementation.RASStudy;
 
 import ServiceNow.CHARMS.Constants.CHARMS_Data_File_Path_Constants;
 import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
-import ServiceNow.CHARMS.Pages.MyRASHomePage;
-import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
-import ServiceNow.CHARMS.Pages.RAS_Screener_Page;
-import ServiceNow.CHARMS.Pages.ScreenerRecordTablePage;
+import ServiceNow.CHARMS.Pages.*;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.Dynamic_Locators;
@@ -17,7 +14,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.*;
-import org.testng.Assert;
 import static Hooks.Hooks.softAssert;
 import static ServiceNow.CHARMS.Pages.RAS_Screener_Page.*;
 import static ServiceNow.CHARMS.studyQuestions.RAS_Screener_Questions_Proband.*;
@@ -104,7 +100,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(myRASSurveyPage.rasSurveyThisCopyText);
         //ASSERTING THAT THIS IS THE COPY FOR LOWER ENVIRONMENTS ONLY!!! MESSAGE DISPLAYS
-        Assert.assertEquals(myRASSurveyPage.rasSurveyThisCopyText.getText(), ras_Screener_Constants.THIS_IS_A_COPY);
+        softAssert.assertEquals(myRASSurveyPage.rasSurveyThisCopyText.getText(), ras_Screener_Constants.THIS_IS_A_COPY);
         CucumberLogUtils.logScreenshot();
         CommonUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.studyNextButton);
@@ -203,7 +199,10 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                  */
                 else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().trim().contentEquals(formatRASQuestionForProxy(DATE_OF_BIRTH_OF))) {
                     CucumberLogUtils.scenario.log("* * * * * WHAT IS THE PARTICIPANT'S DATE OF BIRTH? * * * * *");
-                    rasopathyQuestionnairePage.probandDateOfBirthTextBox.sendKeys(ras_Screener_TestDataManager.DATE_OF_BIRTH_OF_THE_PARTICIPANT);
+                    rasopathyQuestionnairePage.calendarYearTextBox.clear();
+                    rasopathyQuestionnairePage.calendarYearTextBox.sendKeys(ras_Screener_TestDataManager.DATE_OF_BIRTH_YEAR);
+                    CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.DATE_OF_BIRTH_MONTH, rasopathyQuestionnairePage.calendarMonthDropDown);
+                    RAS_Screener_Page.dynamicDateOfBirthCalendarLocator(ras_Screener_TestDataManager.DATE_OF_BIRTH_OF_THE_PARTICIPANT).click();
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
@@ -848,12 +847,14 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
         CommonUtils.sleep(1500);
+        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubjectID.getText().split("-")[0], nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsFamilyID.getText());
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.assertEqualsWithMessage(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), CHARMSRASScreenerConstants.CONSENT_ADDED_TEXT, "---- VERIFYING SCREENER RECORD RASOPATHY HISTORY DATA ----");
+        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), CHARMSRASScreenerConstants.CONSENT_ADDED_TEXT, "---- VERIFYING SCREENER RECORD RASOPATHY HISTORY DATA ----");
+        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), CHARMSRASScreenerConstants.CONSENT_ADDED_TEXT, "---- VERIFYING SCREENER RECORD RASOPATHY HISTORY DATA ----");
 
         /**
          * BEGINNING: CONSENT FLOW PROCESS
@@ -900,19 +901,24 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown, 4);
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallCompleteButton);
-        CucumberLogUtils.logScreenshot();
         CucumberLogUtils.scenario.log("* * * * COPY OF CONSENT/ASSENT PROVIDED PROVIDED BEFORE SIGNING * * * *");
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
-        CommonUtils.selectDropDownValue("No", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
-        CucumberLogUtils.logScreenshot();
-        CucumberLogUtils.scenario.log("* * * * FILLING IN COMMENT * * * *");
-        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCommentsTextArea);
-        nativeViewCHARMSParticipantConsentPage.rasStudyConsentCommentsTextArea.sendKeys("Just testing");
+        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
+        CucumberLogUtils.scenario.log("* * * * PROTOCOL DISCUSSED IN PRIVATE SETTING * * * *");
+        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentProtocolDiscussedInPrivateSettingDropDown);
+        CucumberLogUtils.scenario.log("* * * * PARTICIPANT VERBALIZED UNDERSTANDING OF STUDY CONDITIONS AND PARTICIPATION * * * *");
+        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantVerbalizedUnderstandingOfStudyConditionsAndParticipationDropDown);
+        CucumberLogUtils.scenario.log("* * * * QUESTIONS ADDRESSED BEFORE SIGNING * * * *");
+        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentQuestionsAddressedBeforeSigningDropDown);
         CucumberLogUtils.logScreenshot();
         CucumberLogUtils.scenario.log("* * * * * CALL COMPLETE * * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallCompleteButton);
         CommonUtils.sleep(1000);
+        CucumberLogUtils.scenario.log("* * * * CONSENT/ASSENT OBTAINED BEFORE STUDY PROCEDURES * * * *");
+        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentObtainedBeforeStudyProceduresDropDown);
+        CucumberLogUtils.scenario.log("* * * * COPY OF SIGNED/DATED CONSENT/ASSENT GIVEN TO PARTICIPANT * * * *");
+        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfSignedDatedConsentAssentGivenToParticipantDropDown);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
         CucumberLogUtils.logScreenshot();
@@ -928,8 +934,8 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage);
-        CommonUtils.assertEqualsWithMessage(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage.getText(), CHARMSRASScreenerConstants.PARTICIPANT_READY_TO_PROGRESS_TEXT, "---- VERIFYING PARTICIPANT RECORD READY TO PROGRESS MESSAGE ----");
-        CommonUtils.assertEqualsWithMessage(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage.getText(), CHARMSRASScreenerConstants.CONSENT_RECORD_COMPLETED_TEXT, "---- VERIFYING CONSENT RECORD COMPLETED AND FAMILY RECORD IS NOW ACTIVE! MESSAGE ----");
+        softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage.getText(), CHARMSRASScreenerConstants.PARTICIPANT_READY_TO_PROGRESS_TEXT, "---- VERIFYING PARTICIPANT RECORD READY TO PROGRESS MESSAGE ----");
+        softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage.getText(), CHARMSRASScreenerConstants.CONSENT_RECORD_COMPLETED_TEXT, "---- VERIFYING CONSENT RECORD COMPLETED AND FAMILY RECORD IS NOW ACTIVE! MESSAGE ----");
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
@@ -940,13 +946,13 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
      */
     public void rasScreenerIIQFormScenario1() {
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(14));
-        CommonUtils.assertEqualsWithMessage(iiq_TestDataManager.thisIsACopyForLowerEnvironmentsText, myRASSurveyPage.dynamicTopText(14).getText(), "-- VERIFYING THIS IS THE COPY FOR LOWER ENVIRONMENTS TEXT --");
+        softAssert.assertEquals(iiq_TestDataManager.thisIsACopyForLowerEnvironmentsText, myRASSurveyPage.dynamicTopText(14).getText(), "-- VERIFYING THIS IS THE COPY FOR LOWER ENVIRONMENTS TEXT --");
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(16));
-        CommonUtils.assertEqualsWithMessage(iiq_TestDataManager.someOfThisInformationText, myRASSurveyPage.dynamicTopText(16).getText(), "-- VERIFYING SOME OF THIS INFORMATION TEXT --");
+        softAssert.assertEquals(iiq_TestDataManager.someOfThisInformationText, myRASSurveyPage.dynamicTopText(16).getText(), "-- VERIFYING SOME OF THIS INFORMATION TEXT --");
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(35));
-        CommonUtils.assertEqualsWithMessage(iiq_TestDataManager.thisFirstSectionOfTheQuestionnaireText, myRASSurveyPage.dynamicTopText(35).getText(), "-- VERIFYING THIS FIRST QUESTION OF THE QUESTIONNAIRE TEXT --");
+        softAssert.assertEquals(iiq_TestDataManager.thisFirstSectionOfTheQuestionnaireText, myRASSurveyPage.dynamicTopText(35).getText(), "-- VERIFYING THIS FIRST QUESTION OF THE QUESTIONNAIRE TEXT --");
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         try {
             dynamicLocator(iiq_TestDataManager.areYouCompletingThisFormForYourselfRadioButton).click();
@@ -1137,7 +1143,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         }
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         CommonUtils.waitForVisibility(myRASIIQFormPage.screenerIiqFormThisSectionAsksDetailedMedicalHistoryText);
-        CommonUtils.assertEqualsWithMessage(iiq_Constants.THIS_SECTION_ASKS_YOU_TEXT, myRASIIQFormPage.screenerIiqFormThisSectionAsksDetailedMedicalHistoryText.getText(), "-- VERIFYING THIS SECTION ASKS DETAILED MEDICAL HISTORY TEXT --");
+        softAssert.assertEquals(iiq_Constants.THIS_SECTION_ASKS_YOU_TEXT, myRASIIQFormPage.screenerIiqFormThisSectionAsksDetailedMedicalHistoryText.getText(), "-- VERIFYING THIS SECTION ASKS DETAILED MEDICAL HISTORY TEXT --");
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         try {
             CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(47));
@@ -1197,7 +1203,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         CommonUtils.waitForVisibility(myRASIIQFormPage.screenerIiqFormThisSectionWillAskAboutCancerText);
-        CommonUtils.assertEqualsWithMessage(iiq_Constants.THIS_SECTION_WILL_ASK_ABOUT_CANCER_TEXT, myRASIIQFormPage.screenerIiqFormThisSectionWillAskAboutCancerText.getText(), "-- VERIFYING THIS SECTION WILL ASK ABOUT CANCER TEXT --");
+        softAssert.assertEquals(iiq_Constants.THIS_SECTION_WILL_ASK_ABOUT_CANCER_TEXT, myRASIIQFormPage.screenerIiqFormThisSectionWillAskAboutCancerText.getText(), "-- VERIFYING THIS SECTION WILL ASK ABOUT CANCER TEXT --");
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         try {
             CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(62));
@@ -1266,7 +1272,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         }
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         CommonUtils.waitForVisibility(myRASIIQFormPage.screenerIiqFormYouAreAlmostDoneText);
-        CommonUtils.assertEqualsWithMessage(iiq_Constants.YOU_ARE_ALMOST_DONE_TEXT, myRASIIQFormPage.screenerIiqFormYouAreAlmostDoneText.getText(), "-- VERIFYING YOU ARE ALMOST DONE TEXT --");
+        softAssert.assertEquals(iiq_Constants.YOU_ARE_ALMOST_DONE_TEXT, myRASIIQFormPage.screenerIiqFormYouAreAlmostDoneText.getText(), "-- VERIFYING YOU ARE ALMOST DONE TEXT --");
         CucumberLogUtils.logScreenshot();
         CommonUtils.sleep(3000);
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
@@ -1280,15 +1286,15 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
      */
     public void rasScreenerSurveyScenario1PartOne() {
         CommonUtils.waitForVisibility(myRASSurveyPage.rasSurveyThankYouForStartingText);
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.thankYouForStartingTheRASSurveyAndFor, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THANK YOU FOR STARTING THE RAS SURVEY AND FOR YOUR TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.thankYouForStartingTheRASSurveyAndFor, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THANK YOU FOR STARTING THE RAS SURVEY AND FOR YOUR TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.rasSurveyThisQuestionMayTakeText);
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.thisQuestionnaireMayTakeYouSeveral, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THIS QUESTIONNAIRE MAY TAKE YOU SEVERAL HOURS TO COMPLETE TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.thisQuestionnaireMayTakeYouSeveral, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THIS QUESTIONNAIRE MAY TAKE YOU SEVERAL HOURS TO COMPLETE TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.rasSurveyTheFirstBlockText);
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.thisQuestionnaireMayTakeYouSeveral, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE FIRST BLOCK OF QUESTIONS WILL COLLECT TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.thisQuestionnaireMayTakeYouSeveral, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE FIRST BLOCK OF QUESTIONS WILL COLLECT TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(1));
@@ -1300,7 +1306,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.rasSurveyTheNextSetOfQuestionsWillAskAboutBirthAndNeonatalText);
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutNeonatalHistory, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT BIRTH AND NEONATAL  TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutNeonatalHistory, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT BIRTH AND NEONATAL  TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.pleaseCompleteYourBiologicalParentsBiologicalMotherCityTextBox);
@@ -1419,7 +1425,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.rasSurveyTheNextSetOfQuestionsWillAskAboutHormoneRelatedGrowthText);
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetHormoneRelatedGrowth, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT HORMONE RELATED GROWTH TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.theNextSetHormoneRelatedGrowth, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT HORMONE RELATED GROWTH TEXT --");
         CucumberLogUtils.logScreenshot();
     }
 
@@ -1469,7 +1475,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.theNextSetOfQuestionsWillAskAboutDevelopmentText);
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutDevelopment, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT DEVELOPMENT TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutDevelopment, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT DEVELOPMENT TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         try {
@@ -1640,7 +1646,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.theNextSetOfQuestionsWillAskAboutHeartText);
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutHeart, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT HEART TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutHeart, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT HEART TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(372));
@@ -1661,7 +1667,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.theNextTwoQuestionsWillAskAboutRASopathyDiagnosesText);
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextTwoQuestionsWillAskAboutRASopathyDiagnoses, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT TWO QUESTIONS WILL ASK ABOUT RASOPATHY DIAGNOSES TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.theNextTwoQuestionsWillAskAboutRASopathyDiagnoses, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT TWO QUESTIONS WILL ASK ABOUT RASOPATHY DIAGNOSES TEXT --");
         CucumberLogUtils.logScreenshot();
     }
 
@@ -1678,7 +1684,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.theNextTwoQuestionsWillAskAboutMedicalHistoryText);
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutGeneralMedicalHistory, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT GENERAL MEDICAL HISTORY TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutGeneralMedicalHistory, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT GENERAL MEDICAL HISTORY TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(dynamicLocator(ras_Survey_TestDataManager.doYouHaveAPrimaryCareProvider));
@@ -1700,7 +1706,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.theNextTwoQuestionsWillAskAboutGiText);
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutGi, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT GI TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutGi, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT GI TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenEvaluatedByAGastroenterologist));
@@ -1765,7 +1771,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
      */
     public void rasScreenerSurveyScenario1PartSix() {
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(305));
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutBreathingAndTheLungs, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT BREATHING AND THE LUNGS TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutBreathingAndTheLungs, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT BREATHING AND THE LUNGS TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(380));
@@ -1789,7 +1795,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(330));
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutOralHealthAndDental, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT ORAL HEALTH AND DENTAL HISTORY TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutOralHealthAndDental, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT ORAL HEALTH AND DENTAL HISTORY TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(166));
@@ -1936,7 +1942,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
      */
     public void rasScreenerSurveyScenario1PartSeven() {
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(306));
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutFluidBalance, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT FLUID BALANCE AND IF ANY FLUID BUILDS TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutFluidBalance, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT FLUID BALANCE AND IF ANY FLUID BUILDS TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(331));
@@ -1944,7 +1950,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(332));
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutTheKidneys, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT THE KIDNEYS TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutTheKidneys, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT THE KIDNEYS TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(383));
@@ -1956,7 +1962,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(309));
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutHairAndSkinQualities, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT HAIR AND SKIN QUALITIES TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutHairAndSkinQualities, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT HAIR AND SKIN QUALITIES TEXT --");
         CucumberLogUtils.logScreenshot();
     }
 
@@ -2000,7 +2006,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(310));
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutSkeletalConditions, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT SKELETAL CONDITIONS TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutSkeletalConditions, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT SKELETAL CONDITIONS TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(387));
@@ -2024,7 +2030,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(311));
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutBloodDisorders, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT BLOOD DISORDERS TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutBloodDisorders, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT BLOOD DISORDERS TEXT --");
         CucumberLogUtils.logScreenshot();
     }
 
@@ -2074,7 +2080,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(312));
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutNervousSystem, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT NERVOUS SYSTEM TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutNervousSystem, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT NERVOUS SYSTEM TEXT --");
         CucumberLogUtils.logScreenshot();
     }
 
@@ -2110,7 +2116,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(313));
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutVisionAndHearing, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT VISION AND HEARING TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutVisionAndHearing, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT VISION AND HEARING TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(250));
@@ -2146,7 +2152,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(298));
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.youAreAlmostDoneSurvey, myRASSurveyPage.dynamicTopText(298).getText(), "-- VERIFYING YOU ARE ALMOST DONE TEXT --");
+        softAssert.assertEquals(ras_Survey_TestDataManager.youAreAlmostDoneSurvey, myRASSurveyPage.dynamicTopText(298).getText(), "-- VERIFYING YOU ARE ALMOST DONE TEXT --");
         CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();

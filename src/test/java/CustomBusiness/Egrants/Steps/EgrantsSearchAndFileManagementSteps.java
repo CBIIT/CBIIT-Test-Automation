@@ -71,11 +71,19 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
         EgrantsStepImplementation.uploads_a_file();
     }
 
+    @Given("selects a replacement file")
+    public void selects_a_replacement_file() {
+        EgrantsStepImplementation.replaces_a_file();
+    }
+
     @Then("verifies the success message {string}")
     public void verifies_the_success_message(String successMessage) {
        EgrantsStepImplementation.verifies_the_success_message(successMessage);
     }
 
+    /**
+     * This method is used to click on Check Document button
+     */
     @Given("clicks on uploaded document")
     public void clicks_on_uploaded_document() {
         EgrantsStepImplementation.clicks_on_uploaded_document();

@@ -22,7 +22,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Project Title OR //div[@id='grantbar2']
      */
-    @FindBy(xpath = "//span[contains(text(),'BAYLOR COLLEGE OF MEDICINE CANCER CENTER-CANCER CENTER SUPPO…')]")
+    @FindBy(xpath = "//span[contains(text(),'BAYLOR COLLEGE OF MEDICINE CANCER CENTER - CANCER ')]")
     public WebElement projectTitle;
 
     /**
@@ -102,6 +102,12 @@ public class EgrantsSearchAndFileManagementScenariosPage {
      */
     @FindBy(xpath = "//input[@id='customFile']")
     public WebElement chooseFile;
+
+    /**
+     * Choose File - Replace Page
+     */
+    @FindBy(xpath = "//input[@id='customFile']")
+    public WebElement replaceFile;
 
     /**
      * Add button for chosen file
@@ -214,14 +220,20 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Created On Text first row
      */
-    @FindBy (xpath = "(//div[contains(text(), 'Created On')])[1]")
+    @FindBy (xpath = "(//tr[@class='odd-row dt-hasChild']//div[@class='qc_options']//div[contains(text(), 'Created On')])[1]")
     public WebElement createdOnTextFirstRow;
 
     /**
      * Created On Text second row
      */
-    @FindBy (xpath = "(//div[contains(text(), 'Created On')])[2]")
+    @FindBy (xpath = "(//tr[@class='odd-row dt-hasChild']//div[@class='qc_options']//div[contains(text(), 'Created On')])[2]")
     public WebElement createdOnTextSecondRow;
+
+    /**
+     * Created By Text
+     */
+    @FindBy (xpath = "//tr[@class='odd-row dt-hasChild']//div[@class='qc_options']//div[contains(text(), 'Created On')]")
+    public WebElement createdByText;
 
     /**
      * Update Icon for Institutional Files
