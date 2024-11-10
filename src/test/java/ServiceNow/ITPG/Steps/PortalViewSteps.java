@@ -1,11 +1,8 @@
 package ServiceNow.ITPG.Steps;
 
-import io.cucumber.java.Before;
-import org.junit.Assert;
-
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
-
 import ServiceNow.ITPG.Pages.PortalViewPage;
 import ServiceNow.ITPG.StepsImplementation.LoginStepsImpl;
 import io.cucumber.java.en.Given;
@@ -89,12 +86,12 @@ public class PortalViewSteps {
 
     @Then("State is Updated to {string}")
     public void verifystate(String expectedState) throws Exception {
-        Thread.sleep(2000);
+        CommonUtils.sleep(2000);
         String actualState = portalViewPage.getState();
         CucumberLogUtils.logScreenshot();
         if (actualState != null) {
             actualState = actualState.trim();
-            Assert.assertEquals(expectedState, actualState);
+            CommonUtils.assertEquals(expectedState, actualState);
         }
     }
 
@@ -117,5 +114,4 @@ public class PortalViewSteps {
     public void elevatePermission() throws InterruptedException {
         portalViewPage.elevateButton();
     }
-
 }

@@ -5,10 +5,9 @@ import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 import java.util.ArrayList;
 
-public class NCCRSteps  extends PageInitializer {
+public class NCCRSteps extends PageInitializer {
 
     @Given("Submitter User logged in to NCCR Portal")
     public void submitter_user_logged_in_to_nccr_portal() {
@@ -20,7 +19,7 @@ public class NCCRSteps  extends PageInitializer {
      */
     @Given("User can verify that User is on the NCCR Portal landing page")
     public void user_can_verify_that_user_is_on_the_nccr_portal_landing_page() {
-        Assert.assertTrue(nccrPage.sectionMyAssignedDataRequest.isDisplayed());
+        CommonUtils.assertTrue(nccrPage.sectionMyAssignedDataRequest.isDisplayed());
     }
 
     @Given("User see {string} section")
@@ -78,7 +77,7 @@ public class NCCRSteps  extends PageInitializer {
      */
     @Then("User can see Data Requests Awaiting My Review tab")
     public void user_can_see_data_requests_awaiting_my_review_tab() {
-       Assert.assertTrue(nccrPage.dataRequestsAwaitingMyReviewTab.isDisplayed());
+        CommonUtils.assertTrue(nccrPage.dataRequestsAwaitingMyReviewTab.isDisplayed());
     }
 
     /**
@@ -86,7 +85,7 @@ public class NCCRSteps  extends PageInitializer {
      */
     @Then("User can see Data Requests Awaiting My Review tab search text field")
     public void user_can_see_data_requests_awaiting_my_review_tab_search_text_field() {
-        Assert.assertTrue(nccrPage.searchFieldDataRequestsAwaitingMyReviewTab.isDisplayed());
+        CommonUtils.assertTrue(nccrPage.searchFieldDataRequestsAwaitingMyReviewTab.isDisplayed());
     }
 
     /**
@@ -94,7 +93,7 @@ public class NCCRSteps  extends PageInitializer {
      */
     @Then("User can see pagination for Data Requests Awaiting My Review tab")
     public void user_can_see_pagination_for_data_requests_awaiting_my_review_tab() {
-        Assert.assertTrue(nccrPage.rowsPaginationDataRequestsAwaitingMyReviewTab.isDisplayed());
+        CommonUtils.assertTrue(nccrPage.rowsPaginationDataRequestsAwaitingMyReviewTab.isDisplayed());
     }
 
     /**
@@ -102,7 +101,7 @@ public class NCCRSteps  extends PageInitializer {
      */
     @Then("User clicks on All Data Requests tab")
     public void user_clicks_on_all_data_requests_tab() {
-       CommonUtils.clickOnElement(nccrPage.allDataRequestsTab);
+        CommonUtils.clickOnElement(nccrPage.allDataRequestsTab);
     }
 
     /**
@@ -110,7 +109,7 @@ public class NCCRSteps  extends PageInitializer {
      */
     @Then("User can see All Data Requests tab search text field")
     public void user_can_see_all_data_requests_tab_search_text_field() {
-        Assert.assertTrue(nccrPage.searchFieldAllDataRequestsTab.isDisplayed());
+        CommonUtils.assertTrue(nccrPage.searchFieldAllDataRequestsTab.isDisplayed());
     }
 
     /**
@@ -126,10 +125,10 @@ public class NCCRSteps  extends PageInitializer {
      */
     @Then("User can see Load Filter, Save Filter, Add Sort, and New Criteria buttons")
     public void user_can_see_load_filter_save_filter_add_sort_and_new_criteria_buttons() {
-       Assert.assertTrue(nccrPage.loadFilterButton.isDisplayed());
-       Assert.assertTrue(nccrPage.saveFilterButton.isDisplayed());
-       Assert.assertTrue(nccrPage.addSortFilterButton.isDisplayed());
-       Assert.assertTrue(nccrPage.newCriteriaButton.isDisplayed());
+        CommonUtils.assertTrue(nccrPage.loadFilterButton.isDisplayed());
+        CommonUtils.assertTrue(nccrPage.saveFilterButton.isDisplayed());
+        CommonUtils.assertTrue(nccrPage.addSortFilterButton.isDisplayed());
+        CommonUtils.assertTrue(nccrPage.newCriteriaButton.isDisplayed());
     }
 
     /**
@@ -137,7 +136,7 @@ public class NCCRSteps  extends PageInitializer {
      */
     @Then("User can close filter")
     public void user_can_close_filter() {
-       CommonUtils.clickOnElement(nccrPage.xFilter);
+        CommonUtils.clickOnElement(nccrPage.xFilter);
     }
 
     /**
@@ -145,6 +144,6 @@ public class NCCRSteps  extends PageInitializer {
      */
     @Then("User can see pagination for All Data Requests tab")
     public void user_can_see_pagination_for_all_data_requests_tab() {
-        org.testng.Assert.assertTrue(nccrPage.rowsPaginationAllDataRequestTab.isDisplayed());
+        CommonUtils.assertTrue(nccrPage.rowsPaginationAllDataRequestTab.isDisplayed());
     }
 }
