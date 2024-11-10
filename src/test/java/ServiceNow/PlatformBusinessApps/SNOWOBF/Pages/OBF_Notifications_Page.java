@@ -6,7 +6,7 @@ public class OBF_Notifications_Page {
      * OBF APPROVAL EMAIL SUBJECT
      */
     public static String obf_Approval_Email_Subject (String ticketNumber2){
-        return "Your OneStream/BUS request - " + ticketNumber2 + " has been approved.";
+        return "Your Budget Unification System (BUS) request - " + ticketNumber2 + " has been approved.";
     }
 
     /**
@@ -124,11 +124,6 @@ public class OBF_Notifications_Page {
     public static String nv_Email_Search_Drop_Down_Field_Choose_Option = "Choose option";
 
     /***
-     * NV EMAILS FIRST ROW SEARCH DROP DOWN FIELD LOCATOR
-     */
-    public static String nv_Email_First_Row_Search_Drop_Down_Field_Locator = "a";
-
-    /***
      * NV EMAILS SEARCH RECIPIENTS OPTION
      */
     public static String nv_Email_Search_Recipients_Option = "Recipients";
@@ -231,7 +226,7 @@ public class OBF_Notifications_Page {
     /***
      * NV EMAIL NOTIFICATION SHORT DESCRIPTION CONTENT LINE
      */
-    public static String nv_Email_Notification_Short_description_Content_Line = "Short description: OBF Systems - OneStream/BUS: New Request for Access";
+    public static String nv_Email_Notification_Short_description_Content_Line = "Short description: OBF Systems - Budget Unification System (BUS): New Request for Access";
 
     /***
      * NV EMAIL NOTIFICATION DESCRIPTION CONTENT LINE

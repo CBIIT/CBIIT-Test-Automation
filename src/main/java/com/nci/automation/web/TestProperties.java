@@ -301,6 +301,13 @@ public class TestProperties {
     public static String BCRAT_STAGE_URL = "https://bcrisktool-stage.cancer.gov/";
     public static String BCRAT_URL;
 
+    /**
+     * MRAT URLS
+     */
+    public static String MRAT_TEST_URL = "https://mrisktool-qa.cancer.gov/";
+    public static String MRAT_STAGE_URL = "https://mrisktool-stage.cancer.gov/";
+    public static String MRAT_URL;
+
     public static String getNativeViewSideDoorUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
@@ -795,6 +802,7 @@ public class TestProperties {
         return OAINTAKE_URL;
     }
 
+<<<<<<< HEAD
     public static String getNCCRUrl() {
         switch (ENV.toLowerCase()) {
             case "test":
@@ -805,5 +813,17 @@ public class TestProperties {
                 break;
         }
         return NCCR_URL;
+=======
+    public static String getMRATUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                MRAT_URL = MRAT_STAGE_URL;
+                break;
+            case "test":
+                MRAT_URL = MRAT_TEST_URL;
+                break;
+        }
+        return MRAT_URL;
+>>>>>>> 251faa9a752227dedf2df6de2e88122c179d01d5
     }
 }

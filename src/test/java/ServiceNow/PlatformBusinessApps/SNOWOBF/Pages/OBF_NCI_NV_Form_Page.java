@@ -180,7 +180,7 @@ public class OBF_NCI_NV_Form_Page {
     /***
      *  OBF NATIVE VIEW PAGE ASSIGNED TO FULFILLER
      */
-    public static String obf_NV_Page_Assigned_To_Fulfiller = "Raphael Aquino";
+    public static String obf_NV_Page_Assigned_To_Fulfiller = "Paul Lyons";
 
     /***
      *  OBF NATIVE VIEW PAGE ASSIGNED TO LABEL LOCATOR
@@ -225,7 +225,7 @@ public class OBF_NCI_NV_Form_Page {
     /***
      *  OBF NATIVE VIEW PAGE SELECTED APPLICATION ONESTREAM/BUS VALUE
      */
-    public static String obf_NV_Page_Selected_Application_OneStream_BUS_Value = "OneStream/BUS";
+    public static String obf_NV_Page_Selected_Application_OneStream_BUS_Value = "Budget Unification System (BUS)";
 
     /***
      *  OBF NATIVE VIEW PAGE TOPIC LABEL
@@ -321,11 +321,6 @@ public class OBF_NCI_NV_Form_Page {
      *  OBF NATIVE VIEW PAGE ACTIVITIES LABEL
      */
     public static String obf_NV_Page_Activities_Label = "Activities:";
-
-    /***
-     *  OBF NATIVE VIEW PAGE COMMENTS NOTES ACTIVITIES FORM SECTION LABEL
-     */
-    public static String obf_NV_Page_Comments_Notes_Activities_Form_Section_Label = "Comments, Notes & Activities form section";
 
     /***
      *  OBF NATIVE VIEW PAGE SAVE BUTTON
