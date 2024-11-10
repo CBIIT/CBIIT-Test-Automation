@@ -78,7 +78,7 @@ public class NCCRSteps  extends PageInitializer {
      */
     @Then("User can see Data Requests Awaiting My Review tab")
     public void user_can_see_data_requests_awaiting_my_review_tab() {
-       org.testng.Assert.assertTrue(nccrPage.dataRequestsAwaitingMyReviewTab.isDisplayed());
+       Assert.assertTrue(nccrPage.dataRequestsAwaitingMyReviewTab.isDisplayed());
     }
 
     /**
@@ -86,7 +86,7 @@ public class NCCRSteps  extends PageInitializer {
      */
     @Then("User can see Data Requests Awaiting My Review tab search text field")
     public void user_can_see_data_requests_awaiting_my_review_tab_search_text_field() {
-        org.testng.Assert.assertTrue(nccrPage.searchFieldDataRequestsAwaitingMyReviewTab.isDisplayed());
+        Assert.assertTrue(nccrPage.searchFieldDataRequestsAwaitingMyReviewTab.isDisplayed());
     }
 
     /**
@@ -94,7 +94,7 @@ public class NCCRSteps  extends PageInitializer {
      */
     @Then("User can see pagination for Data Requests Awaiting My Review tab")
     public void user_can_see_pagination_for_data_requests_awaiting_my_review_tab() {
-        org.testng.Assert.assertTrue(nccrPage.rowsPaginationDataRequestsAwaitingMyReviewTab.isDisplayed());
+        Assert.assertTrue(nccrPage.rowsPaginationDataRequestsAwaitingMyReviewTab.isDisplayed());
     }
 
     /**
@@ -110,7 +110,7 @@ public class NCCRSteps  extends PageInitializer {
      */
     @Then("User can see All Data Requests tab search text field")
     public void user_can_see_all_data_requests_tab_search_text_field() {
-        org.testng.Assert.assertTrue(nccrPage.searchFieldAllDataRequestsTab.isDisplayed());
+        Assert.assertTrue(nccrPage.searchFieldAllDataRequestsTab.isDisplayed());
     }
 
     /**
@@ -126,10 +126,10 @@ public class NCCRSteps  extends PageInitializer {
      */
     @Then("User can see Load Filter, Save Filter, Add Sort, and New Criteria buttons")
     public void user_can_see_load_filter_save_filter_add_sort_and_new_criteria_buttons() {
-        org.testng.Assert.assertTrue(nccrPage.loadFilterButton.isDisplayed());
-        org.testng.Assert.assertTrue(nccrPage.saveFilterButton.isDisplayed());
-        org.testng.Assert.assertTrue(nccrPage.addSortFilterButton.isDisplayed());
-        org.testng.Assert.assertTrue(nccrPage.newCriteriaButton.isDisplayed());
+       Assert.assertTrue(nccrPage.loadFilterButton.isDisplayed());
+       Assert.assertTrue(nccrPage.saveFilterButton.isDisplayed());
+       Assert.assertTrue(nccrPage.addSortFilterButton.isDisplayed());
+       Assert.assertTrue(nccrPage.newCriteriaButton.isDisplayed());
     }
 
     /**
