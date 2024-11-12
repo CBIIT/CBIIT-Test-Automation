@@ -1,4 +1,4 @@
-name: CHARMS_RAS_REGRESSION
+name: CHARMS_RAS_Regression
 
 on:
   schedule:
