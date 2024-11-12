@@ -47,7 +47,6 @@ public class Outside_Medical_AOMS_Form_Steps {
      */
     @Then("I should see that {string} is updated to {string}")
     public void i_should_see_that_is_updated_to(String requestedFor, String expectedValue) {
-
         CucumberLogUtils.scenario.log("---- TEXT LABEL FOR FIELD 'Principal Investigator (PI)' ----");
         String actualValue = page.locator("//span[contains(@aria-label,'Principal Investigator (PI)')]").textContent();
         Assert.assertNotEquals(actualValue, requestedFor,
@@ -67,7 +66,6 @@ public class Outside_Medical_AOMS_Form_Steps {
      */
     @Then("the Catalog name and Form Title for {string} is updated to {string}")
     public void the_catalog_name_and_form_title_for_is_updated_to(String aOMS, String expectedValue) {
-
         CucumberLogUtils.scenario.log("---- TEXT LABEL FOR FIELD 'Outside Medical Services (AOMS)' ----");
         String actualValue = page.locator("//h1[normalize-space()='Outside Medical Services (AOMS)']").textContent();
         System.out.println(actualValue);
