@@ -17,7 +17,7 @@ Feature: RAS Native View Verification Scenarios
   Scenario Outline: Verifying that IBMFS Affected Status displays in the Subject Flags record when the study is "Fanconi" or "Bone Marrow Failure Syndrome".
     Given Study Team member logs in to Native View and navigates to All Participant Details
     And Study Team member clicks Add New Participant and completes the form with:  FSID "<Existing FSID>", Study "<Study>", Relationship to Proband "<Relationship to Proband>", First Name "<First Name>", Last Name "<Last Name>"
-    And Study Team member navigates to Participant Study
+    And Study Team member navigates to Participant Studies
     Then Study Team member creates a new Subject Flags and verifies that the field IBMFS Affected Status displays if the "<Study>" is Fanconi or Bone Marrow Failure Syndrome
     Examples:
       | Existing FSID | Study                        | Relationship to Proband | First Name                       | Last Name |

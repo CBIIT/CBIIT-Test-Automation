@@ -913,25 +913,6 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * Method to navigate to Participant Study in Native View.
-     */
-    @Given("Study Team member navigates to Participant Study")
-    public void study_team_member_navigates_to_participant_study() {
-        CommonUtils.sleep(2000);
-        String participantName = locateByXpath("//input[@aria-label='Name']").getAttribute("value");
-        JavascriptUtils.scrollIntoView(nativeViewCHARMSAddNewParticipantPage.participantStudiesTab);
-        CommonUtils.clickOnElement(nativeViewCHARMSAddNewParticipantPage.participantStudiesTab);
-        CommonUtils.hoverOverElement(locateByXpath("//a[normalize-space()='Eligible']"));
-        CommonUtils.sleep(500);
-        JavascriptUtils.clickByJS(locateByXpath("(//a[@aria-label='Preview record: " + participantName + "'])[2]"));
-        CommonUtils.sleep(500);
-        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
-        CommonUtils.sleep(200);
-        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
-        CucumberLogUtils.logScreenshot();
-    }
-
-    /**
      * Study Team member creates a new Subject Flags and verifies that the field IBMFS Affected Status displays if the specified study is Fanconi or Bone Marrow Failure Syndrome.
      *
      * @param study the study type to verify the IBMFS Affected Status field for (e.g. "Fanconi" or "Bone Marrow Failure Syndrome")
