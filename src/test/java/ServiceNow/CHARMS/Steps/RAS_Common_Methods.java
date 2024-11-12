@@ -11,10 +11,8 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import org.openqa.selenium.Keys;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
 import static Hooks.Hooks.softAssert;
 import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
 

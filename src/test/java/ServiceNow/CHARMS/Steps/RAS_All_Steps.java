@@ -15,11 +15,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
 import static Hooks.Hooks.softAssert;
 import static ServiceNow.CHARMS.Pages.MyRASHomePage.dynamicModuleLocator;
 import static ServiceNow.CHARMS.Steps.RAS_Common_Methods.*;
