@@ -12,7 +12,7 @@ SHAREPOINT_DRIVE_ID = os.getenv('SHAREPOINT_DRIVE_ID')
 FILES_PATH = os.getenv('FILES_PATH')
 
 # Define the scopes and endpoints
-SCOPE = ["https://graph.microsoft.com/.default"]
+SCOPE = ["https://graph.microsoft.com/Sites.ReadWrite.All"]
 GRAPH_API_ENDPOINT = 'https://graph.microsoft.com/v1.0'
 
 
