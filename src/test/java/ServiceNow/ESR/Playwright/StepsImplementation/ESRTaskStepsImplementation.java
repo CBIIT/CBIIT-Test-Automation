@@ -161,9 +161,7 @@ public class ESRTaskStepsImplementation {
         Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").fill("CBIIT Test Account");
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.ROW, new FrameLocator.GetByRoleOptions().setName("Actual Start Date  Choose")).getByRole(AriaRole.LINK).first().click();
         Playwright_Common_Locators.iframeLocator().getByLabel("Go to Today", new FrameLocator.GetByLabelOptions().setExact(true)).click();
-
         Playwright_Common_Locators.iframeLocator().locator("(//a[@class=' btn btn-default btn-ref'])[5]").click();
-
         Playwright_Common_Locators.iframeLocator().getByLabel("Go to Today", new FrameLocator.GetByLabelOptions().setExact(true)).click();
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Findings")).click();
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Findings")).fill("Findings Test");
