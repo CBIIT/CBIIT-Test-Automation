@@ -1,5 +1,4 @@
 import requests
-import json
 import os
 import glob
 
@@ -19,9 +18,8 @@ def get_access_token():
         'grant_type': 'client_credentials',
         'client_id': client_id,
         'client_secret': client_secret,
-        'scope': f'{client_id}/.default'  # change scope to / .default
+        'scope': 'https://graph.microsoft.com/.default'  # change scope to access Microsoft Graph API
     }
-
     response = requests.post(url, headers=headers, data=body)
     token = response.json().get('access_token')
 
@@ -39,7 +37,6 @@ def upload_file_to_sharepoint(file_name, file_content):
     if not access_token:  # if no valid token, exit function
         return
 
-    # existing code...
     upload_url = f"https://graph.microsoft.com/v1.0/sites/{sharepoint_site}/drive/root:/'{sharepoint_document_library}/{file_name}':/content"
     headers = {
         'Authorization': f'Bearer {access_token}',
@@ -64,5 +61,4 @@ for file_path in file_paths:
     # Use the filename from file_path for the SharePoint upload
     file_name = file_path.split('/')[-1]  # gets the file name
 
-    # existing code...
     upload_file_to_sharepoint(file_name, file_content)
