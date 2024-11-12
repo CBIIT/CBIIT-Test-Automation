@@ -45,8 +45,8 @@ jobs:
       - name: Upload to SharePoint
         shell: powershell
         run: |
-          $Env:PATH = "/c/Users/juarezds/AppData/Local/Programs/Python/Python312;$Env:PATH"
-          python .github/scripts/upload_to_sharepoint.py
+          $Env:PATH = "C:\Users\juarezds\AppData\Local\Programs\Python\Python312;$Env:PATH"
+          python $Env:GITHUB_WORKSPACE\.github\scripts\upload_to_sharepoint.py
         env:
           file_path: target/html-charms-rasopathy-regression-reports/*
           host_name: 'nih.sharepoint.com'
