@@ -118,8 +118,8 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
             CucumberLogUtils.scenario.log("* * * THIS IS A PROXY SCREENER SUBMISSION * * *");
         }
         Random random = new Random();
-        int max = 5000;
-        int min = 500;
+        int max = 4000;
+        int min = 800;
         for (int i = 0; i < 75; i++) {
             CommonUtils.sleep(random.nextInt(max - min + 1) + min);
             try {
@@ -817,8 +817,6 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
         CucumberLogUtils.logScreenshot();
-        CommonUtils.sleep(3000);
-        NativeView_SideDoor_Dashboard_Page.allResultsMenuButton.click();
         CommonUtils.sleep(3000);
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
         CommonUtils.sleep(3000);

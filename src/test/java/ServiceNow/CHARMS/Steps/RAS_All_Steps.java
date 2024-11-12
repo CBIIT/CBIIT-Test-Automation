@@ -467,8 +467,6 @@ public class RAS_All_Steps extends PageInitializer {
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
         CucumberLogUtils.logScreenshot();
         CommonUtils.sleep(3000);
-        NativeView_SideDoor_Dashboard_Page.allResultsMenuButton.click();
-        CommonUtils.sleep(3000);
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
         CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);

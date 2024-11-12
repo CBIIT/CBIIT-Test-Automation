@@ -59,10 +59,6 @@ public class NativeView_SideDoor_Dashboard_Page {
     @FindElementBy(xpath = "//*[text()='Assets'][1]")
     public static WebElement assetsMenuButton;
 
-    /* ALL RESULTS MENU BUTTON */
-    @FindElementBy(xpath="//button[text()='All Results']")
-    public static WebElement allResultsMenuButton;
-
     /* ALL PARTICIPANT DETAILS */
     @FindElementBy(xpath = "//*[text()='All Participant Details'][1]")
     public static WebElement allParticipantDetailsLink;
