@@ -8,7 +8,6 @@ public class Native_View_Constants {
     /**
      * Subject Flags Columns
      */
-    @SuppressWarnings("serial")
     public static final List<String> subjectFlagsColumns = new ArrayList<>() {
         {
             add("Study");
