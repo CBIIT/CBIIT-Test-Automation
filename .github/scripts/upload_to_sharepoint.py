@@ -19,7 +19,7 @@ def get_access_token():
         'grant_type': 'client_credentials',
         'client_id': client_id,
         'client_secret': client_secret,
-        'scope': 'https://graph.microsoft.com/.default'
+        'scope': ['User.Read','Sites.ReadWrite.All']
     }
     response = requests.post(url, data=body, headers=headers)
     return response.json().get('access_token')
