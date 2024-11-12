@@ -1,4 +1,5 @@
 import os
+import glob
 import requests
 import msal
 
@@ -8,8 +9,7 @@ CLIENT_ID = os.getenv('CLIENT_ID')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 SHAREPOINT_SITE_ID = os.getenv('SHAREPOINT_SITE_ID')
 SHAREPOINT_DRIVE_ID = os.getenv('SHAREPOINT_DRIVE_ID')
-FILE_PATH = os.getenv('FILE_PATH')
-FILE_NAME = os.path.basename(FILE_PATH)
+FILES_PATH = os.getenv('FILES_PATH')
 
 # Define the scopes and endpoints
 SCOPE = ["https://graph.microsoft.com/.default"]
@@ -39,36 +39,41 @@ def authenticate():
         raise Exception(f"Authentication failed: {result.get('error')}, {result.get('error_description')}")
 
 
-def upload_file_to_sharepoint(access_token):
-    try:
-        # Building the correct endpoint
-        upload_url = (
-            f"{GRAPH_API_ENDPOINT}/sites/{SHAREPOINT_SITE_ID}/drives/{SHAREPOINT_DRIVE_ID}"
-            f"/items/root:/{FILE_NAME}:/content"
-        )
+def upload_files_to_sharepoint(access_token):
+    # Get list of all files in the directory
+    files = glob.glob(FILES_PATH)
 
-        # Read file content
-        with open(FILE_PATH, "rb") as file_data:
-            file_content = file_data.read()
+    for file_path in files:
+        try:
+            # Building the correct endpoint
+            FILE_NAME = os.path.basename(file_path)
+            upload_url = (
+                f"{GRAPH_API_ENDPOINT}/sites/{SHAREPOINT_SITE_ID}/drives/{SHAREPOINT_DRIVE_ID}"
+                f"/items/root:/{FILE_NAME}:/content"
+            )
 
-        # Define headers
-        headers = {
-            "Authorization": f"Bearer {access_token}",
-            "Content-Type": "application/octet-stream",
-        }
+            # Read file content
+            with open(file_path, "rb") as file_data:
+                file_content = file_data.read()
 
-        # Make the request
-        response = requests.put(upload_url, headers=headers, data=file_content)
+            # Define headers
+            headers = {
+                "Authorization": f"Bearer {access_token}",
+                "Content-Type": "application/octet-stream",
+            }
 
-        # Check the response
-        if response.status_code == 201:
-            print(f"File uploaded successfully to {SHAREPOINT_DRIVE_ID}/{FILE_NAME}")
-        else:
-            print(f"Failed to upload file: {response.status_code}, {response.text}")
+            # Make the request
+            response = requests.put(upload_url, headers=headers, data=file_content)
 
-    except Exception as e:
-        print(f"Error: {e}")
+            # Check the response
+            if response.status_code == 201:
+                print(f"File uploaded successfully to {SHAREPOINT_DRIVE_ID}/{FILE_NAME}")
+            else:
+                print(f"Failed to upload file: {response.status_code}, {response.text}")
+
+        except Exception as e:
+            print(f"Error: {e}")
 
 
 if __name__ == "__main__":
-    upload_file_to_sharepoint(authenticate())
+    upload_files_to_sharepoint(authenticate())
