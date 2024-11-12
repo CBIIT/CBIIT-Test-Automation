@@ -10,7 +10,6 @@ on:
         description: 'Browser'
         required: true
         default: 'chrome'
-
 jobs:
   build:
     runs-on: NCI-WINDOWS
