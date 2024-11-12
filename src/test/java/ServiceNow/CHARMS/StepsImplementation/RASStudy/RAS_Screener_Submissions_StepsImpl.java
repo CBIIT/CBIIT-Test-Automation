@@ -3,6 +3,7 @@ package ServiceNow.CHARMS.StepsImplementation.RASStudy;
 import ServiceNow.CHARMS.Constants.CHARMS_Data_File_Path_Constants;
 import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
 import ServiceNow.CHARMS.Pages.*;
+import ServiceNow.CHARMS.Steps.RAS_Common_Methods;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.Dynamic_Locators;
@@ -14,7 +15,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.*;
-import java.util.Random;
 import static Hooks.Hooks.softAssert;
 import static ServiceNow.CHARMS.Pages.RAS_Screener_Page.*;
 import static ServiceNow.CHARMS.studyQuestions.RAS_Screener_Questions_Proband.*;
@@ -117,11 +117,8 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         } else if (ras_Screener_TestDataManager.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_YOURSELF.contentEquals("I am completing this form for someone else")) {
             CucumberLogUtils.scenario.log("* * * THIS IS A PROXY SCREENER SUBMISSION * * *");
         }
-        Random random = new Random();
-        int max = 4000;
-        int min = 800;
         for (int i = 0; i < 75; i++) {
-            CommonUtils.sleep(random.nextInt(max - min + 1) + min);
+            RAS_Common_Methods.randomSleepInterval(800, 4000);
             try {
                 /**
                  * * * * * ARE YOU COMPLETING THIS FORM FOR SOMEONE ELSE OR FOR YOURSELF? * * * *

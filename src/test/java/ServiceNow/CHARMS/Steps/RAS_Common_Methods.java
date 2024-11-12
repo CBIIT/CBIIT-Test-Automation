@@ -13,6 +13,7 @@ import com.nci.automation.web.JavascriptUtils;
 import org.openqa.selenium.Keys;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Random;
 import static Hooks.Hooks.softAssert;
 import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
 
@@ -402,5 +403,16 @@ public class RAS_Common_Methods extends PageInitializer {
         for (int i = 0; i < Native_View_Constants.subjectFlagsColumns.size(); i++) {
             softAssert.assertEquals(Native_View_Constants.subjectFlagsColumns.get(i), locateByXpath("//tr[@id='hdr_x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study']//th[@class='text-align-left list_header_cell list_hdr '][" + (i + 1) + "]").getText());
         }
+    }
+
+    /**
+     * Generates a random sleep interval between the specified minimum and maximum values.
+     *
+     * @param min The minimum value for the sleep interval.
+     * @param max The maximum value for the sleep interval.
+     */
+    public static void randomSleepInterval(int min, int max) {
+        Random random = new Random();
+        CommonUtils.sleep(random.nextInt(max - min + 1) + min);
     }
 }
