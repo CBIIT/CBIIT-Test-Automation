@@ -19,21 +19,33 @@ def get_access_token():
         'grant_type': 'client_credentials',
         'client_id': client_id,
         'client_secret': client_secret,
-        'scope': ['User.Read','Sites.ReadWrite.All']
+        'scope': 'User.Read Sites.ReadWrite.All'  # change scope to space separated string
     }
     response = requests.post(url, data=body, headers=headers)
-    return response.json().get('access_token')
+
+    token = response.json().get('access_token')
+
+    if not token:
+        print(f"Failed to get token: {response.json()}")
+
+    print(f"Token: {token}")
+    return token
 
 
 # Step 2: Upload file to SharePoint
 def upload_file_to_sharepoint(file_name, file_content):
     access_token = get_access_token()
+
+    if not access_token:  # if no valid token, exit function
+        return
+
     upload_url = f"https://graph.microsoft.com/v1.0/sites/{sharepoint_site}/drive/root:/'{sharepoint_document_library}/{file_name}':/content"
     headers = {
         'Authorization': f'Bearer {access_token}',
         'Content-Type': 'application/octet-stream'
     }
     response = requests.put(upload_url, headers=headers, data=file_content)
+
     if response.status_code == 201:
         print(f"File {file_name} uploaded successfully")
     else:
