@@ -1,64 +1,74 @@
-import requests
 import os
-import glob
+import requests
+import msal
 
-# Azure AD App details
-client_id = os.environ['client_id']
-client_secret = os.environ['client_secret']
-tenant_id = os.environ['tenant_id']
-sharepoint_site = os.environ['site_name']
-sharepoint_document_library = 'Shared Documents/Platform Scientific - CHARMS/TEST AUTOMATION REPORTS'
+# Receive environment variables from GitHub Actions Workflow
+TENANT_ID = os.getenv('TENANT_ID')
+CLIENT_ID = os.getenv('CLIENT_ID')
+CLIENT_SECRET = os.getenv('CLIENT_SECRET')
+SHAREPOINT_SITE_ID = os.getenv('SHAREPOINT_SITE_ID')
+SHAREPOINT_DRIVE_ID = os.getenv('SHAREPOINT_DRIVE_ID')
+FILE_PATH = os.getenv('FILE_PATH')
+FILE_NAME = os.path.basename(FILE_PATH)
 
-
-# Step 1: Get access token from Microsoft
-def get_access_token():
-    url = f"https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token"
-    headers = {'Content-Type': 'application/x-www-form-urlencoded'}
-    body = {
-        'grant_type': 'client_credentials',
-        'client_id': client_id,
-        'client_secret': client_secret,
-        'scope': 'https://graph.microsoft.com/.default'  # change scope to access Microsoft Graph API
-    }
-    response = requests.post(url, headers=headers, data=body)
-    token = response.json().get('access_token')
-
-    if not token:
-        print(f"Failed to get token: {response.json()}")
-
-    print(f"Token: {token}")
-    return token
+# Define the scopes and endpoints
+SCOPE = ["https://graph.microsoft.com/.default"]
+GRAPH_API_ENDPOINT = 'https://graph.microsoft.com/v1.0'
 
 
-# Step 2: Upload file to SharePoint
-def upload_file_to_sharepoint(file_name, file_content):
-    access_token = get_access_token()
+def authenticate():
+    # Forming the authority
+    authority = f"https://login.microsoftonline.com/{TENANT_ID}"
 
-    if not access_token:  # if no valid token, exit function
-        return
+    # Creating the ConfidentialClientApplication
+    app = msal.ConfidentialClientApplication(
+        CLIENT_ID,
+        authority=authority,
+        client_credential=CLIENT_SECRET,
+    )
 
-    upload_url = f"https://graph.microsoft.com/v1.0/sites/{sharepoint_site}/drive/root:/'{sharepoint_document_library}/{file_name}':/content"
-    headers = {
-        'Authorization': f'Bearer {access_token}',
-        'Content-Type': 'application/octet-stream'
-    }
-    response = requests.put(upload_url, headers=headers, data=file_content)
+    # Getting the access token
+    result = app.acquire_token_silent(SCOPE, account=None)
 
-    if response.status_code == 201:
-        print(f"File {file_name} uploaded successfully")
+    if not result:
+        result = app.acquire_token_for_client(SCOPE)
+
+    if "access_token" in result:
+        return result["access_token"]
     else:
-        print(f"Failed to upload file: {response.content}")
+        raise Exception(f"Authentication failed: {result.get('error')}, {result.get('error_description')}")
 
 
-# Get the file content
-file_paths = glob.glob('target/html-charms-rasopathy-regression-reports/*')
+def upload_file_to_sharepoint(access_token):
+    try:
+        # Building the correct endpoint
+        upload_url = (
+            f"{GRAPH_API_ENDPOINT}/sites/{SHAREPOINT_SITE_ID}/drives/{SHAREPOINT_DRIVE_ID}"
+            f"/items/root:/{FILE_NAME}:/content"
+        )
 
-# Iterate over all files in the directory and upload
-for file_path in file_paths:
-    with open(file_path, 'rb') as f:
-        file_content = f.read()
+        # Read file content
+        with open(FILE_PATH, "rb") as file_data:
+            file_content = file_data.read()
 
-    # Use the filename from file_path for the SharePoint upload
-    file_name = file_path.split('/')[-1]  # gets the file name
+        # Define headers
+        headers = {
+            "Authorization": f"Bearer {access_token}",
+            "Content-Type": "application/octet-stream",
+        }
 
-    upload_file_to_sharepoint(file_name, file_content)
+        # Make the request
+        response = requests.put(upload_url, headers=headers, data=file_content)
+
+        # Check the response
+        if response.status_code == 201:
+            print(f"File uploaded successfully to {SHAREPOINT_DRIVE_ID}/{FILE_NAME}")
+        else:
+            print(f"Failed to upload file: {response.status_code}, {response.text}")
+
+    except Exception as e:
+        print(f"Error: {e}")
+
+
+if __name__ == "__main__":
+    upload_file_to_sharepoint(authenticate())
