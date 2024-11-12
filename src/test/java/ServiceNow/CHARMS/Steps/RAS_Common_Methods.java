@@ -13,7 +13,7 @@ import com.nci.automation.web.JavascriptUtils;
 import org.openqa.selenium.Keys;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import static Hooks.Hooks.softAssert;
 import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
 
@@ -412,7 +412,6 @@ public class RAS_Common_Methods extends PageInitializer {
      * @param max The maximum value for the sleep interval.
      */
     public static void randomSleepInterval(int min, int max) {
-        Random random = new Random();
-        CommonUtils.sleep(random.nextInt(max - min + 1) + min);
+        CommonUtils.sleep(ThreadLocalRandom.current().nextInt(min, max + 1));
     }
 }
