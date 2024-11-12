@@ -151,6 +151,9 @@ public class ESRTaskStepsImplementation {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Closeout Preparation");
     }
 
+    /**
+     * Completes the Closeout Preparation catalog task for ESR-Q
+     */
     public static void completeCloseoutPreparationCatalogTaskForESRQ() {
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (4)").click();
         Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[1]").click();
@@ -184,6 +187,9 @@ public class ESRTaskStepsImplementation {
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
     }
 
+    /**
+     * Completes the Closeout Preparation catalog task for ESR-I
+     */
     public static void completeCloseoutPreparationCatalogTaskForESRI() {
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (4)").click();
         Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[1]").click();
@@ -202,6 +208,9 @@ public class ESRTaskStepsImplementation {
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
     }
 
+    /**
+     * Confirms that the Closeout Preparation catalog task is completed
+     */
     public static void confirmCloseoutPreparationCatalogTaskIsCompleted() {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Federal Lead Closeout Approval");
     }
