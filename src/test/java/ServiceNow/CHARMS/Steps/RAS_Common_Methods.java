@@ -1,7 +1,7 @@
 package ServiceNow.CHARMS.Steps;
 
 import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
-import ServiceNow.CHARMS.Constants.CHARMS_RAS_Subject_Flags_Constants;
+import ServiceNow.CHARMS.Constants.Native_View_Constants;
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
 import appsCommon.PageInitializers.PageInitializer;
@@ -11,8 +11,10 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import org.openqa.selenium.Keys;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
 import static Hooks.Hooks.softAssert;
 import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
 
@@ -28,6 +30,8 @@ public class RAS_Common_Methods extends PageInitializer {
         CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
         CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(3000);
+        NativeView_SideDoor_Dashboard_Page.allResultsMenuButton.click();
         CommonUtils.sleep(3000);
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
         CommonUtils.sleep(3000);
@@ -118,9 +122,9 @@ public class RAS_Common_Methods extends PageInitializer {
     /**
      * Fills out parent/guardian signatures in the native view based on given parameters.
      *
-     * @param responseType The type of response for the consent process.
-     * @param parentGuardianStatus The status indicating the relationship between parent/guardians.
-     * @param numberOfGuardianSignaturesRequired The number of guardian signatures required for the consent process.
+     * @param responseType                             The type of response for the consent process.
+     * @param parentGuardianStatus                     The status indicating the relationship between parent/guardians.
+     * @param numberOfGuardianSignaturesRequired       The number of guardian signatures required for the consent process.
      * @param numberOfParentGuardianSignaturesReceived The number of parent/guardian signatures already received.
      */
     public static void nativeViewFillParentGuardianSignatures(String responseType, String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
@@ -399,8 +403,8 @@ public class RAS_Common_Methods extends PageInitializer {
      * Verifying data and order Subject Flags of Subject Flags.
      */
     public static void verifySubjectFlagsColumns() {
-        for(int i = 0; i < CHARMS_RAS_Subject_Flags_Constants.subjectFlagsColumns.size(); i++) {
-            softAssert.assertEquals(CHARMS_RAS_Subject_Flags_Constants.subjectFlagsColumns.get(i), locateByXpath("//tr[@id='hdr_x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study']//th[@class='text-align-left list_header_cell list_hdr '][" + (i+1) + "]").getText());
+        for (int i = 0; i < Native_View_Constants.subjectFlagsColumns.size(); i++) {
+            softAssert.assertEquals(Native_View_Constants.subjectFlagsColumns.get(i), locateByXpath("//tr[@id='hdr_x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study']//th[@class='text-align-left list_header_cell list_hdr '][" + (i + 1) + "]").getText());
         }
     }
 }

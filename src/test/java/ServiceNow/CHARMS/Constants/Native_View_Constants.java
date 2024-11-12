@@ -3,8 +3,12 @@ package ServiceNow.CHARMS.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CHARMS_RAS_Subject_Flags_Constants {
+public class Native_View_Constants {
 
+    /**
+     * Subject Flags Columns
+     */
+    @SuppressWarnings("serial")
     public static final List<String> subjectFlagsColumns = new ArrayList<>() {
         {
             add("Study");
