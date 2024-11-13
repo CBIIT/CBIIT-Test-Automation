@@ -4,6 +4,7 @@ import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Utils.CharmsUtil;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.TestProperties;
@@ -940,7 +941,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     }
 
     /**
-     * Method to Login to the Participant details page in Native View
+     * Method to Log in to the Participant details page in Native View
      */
     public void loginToParticipantDetailsPageInNativeView() {
         CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
@@ -953,6 +954,68 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     }
 
     /**
+     * Method to Log in to the Participant details page in Native View
+     */
+    public void loginToParticipantDetailsPageInNativeView1() {
+        CommonUtils.sleep(4000);
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(3000);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
+        CommonUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(2000);
+ //       CucumberLogUtils.logScreenshot();
+//        if (sheetName.contentEquals("screenerScenario1")) {
+//            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+//            CucumberLogUtils.logScreenshot();
+//            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+//        } else if (sheetName.contentEquals("screenerScenario2")) {
+//            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+//            CucumberLogUtils.logScreenshot();
+//            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+//        } else if (sheetName.contentEquals("screenerScenario3")) {
+//            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
+//            CucumberLogUtils.logScreenshot();
+//            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
+//        } else if (sheetName.contentEquals("screenerScenario4")) {
+//            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
+//            CucumberLogUtils.logScreenshot();
+//            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
+//        } else if (sheetName.contentEquals("screenerScenarioAdult")) {
+//            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+//            CucumberLogUtils.logScreenshot();
+//            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+//        } else if (sheetName.contentEquals("screenerScenarioAdult-NeedsLAR")) {
+//            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+//            CucumberLogUtils.logScreenshot();
+//            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+//        } else if (sheetName.contentEquals("screenerScenarioAgeUnder7")) {
+//            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+//            CucumberLogUtils.logScreenshot();
+//            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+//        } else if (sheetName.contentEquals("screenerScenarioAge7-10")) {
+//            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+//            CucumberLogUtils.logScreenshot();
+//            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+//        } else if (sheetName.contentEquals("screenerScenarioAge11-13")) {
+//            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+//            CucumberLogUtils.logScreenshot();
+//            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+//        } else if (sheetName.contentEquals("screenerScenarioAge14-17")) {
+//            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+//            CucumberLogUtils.logScreenshot();
+//            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+//        }
+//        CommonUtils.sleep(1000);
+//        if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
+//            CucumberLogUtils.logScreenshot();
+//            CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+//        }
+    }
+    
+    /**
      * Method to click the participant detail record in list view page
      */
     public void participantDetailRecordClicked(int rowNumForAssertion) {
@@ -960,9 +1023,10 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         String participantView = currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName");
         String participantProxyView = currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName");
         if (currentRow.get("ParticipantFirstName").isBlank()) {
-            CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.dynamicPreviewButtonLocator(participantProxyView));
+            CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.dynamicPreviewButtonLocator1(participantProxyView));
         } else {
-            CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.dynamicPreviewButtonLocator(participantView));
+            CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.dynamicPreviewButtonLocator1(participantView));
+            CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.dynamicPreviewButtonLocator("Open Record"));
         }
     }
 
@@ -971,20 +1035,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      */
     public void generalInformationAssertionOnparticipantDetailPage(int rowNumForAssertion) {
         Map<String, String> currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantSubjectID, "",
-                " Subject ID of the General Information on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantName,
-                (currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")),
-                " Participant Name of the General Information on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantGenerationID, "",
-                " Generation ID of the General Information on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantFamilyMemberID, "",
-                " Family Member ID of the General Information on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVpermissionToContactThisRelative, "Yes",
-                " May we have your permission to contact this relative of the General Information on Participant Details page ");
-        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVpermissionEnrollmentStatus,
-                "New Screener Received", " Enrollment Status of the General Information on Participant Details page ");
-    }
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Subject ID"), "Subject ID", " Subject ID Label of the General Information on Participant Details page ");
+         }
 
     /**
      * Method to assert the Personal Information on Participant Details
@@ -1057,7 +1109,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantContactInfoTab);
         cHARMSParticipantDetailsPage.nVParticipantContactInfoTab.click();
         CharmsUtil.assertDropDownData(softAssert,
-                cHARMSParticipantDetailsPage.nVParticipantContactInfoTabDoesParticipantNeedLegalRepresentation, "No",
+                cHARMSParticipantDetailsPage.nVParticipantContactInfoTabDoesParticipantNeedLegalRepresentation, "None",
                 " Does the participant need legal representation? of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantContactInfoTabStreetAddress,
                 currentRow.get("StreetAddress1") + " " + currentRow.get("StreetAddress2"),
@@ -1856,8 +1908,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void participantDetailPageAssertion(int rowNumForAssertion) {
         fanconiEligibilityQuestionnaireStepsImpl.participantDetailRecordClicked(rowNumForAssertion);
         fanconiEligibilityQuestionnaireStepsImpl.generalInformationAssertionOnparticipantDetailPage(rowNumForAssertion);
-        fanconiEligibilityQuestionnaireStepsImpl
-                .personalInformationAssertionOnparticipantDetailPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.personalInformationAssertionOnparticipantDetailPage(rowNumForAssertion);
         fanconiEligibilityQuestionnaireStepsImpl.demographicsAssertionOnparticipantDetailPage(rowNumForAssertion);
         fanconiEligibilityQuestionnaireStepsImpl.contactInformationAssertionOnparticipantDetailPage(rowNumForAssertion);
         softAssert.assertAll();

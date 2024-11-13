@@ -153,6 +153,102 @@ public class EgrantsQuickLinkAndManagementMenuPage {
 	public WebElement year17CheckBoxRemoveFlag;
 
 	/**
+	 * ADD NEW USER BUTTON
+	 */
+	@FindBy (xpath = "//div/a[contains(text(),'Add New')]")
+	public WebElement addNewUserButton;
+
+	/**
+	 * USER ID TEXT BOX
+	 */
+	@FindBy (xpath = "//input[@id='txtUserid']")
+	public WebElement userIdTextBox;
+
+	/**
+	 * CHECK BUTTON
+	 */
+	@FindBy (xpath = "//button[contains(text(),'heck')]")
+	public WebElement checkButton;
+
+	/**
+	 * FIRST NAME TEXT BOX
+	 */
+	@FindBy (xpath = "//input[@id='txtFirstname']")
+	public WebElement first_NameTextBox;
+
+	/**
+	 * LAST NAME TEXT BOX
+	 */
+	@FindBy (xpath = "//input[@id='txtLastname']")
+	public WebElement last_NameTextBox;
+
+	/**
+	 * EMAIL TEXT BOX
+	 */
+	@FindBy (xpath = "//input[@id='txtEmail']")
+	public WebElement emailTextBox;
+
+	/**
+	 * DASHBOARD CHECK BOX
+	 */
+	@FindBy (xpath = "//input[@id='chkDashboard']")
+	public WebElement dashboardCheckBox;
+
+	/**
+	 * MANAGEMENT CHECK BOX
+	 */
+	@FindBy (xpath = "//input[@id='chkMgt']")
+	public WebElement managementCheckBox;
+
+	/**
+	 * POSITION TYPE DROPDOWN
+	 */
+	@FindBy (xpath = "//select[@id='ddlPositions']")
+	public WebElement positionType;
+
+	/**
+	 * COORDINATOR DROPDOWN
+	 */
+	@FindBy (xpath = "//select[@id='ddlCoordinators']")
+	public WebElement coordinatorDropDown;
+
+	/**
+	 * ADD NEW BUTTON
+	 */
+	@FindBy (xpath = "//button[contains(text(),'heck')]")
+	public WebElement addNewButton;
+
+	/**
+	 * INDEX U
+	 */
+	@FindBy (xpath = "//b[normalize-space()='U']")
+	public WebElement indexU;
+
+	/**
+	 * ACCOUNT STATUS DROPDOWN
+	 */
+	@FindBy (xpath = "//select[@id='ddlActiveType']")
+	public WebElement accountStatusDropDown;
+
+	/**
+	 * EDIT USER INFORMATION BUTTON
+	 */
+	@FindBy (xpath = "//tr[td[contains(text(), 'USERACCOUNT, AUTOMATEDTEST')] and td[contains(text(), 'user8145c7af')]]//img[@title='Cilck here to edit user information']")
+	public WebElement editUserInformationButton;
+
+	/**
+	 * STATUS DROPDOWN CONTAINING ACTIVE AND INACTIVE
+	 */
+	@FindBy (xpath = "//select[@id='ddlStatus']")
+	public WebElement activeInactiveDropDown;
+
+	/**
+	 * ACCOUNT PAGE - UPDATE BUTTON
+	 */
+	@FindBy (xpath = "//button[contains(., 'pdate')]")
+	public WebElement updateAccountButton;
+
+	/**
 	 * THIS METHOD DYNAMICALLY LOCATES THE LOGGED IN USER NAME
 	 */
 	public static WebElement dynamicUserTextLocator(String user) {

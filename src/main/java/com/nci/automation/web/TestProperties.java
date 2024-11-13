@@ -287,6 +287,27 @@ public class TestProperties {
     public static String GWAS_TARGET_STAGE_URL = "https://analysistools-stage.cancer.gov/gwas-target/home";
     public static String GWAS_TARGET_URL;
 
+    /**
+     * FORGEDB URLS
+     */
+    public static String FORGEDB_TEST_URL = "https://forgedb-qa.cancer.gov/";
+    public static String FORGEDB_STAGE_URL = "https://forgedb-stage.cancer.gov/";
+    public static String FORGEDB_URL;
+
+    /**
+     * BCRAT URLS
+     */
+    public static String BCRAT_TEST_URL = "https://bcrisktool-qa.cancer.gov/";
+    public static String BCRAT_STAGE_URL = "https://bcrisktool-stage.cancer.gov/";
+    public static String BCRAT_URL;
+
+    /**
+     * MRAT URLS
+     */
+    public static String MRAT_TEST_URL = "https://mrisktool-qa.cancer.gov/";
+    public static String MRAT_STAGE_URL = "https://mrisktool-stage.cancer.gov/";
+    public static String MRAT_URL;
+
     public static String getNativeViewSideDoorUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
@@ -757,6 +778,30 @@ public class TestProperties {
         return GWAS_TARGET_URL;
     }
 
+    public static String getFORGEdbUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                FORGEDB_URL = FORGEDB_STAGE_URL;
+                break;
+            case "test":
+                FORGEDB_URL = FORGEDB_TEST_URL;
+                break;
+        }
+        return FORGEDB_URL;
+    }
+
+    public static String getBCRATUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                BCRAT_URL = BCRAT_STAGE_URL;
+                break;
+            case "test":
+                BCRAT_URL = BCRAT_TEST_URL;
+                break;
+        }
+        return BCRAT_URL;
+    }
+
     public static String getOAntakeUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
@@ -767,5 +812,17 @@ public class TestProperties {
                 break;
         }
         return OAINTAKE_URL;
+    }
+
+    public static String getMRATUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                MRAT_URL = MRAT_STAGE_URL;
+                break;
+            case "test":
+                MRAT_URL = MRAT_TEST_URL;
+                break;
+        }
+        return MRAT_URL;
     }
 }

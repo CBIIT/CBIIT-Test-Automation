@@ -3,7 +3,7 @@ package CustomBusiness.Egrants.Utils;
 public class Egrants_Constants {
     public static final String APP_NAME = "Egrants";
     public static final String PMS_PAGE_TITLE = "Home | Payment Management Services";
-    public static final String PROJECT_TITLE = "BAYLOR COLLEGE OF MEDICINE CANCER CENTER-CANCER CENTER SUPPO…";
+    public static final String PROJECT_TITLE = "BAYLOR COLLEGE OF MEDICINE CANCER CENTER - CANCER CENTER SUP…";
     public static final String INSTITUTION_NAME = "BAYLOR COLLEGE OF MEDICINE";
     public static final String DOC_CREATOR_NAME = "Nesar, Hamid";
     public static final String SERIAL_NUMBER = "125123";
@@ -14,8 +14,8 @@ public class Egrants_Constants {
     public static final String FOLLOWUP_SUBCATEGORY = "Follow-up facility visit Test";
     public static final String ASSIGN_BUTTON_ALERT_MESSAGE = "Are you sure that you want to assign QC Change documents to Quality, Associates?";
     public static final String DOCUMENT_ROUTING_PERCENTAGE = "10";
-    public static final String FUNDING_CATEGORY = "12";
-    public static final String FUNDING_SUBCATEGORY = "5";
+    public static final String FUNDING_CATEGORY = "D1";
+    public static final String FUNDING_SUBCATEGORY = "Transition Approval";
     public static final String ROUTE_BUTTON_ALERT_MESSAGE = "Are you sure that you want to route 10%  QC documents from D'Avella, Joseph to Quality, Associates?";
     public static final String DELETE_ALERT_MESSAGE = "Are you sure that you want to delete selected document(s)?";
     public static final String TEST_FILE_PATH = System.getProperty("user.dir")+"/src/test/java/CustomBusiness/Egrants/Resources/TESTDOCUMENT.pdf";
@@ -32,4 +32,15 @@ public class Egrants_Constants {
     public static final String DOWNLOADING_MESSAGE = "Downloading ...";
     public static final String FLAG_MAINTENANCE = "FlagMaintenance";
     public static final String FLAG_TYPE_DS = "A";
+    public static final String EGRANTS_ACCESS_CONTROL = "EgrantsAccess/Index?index_id=2&active_id=1";
+    public static final String PROGRAM_STAFF_ROLE = "1";
+    public static final String QUALITY_ASSOCIATES_COORDINATOR = "Quality, Associates";
+    public static final String ADD_USER_CONFIRMATION_MESSAGE = " does not exist in the system. Do you want to create a new account?";
+    public static final String FIRST_NAME = "AUTOMATEDTEST";
+    public static final String LAST_NAME = "USERACCOUNT";
+    public static final String EMAIL_ADDRESS = "automatedtest.useraccount@test.com";
+    public static final String USER_EXISTS_MESSAGE = " already exists in the system";
+    public static final String INACTIVE_STATUS = "0";
+    public static final String DEACTIVATE = "Inactive";
+    public static final String ACTIVATE = "Active";
 }

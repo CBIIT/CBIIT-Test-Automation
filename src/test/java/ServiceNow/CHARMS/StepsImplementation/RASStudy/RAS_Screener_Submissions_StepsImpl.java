@@ -3,6 +3,7 @@ package ServiceNow.CHARMS.StepsImplementation.RASStudy;
 import ServiceNow.CHARMS.Constants.CHARMS_Data_File_Path_Constants;
 import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
 import ServiceNow.CHARMS.Pages.*;
+import ServiceNow.CHARMS.Steps.RAS_Common_Methods;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.Dynamic_Locators;
@@ -116,9 +117,8 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         } else if (ras_Screener_TestDataManager.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_YOURSELF.contentEquals("I am completing this form for someone else")) {
             CucumberLogUtils.scenario.log("* * * THIS IS A PROXY SCREENER SUBMISSION * * *");
         }
-
         for (int i = 0; i < 75; i++) {
-
+            RAS_Common_Methods.randomSleepInterval(800, 4000);
             try {
                 /**
                  * * * * * ARE YOU COMPLETING THIS FORM FOR SOMEONE ELSE OR FOR YOURSELF? * * * *
@@ -199,7 +199,10 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                  */
                 else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().trim().contentEquals(formatRASQuestionForProxy(DATE_OF_BIRTH_OF))) {
                     CucumberLogUtils.scenario.log("* * * * * WHAT IS THE PARTICIPANT'S DATE OF BIRTH? * * * * *");
-                    rasopathyQuestionnairePage.probandDateOfBirthTextBox.sendKeys(ras_Screener_TestDataManager.DATE_OF_BIRTH_OF_THE_PARTICIPANT);
+                    rasopathyQuestionnairePage.calendarYearTextBox.clear();
+                    rasopathyQuestionnairePage.calendarYearTextBox.sendKeys(ras_Screener_TestDataManager.DATE_OF_BIRTH_YEAR);
+                    CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.DATE_OF_BIRTH_MONTH, rasopathyQuestionnairePage.calendarMonthDropDown);
+                    RAS_Screener_Page.dynamicDateOfBirthCalendarLocator(ras_Screener_TestDataManager.DATE_OF_BIRTH_OF_THE_PARTICIPANT).click();
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
@@ -844,14 +847,14 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
         CommonUtils.sleep(1500);
-        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubjectID.getText().split("-")[0] , nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsFamilyID.getText());
+        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubjectID.getText().split("-")[0], nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsFamilyID.getText());
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText);
         CucumberLogUtils.logScreenshot();
         softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), CHARMSRASScreenerConstants.CONSENT_ADDED_TEXT, "---- VERIFYING SCREENER RECORD RASOPATHY HISTORY DATA ----");
-       softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), CHARMSRASScreenerConstants.CONSENT_ADDED_TEXT, "---- VERIFYING SCREENER RECORD RASOPATHY HISTORY DATA ----");
+        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), CHARMSRASScreenerConstants.CONSENT_ADDED_TEXT, "---- VERIFYING SCREENER RECORD RASOPATHY HISTORY DATA ----");
 
         /**
          * BEGINNING: CONSENT FLOW PROCESS

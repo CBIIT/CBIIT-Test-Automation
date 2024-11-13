@@ -14,6 +14,12 @@ public class NativeViewCHARMSAddNewParticipantPage {
     public WebElement subjectIDTextBox;
 
     /**
+     * Subject Name text box
+     */
+    @FindBy(xpath = "//input[@id='sys_readonly.x_naci_family_coho_family_history_details.name']")
+    public WebElement subjectNameTextBox;
+
+    /**
      * Family text box
      */
     @FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_family_history_details.family']")
@@ -90,6 +96,18 @@ public class NativeViewCHARMSAddNewParticipantPage {
      */
     @FindBy(xpath = "//span[normalize-space()='ERROR: New participant data will NOT be saved for Other or Unknown relationship']")
     public WebElement errorNewParticipantDataWillNOTBeSavedForOtherOrUnknownRelationshipText;
+
+    /**
+     * Participant Studies Tab
+     */
+    @FindBy(xpath = "//span[@class='tab_header']/span//span[contains(text(), 'Participant Studies')]")
+    public WebElement participantStudiesTab;
+
+    /**
+     * Open Record Button
+     */
+    @FindBy(xpath = "//tr[@class='list_row list_odd']/td[2]/a")
+    public WebElement openRecordButton;
 
     public NativeViewCHARMSAddNewParticipantPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);

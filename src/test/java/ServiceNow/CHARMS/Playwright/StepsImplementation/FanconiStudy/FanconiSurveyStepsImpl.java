@@ -2458,5 +2458,6 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("or more"))).isVisible();
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Unknown/Unsure"))).isVisible();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("to 2")).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.SUBMIT)).click();
     }
 }

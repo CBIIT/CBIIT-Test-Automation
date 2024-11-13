@@ -37,7 +37,7 @@ Given User is logged in the application and is on the landing page
     And selects grant year 18 from Years
     When clicks on Replace icon
     And clicks on Locate File and Upload tab
-    And uploads a file
+    And selects a replacement file
     Then verifies the success message "Done! New document has been created"
     And clicks on Check Document button to view the uploaded document
 
