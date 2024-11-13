@@ -2,9 +2,9 @@ package com.nci.automation.web;
 
 public class TestProperties {
 
-    public static String ENV = "test";
+    public static String ENV = "stage";
     public static String BROWSER = "chrome";
-    public static boolean HEADLESS = true;
+    public static boolean HEADLESS = false;
     public static int SET_SLOW_MO_TIME = 1000;
 
     /**
@@ -121,6 +121,13 @@ public class TestProperties {
     public static final String CERVICAL_CP_TEST_URL = "https://globalcxca-qa.cancer.gov/";
     public static final String CERVICAL_CP_STAGE_URL = "https://globalcxca-stage.cancer.gov/";
     public static String CERVICAL_CP_URL;
+
+    /**
+     * ICDGenie URLS
+     */
+    public static final String ICDGenie_TEST_URL = "https://icdgenie-qa.cancer.gov/";
+    public static final String ICDGenie_STAGE_URL = "https://icdgenie-qa.cancer.gov/";
+    public static String ICDGenie_URL;
 
     /**
      * EZ-QTL URLS
@@ -488,6 +495,18 @@ public class TestProperties {
                 break;
         }
         return CERVICAL_CP_URL;
+    }
+
+    public static String getICDGenieUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                ICDGenie_URL = ICDGenie_STAGE_URL;
+                break;
+            case "test":
+                ICDGenie_URL = ICDGenie_TEST_URL;
+                break;
+        }
+        return ICDGenie_URL;
     }
 
     public static String getAct24ResearcherUrl() {
