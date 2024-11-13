@@ -37,7 +37,7 @@ public class Playwright_Common_Utils {
     /**
      * asserting and click on the new page link and footer.
      *
-     * @param name
+     * @param Name
      * @param NewPage
      */
     public static void clickAndAssertNewPage(String Name, String NewPage){

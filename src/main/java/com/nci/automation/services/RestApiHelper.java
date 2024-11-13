@@ -1,6 +1,8 @@
 package com.nci.automation.services;
 
+import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
@@ -120,12 +122,34 @@ public class RestApiHelper {
 		response = requestSpec.request(Method.GET, resourceUrl);
 		return response;
 	}
-	
-	
+
 	public Response postRequestWIthBody(String body) {
 		RestAssured.baseURI = baseUri;
-		RequestSpecification requestSpec = RestAssured.given(); 
+		RequestSpecification requestSpec = RestAssured.given();
 		requestSpec.body(body);
+		response = requestSpec.post(baseUri);
+		return response;
+	}
+
+	public Response getRequestWithoutResourceUrl() {
+		RestAssured.baseURI = baseUri;
+		RequestSpecification requestSpec = RestAssured.given();
+		response = requestSpec.request(Method.GET);
+		return response;
+	}
+
+	public Response postRequestWIthBodyAndHeader(String body) {
+		RestAssured.baseURI = baseUri;
+		RequestSpecification requestSpec = RestAssured.given().headers("content-type","application/json");
+		requestSpec.body(body);
+		response = requestSpec.post(baseUri);
+		return response;
+	}
+
+	public Response postRequestWithFile(File file) {
+		RestAssured.baseURI = baseUri;
+		RequestSpecification requestSpec = RestAssured.given();
+		requestSpec.multiPart("files", file);
 		response = requestSpec.post(baseUri);
 		return response;
 	}
