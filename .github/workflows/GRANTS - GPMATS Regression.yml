@@ -2,8 +2,8 @@ name: GRANTS - GPMATS Regression
 
 on:
   schedule:
-    # This corresponds to 9:15 AM EST (2:15 PM UTC) from Monday to Friday
-    - cron: '15 14 * * MON-FRI'
+    # This corresponds to 1:30 PM EST (6:30 PM UTC) from Monday to Friday
+    - cron: '30 18 * * MON-FRI'
   workflow_dispatch:
     inputs:
       testBrowser:
@@ -41,3 +41,16 @@ jobs:
         with:
           name: GPMATS-REGRESSION-${{ env.timestamp }}
           path: target/GPMATS-regression-reports/*
+
+      - name: Upload to SharePoint
+        shell: powershell
+        run: |
+          $Env:PATH = "C:\Users\juarezds\AppData\Local\Programs\Python\Python312;$Env:PATH"
+          python $Env:GITHUB_WORKSPACE\.github\scripts\upload_to_sharepoint.py
+        env:
+          FILES_PATH: target/GPMATS-regression-reports/*
+          SHAREPOINT_SITE_ID: ${{ secrets.SHAREPOINT_SITE_ID }}
+          SHAREPOINT_DRIVE_ID: ${{ secrets.SHAREPOINT_DRIVE_ID }}
+          tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
+          client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
+          client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}

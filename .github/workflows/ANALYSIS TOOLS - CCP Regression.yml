@@ -41,3 +41,16 @@ jobs:
         with:
           name: CCP-REGRESSION-${{ env.timestamp }}
           path: target/CCP-reports/*
+
+      - name: Upload to SharePoint
+        shell: powershell
+        run: |
+          $Env:PATH = "C:\Users\juarezds\AppData\Local\Programs\Python\Python312;$Env:PATH"
+          python $Env:GITHUB_WORKSPACE\.github\scripts\upload_to_sharepoint.py
+        env:
+          FILES_PATH: target/CCP-reports/*
+          SHAREPOINT_SITE_ID: ${{ secrets.SHAREPOINT_SITE_ID }}
+          SHAREPOINT_DRIVE_ID: ${{ secrets.SHAREPOINT_DRIVE_ID }}
+          tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
+          client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
+          client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}

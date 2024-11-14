@@ -2,8 +2,8 @@ name: CHARMS - RAS Regression
 
 on:
   schedule:
-    # This corresponds to 8:00 AM EDT (1:00 AM UTC) from Monday to Friday
-    - cron: '0 13 * * MON-FRI'
+    # This corresponds to 8:45 AM EST (1:45 PM UTC) from Monday to Friday
+    - cron: '45 13 * * MON-FRI'
   workflow_dispatch:
     inputs:
       testBrowser:
@@ -33,25 +33,24 @@ jobs:
           Add-Content -Path $env:GITHUB_ENV -Value "timestamp=$timestamp"
       - name: Determine report path
         id: reportpath
-        run: echo "path=html-charms-rasopathy-regression-reports" >> $GITHUB_ENV
+        run: echo "path=CHARMS-rasopathy-regression-reports" >> $GITHUB_ENV
 
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: CHARMS-RAS-REGRESSION-${{ env.timestamp }}
-          path: target/html-charms-rasopathy-regression-reports/*
+          path: target/CHARMS-rasopathy-regression-reports/*
 
       - name: Upload to SharePoint
-        shell: bash
+        shell: powershell
         run: |
-          export PATH="/c/Users/juarezds/AppData/Local/Programs/Python/Python312:$PATH"
-          python .github/scripts/upload_to_sharepoint.py
-          env:
-          file_path: target/html-charms-rasopathy-regression-reports/*
-          host_name: 'nih.sharepoint.com'
-          site_name: NCI-CBIITQualityAssuranceandTestingTeam
-          upload_path: 'Shared%20Documents/Platform%20Scientific%20-%20CHARMS/TEST%20AUTOMATION%20REPORTS'
+          $Env:PATH = "C:\Users\juarezds\AppData\Local\Programs\Python\Python312;$Env:PATH"
+          python $Env:GITHUB_WORKSPACE\.github\scripts\upload_to_sharepoint.py
+        env:
+          FILES_PATH: target/CHARMS-rasopathy-regression-reports/*
+          SHAREPOINT_SITE_ID: ${{ secrets.SHAREPOINT_SITE_ID }}
+          SHAREPOINT_DRIVE_ID: ${{ secrets.SHAREPOINT_DRIVE_ID }}
           tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
           client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
           client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}
