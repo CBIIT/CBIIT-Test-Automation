@@ -1,9 +1,9 @@
-name: GRANTS-EM-Regression
+name: GRANTS - EM Regression
 
 on:
   schedule:
-    # This corresponds to 9:30 AM EST (2:30 PM UTC) from Monday to Friday
-    - cron: '30 14 * * MON-FRI'
+    # This corresponds to 1:15 PM EST (6:15 PM UTC) from Monday to Friday
+    - cron: '15 18 * * MON-FRI'
   workflow_dispatch:
     inputs:
       testBrowser:
@@ -41,3 +41,16 @@ jobs:
         with:
           name: EM-REGRESSION-${{ env.timestamp }}
           path: target/EM-reports/*
+
+      - name: Upload to SharePoint
+        shell: powershell
+        run: |
+          $Env:PATH = "C:\Users\juarezds\AppData\Local\Programs\Python\Python312;$Env:PATH"
+          python $Env:GITHUB_WORKSPACE\.github\scripts\upload_to_sharepoint.py
+        env:
+          FILES_PATH: target/EM-reports/*
+          SHAREPOINT_SITE_ID: ${{ secrets.SHAREPOINT_SITE_ID }}
+          SHAREPOINT_DRIVE_ID: ${{ secrets.SHAREPOINT_DRIVE_ID }}
+          tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
+          client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
+          client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}
