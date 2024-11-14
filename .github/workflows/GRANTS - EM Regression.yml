@@ -4,6 +4,7 @@ on:
   schedule:
     # This corresponds to 1:15 PM EST (6:15 PM UTC) from Monday to Friday
     - cron: '15 18 * * MON-FRI'
+
   workflow_dispatch:
     inputs:
       testBrowser:
