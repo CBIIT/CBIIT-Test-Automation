@@ -1,4 +1,4 @@
-name: ANALYSIS-TOOLS-CCP-Regression
+name: ANALYSIS TOOLS - CCP Regression
 
 on:
   schedule:
