@@ -35,14 +35,16 @@ public class Travel_Request_NV_Steps {
      */
     @When("I search for Group under System Security")
     public void i_search_for_group_under_system_security() {
-        //Search the System Security in Filter navigation Native View
+
+        CucumberLogUtils.scenario.log("---- SEARCH THE SYSTEM SECURITY IN FILTER NAVIGATION NATIVE VIEW ----");
         page.getByPlaceholder("Filter").click();
         page.getByPlaceholder("Filter").fill("System Security");
         page.getByPlaceholder("Filter").press("Enter");
         assertThat(page.getByPlaceholder("Filter")).isVisible();
         assertThat(page.getByPlaceholder("Filter")).hasValue("System Security");
         CucumberLogUtils.playwrightScreenshot(page);
-        //Look for the Groups under "Users and Groups" and click on Groups
+
+        CucumberLogUtils.scenario.log("---- LOOK FOR THE GROUPS UNDER \"USERS AND GROUPS\" AND CLICK ON GROUPS ----");
         assertThat(page.locator("li").filter(new Locator.FilterOptions().setHasText("Users and GroupsUsersEdit"))).isVisible();
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Groups").setExact(true)).click();
         CucumberLogUtils.playwrightScreenshot(page);
@@ -55,22 +57,23 @@ public class Travel_Request_NV_Steps {
      */
     @When("I search for {string} group Name")
     public void i_search_for_group_name(String nciCGHTravelRequestBranchDirectors) {
-        //Search for the "NCI CGH - Travel Request Branch Directors" group and open the group record
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Groups"))).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.HEADING)).containsText("Groups");
+
+        CucumberLogUtils.scenario.log("---- SEARCH FOR THE \"NCI CGH - TRAVEL REQUEST BRANCH DIRECTORS\" GROUP AND OPEN THE GROUP RECORD ----");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Groups"))).isVisible();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.HEADING)).containsText("Groups");
         CucumberLogUtils.playwrightScreenshot(page);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(nciCGHTravelRequestBranchDirectors);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).containsText(nciCGHTravelRequestBranchDirectors);
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(nciCGHTravelRequestBranchDirectors);
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: NCI CGH - Travel")).isVisible();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: NCI CGH - Travel")).containsText(nciCGHTravelRequestBranchDirectors);
         CucumberLogUtils.playwrightScreenshot(page);
 
-        //click on the group record and click on open record button
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//a[@aria-label='Preview record: NCI CGH - Travel Request Branch Directors']").click();
+        CucumberLogUtils.scenario.log("---- CLICK ON THE MOST TOP RECORD AND CLICK ON OPEN RECORD BUTTON ----");
+        page.frameLocator("iframe[name='gsft_main']").locator("//a[@aria-label='Preview record: NCI CGH - Travel Request Branch Directors']").click();
         CucumberLogUtils.playwrightScreenshot(page);
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Name", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(nciCGHTravelRequestBranchDirectors);
+        page.frameLocator("iframe[name='gsft_main']").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Name", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(nciCGHTravelRequestBranchDirectors);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -83,13 +86,14 @@ public class Travel_Request_NV_Steps {
      */
     @When("I verify the associated users {string}, {string} and {string} are listed under the Group Members tab")
     public void i_verify_the_associated_users_and_are_listed_under_the_group_members_tab(String dimetriaBranch, String kalinaDuncan, String markParascandola) {
-        //clicks on Group members Tab on the bottom of the page and verify group members
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (3)")).isVisible();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (3)").click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members (3)Show").locator("b")).containsText("Group = NCI CGH - Travel Request Branch Directors");
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(dimetriaBranch);
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(kalinaDuncan);
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(markParascandola);
+
+        CucumberLogUtils.scenario.log("---- CLICKS ON GROUP MEMBERS TAB ON THE BOTTOM OF THE PAGE AND VERIFY GROUP MEMBERS ----");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Section Tab Lists").getByText("Group Members (3)")).isVisible();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Section Tab Lists").getByText("Group Members (3)").click();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members (3)Show").locator("b")).containsText("Group = NCI CGH - Travel Request Branch Directors");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members.").locator("tbody")).containsText(dimetriaBranch);
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members.").locator("tbody")).containsText(kalinaDuncan);
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members.").locator("tbody")).containsText(markParascandola);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -101,23 +105,24 @@ public class Travel_Request_NV_Steps {
      */
     @When("I go back to Groups and search for {string} group Name")
     public void i_go_back_to_groups_and_search_for_group_name(String nciCGHTravelRequestTravelPlanners) {
-        //Go back to Groups page and search for the "NCI CGH - Travel Request Travel Planners" group and open the group record
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Back").click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Groups"))).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.HEADING)).containsText("Groups");
+
+        CucumberLogUtils.scenario.log("---- GO BACK TO GROUPS PAGE AND SEARCH FOR THE \"NCI CGH - TRAVEL REQUEST TRAVEL PLANNERS\" GROUP AND OPEN THE GROUP RECORD ----");
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Back").click();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Groups"))).isVisible();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.HEADING)).containsText("Groups");
         CucumberLogUtils.playwrightScreenshot(page);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(nciCGHTravelRequestTravelPlanners);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).containsText(nciCGHTravelRequestTravelPlanners);
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(nciCGHTravelRequestTravelPlanners);
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: NCI CGH - Travel")).isVisible();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: NCI CGH - Travel")).containsText(nciCGHTravelRequestTravelPlanners);
         CucumberLogUtils.playwrightScreenshot(page);
 
-        //click on the record and click on open record button
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//a[@aria-label='Preview record: NCI CGH - Travel Request Travel Planners']").click();
+        CucumberLogUtils.scenario.log("---- CLICK ON THE MOST TOP RECORD AND CLICK ON OPEN RECORD BUTTON ----");
+        page.frameLocator("iframe[name='gsft_main']").locator("//a[@aria-label='Preview record: NCI CGH - Travel Request Travel Planners']").click();
         CucumberLogUtils.playwrightScreenshot(page);
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Name", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(nciCGHTravelRequestTravelPlanners);
+        page.frameLocator("iframe[name='gsft_main']").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Name", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(nciCGHTravelRequestTravelPlanners);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -133,16 +138,17 @@ public class Travel_Request_NV_Steps {
      */
     @When("I verify that the associated users {string}, {string}, {string} , {string}, {string} and {string} are listed under the Group Members tab")
     public void i_verify_that_the_associated_users_and_are_listed_under_the_group_members_tab(String brianDavis, String dimetriaBranch, String jenniferBridges, String karenGrady, String ravenCoit, String susanGiuliani) {
-        //clicks on Group members Tab on the bottom of the page and verify group members
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (6)")).isVisible();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (6)").click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members (6)Show").locator("b")).containsText("Group = NCI CGH - Travel Request Travel Planners");
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(brianDavis);
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(dimetriaBranch);
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(jenniferBridges);
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(karenGrady);
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(ravenCoit);
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(susanGiuliani);
+
+        CucumberLogUtils.scenario.log("---- CLICKS ON GROUP MEMBERS TAB ON THE BOTTOM OF THE PAGE AND VERIFY GROUP MEMBERS ----");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Section Tab Lists").getByText("Group Members (6)")).isVisible();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Section Tab Lists").getByText("Group Members (6)").click();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members (6)Show").locator("b")).containsText("Group = NCI CGH - Travel Request Travel Planners");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members.").locator("tbody")).containsText(brianDavis);
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members.").locator("tbody")).containsText(dimetriaBranch);
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members.").locator("tbody")).containsText(jenniferBridges);
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members.").locator("tbody")).containsText(karenGrady);
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members.").locator("tbody")).containsText(ravenCoit);
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members.").locator("tbody")).containsText(susanGiuliani);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -154,23 +160,24 @@ public class Travel_Request_NV_Steps {
      */
     @When("I go back again and search for {string} group Name")
     public void i_go_back_again_and_search_for_group_name(String nciCGHTravelRequestProxyUsers) {
-        //Go back to Groups page and search for the "NCI CGH - Travel Request Proxy users" group and open the group record
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Back").click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Groups"))).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.HEADING)).containsText("Groups");
+
+        CucumberLogUtils.scenario.log("---- GO BACK TO GROUPS PAGE AND SEARCH FOR THE \"NCI CGH - TRAVEL REQUEST PROXY USERS\" GROUP AND OPEN THE GROUP RECORD ----");
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Back").click();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Groups"))).isVisible();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.HEADING)).containsText("Groups");
         CucumberLogUtils.playwrightScreenshot(page);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(nciCGHTravelRequestProxyUsers);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).containsText(nciCGHTravelRequestProxyUsers);
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(nciCGHTravelRequestProxyUsers);
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: NCI CGH - Travel")).isVisible();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: NCI CGH - Travel")).containsText(nciCGHTravelRequestProxyUsers);
         CucumberLogUtils.playwrightScreenshot(page);
 
-        //click on the record and click on open record button
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//a[@aria-label='Preview record: NCI CGH - Travel Request Proxy users']").click();
+        CucumberLogUtils.scenario.log("---- CLICK ON THE RECORD AND CLICK ON OPEN RECORD BUTTON ----");
+        page.frameLocator("iframe[name='gsft_main']").locator("//a[@aria-label='Preview record: NCI CGH - Travel Request Proxy users']").click();
         CucumberLogUtils.playwrightScreenshot(page);
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Name", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(nciCGHTravelRequestProxyUsers);
+        page.frameLocator("iframe[name='gsft_main']").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Name", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(nciCGHTravelRequestProxyUsers);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -183,13 +190,14 @@ public class Travel_Request_NV_Steps {
      */
     @Then("I verify that the associated users {string}, {string} and {string} should be listed under the Group Members tab")
     public void i_verify_that_the_associated_users_and_should_be_listed_under_the_group_members_tab(String dimetriaBranch, String kalinaDuncan, String markParascandola) {
-        //clicks on Group members Tab on the bottom of the page and verify group members
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (3)")).isVisible();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (3)").click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members (3)Show").locator("b")).containsText("Group = NCI CGH - Travel Request Proxy users");
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(dimetriaBranch);
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(kalinaDuncan);
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(markParascandola);
+
+        CucumberLogUtils.scenario.log("---- CLICKS ON GROUP MEMBERS TAB ON THE BOTTOM OF THE PAGE AND VERIFY GROUP MEMBERS ----");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Section Tab Lists").getByText("Group Members (3)")).isVisible();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Section Tab Lists").getByText("Group Members (3)").click();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members (3)Show").locator("b")).containsText("Group = NCI CGH - Travel Request Proxy users");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members.").locator("tbody")).containsText(dimetriaBranch);
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members.").locator("tbody")).containsText(kalinaDuncan);
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members.").locator("tbody")).containsText(markParascandola);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -200,7 +208,8 @@ public class Travel_Request_NV_Steps {
      */
     @When("I search for {string} Group under System Security")
     public void i_search_for_group_under_system_security(String nciCGHTravelManagers) {
-        //Search the System Security in Filter navigation Native View
+
+        CucumberLogUtils.scenario.log("---- SEARCH THE SYSTEM SECURITY IN FILTER NAVIGATION NATIVE VIEW ----");
         page.getByPlaceholder("Filter").click();
         page.getByPlaceholder("Filter").fill("System Security");
         page.getByPlaceholder("Filter").press("Enter");
@@ -208,27 +217,27 @@ public class Travel_Request_NV_Steps {
         assertThat(page.getByPlaceholder("Filter")).hasValue("System Security");
         CucumberLogUtils.playwrightScreenshot(page);
 
-        //Look for the Groups under "Users and Groups" and click on Groups
+        CucumberLogUtils.scenario.log("---- LOOK FOR THE GROUPS UNDER \"USERS AND GROUPS\" AND CLICK ON GROUPS ----");
         assertThat(page.locator("li").filter(new Locator.FilterOptions().setHasText("Users and GroupsUsersEdit"))).isVisible();
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Groups").setExact(true)).click();
         CucumberLogUtils.playwrightScreenshot(page);
 
-        //Search for the "NCI CGH - Travel Manager" group and open the group record
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Groups"))).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.HEADING)).containsText("Groups");
+        CucumberLogUtils.scenario.log("---- SEARCH FOR THE \"NCI CGH - TRAVEL MANAGER\" GROUP AND OPEN THE GROUP RECORD ----");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Groups"))).isVisible();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.HEADING)).containsText("Groups");
         CucumberLogUtils.playwrightScreenshot(page);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(nciCGHTravelManagers);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).containsText(nciCGHTravelManagers);
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(nciCGHTravelManagers);
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: NCI CGH - Travel")).isVisible();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: NCI CGH - Travel")).containsText(nciCGHTravelManagers);
         CucumberLogUtils.playwrightScreenshot(page);
 
-        //click on the group record and click on open record button
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//a[@aria-label='Preview record: NCI CGH - Travel Managers']").click();
+        CucumberLogUtils.scenario.log("---- CLICK ON THE GROUP RECORD AND CLICK ON OPEN RECORD BUTTON ----");
+        page.frameLocator("iframe[name='gsft_main']").locator("//a[@aria-label='Preview record: NCI CGH - Travel Managers']").click();
         CucumberLogUtils.playwrightScreenshot(page);
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Name", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(nciCGHTravelManagers);
+        page.frameLocator("iframe[name='gsft_main']").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Name", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(nciCGHTravelManagers);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -239,11 +248,12 @@ public class Travel_Request_NV_Steps {
      */
     @Then("I verify that {string} should be listed under the Group Member tab")
     public void i_verify_that_should_be_listed_under_the_group_member_tab(String dimetriaBranch) {
-        //clicks on Group members Tab on the bottom of the page and verify group members
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (1)")).isVisible();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (1)").click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members (1)Show").locator("b")).containsText("Group = NCI CGH - Travel Managers");
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(dimetriaBranch);
+
+        CucumberLogUtils.scenario.log("---- CLICKS ON GROUP MEMBERS TAB ON THE BOTTOM OF THE PAGE AND VERIFY GROUP MEMBERS ----");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Section Tab Lists").getByText("Group Members (1)")).isVisible();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Section Tab Lists").getByText("Group Members (1)").click();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members (1)Show").locator("b")).containsText("Group = NCI CGH - Travel Managers");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members.").locator("tbody")).containsText(dimetriaBranch);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -254,7 +264,8 @@ public class Travel_Request_NV_Steps {
      */
     @When("I search for the {string} Groups under System Security")
     public void i_search_for_the_groups_under_system_security(String nciCGHTravelRequestBranchDirectors) {
-        //Search the System Security in Filter navigation Native View
+
+        CucumberLogUtils.scenario.log("---- SEARCH THE SYSTEM SECURITY IN FILTER NAVIGATION NATIVE VIEW ----");
         page.getByPlaceholder("Filter").click();
         page.getByPlaceholder("Filter").fill("System Security");
         page.getByPlaceholder("Filter").press("Enter");
@@ -262,27 +273,27 @@ public class Travel_Request_NV_Steps {
         assertThat(page.getByPlaceholder("Filter")).hasValue("System Security");
         CucumberLogUtils.playwrightScreenshot(page);
 
-        //Look for the Groups under "Users and Groups" and click on Groups
+        CucumberLogUtils.scenario.log("---- LOOK FOR THE GROUPS UNDER \"USERS AND GROUPS\" AND CLICK ON GROUPS ----");
         assertThat(page.locator("li").filter(new Locator.FilterOptions().setHasText("Users and GroupsUsersEdit"))).isVisible();
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Groups").setExact(true)).click();
         CucumberLogUtils.playwrightScreenshot(page);
 
-        //Search for the ""NCI CGH - Travel Request Branch Directors" group and open the group record
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Groups"))).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.HEADING)).containsText("Groups");
+        CucumberLogUtils.scenario.log("---- SEARCH FOR THE \"\"NCI CGH - TRAVEL REQUEST BRANCH DIRECTORS\" GROUP AND OPEN THE GROUP RECORD ----");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Groups"))).isVisible();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.HEADING)).containsText("Groups");
         CucumberLogUtils.playwrightScreenshot(page);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(nciCGHTravelRequestBranchDirectors);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).containsText(nciCGHTravelRequestBranchDirectors);
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(nciCGHTravelRequestBranchDirectors);
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: NCI CGH - Travel")).isVisible();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: NCI CGH - Travel")).containsText(nciCGHTravelRequestBranchDirectors);
         CucumberLogUtils.playwrightScreenshot(page);
 
-        //click on the group record and click on open record button
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//a[@aria-label='Preview record: NCI CGH - Travel Request Branch Directors']").click();
+        CucumberLogUtils.scenario.log("---- CLICK ON THE GROUP RECORD AND CLICK ON OPEN RECORD BUTTON ----");
+        page.frameLocator("iframe[name='gsft_main']").locator("//a[@aria-label='Preview record: NCI CGH - Travel Request Branch Directors']").click();
         CucumberLogUtils.playwrightScreenshot(page);
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Name", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(nciCGHTravelRequestBranchDirectors);
+        page.frameLocator("iframe[name='gsft_main']").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Name", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(nciCGHTravelRequestBranchDirectors);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -293,11 +304,12 @@ public class Travel_Request_NV_Steps {
      */
     @Then("I will see user {string} added to the CGH Branch Director Assignment Group.")
     public void i_will_see_user_added_to_the_cgh_branch_director_assignment_group(String dimetriaBranch) {
-        //clicks on Group members Tab on the bottom of the page and verify that Dimetria Branch is also added to the group
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (3)")).isVisible();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (3)").click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members (3)Show").locator("b")).containsText("Group = NCI CGH - Travel Request Branch Directors");
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(dimetriaBranch);
+
+        CucumberLogUtils.scenario.log("---- CLICKS ON GROUP MEMBERS TAB ON THE BOTTOM OF THE PAGE AND VERIFY THAT DIMETRIA BRANCH IS ALSO ADDED TO THE GROUP ----");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Section Tab Lists").getByText("Group Members (3)")).isVisible();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Section Tab Lists").getByText("Group Members (3)").click();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members (3)Show").locator("b")).containsText("Group = NCI CGH - Travel Request Branch Directors");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members.").locator("tbody")).containsText(dimetriaBranch);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -308,7 +320,8 @@ public class Travel_Request_NV_Steps {
      */
     @When("I search for {string} Groups under System Security:")
     public void i_search_for_groups_under_system_security(String nciCGHTravelRequestTravelPlanners) {
-        //Search the System Security in Filter navigation Native View
+
+        CucumberLogUtils.scenario.log("---- SEARCH THE SYSTEM SECURITY IN FILTER NAVIGATION NATIVE VIEW ----");
         page.getByPlaceholder("Filter").click();
         page.getByPlaceholder("Filter").fill("System Security");
         page.getByPlaceholder("Filter").press("Enter");
@@ -316,27 +329,27 @@ public class Travel_Request_NV_Steps {
         assertThat(page.getByPlaceholder("Filter")).hasValue("System Security");
         CucumberLogUtils.playwrightScreenshot(page);
 
-        //Look for the Groups under "Users and Groups" and click on Groups
+        CucumberLogUtils.scenario.log("---- LOOK FOR THE GROUPS UNDER \"USERS AND GROUPS\" AND CLICK ON GROUPS ----");
         assertThat(page.locator("li").filter(new Locator.FilterOptions().setHasText("Users and GroupsUsersEdit"))).isVisible();
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Groups").setExact(true)).click();
         CucumberLogUtils.playwrightScreenshot(page);
 
-        //Search for the ""NCI CGH - Travel Request Travel Planners" group and open the group record
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Groups"))).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.HEADING)).containsText("Groups");
+        CucumberLogUtils.scenario.log("---- SEARCH FOR THE \"\"NCI CGH - TRAVEL REQUEST BRANCH DIRECTORS\" GROUP AND OPEN THE GROUP RECORD ----");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Groups"))).isVisible();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.HEADING)).containsText("Groups");
         CucumberLogUtils.playwrightScreenshot(page);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(nciCGHTravelRequestTravelPlanners);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Open record: NCI CGH - Travel")).containsText(nciCGHTravelRequestTravelPlanners);
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(nciCGHTravelRequestTravelPlanners);
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: NCI CGH - Travel")).isVisible();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Open record: NCI CGH - Travel")).containsText(nciCGHTravelRequestTravelPlanners);
         CucumberLogUtils.playwrightScreenshot(page);
 
-        //click on the group record and click on open record button
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//a[@aria-label='Preview record: NCI CGH - Travel Request Travel Planners']").click();
+        CucumberLogUtils.scenario.log("---- CLICK ON THE GROUP RECORD AND CLICK ON OPEN RECORD BUTTON ----");
+        page.frameLocator("iframe[name='gsft_main']").locator("//a[@aria-label='Preview record: NCI CGH - Travel Request Travel Planners']").click();
         CucumberLogUtils.playwrightScreenshot(page);
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Name", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(nciCGHTravelRequestTravelPlanners);
+        page.frameLocator("iframe[name='gsft_main']").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Name", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(nciCGHTravelRequestTravelPlanners);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -347,11 +360,12 @@ public class Travel_Request_NV_Steps {
      */
     @Then("I will see user {string} added to the CGH Travel Planners Assignment Group.")
     public void i_will_see_user_added_to_the_cgh_travel_planners_assignment_group(String karenGrady) {
-        //clicks on Group members Tab on the bottom of the page and verify that Karen Grady is also added to the group
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (6)")).isVisible();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Section Tab Lists").getByText("Group Members (6)").click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members (6)Show").locator("b")).containsText("Group = NCI CGH - Travel Request Travel Planners");
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Group Members.").locator("tbody")).containsText(karenGrady);
+
+        CucumberLogUtils.scenario.log("---- CLICKS ON GROUP MEMBERS TAB ON THE BOTTOM OF THE PAGE AND VERIFY THAT KAREN GRADY IS ALSO ADDED TO THE GROUP ----");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Section Tab Lists").getByText("Group Members (6)")).isVisible();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Section Tab Lists").getByText("Group Members (6)").click();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members (6)Show").locator("b")).containsText("Group = NCI CGH - Travel Request Travel Planners");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Group Members.").locator("tbody")).containsText(karenGrady);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }
