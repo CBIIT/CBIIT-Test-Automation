@@ -44,7 +44,8 @@ public class Playwright_Common_Utils {
         Page newPage1 = PlaywrightUtils.context.waitForPage(() -> {
             page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(Name)).click();});
         CommonUtils.sleep(2000);
-        assertThat(newPage1).hasURL(NewPage);newPage1.close();
+        assertThat(newPage1).hasURL(NewPage);
+        newPage1.close();
     }
 
     /**
@@ -57,7 +58,8 @@ public class Playwright_Common_Utils {
         Page newPage1 = PlaywrightUtils.context.waitForPage(() -> {
             page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(locator)).click();});
         CommonUtils.sleep(2000);
-        assertThat(newPage1).hasTitle(title);newPage1.close();
+        assertThat(newPage1).hasTitle(title);
+        newPage1.close();
     }
 
     /**

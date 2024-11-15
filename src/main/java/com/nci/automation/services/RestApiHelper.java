@@ -119,6 +119,11 @@ public class RestApiHelper {
 		return response;
 	}
 
+	/**
+	 * Sends a POST request to the specified base URI with a JSON body only.
+	 *
+	 * @param body
+	 */
 	public Response postRequestWIthBody(String body) {
 		RestAssured.baseURI = baseUri;
 		RequestSpecification requestSpec = RestAssured.given();
@@ -127,6 +132,9 @@ public class RestApiHelper {
 		return response;
 	}
 
+	/**
+	 * Sends a GET request to the specified base URI.
+	 */
 	public Response getRequestWithoutResourceUrl() {
 		RestAssured.baseURI = baseUri;
 		RequestSpecification requestSpec = RestAssured.given();
@@ -134,6 +142,11 @@ public class RestApiHelper {
 		return response;
 	}
 
+	/**
+	 * Sends a POST request to the specified base URI with a JSON body and custom header.
+	 *
+	 * @param body
+	 */
 	public Response postRequestWIthBodyAndHeader(String body) {
 		RestAssured.baseURI = baseUri;
 		RequestSpecification requestSpec = RestAssured.given().headers("content-type","application/json");
@@ -142,6 +155,11 @@ public class RestApiHelper {
 		return response;
 	}
 
+	/**
+	 * Sends a POST request to the specified base URI with a file attached as multipart data.
+	 *
+	 * @param file
+	 */
 	public Response postRequestWithFile(File file) {
 		RestAssured.baseURI = baseUri;
 		RequestSpecification requestSpec = RestAssured.given();
