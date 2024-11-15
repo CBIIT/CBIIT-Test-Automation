@@ -66,7 +66,7 @@ public class JPSurvHomePageStepImp extends PageInitializer {
 	}
 
 	/**
-	 * VERIFY THE RESPONSE IS 200
+	 * VERIFY THE RESPONSE FOR POST API WITH FILE IS 200
 	 */
 	public static void sendPostRequestForImport() {
 		File file = new File(zipFilePath);
