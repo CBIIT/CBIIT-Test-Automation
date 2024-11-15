@@ -1,8 +1,11 @@
 package GrantsApps.EM.selenium.Utils;
 
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.web.WebDriverUtils;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import java.time.Duration;
+import static com.nci.automation.web.WebDriverUtils.webDriver;
 
 public class EM_Common_Methods {
 
@@ -12,14 +15,16 @@ public class EM_Common_Methods {
      * @param expectedURL the expected URL of the new window
      */
     public static void switchWindowAndVerifyPageTitle(String expectedURL){
-        String winHandleBefore = WebDriverUtils.webDriver.getWindowHandle();
-        for (String winHandle : WebDriverUtils.webDriver.getWindowHandles()) {
-            WebDriverUtils.webDriver.switchTo().window(winHandle);
+        String winHandleBefore = webDriver.getWindowHandle();
+        for (String winHandle : webDriver.getWindowHandles()) {
+            webDriver.switchTo().window(winHandle);
         }
-        String actualUrl = WebDriverUtils.webDriver.getCurrentUrl();
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.urlToBe(expectedURL));
+        String actualUrl = webDriver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedURL);
-        WebDriverUtils.webDriver.close();
-        WebDriverUtils.webDriver.switchTo().window(winHandleBefore);
+        webDriver.close();
+        webDriver.switchTo().window(winHandleBefore);
         CucumberLogUtils.logScreenshot();
     }
 }
