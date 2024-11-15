@@ -361,7 +361,7 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     }
 
     /***
-     * This method is used to select year 17 from the Grants dropdown. The user will keep selecting the year until the year is selected
+     * This method is used to select year 17 from the Grants dropdown. The user will keep selecting the year until it is selected
      */
     @Given("selects grant year 5P30CA125123-17 from the Grant dropdown")
     public void selects_grant_year_from_the_grant_dropdown() {

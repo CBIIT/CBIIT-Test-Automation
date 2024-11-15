@@ -104,7 +104,7 @@ Given User is logged in the application and is on the landing page
     And clicks on search icon
     Then verifies the filtered documents are displayed
 
-    @MoveDocumentToDifferentGrants @nesarh2 @selenium @Regression1
+    @MoveDocumentToDifferentGrants @nesarh2 @selenium @Regression
     Scenario: Test moving a document to different grant years
     And searches for grant "CA125123"
     And selects grant year 18 from Years
