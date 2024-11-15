@@ -1,7 +1,7 @@
 Feature: OWM Vacancy Manager Scenarios
   Description: This Feature file contains OWM Vacancy Manager Scenarios
 
-  @SSJ-7 @SSJ-8 @juarezds @Regression @playwright @Smoke @SNOW_UPDATED @Progression
+  @SSJ-7 @SSJ-8 @juarezds @Regression @playwright @Smoke @SNOW_UPDATED
   Scenario: Verification of Basic Vacancy Information section while creating an NCI Vacancy
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -173,7 +173,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User navigates to tab "Your Vacancies" - PW
     And verifies Vacancy Title "Testing Automation Title SSJ-1332" is on the Your Vacancies page
 
-  @APPTRACK-151 @cabreralf @playwright @Progression1
+  @APPTRACK-151 @cabreralf @playwright @IN-PROGRESS
   Scenario: Live vacancies View verification
 #    Given User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
 #    And User navigates to tab "Vacancy Dashboard" - PW
