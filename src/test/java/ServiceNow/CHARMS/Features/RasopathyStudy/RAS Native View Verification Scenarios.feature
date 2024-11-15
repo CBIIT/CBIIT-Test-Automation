@@ -38,3 +38,10 @@ Feature: RAS Native View Verification Scenarios
       |               | RASopathy | Proband                 | SubjectFlags | HoldTest             | Hold                       | Today                             | Participating              |                                   |
       |               | RASopathy | Proband                 | SubjectFlags | NotParticipatingTest | Participating              |                                   | Not Participating          | 1st of Next Month                 |
       |               | RASopathy | Proband                 | SubjectFlags | NotParticipatingTest | Hold                       | 1st of Next Month                 | Not Participating          | Today                             |
+
+  @muzipovay2 @RAS_STUDY @CP2-3960 @selenium @RAS_Regression
+  Scenario: Verifying that audit trail history is visible to users.
+    Given Study Team member logs in to Native View and navigates to All Participant Details
+    And Study Team member clicks Add New Participant and completes the form with:  FSID "", Study "RASopathy", Relationship to Proband "Proband", First Name "AuditTrail", Last Name "Test"
+    And Study Team member navigates to Participant Studies
+    Then Study Team member creates new Subject Flags and verifies that the audit trail history displays

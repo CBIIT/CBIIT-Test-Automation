@@ -62,6 +62,12 @@ public class NativeViewCHARMSSubjectFlagsPage {
     public WebElement ageGroupDropdown;
 
     /**
+     * Eligible for Clinic Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_subject_flag.eligible_for_clinic']")
+    public WebElement eligibleForClinicDropdown;
+
+    /**
      * Preview Record for Field: Study. Button
      */
     @FindBy(xpath = "//button[@aria-label='Preview record for field: Study']")
