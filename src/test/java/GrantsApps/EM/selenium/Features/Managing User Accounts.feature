@@ -32,7 +32,8 @@ Feature: Managing User Accounts
     And can verify the success message is displayed "Success! I2E account has been created."
     And can verify that Return to Manage I2E Users hyperlink directs to url "https://i2e-test.nci.nih.gov/em/#/search"
 
-  @ACTIVE_ACCOUNT_SCENARIO @JIRA-965 @JUAREZDS @Regression @selenium
+  @ACTIVE_ACCOUNT_SCENARIO @JIRA-965 @JUAREZDS @Regression @selenium @needs_review
+    #REVIEW CREATE BUTTON, INACTIVE CANCER ACTIVITIES?
   Scenario: Verify Create Account - Active Account scenario
     Given User is logged in as Primary IC Coordinator
     And clicks Show Advanced Filters

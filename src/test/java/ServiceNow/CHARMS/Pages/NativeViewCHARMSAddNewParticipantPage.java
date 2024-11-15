@@ -44,10 +44,34 @@ public class NativeViewCHARMSAddNewParticipantPage {
     public WebElement unlockStudiesButton;
 
     /**
+     * Lock Studies button
+     */
+    @FindBy(xpath = "//button[@id='x_naci_family_coho_family_history_details.studies_lock']")
+    public WebElement lockStudiesButton;
+
+    /**
      * Studies textbox
      */
     @FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_family_history_details.studies']")
     public WebElement studiesTextBox;
+
+    /**
+     * Unlock Study Subcategory Button
+     */
+    @FindBy(xpath = "//button[@id='x_naci_family_coho_family_history_details.study_subcategory_unlock']")
+    public WebElement unlockStudySubcategoryButton;
+
+    /**
+     * Lock Study SubCategory button
+     */
+    @FindBy(xpath = "//button[@id='x_naci_family_coho_family_history_details.study_subcategory_lock']")
+    public WebElement lockStudySubcategoryButton;
+
+    /**
+     * Study Subcategory Textbox
+     */
+    @FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_family_history_details.study_subcategory']")
+    public WebElement studySubcategoryTextbox;
 
     /**
      * Look up using list button
