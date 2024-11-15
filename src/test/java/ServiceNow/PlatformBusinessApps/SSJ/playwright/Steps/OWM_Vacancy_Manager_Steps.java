@@ -120,11 +120,6 @@ public class OWM_Vacancy_Manager_Steps {
         OWM_Vacancy_Manager_StepsImpl.user_confirms_that_checkbox_is_displayed(text);
     }
 
-    @Then("User verifies all org codes are present via Organizational Code dropdown")
-    public void user_verifies_all_org_codes_are_present_via_organizational_code_dropdown() {
-        OWM_Vacancy_Manager_StepsImpl.user_verifies_all_org_codes_are_present_via_organizational_code_dropdown();
-    }
-
     @Then("User verifies the text of {string} i tooltip is")
     public void user_verifies_the_text_of_i_tooltip_is(String text, String docString) {
         OWM_Vacancy_Manager_StepsImpl.user_verifies_the_text_of_i_tooltip_is(text, docString);

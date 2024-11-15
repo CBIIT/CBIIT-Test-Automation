@@ -328,54 +328,6 @@ public class OWM_Vacancy_Manager_StepsImpl {
     }
 
     /**
-     * Verifies that all organization codes are present via the organizational code dropdown.
-     *
-     * The method performs the following steps:
-     * 1. Clicks on the organization code dropdown on the vacancy dashboard page.
-     * 2. Waits for 2 seconds.
-     * 3. Initializes a HashSet to store the actual organization code values.
-     * 4. Sets a flag to false.
-     * 5. Enters a loop to iterate through organization codes until the flag is true.
-     * 6. Within the loop, attempts to scroll the organization code into view.
-     * 7. Queries for all organization code elements and adds their inner text values to the actualValues HashSet.
-     * 8. Increments the iterator.
-     * 9. Catches a PlaywrightException when there are no more organization codes to iterate through, and sets the flag to true to exit the loop.
-     * 10. Converts the HashSet to an ArrayList and sorts it in natural order.
-     * 11. Takes a screenshot using CucumberLogUtils.playwrightScreenshot(page).
-     * 12. Asserts that the sorted ArrayList of organization codes is equal to the constant SSJ_Constants.ORG_CODES.
-     */
-    public static void user_verifies_all_org_codes_are_present_via_organizational_code_dropdown() {
-        page.locator(Vacancy_Dashboard_Page.organizationCodeDropDown).click();
-        CommonUtils.sleep(2000);
-        HashSet<String> actualValues = new HashSet<>();
-        boolean flag = false;
-        for (int i = 10; !flag; ) {
-            try {
-                String value = "" + i;
-                CommonUtils.sleep(4000);
-                for (ElementHandle c : page.querySelectorAll("(//div[@class='rc-virtual-list'])[3]/div/div/div/div/div")) {
-                    String consoleMName = c.innerText();
-                    actualValues.add(consoleMName);
-                }
-                Playwright_Common_Utils.scrollIntoView("(//div[@class='rc-virtual-list'])[3]/div/div/div/div[" + value + "]/div");
-            } catch (PlaywrightException e) {
-                flag = true;
-            }
-        }
-        try (PrintWriter out = new PrintWriter(new File("./target/mySetValues.txt"))) {
-            for (String value : actualValues) {
-                out.println(value);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-//        ArrayList<String> arrayList = new ArrayList<>(actualValues);
-//        arrayList.sort(Comparator.naturalOrder());
-//        CucumberLogUtils.playwrightScreenshot(page);
-//        Assert.assertEquals(arrayList, SSJ_Constants.ORG_CODES);
-    }
-
-    /**
      * Verifies that the text of a tooltip is as expected.
      *
      * @param text       the text to be verified
