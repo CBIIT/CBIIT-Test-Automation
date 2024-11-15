@@ -1,11 +1,11 @@
 package CustomBusiness.Egrants.Utils;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class Egrants_CommonUtils {
@@ -32,5 +32,14 @@ public class Egrants_CommonUtils {
         } catch (TimeoutException e) {
             System.out.println("ALERT NOT PRESENT");
         }
+    }
+
+    /**
+     * This method is used to get the current date
+     */
+    public static String getCurrentDate() {
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        return currentDate.format(formatter);
     }
 }

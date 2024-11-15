@@ -1,6 +1,7 @@
 package CustomBusiness.Egrants.Steps;
 
 import CustomBusiness.Egrants.StepsImplementation.EgrantsStepImplementation;
+import CustomBusiness.Egrants.Utils.Egrants_CommonUtils;
 import CustomBusiness.Egrants.Utils.Egrants_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -8,6 +9,8 @@ import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.support.ui.Select;
+import static Hooks.Hooks.softAssert;
 
 public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
 
@@ -292,8 +295,106 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /***
+     * This method is used to verify the success icon for downloaded files
+     */
     @Then("verifies the success icon for downloaded files")
     public void verifies_the_success_icon_for_downloaded_files() {
         EgrantsStepImplementation.verifies_the_success_message_for_downloaded_files();
+    }
+
+    /***
+     * This method is used to select the number of years text box
+     * @param year
+     */
+    @Given("selects {int} for number grant years")
+    public void selects_for_number_grant_years(Integer year) {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.numberOfYearsTextBox);
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.numberOfYearsTextBox, year.toString());
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /***
+     * This method is used to click on the Category filter icon to select document types
+     */
+    @Given("clicks on category filter icon")
+    public void clicks_on_category_filter_icon() {
+       CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.categoryFilterIcon);
+       CucumberLogUtils.logScreenshot();
+    }
+
+    /***
+     * This method is used to select Activation Notice and Application File from the list of available documents
+     */
+    @Given("selects Activation Notice and Application File from the category dropdown")
+    public void selects_activation_notice_and_application_file_from_the_category_dropdown() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.activationNoticeCategory);
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.ApplicationFileCategory);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /***
+     * This method is used to click on the search icon to filter the documents
+     */
+    @Given("clicks on search icon")
+    public void clicks_on_search_icon() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.searchIcon);
+    }
+
+    /***
+     * This method is used to verify the filtered documents are displayed
+     */
+    @Then("verifies the filtered documents are displayed")
+    public void verifies_the_filtered_documents_are_displayed() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.getActivationNoticeCategoryText.getText().contains(Egrants_Constants.ACTIVATION_NOTICE), "*** ACTIVATION NOTICE TEXT IS NOT PRESENT ***");
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.getApplicationFileCategoryText.getText().contains(Egrants_Constants.APPLICATION_FILE), "*** APPLICATION FILE TEXT IS NOT PRESENT ***");
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /***
+     * This method is used to click on the Update icon for a document
+     */
+    @Given("clicks on Update icon for a document")
+    public void clicks_on_update_icon_for_an_application_file() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.gearIcon);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /***
+     * This method is used to select year 17 from the Grants dropdown. The user will keep selecting the year until the year is selected
+     */
+    @Given("selects grant year 5P30CA125123-17 from the Grant dropdown")
+    public void selects_grant_year_from_the_grant_dropdown() {
+        Select grantsDropdown = new Select(egrantsSearchandFileManagementScenariosPage.grantsDropdown);
+        boolean isSelected = false;
+        while (!isSelected) {
+            grantsDropdown.selectByVisibleText(Egrants_Constants.YEAR_17);
+            CommonUtils.sleep(3000);
+            String selectedOption = grantsDropdown.getFirstSelectedOption().getText();
+            if (selectedOption.equals(Egrants_Constants.YEAR_17)) {
+                isSelected = true;
+            }
+        }
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /***
+     * This method is used to select the current date
+     */
+    @Given("selects the current date")
+    public void selects_the_current_date() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.calendar);
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.calendar, Egrants_CommonUtils.getCurrentDate());
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.datePicker);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /***
+     * This method is used to click on the Update button to move the document to a different grant year
+     */
+    @Then("clicks on Update button to move the document to a different grant year")
+    public void clicks_on_update_button_to_move_the_document_to_a_different_grant_year() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.updateButton);
+        CucumberLogUtils.logScreenshot();
     }
 }
