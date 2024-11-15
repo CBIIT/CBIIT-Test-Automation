@@ -170,15 +170,15 @@ public class Travel_Request_Portal_Form_StepImpl {
         CucumberLogUtils.playwrightScreenshot(page);
 
         CucumberLogUtils.scenario.log("---- CLICK ON THE MOST TOP RECORD AND CLICK ON OPEN RECORD BUTTON ----");
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("(//*[@class='list_decoration_cell col-small col-center ']//a)[1]").hover();
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("(//*[@class='list_decoration_cell col-small col-center ']//a)[1]").click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
+        page.frameLocator("iframe[name='gsft_main']").locator("(//*[@class='list_decoration_cell col-small col-center ']//a)[1]").hover();
+        page.frameLocator("iframe[name='gsft_main']").locator("(//*[@class='list_decoration_cell col-small col-center ']//a)[1]").click();
+        page.frameLocator("iframe[name='gsft_main']").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
         CucumberLogUtils.playwrightScreenshot(page);
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("#tabs2_section").getByText(Travel_Request_Portal_Form_Constants.VARIABLES_TAB).click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//span[@aria-label='Trip Information']").scrollIntoViewIfNeeded();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Trip Information", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(Travel_Request_Portal_Form_Constants.TRIP_INFORMATION_HEADER_TEXT);
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.HEADING, new FrameLocator.GetByRoleOptions().setName(travelStartDate))).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Variables form section")).containsText(travelStartDate);
+        page.frameLocator("iframe[name='gsft_main']").locator("#tabs2_section").getByText(Travel_Request_Portal_Form_Constants.VARIABLES_TAB).click();
+        page.frameLocator("iframe[name='gsft_main']").locator("//span[@aria-label='Trip Information']").scrollIntoViewIfNeeded();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Trip Information", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(Travel_Request_Portal_Form_Constants.TRIP_INFORMATION_HEADER_TEXT);
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.HEADING, new FrameLocator.GetByRoleOptions().setName(travelStartDate))).isVisible();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Variables form section")).containsText(travelStartDate);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -188,8 +188,8 @@ public class Travel_Request_Portal_Form_StepImpl {
      * @param travelEndDate the value entered for the travel end date
      */
     public static void the_field_will_map_to_the_travel_end_date_in_the_variables_section_of_the_ritm_in_nv(String travelEndDate) {
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.HEADING, new FrameLocator.GetByRoleOptions().setName(travelEndDate))).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Variables form section")).containsText(travelEndDate);
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.HEADING, new FrameLocator.GetByRoleOptions().setName(travelEndDate))).isVisible();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Variables form section")).containsText(travelEndDate);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
