@@ -1,4 +1,4 @@
-package ServiceNow.PlatformBusinessApps.SNOWPROJ.Steps;
+package ServiceNow.PlatformBusinessApps.OCPL_Training.Steps;
 
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;

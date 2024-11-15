@@ -85,6 +85,17 @@ public class Travel_Request_Portal_Form_StepImpl {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("OK").setExact(true)).click();
         page.getByLabel("Show Calendar for Event End").click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("OK").setExact(true)).click();
+
+        CucumberLogUtils.scenario.log("----  EVENT TYPE IS NOW A REQUIRED FIELD ----");
+        page.locator("#sp_grp_checkbox_event_type_label").scrollIntoViewIfNeeded();
+        assertThat(page.locator("#sp_grp_checkbox_event_type_label")).containsText("Event Type");
+        assertThat(page.getByRole(AriaRole.GROUP, new Page.GetByRoleOptions().setName("Mandatory Event Type")).getByLabel("Mandatory")).isVisible();
+        page.getByLabel("Event", new Page.GetByLabelOptions().setExact(true)).getByText("Event Type").click();
+        page.locator("#advisory_board").isVisible();
+        page.getByText("Advisory Board").click();
+
+        CucumberLogUtils.scenario.log("----  REGISTRATION FEE -- A REQUIRED FIELD ----");
+        page.locator("#registration_fees").scrollIntoViewIfNeeded();
         assertThat(page.locator("#registration_fees")).containsText(Travel_Request_Portal_Form_Constants.REGISTRATION_FEES_FIELD_TEXT);
         CommonUtils.sleep(2000);
         page.getByRole(AriaRole.GROUP, new Page.GetByRoleOptions().setName("Registration Fee").setExact(true)).locator("a").click();
@@ -158,7 +169,7 @@ public class Travel_Request_Portal_Form_StepImpl {
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Travel Requests")).click();
         CucumberLogUtils.playwrightScreenshot(page);
 
-        //click on the most top record and click on open record button
+        CucumberLogUtils.scenario.log("---- CLICK ON THE MOST TOP RECORD AND CLICK ON OPEN RECORD BUTTON ----");
         page.frameLocator("iframe[name=\"gsft_main\"]").locator("(//*[@class='list_decoration_cell col-small col-center ']//a)[1]").hover();
         page.frameLocator("iframe[name=\"gsft_main\"]").locator("(//*[@class='list_decoration_cell col-small col-center ']//a)[1]").click();
         page.frameLocator("iframe[name=\"gsft_main\"]").locator("//*[@class='btn btn-sm btn-default pop-over-button pull-right']").click();
