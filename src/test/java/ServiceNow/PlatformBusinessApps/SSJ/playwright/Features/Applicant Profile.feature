@@ -225,7 +225,7 @@ Would you like to log in now or go back to the home page?
     And verifies that the text on the buttons is "Create an account" "Log in" "Go Back"
     And clicks "Log in" and is redirected to the Okta Login Portal
 
-  @TC_APPTRACK-128 @JUAREZDS @Regression_FIX @playwright @SNOW_UPDATED
+  @TC_APPTRACK-128 @JUAREZDS @Regression @playwright @SNOW_UPDATED
   Scenario Outline: Verification of the Save application functionality
     Given a test account "SSJTest" is reset before executing a test
     And a test vacancy "DIEGO TEST" is reset before creating a vacancy
