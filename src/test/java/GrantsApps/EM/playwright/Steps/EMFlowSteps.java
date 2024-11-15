@@ -1,11 +1,17 @@
 package GrantsApps.EM.playwright.Steps;
 
 import GrantsApps.EM.playwright.StepsImplementation.EM_Steps_Implementation;
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
+
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class EMFlowSteps {
@@ -130,10 +136,62 @@ public class EMFlowSteps {
         page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("All")).click();
     }
 
+    @Then("user is on Manage I2E Users page")
+    public void user_is_on_manage_i2e_users_page() {
+        CucumberLogUtils.playwrightScreenshot(page);
+        Assert.assertEquals(page.url(), "https://i2e-test.nci.nih.gov/em/#/search");
+    }
+
     @Then("{string} option contains the description expected {string}")
     public void option_contains_the_description_expected(String optionHeader, String expectedOptionText) {
         EM_Steps_Implementation.option_contains_the_description_expected(optionHeader, expectedOptionText);
     }
+
+    @Then("verifies NIH IMPAC II hyperlink")
+    public void verifies_nih_impac_ii_hyperlink() {
+        String actualLink = page.locator("//a[@title='National Cancer Institute IMPAC II Extension Suite (I2E)']").getAttribute("href");
+        CucumberLogUtils.playwrightScreenshot(page);
+        Assert.assertEquals(actualLink, "https://i2e.nci.nih.gov/");
+    }
+
+    @Then("verifies Workbench hyperlink")
+    public void verifies_workbench_hyperlink() {
+        String actualLink = page.locator("//a[normalize-space()='Workbench']").getAttribute("href");
+        CucumberLogUtils.playwrightScreenshot(page);
+        Assert.assertEquals(actualLink, "https://i2e-test.nci.nih.gov/workbench/WorkbenchView");
+    }
+
+    @Then("verifies IMPAC II hyperlink")
+    public void verifies_impac_ii_hyperlink() {
+        String actualLink = page.locator("//a[@class='nav-link'][normalize-space()='IMPAC II']").getAttribute("href");
+        CucumberLogUtils.playwrightScreenshot(page);
+        Assert.assertEquals(actualLink, "https://inside.era.nih.gov/index.htm");
+    }
+
+    @Then("verifies that the Other Modules dropdown contains PD Assignment option")
+    public void verifies_that_the_other_modules_dropdown_contains_pd_assignment_option() {
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Other Modules")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.getByLabel("Other Modules").getByRole(AriaRole.LINK)).containsText("PD Assignment");
+    }
+
+    @Then("verifies that the Help dropDown has the following options User Guide, Video Tutorials and Release Notes")
+    public void verifies_that_the_help_drop_down_has_the_following_options_user_guide_video_tutorials_and_release_notes() {
+        page.getByText("Help").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.getByLabel("Help")).containsText("User Guide");
+        assertThat(page.getByLabel("Help")).containsText("Video Tutorials");
+        assertThat(page.getByLabel("Help")).containsText("Release Notes");
+    }
+
+    @Then("verifies that Contact contains Email Technical support and Email business policy questions")
+    public void verifies_that_contact_contains_email_technical_support_and_email_business_policy_questions() {
+        page.getByText("Contact").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.getByLabel("Contact")).containsText("Email Technical Support");
+        assertThat(page.getByLabel("Contact")).containsText("Email Business Policy Questions");
+    }
+
 
     @When("user selects Administrative option")
     public void user_selects_administrative_option() {
@@ -183,5 +241,58 @@ public class EMFlowSteps {
     @Then("user can verify NIH motto {string}")
     public void user_can_verify_nih_motto(String nihMottoText) {
         EM_Steps_Implementation.user_can_verify_nih_motto(nihMottoText);
+    }
+
+    @Then("clicks on the Show Advanced Filters link")
+    public void clicks_on_the_show_advanced_filters_link() {
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(" Show Advanced Filters")).click();
+    }
+
+    @Then("selects Deactivated in ITwoE Account Status dropdown list")
+    public void selects_deactivated_in_i_two_e_account_status_dropdown_list() {
+        page.locator("app-i2e-account-status").getByRole(AriaRole.LIST).click();
+        assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Deactivated"))).isVisible();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Deactivated")).click();
+    }
+
+    @Then("clicks on the Search")
+    public void clicks_on_the_search() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Search")).click();
+    }
+
+    String name;
+
+    @Then("views the first record")
+    public void views_the_first_record() {
+        page.waitForSelector("(//div[contains(@class,'ng-star-inserted')])[1]");
+        name = page.locator("(//div[contains(@class,'ng-star-inserted')])[1]").innerText();
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.getByRole(AriaRole.ROW, new Page.GetByRoleOptions().setName(name)).getByRole(AriaRole.BUTTON).click();
+    }
+
+    @Then("verifies that the page title is View Account")
+    public void verifies_that_the_page_title_is_view_account() {
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.locator("h3")).containsText("View Account");
+    }
+
+    @Then("verifies the account full name")
+    public void verifies_the_account_full_name() {
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.locator("app-user-information")).containsText(name);
+    }
+
+    @Then("User can verify the respective wording of Full Name tooltip")
+    public void user_can_verify_the_respective_wording_of_full_name_tooltip() {
+        page.locator("app-user-information").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+        String actualText = page.getByText("Legal Name is always").innerText();
+        Assert.assertEquals(actualText, "Legal Name is always displayed first, followed by Preferred Name.");
+    }
+
+    @Then("verifies that Account Status is displayed as Deactivated")
+    public void verifies_that_account_status_is_displayed_as_deactivated() {
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.locator("app-i2e-account-information")).containsText("Account Status: Deactivated");
     }
 }

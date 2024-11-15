@@ -1,9 +1,9 @@
-name: CHARMS - Fanconi Regression
+name: PLATFORM BUSINESS - TRAVEL Regression
 
 on:
   schedule:
-    # This corresponds to 8:15 AM EDT (1:15 AM UTC) from Monday to Friday
-    - cron: '15 13 * * MON-FRI'
+    # This corresponds to 3:00 PM EST (8:00 PM UTC) from Monday to Friday
+    - cron: '0 20 * * MON-FRI'
   workflow_dispatch:
     inputs:
       testBrowser:
@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="ServiceNow.CHARMS.Runners.Run_CHARMS_Fanconi_Regression_Test" test
+        run: mvn -B -q -Dtest="ServiceNow.PlatformBusinessApps.SNOW_TRAVEL.Travel_Runners.Run_TRAVEL_PW_Regression_Test" test
         continue-on-error: true
 
       - name: Generate timestamp
@@ -33,14 +33,14 @@ jobs:
           Add-Content -Path $env:GITHUB_ENV -Value "timestamp=$timestamp"
       - name: Determine report path
         id: reportpath
-        run: echo "path=fanconi-regression-reports" >> $GITHUB_ENV
+        run: echo "path=travel-regression-reports" >> $GITHUB_ENV
 
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: CHARMS-FANCONI-REGRESSION-${{ env.timestamp }}
-          path: target/fanconi-regression-reports/*
+          name: TRAVEL-REGRESSION-${{ env.timestamp }}
+          path: target/travel-regression-reports/*
 
       - name: Upload to SharePoint
         shell: powershell
@@ -48,7 +48,7 @@ jobs:
           $Env:PATH = "C:\Users\juarezds\AppData\Local\Programs\Python\Python312;$Env:PATH"
           python $Env:GITHUB_WORKSPACE\.github\scripts\upload_to_sharepoint.py
         env:
-          FILES_PATH: target/fanconi-regression-reports/*
+          FILES_PATH: target/travel-regression-reports/*
           SHAREPOINT_SITE_ID: ${{ secrets.SHAREPOINT_SITE_ID }}
           SHAREPOINT_DRIVE_ID: ${{ secrets.SHAREPOINT_DRIVE_ID }}
           tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}

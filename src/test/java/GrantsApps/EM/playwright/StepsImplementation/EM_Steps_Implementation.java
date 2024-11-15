@@ -3,6 +3,7 @@ package GrantsApps.EM.playwright.StepsImplementation;
 import GrantsApps.EM.playwright.Pages.EM_Page;
 import GrantsApps.EM.playwright.Pages.ITrust_Page;
 import appsCommon.Pages.Playwright_Common_Locators;
+import appsCommon.Pages.Selenium_Common_Locators;
 import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Locator;
@@ -398,7 +399,7 @@ public class EM_Steps_Implementation {
     public static void user_can_verify_business_area_dropdown_tool_tip_text(String toolTipText) {
         page.locator("label").filter(new Locator.FilterOptions().setHasText("Business Area")).locator("a").click();
         CucumberLogUtils.playwrightScreenshot(page);
-        assertThat(page.locator("#ngb-tooltip-386")).containsText(toolTipText);
+        assertThat(page.locator("//div[@class='tooltip-inner']")).containsText(toolTipText);
     }
 
     /**
