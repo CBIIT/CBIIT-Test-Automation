@@ -9,7 +9,6 @@ import io.restassured.response.Response;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +32,7 @@ public class JPSurvHomePageStepImp extends PageInitializer {
 	}
 
 	/**
-	 * VERIFY THE RESPONSE IS 200
+	 * VERIFY THE RESPONSE FOR POST API WITH BODY IS 200
 	 *
 	 * @param body
 	 */
@@ -45,7 +44,7 @@ public class JPSurvHomePageStepImp extends PageInitializer {
 	}
 
 	/**
-	 * VERIFY THE RESPONSE IS 200
+	 * VERIFY THE RESPONSE FOR EXPORT API IS 200
 	 */
 	public static void sendGetRequestForExport() {
 		Response response = rest.getRequestWithoutResourceUrl();
@@ -55,7 +54,7 @@ public class JPSurvHomePageStepImp extends PageInitializer {
 	}
 
 	/**
-	 * VERIFY THE RESPONSE IS 200
+	 * VERIFY THE RESPONSE WITH HEADER IN THE API IS 200
 	 *
 	 * @param body
 	 */
@@ -110,7 +109,6 @@ public class JPSurvHomePageStepImp extends PageInitializer {
 				for (Map<String, Object> innerMap : innerList) {
 				int startYear = (int) innerMap.get("start.year");
 				int endYear = (int) innerMap.get("end.year");
-
 				Assert.assertEquals( 1, startYear);
 				Assert.assertEquals( 4, endYear);}
 			}

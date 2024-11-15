@@ -1,12 +1,12 @@
 Feature: JPSurvHomePage Api Test features
 
-  @satya @Smoke @Regression @playwright
+  @satya @Smoke @Regression @playwright @NCIATWP-4351
   Scenario: Verify user is able to submit data through the request
     Given User is able to set the env for submitting data request
     Then User is able to send post request and receive valid response back on submitting of data
     Then Verify response of the API is submitted
 
-  @satya @Smoke @Regression @playwright @NCIATWP-4351
+  @satya @Smoke @Regression @playwright @NCIATWP-1699
   Scenario: Verify user is able to export data through the request
     Given User is able to set the env for exporting data request
     Then User is able to send get request and receive valid response back on exporting of data
