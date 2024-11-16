@@ -761,8 +761,8 @@ public class RAS_All_Steps extends PageInitializer {
      * @param firstName             The first name of the participant to be entered in the form.
      * @param lastName              The last name of the participant to be entered in the form.
      */
-    @Given("Study Team member clicks Add New Participant and completes the form with:  FSID {string}, Study {string}, Relationship to Proband {string}, First Name {string}, Last Name {string}")
-    public void study_team_member_clicks_add_new_participant_and_completes_the_form(String existingFSID, String study, String relationshipToProband, String firstName, String lastName) {
+    @Given("Study Team member clicks Add New Participant and completes the form with:  FSID {string}, Study {string}, Study Subcategory {string}, Relationship to Proband {string}, First Name {string}, Last Name {string}")
+    public void study_team_member_clicks_add_new_participant_and_completes_the_form(String existingFSID, String study, String studySubcategory, String relationshipToProband, String firstName, String lastName) {
         CommonUtils.waitForClickability(nativeViewCHARMSDashboardPage.nativeViewAddNewParticipantButton);
         nativeViewCHARMSDashboardPage.nativeViewAddNewParticipantButton.click();
         CucumberLogUtils.logScreenshot();
@@ -779,7 +779,7 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.sleep(800);
         CommonUtils.clickOnElement(nativeViewCHARMSAddNewParticipantPage.unlockStudySubcategoryButton);
         CommonUtils.waitForClickability(nativeViewCHARMSAddNewParticipantPage.studySubcategoryTextbox);
-        CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studySubcategoryTextbox, "All");
+        CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studySubcategoryTextbox, studySubcategory);
         CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studySubcategoryTextbox, Keys.ENTER);
         nativeViewCHARMSAddNewParticipantPage.lockStudySubcategoryButton.click();
         CommonUtils.sleep(800);
@@ -803,10 +803,13 @@ public class RAS_All_Steps extends PageInitializer {
             softAssert.assertEquals(nativeViewCHARMSAddNewParticipantPage.subjectNameTextBox.getAttribute("value"), "");
             CucumberLogUtils.logScreenshot();
         } else {
+            CucumberLogUtils.scenario.log("* * * * VERIFYING FSID * * * *");
             CommonUtils.waitForVisibility(nativeViewCHARMSAddNewParticipantPage.familyIDTextBox);
             softAssert.assertEquals(nativeViewCHARMSAddNewParticipantPage.subjectIDTextBox.getAttribute("value").split("-")[0], nativeViewCHARMSAddNewParticipantPage.familyIDTextBox.getAttribute("value"));
             CucumberLogUtils.logScreenshot();
         }
+        softAssert.assertEquals(nativeViewCHARMSAddNewParticipantPage.selectedStudyNonEditText.getText(), study);
+        softAssert.assertEquals(nativeViewCHARMSAddNewParticipantPage.selectedStudySubcategoryNonEditText.getText(), studySubcategory);
     }
 
     /**

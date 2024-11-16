@@ -11,6 +11,8 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.ThreadLocalRandom;
@@ -407,5 +409,17 @@ public class RAS_Common_Methods extends PageInitializer {
      */
     public static void randomSleepInterval(int min, int max) {
         CommonUtils.sleep(ThreadLocalRandom.current().nextInt(min, max + 1));
+    }
+
+    /**
+     * Uses softAssert to verify that the expected dropdown value is selected.
+     *
+     * @param element The WebElement representing the dropdown element.
+     * @param expectedValue The expected value that should be selected in the dropdown.
+     * @param message The message to be displayed in case of assertion failure.
+     */
+    public static void softAssertDropDownValueIsSelected(WebElement element, String expectedValue, String message) {
+        Select select = new Select(element);
+        softAssert.assertEquals(select.getFirstSelectedOption().getText(), expectedValue, message);
     }
 }

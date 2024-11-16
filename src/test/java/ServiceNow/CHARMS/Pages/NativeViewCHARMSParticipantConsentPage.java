@@ -26,6 +26,12 @@ public class NativeViewCHARMSParticipantConsentPage {
     public WebElement rasStudyConsentDateCalendar;
 
     /**
+     * Consent Date Textbox
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_fcsms_consent.consent_date']")
+    public WebElement rasStudyConsentDateTextBox;
+
+    /**
      * Native View Ras Study Consent version Calendar
      */
     @FindBy(xpath = "//*[@id='element.x_naci_family_coho_fcsms_consent.consent_version']//child::div[2]//child::span[1]//child::span[1]//child::a")
@@ -60,6 +66,12 @@ public class NativeViewCHARMSParticipantConsentPage {
      */
     @FindBy(xpath = "//select[@name='x_naci_family_coho_fcsms_consent.status']")
     public WebElement rasStudyConsentStatusTextBox;
+
+    /**
+     * Was verbal assent obtained? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_fcsms_consent.was_verbal_assent_obtained']")
+    public WebElement rasStudyConsentWasVerbalAssentObtainedDropDown;
 
     /**
      * Native View Ras Study Consent By Text Box
@@ -118,7 +130,7 @@ public class NativeViewCHARMSParticipantConsentPage {
     /**
      * Native View Ras Study Consent/Assent Status Drop Down
      */
-    @FindBy(xpath = "//*[@id='x_naci_family_coho_fcsms_consent.participant_response']")
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_fcsms_consent.participant_response']")
     public WebElement rasStudyConsentConsentAssentStatusDropDown;
 
     /**
@@ -198,6 +210,12 @@ public class NativeViewCHARMSParticipantConsentPage {
      */
     @FindBy(xpath = "//input[@id='ni.x_naci_family_coho_fcsms_consent.assent_signed']")
     public WebElement rasStudyHiddenAssentSignedInput;
+
+    /**
+     *  Age-appropriate assent obtained? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_fcsms_consent.assent_status']")
+    public WebElement ageAppropriateAssentObtainedDropDown;
 
     /**
      * Native View Ras Study Interpreter Used? drop down
