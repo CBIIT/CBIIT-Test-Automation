@@ -9,13 +9,17 @@ import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import static Hooks.Hooks.softAssert;
 import static ServiceNow.CHARMS.Pages.MyRASHomePage.dynamicModuleLocator;
 import static ServiceNow.CHARMS.Steps.RAS_Common_Methods.*;
@@ -387,12 +391,10 @@ public class RAS_All_Steps extends PageInitializer {
      * @param consentType                              the expected type of the consent
      * @param responseType                             the expected response type of the consent
      * @param parentGuardianStatus                     the status of the parent/guardian for the consent
-     * @param numberOfGuardianSignaturesRequired       the number of guardian signatures required for the consent
-     * @param numberOfParentGuardianSignaturesReceived the number of parent/guardian signatures received for the consent
      */
-    @Then("Study Team member logs in to Native View and completes consent call {string}, {string}, {string}, {string}, {string}, {string}")
-    public void study_team_member_logs_in_to_native_view_and_completes_consent_call(String sheetName, String consentType, String responseType, String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
-        nativeViewConsentAssentFlowProcess(sheetName, consentType, responseType, parentGuardianStatus, numberOfGuardianSignaturesRequired, numberOfParentGuardianSignaturesReceived);
+    @Then("Study Team member logs in to Native View and completes consent call {string}, {string}, {string}, {string}")
+    public void study_team_member_logs_in_to_native_view_and_completes_consent_call(String sheetName, String consentType, String responseType, String parentGuardianStatus) {
+        nativeViewConsentAssentFlowProcess(sheetName, consentType, responseType, parentGuardianStatus);
     }
 
     /**
@@ -588,13 +590,13 @@ public class RAS_All_Steps extends PageInitializer {
         if (!ras_NV_Consent_Record_TestDataManager.CONSENT_TYPE.isEmpty()) {
 
         }
-        if (!ras_NV_Consent_Record_TestDataManager.PARENT_GUARDIAN_STATUS.isEmpty()) {
-
-        }
         if (!ras_NV_Consent_Record_TestDataManager.LEGAL_DOCUMENTATION_RECEIVED.isEmpty()) {
 
         }
         if (!ras_NV_Consent_Record_TestDataManager.NOT_DEVELOPMENTALLY_ABLE_TO_GIVE_ASSENT.isEmpty()) {
+
+        }
+        if (!ras_NV_Consent_Record_TestDataManager.PARENT_GUARDIAN_STATUS.isEmpty()) {
 
         }
         if (!ras_NV_Consent_Record_TestDataManager.PARENT_GUARDIAN_1_SIGNED.isEmpty()) {
@@ -604,13 +606,28 @@ public class RAS_All_Steps extends PageInitializer {
 
         }
         if (!ras_NV_Consent_Record_TestDataManager.NUMBER_OF_LARS.isEmpty()) {
-
+            CucumberLogUtils.scenario.log("* * * * * NUMBER OF LARS: " + ras_NV_Consent_Record_TestDataManager.NUMBER_OF_LARS + "* * * * *");
+            CommonUtils.selectDropDownValue(ras_NV_Consent_Record_TestDataManager.NUMBER_OF_LARS, nativeViewCHARMSParticipantConsentPage.numberOfLARsDropDown);
         }
         if (!ras_NV_Consent_Record_TestDataManager.LAR_1_SIGNED.isEmpty()) {
-
+            CucumberLogUtils.scenario.log("* * * * * LAR 1 SIGNED: " + ras_NV_Consent_Record_TestDataManager.LAR_1_SIGNED + "* * * * *");
+            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.lar1SignedDropDown);
+            CommonUtils.selectDropDownValue(ras_NV_Consent_Record_TestDataManager.LAR_1_SIGNED, nativeViewCHARMSParticipantConsentPage.lar1SignedDropDown);
+        }
+        if (!ras_NV_Consent_Record_TestDataManager.LAR_1_NAME.isEmpty()) {
+            CucumberLogUtils.scenario.log("* * * * * LAR 1 NAME: " + ras_NV_Consent_Record_TestDataManager.LAR_1_NAME + "* * * * *");
+            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.lar1NameTextField);
+            nativeViewCHARMSParticipantConsentPage.lar1NameTextField.sendKeys(ras_NV_Consent_Record_TestDataManager.LAR_1_NAME);
         }
         if (!ras_NV_Consent_Record_TestDataManager.LAR_2_SIGNED.isEmpty()) {
-
+            CucumberLogUtils.scenario.log("* * * * * LAR 2 SIGNED: " + ras_NV_Consent_Record_TestDataManager.LAR_2_SIGNED + "* * * * *");
+            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.lar2SignedDropDown);
+            CommonUtils.selectDropDownValue(ras_NV_Consent_Record_TestDataManager.LAR_2_SIGNED, nativeViewCHARMSParticipantConsentPage.lar2SignedDropDown);
+        }
+        if (!ras_NV_Consent_Record_TestDataManager.LAR_2_NAME.isEmpty()) {
+            CucumberLogUtils.scenario.log("* * * * * LAR 2 NAME: " + ras_NV_Consent_Record_TestDataManager.LAR_2_NAME + "* * * * *");
+            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.lar2NameTextField);
+            nativeViewCHARMSParticipantConsentPage.lar1NameTextField.sendKeys(ras_NV_Consent_Record_TestDataManager.LAR_2_NAME);
         }
         if (!ras_NV_Consent_Record_TestDataManager.ASSIGNED_TO.isEmpty()) {
 
@@ -758,6 +775,14 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.waitForClickability(nativeViewCHARMSAddNewParticipantPage.studiesTextBox);
         CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studiesTextBox, study);
         CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studiesTextBox, Keys.ENTER);
+        nativeViewCHARMSAddNewParticipantPage.lockStudiesButton.click();
+        CommonUtils.sleep(800);
+        CommonUtils.clickOnElement(nativeViewCHARMSAddNewParticipantPage.unlockStudySubcategoryButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSAddNewParticipantPage.studySubcategoryTextbox);
+        CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studySubcategoryTextbox, "All");
+        CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studySubcategoryTextbox, Keys.ENTER);
+        nativeViewCHARMSAddNewParticipantPage.lockStudySubcategoryButton.click();
+        CommonUtils.sleep(800);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(nativeViewCHARMSAddNewParticipantPage.relationshipToProbandDropdown);
         CommonUtils.selectDropDownValue(relationshipToProband, nativeViewCHARMSAddNewParticipantPage.relationshipToProbandDropdown);
@@ -891,10 +916,10 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * Method to navigate to Participant Study in Native View.
+     * Navigates to the Participant Studies section in Native View Participant Details.
      */
-    @Given("Study Team member navigates to Participant Study")
-    public void study_team_member_navigates_to_participant_study() {
+    @Given("Study Team member navigates to Participant Studies")
+    public void study_team_member_navigates_to_participant_studies() {
         CommonUtils.sleep(2000);
         String participantName = locateByXpath("//input[@aria-label='Name']").getAttribute("value");
         JavascriptUtils.scrollIntoView(nativeViewCHARMSAddNewParticipantPage.participantStudiesTab);
@@ -907,6 +932,7 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.sleep(200);
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(800);
     }
 
     /**
@@ -917,29 +943,225 @@ public class RAS_All_Steps extends PageInitializer {
     @Then("Study Team member creates a new Subject Flags and verifies that the field IBMFS Affected Status displays if the {string} is Fanconi or Bone Marrow Failure Syndrome")
     public void study_team_member_creates_a_new_subject_flags_and_verifies_that_the_field_ibmfs_affected_status_displays_if_the_is_fanconi_or_bone_marrow_failure_syndrome(String study) {
         CommonUtils.sleep(800);
+        String participantName = locateByXpath("//input[@aria-labelledby='label.x_naci_family_coho_participant_study.participant']").getAttribute("value");
         JavascriptUtils.scrollIntoView(locateByXpath("//span[@class='tab_caption_text'][normalize-space()='Subject Flags']"));
         JavascriptUtils.clickByJS(locateByXpath("//span[@class='tab_caption_text'][normalize-space()='Subject Flags']"));
         JavascriptUtils.clickByJS(locateByXpath("//div[@aria-label='Subject Flags, filtering toolbar']//button[@value='sysverb_new'][normalize-space()='New']"));
-        CommonUtils.sendKeys(nativeViewCHARMSSubjectFlagsPage.subjectFlagsParticipantTextBox, Keys.ENTER);
+        locateByXpath("//button[@aria-label='Look up value for field: Participant']").click();
+        CommonUtils.sleep(1000);
+        CommonUtils.switchToAnotherTabWindow();
+        locateByXpath("//input[@aria-label='Search']").sendKeys(participantName);
+        CommonUtils.sleep(800);
+        locateByXpath("//a[@role='button'][normalize-space()='" + participantName + "']").click();
+        CommonUtils.switchToNextWindow();
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(800);
         if (study.equalsIgnoreCase("Fanconi") || study.equalsIgnoreCase("Bone Marrow Failure Syndrome")) {
-            CommonUtils.waitForVisibility(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusText);
-            softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusText.getText(), "IBMFS Affected Status");
+            CommonUtils.waitForVisibility(nativeViewCHARMSSubjectFlagsPage.IBMFSAffectedStatusText);
+            softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.IBMFSAffectedStatusText.getText(), "IBMFS Affected Status");
             softAssert.assertTrue(locateByXpath("//span[@id='status.x_naci_family_coho_subject_flag.ibmfs_affected_status']").getAttribute("data-dynamic-title").equals("Mandatory - must be populated before Submit"));
-            softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusDropDown.getAttribute("aria-required"), "true", "* * * * * ERROR: IBMFS Affected Status dropdown is not displayed. * * * * *");
-            nativeViewCHARMSSubjectFlagsPage.subjectFlagsSaveButton.click();
-            CommonUtils.waitForVisibility(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusNotFilledInErrorText);
-            softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusNotFilledInErrorText.getText(), "The following mandatory fields are not filled in: IBMFS Affected Status");
+            softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.IBMFSAffectedStatusDropDown.getAttribute("aria-required"), "true", "* * * * * ERROR: IBMFS Affected Status dropdown is not displayed. * * * * *");
+            nativeViewCHARMSSubjectFlagsPage.saveButton.click();
+            CommonUtils.waitForVisibility(nativeViewCHARMSSubjectFlagsPage.IBMFSAffectedStatusNotFilledInErrorText);
+            softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.IBMFSAffectedStatusNotFilledInErrorText.getText(), "The following mandatory fields are not filled in: IBMFS Affected Status");
         } else {
             softAssert.assertTrue(locateByXpath("//span[@id='status.x_naci_family_coho_subject_flag.ibmfs_affected_status']").getAttribute("data-dynamic-title").equals(""));
-            softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.subjectFlagsIBMFSAffectedStatusDropDown.getAttribute("aria-required"), "false", "* * * * * ERROR: IBMFS Affected Status dropdown should NOT display for this study. * * * *");
+            softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.IBMFSAffectedStatusDropDown.getAttribute("aria-required"), "false", "* * * * * ERROR: IBMFS Affected Status dropdown should NOT display for this study. * * * *");
         }
         CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(nativeViewCHARMSSubjectFlagsPage.subjectFlagsPreviewRecordForFieldStudyButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSSubjectFlagsPage.previewRecordForFieldStudyButton);
         CommonUtils.sleep(500);
         CommonUtils.waitForVisibility(locateByXpath("//input[@id='sys_readonly.x_naci_family_coho_mock_up_study.study_name']"));
         softAssert.assertEquals(locateByXpath("//input[@id='sys_readonly.x_naci_family_coho_mock_up_study.study_name']").getAttribute("value"), study);
         CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Study Team member creates a new Subject Flags with the values: Study and Participation Status.
+     *
+     * @param study               The study value to be set for the Subject Flags.
+     * @param participationStatus The participation status value to be set for the Subject Flags.
+     */
+    @Then("Study Team member creates a new Subject Flags with the values: Study {string}, Participation Status {string}, Hold Non-Participation Date {string}")
+    public void study_team_member_creates_a_new_subject_flags(String study, String participationStatus, String holdNonParticipationDate) {
+        String participantName = locateByXpath("//input[@aria-labelledby='label.x_naci_family_coho_participant_study.participant']").getAttribute("value");
+        JavascriptUtils.scrollIntoView(locateByXpath("//span[@class='tab_caption_text'][contains(text(), 'Subject Flags')]"));
+        JavascriptUtils.clickByJS(locateByXpath("//span[@class='tab_caption_text'][contains(text(), 'Subject Flags')]"));
+        JavascriptUtils.clickByJS(locateByXpath("//div[@aria-label='Subject Flags, filtering toolbar']//button[@value='sysverb_new'][normalize-space()='New']"));
+        CommonUtils.sleep(800);
+        CommonUtils.sendKeys(nativeViewCHARMSSubjectFlagsPage.studyTextbox, study);
+        locateByXpath("//button[@aria-label='Look up value for field: Participant']").click();
+        CommonUtils.sleep(1000);
+        CommonUtils.switchToAnotherTabWindow();
+        locateByXpath("//input[@aria-label='Search']").sendKeys(participantName);
+        CommonUtils.sleep(800);
+        locateByXpath("//a[@role='button'][normalize-space()='" + participantName + "']").click();
+        CommonUtils.switchToNextWindow();
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(800);
+        CommonUtils.waitForClickability(nativeViewCHARMSSubjectFlagsPage.participationStatusDropdown);
+        CommonUtils.selectDropDownValue(participationStatus, nativeViewCHARMSSubjectFlagsPage.participationStatusDropdown);
+        if (participationStatus.equals("Hold")) {
+            CommonUtils.waitForVisibility(nativeViewCHARMSSubjectFlagsPage.holdReasonTextbox);
+            nativeViewCHARMSSubjectFlagsPage.holdReasonTextbox.sendKeys("Hold reason test.");
+            nativeViewCHARMSSubjectFlagsPage.holdNonParticipationDateCalendar.click();
+            CommonUtils.sleep(500);
+            if (holdNonParticipationDate.equals("Today")) {
+                nativeViewCHARMSSubjectFlagsPage.goToTodayCalendarButton.click();
+            } else {
+                CommonUtils.sleep(500);
+                locateByXpath("//a[@class='calOtherMonthDateAnchor'][text()='1']").click();
+            }
+        } else if (participationStatus.equals("Not Participating")) {
+            CommonUtils.selectDropDownValue("Other Reason", nativeViewCHARMSSubjectFlagsPage.nonParticipationReasonDropdown);
+            CommonUtils.waitForVisibility(nativeViewCHARMSSubjectFlagsPage.otherReasonTextbox);
+            nativeViewCHARMSSubjectFlagsPage.otherReasonTextbox.sendKeys("Other reason test.");
+            nativeViewCHARMSSubjectFlagsPage.holdNonParticipationDateCalendar.click();
+            CommonUtils.sleep(500);
+            if (holdNonParticipationDate.equals("Today")) {
+                nativeViewCHARMSSubjectFlagsPage.goToTodayCalendarButton.click();
+            } else {
+                CommonUtils.sleep(500);
+                locateByXpath("//a[@class='calOtherMonthDateAnchor'][text()='1']").click();
+            }
+        }
+        CommonUtils.selectDropDownValue("Adult", nativeViewCHARMSSubjectFlagsPage.ageGroupDropdown);
+        CucumberLogUtils.logScreenshot();
+        nativeViewCHARMSSubjectFlagsPage.submitButton.click();
+        CommonUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.scrollIntoView(locateByXpath("//span[@class='tab_caption_text'][contains(text(), 'Subject Flags')]"));
+        ((JavascriptExecutor) WebDriverUtils.webDriver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'end'});", locateByXpath("//i[@aria-label='Hold/Non-Participation Date column options']"));
+        CommonUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Study Team syncs fields in Subject Flags and verifies their values based on the provided parameters.
+     *
+     * @param expectedParticipantName           The expected participant name for verification.
+     * @param expectedStudy                     The expected study for verification.
+     * @param expectedParticipationStatus1      The expected participation status for the first row in verification.
+     * @param expectedParticipationStatus2      The expected participation status for the second row in verification.
+     * @param expectedHoldNonParticipationDate1 The expected hold non-participation date for the first row in verification.
+     * @param expectedHoldNonParticipationDate2 The expected hold non-participation date for the second row in verification.
+     */
+    @Then("Study Team syncs fields and verifies their values: Participant Name {string}, Study {string}, Participation Status {string} {string}, Hold Non-Participation Date {string} {string}")
+    public void study_team_syncs_fields_and_verifies_their_values(String expectedParticipantName, String expectedStudy, String expectedParticipationStatus1, String expectedParticipationStatus2, String expectedHoldNonParticipationDate1, String expectedHoldNonParticipationDate2) {
+        WebDriverUtils.webDriver.navigate().refresh();
+        CommonUtils.sleep(2000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.scrollIntoView(locateByXpath("//span[@role='tab']/span[contains(text(), 'Subject Flags')]"));
+        JavascriptUtils.clickByJS(locateByXpath("//span[@role='tab']/span[contains(text(), 'Subject Flags')]"));
+        CommonUtils.sleep(800);
+        CucumberLogUtils.logScreenshot();
+        verifySubjectFlagsColumns();
+        ((JavascriptExecutor) WebDriverUtils.webDriver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'end'});", locateByXpath("//i[@aria-label='Hold/Non-Participation Date column options']"));
+        CommonUtils.sleep(800);
+        CucumberLogUtils.logScreenshot();
+        String sf1Row = locateByXpath("//a[normalize-space()='" + expectedParticipationStatus1 + "']/parent::td/parent::tr").getAttribute("class");
+        String sf2Row = locateByXpath("//a[normalize-space()='" + expectedParticipationStatus2 + "']/parent::td/parent::tr").getAttribute("class");
+        locateByXpath("//tr[@class='" + sf1Row + "']//a[@aria-label='Open record: " + expectedParticipantName + "'][normalize-space()='" + expectedParticipantName + "']");
+        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='" + expectedParticipationStatus1 + "']/parent::td/preceding-sibling::td[3]/a[@aria-label='Preview record: " + expectedParticipantName + "']"));
+        CommonUtils.sleep(1000);
+        locateByXpath("//a[normalize-space()='Open Record']").click();
+        CommonUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        nativeViewCHARMSSubjectFlagsPage.syncUpdatesToRelatedRecordsButton.click();
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForClickability(nativeViewCHARMSSubjectFlagsPage.alertYesContinueButton);
+        softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.syncUpdatesToRelatedRecordsAlertText.getText(), "This action will sync subject flags across all CGB study records associated with this individual. Do you wish to continue?");
+        softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.alertNoCancelButton.getText(), "No, cancel");
+        softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.alertYesContinueButton.getText(), "Yes, continue");
+        nativeViewCHARMSSubjectFlagsPage.alertYesContinueButton.click();
+        CommonUtils.sleep(500);
+        softAssert.assertTrue(nativeViewCHARMSSubjectFlagsPage.syncCompletedMessage.isDisplayed());
+        softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.syncCompletedMessage.getText(), "Response recieved from server:Sync completed!");
+        softAssert.assertTrue(nativeViewCHARMSSubjectFlagsPage.syncCompleteForRelatedSubjectFlagRecordsMessage.isDisplayed());
+        softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.syncCompleteForRelatedSubjectFlagRecordsMessage.getText(), "Sync complete for related subject flag records!");
+        CucumberLogUtils.logScreenshot();
+        nativeViewCHARMSSubjectFlagsPage.backButton.click();
+        JavascriptUtils.scrollIntoView(locateByXpath("//span[@class='tab_caption_text'][contains(text(), 'Subject Flags')]"));
+        JavascriptUtils.clickByJS(locateByXpath("//span[@class='tab_caption_text'][contains(text(), 'Subject Flags')]"));
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.scenario.log("* * * * SUBJECT FLAGS: VERIFYING STUDY AFTER SYNC * * * *");
+        softAssert.assertEquals(locateByXpath("//tr[@class='" + sf1Row + "']//td[3]").getText(), expectedStudy);
+        softAssert.assertEquals(locateByXpath("//tr[@class='" + sf2Row + "']//td[3]").getText(), expectedStudy);
+        CucumberLogUtils.scenario.log("* * * * SUBJECT FLAGS: VERIFYING PARTICIPANT NAME AFTER SYNC  * * * *");
+        softAssert.assertEquals(locateByXpath("//tr[@class='" + sf1Row + "']//td[4]").getText(), expectedParticipantName);
+        softAssert.assertEquals(locateByXpath("//tr[@class='" + sf2Row + "']//td[4]").getText(), expectedParticipantName);
+        CucumberLogUtils.scenario.log("* * * * SUBJECT FLAGS: VERIFYING PARTICIPANT STATUS AFTER SYNC  * * * *");
+        softAssert.assertEquals(locateByXpath("//tr[@class='" + sf1Row + "']//td[5]").getText(), expectedParticipationStatus1);
+        softAssert.assertEquals(locateByXpath("//tr[@class='" + sf2Row + "']//td[5]").getText(), expectedParticipationStatus1);
+        CucumberLogUtils.logScreenshot();
+        ((JavascriptExecutor) WebDriverUtils.webDriver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'end'});", locateByXpath("//i[@aria-label='Hold/Non-Participation Date column options']"));
+        CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("* * * * SUBJECT FLAGS: HOLD/NON-PARTICIPATION DATE AFTER SYNC  * * * *");
+        CucumberLogUtils.logScreenshot();
+        if (expectedHoldNonParticipationDate1.equalsIgnoreCase("Today") && expectedHoldNonParticipationDate2.isEmpty()) {
+            softAssert.assertEquals(locateByXpath("//tr[@class='" + sf1Row + "']//td[10]").getText(), CommonUtils.getTodayDate());
+            softAssert.assertEquals(locateByXpath("//tr[@class='" + sf2Row + "']//td[10]").getText(), CommonUtils.getTodayDate());
+        }
+        if (expectedHoldNonParticipationDate1.isEmpty() && expectedHoldNonParticipationDate2.equalsIgnoreCase("Today")) {
+            softAssert.assertEquals(locateByXpath("//tr[@class='" + sf1Row + "']//td[10]").getText(), "");
+            softAssert.assertEquals(locateByXpath("//tr[@class='" + sf2Row + "']//td[10]").getText(), CommonUtils.getTodayDate());
+        }
+        if (expectedHoldNonParticipationDate1.equalsIgnoreCase("1st of Next Month") && expectedHoldNonParticipationDate2.equalsIgnoreCase("Today")) {
+            softAssert.assertEquals(locateByXpath("//tr[@class='" + sf1Row + "']//td[10]").getText(), RAS_Common_Methods.getFirstDayNextMonth());
+            softAssert.assertEquals(locateByXpath("//tr[@class='" + sf2Row + "']//td[10]").getText(), RAS_Common_Methods.getFirstDayNextMonth());
+        }
+    }
+
+    /**
+     * This method is used to simulate a Study Team member creating new Subject Flags and verifying that the audit trail history is displayed correctly.
+     * It retrieves the participant's name, sets the expected values for the audit trail, navigates to the Subject Flags section, creates a new flag,
+     * sets various dropdown values, saves the changes, and then verifies that the audit trail values match the expected values.
+     */
+    @Then("Study Team member creates new Subject Flags and verifies that the audit trail history displays")
+    public void study_team_member_creates_new_subject_flags_and_verifies_that_the_audit_trail_history_displays() {
+        String participantName = locateByXpath("//input[@aria-labelledby='label.x_naci_family_coho_participant_study.participant']").getAttribute("value");
+        Map<String, String> actualAuditTrailValues = new HashMap<>();
+        Map<String, String> expectedAuditTrailValues = new HashMap<>(
+                Map.ofEntries(
+                        Map.entry("Participant", participantName),
+                        Map.entry("Participant Study", participantName),
+                        Map.entry("Study", "RASopathy"),
+                        Map.entry("Participation Status", "Participating"),
+                        Map.entry("Age Group", "Adult"),
+                        Map.entry("Eligible for Clinic", "Yes")
+                )
+        );
+        JavascriptUtils.scrollIntoView(locateByXpath("//span[@class='tab_caption_text'][contains(text(), 'Subject Flags')]"));
+        JavascriptUtils.clickByJS(locateByXpath("//span[@class='tab_caption_text'][contains(text(), 'Subject Flags')]"));
+        JavascriptUtils.clickByJS(locateByXpath("//div[@aria-label='Subject Flags, filtering toolbar']//button[@value='sysverb_new'][normalize-space()='New']"));
+        CommonUtils.sleep(800);
+        locateByXpath("//button[@aria-label='Look up value for field: Participant']").click();
+        CommonUtils.sleep(1000);
+        CommonUtils.switchToAnotherTabWindow();
+        locateByXpath("//input[@aria-label='Search']").sendKeys(participantName);
+        CommonUtils.sleep(800);
+        locateByXpath("//a[@role='button'][normalize-space()='" + participantName + "']").click();
+        CommonUtils.switchToNextWindow();
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(800);
+        CommonUtils.waitForClickability(nativeViewCHARMSSubjectFlagsPage.participationStatusDropdown);
+        CommonUtils.selectDropDownValue(expectedAuditTrailValues.get("Participation Status"), nativeViewCHARMSSubjectFlagsPage.participationStatusDropdown);
+        CommonUtils.selectDropDownValue(expectedAuditTrailValues.get("Age Group"), nativeViewCHARMSSubjectFlagsPage.ageGroupDropdown);
+        CommonUtils.selectDropDownValue(expectedAuditTrailValues.get("Eligible for Clinic"), nativeViewCHARMSSubjectFlagsPage.eligibleForClinicDropdown);
+        CucumberLogUtils.logScreenshot();
+        nativeViewCHARMSSubjectFlagsPage.saveButton.click();
+        CommonUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.scrollIntoView(locateByXpath("//div[@class='activity-stream-label-counter']"));
+        for(int i = 1; i <= expectedAuditTrailValues.size(); i++) {
+            String key = locateByXpath("//ul[@class='sn-widget-list sn-widget-list-table']/li[" + i + "]/span[1]").getText();
+            String value =  locateByXpath("//ul[@class='sn-widget-list sn-widget-list-table']/li[" + i + "]/span[2]").getText();
+            actualAuditTrailValues.put(key, value);
+        }
+        softAssert.assertEquals(actualAuditTrailValues, expectedAuditTrailValues);
+        CommonUtils.sleep(800);
         CucumberLogUtils.logScreenshot();
     }
 }

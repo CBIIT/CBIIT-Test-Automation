@@ -725,6 +725,5 @@ public class OWM_Vacancy_Manager_StepsImpl {
                 itemPage.click();
             }
         }
-
     }
 }

@@ -1,4 +1,4 @@
-package ServiceNow.PlatformBusinessApps.SNOWPROJ.Steps;
+package ServiceNow.PlatformBusinessApps.OCPL_Training.Steps;
 
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
@@ -180,18 +180,18 @@ public class OCPL_Training_Request_Steps {
         page.getByPlaceholder("Filter").press("Enter");
         assertThat(page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Emails"))).isVisible();
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Emails")).click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search a specific field of").selectOption("subject");
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(ocplTrainingRequest);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Emails.").locator("tbody")).containsText(ocplTrainingRequest);
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("(//a[@aria-label='Preview record: OCPL Training Request'])[1]").click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//a[normalize-space()='Open Record']").isVisible();
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("//a[normalize-space()='Open Record']").click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Preview Email")).scrollIntoViewIfNeeded();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Preview Email"))).isVisible();
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("(//a[normalize-space()='Preview Email'])").click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").frameLocator("iframe[title=\"Preview Email\"]").getByRole(AriaRole.PARAGRAPH)).containsText("Are you requesting Compensatory Time for Travel (CTT) during this training? = Yes");
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").frameLocator("iframe[title=\"Preview Email\"]").getByRole(AriaRole.PARAGRAPH)).containsText("Are you requesting Comp Time (CT) during this training? = No");
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search a specific field of").selectOption("subject");
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(ocplTrainingRequest);
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Emails.").locator("tbody")).containsText(ocplTrainingRequest);
+        page.frameLocator("iframe[name='gsft_main']").locator("(//a[@aria-label='Preview record: OCPL Training Request'])[1]").click();
+        page.frameLocator("iframe[name='gsft_main']").locator("//a[normalize-space()='Open Record']").isVisible();
+        page.frameLocator("iframe[name='gsft_main']").locator("//a[normalize-space()='Open Record']").click();
+        page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Preview Email")).scrollIntoViewIfNeeded();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Preview Email"))).isVisible();
+        page.frameLocator("iframe[name='gsft_main']").locator("(//a[normalize-space()='Preview Email'])").click();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").frameLocator("iframe[title=\"Preview Email\"]").getByRole(AriaRole.PARAGRAPH)).containsText("Are you requesting Compensatory Time for Travel (CTT) during this training? = Yes");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").frameLocator("iframe[title=\"Preview Email\"]").getByRole(AriaRole.PARAGRAPH)).containsText("Are you requesting Comp Time (CT) during this training? = No");
     }
 }

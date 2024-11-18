@@ -9,7 +9,8 @@ import io.cucumber.testng.CucumberOptions;
         , features = {"src/test/java/GrantsApps/EM/selenium/Features", "src/test/java/GrantsApps/EM/playwright/Features"}
         , glue = {"GrantsApps.EM.selenium.Steps", "GrantsApps.EM.playwright.Steps", "Hooks"}
         , tags = "@Progression"
-        , dryRun = false
+        , dryRun =false
+
 )
 public class RunEMProgressionTest extends AbstractTestNGCucumberTests {
 }

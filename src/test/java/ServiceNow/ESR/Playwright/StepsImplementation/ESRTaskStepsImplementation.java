@@ -150,4 +150,66 @@ public class ESRTaskStepsImplementation {
     public static void confirmEngineeringProjectExecutionCatalogTaskIsCompleted() {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Closeout Preparation");
     }
+
+    /**
+     * Completes the Closeout Preparation catalog task for ESR-Q
+     */
+    public static void completeCloseoutPreparationCatalogTaskForESRQ() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (4)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[1]").click();
+        Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").fill("CBIIT Test Account");
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.ROW, new FrameLocator.GetByRoleOptions().setName("Actual Start Date  Choose")).getByRole(AriaRole.LINK).first().click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Go to Today", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        Playwright_Common_Locators.iframeLocator().locator("(//a[@class=' btn btn-default btn-ref'])[5]").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Go to Today", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Findings")).click();
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Findings")).fill("Findings Test");
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Recommendations").setExact(true)).click();
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Recommendations").setExact(true)).fill("Recommendations Test");
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Justification for")).click();
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Justification for")).fill("Justification Test");
+        Playwright_Common_Locators.iframeLocator().locator("(//div[@class='sc_variable_editor']/div/select)[4]").selectOption("Proceed to Implementation");
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("   OCIO Federal Lead to")).click();
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("   OCIO Federal Lead to")).fill("Jennifer Kwok");
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("   Project Lead Assignment")).click();
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("   Project Lead Assignment")).click();
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("   Project Lead Assignment")).fill("CHARMS Technical Support");
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Project Lead to implement Q-")).click();
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Project Lead to implement Q-")).fill("Larry Brem");
+        Playwright_Common_Locators.iframeLocator().getByLabel("Add a row for Technology").click();
+        Playwright_Common_Locators.iframeLocator().frameLocator("iframe[name=\"dialog_frame\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Name")).click();
+        Playwright_Common_Locators.iframeLocator().frameLocator("iframe[name=\"dialog_frame\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Name")).fill("Test Technology");
+        Playwright_Common_Locators.iframeLocator().frameLocator("iframe[name=\"dialog_frame\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Add")).click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Catalog Task form section").getByLabel("State").selectOption("3");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * Completes the Closeout Preparation catalog task for ESR-I
+     */
+    public static void completeCloseoutPreparationCatalogTaskForESRI() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (4)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[1]").click();
+        Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").fill("CBIIT Test Account");
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.ROW, new FrameLocator.GetByRoleOptions().setName("Actual Start Date  Choose")).getByRole(AriaRole.LINK).first().click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Go to Today", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        Playwright_Common_Locators.iframeLocator().locator("(//a[@title='Choose date...'])[4]").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Go to Today", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Outcomes")).click();
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Outcomes")).fill("Outcomes Test");
+        Playwright_Common_Locators.iframeLocator().locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[2]").selectOption("Proceed to Operations and Maintanence");
+        Playwright_Common_Locators.iframeLocator().getByText("Linked all artifacts from the").click();
+        Playwright_Common_Locators.iframeLocator().getByText("Conducted knowledge sharing").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Catalog Task form section").getByLabel("State").selectOption("3");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * Confirms that the Closeout Preparation catalog task is completed
+     */
+    public static void confirmCloseoutPreparationCatalogTaskIsCompleted() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Federal Lead Closeout Approval");
+    }
 }

@@ -142,7 +142,7 @@ public class NativeViewCHARMSParticipantConsentPage {
     /**
      * Native View Parent/Guardian 1 Name Text Field
      */
-    @FindBy(xpath = "//div[@class='form-group is-required']//input[@type='text']")
+    @FindBy(css = "input[id='x_naci_family_coho_fcsms_consent.guardian_1_name']")
     public WebElement rasStudyConsentParentGuardian1NameTextField;
 
     /**
@@ -154,8 +154,38 @@ public class NativeViewCHARMSParticipantConsentPage {
     /**
      * Native View Parent/Guardian 2 Name Text Field
      */
-    @FindBy(xpath = "//body/div[@data-position-below-header='true']/form[@method='POST']/span[@data-header-only='false']/span[@data-header-only='false']/div[@aria-label='Consent form section']/div[1]/div[2]/div[1]/div[2]/input[1]")
+    @FindBy(css = "input[id='x_naci_family_coho_fcsms_consent.guardian_2_name']")
     public WebElement rasStudyConsentParentGuardian2NameTextField;
+
+    /**
+     * Native View Number of LARs Drop down
+     */
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_fcsms_consent.number_of_lars']")
+    public WebElement numberOfLARsDropDown;
+
+    /**
+     * Native View LAR 1 Signed Drop down
+     */
+    @FindBy(css = "select[id='x_naci_family_coho_fcsms_consent.lar_1_signed']")
+    public WebElement lar1SignedDropDown;
+
+    /**
+     * Native View LAR 1 Name Text field
+     */
+    @FindBy(css = "input[name='x_naci_family_coho_fcsms_consent.lar_1_name']")
+    public WebElement lar1NameTextField;
+
+    /**
+     * Native View LAR 2 Signed Drop down
+     */
+    @FindBy(css = "select[name='x_naci_family_coho_fcsms_consent.lar_2_signed']")
+    public WebElement lar2SignedDropDown;
+
+    /**
+     * Native View LAR 2 Name Text field
+     */
+    @FindBy(css = "input[name='x_naci_family_coho_fcsms_consent.lar_2_name']")
+    public WebElement lar2NameTextField;
 
     /**
      * Native View Ras Study Assent signed checkbox
