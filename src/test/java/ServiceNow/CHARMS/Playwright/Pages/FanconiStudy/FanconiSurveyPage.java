@@ -1,6 +1,6 @@
 package ServiceNow.CHARMS.Playwright.Pages.FanconiStudy;
 
-public class FanconiSurveyLoginPage {
+public class FanconiSurveyPage {
 
     /**
      * NATIVE VIEW SIDE DOOR URLS
