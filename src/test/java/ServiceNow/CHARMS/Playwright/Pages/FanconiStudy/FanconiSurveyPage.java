@@ -11,9 +11,7 @@ public class FanconiSurveyPage {
      * SIDE DOOR TEST ACCOUNT CREDENTIALS
      */
     public static final String USERS_NAME = "User name";
-    public static final String SIDE_DOOR_USERNAME = "CBIITTestAccount";
     public static final String USERS_PASSWORD = "Password";
-    public static final String SIDE_DOOR_PASSWORD = "Tester123@";
 
     /**
      * Fanconi Survey URL Link
