@@ -1,12 +1,7 @@
 package ServiceNow.CHARMS.Playwright.Pages.FanconiStudy;
 
 public class FanconiSurveyPage {
-
-    /**
-     * NATIVE VIEW SIDE DOOR URLS
-     */
-    public static final String NATIVE_VIEW_SIDE_DOOR_TEST_URL = "https://service-test.nci.nih.gov/side_door.do";
-
+    
     /**
      * SIDE DOOR TEST ACCOUNT CREDENTIALS
      */
