@@ -12,7 +12,6 @@ public class FanconiSurveyPage {
      */
     public static final String USERS_NAME = "User name";
     public static final String USERS_PASSWORD = "Password";
-
     /**
      * Fanconi Survey URL Link
      */
