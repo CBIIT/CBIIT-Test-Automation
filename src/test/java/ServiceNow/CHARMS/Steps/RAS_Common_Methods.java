@@ -121,8 +121,8 @@ public class RAS_Common_Methods extends PageInitializer {
     /**
      * Fills out parent/guardian signatures in Native View based on given parameters.
      *
-     * @param responseType                             The type of response for the consent process.
-     * @param parentGuardianStatus                     The status indicating the relationship of parent/guardian.
+     * @param responseType         The type of response for the consent process.
+     * @param parentGuardianStatus The status indicating the relationship of parent/guardian.
      */
     public static void nativeViewFillParentGuardianSignatures(String responseType, String parentGuardianStatus) {
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown);
@@ -151,7 +151,7 @@ public class RAS_Common_Methods extends PageInitializer {
                 CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField);
                 CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField);
                 CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField, "RasParent One");
-            }  else if (parentGuardianStatus.equalsIgnoreCase("Other Legal Guardian - 1")) {
+            } else if (parentGuardianStatus.equalsIgnoreCase("Other Legal Guardian - 1")) {
                 CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
                 CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField);
                 CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField);
@@ -320,9 +320,9 @@ public class RAS_Common_Methods extends PageInitializer {
     /**
      * Uses softAssert to verify that the expected dropdown value is selected.
      *
-     * @param element The WebElement representing the dropdown element.
+     * @param element       The WebElement representing the dropdown element.
      * @param expectedValue The expected value that should be selected in the dropdown.
-     * @param message The message to be displayed in case of assertion failure.
+     * @param message       The message to be displayed in case of assertion failure.
      */
     public static void softAssertDropDownValueIsSelected(WebElement element, String expectedValue, String message) {
         Select select = new Select(element);

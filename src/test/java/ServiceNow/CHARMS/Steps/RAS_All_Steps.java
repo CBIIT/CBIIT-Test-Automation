@@ -1143,9 +1143,9 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.scrollIntoView(locateByXpath("//div[@class='activity-stream-label-counter']"));
-        for(int i = 1; i <= expectedAuditTrailValues.size(); i++) {
+        for (int i = 1; i <= expectedAuditTrailValues.size(); i++) {
             String key = locateByXpath("//ul[@class='sn-widget-list sn-widget-list-table']/li[" + i + "]/span[1]").getText();
-            String value =  locateByXpath("//ul[@class='sn-widget-list sn-widget-list-table']/li[" + i + "]/span[2]").getText();
+            String value = locateByXpath("//ul[@class='sn-widget-list sn-widget-list-table']/li[" + i + "]/span[2]").getText();
             actualAuditTrailValues.put(key, value);
         }
         softAssert.assertEquals(actualAuditTrailValues, expectedAuditTrailValues);

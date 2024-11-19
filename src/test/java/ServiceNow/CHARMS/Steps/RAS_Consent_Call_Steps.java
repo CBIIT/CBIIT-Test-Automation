@@ -301,7 +301,7 @@ public class RAS_Consent_Call_Steps {
     }
 
     /**
-     *  Verifies "Age-appropriate assent obtained?" dropdown value.
+     * Verifies "Age-appropriate assent obtained?" dropdown value.
      */
     @Given("verifies Age-appropriate assent obtained value is {string}")
     public void verifies_age_appropriate_assent_obtained_value(String expectedDropDownValue) {

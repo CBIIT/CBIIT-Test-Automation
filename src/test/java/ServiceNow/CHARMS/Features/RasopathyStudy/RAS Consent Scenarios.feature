@@ -247,6 +247,3 @@ Feature: RAS Consent Scenarios
     And enters "LAR One" as the LAR 1 Name
     And selects "Yes" for LAR 2 Signed
     And enters "LAR Two" as the LAR 2 Name
-
-
-

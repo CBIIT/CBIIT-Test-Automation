@@ -212,7 +212,7 @@ public class NativeViewCHARMSParticipantConsentPage {
     public WebElement rasStudyHiddenAssentSignedInput;
 
     /**
-     *  Age-appropriate assent obtained? Dropdown
+     * Age-appropriate assent obtained? Dropdown
      */
     @FindBy(xpath = "//select[@id='x_naci_family_coho_fcsms_consent.assent_status']")
     public WebElement ageAppropriateAssentObtainedDropDown;
