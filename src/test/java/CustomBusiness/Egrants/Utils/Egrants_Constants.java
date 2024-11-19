@@ -43,4 +43,7 @@ public class Egrants_Constants {
     public static final String INACTIVE_STATUS = "0";
     public static final String DEACTIVATE = "Inactive";
     public static final String ACTIVATE = "Active";
+    public static final String ACTIVATION_NOTICE = "Activation Notice";
+    public static final String APPLICATION_FILE = "Application File";
+    public static final String YEAR_17 = "5P30CA125123-17";
 }

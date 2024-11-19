@@ -44,7 +44,7 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "<Email>" and password "<Password>"
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "<ScreenerScenario>"
-    Then Study Team member logs in to Native View and completes consent call "<ScreenerScenario>", "<ConsentType>", "<ResponseType>", "<ParentGuardianStatus>", "<NumberOfGuardianSignaturesRequired>", "<NumberOfParentGuardianSignaturesReceived>"
+    Then Study Team member logs in to Native View and completes consent call "<ScreenerScenario>", "<ConsentType>", "<ResponseType>", "<ParentGuardianStatus>"
     And Study Team member logs out of Native View
     And a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
@@ -57,8 +57,8 @@ Feature: RAS Consent Scenarios
     And "Download Study Consent" text shows on participant portal and when clicked downloads "Consent Record"
     And "Download Study Assent" text shows on participant portal and when clicked downloads "Assent Record"
     Examples:
-      | Email                           | Password   | ScreenerScenario         | ConsentStatus | ConsentType                          | ResponseType     | ParentGuardianStatus | NumberOfGuardianSignaturesRequired | NumberOfParentGuardianSignaturesReceived | AccountResetScriptURL                                                                                    |
-      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAge11-13 | Complete      | Aged 11 - 13, signed assent required | CHARMS e-consent | Parents, Married     | 1                                  | 0                                        | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
+      | Email                           | Password   | ScreenerScenario         | ConsentStatus | ConsentType                          | ResponseType     | ParentGuardianStatus               | AccountResetScriptURL                                                                                    |
+      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAge11-13 | Complete      | Aged 11 - 13, signed assent required | CHARMS e-consent | Parents, Separated - Joint Custody | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
   @muzipovay2 @RAS_STUDY @CP2-3730 @CP2-3746 @CP2-3747 @selenium @RAS_Regression
   Scenario: Verifying that when a minor aged 11-13 has completed Assent, the field Assent signed is true in their Native View Consent Record
@@ -67,7 +67,7 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "screenerScenarioAge11-13"
-    Then Study Team member logs in to Native View and completes consent call "screenerScenarioAge11-13", "Aged 11 - 13, signed assent required", "CHARMS e-consent", "Parents, Married", "1", "0"
+    Then Study Team member logs in to Native View and completes consent call "screenerScenarioAge11-13", "Aged 11 - 13, signed assent required", "CHARMS e-consent", "Parents, Married"
     And Study Team member logs out of Native View
     And a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
@@ -99,7 +99,7 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "screenerScenarioAge14-17"
-    Then Study Team member logs in to Native View and completes consent call "screenerScenarioAge14-17", "Aged 14 - 17, signed consent required", "CHARMS e-consent", "Parents, Married", "1", "0"
+    Then Study Team member logs in to Native View and completes consent call "screenerScenarioAge14-17", "Aged 14 - 17, signed consent required", "CHARMS e-consent", "Parent, Separated or Widowed - Single Custody"
     And Study Team member logs out of Native View
     And a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
