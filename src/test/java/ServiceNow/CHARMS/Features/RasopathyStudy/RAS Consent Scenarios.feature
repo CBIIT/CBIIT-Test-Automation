@@ -173,7 +173,7 @@ Feature: RAS Consent Scenarios
     And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAdult"
     Then Study Team member verifies that Consent Status equals "Awaiting PI Signature", Consent Type equals "Adult", and that Parent Guardian fields are disabled
 
-  @muzipovay2 @RAS_STUDY @CP2-3794 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3949 @CP2-3950 @selenium @RAS_Regression
   Scenario: Verifying that "Consent/Assent Obtained Before Study Procedures" and "Copy of Signed/Dated Consent/Assent Given to Participant" dropdowns are mandatory when Sign and Complete (for E-Consent) is clicked.
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -247,3 +247,14 @@ Feature: RAS Consent Scenarios
     And enters "LAR One" as the LAR 1 Name
     And selects "Yes" for LAR 2 Signed
     And enters "LAR Two" as the LAR 2 Name
+    And presses the Call Complete button
+    Then Study Team member logs out of Native View
+    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
+    And proxy clicks on Study Consent and completes form with "Charms123$" "screenerScenarioAge7-10"
+    Then participant logs out of RAS portal
+    And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAge7-10"
+    And verifies Consent Assent status is "Consented and Assented"
+    And selects "Yes" for Consent Assent Obtained Before Study Procedures
+    And selects "Yes" for Copy of Signed Dated Consent Assent Given to Participant
+    Then Study Team member presses Sign and Complete
