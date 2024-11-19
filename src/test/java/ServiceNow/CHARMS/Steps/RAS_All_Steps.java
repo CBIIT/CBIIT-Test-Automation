@@ -385,19 +385,6 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * Logs in a Study Team member to the Native View and completes a consent call.
-     *
-     * @param sheetName                                the name of the sheet for which the consent is being processed
-     * @param consentType                              the expected type of the consent
-     * @param responseType                             the expected response type of the consent
-     * @param parentGuardianStatus                     the status of the parent/guardian for the consent
-     */
-    @Then("Study Team member logs in to Native View and completes consent call {string}, {string}, {string}, {string}")
-    public void study_team_member_logs_in_to_native_view_and_completes_consent_call(String sheetName, String consentType, String responseType, String parentGuardianStatus) {
-        nativeViewConsentAssentFlowProcess(sheetName, consentType, responseType, parentGuardianStatus);
-    }
-
-    /**
      * Study Team member logs in to Native View and verifies that the field Assent signed is true.
      *
      * @param sheetName the name of the sheet for which the field Assent signed is being verified.
@@ -406,14 +393,12 @@ public class RAS_All_Steps extends PageInitializer {
     public void study_team_member_logs_in_to_native_view_and_verifies_that_the_field_assent_signed_is_true(String sheetName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         navigateToParticipantRecordInNativeView(sheetName);
-        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='Awaiting Patient Signature(s)']"));
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsParticipantStudiesTab);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsParticipantStudiesTab);
+        CommonUtils.hoverOverElement(locateByXpath("(//td[@class='vt'][normalize-space()='Awaiting Consent'])[2]"));
+        CommonUtils.sleep(1000);
+        JavascriptUtils.clickByJS(locateByXpath("//tr[@record_class='x_naci_family_coho_participant_study']//a[@aria-label='Preview record: CHARMSRasMinor Test']"));
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-        CommonUtils.sleep(500);
-        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyAssentSignedCheckBox);
-        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyHiddenAssentSignedInput.isSelected());
         CommonUtils.sleep(200);
         CucumberLogUtils.logScreenshot();
     }

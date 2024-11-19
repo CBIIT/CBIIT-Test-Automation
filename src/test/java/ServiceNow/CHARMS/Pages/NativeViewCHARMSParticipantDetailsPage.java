@@ -44,6 +44,12 @@ public class NativeViewCHARMSParticipantDetailsPage {
     public WebElement nativeViewPatientDetailsConsentsPreviewButton;
 
     /**
+     * Native View Patient Details Participant Studies Button
+     */
+    @FindBy(xpath = "//span[normalize-space()='Participant Studies (1)']")
+    public WebElement nativeViewPatientDetailsParticipantStudiesTab;
+
+    /**
      * Native View Participant Subject ID
      */
     @FindBy(xpath = "//input[@id='sys_readonly.x_naci_family_coho_family_history_details.full_family_id']")
@@ -54,6 +60,18 @@ public class NativeViewCHARMSParticipantDetailsPage {
      */
     @FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_family_history_details.family']")
     public WebElement nativeViewPatientDetailsFamilyID;
+
+    /**
+     * Native View Participant Details Contact Info Tab
+     */
+    @FindBy(xpath = "//span[normalize-space()='Contact Info']")
+    public WebElement nativeViewPatientDetailsContactInfoTab;
+
+    /**
+     * Does the participant need legal representation? Dropdown
+     */
+    @FindBy(xpath = "//select[contains(@name,'x_naci_family_coho_family_history_details.proxy_required')]")
+    public WebElement doesParticipantNeedLegalRepresentationDropdown;
 
     public NativeViewCHARMSParticipantDetailsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);

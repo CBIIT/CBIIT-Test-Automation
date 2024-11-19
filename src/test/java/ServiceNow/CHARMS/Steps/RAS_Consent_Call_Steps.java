@@ -30,6 +30,17 @@ public class RAS_Consent_Call_Steps {
     }
 
     /**
+     * Selects "Yes" in the dropdown indicating that the participant does need legal representation.
+     */
+    @When("selects {string} for does participant does need legal representation")
+    public void selects_yes_the_participant_does_need_legal_representation(String selectOption) {
+        nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsContactInfoTab.click();
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantDetailsPage.doesParticipantNeedLegalRepresentationDropdown);
+        CommonUtils.selectDropDownValue(selectOption, nativeViewCHARMSParticipantDetailsPage.doesParticipantNeedLegalRepresentationDropdown);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
      * This method selects the Response Type in the participant Consent Record.
      *
      * @param responseType the type of response to be selected (Must be one of the following: CHARMS e-consent, Participant upload to portal, Mail/Fax/Email/Other, iMed)
