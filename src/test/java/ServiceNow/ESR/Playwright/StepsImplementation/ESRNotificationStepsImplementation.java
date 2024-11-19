@@ -18,9 +18,11 @@ public class ESRNotificationStepsImplementation {
         assertThat(page.frameLocator(CreateESRPage.iframeSelector).getByLabel("NotesAdditional comments (").locator("td")).containsText("Activities");
     }
 
+    /**
+     * Validates the watchlist update notification is sent after ESR creation
+     */
     public static void verifyWatchlistUpdateNotification() {
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.TAB, new FrameLocator.GetByRoleOptions().setName("Notes")).click();
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//div[@id='sn_form_inline_stream_entries']")).containsText("FYI: Watch List Updated");
-
     }
 }
