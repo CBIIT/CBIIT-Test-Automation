@@ -1,6 +1,7 @@
 package ServiceNow.CHARMS.Playwright.StepsImplementation.FanconiStudy;
 
 import ServiceNow.CHARMS.Playwright.Pages.FanconiStudy.FanconiSurveyPage;
+import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
@@ -16,7 +17,7 @@ public class FanconiSurveyStepsImpl {
 
     /** Method to Reset Fanconi Screener and Survey accounts method to Fanconi Survey */
     public static void resetFanconiScreenerAndSurveyAccount(){
-        sideDoorLoginInNativeView();
+        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
         resetFanconiScreener();
         resetFanconiSurvey();
     }
@@ -24,7 +25,7 @@ public class FanconiSurveyStepsImpl {
     /** Method to fill Fanconi Screener */
     public static void fillFanconiScreener() {
         var page = PlaywrightUtils.page;
-        page.navigate(FanconiSurveyPage.FANCONI_SURVEY_URL);
+        page.navigate(TestProperties.FANCONI_TEST_URL);
         CommonUtils.sleep(300);
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("login")).click();
         page.getByLabel("Username").fill(FanconiSurveyPage.EMAIL);
@@ -140,18 +141,7 @@ public class FanconiSurveyStepsImpl {
 
     /** Method to fill Fanconi Consent in NativeView */
     public static void fillFanconiConsent() {
-        sideDoorLoginInNativeView();
-    }
-
-    /** Method to SideDoor Login in Native View  */
-    public static void sideDoorLoginInNativeView() {
-        var page = PlaywrightUtils.page;
-        page.navigate(TestProperties.NATIVE_VIEW_SIDE_DOOR_TEST_URL);
-        page.getByLabel(FanconiSurveyPage.USERS_NAME).click();
-        page.getByLabel(FanconiSurveyPage.USERS_NAME).fill(TestProperties.SIDE_DOOR_USERNAME);
-        page.getByLabel(FanconiSurveyPage.USERS_PASSWORD, new Page.GetByLabelOptions().setExact(true)).click();
-        page.getByLabel(FanconiSurveyPage.USERS_PASSWORD, new Page.GetByLabelOptions().setExact(true)).fill(TestProperties.SIDE_DOOR_PASSWORD);
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Log in")).click();
+        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
     }
 
     /** Method to Reset Fanconi Screener */
@@ -177,7 +167,7 @@ public class FanconiSurveyStepsImpl {
     /** Login method to Fanconi Survey */
     public static void loginFanconiSurvey() {
         var page = PlaywrightUtils.page;
-        page.navigate(FanconiSurveyPage.FANCONI_SURVEY_URL);
+        page.navigate(TestProperties.FANCONI_TEST_URL);
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(FanconiSurveyPage.LOGIN_BUTTON_LINK)).click();
         page.getByLabel(FanconiSurveyPage.USERNAME).fill(FanconiSurveyPage.EMAIL);
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.NEXT)).click();

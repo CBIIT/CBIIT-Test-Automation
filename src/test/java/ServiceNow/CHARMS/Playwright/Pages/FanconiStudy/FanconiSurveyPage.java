@@ -1,16 +1,10 @@
 package ServiceNow.CHARMS.Playwright.Pages.FanconiStudy;
 
 public class FanconiSurveyPage {
-    
-    /**
-     * SIDE DOOR TEST ACCOUNT CREDENTIALS
-     */
-    public static final String USERS_NAME = "User name";
-    public static final String USERS_PASSWORD = "Password";
+
     /**
      * Fanconi Survey URL Link
      */
-    public static final String FANCONI_SURVEY_URL = "https://service-test.nci.nih.gov/fanconi";
     public static final String PASSWORD_VALUE = "RASTest2023$$";
 
     /**
