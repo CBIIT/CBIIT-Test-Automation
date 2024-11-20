@@ -522,6 +522,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         if (currentRow.get("WasTheGeneticTestingPositiveForFanconiAnemia").contentEquals("Yes")) {
             CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.geneNameDropDownList,
                     currentRow.get("GeneName"));
+            CommonUtils.sleep(2000);
             CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.mutationVariant1TextBox,
                     currentRow.get("MutationVariant1"));
             CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.inheritedFrom1DropDownList,
@@ -1149,6 +1150,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * Method to submit the Fanconi screener scenario VIA the portal
      */
     public void fanconiEligibilityQuestionnaireSubmissionScenario(int rowNumForAssertion) {
+
         currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
         fanconiEligibilityQuestionnaireStepsImpl.eligibilityQuestionnairelinkClicked();
         fanconiEligibilityQuestionnaireStepsImpl.initialStudyRelatedPageClicked();
