@@ -802,7 +802,6 @@ public class TestProperties {
         return OAINTAKE_URL;
     }
 
-<<<<<<< HEAD
     public static String getNCCRUrl() {
         switch (ENV.toLowerCase()) {
             case "test":
@@ -813,7 +812,8 @@ public class TestProperties {
                 break;
         }
         return NCCR_URL;
-=======
+    }
+
     public static String getMRATUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
@@ -824,6 +824,5 @@ public class TestProperties {
                 break;
         }
         return MRAT_URL;
->>>>>>> 251faa9a752227dedf2df6de2e88122c179d01d5
     }
 }

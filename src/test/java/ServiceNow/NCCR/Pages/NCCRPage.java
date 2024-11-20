@@ -6,9 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class NCCRPage {
-    public NCCRPage() {
-        PageFactory.initElements(WebDriverUtils.webDriver, this);
-    }
 
     /**My Assigned Data Requests section*/
     @FindBy(xpath = "//h1//strong[.='My Assigned Data Requests']")
@@ -81,4 +78,8 @@ public class NCCRPage {
     /**x Filter*/
     @FindBy(xpath = "//button[@id='x_g_nci_nccr_data_access_requests-close-filter-button']")
     public WebElement xFilter;
+
+    public NCCRPage() {
+        PageFactory.initElements(WebDriverUtils.webDriver, this);
+    }
 }

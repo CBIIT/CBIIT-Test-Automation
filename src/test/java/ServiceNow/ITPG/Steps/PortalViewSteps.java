@@ -5,6 +5,7 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
 import ServiceNow.ITPG.Pages.PortalViewPage;
 import ServiceNow.ITPG.StepsImplementation.LoginStepsImpl;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -80,7 +81,7 @@ public class PortalViewSteps {
 
     @Then("Click on approve request")
     public void approveRequest() throws InterruptedException {
-        Thread.sleep(2000);
+        CommonUtils.sleep(2000);
         portalViewPage.approveRequest();
     }
 
