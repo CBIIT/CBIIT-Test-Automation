@@ -150,7 +150,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     /**
      * Method to submit Participant Basic Information- DOB,Gender by Birth
      */
-    public void participantbasicInformationSelected() {
+    public void participantBasicInformationSelected() {
         CommonUtils.waitForVisibility(fanconiEligibilityQuestionnairePage.calendarMonthDropDown);
         CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.calendarMonthDropDown,
                 currentRow.get("DOBMonth"));
@@ -1158,7 +1158,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         fanconiEligibilityQuestionnaireStepsImpl.participantNameSelected();
         fanconiEligibilityQuestionnaireStepsImpl.participatedInBoneMarrowFailureStudy();
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        fanconiEligibilityQuestionnaireStepsImpl.participantbasicInformationSelected();
+        fanconiEligibilityQuestionnaireStepsImpl.participantBasicInformationSelected();
         fanconiEligibilityQuestionnaireStepsImpl.participantGenderInformationSelected();
         fanconiEligibilityQuestionnaireStepsImpl.IsParticipantAdopted();
         fanconiEligibilityQuestionnaireStepsImpl.participantCountrySelected();
