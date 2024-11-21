@@ -30,9 +30,11 @@ public class RAS_Consent_Call_Steps {
         CucumberLogUtils.logScreenshot();
     }
 
+
     /**
-     * In Participant Details Contact Info,
-     * Selects "Yes" in the dropdown indicating that the participant does need legal representation.
+     * Selects the specified option for whether the participant needs legal representation.
+     *
+     * @param selectOption The option to select for whether the participant needs legal representation
      */
     @When("selects {string} for does participant does need legal representation")
     public void selects_yes_the_participant_does_need_legal_representation(String selectOption) {
@@ -165,6 +167,79 @@ public class RAS_Consent_Call_Steps {
     }
 
     /**
+     * Selects whether an interpreter was used from the dropdown.
+     *
+     * @param selectOption The option to select for whether an interpreter was used
+     */
+    @Given("selects {string} was Interpreter used")
+    public void selects_was_interpreter_used(String selectOption) {
+        CucumberLogUtils.scenario.log("* * * * INTERPRETER USED? * * * *");
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown);
+        CucumberLogUtils.logScreenshot();
+        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Interpreter used?']").isDisplayed());
+        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown, Native_View_Constants.consentRecordInterpreterSignedDropdownOptions, "---- VERIFYING INTERPRETER USED DROPDOWN OPTIONS ----");
+        CommonUtils.selectDropDownValue(selectOption, nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown);
+    }
+
+    /**
+     * Enters the provided interpreter name or ID into the corresponding text field on the page.
+     *
+     * @param interpreterNameOrId The interpreter name or ID to be entered into the text field
+     */
+    @Given("enters {string} for Interpreter Name or ID")
+    public void enters_for_interpreter_name_or_id(String interpreterNameOrId) {
+        CucumberLogUtils.scenario.log("* * * * INTERPRETER NAME OR ID * * * *");
+        CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='Interpreter Name or ID']"));
+        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Interpreter Name or ID']").isDisplayed());
+        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterNameOrIdTextField.isDisplayed());
+        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterNameOrIdTextField.isEnabled());
+        nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterNameOrIdTextField.sendKeys(interpreterNameOrId);
+    }
+
+    /**
+     * Enters the specified interpreter language for the Interpreter Language field.
+     *
+     * @param interpreterLanguage The interpreter language to be entered for the Interpreter Language field.
+     */
+    @Given("enters {string} for Interpreter Language")
+    public void enters_for_interpreter_language(String interpreterLanguage) {
+        CucumberLogUtils.scenario.log("* * * * INTERPRETER LANGUAGE * * * *");
+        CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='Interpreter Language']"));
+        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Interpreter Language']").isDisplayed());
+        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterLanguageTextField.isDisplayed());
+        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterLanguageTextField.isEnabled());
+        nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterLanguageTextField.sendKeys(interpreterLanguage);
+    }
+
+    /**
+     * Selects the given option for Interpreter Witness dropdown in the consent form.
+     *
+     * @param selectOption The option to be selected in the Interpreter Witness dropdown.
+     */
+    @Given("selects {string} for Interpreter Witness")
+    public void selects_for_interpreter_witness(String selectOption) {
+        CucumberLogUtils.scenario.log("* * * * INTERPRETER WITNESS * * * *");
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterWitnessDropDown);
+        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Interpreter witness?']").isDisplayed());
+        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterWitnessDropDown, Native_View_Constants.consentRecordInterpreterWitnessDropdownOptions, "---- VERIFYING INTERPRETER WITNESS DROPDOWN OPTIONS ----");
+        CommonUtils.selectDropDownValue(selectOption, nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterWitnessDropDown);
+    }
+
+    /**
+     * Selects the specified option for Interpreter Signed dropdown in the participant consent page.
+     *
+     * @param selectOption The option to be selected in the Interpreter Signed dropdown.
+     */
+    @Given("selects {string} for Interpreter Signed")
+    public void selects_for_interpreter_signed(String selectOption) {
+        CucumberLogUtils.scenario.log("* * * * INTERPRETER SIGNED * * * *");
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterSignedDropDown);
+        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Interpreter signed?']").isDisplayed());
+        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterSignedDropDown, Native_View_Constants.consentRecordInterpreterSignedDropdownOptions, "---- VERIFYING INTERPRETER SIGNED DROPDOWN OPTIONS ----");
+        CommonUtils.selectDropDownValue(selectOption, nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterSignedDropDown);
+    }
+
+    /**
      * This method selects a value from the "Parent/Guardian Status" dropdown.
      *
      * @param parentGuardianStatus the option to be selected from the "Parent/Guardian Status" dropdown.
@@ -175,8 +250,10 @@ public class RAS_Consent_Call_Steps {
         CommonUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown);
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown);
+        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown, Native_View_Constants.consentRecordParentGuardianStatusDropdownOptions, "---- VERIFYING PARENT/GUARDIAN STATUS DROPDOWN OPTIONS ----");
         CommonUtils.selectDropDownValue(parentGuardianStatus, nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown);
         CommonUtils.sleep(800);
+        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSParticipantConsentPage.rasStudyConsentNumberOfParentGuardianSignaturesRequiredDropDown, Native_View_Constants.consentRecordGuardianSignaturesRequiredDropdownOptions, "---- VERIFYING NUMBER OF PARENT/GUARDIAN SIGNATURES REQUIRED DROPDOWN OPTIONS ----");
     }
 
     /**
@@ -316,12 +393,16 @@ public class RAS_Consent_Call_Steps {
     public void verifies_consent_assent_status_is(String consentAssentStatus) {
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown);
         CommonUtils.sleep(500);
+        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown, Native_View_Constants.consentRecordConsentAssentStatusDropdownOptions, "---- VERIFYING CONSENT/ASSENT STATUS DROPDOWN OPTIONS ----");
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown, consentAssentStatus, "---- Consent/Assent Status value mismatch ----");
         CucumberLogUtils.logScreenshot();
     }
 
+
     /**
      * Verifies "Age-appropriate assent obtained?" dropdown value.
+     *
+     * @param expectedDropDownValue The expected dropdown value to verify against
      */
     @Given("verifies Age-appropriate assent obtained value is {string}")
     public void verifies_age_appropriate_assent_obtained_value(String expectedDropDownValue) {

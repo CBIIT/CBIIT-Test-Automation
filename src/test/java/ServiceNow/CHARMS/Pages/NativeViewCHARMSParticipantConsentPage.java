@@ -242,6 +242,18 @@ public class NativeViewCHARMSParticipantConsentPage {
     public WebElement rasStudyConsentInterpreterLanguageTextField;
 
     /**
+     * Native View Ras Study Interpreter Witness Dropdown
+     */
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_fcsms_consent.interpreter_witness']")
+    public WebElement rasStudyConsentInterpreterWitnessDropDown;
+
+    /**
+     * Native View Ras Study Interpreter Signed Dropdown
+     */
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_fcsms_consent.interpreter_signed']")
+    public WebElement rasStudyConsentInterpreterSignedDropDown;
+
+    /**
      * Native View Ras Study Future Use Of Specimens and Data by NIH Drop Down
      */
     @FindBy(xpath = "//*[@id='x_naci_family_coho_fcsms_consent.future_use_of_specimens_and_data_by_nih']")

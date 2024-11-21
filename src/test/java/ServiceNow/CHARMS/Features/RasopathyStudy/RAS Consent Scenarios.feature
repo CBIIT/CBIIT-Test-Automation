@@ -47,7 +47,7 @@ Feature: RAS Consent Scenarios
     Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAge11-13"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
-    And selects "CHARMS e-consent" as the Response Type
+    And selects "CHARMS e-consent" as the Collection Method
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
@@ -86,7 +86,7 @@ Feature: RAS Consent Scenarios
     Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAge7-10"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
-    And selects "CHARMS e-consent" as the Response Type
+    And selects "CHARMS e-consent" as the Collection Method
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
@@ -131,7 +131,7 @@ Feature: RAS Consent Scenarios
     Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAge7-10"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
-    And selects "CHARMS e-consent" as the Response Type
+    And selects "CHARMS e-consent" as the Collection Method
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
@@ -147,7 +147,7 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And proxy clicks on Study Consent and completes form with "Charms123$" "screenerScenarioAge14-17"
 
-  @muzipovay2 @RAS_STUDY @CP2-3725 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3725 @CP2-993 @selenium @RAS_Regression @Progression
   Scenario: Verifying that two new fields display below the Interpreter Used? selection in the Participant's Consent Record in SN when the Response Type is not iMed
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -156,7 +156,24 @@ Feature: RAS Consent Scenarios
     When the participant submits a screener from excel sheet "screenerScenarioAdult"
     And Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
     And Study Team member submits participant for review and marks them eligible
-    Then Study Team member navigates to the Consent Record and selects "CHARMS e-consent" for the response type, "Yes" for Interpreter Used, and verifies that two new fields "Interpreter Name or ID" and "Interpreter Language" display
+#    Then Study Team member navigates to the Consent Record and selects "CHARMS e-consent" for the response type, "Yes" for Interpreter Used, and verifies that two new fields "Interpreter Name or ID" and "Interpreter Language" display
+    Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
+    And Study Team member submits participant for review and marks them eligible
+    And navigates to participant Consent Record
+    And selects "CHARMS e-consent" as the Collection Method
+    And selects Today as the Consent Call Scheduled Time
+    And selects Today as the Consent Call Date
+    And selects "Yes" for Copy of ConsentAssent Provided Before Signing
+    And selects "Yes" for Protocol Discussed in Private Setting
+    And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
+    And selects "Yes" for Questions Addressed Before Signing
+    And selects "Yes" for Was verbal assent obtained
+    And selects "Yes" was Interpreter used
+    And enters "Interpreter test" for Interpreter Name or ID
+    And enters "Spanish" for Interpreter Language
+    And selects "Yes" for Interpreter Witness
+    And selects "Yes" for Interpreter Signed
+    And presses the Call Complete button
 
   @muzipovay2 @RAS_STUDY @CP2-3794 @selenium @RAS_Regression
   Scenario: Verifying that Parent/Guardian 1 Signed, Parent/Guardian 2 Signed fields for Adult consent type are disabled.
@@ -198,7 +215,7 @@ Feature: RAS Consent Scenarios
     Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAge7-10"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
-    And selects "CHARMS e-consent" as the Response Type
+    And selects "CHARMS e-consent" as the Collection Method
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
@@ -235,7 +252,8 @@ Feature: RAS Consent Scenarios
     And selects "Yes, adult needing LAR" for does participant does need legal representation
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
-    And selects "CHARMS e-consent" as the Response Type
+    And selects "CHARMS e-consent" as the Collection Method
+    And verifies that Consent Assent category auto-populated to "Adult - Needs LAR"
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
@@ -253,8 +271,8 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And proxy clicks on Study Consent and completes form with "Charms123$" "screenerScenarioAge7-10"
     Then participant logs out of RAS portal
-    And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAge7-10"
-    And verifies Consent Assent status is "Consented and Assented"
+    And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAdult-NeedsLAR"
+    And verifies Consent Assent status is "Consented only"
     And selects "Yes" for Consent Assent Obtained Before Study Procedures
     And selects "Yes" for Copy of Signed Dated Consent Assent Given to Participant
     Then Study Team member presses Sign and Complete

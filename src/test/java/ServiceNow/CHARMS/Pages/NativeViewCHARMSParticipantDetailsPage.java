@@ -68,7 +68,7 @@ public class NativeViewCHARMSParticipantDetailsPage {
     public WebElement nativeViewPatientDetailsContactInfoTab;
 
     /**
-     * Does the participant need legal representation? Dropdown
+     * Contact Info Tab "Does the participant need legal representation?" Dropdown
      */
     @FindBy(xpath = "//select[contains(@name,'x_naci_family_coho_family_history_details.proxy_required')]")
     public WebElement doesParticipantNeedLegalRepresentationDropdown;
