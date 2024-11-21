@@ -7,6 +7,7 @@ import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
+import static Hooks.Hooks.softAssert;
 import static com.nci.automation.web.TestProperties.getNCCRUrl;
 
 public class NCCRStepsImplementation extends PageInitializer {
@@ -30,11 +31,11 @@ public class NCCRStepsImplementation extends PageInitializer {
         switch (section) {
             case "My Assigned Data Requests":
                 CommonUtils.waitForVisibility(nccrPage.sectionMyAssignedDataRequest);
-                CommonUtils.assertTrue(nccrPage.sectionMyAssignedDataRequest.isDisplayed());
+                softAssert.assertTrue(nccrPage.sectionMyAssignedDataRequest.isDisplayed());
                 break;
             case "Confidentiality Statement":
                 CommonUtils.waitForVisibility(nccrPage.sectionConfidentialityStatement);
-                CommonUtils.assertTrue(nccrPage.sectionConfidentialityStatement.isDisplayed());
+                softAssert.assertTrue(nccrPage.sectionConfidentialityStatement.isDisplayed());
                 break;
         }
     }
@@ -48,11 +49,11 @@ public class NCCRStepsImplementation extends PageInitializer {
         switch (text) {
             case "My Assigned Data Requests":
                 CommonUtils.waitForVisibility(nccrPage.sectionTextMyAssignedDataRequest);
-                CommonUtils.assertTrue(nccrPage.sectionTextMyAssignedDataRequest.isDisplayed());
+                softAssert.assertTrue(nccrPage.sectionTextMyAssignedDataRequest.isDisplayed());
                 break;
             case "Confidentiality Statement":
                 CommonUtils.waitForVisibility(nccrPage.sectionTextConfidentialityStatement);
-                CommonUtils.assertTrue(nccrPage.sectionTextConfidentialityStatement.isDisplayed());
+                softAssert.assertTrue(nccrPage.sectionTextConfidentialityStatement.isDisplayed());
                 break;
         }
     }
