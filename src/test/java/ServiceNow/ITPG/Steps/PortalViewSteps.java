@@ -10,6 +10,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static Hooks.Hooks.softAssert;
+
 public class PortalViewSteps {
 
     private PortalViewPage portalViewPage;
@@ -92,7 +94,7 @@ public class PortalViewSteps {
         CucumberLogUtils.logScreenshot();
         if (actualState != null) {
             actualState = actualState.trim();
-            CommonUtils.assertEquals(expectedState, actualState);
+            softAssert.assertTrue(expectedState.equals(actualState));
         }
     }
 
