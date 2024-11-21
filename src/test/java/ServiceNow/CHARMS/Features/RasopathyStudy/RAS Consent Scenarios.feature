@@ -147,7 +147,7 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And proxy clicks on Study Consent and completes form with "Charms123$" "screenerScenarioAge14-17"
 
-  @muzipovay2 @RAS_STUDY @CP2-3725 @CP2-993 @selenium @RAS_Regression @Progression
+  @muzipovay2 @RAS_STUDY @CP2-3725 @CP2-993 @selenium @RIn-Progress
   Scenario: Verifying that two new fields display below the Interpreter Used? selection in the Participant's Consent Record in SN when the Response Type is not iMed
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"

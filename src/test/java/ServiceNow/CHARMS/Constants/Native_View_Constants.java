@@ -195,6 +195,17 @@ public class Native_View_Constants {
     };
 
     /**
+     * Participant consent record "Interpreter Witness?" dropdown options
+     */
+    public static final List<String> consentRecordInterpreterWitnessDropdownOptions = new ArrayList<>() {
+        {
+            add("-- None --");
+            add("No");
+            add("Yes");
+        }
+    };
+
+    /**
      * Participant consent record "Future Use of Specimens and Data by NIH" dropdown options
      */
     public static final List<String> consentRecordFutureUseOfSpecimensAndDataByNIHDropdownOptions = new ArrayList<>() {

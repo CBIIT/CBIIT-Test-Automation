@@ -241,6 +241,9 @@ public class NativeViewCHARMSParticipantConsentPage {
     @FindBy(xpath = "//input[@id='x_naci_family_coho_fcsms_consent.interpreter_language']")
     public WebElement rasStudyConsentInterpreterLanguageTextField;
 
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_fcsms_consent.interpreter_witness']")
+    public WebElement consentRecordInterpreterWitnessDropdownOptions;
+
     /**
      * Native View Ras Study Interpreter Witness Dropdown
      */
