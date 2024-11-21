@@ -14,7 +14,8 @@ import static com.nci.automation.web.TestProperties.getNativeViewSideDoorUrl;
 
 public class FHQSubmissionStepsImpl extends PageInitializer {
 	static SoftAssert softAssert = new SoftAssert();	
-	/* Method to submit a FHQ scenario */	
+
+	/** Method to submit a FHQ scenario */
 	public static void scenarioSelectorForFHQRelativesList(String excelName ) {	
 		if(excelName.contentEquals("FHQScenario1")){		
 			fHQ_TestDataManager.dataInitializerFHQ("Participant");
@@ -44,6 +45,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		}		
 	}
 
+	/*** Method to submit different relatives form in FHQ scenario */
 	@SuppressWarnings("static-access")
 	public static void scenarioSelectorForFHQRelative(String excelName, String sheetName) {
 		if (excelName.contentEquals("FHQScenario1")) {
@@ -112,10 +114,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		}
 	}
 
+	/****************************************************/
+			/** PARTICIPANT FORM IN PORTAL */
 	/***************************************************/
-			/* PARTICIPANT FORM IN PORTAL */
-	/**************************************************/
-	/* Participant submission scenario 1 */
+	/** Participant submission scenario 1 */
 	public static void fhqParticipantSubmissionScenario1() {
 		bannerAssertionsForParticipantForm();
 		participantBasicInformationSubmissionsAndAssertions1();
@@ -138,7 +140,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();		
 	}
 
-	/* Participant submission scenario 2 */
+	/** Participant submission scenario 2 */
 	public static void fhqParticipantSubmissionScenario2() {
 		bannerAssertionsForParticipantForm();
 		participantBasicInformationSubmissionsAndAssertions2();
@@ -161,10 +163,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();	
 	}
 
-	/**************************************************/
-			/* PARTNER FORM IN PORTAL */
-	/**************************************************/
-	/* Partner submission scenario 1 */
+	/***************************************************/
+			/** PARTNER FORM IN PORTAL */
+	/***************************************************/
+	/** Partner submission scenario 1 */
 	public static void fhqPartnerSubmissionScenario1() {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Partners"));
 		commonFamilyFieldsInListViewPageAssertions();
@@ -177,7 +179,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();
 	}
 
-	/* Partner submission scenario 2 */
+	/** Partner submission scenario 2 */
 	public static void fhqPartnerSubmissionScenario2() {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Partners"));
 		commonFamilyFieldsInListViewPageAssertions();
@@ -190,10 +192,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();
 	}
 
+	/***************************************************/
+			/** MOTHER FORM IN PORTAL */
 	/**************************************************/
-			/* MOTHER FORM IN PORTAL */
-	/*************************************************/
-	/* Mother submission scenario 1 */
+	/** Mother submission scenario 1 */
 	public static void fhqMotherSubmissionScenario1(){
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Parents"));	
 		commonFamilyFieldsInListViewPageAssertions();
@@ -213,7 +215,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();				
 	}
 
-	/* Mother submission scenario 2 */
+	/** Mother submission scenario 2 */
 	public static void fhqMotherSubmissionScenario2(){
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Parents"));	
 		commonFamilyFieldsInListViewPageAssertions();
@@ -233,10 +235,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();			
 	}
 
+	/************************************************/
+			/** FATHER FORM IN PORTAL */
 	/***********************************************/
-			/* FATHER FORM IN PORTAL */
-	/**********************************************/
-	/* Father submission scenario 1 */
+	/** Father submission scenario 1 */
 	public static void fhqFatherSubmissionScenario1(){
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Parents"));	
 		commonFamilyFieldsInListViewPageAssertions();
@@ -256,7 +258,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();
 	}
 
-	/* Father submission scenario 2 */
+	/** Father submission scenario 2 */
 	public static void fhqFatherSubmissionScenario2(){
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Parents"));	
 		commonFamilyFieldsInListViewPageAssertions();
@@ -276,10 +278,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();
 	}
 
-	/***************************************************/
-			/* CHILDREN FORM IN PORTAL */
-	/*************************************************/
-	/* Children submission scenario 1 */
+	/****************************************************/
+			/** CHILDREN FORM IN PORTAL */
+	/**************************************************/
+	/** Children submission scenario 1 */
 	public static void fhqChildrenSubmissionScenario1() {
 		CommonUtils.sleep(600);
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Children"));	
@@ -305,10 +307,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();
 	}
 
-	/*************************************************/
-			/* SIBLING FORM IN PORTAL */
 	/**************************************************/
-	/* Sibling submission scenario 1 */
+			/** SIBLING FORM IN PORTAL */
+	/***************************************************/
+	/** Sibling submission scenario 1 */
 	public static void fhqSiblingSubmissionScenario1() {
 		CommonUtils.sleep(600);
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Siblings"));	
@@ -333,10 +335,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();	
 	}
 
-	/******************************************************/
-			/* AUNT FORM IN PORTAL */
-	/******************************************************/
-	/* Aunt submission scenario 1 */
+	/*******************************************************/
+			/** AUNT FORM IN PORTAL */
+	/*******************************************************/
+	/** Aunt submission scenario 1 */
 	public static void fhqAuntSubmissionScenario1() {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Aunt/Uncle"));	
 		commonFamilyFieldsInListViewPageAssertions();
@@ -360,10 +362,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();
 	}
 
-	/******************************************************/
-			/* UNCLE FORM IN PORTAL */
-	/******************************************************/
-	/* Uncle submission scenario 1 */
+	/*******************************************************/
+			/** UNCLE FORM IN PORTAL */
+	/*******************************************************/
+	/** Uncle submission scenario 1 */
 	public static void fhqUncleSubmissionScenario1() {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Aunt/Uncle"));	
 		commonFamilyFieldsInListViewPageAssertions();
@@ -387,10 +389,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();
 	}
 
-	/****************************************************/
-			/*  NIECE/NEPHEW FORM IN PORTAL */
 	/*****************************************************/
-	/* NIECE/NEPHEW submission scenario 1 */
+			/**  NIECE/NEPHEW FORM IN PORTAL */
+	/******************************************************/
+	/** NIECE/NEPHEW submission scenario 1 */
 	public static void fhqNieceNephewSubmissionScenario1() {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Niece/Nephew"));	
 		commonFamilyFieldsInListViewPageAssertions();
@@ -412,10 +414,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();	
 	}
 
-	/************************************************************************/
-	/*  GRANDPARENTS - Maternal Grandmother (Mother's Mother) FORM IN PORTAL */
-	/************************************************************************/
-	/* Maternal Grandmother submission scenario 1 */
+	/*************************************************************************/
+	/**  GRANDPARENTS - Maternal Grandmother (Mother's Mother) FORM IN PORTAL */
+	/*************************************************************************/
+	/** Maternal Grandmother submission scenario 1 */
 	public static void fhqMaternalGrandMotherSubmissionScenario1() {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Grandparents"));	
 		commonFamilyFieldsInListViewPageAssertions();
@@ -434,9 +436,9 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();
 	}
 
-	/************************************************************************/
-	/*  GRANDPARENTS - Maternal Grandfather (Mother's Father)FORM IN PORTAL */
-	/************************************************************************/
+	/*************************************************************************/
+	/**  GRANDPARENTS - Maternal Grandfather (Mother's Father)FORM IN PORTAL */
+	/*************************************************************************/
 	public static void fhqMaternalGrandFatherSubmissionScenario1() {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Grandparents"));	
 		commonFamilyFieldsInListViewPageAssertions();
@@ -455,9 +457,9 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();
 	}
 
-	/************************************************************************/
-	/*  GRANDPARENTS - Paternal GrandMother (Father's Mother) FORM IN PORTAL */
-	/************************************************************************/
+	/*************************************************************************/
+	/**  GRANDPARENTS - Paternal GrandMother (Father's Mother) FORM IN PORTAL */
+	/*************************************************************************/
 	public static void fhqPaternalGrandMotherSubmissionScenario1() {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Grandparents"));	
 		commonFamilyFieldsInListViewPageAssertions();
@@ -476,9 +478,9 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();
 	}
 
-	/************************************************************************/
-	/*  GRANDPARENTS - Paternal Grandfather (Father's Father) FORM IN PORTAL */
-	/************************************************************************/
+	/*************************************************************************/
+	/**  GRANDPARENTS - Paternal Grandfather (Father's Father) FORM IN PORTAL */
+	/*************************************************************************/
 	public static void fhqPaternalGrandFatherSubmissionScenario1() {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Grandparents"));	
 		commonFamilyFieldsInListViewPageAssertions();
@@ -497,9 +499,9 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();
 	}
 
+	/********************************************************/
+			/**  GRANDCHILDREN FORM IN PORTAL */
 	/*******************************************************/
-			/*  GRANDCHILDREN FORM IN PORTAL */
-	/******************************************************/
 	public static void fhqGrandChildrenSubmissionScenario1(){
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Grandchildren"));	
 		commonFamilyFieldsInListViewPageAssertions();
@@ -519,9 +521,9 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();
 	}
 
-	/*************************************************/
-			/*  COUSIN FORM IN PORTAL */
-	/*************************************************/
+	/**************************************************/
+			/**  COUSIN FORM IN PORTAL */
+	/**************************************************/
 	public static void fhqCousinSubmissionScenario1(){
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Cousins"));	
 		commonFamilyFieldsInListViewPageAssertions();
@@ -541,7 +543,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		finalSubmissionSteps();
 	}
 
-	/* ****** METHOD FOR FHQ SCENARIO-1 ASSERTIONS ********* */	
+	/** ****** METHOD FOR FHQ SCENARIO-1 ASSERTIONS ********* */	
 	public static void scenarioAssertionForFHQ(String excelName, String sheetName) {
 		if (excelName.contentEquals("FHQScenario1")) {
 			if(sheetName.contentEquals("Participant")) {
@@ -607,7 +609,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		}
 	}
 
-	/* ****** Methods for Each Relative FHQ scenario-1 Assertions ********* */
+	/** ****** Methods for Each Relative FHQ scenario-1 Assertions ********* */
 	public static void fhqParticipantAssertionScenario1() {
 		participantFHQInformationAssertions(" in FHQ Participant Form in NV");
 		softAssert.assertAll();
@@ -678,10 +680,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		softAssert.assertAll();
 	}
 
-	/*****************************************************************/
-			/* COMMON METHODS FOR ALL RELATIVE FORMS */
-	/*****************************************************************/
-	/* Method to Login to MyRasLandingPage */
+	/******************************************************************/
+			/** COMMON METHODS FOR ALL RELATIVE FORMS */
+	/******************************************************************/
+	/** Method to Login to MyRasLandingPage */
 	public static void loginToRASStudyPage(String username, String password) {
 		CommonUtils.waitForVisibility(myRASLoginPage.loginToMyRASButton);
 		CharmsUtil.clickOnElement(myRASLoginPage.loginToMyRASButton);
@@ -694,7 +696,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.clickOnElement(oktaLoginPage.agreeBtn);
 	}
 
-	/* Method to click on FHQ Link and landing on the FHQ MAIN Form Page and doing assertions on Help Text */
+	/** Method to click on FHQ Link and landing on the FHQ MAIN Form Page and doing assertions on Help Text */
 	public static void loginToMainFHQPage() {
 		CharmsUtil.clickOnElement(FHQSubmissionPage.familyHistoryQuestionnaireLink);
 		CommonUtils.sleep(300);
@@ -714,7 +716,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CucumberLogUtils.logScreenshot();
 	}
 
-	/* Method to land on FHQ Grid page and do text message assertions */
+	/** Method to land on FHQ Grid page and do text message assertions */
 	public static void loginToFHQGridPage() {
 		CharmsUtil.clickOnElement(FHQSubmissionPage.familyHistoryQuestionnaireLink);
 		CommonUtils.sleep(300);
@@ -729,7 +731,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.noteMyRasLandingPage,header4," Note: You will not be able to edit the survey once you click the Submit FHQ Questionnaire button. ");		
 	}
 
-	/* Method to land on FHQ Grid page on Portal and do text message assertions */
+	/** Method to land on FHQ Grid page on Portal and do text message assertions */
 	public static void loginToFHQGridPageForARelative() {
 		CommonUtils.sleep(300);
 		String header1 = "We know families come in different shapes and sizes. This survey is primarily meant to record health information on your biological (blood-related) relatives. It's okay not to know information about some of your relatives.";
@@ -743,7 +745,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.noteMyRasLandingPage,header4," Note: You will not be able to edit the survey once you click the Submit FHQ Questionnaire button. ");
 	}
 
-	/* Method to Login to NativeView using the side door Test Account */
+	/** Method to Login to NativeView using the side door Test Account */
 	public static void nativeViewSideDoorLogin(String SideDoorUsername, String SideDoorPassword) {
 		CommonUtils.sleep(2000);
 		WebDriverUtils.webDriver.get(getNativeViewSideDoorUrl());
@@ -754,7 +756,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CommonUtils.sleep(2000);
 	}
 
-	/* Method to Login to the FHQ list view in Native View */
+	/** Method to Login to the FHQ list view in Native View */
 	public static void loginToFHQPatientInNativeView() {
 		ServiceNow_Common_Methods.filterNavigatorSearchForFHQ("FHQ Patients");
 		CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator("SOnika Jain"));
@@ -766,14 +768,14 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		}
 	}
 
-	/* Assertions of common fields on the List View Page */
+	/** Assertions of common fields on the List View Page */
 	public static void commonFamilyFieldsInListViewPageAssertions() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.NCI_FAMILY_STUDIES_HUB_RASOPATHIES), fHQ_TestDataManager.nCIFamilyStudiesHubRASopathies," NCI Family Studies Hub: RASopathies Label "); 
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.FHQ_HOME), "FHQ Home", " FHQ Home Label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.LIST_VIEW), fHQ_TestDataManager.listView, " List View Label ");		
 	}
 
-	/* Assertions of common TABLE fields on the List View Page for all Family members */
+	/** Assertions of common TABLE fields on the List View Page for all Family members */
 	public static void commonFamilyListViewTableAssertions() {	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.rowsDetailsOnListView,fHQ_TestDataManager.theBlueHighlightedRowsRepresentTheIncompletedFamilyRecords, " The blue highlighted rows represent the incompleted family records Label "); 
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForBanner("First Name",1),fHQ_TestDataManager.firstName," First Name Label ");
@@ -782,7 +784,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForBanner("Year of Birth", 1),fHQ_TestDataManager.yearOfBirth, " Year of Birth Label ");
 	}
 
-	/* Assertions of Banners on the Participant form */
+	/** Assertions of Banners on the Participant form */
 	public static void assertFamilyFormBanners() {
 		String header1 = "We know families come in different shapes and sizes. This survey is primarily meant to record health information on your biological (blood-related) relatives. It's okay not to know information about some of your relatives.";
 		String header2 = "As you go through your relatives information in these forms, you will be able to fill out the information you know and click the Complete button on each page. Please keep in mind you will not be able to make changes to that relative once completed. When all relatives are completed, the Submit FHQ Questionnaire button will appear.";
@@ -798,7 +800,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.noteMyRasLandingPage,header4," Note: You will not be able to edit the survey once you click the Submit FHQ Questionnaire button. Label ");
 	}
 
-	/* Twin or part of a multiple birth? Questions */
+	/** Twin or part of a multiple birth? Questions */
 	public static void twinOrMultipleBirthQuestionsSubmissionsAndAssertions(int i, String string){
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.IS_THIS_RELATIVE_A_TWIN_OR_PART_OF_A_MULTIPLE_BIRTH), fHQ_TestDataManager.isThisRelativeATwinOrPartOfAMultipleBirth, " Is this relative a twin or part of a multiple birth? Label" + string);
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(i),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.twinOrPartOfAMultipleBirthValueAdded);	
@@ -806,7 +808,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(i+1),FHQConstants.TYPE_OF_BIRTH,fHQ_TestDataManager.typeOfBirthValueAdded);			
 	}
 
-	/* miscarriages or stillbirths? Questionnaire */
+	/** miscarriages or stillbirths? Questionnaire */
 	public static void miscarriagesOrStillbirthsQuestionsSubmissionsAndAssertions(int i, String string) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.MEDICAL_HISTORY), fHQ_TestDataManager.medicalHistory, " Medical History Label" + string);	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS),fHQ_TestDataManager.hasThisRelativeEverHadAnyMiscarriagesOrStillbirths," Has this relative ever had any miscarriages or stillbirths? Label" + string);
@@ -820,7 +822,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(i+2),FHQConstants.numberUpToN(20),fHQ_TestDataManager.totalNumberOfStillbirthsValue);
 	}
 
-	/* RASOPATHY QUESTIONNAIRE Submissions and Assertions */
+	/** RASOPATHY QUESTIONNAIRE Submissions and Assertions */
 	public static void rASopathyQuestionsSubmissionsAndAssertions(int i, String string){
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.MEDICAL_HISTORY), fHQ_TestDataManager.medicalHistory, " Medical History Label" + string);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_BEEN_DIAGNOSED_WITH_A_RASOPATHY), fHQ_TestDataManager.hasThisRelativeBeenDiagnosedWithARASopathy, " Has this relative been diagnosed with a RASopathy? Label" + string);
@@ -833,7 +835,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertRASopathyRowAddedInMRVSTable(1);
 	}
 
-	/* Rasopathy MRVS Table headings Assertion */
+	/** Rasopathy MRVS Table headings Assertion */
 	public static void  assertRasopathyBannerInMRVSTable(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.RASOPATHY), fHQ_TestDataManager.rASopathy, " RASopathy Label in RASopathy MRVS Table ");
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Add a row for RASopathy(s)"),fHQ_TestDataManager.add," Add Label in RASopathy MRVS Table ");
@@ -848,7 +850,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingContainsNormalizeSpace("No data to display", i),fHQ_TestDataManager.noDataToDisplay, " No data to display Label in RASopathy MRVS Table ");	 
 	}
 
-	/* RASopathy MRVS ADD page Assertions and Submissions */
+	/** RASopathy MRVS ADD page Assertions and Submissions */
 	public static void  addRASopathyRowInMRVSPage() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.ADD_ROW),fHQ_TestDataManager.addRow, " Add Row label for Rasopathy  in MRVS ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("RASopathy"), "RASopathy", " RASopathy Label in RASopathy Add MRVS Table page ");
@@ -867,7 +869,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.clickOnElement(FHQSubmissionPage.addRowSaveButton);
 	}
 
-	/* RASopathy MRVS Added Row Assertions */
+	/** RASopathy MRVS Added Row Assertions */
 	public static void  assertRASopathyRowAddedInMRVSTable(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Edit Row 1",i),"", " Edit Row for RASopathy label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Remove Row 1",i),"", " Remove Row for RASopathy label ");
@@ -879,7 +881,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForMRVSTableValue(6),fHQ_TestDataManager.additionalInformationAddedForRasopathy, " Additional Information added for RASopathy data ");
 	}
 
-	/* CANCER QUESTIONNAIRE Submissions and Assertions */
+	/** CANCER QUESTIONNAIRE Submissions and Assertions */
 	public static void cancerQuestionsSubmissionsAndAssertions(int i, String string) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_CANCER), fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithCancer, " Has this relative ever been diagnosed with cancer? Label" + string);
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(i),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithCancerValue);	
@@ -890,7 +892,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertCancerRowAddedInMRVSTable(2); 
 	}
 
-	/* Cancer MRVS Table headings Assertion */
+	/** Cancer MRVS Table headings Assertion */
 	public static void assertCancerBannerInMRVSTable(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.CANCERS), fHQ_TestDataManager.cancers, " Cancer(s) Label in Cancer MRVS Table ");
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Add a row for Cancer(s)"),fHQ_TestDataManager.add," Add Label in Cancer MRVS Table ");
@@ -905,7 +907,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingContainsNormalizeSpace("No data to display", i),fHQ_TestDataManager.noDataToDisplay, " No data to display Label in Cancer MRVS Table ");	 
 	}
 
-	/* Cancer MRVS ADD page Assertions and Submissions */
+	/** Cancer MRVS ADD page Assertions and Submissions */
 	public static void addCancerRowInMRVSPage() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.ADD_ROW),fHQ_TestDataManager.addRow, " Add Row label for Cancer in MRVS ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.CANCER), fHQ_TestDataManager.cancer, " Cancer Label in Cancer MRVS Table ");
@@ -924,7 +926,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.clickOnElement(FHQSubmissionPage.addRowSaveButton);
 	}
 
-	/* Cancer MRVS Added Row Assertions */
+	/** Cancer MRVS Added Row Assertions */
 	public static void assertCancerRowAddedInMRVSTable(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Edit Row 1",i),"", " Edit Row for Cancer label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Remove Row 1",i),"", " Remove Row for Cancer label ");
@@ -936,7 +938,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForMRVSTableValue(12),fHQ_TestDataManager.additionalInformationAddedForCancer, " Additional Information added for Cancer data ");
 	}
 
-	/* BENIGN TUMOR QUESTIONNAIRE Submissions and Assertions */
+	/** BENIGN TUMOR QUESTIONNAIRE Submissions and Assertions */
 	public static void benignTumorQuestionsSubmissionsAndAssertions(int i, String string) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR), fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithABenignTumor, " Has this relative ever been diagnosed with one of the benign tumors listed below? Label" + string);
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(i),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithABenignTumorValue);	
@@ -947,7 +949,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertBenignTumorRowAddedInMRVSTable(3); 
 	}
 
-	/* BENIGN TUMOR MRVS Table headings Assertion */
+	/** BENIGN TUMOR MRVS Table headings Assertion */
 	public static void assertBenignTumorBannerInMRVSTable(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.BENIGN_TUMOR), fHQ_TestDataManager.benignTumor, " Benign Tumor Label in Benign Tumor MRVS Table ");
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Add a row for Benign Tumor(s)"),fHQ_TestDataManager.add," Add Label in Benign Tumor MRVS Table ");
@@ -961,7 +963,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingContainsNormalizeSpace("No data to display", i),fHQ_TestDataManager.noDataToDisplay, " No data to display Label in Benign Tumor MRVS Table ");	 
 	}
 
-	/* BENIGN TUMOR MRVS ADD page Assertions and Submissions */
+	/** BENIGN TUMOR MRVS ADD page Assertions and Submissions */
 	public static void addBenignTumorRowInMRVSPage() {
 		String yearOfBirthdateBannerText = "An estimated date is preferred over \"Don't Know.\" Examples: select 1995 if you know the date is in the 1990s but unsure the exact year; select 1982 if you know it was in the early 1980s; select 1977 if you know it was in the late 1970s.";
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.ADD_ROW),fHQ_TestDataManager.addRow, " Add Row label for Benign Tumor in MRVS ");
@@ -982,7 +984,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.clickOnElement(FHQSubmissionPage.addRowSaveButton);
 	}
 
-	/* BENIGN TUMOR MRVS Added Row Assertions */
+	/** BENIGN TUMOR MRVS Added Row Assertions */
 	public static void assertBenignTumorRowAddedInMRVSTable(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Edit Row 1",i),"", " Edit Row for Benign Tumor label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Remove Row 1",i),"", " Remove Row for Benign Tumor label ");
@@ -993,7 +995,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForMRVSTableValue(17),fHQ_TestDataManager.additionalInformationAddedForBenignTumor, " Additional Information added for Benign Tumor data ");
 	}
 
-	/* MEDICAL CONDITIONS QUESTIONNAIRE Submissions and Assertions */
+	/** MEDICAL CONDITIONS QUESTIONNAIRE Submissions and Assertions */
 	public static void medicalConditionQuestionsSubmissionsAndAssertions(int i, String string) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW  ), fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow, " Has this relative ever been diagnosed with any of the medical conditions listed below? Label" + string);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingTitle(FHQConstants.MEDICAL_CONDITIONS_BANNER), fHQ_TestDataManager.medicalConditionsBanner, " Medical conditions Banner" + string);		
@@ -1005,7 +1007,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertMedicalConditionRowAddedInMRVSTable(4);
 	}
 
-	/* Medical Conditions MRVS Table headings Assertion */
+	/** Medical Conditions MRVS Table headings Assertion */
 	public static void assertMedicalConditionBannerInMRVSTable(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.MEDICAL_CONDITIONS), fHQ_TestDataManager.medicalConditions, " Medical Condition Label in Medical Condition MRVS Table ");
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Add a row for Medical Condition(s)"),fHQ_TestDataManager.add," Add Label in Medical Condition MRVS Table ");
@@ -1019,7 +1021,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingContainsNormalizeSpace("No data to display", 1),fHQ_TestDataManager.noDataToDisplay, " No data to display Label in Medical Condition MRVS Table ");
 	}
 
-	/* Medical Condition MRVS ADD page Assertions and Submissions */
+	/** Medical Condition MRVS ADD page Assertions and Submissions */
 	public static void addMedicalConditionRowInMRVSPage() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.ADD_ROW),fHQ_TestDataManager.addRow, " Add Row label for Medical Condition in MRVS ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants. MEDICAL_CONDITION), fHQ_TestDataManager.medicalCondition, " Medical Condition Label in Cancer MRVS Table ");
@@ -1038,7 +1040,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.clickOnElement(FHQSubmissionPage.addRowSaveButton);
 	}
 
-	/* Medical Condition MRVS Added Row Assertions */
+	/** Medical Condition MRVS Added Row Assertions */
 	public static void  assertMedicalConditionRowAddedInMRVSTable(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Edit Row 1",i),"", " Edit Row for Medical Condition label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Remove Row 1",i),"", " Remove Row for Medical Condition label ");
@@ -1049,7 +1051,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForMRVSTableValue(22),fHQ_TestDataManager.ageOfDiagnosisForMedicalConditionSelected, " Age of diagnosis for Medical Condition selected data ");
 	}
 
-	/* OTHER INFORMATION Added */
+	/** OTHER INFORMATION Added */
 	public static void otherInformation() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.OTHER),fHQ_TestDataManager.other," Other Label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE),fHQ_TestDataManager.isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative," Is there anything else you would like us to know about this relative? Label ");
@@ -1057,17 +1059,17 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CommonUtils.sleep(700);
 	}
 
-	/* Final Steps to submit any Family Relative Form */
+	/** Final Steps to submit any Family Relative Form */
 	public static void finalSubmissionSteps() {	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.submitFormHelpTextBanner,fHQ_TestDataManager.youWillNotBeAbleToModifyThisRecordAfterYouComplete," You will not be able to modify this record after you click Complete. Label ");	
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.completeButton,fHQ_TestDataManager.complete," Complete Button Label ");	 
 		CharmsUtil.clickOnElement(fHQSubmissionPage.completeButton);
 	}
 
-	/*************************************************/
-			/* METHODS FOR THE PARTICIPANT FORM */
-	/*************************************************/
-	/* Banner Assertions on the Participant form */
+	/**************************************************/
+			/** METHODS FOR THE PARTICIPANT FORM */
+	/**************************************************/
+	/** Banner Assertions on the Participant form */
 	public static void bannerAssertionsForParticipantForm() {
 		String header1 = "We know families come in different shapes and sizes. This survey is primarily meant to record health information on your biological (blood-related) relatives. It's okay not to know information about some of your relatives.";
 		String header2 = "As you go through your relatives information in these forms, you will be able to fill out the information you know and click the Complete button on each page. Please keep in mind you will not be able to make changes to that relative once completed. When all relatives are completed, the Submit FHQ Questionnaire button will appear.";
@@ -1086,7 +1088,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.YOU_ARE_CURRENTLY_FILLING_OUT_INFORMATION_FOR_THE_PARTICIPANT),fHQ_TestDataManager.youAreCurrentlyFillingOutInformationForTheParticipant, " You are currently filling out information for the participant. Label ");	
 	}
 
-	/* Participant filling the information for oneself */
+	/** Participant filling the information for oneself */
 	public static void participantBasicInformationSubmissionsAndAssertions1() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PLEASE_INDICATE_YOUR_RELATIONSHIP_TO_THE_PARTICIPANT),"Please indicate your relationship to the participant.", " Please indicate your relationship to the participant. Label ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown,FHQConstants.RELATIONSHIP_TO_PARTICIPANT,fHQ_TestDataManager.pleaseIndicateYourRelationshipToTheParticipant);
@@ -1115,7 +1117,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.sendKeysToElement(fHQSubmissionPage.dynamicLocatorForTextBox("stillbirth_partners"), fHQ_TestDataManager.pleaseWriteTheFirstNameOfThePartnersWithWhomTheParticipantHadThePregnancyiesAboveStillbirths);
 	}
 
-	/* Proxy filling the information for Proband */
+	/** Proxy filling the information for Proband */
 	public static void participantBasicInformationSubmissionsAndAssertions2() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PLEASE_INDICATE_YOUR_RELATIONSHIP_TO_THE_PARTICIPANT),"Please indicate your relationship to the participant.", " Please indicate your relationship to the participant. Label ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator2ForDropDown(1),FHQConstants.RELATIONSHIP_TO_PARTICIPANT,fHQ_TestDataManager.pleaseIndicateYourRelationshipToTheParticipant);
@@ -1143,7 +1145,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.sendKeysToElement(fHQSubmissionPage.dynamicLocatorForTextBox("stillbirth_partners"), fHQ_TestDataManager.pleaseWriteTheFirstNameOfThePartnersWithWhomTheParticipantHadThePregnancyiesAboveStillbirths);
 	}
 
-	/* Participant's Children Questions Asked */
+	/** Participant's Children Questions Asked */
 	public static void participantChildQuestionsSubmissionsAndAssertions1() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THE_PARTICIPANT_HAD),"How many total children (alive and deceased) has the participant had?"," How many total children (alive and deceased) has the participant had? Label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.childrenHelpTextBanner,fHQ_TestDataManager.pleaseIncludeLivingAndDeceasedChildren," Please include living and deceased children. Label ");			
@@ -1154,7 +1156,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Remove all rows for Children"),fHQ_TestDataManager.removeAll," Remove All Label for child ");		
 	}
 
-	/* Participant's Children Questions Asked */
+	/** Participant's Children Questions Asked */
 	public static void participantChildQuestionsSubmissionsAndAssertions2() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THE_PARTICIPANT_HAD),"How many total children (alive and deceased) has the participant had?"," How many total children (alive and deceased) has the participant had? Label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingTitle(FHQConstants.PLEASE_INCLUDE_LIVING_AND_DECEASED_CHILDREN),fHQ_TestDataManager.pleaseIncludeLivingAndDeceasedChildren," Please include living and deceased children. Label ");
@@ -1165,7 +1167,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Remove all rows for Children"),fHQ_TestDataManager.removeAll," Remove All Label for child ");		
 	}
 
-	/* Assertion of common fields of all the MRVS Table */
+	/** Assertion of common fields of all the MRVS Table */
 	public static void assertMRVSTable(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForBanner("Actions", i),fHQ_TestDataManager.actions," Actions Label ");		 
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForBanner("First Name",i),fHQ_TestDataManager.firstName," First Name Label ");
@@ -1174,7 +1176,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingContainsNormalizeSpace("No data to display", 1),fHQ_TestDataManager.noDataToDisplay, " No data to display Label ");	 
 	}
 
-	/* Child MRVS ADD page Assertions and Submissions */
+	/** Child MRVS ADD page Assertions and Submissions */
 	public static void addChildRowInMRVSPage(){
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.ADD_ROW),fHQ_TestDataManager.addRow, " Add Row label for child  in MRVS Page ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.FIRST_NAME),fHQ_TestDataManager.firstName, " First Name label for child  in MRVS Page ");
@@ -1188,7 +1190,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.clickOnElement(FHQSubmissionPage.addRowSaveButton);
 	}
 
-	/* Assert the Child Row added */
+	/** Assert the Child Row added */
 	public static void assertChildRowAddedInMRVSTableForParticipant(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Edit Row 1",i),"", " Edit Row for child label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Remove Row 1",i),"", " Remove Row for child label ");
@@ -1197,7 +1199,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForMRVSTableValue(i+2),fHQ_TestDataManager.childvitalStatus, " Child Vital Status data ");				
 	}
 
-	/* Participant's Partner Questions Asked */
+	/** Participant's Partner Questions Asked */
 	public static void participantPartnerQuestionsSubmissionsAndAssertions1() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HOW_MANY_TOTAL_DIFFERENT_PARTNERS_HAS_THE_PARTICIPANT_HAD_BIOLOGICAL_CHILDREN_WITH), "How many total different partners has the participant had biological children with?"," How many total different partners has the participant had biological children with? label ");		
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingTitle(FHQConstants.PLEASE_DO_NOT_COUNT_THEM_HERE),fHQ_TestDataManager.pleaseDoNotCountThemHere, " Please do not count them here. Label ");					
@@ -1207,7 +1209,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Remove all rows for Partner"),fHQ_TestDataManager.removeAll, " Remove all rows for Partner Label ");
 	}
 
-	/* Participant's Partner Questions Asked */
+	/** Participant's Partner Questions Asked */
 	public static void participantPartnerQuestionsSubmissionsAndAssertions2() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HOW_MANY_TOTAL_DIFFERENT_PARTNERS_HAS_THE_PARTICIPANT_HAD_BIOLOGICAL_CHILDREN_WITH), "How many total different partners has the participant had biological children with?"," How many total different partners has the participant had biological children with? label ");		
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingTitle(FHQConstants.PLEASE_DO_NOT_COUNT_THEM_HERE),fHQ_TestDataManager.pleaseDoNotCountThemHere, " Please do not count them here. Label ");					
@@ -1217,7 +1219,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Remove all rows for Partner"),fHQ_TestDataManager.removeAll, " Remove all rows for Partner Label ");
 	}
 
-	/* Participant's Partner MRVS Page Assertions and Submission */
+	/** Participant's Partner MRVS Page Assertions and Submission */
 	public static void addPartnerRowInMRVSPage() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.ADD_ROW),fHQ_TestDataManager.addRow, " Add Row For Partner in MRVS ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.FIRST_NAME),fHQ_TestDataManager.firstName, " First name of Partner Label in MRVS ");
@@ -1231,7 +1233,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.clickOnElement(FHQSubmissionPage.addRowSaveButton);
 	}
 
-	/* Assert the Participant's Partner Row added */
+	/** Assert the Participant's Partner Row added */
 	public static void assertPartnerRowAddedInMRVSTableForParticipant(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Edit Row 1",2),"", " Edit Row for Partner ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Remove Row 1",2),"", " Remove Row for Partner ");
@@ -1240,7 +1242,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForMRVSTableValue(i+4),fHQ_TestDataManager.partnervitalStatus, " Vital Status of Partner Data ");
 	}
 
-	/* Participant's Siblings Question Asked */
+	/** Participant's Siblings Question Asked */
 	public static void participantSiblingQuestionsSubmissionsAndAssertions1() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.WE_WOULD_LIKE_TO_ASK_YOU_SOME_QUESTIONS_ABOUT_SIBLINGS_DETAILS),fHQ_TestDataManager.weWouldLikeToAskYouSomeQuestionsAboutSiblingsDetails, " We would like to ask you some questions about Siblings details Label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HOW_MANY_SIBLINGS_DOES_THE_PARTICIPANT_HAVE),"How many siblings does the participant have?", " How many siblings does the participant have? Label ");
@@ -1251,7 +1253,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Remove all rows for Siblings"),fHQ_TestDataManager.removeAll, " Remove all rows for Siblings Label ");
 	}
 
-	/* Participant's Siblings Question Asked */
+	/** Participant's Siblings Question Asked */
 	public static void participantSiblingQuestionsSubmissionsAndAssertions2() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.WE_WOULD_LIKE_TO_ASK_YOU_SOME_QUESTIONS_ABOUT_SIBLINGS_DETAILS),fHQ_TestDataManager.weWouldLikeToAskYouSomeQuestionsAboutSiblingsDetails, " We would like to ask you some questions about Siblings details Label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HOW_MANY_SIBLINGS_DOES_THE_PARTICIPANT_HAVE),"How many siblings does the participant have?", " How many siblings does the participant have? Label ");
@@ -1262,7 +1264,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Remove all rows for Siblings"),fHQ_TestDataManager.removeAll, " Remove all rows for Siblings Label ");
 	}
 
-	/* Assertions for the Participant's Siblings Row on the Participant form */
+	/** Assertions for the Participant's Siblings Row on the Participant form */
 	public static void assertSiblingMRVSTable() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForBanner("Actions", 3),fHQ_TestDataManager.actions," Actions Label for Sibling Table  ");		 		
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.TYPES_OF_SIBLING_RELATION),"Types of Sibling relation", " Types of Sibling relation Label in Table "); 
@@ -1272,7 +1274,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingContainsNormalizeSpace("No data to display", 3),fHQ_TestDataManager.noDataToDisplay, " No data to display for Sibling Label in Table ");	 
 	}
 
-	/* Participant's Sibling MRVS Page Assertions and Submission */
+	/** Participant's Sibling MRVS Page Assertions and Submission */
 	public static void addSiblingRowInMRVSPageForParticipant() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.ADD_ROW),fHQ_TestDataManager.addRow, " Add Row For Sibling in MRVS ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.TYPES_OF_SIBLING_RELATION),"Types of Sibling relation", " Types of Sibling relation Label in MRVS ");
@@ -1288,7 +1290,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.clickOnElement(FHQSubmissionPage.addRowSaveButton);
 	}
 
-	/* Assert the Participant's Sibling Row added */
+	/** Assert the Participant's Sibling Row added */
 	public static void assertSiblingRowAddedInMRVSTableForParticipant(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Edit Row 1",i),"", " Edit Row for Sibling ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Remove Row 1",i),"", " Remove Row for Sibling  ");
@@ -1298,16 +1300,16 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForMRVSTableValue(i+7),fHQ_TestDataManager.siblingVitalStatus, " Vital Status of Sibling Data ");
 	}
 
-	/* Participant's Other Questions Asked */
+	/** Participant's Other Questions Asked */
 	public static void otherInformationForParticipant() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THE_PARTICIPANT),"Is there anything else you would like us to know about the participant?"," Is there anything else you would like us to know about the participant? Label "); 	
 		CharmsUtil.sendKeysToElement(fHQSubmissionPage.anythingElseAboutThisParticipantTextBox, fHQ_TestDataManager.addAdditionalInformation); 
 	}
 
-	/************************************************************/
-			/* METHODS FOR THE PARTNER FORM */
-	/************************************************************/
-	/* Assertions for the Partner Table LABELS on List View Page  */
+	/*************************************************************/
+			/** METHODS FOR THE PARTNER FORM */
+	/*************************************************************/
+	/** Assertions for the Partner Table LABELS on List View Page  */
 	public static void partnersListViewTableLabelsAssertions() {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("FHQ Partners Context Menu"),"", " FHQ Partners Context Menu Label in Partner Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.PARTNERS), fHQ_TestDataManager.partners, " Partners Label in Partner Form ");
@@ -1320,7 +1322,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForBanner("Relation to patient", 1),fHQ_TestDataManager.relationToPatient, " Relation to patient Label in Partner Form ");		
 	}
 
-	/* Assertions for the Partner Table VALUES on List View Page */ 
+	/** Assertions for the Partner Table VALUES on List View Page */ 
 	public static void partnerListViewTableValuesAssertions(){
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorForButtonUsingText(FHQConstants.FIRST_NAME), fHQ_TestDataManager.partnerFirstName, " Partner First Name Label in Partner Form ");
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorForButtonUsingText(FHQConstants.FIRST_INITIAL_OF_LAST_NAME), fHQ_TestDataManager.partnerFirstInitialOfLASTName, " Partner First Initial of LAST Name Label in Partner Form ");			
@@ -1329,7 +1331,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorForButtonUsingText(FHQConstants.RELATION_TO_PATIENT), fHQ_TestDataManager.partnerRelationToPatient, " Partner Relation to patient Label in Partner Form ");		
 	}
 
-	/* Submissions and Assertions for the Partner basic Information */
+	/** Submissions and Assertions for the Partner basic Information */
 	public static void partnerBasicInformationSubmissionsAndAssertions(){
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.PARTNER),fHQ_TestDataManager.partner, " Partner Label in Partner Form ");		 			 
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.YOU_ARE_CURRENTLY_FILLING_OUT_INFORMATION_FOR_THE_PARTICIPANTS_PARTNER),fHQ_TestDataManager.youAreCurrentlyFillingOutInformationForTheParticipantPartner, " You are currently filling out information for the participant's Partner. Label in Partner Form ");
@@ -1357,17 +1359,17 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.sendKeysToElement(fHQSubmissionPage.dynamicLocatorForTextBox("please_describe_how_the_participant_is_related_to_this_person"), fHQ_TestDataManager.describeTheParticipantRelatedToThisPerson);
 	}
 
-	/* Partner form other questions */
+	/** Partner form other questions */
 	public static void partnerOtherQuestions() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.OTHER),fHQ_TestDataManager.other," Other Label of Partner in Partner Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.IS_THERE_ANY_ADDITIONAL_INFORMATION_YOU_WOULD_LIKE_US_TO_KNOW_OR_UNDERSTAND_ABOUT_THIS_RELATIVE),fHQ_TestDataManager.isThereAnyAdditionalInformationYouWouldLikeUsToKnowOrUnderstandAboutThisRelative," Is there any additional information  Label of Partner in Partner Form ");
 		CharmsUtil.sendKeysToElement(fHQSubmissionPage.participantRelatedToThisPartnerTextBox, fHQ_TestDataManager.addAdditionalInformation);
 	}
 
-	/***********************************************************/
-				/* METHODS FOR THE PARENT FORM */
 	/************************************************************/
-	/* Assertions for the Parent Table LABELS on List View Page  */
+				/** METHODS FOR THE PARENT FORM */
+	/*************************************************************/
+	/** Assertions for the Parent Table LABELS on List View Page  */
 	public static void parentsListViewTableLabelsAssertions() {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("FHQ Parents Context Menu"),"", " FHQ Parents Context Menu Label in Parent List view page ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.PARENTS), fHQ_TestDataManager.parents, " Parents Label in Parent List view page ");	
@@ -1381,7 +1383,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForBanner("Relation to Patient", 1),fHQ_TestDataManager.relationsToPatient, " Relation to patient Label in Parent List view page ");	
 	}
 
-	/* Assertions for the Parents Table VALUES on List View Page */ 
+	/** Assertions for the Parents Table VALUES on List View Page */ 
 	public static void parentsListViewTableValuesAssertions(String string){
 		//First Row
 		if (fHQSubmissionPage.dynamicLocatorElementInTable(1,5).getText().trim().equals("Biological Father")) {
@@ -1415,7 +1417,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 			}
 		}
 
-	/* Submissions and Assertions for the Basic Information of the Parent */
+	/** Submissions and Assertions for the Basic Information of the Parent */
 	public static void parentBasicInformationSubmissionsAndAssertions(String string) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.parentTypeHeading,fHQ_TestDataManager.parentType, string + " Label" + string );		 			 
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.YOU_ARE_CURRENTLY_FILLING_OUT_INFORMATION),fHQ_TestDataManager.youAreCurrentlyFillingOutInformation, " You are currently filling out information for the participant's Label" + string);
@@ -1438,7 +1440,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator2ForDropDown(11),FHQConstants.GENDER_IDENTITY,fHQ_TestDataManager.genderIdentityValueAdded);	
 	}
 
-	/* Siblings Information added For Parent */
+	/** Siblings Information added For Parent */
 	public static void siblingzSubmissionsAndAssertionsForParent(String string) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HOW_MANY_SIBLINGS_DOES_THIS_RELATIVE_HAVE), fHQ_TestDataManager.howManySiblingsDoesThisRelativeHave, " How many siblings does this relative have? Label"+ string);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.siblingBanner, fHQ_TestDataManager.howManySiblingsDoesThisRelativeHaveBanner, " Sibling Banner Label" + string);
@@ -1450,10 +1452,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertSiblingRowAddedInMRVSTable(5, " in Parent Form ");
 	}
 
-	/***************************************************/
-			/* CHILDREN FORM METHODS */
-	/***************************************************/
-	/* Assertions for the Child Table on List View Page   */
+	/****************************************************/
+			/** CHILDREN FORM METHODS */
+	/****************************************************/
+	/** Assertions for the Child Table on List View Page   */
 	public static void childListViewTableAssertions() {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("FHQ Children Context Menu"),"", " FHQ Children Context Menu Label of child in List View Page ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.SONS_DAUGHTERS), fHQ_TestDataManager.sonsDaughters, " Sons/Daughters Label of child in List View Page ");
@@ -1470,7 +1472,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForBanner("Sex assigned at birth", 1),fHQ_TestDataManager.sexAssignedAtBirth, " Sex assigned at birth Label of child in List View Page ");
 	}
 
-	/* Assertions for the CHILD Table VALUES on List View Page */ 
+	/** Assertions for the CHILD Table VALUES on List View Page */ 
 	public static void childListViewTableValuesAssertion() {
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorElementInTable(1,1), fHQ_TestDataManager.childFirstNameValue, " Child First Name Value in Child List View Page ");
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorElementInTable(1,2), fHQ_TestDataManager.childFirstInitialOfLASTNameValue, " Child First Initial of LAST Name Value in Child List View Page ");
@@ -1481,7 +1483,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorElementInTable(1,7), fHQ_TestDataManager.childSexAssignedAtBirthValue, " Sex assigned at birth Value in Child List View Page ");
 	}
 
-	/* Submissions and Assertions for the Basic Information of the Child */
+	/** Submissions and Assertions for the Basic Information of the Child */
 	public static void childBasicInformationSubmissionsAndAssertions() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.SON_DAUGHTER),fHQ_TestDataManager.sonDaughter, " Son/Daughter Label ");		 			 
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.relativeFillingInfoBanner,fHQ_TestDataManager.youAreCurrentlyFillingOutInformationForTheParticipantsSonDaughter, " You are currently filling out information for the participant's son/daughter.. Label ");
@@ -1505,7 +1507,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(8),FHQConstants.GENDER_IDENTITY,fHQ_TestDataManager.childGenderIdentitySelected);	
 		}
 
-	/* Submissions and Assertions for the Other Biological Parent Information of the Child */
+	/** Submissions and Assertions for the Other Biological Parent Information of the Child */
 		public static void childOtherBiologicalParentInformation(){
 			CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.WHICH_BEST_DESCRIBES_THIS_RELATIVE), fHQ_TestDataManager.whichBestDescribesThisRelative, " Which best describes this relative? label in Child Form ");
 			CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(9),FHQConstants.CHILD_DISCRIPTION,fHQ_TestDataManager.whichBestDescribesThisRelativeSelected);
@@ -1524,7 +1526,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 				}
 		};
 
-	/* Twin or part of a multiple birth? Questions for CHILD */
+	/** Twin or part of a multiple birth? Questions for CHILD */
 	public static void twinOrMultipleBirthQuestionsForChild(){
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.IS_THIS_RELATIVE_A_TWIN_OR_PART_OF_A_MULTIPLE_BIRTH), fHQ_TestDataManager.isThisRelativeATwinOrPartOfAMultipleBirth, " Is this relative a twin or part of a multiple birth? Label of Child in Child Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(11),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.twinOrPartOfAMultipleBirthValue);	
@@ -1532,7 +1534,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(12),FHQConstants.TYPE_OF_BIRTH,fHQ_TestDataManager.typeOfBirthValue);			
 	}
 
-	/* miscarriages or stillbirths? Questionnaire for CHILD */
+	/** miscarriages or stillbirths? Questionnaire for CHILD */
 	public static void miscarriagesOrStillbirthsSubmissionAndAssertionsForChild() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.MEDICAL_HISTORY), fHQ_TestDataManager.medicalHistory, " Medical History Label in Child Form ");	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS),fHQ_TestDataManager.hasThisRelativeEverHadAnyMiscarriagesOrStillbirths," Has this relative ever had any miscarriages or stillbirths? Label in Child Form ");
@@ -1546,7 +1548,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(15),FHQConstants.numberUpToN(20),fHQ_TestDataManager.totalNumberOfStillbirthsValue);
 	}
 
-	/* RASOPATHY QUESTIONNAIRE For CHILD */
+	/** RASOPATHY QUESTIONNAIRE For CHILD */
 	public static void rASopathyQuestionnaireForChild() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_BEEN_DIAGNOSED_WITH_A_RASOPATHY), fHQ_TestDataManager.hasThisRelativeBeenDiagnosedWithARASopathy, " Has this relative been diagnosed with a RASopathy? Label in Child Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.childDiagnosedWithRasopathyInformation, fHQ_TestDataManager.rASopathyHistoryBanner, " RASopathy History Banner Label in Child Form ");	
@@ -1558,7 +1560,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertRASopathyRowAddedInMRVSTable(1);
 	}
 
-	/* CANCER QUESTIONNAIRE For CHILD */
+	/** CANCER QUESTIONNAIRE For CHILD */
 	public static void cancerQuestionnaireForChild() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_CANCER), fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithCancer, " Has this relative ever been diagnosed with cancer? Label in Child Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(17),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithCancerValue);	
@@ -1569,7 +1571,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertCancerRowAddedInMRVSTable(2);
 	}
 
-	/* BENIGN TUMOR QUESTIONNAIRE For CHILD */
+	/** BENIGN TUMOR QUESTIONNAIRE For CHILD */
 	public static void benignTumorQuestionnaireForChild() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingContainsNormalizeSpace("Has this relative ever been diagnosed with one of the benign tumors listed below?", 1),fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithABenignTumor, " Has this relative ever been diagnosed with a benign tumor? Label in Child Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(18),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithABenignTumorValue);
@@ -1580,7 +1582,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertBenignTumorRowAddedInMRVSTable(3); 	
 	}
 
-	/* MEDICAL CONDITIONS QUESTIONNAIRE For CHILD */
+	/** MEDICAL CONDITIONS QUESTIONNAIRE For CHILD */
 	public static void medicalConditionQuestionnaireForChild() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW  ), fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow, " Has this relative ever been diagnosed with any of the medical conditions listed below? Label in Child Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingTitle(FHQConstants.MEDICAL_CONDITIONS_BANNER), fHQ_TestDataManager.medicalConditionsBanner, " Medical conditions Banner ");		
@@ -1592,7 +1594,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertMedicalConditionRowAddedInMRVSTable(4);
 	}
 
-	/* Children Questions Asked For CHILD */
+	/** Children Questions Asked For CHILD */
 	public static void childQuestionnaireForChild(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THIS_RELATIVE_HAD),"How many total children (alive and deceased) has this relative had?"," How many total children (alive and deceased) has this relative had? Label in Child Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingTitle(FHQConstants.CHILD_BANNER),fHQ_TestDataManager.childBanner," Please include all biological children, living and deceased. Please do not include miscarriages, stillbirths, or abortions. These will be collected elsewhere. Label in Child Form ");
@@ -1601,10 +1603,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.CHILDREN),fHQ_TestDataManager.children," Children Label ");
 	}
 
-	/****************************************************/
-				/* SIBLING FORM METHODS */
 	/*****************************************************/
-	/* Assertions for the Sibling Table on List View Page   */
+				/** SIBLING FORM METHODS */
+	/******************************************************/
+	/** Assertions for the Sibling Table on List View Page   */
 	public static void siblingListViewTableAssertions() {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("FHQ Siblings Context Menu"),"", " FHQ Siblings Context Menu Label for Sibling in List View Page ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.SIBLINGS), fHQ_TestDataManager.siblings, " Siblings Label for Sibling in List View Page ");
@@ -1617,7 +1619,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForBanner("Type of Sibling", 1),fHQ_TestDataManager.typeOfSibling, " Type of Sibling Label of Sibling in List View Page ");
 	}
 
-	/* Assertions for the Sibling Table VALUES on List View Page */ 
+	/** Assertions for the Sibling Table VALUES on List View Page */ 
 	public static void siblingListViewTableValuesAssertions(String string){
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorElementInTable(1,1), fHQ_TestDataManager.firstNameValue, string + "First Name Label ");
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorElementInTable(1,2), fHQ_TestDataManager.firstInitialOfLASTNameValue, string +  "First Initial of LAST Name Label ");
@@ -1626,7 +1628,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorElementInTable(1,5), fHQ_TestDataManager.typeOfSiblingValue, string + " Type of Sibling ");
 	}
 
-	/* Submissions and Assertions for the Basic Information of the SIBLING */
+	/** Submissions and Assertions for the Basic Information of the SIBLING */
 	public static void siblingBasicInformationSubmissionsAndAssertions() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.SIBLING),fHQ_TestDataManager.sibling, " Sibling Label in the Sibling Form ");		 			 
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.siblingInformationBanner,fHQ_TestDataManager.siblingBanner, " We would like to ask some questions about Siblings. Please answer to the best of your ability and skip any questions you do not know. Label in the Sibling Form ");	
@@ -1648,7 +1650,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(9),FHQConstants.GENDER_IDENTITY,fHQ_TestDataManager.genderIdentityValueAdded);	
 	}
 
-	/* Twin or part of a multiple birth? Questions for SIBLING */
+	/** Twin or part of a multiple birth? Questions for SIBLING */
 	public static void twinOrMultipleBirthQuestionsForSibling(){
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.IS_THIS_RELATIVE_A_TWIN_OR_PART_OF_A_MULTIPLE_BIRTH), fHQ_TestDataManager.isThisRelativeATwinOrPartOfAMultipleBirth, " Is this relative a twin or part of a multiple birth? Label of Child in Child Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(10),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.twinOrPartOfAMultipleBirthValue);	
@@ -1658,7 +1660,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CommonUtils.sleep(300);
 	}
 
-	/* miscarriages or stillbirths? Questionnare for SIBLING */
+	/** miscarriages or stillbirths? Questionnare for SIBLING */
 	public static void miscarriagesOrStillbirthsSubmissionAndAssertionsForSibling() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.MEDICAL_HISTORY), fHQ_TestDataManager.medicalHistory, " Medical History Label in Child Form ");	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS),fHQ_TestDataManager.hasThisRelativeEverHadAnyMiscarriagesOrStillbirths," Has this relative ever had any miscarriages or stillbirths? Label in Child Form ");
@@ -1673,7 +1675,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(14),FHQConstants.numberUpToN(20),fHQ_TestDataManager.totalNumberOfStillbirthsValue);
 	}
 
-	/* RASOPATHY QUESTIONNAIRE For SIBLING */
+	/** RASOPATHY QUESTIONNAIRE For SIBLING */
 	public static void rASopathyQuestionnaireForSibling() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_BEEN_DIAGNOSED_WITH_A_RASOPATHY), fHQ_TestDataManager.hasThisRelativeBeenDiagnosedWithARASopathy, " Has this relative been diagnosed with a RASopathy? Label in Child Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.childDiagnosedWithRasopathyInformation, fHQ_TestDataManager.rASopathyHistoryBanner, " RASopathy History Banner Label in Child Form ");	
@@ -1685,7 +1687,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertRASopathyRowAddedInMRVSTable(1);
 	}
 
-	/* CANCER QUESTIONNAIRE For SIBLING */
+	/** CANCER QUESTIONNAIRE For SIBLING */
 	public static void cancerQuestionnaireForSibling() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_CANCER  ), fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithCancer, " Has this relative ever been diagnosed with cancer? Label in Child Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(16),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithCancerValue);	
@@ -1697,7 +1699,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertCancerRowAddedInMRVSTable(2);
 	}
 
-	/* BENIGN TUMOR QUESTIONNAIRE For SIBLING */
+	/** BENIGN TUMOR QUESTIONNAIRE For SIBLING */
 	public static void benignTumorQuestionnaireForSibling(){
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR), fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithABenignTumor, " Has this relative ever been diagnosed with one of the benign tumors listed below? Label in Child Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(17),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithABenignTumorValue);	
@@ -1708,7 +1710,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertBenignTumorRowAddedInMRVSTable(3); 
 	}
 
-	/* MEDICAL CONDITIONS QUESTIONNAIRE For SIBLING */
+	/** MEDICAL CONDITIONS QUESTIONNAIRE For SIBLING */
 	public static void medicalConditionQuestionnaireForSibling() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW  ), fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow, " Has this relative ever been diagnosed with any of the medical conditions listed below? Label in Child Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingTitle(FHQConstants.MEDICAL_CONDITIONS_BANNER), fHQ_TestDataManager.medicalConditionsBanner, " Medical conditions Banner ");		
@@ -1720,7 +1722,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertMedicalConditionRowAddedInMRVSTable(4);
 	}
 
-	/* Sibling's Children Questions Asked */
+	/** Sibling's Children Questions Asked */
 	public static void childQuestionnaireForSibling(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THIS_RELATIVE_HAD),"How many total children (alive and deceased) has this relative had?"," How many total children (alive and deceased) has this relative had? Label in Sibling Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingTitle(FHQConstants.CHILD_BANNER),fHQ_TestDataManager.childBanner," Please include all biological children, living and deceased. Please do not include miscarriages, stillbirths, or abortions. These will be collected elsewhere. Label in Sibling Form ");
@@ -1729,7 +1731,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.CHILDREN),fHQ_TestDataManager.children," Children Label in SIbling Form ");
 	}
 
-	/* Siblings MRVS Table headings Assertion */
+	/** Siblings MRVS Table headings Assertion */
 	public static void  assertSiblingBannerInMRVSTable(int i, String string) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.SIBLINGS), fHQ_TestDataManager.siblings, " Siblings Label in Siblings MRVS Table" + string);
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Add a row for Siblings"),fHQ_TestDataManager.add," Add Label in Siblings MRVS Table "+ string);
@@ -1742,7 +1744,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingContainsNormalizeSpace("No data to display", 1),fHQ_TestDataManager.noDataToDisplay, " No data to display Label in Medical Condition MRVS Table ");
 		}
 
-	/* Sibling MRVS ADD page Assertions and Submissions */
+	/** Sibling MRVS ADD page Assertions and Submissions */
 	public static void addSiblingRowInMRVSPage(String string){
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.ADD_ROW),fHQ_TestDataManager.addRow, " Add Row For Sibling in MRVS"+ string);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.TYPES_OF_SIBLING_RELATION),"Types of Sibling relation", " Types of Sibling relation Label in MRVS"+ string);
@@ -1758,7 +1760,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.clickOnElement(FHQSubmissionPage.addRowSaveButton);	
 	}
 
-	/* Sibling MRVS Added Row Assertions */
+	/** Sibling MRVS Added Row Assertions */
 	public static void  assertSiblingRowAddedInMRVSTable(int i, String string) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Edit Row 1",i),"", " Edit Row for Sibling label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Remove Row 1",i),"", " Remove Row for Sibling label ");
@@ -1768,10 +1770,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForMRVSTableValue(i+21),fHQ_TestDataManager.siblingVitalStatusValue, " Vital Status of Sibling Value ");
 	}
 
+	/**********************************************************/
+				/** AUNT/UNCLE FORM METHODS */
 	/*********************************************************/
-				/* AUNT/UNCLE FORM METHODS */
-	/********************************************************/
-	/* Assertions for the AUNT/UNCLE Table on List View Page   */
+	/** Assertions for the AUNT/UNCLE Table on List View Page   */
 	public static void auntUncleListViewTableAssertions() {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("FHQ Aunt/Uncles Context Menu"),"", " FHQ Aunt/Uncles Context Menu Label for Aunt/Uncle in List View Page ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.AUNT_UNCLES), fHQ_TestDataManager.auntUncles, " Aunt/Uncles Label for Aunt/Uncles in List View Page ");
@@ -1784,7 +1786,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForBanner("Relation to Patient", 1),fHQ_TestDataManager.relationsToPatient, " Relation to Patient Label of Aunt/Uncles in List View Page ");
 	}
 
-	/* Assertions for the AUNT/UNCLE Table VALUES on List View Page */
+	/** Assertions for the AUNT/UNCLE Table VALUES on List View Page */
 	public static void auntUncleListViewTableValuesAssertions() {
 		if (fHQSubmissionPage.dynamicLocatorElementInTable(1,5).getText()=="Aunt") {		
 			CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorElementInTable(1,1), fHQ_TestDataManager.auntUncleFirstNameValue1, " Aunt/Uncle First Name Value1 in Aunt/Uncle List View Page ");
@@ -1812,7 +1814,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		}
 	}
 
-	/* Submissions and Assertions for the Basic Information of the AUNT/UNCLE */
+	/** Submissions and Assertions for the Basic Information of the AUNT/UNCLE */
 	public static void auntUncleBasicInformationSubmissionsAndAssertions() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.AUNT_UNCLE),fHQ_TestDataManager.auntUncle, " Aunt/Uncle Label in the Aunt/Uncle Form ");		 			 
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.auntUncleInformationBanner,fHQ_TestDataManager.auntUncleBanner, " Please enter one record per each family member for whom you have knowledge:Label in the Aunt/Uncle Form ");	
@@ -1833,7 +1835,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(9),FHQConstants.GENDER_IDENTITY,fHQ_TestDataManager.auntUncleGenderIdentitySelected);	
 	}
 
-	/* Twin or part of a multiple birth? Questions for AUNT/UNCLE */
+	/** Twin or part of a multiple birth? Questions for AUNT/UNCLE */
 	public static void twinOrMultipleBirthQuestionsForAuntUncle(){
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.IS_THIS_RELATIVE_A_TWIN_OR_PART_OF_A_MULTIPLE_BIRTH), fHQ_TestDataManager.isThisRelativeATwinOrPartOfAMultipleBirth, " Is this relative a twin or part of a multiple birth? Label of Child in Child Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(10),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.twinOrPartOfAMultipleBirthValue);	
@@ -1843,7 +1845,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CommonUtils.sleep(300);
 	}
 
-	/* miscarriages or stillbirths? Questionnaire for AUNT/UNCLE */
+	/** miscarriages or stillbirths? Questionnaire for AUNT/UNCLE */
 	public static void miscarriagesOrStillbirthsSubmissionAndAssertionsForAuntUncle() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.MEDICAL_HISTORY), fHQ_TestDataManager.medicalHistory, " Medical History Label in Child Form ");	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS),fHQ_TestDataManager.hasThisRelativeEverHadAnyMiscarriagesOrStillbirths," Has this relative ever had any miscarriages or stillbirths? Label in Child Form ");
@@ -1857,7 +1859,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(14),FHQConstants.numberUpToN(20),fHQ_TestDataManager.totalNumberOfStillbirthsValue);
 	}
 
-	/* RASOPATHY QUESTIONNAIRE For AUNT/UNCLE */
+	/** RASOPATHY QUESTIONNAIRE For AUNT/UNCLE */
 	public static void rASopathyQuestionnaireForAuntUncle() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_BEEN_DIAGNOSED_WITH_A_RASOPATHY), fHQ_TestDataManager.hasThisRelativeBeenDiagnosedWithARASopathy, " Has this relative been diagnosed with a RASopathy? Label in Child Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.childDiagnosedWithRasopathyInformation, fHQ_TestDataManager.rASopathyHistoryBanner, " RASopathy History Banner Label in Child Form ");	
@@ -1870,7 +1872,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertRASopathyRowAddedInMRVSTable(1);
 	}
 
-	/* CANCER QUESTIONNAIRE For AUNT/UNCLE */
+	/** CANCER QUESTIONNAIRE For AUNT/UNCLE */
 	public static void cancerQuestionnaireForAuntUncle() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_CANCER  ), fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithCancer, " Has this relative ever been diagnosed with cancer? Label in Child Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(16),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithCancerValue);	
@@ -1882,7 +1884,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertCancerRowAddedInMRVSTable(2);
 	}
 
-	/* BENIGN TUMOR QUESTIONNAIRE For AUNT/UNCLE */
+	/** BENIGN TUMOR QUESTIONNAIRE For AUNT/UNCLE */
 	public static void benignTumorQuestionnaireForAuntUncle(){
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR), fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithABenignTumor, " Has this relative ever been diagnosed with a benign tumor? Label in Child Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(17),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithABenignTumorValue);	
@@ -1893,7 +1895,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertBenignTumorRowAddedInMRVSTable(3); 		
 	}
 
-	/* MEDICAL CONDITIONS QUESTIONNAIRE For AUNT/UNCLE */
+	/** MEDICAL CONDITIONS QUESTIONNAIRE For AUNT/UNCLE */
 	public static void medicalConditionQuestionnaireForAuntUncle() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW  ), fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow, " Has this relative ever been diagnosed with any of the medical conditions listed below? Label in Child Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingTitle(FHQConstants.MEDICAL_CONDITIONS_BANNER), fHQ_TestDataManager.medicalConditionsBanner, " Medical conditions Banner ");		
@@ -1905,7 +1907,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertMedicalConditionRowAddedInMRVSTable(4);
 	}
 
-	/* Children Questions Asked For AUNT/UNCLE */
+	/** Children Questions Asked For AUNT/UNCLE */
 	public static void childQuestionnaireForAuntUncle(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THIS_RELATIVE_HAD),"How many total children (alive and deceased) has this relative had?"," How many total children (alive and deceased) has this relative had? Label in Aunt Uncle Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingTitle(FHQConstants.CHILD_BANNER),fHQ_TestDataManager.childBanner," Child Banner in the Aunt Uncle Form ");
@@ -1914,10 +1916,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.CHILDREN),fHQ_TestDataManager.children," Child Label in Aunt Uncle Form ");
 	}
 
+	/**********************************************************/
+				/** NIECE/NEPHEW FORM METHODS */
 	/*********************************************************/
-				/* NIECE/NEPHEW FORM METHODS */
-	/********************************************************/
-	/* Assertions for the Niece/Nephew Table on List View Page   */
+	/** Assertions for the Niece/Nephew Table on List View Page   */
 	public static void nieceNephewListViewTableAssertions() {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("FHQ Children Context Menu"),"", " FHQ Children Context Menu Label of Niece/Nephew in List View Page ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.NIECES_NEPHEWS), fHQ_TestDataManager.niecesNephews, " Nieces/Nephews Label of Niece/Nephew in List View Page ");
@@ -1934,7 +1936,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForBanner("Sex assigned at birth", 1),fHQ_TestDataManager.sexAssignedAtBirth, " Sex assigned at birth Label of Niece/Nephew in List View Page ");
 	}
 
-	/* Assertions for the Niece/Nephew Table VALUES on List View Page */
+	/** Assertions for the Niece/Nephew Table VALUES on List View Page */
 	public static void nieceNephewListViewTableValuesAssertion() {
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorElementInTable(1,1), fHQ_TestDataManager.nieceNephewFirstNameValue, " Niece/Nephew First Name Value in Niece/Nephew List View Page ");
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorElementInTable(1,2), fHQ_TestDataManager.nieceNephewFirstInitialOfLASTNameValue, " Niece/Nephew First Initial of LAST Name Value in Niece/Nephew List View Page ");
@@ -1945,7 +1947,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorElementInTable(1,7), fHQ_TestDataManager.nieceNephewSexAssignedAtBirthValue, " Sex assigned at birth Value in Niece/Nephew List View Page ");
 	}
 
-	/* Submissions and Assertions for the Basic Information of the Niece/Nephew */
+	/** Submissions and Assertions for the Basic Information of the Niece/Nephew */
 	public static void nieceNephewBasicInformationSubmissionsAndAssertions() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.NIECE_NEPHEW),fHQ_TestDataManager.nieceNephew, " Niece/Nephew Label in the Niece/Nephew Form ");		 			 
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.relativeFillingInfoBanner,fHQ_TestDataManager.youAreCurrentlyFillingOutInformationForTheParticipantsNieceNephew, " You are currently filling out information for the participant's Niece/Nephew. Label in the Niece/Nephew Form ");
@@ -1968,7 +1970,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(9),FHQConstants.CHILD_DISCRIPTION,fHQ_TestDataManager.whichBestDescribesThisRelativeSelected);			
 	}
 
-	/* Twin or part of a multiple birth? Questions for Niece/Nephew */
+	/** Twin or part of a multiple birth? Questions for Niece/Nephew */
 	public static void twinOrMultipleBirthQuestionsForNieceNephew(){
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.IS_THIS_RELATIVE_A_TWIN_OR_PART_OF_A_MULTIPLE_BIRTH), fHQ_TestDataManager.isThisRelativeATwinOrPartOfAMultipleBirth, " Is this relative a twin or part of a multiple birth? Label of Niece/Nephew in Niece/Nephew Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(11),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.twinOrPartOfAMultipleBirthValue);	
@@ -1976,7 +1978,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(12),FHQConstants.TYPE_OF_BIRTH,fHQ_TestDataManager.typeOfBirthValue);
 	}
 
-	/* miscarriages or stillbirths? Questionnaire for Niece/Nephew */
+	/** miscarriages or stillbirths? Questionnaire for Niece/Nephew */
 	public static void miscarriagesOrStillbirthsSubmissionAndAssertionsForNieceNephew() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.MEDICAL_HISTORY), fHQ_TestDataManager.medicalHistory, " Medical History Label in Neice/Nephew Form ");	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS),fHQ_TestDataManager.hasThisRelativeEverHadAnyMiscarriagesOrStillbirths," Has this relative ever had any miscarriages or stillbirths? Label in Neice/Nephew Form ");
@@ -1991,7 +1993,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(15),FHQConstants.numberUpToN(20),fHQ_TestDataManager.totalNumberOfStillbirthsValue);
 	}
 
-	/* RASOPATHY QUESTIONNAIRE For Niece/Nephew */
+	/** RASOPATHY QUESTIONNAIRE For Niece/Nephew */
 	public static void rASopathyQuestionnaireForNieceNephew() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_BEEN_DIAGNOSED_WITH_A_RASOPATHY), fHQ_TestDataManager.hasThisRelativeBeenDiagnosedWithARASopathy, " Has this relative been diagnosed with a RASopathy? Label in Neice/Nephew Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.childDiagnosedWithRasopathyInformation, fHQ_TestDataManager.rASopathyHistoryBanner, " RASopathy History Banner Label in Neice/Nephew Form ");	
@@ -2003,7 +2005,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertRASopathyRowAddedInMRVSTable(1);
 	}
 
-	/* CANCER QUESTIONNAIRE For Niece/Nephew */
+	/** CANCER QUESTIONNAIRE For Niece/Nephew */
 	public static void cancerQuestionnaireForNieceNephew() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_CANCER), fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithCancer, " Has this relative ever been diagnosed with cancer? Label in Neice/Nephew Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(17),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithCancerValue);	
@@ -2014,7 +2016,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertCancerRowAddedInMRVSTable(2);
 	}
 
-	/* BENIGN TUMOR QUESTIONNAIRE For Niece/Nephew */
+	/** BENIGN TUMOR QUESTIONNAIRE For Niece/Nephew */
 	public static void benignTumorQuestionnaireForNieceNephew(){
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR), fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithABenignTumor, " Has this relative ever been diagnosed with a benign tumor? Label in Neice/Nephew Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(18),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithABenignTumorValue);	
@@ -2025,7 +2027,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertBenignTumorRowAddedInMRVSTable(3); 		
 	}
 
-	/* MEDICAL CONDITIONS QUESTIONNAIRE For Niece/Nephew */
+	/** MEDICAL CONDITIONS QUESTIONNAIRE For Niece/Nephew */
 	public static void medicalConditionQuestionnaireForNieceNephew() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW  ), fHQ_TestDataManager.hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow, " Has this relative ever been diagnosed with any of the medical conditions listed below? Label in Neice/Nephew Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingTitle(FHQConstants.MEDICAL_CONDITIONS_BANNER), fHQ_TestDataManager.medicalConditionsBanner, " Medical conditions Banner ");		
@@ -2037,17 +2039,17 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		FHQSubmissionStepsImpl.assertMedicalConditionRowAddedInMRVSTable(4);
 	}
 
-	/* Children Questions Asked For Niece/Nephew */
+	/** Children Questions Asked For Niece/Nephew */
 	public static void childQuestionnaireForNieceNephew(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THIS_RELATIVE_HAD),"How many total children (alive and deceased) has this relative had?"," How many total children (alive and deceased) has this relative had? Label in Neice/Nephew Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingTitle(FHQConstants.CHILD_BANNER),fHQ_TestDataManager.childBanner," Please include all biological children, living and deceased. Please do not include miscarriages, stillbirths, or abortions. These will be collected elsewhere. Label in Neice/Nephew Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(i),FHQConstants.numberUpToN(20),fHQ_TestDataManager.howManyTotalChildrenAliveAndDeceasedHasThisRelaiveHadSelected);
 		}
 
+	/**********************************************************/
+				/** GRANDPARENTS FORM METHODS */
 	/*********************************************************/
-				/* GRANDPARENTS FORM METHODS */
-	/********************************************************/
-	/* Assertions for the GrandParent Table LABELS on List View Page  */
+	/** Assertions for the GrandParent Table LABELS on List View Page  */
 	public static void grandParentsListViewTableLabelsAssertions() {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("FHQ Parents Context Menu"),"", " FHQ Grandparents Context Menu Label in Grandparent List view page ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.GRANDPARENTS), fHQ_TestDataManager.grandParents, " Grandparents Label in Grandparent List view page ");	
@@ -2061,7 +2063,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForBanner("Relation to Patient", 1),fHQ_TestDataManager.relationsToPatient, " Relation to patient Label in Grandparent List view page ");	
 	}
 
-	/* Assertions for the Paternal Grandmother Table VALUES on List View Page */ 
+	/** Assertions for the Paternal Grandmother Table VALUES on List View Page */ 
 	public static void grandParentsListViewTableValuesAssertions(String string){
 		//First Row
 		if (fHQSubmissionPage.dynamicLocatorElementInTable(1,5).getText().trim().equals("Paternal grandmother (Father's Mother)")) {
@@ -2181,7 +2183,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		}
 	}
 
-	/* Submissions and Assertions for the Basic Information of the Grandparent */
+	/** Submissions and Assertions for the Basic Information of the Grandparent */
 	public static void grandParentBasicInformationSubmissionsAndAssertions(String string) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.parentTypeHeading,fHQ_TestDataManager.parentType, string + " Label" + string );		 			 
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.YOU_ARE_CURRENTLY_FILLING_OUT_INFORMATION),fHQ_TestDataManager.youAreCurrentlyFillingOutInformation, " You are currently filling out information for the participant's Label" + string);
@@ -2204,10 +2206,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator2ForDropDown(11),FHQConstants.GENDER_IDENTITY,fHQ_TestDataManager.genderIdentityValueAdded);	
 	}
 
+	/**********************************************************/
+				/** GRANDCHILDREN FORM METHODS */
 	/*********************************************************/
-				/* GRANDCHILDREN FORM METHODS */
-	/********************************************************/
-	/* Assertions for the GrandChildren Table LABELS on List View Page */
+	/** Assertions for the GrandChildren Table LABELS on List View Page */
 	public static void grandChildrenListViewTableLabelsAssertions() {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("FHQ Children Context Menu"),"", " FHQ Children Context Menu Label in Grandchild List View Page ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.GRANDCHILDREN), fHQ_TestDataManager.grandChildren, " Grandchildren Label in Grandchild List View Page ");
@@ -2224,7 +2226,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForBanner("Sex assigned at birth", 1),fHQ_TestDataManager.sexAssignedAtBirth, " Sex assigned at birth Label in Grandchild List View Page ");
 	}
 
-	/* Assertions for the GrandChildren Table VALUES on List View Page */ 
+	/** Assertions for the GrandChildren Table VALUES on List View Page */ 
 	public static void grandChildrenListViewTableValuesAssertions() {
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorElementInTable(1,1), fHQ_TestDataManager.firstNameValue, " First Name Value in Grandchild List View Page ");
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorElementInTable(1,2), fHQ_TestDataManager.firstInitialOfLASTNameValue, " First Initial of LAST Name Value in Grandchild List View Page ");
@@ -2235,7 +2237,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorElementInTable(1,7), fHQ_TestDataManager.sexAssignedAtBirthValue, " Sex assigned at birth Value in Grandchild List View Page ");
 	}
 
-	/* Basic Information Submissions and Assertions for the Grandchildren */
+	/** Basic Information Submissions and Assertions for the Grandchildren */
 	public static void grandChildrenBasicInformationSubmissionsAndAssertions() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.GRANDCHILD),fHQ_TestDataManager.grandChild, " GrandChild Label in GrandChildren Form ");		 			 
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.YOU_ARE_CURRENTLY_FILLING_OUT_INFORMATION),fHQ_TestDataManager.youAreCurrentlyFillingOutInformation, " You are currently filling out information for the participant's maternal grandmother.Label in Grandchild Form ");
@@ -2258,10 +2260,10 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(9),FHQConstants.CHILD_DISCRIPTION,fHQ_TestDataManager.whichBestDescribesThisRelativeSelected);	
 	}
 
+	/**********************************************************/
+				/** COUSINS FORM METHODS */
 	/*********************************************************/
-				/* COUSINS FORM METHODS */
-	/********************************************************/
-	/* Assertions for the Cousin Table LABELS on List View Page  */
+	/** Assertions for the Cousin Table LABELS on List View Page  */
 	public static void cousinListViewTableLabelsAssertions() {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("FHQ Children Context Menu"),"", " FHQ Children Context Menu Label in Cousin List View Page ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.COUSINS), fHQ_TestDataManager.cousins, " Sons/Daughters Label in Cousin List View Page ");
@@ -2278,7 +2280,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForBanner("Sex assigned at birth", 1),fHQ_TestDataManager.sexAssignedAtBirth, " Sex assigned at birth Label in Cousin List View Page ");
 	}
 
-	/* Assertions for the Cousin Table VALUES on List View Page */
+	/** Assertions for the Cousin Table VALUES on List View Page */
 	public static void cousinListViewTableValuesAssertions(String string) {	
 		//First Row
 		if (fHQSubmissionPage.dynamicLocatorElementInTable(1,3).getText().trim().equals("FHQ Aunt/Uncle: ParticipantUncleFirstNam...")) {
@@ -2320,7 +2322,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		
 	}
 
-	/* Basic Information Submissions and Assertions for the Cousin */
+	/** Basic Information Submissions and Assertions for the Cousin */
 	public static void cousinBasicInformationSubmissionsAndAssertions() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.COUSIN),fHQ_TestDataManager.cousin, " Cousin Label in Cousin Form ");		 			 
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.YOU_ARE_CURRENTLY_FILLING_OUT_INFORMATION),fHQ_TestDataManager.youAreCurrentlyFillingOutInformation, " You are currently filling out information for the participant's cousin.Label in Cousin Form ");
@@ -2343,21 +2345,21 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(9),FHQConstants.CHILD_DISCRIPTION,fHQ_TestDataManager.whichBestDescribesThisRelativeSelected);	
 	}
 
-	/* Children Questions */
+	/** Children Questions */
 	public static void questionsForChildSubmissionsAndAssertions(int i, String string) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THIS_RELATIVE_HAD),"How many total children (alive and deceased) has this relative had?"," How many total children (alive and deceased) has this relative had? Label"+ string);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingTitle(FHQConstants.CHILD_BANNER),fHQ_TestDataManager.childBanner," Please include all biological children, living and deceased. Please do not include miscarriages, stillbirths, or abortions. These will be collected elsewhere. Label"+ string);
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(i),FHQConstants.numberUpToN(20),fHQ_TestDataManager.howManyTotalChildrenAliveAndDeceasedHasThisRelaiveHadSelected);
 	}
 
-	/* Children MRVS Table headings Assertion */
+	/** Children MRVS Table headings Assertion */
 	public static void  assertChildrenBannerInMRVSTable(int i) {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Add a row for Children"),fHQ_TestDataManager.add," Add Label for child ");
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Remove all rows for Children"),fHQ_TestDataManager.removeAll," Remove All Label for child in Child Form");
 		FHQSubmissionStepsImpl.assertMRVSTable(1);
 	}
 
-	/* Child MRVS Added Row Assertions */
+	/** Child MRVS Added Row Assertions */
 	public static void  assertChildRowAddedInMRVSTable(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Edit Row 1",i),"", " Edit Row for child label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Remove Row 1",i),"", " Remove Row for child label ");
@@ -2366,7 +2368,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForMRVSTableValue(i+20),fHQ_TestDataManager.childvitalStatus, " Child Vital Status data in Child Form");
 	}
 
-	/* ********** PARTICIOPANT(ONESELF) ASSERTION IN NATIVE VIEW ********* */
+	/** ********** PARTICIOPANT(ONESELF) ASSERTION IN NATIVE VIEW ********* */
 	public static void participantFHQInformationAssertions(String string) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.RELATIONSHIP_IDENTITY),fHQ_TestDataManager.relationshipIdentity, " Please indicate your relationship to the participant. Label " + string);	
 		CharmsUtil.assertDropDownData(softAssert, fHQSubmissionPage.dynamicLocatorForSelectedDropDown(1),fHQ_TestDataManager.pleaseIndicateYourRelationshipToTheParticipant, " Participant Relation Value " + string);
@@ -2403,7 +2405,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, FHQSubmissionPage.participantName,fHQ_TestDataManager.participantValue, " Participant Value "+ string); 
 	}
 
-	/* ************** PARTNER ASSERTION IN NATIVE VIEW *************** */
+	/** ************** PARTNER ASSERTION IN NATIVE VIEW *************** */
 	public static void partnersFHQInformationAssertions(String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(13));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForPartner(fHQ_TestDataManager.partnerYearOfBirthValueNV));
@@ -2435,7 +2437,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorTextBoxForReadOnlyInput1(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE),fHQ_TestDataManager.addAdditionalInformation, " Is there anything else you would like us to know about this relative? Value "+ string); 
 	}
 
-	/* ******** PARENT (MOTHER) ASSERTION IN NATIVE VIEW ********** */
+	/** ******** PARENT (MOTHER) ASSERTION IN NATIVE VIEW ********** */
 	public static void motherFHQInformationAssertions(String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(5));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForParents(fHQ_TestDataManager.firstNameValueAdded));	
@@ -2486,7 +2488,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, FHQSubmissionPage.nVParentAnythingElseValue,fHQ_TestDataManager.addAdditionalInformation, " Is there anything else you would like us to know about this relative? Value "+ string); 
 	}
 
-	/* ************ PARENT (FATHER) ASSERTION IN NATIVE VIEW ******** */
+	/** ************ PARENT (FATHER) ASSERTION IN NATIVE VIEW ******** */
 	public static void fatherFHQInformationAssertions(String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(5));	
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForParents(fHQ_TestDataManager.firstNameValueAdded));	
@@ -2535,7 +2537,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, FHQSubmissionPage.nVParentAnythingElseValue,fHQ_TestDataManager.addAdditionalInformation, " Is there anything else you would like us to know about this relative? Value "+ string); 
 		}
 
-	/* ************** CHILDREN ASSERTION IN NATIVE VIEW *************** */
+	/** ************** CHILDREN ASSERTION IN NATIVE VIEW *************** */
 	public static void  childrenFHQInformationAssertions (String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(7));		
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForAddedRelative("Son(s)/Daughter(s) related list",fHQ_TestDataManager.yearOfBirthValueNV));	
@@ -2587,7 +2589,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, FHQSubmissionPage.nVChildAnythingElseValue,fHQ_TestDataManager.addAdditionalInformation, " Is there anything else you would like us to know about this relative? Value "+ string); 	
 	}
 
-	/* ************** SIBLING ASSERTION IN NATIVE VIEW *************** */
+	/** ************** SIBLING ASSERTION IN NATIVE VIEW *************** */
 	public static void  siblingFHQInformationAssertions (String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(11));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForAddedRelative("FHQ Siblings related list",fHQ_TestDataManager.yearOfBirthValueNV));
@@ -2635,7 +2637,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert,FHQSubmissionPage.nVSiblingAnythingElseValue,fHQ_TestDataManager.addAdditionalInformation, " Is there anything else you would like us to know about this relative? Value " + string);			
 	}
 
-	/* ************** AUNT/UNCLE ASSERTION IN NATIVE VIEW *************** */
+	/** ************** AUNT/UNCLE ASSERTION IN NATIVE VIEW *************** */
 	public static void  auntUncleFHQInformationAssertions (String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(9));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForAddedRelatives(fHQ_TestDataManager.auntUncleFirstNameValue1,fHQ_TestDataManager.yearOfBirthValueNV));	
@@ -2685,7 +2687,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert,FHQSubmissionPage.nVAuntUncleAnythingElseValue,fHQ_TestDataManager.addAdditionalInformation, " Is there anything else you would like us to know about this relative? Value " + string);			
 	}
 
-	/* ************** NIECE/NEPHEW ASSERTION IN NATIVE VIEW *************** */
+	/** ************** NIECE/NEPHEW ASSERTION IN NATIVE VIEW *************** */
 	public static void  nieceNephewFHQInformationAssertions (String string) {	
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(12));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForAddedRelatives(fHQ_TestDataManager.nieceNephewFirstNameValue,fHQ_TestDataManager.yearOfBirthValueNV));
@@ -2735,7 +2737,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert,FHQSubmissionPage.nVChildAnythingElseValue,fHQ_TestDataManager.addAdditionalInformation, " Is there anything else you would like us to know about this relative? Value " + string);				
 	}
 
-	/* ************** MATERNAL GRANDMOTHER ASSERTION IN NATIVE VIEW *************** */
+	/** ************** MATERNAL GRANDMOTHER ASSERTION IN NATIVE VIEW *************** */
 	public static void  maternalGrandMotherFHQInformationAssertions (String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(6));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForAddedRelatives(fHQ_TestDataManager.firstNameValueAdded,fHQ_TestDataManager.yearOfBirthValueNV));
@@ -2784,7 +2786,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, FHQSubmissionPage.nVParentAnythingElseValue,fHQ_TestDataManager.addAdditionalInformation, " Is there anything else you would like us to know about this relative? Value "+ string); 
 	}
 
-	/* ************** MATERNAL GRANDFATHER ASSERTION IN NATIVE VIEW *************** */
+	/** ************** MATERNAL GRANDFATHER ASSERTION IN NATIVE VIEW *************** */
 	public static void  maternalGrandFatherFHQInformationAssertions(String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(6));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForAddedRelatives(fHQ_TestDataManager.firstNameValueAdded,fHQ_TestDataManager.yearOfBirthValueNV));
@@ -2833,7 +2835,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, FHQSubmissionPage.nVParentAnythingElseValue,fHQ_TestDataManager.addAdditionalInformation, " Is there anything else you would like us to know about this relative? Value "+ string); 
 	}
 
-	/* ************** PATERNAL GRANDMOTHER ASSERTION IN NATIVE VIEW *************** */
+	/** ************** PATERNAL GRANDMOTHER ASSERTION IN NATIVE VIEW *************** */
 	public static void  paternalGrandMotherFHQInformationAssertions (String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(6));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForAddedRelatives(fHQ_TestDataManager.firstNameValueAdded,fHQ_TestDataManager.yearOfBirthValueNV));
@@ -2882,7 +2884,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, FHQSubmissionPage.nVParentAnythingElseValue,fHQ_TestDataManager.addAdditionalInformation, " Is there anything else you would like us to know about this relative? Value "+ string); 
 	}
 
-	/* ************** PATERNAL GRANDFATHER ASSERTION IN NATIVE VIEW *************** */
+	/** ************** PATERNAL GRANDFATHER ASSERTION IN NATIVE VIEW *************** */
 	public static void  paternalGrandFatherFHQInformationAssertions(String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(6));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForAddedRelatives(fHQ_TestDataManager.firstNameValueAdded,fHQ_TestDataManager.yearOfBirthValueNV));
@@ -2932,7 +2934,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, FHQSubmissionPage.nVParentAnythingElseValue,fHQ_TestDataManager.addAdditionalInformation, " Is there anything else you would like us to know about this relative? Value "+ string); 
 	}
 
-	/* ************** GRANDCHILDREN ASSERTION IN NATIVE VIEW *************** */
+	/** ************** GRANDCHILDREN ASSERTION IN NATIVE VIEW *************** */
 	public static void grandChildrenFHQInformationAssertions (String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Grandchildren (8)"));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForAddedRelatives(fHQ_TestDataManager.firstNameValue,fHQ_TestDataManager.yearOfBirthValueNV));
@@ -2983,7 +2985,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, FHQSubmissionPage.nVChildAnythingElseValue,fHQ_TestDataManager.addAdditionalInformation, " Is there anything else you would like us to know about this relative? Value "+ string); 	
 	}
 
-	/* ************** COUSIN ASSERTION IN NATIVE VIEW *************** */
+	/** ************** COUSIN ASSERTION IN NATIVE VIEW *************** */
 	public static void cousinFHQInformationAssertions (String string) {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForRelativeTab(10));
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForAddedRelatives(fHQ_TestDataManager.firstNameValue,fHQ_TestDataManager.yearOfBirthValueNV));
@@ -3034,7 +3036,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, FHQSubmissionPage.nVChildAnythingElseValue,fHQ_TestDataManager.addAdditionalInformation, " Is there anything else you would like us to know about this relative? Value "+ string); 	
 	}
 
-	/* Assertions for the Paternal Grandmother Table VALUES on List View Page-CHECK */ 
+	/** Assertions for the Paternal Grandmother Table VALUES on List View Page-CHECK */ 
 	public static void grandParentsListViewTableValuesAssertionsOld(String string){
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorElementInTable(1,1), fHQ_TestDataManager.firstNameValue1, string + "First Name Value1 ");
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorElementInTable(1,2), fHQ_TestDataManager.firstInitialOfLASTNameValue1, string +  "First Initial of LAST Name Value1 ");
