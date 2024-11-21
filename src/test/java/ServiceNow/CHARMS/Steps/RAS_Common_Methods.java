@@ -272,7 +272,7 @@ public class RAS_Common_Methods extends PageInitializer {
      *
      * @param element       The WebElement representing the dropdown element.
      * @param expectedValue The expected value that should be selected in the dropdown.
-     * @param errorMessage       The message to be displayed in case of assertion failure.
+     * @param errorMessage  The message to be displayed in case of assertion failure.
      */
     public static void softAssertDropDownValueIsSelected(WebElement element, String expectedValue, String errorMessage) {
         Select select = new Select(element);
@@ -282,9 +282,9 @@ public class RAS_Common_Methods extends PageInitializer {
     /**
      * Verifies that the dropdown element contains the expected list of options.
      *
-     * @param element The WebElement representing the dropdown element to verify.
+     * @param element                 The WebElement representing the dropdown element to verify.
      * @param expectedDropdownOptions The list of expected dropdown options to match against.
-     * @param errorMessage The error message to display if the verification fails.
+     * @param errorMessage            The error message to display if the verification fails.
      */
     public static void softAssertDropdownOptions(WebElement element, List<String> expectedDropdownOptions, String errorMessage) {
         Select select = new Select(element);
