@@ -60,6 +60,7 @@ Feature: RAS Consent Scenarios
     And enters "Parent One" as the Parent Guardian 1 name
     And selects "Yes" for Parent Guardian 2 Signed
     And enters "Parent Two" as the Parent Guardian 2 name
+    And verifies that Consent Assent category auto-populated to "Aged 11 - 13, signed assent required"
     And presses the Call Complete button
     Then Study Team member logs out of Native View
     And a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -83,7 +84,7 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "screenerScenarioAge11-13"
-    Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAge7-10"
+    Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAge11-13"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
     And selects "CHARMS e-consent" as the Collection Method
@@ -96,6 +97,7 @@ Feature: RAS Consent Scenarios
     And selects "Parents, Married" for Parent Guardian Status
     And selects "Yes" for Parent Guardian 1 Signed
     And enters "Parent One" as the Parent Guardian 1 name
+    And verifies that Consent Assent category auto-populated to "Aged 11 - 13, signed assent required"
     And presses the Call Complete button
     Then Study Team member logs out of Native View
     And a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -128,7 +130,7 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "screenerScenarioAge14-17"
-    Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAge7-10"
+    Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAge14-17"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
     And selects "CHARMS e-consent" as the Collection Method
@@ -141,22 +143,20 @@ Feature: RAS Consent Scenarios
     And selects "Parent, Separated or Widowed - Single Custody" for Parent Guardian Status
     And selects "Yes" for Parent Guardian 1 Signed
     And enters "Parent One" as the Parent Guardian 1 name
+    And verifies that Consent Assent category auto-populated to "Aged 14 - 17, signed consent required"
     And presses the Call Complete button
     Then Study Team member logs out of Native View
     And a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And proxy clicks on Study Consent and completes form with "Charms123$" "screenerScenarioAge14-17"
 
-  @muzipovay2 @RAS_STUDY @CP2-3725 @CP2-993 @selenium @In-Progress
+  @muzipovay2 @RAS_STUDY @CP2-3725 @CP2-993 @selenium @RAS_Regression
   Scenario: Verifying that two new fields display below the Interpreter Used? selection in the Participant's Consent Record in SN when the Response Type is not iMed
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "screenerScenarioAdult"
-    And Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
-    And Study Team member submits participant for review and marks them eligible
-#    Then Study Team member navigates to the Consent Record and selects "CHARMS e-consent" for the response type, "Yes" for Interpreter Used, and verifies that two new fields "Interpreter Name or ID" and "Interpreter Language" display
     Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
@@ -167,12 +167,12 @@ Feature: RAS Consent Scenarios
     And selects "Yes" for Protocol Discussed in Private Setting
     And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
     And selects "Yes" for Questions Addressed Before Signing
-    And selects "Yes" for Was verbal assent obtained
     And selects "Yes" was Interpreter used
     And enters "Interpreter test" for Interpreter Name or ID
     And enters "Spanish" for Interpreter Language
     And selects "Yes" for Interpreter Witness
     And selects "Yes" for Interpreter Signed
+    And verifies that Consent Assent category auto-populated to "Adult"
     And presses the Call Complete button
 
   @muzipovay2 @RAS_STUDY @CP2-3794 @selenium @RAS_Regression
@@ -218,16 +218,17 @@ Feature: RAS Consent Scenarios
     And selects "CHARMS e-consent" as the Collection Method
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
+    And selects "Yes" for Was verbal assent obtained
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
     And selects "Yes" for Protocol Discussed in Private Setting
     And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
     And selects "Yes" for Questions Addressed Before Signing
-    And selects "Yes" for Was verbal assent obtained
     And selects "Parents, Separated - Joint Custody" for Parent Guardian Status
     And selects "Yes" for Parent Guardian 1 Signed
     And enters "Parent One" as the Parent Guardian 1 name
     And selects "Yes" for Parent Guardian 2 Signed
     And enters "Parent Two" as the Parent Guardian 2 name
+    And verifies that Consent Assent category auto-populated to "Aged 7 - 10, verbal assent required"
     And presses the Call Complete button
     Then Study Team member logs out of Native View
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"

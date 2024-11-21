@@ -177,7 +177,7 @@ public class RAS_Consent_Call_Steps {
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown);
         CucumberLogUtils.logScreenshot();
         softAssert.assertTrue(locateByXpath("//span[normalize-space()='Interpreter used?']").isDisplayed());
-        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown, Native_View_Constants.consentRecordInterpreterSignedDropdownOptions, "---- VERIFYING INTERPRETER USED DROPDOWN OPTIONS ----");
+        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown, Native_View_Constants.consentRecordYesNoQuestionDropdownOptions, "---- VERIFYING INTERPRETER USED DROPDOWN OPTIONS ----");
         CommonUtils.selectDropDownValue(selectOption, nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown);
     }
 
@@ -220,7 +220,7 @@ public class RAS_Consent_Call_Steps {
     public void selects_for_interpreter_witness(String selectOption) {
         CucumberLogUtils.scenario.log("* * * * INTERPRETER WITNESS * * * *");
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterWitnessDropDown);
-        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Interpreter witness?']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Interpreter Witness?']").isDisplayed());
         RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterWitnessDropDown, Native_View_Constants.consentRecordInterpreterWitnessDropdownOptions, "---- VERIFYING INTERPRETER WITNESS DROPDOWN OPTIONS ----");
         CommonUtils.selectDropDownValue(selectOption, nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterWitnessDropDown);
     }
@@ -234,9 +234,10 @@ public class RAS_Consent_Call_Steps {
     public void selects_for_interpreter_signed(String selectOption) {
         CucumberLogUtils.scenario.log("* * * * INTERPRETER SIGNED * * * *");
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterSignedDropDown);
-        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Interpreter signed?']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Interpreter Signed']").isDisplayed());
         RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterSignedDropDown, Native_View_Constants.consentRecordInterpreterSignedDropdownOptions, "---- VERIFYING INTERPRETER SIGNED DROPDOWN OPTIONS ----");
         CommonUtils.selectDropDownValue(selectOption, nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterSignedDropDown);
+        CucumberLogUtils.logScreenshot();
     }
 
     /**
@@ -383,6 +384,7 @@ public class RAS_Consent_Call_Steps {
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAssentCategoryDropDown);
         RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAssentCategoryDropDown, Native_View_Constants.consentRecordConsentAssentCategoryDropdownOptions, "---- VERIFYING CONSENT/ASSENT CATEGORY DROPDOWN OPTIONS ----");
         CommonUtils.verifyingDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAssentCategoryDropDown, expectedConsentAssentCategory, "---- Consent/Assent Category Dropdown Options Mismatch ----");
+        CucumberLogUtils.logScreenshot();
     }
 
     /**

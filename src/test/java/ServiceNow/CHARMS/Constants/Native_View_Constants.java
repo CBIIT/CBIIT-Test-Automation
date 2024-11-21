@@ -65,6 +65,7 @@ public class Native_View_Constants {
             add("Assented, pending Consent");
             add("Consented, pending Assent");
             add("Consented only");
+            add("Consented and Assented");
             add("Declined");
             add("N/A");
         }

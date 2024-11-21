@@ -466,52 +466,6 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * Study Team member navigates to the Consent Record and selects the response type and interpreter used for the consent record.
-     * Verifies that two new fields, Interpreter Name or ID and Interpreter Language, display on the page.
-     *
-     * @param responseType            the response type to be selected
-     * @param interpreterUsed         the interpreter used selection
-     * @param interpreterNameOrIdText the text for Interpreter Name or ID field
-     * @param interpreterLanguageText the text for Interpreter Language field
-     */
-    @Then("Study Team member navigates to the Consent Record and selects {string} for the response type, {string} for Interpreter Used, and verifies that two new fields {string} and {string} display")
-    public void study_team_member_navigates_to_the_consent_record_and_selects_for_the_response_type_for_interpreter_used_and_verifies_that_two_new_fields_and_display(String responseType, String interpreterUsed, String interpreterNameOrIdText, String interpreterLanguageText) {
-        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
-        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-        CommonUtils.sleep(500);
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown);
-        CommonUtils.selectDropDownValue(responseType, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown);
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown);
-        CucumberLogUtils.logScreenshot();
-        softAssert.assertEquals(locateByXpath("//span[normalize-space()='Interpreter used?']").getText(), "Interpreter used?");
-        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Interpreter used?']").isDisplayed());
-        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown.isDisplayed());
-        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown.isEnabled());
-        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown, Native_View_Constants.consentRecordInterpreterSignedDropdownOptions, "---- VERIFYING INTERPRETER USED DROPDOWN OPTIONS ----");
-        CommonUtils.selectDropDownValue(interpreterUsed, nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown);
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='Interpreter Name or ID']"));
-        softAssert.assertEquals(locateByXpath("//span[normalize-space()='Interpreter Name or ID']").getText(), interpreterNameOrIdText);
-        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Interpreter Name or ID']").isDisplayed());
-        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterNameOrIdTextField.isDisplayed());
-        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterNameOrIdTextField.isEnabled());
-        nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterNameOrIdTextField.sendKeys("FirstName LastName");
-        CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='Interpreter Language']"));
-        softAssert.assertEquals(locateByXpath("//span[normalize-space()='Interpreter Language']").getText(), interpreterLanguageText);
-        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Interpreter Language']").isDisplayed());
-        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterLanguageTextField.isDisplayed());
-        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterLanguageTextField.isEnabled());
-        nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterLanguageTextField.sendKeys("English");
-        CucumberLogUtils.logScreenshot();
-    }
-
-    /**
      * When Study Team member logs in to Native View and completes consent call with provided sheet names.
      *
      * @param sheetName              The name of the sheet containing participant record details.
