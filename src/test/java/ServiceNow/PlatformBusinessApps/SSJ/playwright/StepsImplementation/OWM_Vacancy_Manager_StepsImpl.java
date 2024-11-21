@@ -16,10 +16,6 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.TestProperties;
 import org.testng.Assert;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -634,7 +630,6 @@ public class OWM_Vacancy_Manager_StepsImpl {
             page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberDropDown).click();
         }
         page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator("Executive Secretary (non-voting)")).click();
-
     }
 
     /**

@@ -66,6 +66,11 @@ public class Playwright_Common_Locators {
         return page.frameLocator("iframe[name='gsft_main']");
     }
 
+    /**
+     *
+     * @param text
+     * @return
+     */
     public static String vacancyType(String text){
         return "(//p[normalize-space()='" + text + "'])[1]";
     }

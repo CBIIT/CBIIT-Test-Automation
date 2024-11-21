@@ -1,6 +1,7 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation;
 
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.User_Table_Page;
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.Utils.SSJ_Constants;
 import appsCommon.Pages.Playwright_NativeView_Dashboard_Page;
 import appsCommon.Pages.Playwright_ServiceNow_NCISP_Page;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
@@ -37,7 +38,7 @@ public class Reset_Account_StepsImpl {
      * @param testAccountName
      */
     public static void a_test_account_is_reset_before_executing_a_test(String testAccountName) {
-        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate("Maria Chaudhry");
+        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(SSJ_Constants.SSJ_TESTER);
         PlaywrightUtils.page.locator(Playwright_ServiceNow_NCISP_Page.nativeViewLink).click();
         Playwright_ServiceNow_Common_Methods.searchFilterNavigatorAndClickOption("SCSS", "Users");
         Playwright_ServiceNow_Common_Methods.selectDropDownOptionInsideIframe(User_Table_Page.usersDropDown, "First Name");
