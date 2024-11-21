@@ -147,7 +147,7 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And proxy clicks on Study Consent and completes form with "Charms123$" "screenerScenarioAge14-17"
 
-  @muzipovay2 @RAS_STUDY @CP2-3725 @CP2-993 @selenium @RIn-Progress
+  @muzipovay2 @RAS_STUDY @CP2-3725 @CP2-993 @selenium @In-Progress
   Scenario: Verifying that two new fields display below the Interpreter Used? selection in the Participant's Consent Record in SN when the Response Type is not iMed
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -253,7 +253,6 @@ Feature: RAS Consent Scenarios
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
     And selects "CHARMS e-consent" as the Collection Method
-    And verifies that Consent Assent category auto-populated to "Adult - Needs LAR"
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
@@ -265,6 +264,7 @@ Feature: RAS Consent Scenarios
     And enters "LAR One" as the LAR 1 Name
     And selects "Yes" for LAR 2 Signed
     And enters "LAR Two" as the LAR 2 Name
+    And verifies that Consent Assent category auto-populated to "Adult - Needs LAR"
     And presses the Call Complete button
     Then Study Team member logs out of Native View
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"

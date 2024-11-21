@@ -373,6 +373,19 @@ public class RAS_Consent_Call_Steps {
     }
 
     /**
+     * Verifies that Consent Assent category is auto-populated to the expected value.
+     *
+     * @param expectedConsentAssentCategory the expected Consent Assent category to be auto-populated
+     */
+    @When("verifies that Consent Assent category auto-populated to {string}")
+    public void verifies_that_consent_assent_category_auto_populated_to(String expectedConsentAssentCategory) {
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAssentCategoryDropDown);
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAssentCategoryDropDown);
+        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAssentCategoryDropDown, Native_View_Constants.consentRecordConsentAssentCategoryDropdownOptions, "---- VERIFYING CONSENT/ASSENT CATEGORY DROPDOWN OPTIONS ----");
+        CommonUtils.verifyingDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAssentCategoryDropDown, expectedConsentAssentCategory, "---- Consent/Assent Category Dropdown Options Mismatch ----");
+    }
+
+    /**
      * Presses the Call Complete button on the participant Consent Record
      */
     @When("presses the Call Complete button")
@@ -397,7 +410,6 @@ public class RAS_Consent_Call_Steps {
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown, consentAssentStatus, "---- Consent/Assent Status value mismatch ----");
         CucumberLogUtils.logScreenshot();
     }
-
 
     /**
      * Verifies "Age-appropriate assent obtained?" dropdown value.
