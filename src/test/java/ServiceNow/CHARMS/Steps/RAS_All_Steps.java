@@ -1,7 +1,6 @@
 package ServiceNow.CHARMS.Steps;
 
 import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
-import ServiceNow.CHARMS.Constants.Native_View_Constants;
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
