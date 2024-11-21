@@ -26,6 +26,18 @@ public class NativeViewCHARMSParticipantConsentPage {
     public WebElement rasStudyConsentDateCalendar;
 
     /**
+     * Native View Ras Study Cohort Dropdown
+     */
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_fcsms_consent.participant_study.cohort']")
+    public WebElement rasStudyConsentCohortDropDown;
+
+    /**
+     * Native View Ras Study Consent Form Dropdown
+     */
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_fcsms_consent.consent_form']")
+    public WebElement rasStudyConsentFormDropDown;
+
+    /**
      * Consent Date Textbox
      */
     @FindBy(xpath = "//input[@id='x_naci_family_coho_fcsms_consent.consent_date']")
@@ -50,16 +62,16 @@ public class NativeViewCHARMSParticipantConsentPage {
     public WebElement rasStudyConsentCallScheduleTimeAcceptButton;
 
     /**
-     * Native View Ras Study Consent Type Drop Down
+     * Native View Ras Study Consent/Assent Category Drop Down
      */
     @FindBy(xpath = "//select[@name='x_naci_family_coho_fcsms_consent.consent_type']")
-    public WebElement rasStudyConsentTypeDropDown;
+    public WebElement rasStudyConsentAssentCategoryDropDown;
 
     /**
-     * Native View Ras Study Consent Response Type Drop Down
+     * Native View Ras Study Consent Collection Method Drop Down
      */
     @FindBy(xpath = "//*[@id='x_naci_family_coho_fcsms_consent.response_type']")
-    public WebElement rasStudyConsentResponseTypeDropDown;
+    public WebElement rasStudyConsentCollectionMethodDropDown;
 
     /**
      * Native View Ras Study Consent Status Text Box
@@ -72,6 +84,12 @@ public class NativeViewCHARMSParticipantConsentPage {
      */
     @FindBy(xpath = "//select[@id='x_naci_family_coho_fcsms_consent.was_verbal_assent_obtained']")
     public WebElement rasStudyConsentWasVerbalAssentObtainedDropDown;
+
+    /**
+     *
+     */
+    @FindBy(xpath = "//input[@name='sys_display.x_naci_family_coho_fcsms_consent.assigned_to']")
+    public WebElement rasStudyConsentAssignedToTextBox;
 
     /**
      * Native View Ras Study Consent By Text Box
@@ -198,18 +216,6 @@ public class NativeViewCHARMSParticipantConsentPage {
      */
     @FindBy(css = "input[name='x_naci_family_coho_fcsms_consent.lar_2_name']")
     public WebElement lar2NameTextField;
-
-    /**
-     * Native View Ras Study Assent signed checkbox
-     */
-    @FindBy(xpath = "//input[@id='ni.x_naci_family_coho_fcsms_consent.assent_signed']")
-    public WebElement rasStudyAssentSignedCheckBox;
-
-    /**
-     * Native View Ras Study hidden Assent signed checkbox
-     */
-    @FindBy(xpath = "//input[@id='ni.x_naci_family_coho_fcsms_consent.assent_signed']")
-    public WebElement rasStudyHiddenAssentSignedInput;
 
     /**
      * Age-appropriate assent obtained? Dropdown

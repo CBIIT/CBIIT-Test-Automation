@@ -15,6 +15,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import static Hooks.Hooks.softAssert;
 import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
@@ -119,58 +121,6 @@ public class RAS_Common_Methods extends PageInitializer {
     }
 
     /**
-     * Fills out parent/guardian signatures in Native View based on given parameters.
-     *
-     * @param responseType         The type of response for the consent process.
-     * @param parentGuardianStatus The status indicating the relationship of parent/guardian.
-     */
-    public static void nativeViewFillParentGuardianSignatures(String responseType, String parentGuardianStatus) {
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown);
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown);
-        CommonUtils.selectDropDownValue(parentGuardianStatus, nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown);
-        CommonUtils.sleep(800);
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
-        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
-        if (!responseType.equalsIgnoreCase("iMed")) {
-            if (parentGuardianStatus.equalsIgnoreCase("Parents, Married")) {
-                CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
-                CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField);
-                CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField, "RasParent One");
-            } else if (parentGuardianStatus.equalsIgnoreCase("Parents, Separated - Joint Custody")) {
-                CommonUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
-                CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
-                CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField);
-                nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField.sendKeys("RasParent One");
-                CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2SignedDropDown);
-                CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2NameTextField);
-                CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2NameTextField);
-                CommonUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2NameTextField);
-                nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2NameTextField.sendKeys("RasParent Two");
-            } else if (parentGuardianStatus.equalsIgnoreCase("Parent, Separated or Widowed - Single Custody")) {
-                CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
-                CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField);
-                CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField);
-                CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField, "RasParent One");
-            } else if (parentGuardianStatus.equalsIgnoreCase("Other Legal Guardian - 1")) {
-                CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
-                CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField);
-                CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField);
-                CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField, "LegalGuardian One");
-            } else if (parentGuardianStatus.equalsIgnoreCase("Other Guardian - 2")) {
-                CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown);
-                CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField);
-                CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField);
-                CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField, "LegalGuardian One");
-                CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2SignedDropDown);
-                CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2NameTextField);
-                CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2NameTextField);
-                CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2NameTextField, "LegalGuardian Two");
-            }
-        }
-        CucumberLogUtils.logScreenshot();
-    }
-
-    /**
      * Performs the consent flow process for a given scenario (iMed, Participant upload to portal, Mail/Fax/Email/Other)
      *
      * @param sheetName     The name of the sheet containing the scenario data.
@@ -205,7 +155,7 @@ public class RAS_Common_Methods extends PageInitializer {
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CucumberLogUtils.scenario.log("* * * * RESPONSE TYPE * * * *");
-        CommonUtils.selectDropDownValue(responseType, nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown);
+        CommonUtils.selectDropDownValue(responseType, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown);
         CucumberLogUtils.scenario.log("* * * * CONSENT CALL VERSION * * * *");
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
@@ -299,7 +249,7 @@ public class RAS_Common_Methods extends PageInitializer {
     }
 
     /**
-     * Verifying data and order Subject Flags of Subject Flags.
+     * Verifying data and order of Subject Flags.
      */
     public static void verifySubjectFlagsColumns() {
         for (int i = 0; i < Native_View_Constants.subjectFlagsColumns.size(); i++) {
@@ -322,10 +272,26 @@ public class RAS_Common_Methods extends PageInitializer {
      *
      * @param element       The WebElement representing the dropdown element.
      * @param expectedValue The expected value that should be selected in the dropdown.
-     * @param message       The message to be displayed in case of assertion failure.
+     * @param errorMessage       The message to be displayed in case of assertion failure.
      */
-    public static void softAssertDropDownValueIsSelected(WebElement element, String expectedValue, String message) {
+    public static void softAssertDropDownValueIsSelected(WebElement element, String expectedValue, String errorMessage) {
         Select select = new Select(element);
-        softAssert.assertEquals(select.getFirstSelectedOption().getText(), expectedValue, message);
+        softAssert.assertEquals(select.getFirstSelectedOption().getText(), expectedValue, errorMessage);
+    }
+
+    /**
+     * Verifies that the dropdown element contains the expected list of options.
+     *
+     * @param element The WebElement representing the dropdown element to verify.
+     * @param expectedDropdownOptions The list of expected dropdown options to match against.
+     * @param errorMessage The error message to display if the verification fails.
+     */
+    public static void softAssertDropdownOptions(WebElement element, List<String> expectedDropdownOptions, String errorMessage) {
+        Select select = new Select(element);
+        List<String> actualDropdownOptions = new ArrayList<>();
+        for (WebElement option : select.getOptions()) {
+            actualDropdownOptions.add(option.getText());
+        }
+        softAssert.assertEquals(actualDropdownOptions, expectedDropdownOptions, errorMessage);
     }
 }

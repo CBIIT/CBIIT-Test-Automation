@@ -10,7 +10,6 @@ import AnalysisTools.GDSTracking.Pages.*;
 import AnalysisTools.GWASExplorer.Pages.*;
 import AnalysisTools.GWASTarget.Pages.*;
 import AnalysisTools.ICRP.Pages.*;
-import AnalysisTools.JPSurv.StepsImplementations.JPSurvHomePageStepImp;
 import AnalysisTools.ezQTL.Pages.*;
 import AnalysisTools.cProSite.Pages.*;
 import AnalysisTools.CEDCD.Pages.*;
@@ -313,7 +312,6 @@ public class PageInitializer extends WebDriverUtils {
 
 	/** JPSurv instances **/
 	public static JPSurvHomePage jpsurvHomePage;
-	public static JPSurvHomePageStepImp jpsurvHomePageStepImp;
 
 	/** CProSite instances **/
 	public static CProSiteExplorePage cProSiteExplorePage;
@@ -600,7 +598,6 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** JPSurv Instance Variables **/
 		jpsurvHomePage = new JPSurvHomePage();
-		jpsurvHomePageStepImp = new JPSurvHomePageStepImp();
 
 		/** CProSite Instance Variables **/
 		cProSiteExplorePage = new CProSiteExplorePage();
