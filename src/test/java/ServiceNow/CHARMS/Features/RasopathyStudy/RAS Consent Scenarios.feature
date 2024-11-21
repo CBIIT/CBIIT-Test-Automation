@@ -241,7 +241,7 @@ Feature: RAS Consent Scenarios
     And verifies Age-appropriate assent obtained value is "Yes"
     Then Study Team member presses Sign and Complete
 
-  @muzipovay2 @RAS_STUDY @CP2-3794 @selenium @In-Progress
+  @muzipovay2 @RAS_STUDY @CP2-3794 @selenium @RAS_Regression
   Scenario: Verifying consent workflow for Consent/Assent Category "Adult-Needs LAR".
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
