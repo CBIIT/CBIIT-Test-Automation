@@ -10,7 +10,6 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 1
     Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
-   # And logs in Fanconi page via Okta with username "charmsras2@yahoo.com" and password "RASTest2023$$"
    And logs in Fanconi page via Okta with username "sj.fanconitester1@yopmail.com" and password "Test123$$"
     And clicks the Fanconi Eligibility Questionnaire widget
     Then fills the Fanconi Eligibility Questionnaire form for scenario1

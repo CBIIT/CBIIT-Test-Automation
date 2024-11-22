@@ -56,6 +56,12 @@ public class NativeViewCHARMSAddNewParticipantPage {
     public WebElement studiesTextBox;
 
     /**
+     * Selected Study Non-Edit Text
+     */
+    @FindBy(xpath = "//p[@id='x_naci_family_coho_family_history_details.studies_nonedit']")
+    public WebElement selectedStudyNonEditText;
+
+    /**
      * Unlock Study Subcategory Button
      */
     @FindBy(xpath = "//button[@id='x_naci_family_coho_family_history_details.study_subcategory_unlock']")
@@ -72,6 +78,12 @@ public class NativeViewCHARMSAddNewParticipantPage {
      */
     @FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_family_history_details.study_subcategory']")
     public WebElement studySubcategoryTextbox;
+
+    /**
+     * Selected Study Subcategory Non-Edit Text
+     */
+    @FindBy(xpath = "//p[@id='x_naci_family_coho_family_history_details.study_subcategory_nonedit']")
+    public WebElement selectedStudySubcategoryNonEditText;
 
     /**
      * Look up using list button
