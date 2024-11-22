@@ -1,6 +1,7 @@
 package ServiceNow.CHARMS.Steps;
 
 import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
+import ServiceNow.CHARMS.Constants.Native_View_Constants;
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
@@ -780,9 +781,10 @@ public class RAS_All_Steps extends PageInitializer {
         navigateToParticipantRecordInNativeView(sheetName);
         CommonUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
+        CommonUtils.sleep(500);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.hoverOverElement(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[@class='btn btn-icon table-btn-lg icon-info list_popup']"));
-        JavascriptUtils.clickByJS(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[@class='btn btn-icon table-btn-lg icon-info list_popup']"));
+        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='" + Native_View_Constants.consentAssentCategoryBySheetMap.get(sheetName) + "']"));
+        CommonUtils.sleep(500);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(500);

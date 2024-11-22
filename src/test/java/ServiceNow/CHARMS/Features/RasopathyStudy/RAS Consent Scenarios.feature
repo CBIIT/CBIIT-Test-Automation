@@ -54,7 +54,6 @@ Feature: RAS Consent Scenarios
     And selects "Yes" for Protocol Discussed in Private Setting
     And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
     And selects "Yes" for Questions Addressed Before Signing
-    And selects "Yes" for Was verbal assent obtained
     And selects "Other Guardian - 2" for Parent Guardian Status
     And selects "Yes" for Parent Guardian 1 Signed
     And enters "Parent One" as the Parent Guardian 1 name

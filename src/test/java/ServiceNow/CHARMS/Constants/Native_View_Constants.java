@@ -1,9 +1,125 @@
 package ServiceNow.CHARMS.Constants;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Native_View_Constants {
+
+    /*******************************************************************************
+     *                                                                             *
+     *                          PARTICIPANT SUBJECT FLAGS                          *
+     *                                                                             *
+     *******************************************************************************/
+
+    /**
+     * Subject Flags "Participation Status" dropdown options
+     */
+    public static final List<String> participationStatusDropdownOptions = new ArrayList<>() {
+        {
+            add("-- None --");
+            add("TBD");
+            add("Eligible to Participate");
+            add("Participating");
+            add("Not Participating");
+            add("Use Proxy");
+            add("Proxy not in Study");
+            add("Hold");
+        }
+    };
+
+    /**
+     * Subject Flags "Non-Participation Reason" dropdown options
+     */
+    public static final List<String> nonParticipationDropdownOptions = new ArrayList<>() {
+        {
+            add("-- None --");
+            add("Too ill, no proxy");
+            add("Deceased, no proxy");
+            add("Lost to Follow-up");
+            add("PI Exclude");
+            add("Final Refusal by Patient");
+            add("Final Refusal by Proxy");
+            add("Language Problem");
+            add("Do Not Contact");
+            add("Not able to Locate");
+        }
+    };
+
+    /**
+     * Subject Flags "Age Group" dropdown options
+     * WORK IN PROGRESS -- WAITING FOR BUG FIX
+     */
+    public static final List<String> ageGroupDropdownOptions = new ArrayList<>() {
+        {
+            add("Study");
+            add("Adult");
+            add("Minor Consent 14-17");
+            add("Minor Assent 11-13");
+            add("Child <11");
+        }
+    };
+
+    /**
+     * Subject Flags "Eligible for Clinic" dropdown options
+     */
+    public static final List<String> eligibleForClinicDropdownOptions = new ArrayList<>() {
+        {
+            add("-- None --");
+            add("TBD");
+            add("Yes");
+            add("No");
+            add("No - PI Decision");
+            add("No - Participant Refused");
+        }
+    };
+
+    /**
+     * Subject Flags "Individual Affected Status" dropdown options
+     */
+    public static final List<String> individualAffectedStatusDropdownOptions = new ArrayList<>() {
+        {
+            add("-- None --");
+            add("Clinically Affected");
+            add("Clinically Unaffected");
+            add("Clinical Status Unknown");
+            add("Provisionally Affected");
+        }
+    };
+
+    /**
+     * Subject Flags "Individual Genetic Status" dropdown options
+     */
+    public static final List<String> individualGeneticStatusDropdownOptions = new ArrayList<>() {
+        {
+            add("-- None --");
+            add("Variant Positive");
+            add("Variant Negative");
+            add("Not Tested");
+            add("Obligate Carrier");
+            add("Single Variant Identified");
+            add("Non-Bloodline");
+            add("Normal by Pedigree");
+            add("Not Applicable");
+        }
+    };
+
+    /**
+     * Subject Flags "Family Genetic Status" dropdown options
+     */
+    public static final List<String> familyGeneticStatusDropdownOptions = new ArrayList<>() {
+        {
+            add("-- None --");
+            add("Positive");
+            add("Negative");
+            add("VUS");
+            add("Not Tested");
+            add("Tumor Only");
+            add("Research Exome");
+            add("Not Applicable");
+        }
+    };
 
     /**
      * Participant study Subject Flags Columns
@@ -19,6 +135,24 @@ public class Native_View_Constants {
             add("Individual Genetic Status");
         }
     };
+
+    /******************************************************************************
+     *                                                                            *
+     *                          PARTICIPANT CONSENT FORM                          *
+     *                                                                            *
+     ******************************************************************************/
+
+    /**
+     * Mapping of sheet name to Participant Consent/Assent category
+     */
+    public static final Map<String, String> consentAssentCategoryBySheetMap = new HashMap<>() {{
+        put("screenerScenarioAgeUnder7", "Under 7");
+        put("screenerScenarioAge7-10", "Aged 7 - 10, verbal assent required");
+        put("screenerScenarioAge11-13", "Aged 11 - 13, signed assent required");
+        put("screenerScenarioAge14-17", "Aged 14 - 17, signed consent required");
+        put("screenerScenarioAdult", "Adult");
+        put("screenerScenarioAdult-NeedsLAR", "Adult - Needs LAR");
+    }};
 
     /**
      * Participant consent record "Cohort" dropdown options
