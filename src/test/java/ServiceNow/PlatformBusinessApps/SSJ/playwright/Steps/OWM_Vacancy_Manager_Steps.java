@@ -289,6 +289,7 @@ public class OWM_Vacancy_Manager_Steps {
     public void user_can_verify_that_all_subfilter_displays_vacancies_in_the_open_state() {
         page.locator("(//span[@class='ant-table-column-title'][normalize-space()='Open Date'])[2]").click();
     }
+
     @Then("User can verify that vacancies with subfilter All are by default sorted by number of applicants in ascending order")
     public void user_can_verify_that_vacancies_with_subfilter_all_are_by_default_sorted_by_number_of_applicants_in_ascending_order() {
     }
