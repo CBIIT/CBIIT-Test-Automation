@@ -1,5 +1,6 @@
 package CustomBusiness.Egrants.Utils;
 
+import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -41,5 +42,15 @@ public class Egrants_CommonUtils {
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         return currentDate.format(formatter);
+    }
+
+    /**
+     * Clicks on the specified WebElement using JavaScript.
+     *
+     * @param element the WebElement to click on
+     */
+    public static void clickOnElementUsingJS(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;
+        js.executeScript("arguments[0].click();", element);
     }
 }
