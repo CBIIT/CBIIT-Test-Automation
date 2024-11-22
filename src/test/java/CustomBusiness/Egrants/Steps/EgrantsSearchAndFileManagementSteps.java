@@ -399,6 +399,9 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method is used to click on Expand All Grant Years button
+     */
     @And("expands all grant years")
     public void expands_all_grant_years() {
         CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.expandAllGrantYearsButton);
