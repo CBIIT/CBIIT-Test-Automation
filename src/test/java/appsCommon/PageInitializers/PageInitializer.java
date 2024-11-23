@@ -64,7 +64,7 @@ import ServiceNow.PlatformBusinessApps.ETracking.Pages.EtrackAssetsRecords_Nativ
 import ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Pages.CTRPCTRO_NV_Page;
 import ServiceNow.PlatformBusinessApps.GDC.Pages.GDC_Workflow_NativeView_Page;
 import ServiceNow.PlatformBusinessApps.GCP.Pages.GCPNotifications_NativeViewPage;
-import ServiceNow.PlatformBusinessApps.NERD.Pages.*;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
