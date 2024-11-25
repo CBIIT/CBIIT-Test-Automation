@@ -6,8 +6,8 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(plugin= {"html:target/nerd-regression-reports/nerd-regression-report.html",
 		"json:target/cucumber.json", "rerun:target/failed.txt",
 		"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
-		, features="src/test/java/ServiceNow/PlatformBusinessApps/NERD/Features"
-		, glue={"ServiceNow.PlatformBusinessApps.NERD.Steps", "Hooks"}
+		, features= {"src/test/java/ServiceNow/PlatformBusinessApps/NERD/selenium/Features", "src/test/java/ServiceNow/PlatformBusinessApps/NERD/playwright/Features" }
+		, glue={"ServiceNow.PlatformBusinessApps.selenium.NERD.Steps", "ServiceNow.PlatformBusinessApps.NERD.playwright.Steps", "Hooks"}
 		, tags="@Regression"
 		, dryRun = false
 )

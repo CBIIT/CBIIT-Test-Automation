@@ -60,3 +60,10 @@ Feature: SNOWTRAVEL Portal Form Scenarios
     And I am Completing a Travel Planning Request form,
     When "Yes" is selected for the "Registration Fees?" field,
     Then the "URL of Registration Site" field will be required.
+
+  @SNOWTRAVEL-182 @Chaudhryma @Regression @playwright
+  Scenario:Test 2: For CGH Make the "URL of Registration Site" field required if "Registration Fees?" is YES
+    Given I am a CGH User "Ann Chao"
+    And I am Completing a Travel Planning Request form,
+    When I select "No" for the "Registration Fees?" field
+    Then the "URL of Registration Site" field will not be required.

@@ -12,6 +12,7 @@ import com.nci.automation.web.TestProperties;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 import java.util.regex.Pattern;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
@@ -390,6 +391,41 @@ public class Travel_Request_Portal_Form_Steps {
         CucumberLogUtils.scenario.log("----  URL OF REGISTRATION SITE  -- A REQUIRED FIELD ----");
         assertThat(page.locator("#url_of_registration_site")).containsText(urlOfRegistrationSite);
         assertThat(page.locator("#url_of_registration_site").getByLabel("Required")).isVisible();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Selects 'No' for the REGISTRATION FEES? field on the page.
+     *
+     * @param no The value to be selected for the field
+     * @param RegistrationFeeField The field identifier to be interacted with
+     */
+    @When("I select {string} for the {string} field")
+    public void i_select_for_the_field(String no, String RegistrationFeeField) {
+
+        CucumberLogUtils.scenario.log("----  REGISTRATION FEES? -- A REQUIRED FIELD ----");
+        page.locator("#registration_fees").scrollIntoViewIfNeeded();
+        assertThat(page.locator("#registration_fees")).containsText(RegistrationFeeField);
+        page.getByRole(AriaRole.GROUP, new Page.GetByRoleOptions().setName("Registration Fee").setExact(true)).locator("a").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(no).setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * The 'URL of Registration Site' field will not be required when 'No' is selected for REGISTRATION FEES? field.
+     *
+     * @param urlOfRegistrationSite The URL of the registration site
+     */
+    @Then("the {string} field will not be required.")
+    public void the_field_will_not_be_required(String urlOfRegistrationSite) {
+
+        CucumberLogUtils.scenario.log("----  URL OF REGISTRATION SITE - A FIELD IS NOT REQUIRED WHEN 'No' IS SELECTED FOR 'REGISTRATION FEE?' FIELD ----");
+        assertThat(page.getByText(urlOfRegistrationSite)).isVisible();
+        assertThat(page.locator("#url_of_registration_site")).containsText(urlOfRegistrationSite);
+        assertThat(page.getByRole(AriaRole.IMG, new Page.GetByRoleOptions().setName("Required"))).isHidden();
+        String actualAttributeValue = page.locator("//label[@for='sp_formfield_url_of_registration_site']").getAttribute("ng-if");
+        Assert.assertNotEquals(actualAttributeValue, "field.mandatory",
+                "-- VERIFY THAT 'URL of Registration Site' FIELD IS NOT REQUIRED WHEN 'No' IS SELECTED FOR REGISTRATION FEE FIELD --");
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }
