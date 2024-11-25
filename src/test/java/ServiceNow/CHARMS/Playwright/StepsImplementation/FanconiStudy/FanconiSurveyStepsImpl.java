@@ -149,6 +149,8 @@ public class FanconiSurveyStepsImpl {
         assertConsentPageDataInNativeView();
         addConsentDataForCallCompleteInNativeView();
         uploadConsentPDFInNativeView();
+        completeConsentInNativeView();
+
     }
 
     /** Method to Reset Fanconi Screener */
@@ -305,6 +307,27 @@ public class FanconiSurveyStepsImpl {
         page.frameLocator("iframe[name=\"gsft_main\"]").locator("input[aria-hidden=\"true\"][id=\"attachFile\"]").setInputFiles(Paths.get(consentPDF));
         CommonUtils.sleep(2000);
         page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Close", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+    }
+
+    /** Method to Complete Consent to */
+    public static void completeConsentInNativeView() {
+        var page = PlaywrightUtils.page;
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("#hard_consent_received").click();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Consent form section").getByLabel("Consent Status")).hasValue("7");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Future Use of Specimens and")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Future Use of Specimens and")).containsText("-- None --Dead End by PIDead End by Study ManagerNoYes");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Future Use of Specimens and")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Future Use of Specimens and")).containsText("-- None --Dead End by PIDead End by Study ManagerNoYes");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Future Use of Specimens and").selectOption("2");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Future Use by Collaborators")).containsText("-- None --Dead End by PIDead End by Study ManagerNoYes");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Future Use by Collaborators").selectOption("2");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Future Identifiable Use by")).containsText("-- None --Dead End by PIDead End by Study MangerNoYes");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Future Identifiable Use by").selectOption("2");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Go to Today", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.SEARCHBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated")).click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated")).click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated")).fill("Renne Gray");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated")).press("Enter");
     }
 
     /** Login method to Fanconi Survey */
@@ -481,7 +504,7 @@ public class FanconiSurveyStepsImpl {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.SUBMIT)).click();
     }
 
-    /* This method allows the submissions and assertions of the Demographic section of the Fanconi Survey for scenario1.*/
+    /** This method allows the submissions and assertions of the Demographic section of the Fanconi Survey for scenario1.*/
     public static void demographicSectionScenario1() {
         var page = PlaywrightUtils.page;
         assertThat(page.getByLabel(FanconiSurveyPage.BACKGROUND_INFORMATION)).hasText(FanconiSurveyPage.BACKGROUND_INFORMATION);
@@ -512,7 +535,7 @@ public class FanconiSurveyStepsImpl {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.SUBMIT)).click();
     }
 
-    /* This method allows the submissions and assertions of the Medical History section of the Fanconi Survey for scenario1.*/
+    /** This method allows the submissions and assertions of the Medical History section of the Fanconi Survey for scenario1.*/
     public static void medicalHistorySectionScenario1() {
         var page = PlaywrightUtils.page;
         assertThat(page.getByLabel(FanconiSurveyPage.BACKGROUND_INFORMATION)).hasText(FanconiSurveyPage.BACKGROUND_INFORMATION);
@@ -792,7 +815,7 @@ public class FanconiSurveyStepsImpl {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.SUBMIT)).click();
     }
 
-    /* This method allows the submissions and assertions of the Medical History Continued section of the Fanconi Survey for scenario1.*/
+    /** This method allows the submissions and assertions of the Medical History Continued section of the Fanconi Survey for scenario1.*/
     public static void medicalHistoryContinuedSectionScenario1() {
         var page = PlaywrightUtils.page;
         assertThat(page.getByLabel("Medical History Continued").locator("span")).hasText("Medical History Continued");
@@ -1709,7 +1732,7 @@ public class FanconiSurveyStepsImpl {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.SUBMIT)).click();
     }
 
-    /* This method allows the submissions and assertions of the Reproductive History section of the Fanconi Survey for scenario1.*/
+    /** This method allows the submissions and assertions of the Reproductive History section of the Fanconi Survey for scenario1.*/
     public static void reproductiveHistorySectionScenario1() {
         var page = PlaywrightUtils.page;
         assertThat(page.getByLabel("Reproductive History").locator("span")).hasText("Reproductive History");
@@ -2088,7 +2111,7 @@ public class FanconiSurveyStepsImpl {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.SUBMIT)).click();
     }
 
-    /* This method allows the submissions and assertions of the Surgical And Other Medical History section of the Fanconi Survey for scenario1*/
+    /** This method allows the submissions and assertions of the Surgical And Other Medical History section of the Fanconi Survey for scenario1*/
     public static void surgicalAndOtherMedicalHistorySectionScenario1() {
         var page = PlaywrightUtils.page;
         assertThat(page.getByLabel("Surgical, Medication, and").locator("span")).hasText("Surgical, Medication, and other Medical History");
@@ -2726,7 +2749,7 @@ public class FanconiSurveyStepsImpl {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.SUBMIT)).click();
     }
 
-    /* This method allows the submissions and assertions of the Sexual History section of the Fanconi Survey for scenario1.*/
+    /** This method allows the submissions and assertions of the Sexual History section of the Fanconi Survey for scenario1.*/
     public static void sexualHistorySectionScenario1() {
         var page = PlaywrightUtils.page;
         assertThat(page.locator("tbody")).hasText("Sexual History");
