@@ -6,6 +6,7 @@ import CustomBusiness.Egrants.Utils.Egrants_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -395,6 +396,105 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     @Then("clicks on Update button to move the document to a different grant year")
     public void clicks_on_update_button_to_move_the_document_to_a_different_grant_year() {
         CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.updateButton);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Expand All Grant Years button
+     */
+    @And("expands all grant years")
+    public void expands_all_grant_years() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.expandAllGrantYearsButton);
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on year 18 from the Years
+     */
+    @When("selects grant year 18 from list of Years")
+    public void selects_expanded_grant_year_18() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.grantYear18);
+        CommonUtils.sleep(2000);
+    }
+
+    /**
+     * This method is used to click on Add Funding Document button
+     */
+    @And("clicks on Add Funding Document button")
+    public void clicks_on_add_funding_document_button() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addFundingDocumentButton);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to select Co-Funding Secondary as the document category
+     */
+    @And("selects category as Co-Funding Secondary")
+    public void selects_category_as_co_funding_secondary() {
+        CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.documentCategoryDropdown, 0);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to enter the subcategory text
+     * @param subCategory
+     */
+    @And("passes {string} as Funding Subcategory")
+    public void passes_as_funding_subcategory(String subCategory) {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.fundingSubCategory);
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.fundingSubCategory, subCategory);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Supplement sandbox on the grant header. The user will keep clicking on the button until it is clicked
+     */
+    @And("clicks on Supplement sandbox on the grant header")
+    public void clicks_on_supplement_sandbox_on_the_grant_header() {
+        boolean isClicked = false;
+        int attempts = 0;
+        while (!isClicked && attempts < 3) {
+            try {
+                CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.supplementSandBox);
+                isClicked = true;
+            } catch (Exception e) {
+                attempts++;
+                CommonUtils.sleep(2000);
+            }
+        }
+        if (!isClicked) {
+            throw new RuntimeException("*** FAILED TO CLICK ON SUPPLEMENT SANDBOX BUTTON AFTER 3 ATTEMPTS ***");
+        }
+        CommonUtils.switchToNextWindow();
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to select the Application File from the list
+     */
+    @And("selects the Application File from the list")
+    public void selects_the_application_file_from_the_list() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.supplementApplicationFileCheckbox);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to select Pay in Parent from Process Type dropdown
+     */
+    @And("selects Pay in Parent from Process Type dropdown")
+    public void selects_pay_in_parent_from_process_type_dropdown() {
+        CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.processTypeDropdown, 2);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Move to Parent button to move the application
+     */
+    @Then("clicks on Move to Parent button to move the application")
+    public void clicks_on_move_to_parent_button_to_move_the_application() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.moveToParentButton);
         CucumberLogUtils.logScreenshot();
     }
 }

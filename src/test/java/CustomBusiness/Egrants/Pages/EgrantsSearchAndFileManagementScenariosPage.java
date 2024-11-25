@@ -386,6 +386,54 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement datePicker;
 
     /**
+     *  Add Funding Document Button
+     */
+    @FindBy(xpath = "//button[@title='Click here to add new funding document [shift + alt + F]']")
+    public WebElement addFundingDocumentButton;
+
+    /**
+     *  Expand All Grant Years Button
+     */
+    @FindBy(xpath = "//a/img[@title='View All Grant Years']")
+    public WebElement expandAllGrantYearsButton;
+
+    /**
+     *  Funding SubCategory
+     */
+    @FindBy(xpath = "//div/input[@id='txtSubCategory']")
+    public WebElement fundingSubCategory;
+
+    /**
+     * Expanded - Grant year 18
+     */
+    @FindBy(css = "div[id='appls_all_687129'] a[title='View All Documents for 5P30CA125123-18']")
+    public WebElement grantYear18;
+
+    /**
+     * Supplement SandBox
+     */
+    @FindBy(css = "//a/b[@title='View Supplement Files']")
+    public WebElement supplementSandBox;
+
+    /**
+     * Supplement Application File Checkbox
+     */
+    @FindBy(css = "(//tr/td/input[@title='Check here to load suppelment'])[1]")
+    public WebElement supplementApplicationFileCheckbox;
+
+    /**
+     * Process Type Dropdown
+     */
+    @FindBy(css = "//div/select[@id='ddlProcess']")
+    public WebElement processTypeDropdown;
+
+    /**
+     * Move to Parent Button
+     */
+    @FindBy(css = "//button[@title='Click here to pay with Parent Grant by parent appl [alt + shift + M]']")
+    public WebElement moveToParentButton;
+
+    /**
      * Constructor
      */
     public EgrantsSearchAndFileManagementScenariosPage() {
