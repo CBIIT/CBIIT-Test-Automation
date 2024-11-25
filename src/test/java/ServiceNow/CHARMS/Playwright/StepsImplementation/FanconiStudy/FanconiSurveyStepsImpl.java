@@ -10,6 +10,7 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import com.nci.automation.web.TestProperties;
+import java.nio.file.Paths;
 import java.util.regex.Pattern;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
@@ -142,6 +143,12 @@ public class FanconiSurveyStepsImpl {
     /** Method to fill Fanconi Consent in NativeView */
     public static void fillFanconiConsent() {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
+        ParticipantDetailsPageLoginInNativeView();
+        assertParticipantDetailsPageFieldsInNativeView();
+        makeParticipantEligibleInNativeView();
+        assertConsentPageDataInNativeView();
+        addConsentDataForCallCompleteInNativeView();
+        uploadConsentPDFInNativeView();
     }
 
     /** Method to Reset Fanconi Screener */
@@ -162,6 +169,142 @@ public class FanconiSurveyStepsImpl {
         page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Close").setExact(true)).click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CBIIT Test Account: available")).click();
         page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName("Log out")).click();
+    }
+
+    /** Method to log in to Participant details page in NativeView */
+    public static void ParticipantDetailsPageLoginInNativeView(){
+        var page = PlaywrightUtils.page;
+        page.getByPlaceholder("Filter").click();
+        page.getByPlaceholder("Filter").fill("All participant Details");
+        CommonUtils.sleep(300);
+        page.getByText("All Results").click();
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("All Participant Details").setExact(true)).click();
+        CommonUtils.sleep(300);
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search column: name").click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search column: name").fill("Participant First Name PL");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search column: name").press("Enter");
+        CommonUtils.sleep(300);
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Preview record: Participant").click();
+        CommonUtils.sleep(300);
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.LINK, new FrameLocator.GetByRoleOptions().setName("Open Record").setExact(true)).click();
+    }
+
+    /** Method to assert Participant Details Page Fields in NativeView */
+    public static void assertParticipantDetailsPageFieldsInNativeView() {
+        var page = PlaywrightUtils.page;
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Subject ID")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Subject ID"))).isVisible();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Name").click();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Name").setExact(true))).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Permission to contact")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Permission to contact")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByText("FHQ Patient")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("FHQ Patient", new FrameLocator.GetByLabelOptions().setExact(true))).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Eligibility Status")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Eligibility Status")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Enrollment Status")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Enrollment Status")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByText("Studies", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"x_naci_family_coho_family_history_details\\.studies_nonedit\"]")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByText("NIH MRN number", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("NIH MRN number")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByText("NIH MRN number should include")).isVisible();
+    }
+
+    /** Method to make Participant Eligible in NativeView */
+    public static void makeParticipantEligibleInNativeView() {
+        var page = PlaywrightUtils.page;
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("#study_panel_review")).isVisible();
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("#study_panel_review").click();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("#mark_eligible")).isVisible();
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("#mark_eligible").click();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Eligibility Status")).hasValue("eligible");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Enrollment Status")).hasValue("5");
+    }
+
+    /** Method to assert Consent page data fields in NativeView */
+    public static void assertConsentPageDataInNativeView() {
+        var page = PlaywrightUtils.page;
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("#tabs2_list").getByText("Consents (1)").click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("(empty) - Open record:").click();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.participant_study\"]")).hasText("Participant Study");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Study", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("Participant First Name PL");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.consent_call_scheduled_time\"]")).hasText("Consent call scheduled time");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.consent_call_date\"]")).hasText("Consent Call Date");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Consent Call Date")).isEmpty();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.participant_study\\.cohort\"]")).hasText("Cohort");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Cohort")).hasValue("field");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.consent_form\"]")).hasText("Consent Form");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Consent Form", new FrameLocator.GetByLabelOptions().setExact(true))).hasText("-- None --ClinicalField");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.response_type\"]")).hasText("Collection Method");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Consent form section").getByLabel("Collection Method")).hasText("-- None --Participant upload to portalMail/Fax/Email/OtheriMed");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.consent_version\"]")).hasText("Consent Version");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Consent Version")).isEmpty();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.participant_response\"]")).hasText("Consent/Assent Status");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Consent/Assent Status")).hasValue("1");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.consent_type\"]")).hasText("Consent/Assent Category");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Consent form section").getByLabel("Consent/Assent Category")).hasValue("5");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.assigned_to\"]")).hasText("Assigned to");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Assigned to", new FrameLocator.GetByLabelOptions().setExact(true))).isEmpty();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.status\"]")).hasText("Consent Status");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Consent form section").getByLabel("Consent Status")).hasValue("1");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.consent_date\"]")).hasText("Consent Date");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.consent_by\"]")).hasText("Consent By");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.SEARCHBOX, new FrameLocator.GetByRoleOptions().setName("Consent By"))).isEmpty();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.current_previous\"]")).hasText("Current/Previous");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Current/Previous")).hasValue("1");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.study\"]")).hasText("Study");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Study", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("Fanconi");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.future_use_of_specimens_and_data_by_nih\"]")).hasText("Future Use of Specimens and Data by NIH");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Future Use of Specimens and")).hasText("-- None --Dead End by PIDead End by Study ManagerNoYes");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.future_use_by_collaborators\"]")).hasText("Future Use by Collaborators");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Future Use by Collaborators")).hasText("-- None --Dead End by PIDead End by Study ManagerNoYes");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.future_identifiable_use_by_collaborators\"]")).hasText("Future Identifiable Use by Collaborators");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Future Identifiable Use by")).hasText("-- None --Dead End by PIDead End by Study MangerNoYes");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.return_of_genetic_findings\"]")).hasText("Return of Genetic Findings");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Return of Genetic Findings")).hasValue("1");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.sys_created_on\"]")).hasText("Created");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_fcsms_consent\\.send_to_medidata\"]")).hasText("Sent to Medidata");
+    }
+
+    /** Method to add the Consent data before Call Complete is clicked Fanconi Consent */
+    public static void addConsentDataForCallCompleteInNativeView() {
+        var page = PlaywrightUtils.page;
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Select Consent call scheduled")).click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Go to Today", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Save (Enter)").click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"x_naci_family_coho_fcsms_consent\\.consent_call_date\\.ui_policy_sensitive\"]").click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Go to Today", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Consent Form", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption("2");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Consent form section").getByLabel("Collection Method").selectOption("2");
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"x_naci_family_coho_fcsms_consent\\.consent_version\\.ui_policy_sensitive\"]").click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Go to Today", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Copy of Consent/Assent").selectOption("1");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Protocol Discussed in Private").selectOption("1");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Verbalized").selectOption("1");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Questions Addressed Before").selectOption("1");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Consent/Assent Obtained").selectOption("1");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Copy of Signed/Dated Consent/").selectOption("1");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Interpreter used?").selectOption("1");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Interpreter Name or ID").click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Interpreter Name or ID").fill("Interpreter Test");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Interpreter Language").click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Interpreter Language").fill("Spanish");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Interpreter Witness?").selectOption("1");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Interpreter Signed").selectOption("1");
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"x_naci_family_coho_fcsms_consent\\.form_header\"]").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Save")).click();
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("#call_complete").click();
+    }
+
+    /** Method to upload the Consent Pdf to Fanconi Consent */
+    public static void uploadConsentPDFInNativeView() {
+        var page = PlaywrightUtils.page;
+        String consentPDF = System.getProperty("user.dir")+ "/src/test/java/ServiceNow/CHARMS/Resources/Family Cohort Study Consent.pdf";
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("#add_attachment").click();
+        CommonUtils.sleep(2000);
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("input[aria-hidden=\"true\"][id=\"attachFile\"]").setInputFiles(Paths.get(consentPDF));
+        CommonUtils.sleep(2000);
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Close", new FrameLocator.GetByLabelOptions().setExact(true)).click();
     }
 
     /** Login method to Fanconi Survey */
