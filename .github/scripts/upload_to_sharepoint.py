@@ -2,6 +2,11 @@ import os
 import glob
 import requests
 import msal
+import logging
+import time
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Receive environment variables from GitHub Actions Workflow
 TENANT_ID = os.getenv('TENANT_ID')
@@ -34,14 +39,17 @@ def authenticate():
         result = app.acquire_token_for_client(SCOPE)
 
     if "access_token" in result:
+        logging.info("Authentication successful")
         return result["access_token"]
     else:
+        logging.error(f"Authentication failed: {result.get('error')}, {result.get('error_description')}")
         raise Exception(f"Authentication failed: {result.get('error')}, {result.get('error_description')}")
 
 
 def upload_files_to_sharepoint(access_token):
     # Get list of all files in the directory
     files = glob.glob(FILES_PATH)
+    logging.info(f"Files to upload: {files}")
 
     for file_path in files:
         try:
@@ -62,17 +70,19 @@ def upload_files_to_sharepoint(access_token):
                 "Content-Type": "application/octet-stream",
             }
 
-            # Make the request
+            # Measure upload time
+            start_time = time.time()
             response = requests.put(upload_url, headers=headers, data=file_content)
+            end_time = time.time()
 
             # Check the response
             if response.status_code == 201:
-                print(f"File uploaded successfully to {SHAREPOINT_DRIVE_ID}/{FILE_NAME}")
+                logging.info(f"File uploaded successfully to {SHAREPOINT_DRIVE_ID}/{FILE_NAME} in {end_time - start_time:.2f} seconds")
             else:
-                print(f"Failed to upload file: {response.status_code}, {response.text}")
+                logging.error(f"Failed to upload file: {response.status_code}, {response.text}")
 
         except Exception as e:
-            print(f"Error: {e}")
+            logging.error(f"Error: {e}")
 
 
 if __name__ == "__main__":
