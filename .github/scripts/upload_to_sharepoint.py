@@ -76,8 +76,9 @@ def upload_files_to_sharepoint(access_token):
             end_time = time.time()
 
             # Check the response
-            if response.status_code == 201:
+            if response.status_code in [200, 201]:
                 logging.info(f"File uploaded successfully to {SHAREPOINT_DRIVE_ID}/{FILE_NAME} in {end_time - start_time:.2f} seconds")
+                logging.info(f"Response: {response.json()}")
             else:
                 logging.error(f"Failed to upload file: {response.status_code}, {response.text}")
 
