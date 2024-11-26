@@ -87,6 +87,30 @@ Feature: Applicant Profile Scenarios
   @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright @SNOW_UPDATED
   Scenario Outline: Verifying applicant is able to see "Your Applications" tab and page content after applying to a Vacancy
 #    Given an Okta user "" is on the SSJ home page and logs in - PLEASE LEAVE THIS HERE! NEED TO CONNECT WITH OKTA TEAM
+    When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
+    And clicks on "Vacancy Dashboard" - PW
+    And clicks on "+ Create Vacancy" - PW
+    And enters Vacancy Title name "DIEGO TEST" - PW
+    And enters Vacancy Description "THIS IS A TEST AUTOMATION TEST" - PW
+    And selects "Yes" for point of contact - PW
+    And User sets an "Open Date" entry as today's date
+    And unselects the option for cover letter
+    And checks "Enable Reference Collection" check box
+    And selects a Reference Collection Date Ten days from today
+    And selects "2" for Full Contact Details for References
+    And selects "Research Fellow" for Position Classification drop down
+    And selects "HNC" for Organizational Code drop down
+    And clicks "Save"
+    And clicks Save for Mandatory Statements
+    And selects "David Rampulla" for Committee Member with chair role
+    And selects "Jason Levine" for Committee Member with Executive Secretary role
+    And clicks "Save"
+    And clicks Save for Email Templates
+    Then user is able to see the Review and Finalize section with the vacancy information submitted
+    And clicks "Save and Finalize"
+    And clicks "OK"
+    And clicks "Close"
+    And OWM Vacancy Manager logs out
     Given a test account "<firstName>" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
     And clicks on Vacancy Title "DIEGO TEST"

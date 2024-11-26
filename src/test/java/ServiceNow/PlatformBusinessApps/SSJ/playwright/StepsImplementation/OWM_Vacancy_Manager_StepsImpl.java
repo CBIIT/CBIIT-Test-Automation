@@ -20,11 +20,12 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
-import static ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl.timestamp;
+
+import static ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl.applicantProfileStepsImpl;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
-public class OWM_Vacancy_Manager_StepsImpl {
+public class OWM_Vacancy_Manager_StepsImpl{
 
     /**
      * Navigates the user to a specific tab in the PW dashboard by clicking on the provided dashboard text.
@@ -674,11 +675,11 @@ public class OWM_Vacancy_Manager_StepsImpl {
         Playwright_Common_Utils.scrollIntoView("(//a[@rel='nofollow'])[1]");
         List<ElementHandle> pagination = page.querySelectorAll("//a[@rel='nofollow']");
         for (ElementHandle itemPage : pagination) {
-            if (page.querySelector("//a[normalize-space()='" + vacancyTitle + " " + timestamp + "']") != null) {
-                String actualVacancy = page.locator("//a[normalize-space()='" + vacancyTitle + ' ' + ApplicantProfileStepsImpl.timestamp).innerText();
+            if (page.querySelector("//a[normalize-space()='" + vacancyTitle + " " + applicantProfileStepsImpl.timestamp + "']") != null) {
+                String actualVacancy = page.locator("//a[normalize-space()='" + vacancyTitle + ' ' + applicantProfileStepsImpl.timestamp).innerText();
                 CommonUtils.sleep(2000);
-                System.out.println("Timestamp before assertion: " + ApplicantProfileStepsImpl.timestamp);
-                String expectedVacancy = vacancyTitle + " " + ApplicantProfileStepsImpl.timestamp;
+                System.out.println("Timestamp before assertion: " + applicantProfileStepsImpl.timestamp);
+                String expectedVacancy = vacancyTitle + " " + applicantProfileStepsImpl.timestamp;
                 Hooks.softAssert.assertEquals(actualVacancy,expectedVacancy);
                 break;
             } else {

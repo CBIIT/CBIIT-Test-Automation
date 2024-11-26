@@ -25,7 +25,8 @@ import static com.nci.automation.web.TestProperties.getSSJUrl;
 public class ApplicantProfileStepsImpl {
 
     public static Page newPage;
-    public static String timestamp;
+    public static ApplicantProfileStepsImpl applicantProfileStepsImpl = new ApplicantProfileStepsImpl();
+    public String timestamp;
 
     /***
      * THIS METHOD LOGS INTO SSJ WITH AN IMPERSONATED USER
@@ -233,8 +234,8 @@ public class ApplicantProfileStepsImpl {
     public static void enters_vacancy_title_name_pw(String vacancyName) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
         LocalDateTime now = LocalDateTime.now();
-        timestamp = dtf.format(now);
-        page.getByPlaceholder("Please enter").fill(vacancyName + " " + timestamp);
+        applicantProfileStepsImpl.timestamp = dtf.format(now);
+        page.getByPlaceholder("Please enter").fill(vacancyName + " " + applicantProfileStepsImpl.timestamp);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -421,7 +422,7 @@ public class ApplicantProfileStepsImpl {
      * @param vacancyTitle The vacancy title to verify.
      */
     public static void verifies_vacancy_title(String vacancyTitle) {
-        Hooks.softAssert.assertEquals(page.locator("((//div[@class='SectionContent'])[1]/div[1]/div/p)[1]").innerText(), vacancyTitle + " " + timestamp);
+        Hooks.softAssert.assertEquals(page.locator("((//div[@class='SectionContent'])[1]/div[1]/div/p)[1]").innerText(), vacancyTitle + " " + applicantProfileStepsImpl.timestamp);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -657,14 +658,16 @@ public class ApplicantProfileStepsImpl {
     public static void clicks_on_vacancy_title(String vacancyTitle) {
         List<ElementHandle> pagination = page.querySelectorAll("//a[@rel='nofollow']");
         for (ElementHandle itemPage : pagination) {
-            if (page.querySelector("//a[normalize-space()='" + vacancyTitle + " " + timestamp + "']") != null) {
-                page.locator("//a[normalize-space()='" + vacancyTitle + " " + timestamp + "']").click();
+            if (page.querySelector("//a[normalize-space()='" + vacancyTitle + " " + applicantProfileStepsImpl.timestamp + "']") != null) {
+                page.locator("//a[normalize-space()='" + vacancyTitle + " " + applicantProfileStepsImpl.timestamp + "']").click();
                 break;
             } else {
                 itemPage.click();
             }
         }
-        CucumberLogUtils.playwrightScreenshot(page);
+
+//        page.locator("(//a[normalize-space()='" + vacancyTitle + " " + "20241125075146" + "'])[1]").click();
+//        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -1488,7 +1491,7 @@ public class ApplicantProfileStepsImpl {
      */
     public static void verifies_vacancy_title_is(String expectedVacancyTitle) {
         CucumberLogUtils.playwrightScreenshot(page);
-        Hooks.softAssert.assertEquals(page.locator("//*[normalize-space()='" + expectedVacancyTitle + " " + timestamp + "']").innerText(), expectedVacancyTitle + " " + timestamp);
+        Hooks.softAssert.assertEquals(page.locator("//*[normalize-space()='" + expectedVacancyTitle + " " + applicantProfileStepsImpl.timestamp + "']").innerText(), expectedVacancyTitle + " " + applicantProfileStepsImpl.timestamp);
     }
 
     /**
@@ -1756,7 +1759,7 @@ public class ApplicantProfileStepsImpl {
      */
     public static void verifies_that_the_application_became_a_draft(String expectedDraftText) {
         CucumberLogUtils.playwrightScreenshot(page);
-        Hooks.softAssert.assertEquals(page.locator("//*[text()='" + "DIEGO TEST" + " " + timestamp + "']/parent::td/following-sibling::td/span").innerText(), expectedDraftText);
+        Hooks.softAssert.assertEquals(page.locator("//*[text()='" + "DIEGO TEST" + " " + applicantProfileStepsImpl.timestamp + "']/parent::td/following-sibling::td/span").innerText(), expectedDraftText);
     }
 
     /**
@@ -1766,12 +1769,12 @@ public class ApplicantProfileStepsImpl {
      * @param vacancyTitle The title of the vacancy application to click.
      */
     public static void clicks_the_application(String vacancyTitle) {
-        if (timestamp == null) {
+        if (applicantProfileStepsImpl.timestamp == null) {
             Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle));
             page.locator(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle)).click();
         } else {
-            Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle + " " + timestamp));
-            page.locator(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle + " " + timestamp)).click();
+            Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle + " " + applicantProfileStepsImpl.timestamp));
+            page.locator(Playwright_Common_Locators.dynamicTextLocator(vacancyTitle + " " + applicantProfileStepsImpl.timestamp)).click();
         }
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -1785,8 +1788,8 @@ public class ApplicantProfileStepsImpl {
         Playwright_Common_Utils.scrollIntoView("(//a[@rel='nofollow'])[1]");
         List<ElementHandle> pagination = page.querySelectorAll("//a[@rel='nofollow']");
         for (ElementHandle itemPage : pagination) {
-            if (page.querySelector("//a[normalize-space()='" + applicationName + " " + timestamp + "']") != null) {
-                page.locator("//td[normalize-space()='" + applicationName + " " + timestamp + "']/following-sibling::td//button/span[text()=' Edit']").click();
+            if (page.querySelector("//a[normalize-space()='" + applicationName + " " + applicantProfileStepsImpl.timestamp + "']") != null) {
+                page.locator("//td[normalize-space()='" + applicationName + " " + applicantProfileStepsImpl.timestamp + "']/following-sibling::td//button/span[text()=' Edit']").click();
                 break;
             } else {
                 itemPage.click();
@@ -1859,7 +1862,7 @@ public class ApplicantProfileStepsImpl {
      * Clicks on the "Remove" button for a specific item.
      */
     public static void clicks_on_remove_button() {
-        page.locator("//td[normalize-space()='" + "DIEGO TEST" + " " + timestamp + "']/following-sibling::td//div/button/span[text()=' Remove']").click();
+        page.locator("//td[normalize-space()='" + "DIEGO TEST" + " " + applicantProfileStepsImpl.timestamp + "']/following-sibling::td//div/button/span[text()=' Remove']").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -1890,7 +1893,7 @@ public class ApplicantProfileStepsImpl {
         Playwright_Common_Utils.scrollIntoView("(//a[@rel='nofollow'])[1]");
         List<ElementHandle> pagination = page.querySelectorAll("//a[@rel='nofollow']");
         for (ElementHandle itemPage : pagination) {
-            if (page.querySelector("//a[normalize-space()='" + "DIEGO TEST" + " " + timestamp + "']") != null) {
+            if (page.querySelector("//a[normalize-space()='" + "DIEGO TEST" + " " + applicantProfileStepsImpl.timestamp + "']") != null) {
                 isFound = true;
                 break;
             } else {
@@ -1905,7 +1908,7 @@ public class ApplicantProfileStepsImpl {
      * This method represents the action of a user withdrawing the application.
      */
     public static void user_withdraws_the_application() {
-        page.locator("//td[normalize-space()='" + "DIEGO TEST" + " " + timestamp + "']/following-sibling::td//div/button/span[text()='Withdraw']").click();
+        page.locator("//td[normalize-space()='" + "DIEGO TEST" + " " + applicantProfileStepsImpl.timestamp + "']/following-sibling::td//div/button/span[text()='Withdraw']").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -1926,7 +1929,7 @@ public class ApplicantProfileStepsImpl {
      * @param expectedWithdrawnText The expected withdrawn text.
      */
     public static void verifies_that_the_application_status_is(String expectedWithdrawnText) {
-        String actualWithdrawnText = page.locator("//td[normalize-space()='" + "DIEGO TEST" + " " + timestamp + "']/following-sibling::td/span[text()='withdrawn']").innerText();
+        String actualWithdrawnText = page.locator("//td[normalize-space()='" + "DIEGO TEST" + " " + applicantProfileStepsImpl.timestamp + "']/following-sibling::td/span[text()='withdrawn']").innerText();
         CucumberLogUtils.playwrightScreenshot(page);
         Hooks.softAssert.assertEquals(actualWithdrawnText, expectedWithdrawnText);
     }
