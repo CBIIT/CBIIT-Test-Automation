@@ -49,8 +49,8 @@ public class Travel_Request_NV_StepImpl {
         assertThat(page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(myApprovals))).isVisible();
         assertThat(page.getByRole(AriaRole.LIST)).containsText(myApprovals);
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(myApprovals)).click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(Travel_Request_NV_Contants.NV_MY_APPROVAL_MODULE_APPROVALS_TEXT))).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.HEADING)).containsText(Travel_Request_NV_Contants.NV_MY_APPROVAL_MODULE_APPROVALS_TEXT);
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(Travel_Request_NV_Contants.NV_MY_APPROVAL_MODULE_APPROVALS_TEXT))).isVisible();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.HEADING)).containsText(Travel_Request_NV_Contants.NV_MY_APPROVAL_MODULE_APPROVALS_TEXT);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }

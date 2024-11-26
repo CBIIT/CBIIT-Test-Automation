@@ -65,4 +65,14 @@ public class Playwright_Common_Locators {
     public static FrameLocator iframeLocator() {
         return page.frameLocator("iframe[name='gsft_main']");
     }
+
+    /**
+     * Returns a dynamic XPath locator for locating a vacancy type element based on its text value.
+     *
+     * @param text the text value of the vacancy type element to be located
+     * @return a string representing the dynamic XPath locator for the vacancy type element
+     */
+    public static String vacancyType(String text){
+        return "(//p[normalize-space()='" + text + "'])[1]";
+    }
 }

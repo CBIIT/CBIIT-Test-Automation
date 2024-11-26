@@ -10,6 +10,7 @@ import AnalysisTools.GDSTracking.Pages.*;
 import AnalysisTools.GWASExplorer.Pages.*;
 import AnalysisTools.GWASTarget.Pages.*;
 import AnalysisTools.ICRP.Pages.*;
+import AnalysisTools.JPSurv.StepsImplementations.JPSurvHomePageStepImp;
 import AnalysisTools.ezQTL.Pages.*;
 import AnalysisTools.cProSite.Pages.*;
 import AnalysisTools.CEDCD.Pages.*;
@@ -58,13 +59,15 @@ import ServiceNow.COVIDDash.StepsImplementation.*;
 import ServiceNow.ESR.Selenium.Pages.ESRShortDescriptionPage;
 import ServiceNow.ESR.Selenium.Pages.ESRTicketCreationPage;
 import ServiceNow.ESR.Selenium.Pages.NCINativeViewPage;
+import ServiceNow.NCCR.Pages.NCCRPage;
+import ServiceNow.NCCR.StepsImplementation.NCCRStepsImplementation;
 import ServiceNow.OA_Intake.Pages.OAIntakePage;
 import ServiceNow.OA_Intake.StepsImplementation.OAIntakeStepsImplementation;
 import ServiceNow.PlatformBusinessApps.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
 import ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Pages.CTRPCTRO_NV_Page;
 import ServiceNow.PlatformBusinessApps.GDC.Pages.GDC_Workflow_NativeView_Page;
 import ServiceNow.PlatformBusinessApps.GCP.Pages.GCPNotifications_NativeViewPage;
-import ServiceNow.PlatformBusinessApps.NERD.Pages.*;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
@@ -169,8 +172,12 @@ public class PageInitializer extends WebDriverUtils {
 	public static MelanomaQuestionnairePage melanomaQuestionnairePage;
 
 	/** OA Intake instances */
-	public static OAIntakeStepsImplementation oaIntakeStepsImplementation ;
+	public static OAIntakeStepsImplementation oaIntakeStepsImplementation;
 	public static OAIntakePage oaIntakePage;
+
+	/** NCCR instances */
+	public static NCCRStepsImplementation nccrStepsImplementation;
+	public static NCCRPage nccrPage;
 
 	/** SEER instances */
 	public static SEERLandingPage seerLandingPage;
@@ -312,6 +319,7 @@ public class PageInitializer extends WebDriverUtils {
 
 	/** JPSurv instances **/
 	public static JPSurvHomePage jpsurvHomePage;
+	public static JPSurvHomePageStepImp jpsurvHomePageStepImp;
 
 	/** CProSite instances **/
 	public static CProSiteExplorePage cProSiteExplorePage;
@@ -403,6 +411,10 @@ public class PageInitializer extends WebDriverUtils {
 		/** OA Intake Instance Variables */
 		oaIntakePage =  new OAIntakePage();
 		oaIntakeStepsImplementation = new OAIntakeStepsImplementation();
+
+		/** NCCR Instance Variables */
+		nccrPage =  new NCCRPage();
+		nccrStepsImplementation = new NCCRStepsImplementation();
 
 		/** CHARMS Instance Variables **/
 		charmsNativeViewPage = new CHARMSNativeViewPage();
@@ -598,6 +610,7 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** JPSurv Instance Variables **/
 		jpsurvHomePage = new JPSurvHomePage();
+		jpsurvHomePageStepImp = new JPSurvHomePageStepImp();
 
 		/** CProSite Instance Variables **/
 		cProSiteExplorePage = new CProSiteExplorePage();

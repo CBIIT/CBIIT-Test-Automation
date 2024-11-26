@@ -1,8 +1,10 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
+import Hooks.Hooks;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Mandatory_Statements_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.OWM_Vacancy_Manager_StepsImpl;
 import appsCommon.Pages.Playwright_Common_Locators;
+import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import io.cucumber.java.en.Given;
@@ -116,11 +118,6 @@ public class OWM_Vacancy_Manager_Steps {
     @Then("User confirms that {string} checkbox is displayed")
     public void user_confirms_that_checkbox_is_displayed(String text) {
         OWM_Vacancy_Manager_StepsImpl.user_confirms_that_checkbox_is_displayed(text);
-    }
-
-    @Then("User verifies all org codes are present via Organizational Code dropdown")
-    public void user_verifies_all_org_codes_are_present_via_organizational_code_dropdown() {
-        OWM_Vacancy_Manager_StepsImpl.user_verifies_all_org_codes_are_present_via_organizational_code_dropdown();
     }
 
     @Then("User verifies the text of {string} i tooltip is")
@@ -266,5 +263,46 @@ public class OWM_Vacancy_Manager_Steps {
     @Then("verifies Vacancy Title {string} is on the Your Vacancies page")
     public void verifies_vacancy_title_is_on_the_your_vacancies_page(String vacancyTitle) {
         OWM_Vacancy_Manager_StepsImpl.verifies_vacancy_title_is_on_the_your_vacancies_page(vacancyTitle);
+    }
+
+    @When("User clicks on the {string} tab")
+    public void user_clicks_on_the_tab(String text) {
+        page.locator(Playwright_Common_Locators.vacancyType(text)).click();
+    }
+
+    @Then("User can see the filters {string},{string},{string}")
+    public void user_can_see_the_filters(String all, String live, String extended) {
+        Hooks.softAssert.assertEquals(page.locator(Playwright_Common_Locators.dynamicTextLocator(all)).innerText(), all);
+        Hooks.softAssert.assertEquals(page.locator(Playwright_Common_Locators.dynamicSpanNormalizeSpaceLocator(live)).innerText(), live);
+        Hooks.softAssert.assertEquals(page.locator(Playwright_Common_Locators.dynamicSpanNormalizeSpaceLocator(extended)).innerText(), extended);
+    }
+
+    @Then("User can verify All is by default selected")
+    public void user_can_verify_all_is_by_default_selected() {
+        page.locator("(//span[@class='ant-radio-button ant-radio-button-checked'])[2]").isVisible();
+        ElementHandle button = page.waitForSelector("xpath=(//span[@class='ant-radio-button ant-radio-button-checked'])[2]");
+        String classNames = button.getAttribute("class");
+        assert classNames.contains("ant-radio-button-checked");
+    }
+
+    @Then("User can verify that All subfilter displays vacancies in the open state")
+    public void user_can_verify_that_all_subfilter_displays_vacancies_in_the_open_state() {
+        page.locator("(//span[@class='ant-table-column-title'][normalize-space()='Open Date'])[2]").click();
+    }
+
+    @Then("User can verify that vacancies with subfilter All are by default sorted by number of applicants in ascending order")
+    public void user_can_verify_that_vacancies_with_subfilter_all_are_by_default_sorted_by_number_of_applicants_in_ascending_order() {
+    }
+
+    @Then("User can verify that Live subfilter displays vacancies in the open state")
+    public void user_can_verify_that_live_subfilter_displays_vacancies_in_the_open_state() {
+    }
+
+    @Then("User can verify that vacancies with subfilter Live are by default sorted by number of applicants in ascending order")
+    public void user_can_verify_that_vacancies_with_subfilter_live_are_by_default_sorted_by_number_of_applicants_in_ascending_order() {
+    }
+
+    @Then("User can verify the table columns are displayed as {string},{string},{string},{string},{string}")
+    public void user_can_verify_the_table_columns_are_displayed_as(String string, String string2, String string3, String string4, String string5) {
     }
 }

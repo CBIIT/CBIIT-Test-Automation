@@ -1,6 +1,7 @@
 package ServiceNow.ESR.Playwright.StepsImplementation;
 
 import ServiceNow.ESR.Playwright.Pages.CreateESRPage;
+import appsCommon.Pages.Playwright_Common_Locators;
 import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.options.AriaRole;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
@@ -15,5 +16,13 @@ public class ESRNotificationStepsImplementation {
         page.frameLocator(CreateESRPage.iframeSelector).locator(CreateESRPage.newESRTicketSelector).click();
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.TAB, new FrameLocator.GetByRoleOptions().setName("Notes")).click();
         assertThat(page.frameLocator(CreateESRPage.iframeSelector).getByLabel("NotesAdditional comments (").locator("td")).containsText("Activities");
+    }
+
+    /**
+     * Validates the watchlist update notification is sent after ESR creation
+     */
+    public static void verifyWatchlistUpdateNotification() {
+        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.TAB, new FrameLocator.GetByRoleOptions().setName("Notes")).click();
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//div[@id='sn_form_inline_stream_entries']")).containsText("FYI: Watch List Updated");
     }
 }
