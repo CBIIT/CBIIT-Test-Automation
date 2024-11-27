@@ -16,7 +16,7 @@ SHAREPOINT_SITE_ID = os.getenv('SHAREPOINT_SITE_ID')
 SHAREPOINT_DRIVE_ID = os.getenv('SHAREPOINT_DRIVE_ID')
 FILES_PATH = os.getenv('FILES_PATH')
 TIMESTAMP = os.getenv('timestamp')
-FOLDER_PATH = 'Shared%20Documents/Platform%20Scientific%20-%20CHARMS/TEST%20AUTOMATION%20REPORTS'  # URL encoded folder path
+FOLDER_PATH = 'Your/Specific/Folder'  # Update this to your desired folder path
 
 # Define the scopes and endpoints
 SCOPE = ["https://graph.microsoft.com/.default"]
@@ -60,10 +60,8 @@ def upload_files_to_sharepoint(access_token):
             file_name_aspx = file_name.replace('.html', f'-{TIMESTAMP}.aspx')
             upload_url = (
                 f"{GRAPH_API_ENDPOINT}/sites/{SHAREPOINT_SITE_ID}/drives/{SHAREPOINT_DRIVE_ID}"
-                f"/root:/{FOLDER_PATH}/{file_name_aspx}:/content"
+                f"/items/root:/{FOLDER_PATH}/{file_name_aspx}:/content"
             )
-
-            logging.info(f"Uploading file to URL: {upload_url}")
 
             # Read file content
             with open(file_path, "rb") as file_data:
@@ -82,7 +80,7 @@ def upload_files_to_sharepoint(access_token):
 
             # Check the response
             if response.status_code in [200, 201]:
-                logging.info(f"File uploaded successfully to {upload_url} in {end_time - start_time:.2f} seconds")
+                logging.info(f"File uploaded successfully to {SHAREPOINT_DRIVE_ID}/{FOLDER_PATH}/{file_name_aspx} in {end_time - start_time:.2f} seconds")
                 logging.info(f"Response: {response.json()}")
             else:
                 logging.error(f"Failed to upload file: {response.status_code}, {response.text}")
