@@ -150,7 +150,7 @@ def upload_files_to_sharepoint(access_token):
             file_name_aspx = file_name.replace('.html', f'-{TIMESTAMP}.aspx')
             upload_url = (
                 f"{GRAPH_API_ENDPOINT}/sites/{SHAREPOINT_SITE_ID}/drives/{SHAREPOINT_DRIVE_ID}"
-                f"/root:/Shared%20Documents/Platform%20Scientific%20-%20CHARMS/TEST%20AUTOMATION%20REPORTS/{file_name_aspx}:/content"
+                f"/root:/Platform%20Scientific%20-%20CHARMS/TEST%20AUTOMATION%20REPORTS/{file_name_aspx}:/content"
             )
 
             # Read file content
