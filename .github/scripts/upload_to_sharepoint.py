@@ -53,11 +53,12 @@ def upload_files_to_sharepoint(access_token):
 
     for file_path in files:
         try:
-            # Building the correct endpoint
-            FILE_NAME = os.path.basename(file_path)
+            # Change file extension to .aspx
+            file_name = os.path.basename(file_path)
+            file_name_aspx = file_name.replace('.html', '.aspx')
             upload_url = (
                 f"{GRAPH_API_ENDPOINT}/sites/{SHAREPOINT_SITE_ID}/drives/{SHAREPOINT_DRIVE_ID}"
-                f"/items/root:/{FILE_NAME}:/content"
+                f"/items/root:/{file_name_aspx}:/content"
             )
 
             # Read file content
@@ -77,7 +78,7 @@ def upload_files_to_sharepoint(access_token):
 
             # Check the response
             if response.status_code in [200, 201]:
-                logging.info(f"File uploaded successfully to {SHAREPOINT_DRIVE_ID}/{FILE_NAME} in {end_time - start_time:.2f} seconds")
+                logging.info(f"File uploaded successfully to {SHAREPOINT_DRIVE_ID}/{file_name_aspx} in {end_time - start_time:.2f} seconds")
                 logging.info(f"Response: {response.json()}")
             else:
                 logging.error(f"Failed to upload file: {response.status_code}, {response.text}")
