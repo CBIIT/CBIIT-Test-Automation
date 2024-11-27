@@ -145,12 +145,12 @@ def upload_files_to_sharepoint(access_token):
 
     for file_path in files:
         try:
-            # Change file extension to .aspx and include timestamp
+            # Include timestamp in the file name
             file_name = os.path.basename(file_path)
-            file_name_aspx = file_name.replace('.html', f'-{TIMESTAMP}.aspx')
+            file_name_html = file_name.replace('.html', f'-{TIMESTAMP}.html')
             upload_url = (
                 f"{GRAPH_API_ENDPOINT}/sites/{SHAREPOINT_SITE_ID}/drives/{SHAREPOINT_DRIVE_ID}"
-                f"/root:/Platform%20Scientific%20-%20CHARMS/TEST%20AUTOMATION%20REPORTS/{file_name_aspx}:/content"
+                f"/root:/Platform%20Scientific%20-%20CHARMS/TEST%20AUTOMATION%20REPORTS/{file_name_html}:/content"
             )
 
             # Read file content
@@ -170,7 +170,7 @@ def upload_files_to_sharepoint(access_token):
 
             # Check the response
             if response.status_code in [200, 201]:
-                logging.info(f"File uploaded successfully to {SHAREPOINT_DRIVE_ID}/{file_name_aspx} in {end_time - start_time:.2f} seconds")
+                logging.info(f"File uploaded successfully to {SHAREPOINT_DRIVE_ID}/{file_name_html} in {end_time - start_time:.2f} seconds")
                 logging.info(f"Response: {response.json()}")
             else:
                 logging.error(f"Failed to upload file: {response.status_code}, {response.text}")
