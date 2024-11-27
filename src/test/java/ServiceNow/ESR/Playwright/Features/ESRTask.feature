@@ -67,7 +67,7 @@ Feature: ESR Tasks
     And the Engineering Project Execution catalog task is completed
     Then the user confirms the Engineering Project Execution catalog task is completed
 
-  @ESR-607 @sarwarahmed1 @Progression @playwright
+  @ESR-607 @sarwarahmed1 @Regression @playwright
   Scenario: Test the Closeout Preparation catalog task in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
@@ -95,8 +95,8 @@ Feature: ESR Tasks
     And the Closeout Preparation catalog task for ESR-I is completed
     Then the user confirms the Closeout Preparation catalog task is completed
 
-  @ESR-703 @sarwarahmed1 @Progression @playwright
-  Scenario: Test the Operational POC Approval catalog task
+  @ESR-703 @sarwarahmed1 @In-Progress @playwright
+  Scenario: Test the Operational POC Approval catalog task in an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
     And fills out all required information for ESR-I and clicks submit
