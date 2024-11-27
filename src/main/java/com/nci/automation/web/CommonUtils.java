@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeParseException;
+import java.time.format.SignStyle;
 import java.time.temporal.ChronoField;
 import java.util.*;
 import org.openqa.selenium.*;
@@ -697,13 +698,13 @@ public class CommonUtils extends WebDriverUtils {
      */
     public static String getTenDaysFromToday_In_MM_DD_YYYY_format() {
         DateTimeFormatter formatter = new DateTimeFormatterBuilder()
-                .appendValue(ChronoField.MONTH_OF_YEAR)
+                .appendValue(ChronoField.MONTH_OF_YEAR, 1, 2, SignStyle.NORMAL)
                 .appendLiteral('/')
-                .appendValue(ChronoField.DAY_OF_MONTH, 2)
+                .appendValue(ChronoField.DAY_OF_MONTH, 1, 2, SignStyle.NORMAL)
                 .appendLiteral('/')
-                .appendValue(ChronoField.YEAR, 4)
+                .appendValue(ChronoField.YEAR, 4, 4, SignStyle.EXCEEDS_PAD)
                 .toFormatter();
-        LocalDate dateAfterTenDays = LocalDate.now().plusDays(10);
+        LocalDate dateAfterTenDays = LocalDate.now().plusDays(9);
         return dateAfterTenDays.format(formatter);
     }
 
@@ -714,7 +715,7 @@ public class CommonUtils extends WebDriverUtils {
      */
     public static String getDateAfterTenDaysIn_YYYY_MM_DD_format() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate dateAfterDays = LocalDate.now().plusDays(10);
+        LocalDate dateAfterDays = LocalDate.now().plusDays(9);
         return dateAfterDays.format(formatter);
     }
 
