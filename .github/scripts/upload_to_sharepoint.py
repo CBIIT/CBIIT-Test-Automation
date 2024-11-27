@@ -63,6 +63,8 @@ def upload_files_to_sharepoint(access_token):
                 f"/root:/{FOLDER_PATH}/{file_name_aspx}:/content"
             )
 
+            logging.info(f"Uploading file to URL: {upload_url}")
+
             # Read file content
             with open(file_path, "rb") as file_data:
                 file_content = file_data.read()
@@ -80,7 +82,7 @@ def upload_files_to_sharepoint(access_token):
 
             # Check the response
             if response.status_code in [200, 201]:
-                logging.info(f"File uploaded successfully to {SHAREPOINT_DRIVE_ID}/{FOLDER_PATH}/{file_name_aspx} in {end_time - start_time:.2f} seconds")
+                logging.info(f"File uploaded successfully to {upload_url} in {end_time - start_time:.2f} seconds")
                 logging.info(f"Response: {response.json()}")
             else:
                 logging.error(f"Failed to upload file: {response.status_code}, {response.text}")
