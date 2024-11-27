@@ -294,4 +294,34 @@ public class RAS_Common_Methods extends PageInitializer {
         }
         softAssert.assertEquals(actualDropdownOptions, expectedDropdownOptions, errorMessage);
     }
+
+    /**
+     * Verifies the subject flags fields.
+     *
+     * @param participationStatus The participation status of the subject.
+     * @param study               The study associated with the subject.
+     */
+    public static void verifySubjectFlagsFields( String study, String participationStatus) {
+        if(participationStatus.equalsIgnoreCase("Not Participating")){
+            RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSSubjectFlagsPage.nonParticipationReasonDropdown, Native_View_Constants.nonParticipationDropdownOptions, "---- VERIFYING NON-PARTICIPATION REASON DROPDOWN OPTIONS ----");
+        } else if(participationStatus.equalsIgnoreCase("Hold")) {
+            softAssert.assertTrue(locateByXpath("//span[normalize-space()='Hold Reason']").isDisplayed());
+            softAssert.assertTrue(locateByXpath("//div[@id='label.x_naci_family_coho_subject_flag.hold_non_participation_date']//span[2]").isDisplayed());
+        }
+        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSSubjectFlagsPage.participationStatusDropdown, Native_View_Constants.participationStatusDropdownOptions, "---- VERIFYING PARTICIPATION STATUS DROPDOWN OPTIONS ----");
+        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSSubjectFlagsPage.ageGroupDropdown, Native_View_Constants.ageGroupDropdownOptions, "---- VERIFYING AGE GROUP DROPDOWN OPTIONS ----");
+        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSSubjectFlagsPage.eligibleForClinicDropdown, Native_View_Constants.eligibleForClinicDropdownOptions, "---- VERIFYING ELIGIBILITY FOR CLINIC DROPDOWN OPTIONS ----");
+        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSSubjectFlagsPage.individualAffectedStatusDropdown, Native_View_Constants.individualAffectedStatusDropdownOptions, "---- VERIFYING INDIVIDUAL AFFECTED DROPDOWN OPTIONS ----");
+        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSSubjectFlagsPage.individualGeneticStatusDropdown, Native_View_Constants.individualGeneticStatusDropdownOptions, "---- VERIFYING INDIVIDUAL GENETIC STATUS DROPDOWN OPTIONS ----");
+        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSSubjectFlagsPage.familyGeneticStatusDropdown, Native_View_Constants.familyGeneticStatusDropdownOptions, "---- VERIFYING FAMILY GENETIC STATUS STATUS DROPDOWN OPTIONS ----");
+        if (study.equalsIgnoreCase("Fanconi") || study.equalsIgnoreCase("Bone Marrow Failure Syndrome")) {
+            RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSSubjectFlagsPage.IBMFSAffectedStatusDropDown, Native_View_Constants.IBMFSAffectedStatusDropdownOptions, "---- VERIFYING IBMFS AFFECTED STATUS DROPDOWN OPTIONS ----");
+        }
+    }
+
+    public static void verifyParticipantStudy() {
+        try {
+
+        } catch (Exception e) {}
+    }
 }

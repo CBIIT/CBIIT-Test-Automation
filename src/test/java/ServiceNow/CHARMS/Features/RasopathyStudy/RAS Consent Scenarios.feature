@@ -238,7 +238,7 @@ Feature: RAS Consent Scenarios
     And verifies Consent Assent status is "Consented and Assented"
     And selects "Yes" for Consent Assent Obtained Before Study Procedures
     And selects "Yes" for Copy of Signed Dated Consent Assent Given to Participant
-    And verifies Age-appropriate assent obtained value is "Yes"
+    And selects "Yes" for Age-appropriate assent obtained
     Then Study Team member presses Sign and Complete
 
   @muzipovay2 @RAS_STUDY @CP2-3794 @selenium @RAS_Regression

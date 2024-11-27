@@ -7,11 +7,11 @@ import java.util.Map;
 
 public class Native_View_Constants {
 
-    /*******************************************************************************
-     *                                                                             *
-     *                          PARTICIPANT SUBJECT FLAGS                          *
-     *                                                                             *
-     *******************************************************************************/
+    /***************************************************************************
+     *                                                                         *
+     *                              SUBJECT FLAGS                              *
+     *                                                                         *
+     ***************************************************************************/
 
     /**
      * Subject Flags "Participation Status" dropdown options
@@ -53,11 +53,11 @@ public class Native_View_Constants {
      */
     public static final List<String> ageGroupDropdownOptions = new ArrayList<>() {
         {
-            add("Study");
+            add("-- None --");
             add("Adult");
             add("Minor Consent 14-17");
             add("Minor Assent 11-13");
-            add("Child <11");
+            add("Child<11");
         }
     };
 
@@ -106,6 +106,65 @@ public class Native_View_Constants {
     };
 
     /**
+     * IBMFS Affected Status dropdown options
+     */
+    public static final List<String> IBMFSAffectedStatusDropdownOptions = new ArrayList<>() {
+        {
+            add("-- None --");
+            add("AR Homozygote - Clinical");
+            add("AR Heterozygote by Pedigree");
+            add("AR Unknown");
+            add("AR Homozygote by Genetic Testing");
+            add("AR Homozygote - One mutation detected");
+            add("AR Normal by Genetic Testing");
+            add("AD Heterozygote - Clinical");
+            add("AD Heterozygote by Pedigree");
+            add("AD Normal by Pedigree");
+            add("AD Unknown");
+            add("AD Normal by Genetic Testing");
+            add("XLR Male - Clinical");
+            add("XLR Female Heterozygote by Pedigree");
+            add("XLR Normal by Pedigree");
+            add("XLR Unknown");
+            add("XLR Male Hemiz by Genetic Testing - Affected Clinically");
+            add("XLR Male - Normal by Genetic Testing");
+            add("XLR Female - Normal by Genetic Testing");
+            add("Unknown - Clinically Affected");
+            add("Unknown by Pedigree");
+            add("Not in Bloodline");
+            add("AR Normal by Pedigree");
+            add("Mitochondrial - Clinical");
+            add("Mitochondrial Normal by Pedigree");
+            add("Mitochondrial Unknown");
+            add("Mitochondrial by Genetic Testing");
+            add("Mitochondrial Normal by Genetic Testing");
+            add("AR het by Genetic Testing - Affected Clinically");
+            add("AR het by Genetic Testing - Unaffected Clinically");
+            add("AD het by Genetic Testing - Affected Clinically");
+            add("AD het by Genetic Testing - Unaffected Clinically");
+            add("XLR Female het by Genetic Testing - Affected Clinically");
+            add("XLR Female het by Genetic Testing - Unaffected Clinically");
+            add("AR Undocumented Positive - Affected Clinically");
+            add("AR Undocumented Positive - Unaffected Clinically");
+            add("AR Undocumented Carrier - Affected Clinically");
+            add("AR Undocumented Carrier - Unaffected Clinically");
+            add("AR Undocumented Negative");
+            add("AD Undocumented Positive - Affected Clinically");
+            add("AD Undocumented Positive - Unaffected Clinically");
+            add("AD Undocumented Negative");
+            add("XLR Female Undocumented Positive - Affected Clinically");
+            add("XLR Female Undocumented Positive - Unaffected Clinically");
+            add("XLR Undocumented Negative");
+            add("Mitochondrial Undocumented Positive - Affected Clinically");
+            add("Mitochondrial Undocumented Positive - Unaffected Clinically");
+            add("Mitochondrial Undocumented Negative");
+            add("XLR Male hemiz by Genetic Testing - Unaffected Clinically");
+            add("XLR Male Undocumented Positive - Affected Clinically");
+            add("XLR Male Undocumented Positive - Unaffected Clinically");
+        }
+    };
+
+    /**
      * Subject Flags "Family Genetic Status" dropdown options
      */
     public static final List<String> familyGeneticStatusDropdownOptions = new ArrayList<>() {
@@ -136,11 +195,11 @@ public class Native_View_Constants {
         }
     };
 
-    /******************************************************************************
-     *                                                                            *
-     *                          PARTICIPANT CONSENT FORM                          *
-     *                                                                            *
-     ******************************************************************************/
+    /****************************************************************************
+     *                                                                          *
+     *                              CONSENT RECORD                              *
+     *                                                                          *
+     ****************************************************************************/
 
     /**
      * Mapping of sheet name to Participant Consent/Assent category
@@ -386,6 +445,36 @@ public class Native_View_Constants {
         {
             add("No (verbal opt-out)");
             add("Yes (default)");
+        }
+    };
+
+    /*********************************************************************************
+     *                                                                               *
+     *                              PARTICIPANT STUDIES                              *
+     *                                                                               *
+     *********************************************************************************/
+
+    /**
+     * Participant Studies table list view columns
+     */
+    public static final List<String> participantStudiesListViewColumns = new ArrayList<>() {
+        {
+            add("Subject ID");
+            add("Participant");
+            add("First Name");
+            add("Last Name");
+            add("Family");
+            add("Study");
+            add("Eligibility Status");
+            add("Enrollment Status");
+            add("Cohort");
+            add("Vital Status");
+            add("Date of Birth");
+            add("Date of Death");
+            add("NIH MRN Number");
+            add("Ever Consented");
+            add("Updated");
+            add("Created");
         }
     };
 }
