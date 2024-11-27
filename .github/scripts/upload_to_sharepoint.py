@@ -16,7 +16,7 @@ SHAREPOINT_SITE_ID = os.getenv('SHAREPOINT_SITE_ID')
 SHAREPOINT_DRIVE_ID = os.getenv('SHAREPOINT_DRIVE_ID')
 FILES_PATH = os.getenv('FILES_PATH')
 TIMESTAMP = os.getenv('timestamp')
-FOLDER_PATH = 'Shared Documents/Platform Scientific - CHARMS/TEST AUTOMATION REPORTS'  # Update this to your desired folder path
+FOLDER_PATH = 'Shared%20Documents/Platform%20Scientific%20-%20CHARMS/TEST%20AUTOMATION%20REPORTS'  # URL encoded folder path
 
 # Define the scopes and endpoints
 SCOPE = ["https://graph.microsoft.com/.default"]
