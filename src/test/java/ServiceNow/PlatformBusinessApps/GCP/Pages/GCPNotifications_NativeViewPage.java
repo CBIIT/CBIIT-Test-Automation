@@ -54,7 +54,7 @@ public class GCPNotifications_NativeViewPage extends CommonUtils {
     public WebElement nVOpenRecordButton;
 
     /** Native View GCP Record Preview Notification Button */
-    @FindBy(xpath = "//*[@id='sysevent_email_action.do']/div[2]//child::button[4]")
+    @FindBy(xpath = "//*[@id='sysevent_email_action.do']/div[2]//child::button[3]")
     public WebElement nVGCPRecordPreviewNotificationButton;
 
     /** Native View GCP Record Notification Preview Title */

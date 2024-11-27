@@ -95,8 +95,8 @@ Given User is logged in the application and is on the landing page
     And clicks on Download button
     Then verifies the success icon for downloaded files
 
-    @TestDocumentFiltering @nesarh2 @selenium @Regression
-    Scenario: Test document filter
+  @TestDocumentFiltering @nesarh2 @selenium @Regression
+  Scenario: Test document filter
     And searches for grant "CA125123"
     And selects 2 for number grant years
     And clicks on category filter icon
@@ -104,11 +104,34 @@ Given User is logged in the application and is on the landing page
     And clicks on search icon
     Then verifies the filtered documents are displayed
 
-    @MoveDocumentToDifferentGrants @nesarh2 @selenium @Regression
-    Scenario: Test moving a document to different grant years
+  @MoveDocumentToDifferentGrants @nesarh2 @selenium @Regression
+  Scenario: Test moving a document to different grant years
     And searches for grant "CA125123"
     And selects grant year 18 from Years
     And clicks on Update icon for a document
     And selects grant year 5P30CA125123-17 from the Grant dropdown
     And selects the current date
     Then clicks on Update button to move the document to a different grant year
+
+  @UploadFundingDocument @nesarh2 @selenium @Regression
+  Scenario: Test uploading a funding document
+    And searches for grant "CA125123"
+    And expands all grant years
+    And selects grant year 18 from list of Years
+    And clicks on Add Funding Document button
+    And selects category as Co-Funding Secondary
+    And passes "Test funding file" as Funding Subcategory
+    And selects the current date
+    And clicks on Locate File and Upload tab
+    And uploads a file
+    Then verifies the success message "Done! New document has been created"
+
+  @MoveSupplementApplication @nesarh2 @selenium @Regression
+  Scenario: Test moving a supplement application
+    And searches for grant "CA125123"
+    And expands all grant years
+    And selects grant year 18 from list of Years
+    And clicks on Supplement sandbox on the grant header
+    And selects the Application File from the list
+    And selects Pay in Parent from Process Type dropdown
+    Then clicks on Move to Parent button to move the application

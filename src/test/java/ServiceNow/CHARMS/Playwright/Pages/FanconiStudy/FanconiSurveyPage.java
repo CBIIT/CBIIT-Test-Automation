@@ -8,7 +8,7 @@ public class FanconiSurveyPage {
     public static final String PASSWORD_VALUE = "RASTest2023$$";
 
     /**
-     * NCI Family Studies Hub: Fanconi Cancer Heading
+     * NCI Family Studies Hub: Fanconi Cancer Heading text
      */
     public static final String NCI_FAMILY_STUDIES_HUB_FANCONI_CANCER = "NCI Family Studies Hub: Fanconi Cancer";
 
