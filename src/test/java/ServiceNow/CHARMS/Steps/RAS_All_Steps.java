@@ -926,8 +926,8 @@ public class RAS_All_Steps extends PageInitializer {
     /**
      * This method creates a new Subject Flags entry with the specified values.
      *
-     * @param study the name of the study associated with the subject
-     * @param participationStatus the participation status of the subject
+     * @param study                    the name of the study associated with the subject
+     * @param participationStatus      the participation status of the subject
      * @param holdNonParticipationDate the date for hold/non-participation, if applicable
      */
     @Then("Study Team member creates a new Subject Flags with the values: Study {string}, Participation Status {string}, Hold Non-Participation Date {string}")
@@ -1124,8 +1124,6 @@ public class RAS_All_Steps extends PageInitializer {
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(filterQuery);
         CucumberLogUtils.logScreenshot();
         CommonUtils.sleep(3000);
-//        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
-//        NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(filterQuery);
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(filterQuery));
         CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);

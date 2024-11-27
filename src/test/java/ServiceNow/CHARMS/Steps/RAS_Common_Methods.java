@@ -318,10 +318,4 @@ public class RAS_Common_Methods extends PageInitializer {
             RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSSubjectFlagsPage.IBMFSAffectedStatusDropDown, Native_View_Constants.IBMFSAffectedStatusDropdownOptions, "---- VERIFYING IBMFS AFFECTED STATUS DROPDOWN OPTIONS ----");
         }
     }
-
-    public static void verifyParticipantStudy() {
-        try {
-
-        } catch (Exception e) {}
-    }
 }

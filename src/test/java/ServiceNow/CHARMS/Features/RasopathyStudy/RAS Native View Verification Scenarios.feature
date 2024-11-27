@@ -49,6 +49,6 @@ Feature: RAS Native View Verification Scenarios
       | Existing FSID | Study     | Study Subcategory | Relationship to Proband | First Name   | Last Name |
       |               | RASopathy | All               | Proband                 | AuditHistory | Test      |
 
-  @muzipovay2 @RAS_STUDY @CP2-4037 @selenium @In-Progress @Progression
+  @muzipovay2 @RAS_STUDY @CP2-4037 @selenium @In-Progress
   Scenario: Verifying fields in the Participant Study table.
     Given Study Team member logs in to Native View and types "Participant Studies" into the Filter Navigator
