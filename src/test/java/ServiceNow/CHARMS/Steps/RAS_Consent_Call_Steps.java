@@ -413,6 +413,11 @@ public class RAS_Consent_Call_Steps {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Selects the specified option for age-appropriate assent obtained dropdown.
+     *
+     * @param selectOption The option to be selected for age-appropriate assent obtained dropdown.
+     */
     @Then("selects {string} for Age-appropriate assent obtained")
     public void selects_for_age_appropriate_assent_obtained(String selectOption) {
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.ageAppropriateAssentObtainedDropDown);
