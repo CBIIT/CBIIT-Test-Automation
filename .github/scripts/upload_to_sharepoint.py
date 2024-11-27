@@ -15,6 +15,7 @@ CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 SHAREPOINT_SITE_ID = os.getenv('SHAREPOINT_SITE_ID')
 SHAREPOINT_DRIVE_ID = os.getenv('SHAREPOINT_DRIVE_ID')
 FILES_PATH = os.getenv('FILES_PATH')
+TIMESTAMP = os.getenv('timestamp')
 
 # Define the scopes and endpoints
 SCOPE = ["https://graph.microsoft.com/.default"]
@@ -53,9 +54,9 @@ def upload_files_to_sharepoint(access_token):
 
     for file_path in files:
         try:
-            # Change file extension to .aspx
+            # Change file extension to .aspx and include timestamp
             file_name = os.path.basename(file_path)
-            file_name_aspx = file_name.replace('.html', '.aspx')
+            file_name_aspx = file_name.replace('.html', f'-{TIMESTAMP}.aspx')
             upload_url = (
                 f"{GRAPH_API_ENDPOINT}/sites/{SHAREPOINT_SITE_ID}/drives/{SHAREPOINT_DRIVE_ID}"
                 f"/items/root:/{file_name_aspx}:/content"
