@@ -37,7 +37,7 @@ public class ESRTaskStepsImplementation {
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Why is this project important")).fill("Test");
         Playwright_Common_Locators.iframeLocator().locator("(//div[@class='col-xs-6  form-field input_controls sc-form-field ']/select)[1]").selectOption("CBIIT");
         Playwright_Common_Locators.iframeLocator().getByText("Yes").first().click();
-        Playwright_Common_Locators.iframeLocator().getByText("Labor").click();
+        Playwright_Common_Locators.iframeLocator().getByText("Labor", new FrameLocator.GetByTextOptions().setExact(true)).click();
         Playwright_Common_Locators.iframeLocator().getByText("Software licensing").click();
         Playwright_Common_Locators.iframeLocator().getByText("Hardware").click();
         Playwright_Common_Locators.iframeLocator().getByText("Other", new FrameLocator.GetByTextOptions().setExact(true)).click();
@@ -82,7 +82,7 @@ public class ESRTaskStepsImplementation {
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Why is this project important")).fill("Test");
         Playwright_Common_Locators.iframeLocator().locator("(//div[@class='col-xs-6  form-field input_controls sc-form-field ']/select)[1]").selectOption("CBIIT");
         Playwright_Common_Locators.iframeLocator().getByText("Yes").first().click();
-        Playwright_Common_Locators.iframeLocator().getByText("Labor").click();
+        Playwright_Common_Locators.iframeLocator().getByText("Labor", new FrameLocator.GetByTextOptions().setExact(true)).click();
         Playwright_Common_Locators.iframeLocator().getByText("Software licensing").click();
         Playwright_Common_Locators.iframeLocator().getByText("Hardware").click();
         Playwright_Common_Locators.iframeLocator().getByText("Other", new FrameLocator.GetByTextOptions().setExact(true)).click();
