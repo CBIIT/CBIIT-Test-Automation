@@ -44,6 +44,8 @@ import GrantsApps.EM.selenium.Pages.CreateNewAccountPage;
 import GrantsApps.EM.selenium.Pages.ManageI2EUsersPage;
 import GrantsApps.EM.selenium.Pages.ModifyAccountPage;
 import GrantsApps.EM.selenium.StepImplementation.EMStepsImplementation;
+import ServiceNow.AwardNomination.Pages.AwardNominationPage;
+import ServiceNow.AwardNomination.StepsImplementation.AwardNominationStepsImplementation;
 import ServiceNow.CHARMS.Constants.*;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Pages.*;
@@ -178,6 +180,10 @@ public class PageInitializer extends WebDriverUtils {
 	/** NCCR instances */
 	public static NCCRStepsImplementation nccrStepsImplementation;
 	public static NCCRPage nccrPage;
+
+	/** AWARD NOMINATION instances */
+	public static AwardNominationStepsImplementation awardNominationStepsImplementation;
+	public static AwardNominationPage awardNominationPage;
 
 	/** SEER instances */
 	public static SEERLandingPage seerLandingPage;
@@ -415,6 +421,10 @@ public class PageInitializer extends WebDriverUtils {
 		/** NCCR Instance Variables */
 		nccrPage =  new NCCRPage();
 		nccrStepsImplementation = new NCCRStepsImplementation();
+
+		/** Award Nomination Instance Variables */
+		awardNominationPage =  new AwardNominationPage();
+		awardNominationStepsImplementation = new AwardNominationStepsImplementation();
 
 		/** CHARMS Instance Variables **/
 		charmsNativeViewPage = new CHARMSNativeViewPage();

@@ -102,6 +102,12 @@ public class TestProperties {
     public static String NCCR_URL;
 
     /**
+     * AWARD NOMINATION
+     */
+    public static final String AWARDNOMINATION_TEST_URL = "https://service-test.nci.nih.gov/ncisp";
+    public static String AWARDNOMINATION_URL;
+
+    /**
      * E-GRANTS URLS
      */
     public static final String E_GRANTS_TEST_URL = "https://egrants-web-test.nci.nih.gov/";
@@ -824,5 +830,14 @@ public class TestProperties {
                 break;
         }
         return MRAT_URL;
+    }
+
+    public static String getAwardNominationUrl() {
+        switch (ENV.toLowerCase()) {
+            case "test":
+                AWARDNOMINATION_URL = AWARDNOMINATION_TEST_URL ;
+                break;
+        }
+        return AWARDNOMINATION_URL;
     }
 }
