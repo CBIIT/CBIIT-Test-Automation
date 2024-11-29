@@ -83,9 +83,9 @@ public class CreateESRPageStepsImplementation {
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitOCIO Federal Lead")).fill("Alex Nordan");
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitBusiness Owner")).click();
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitBusiness Owner")).fill("Business Owner");
-        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Lead Assignment Group")).click();
-        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Lead Assignment Group")).press("CapsLock");
-        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Lead Assignment Group")).fill("CHARMS Technical Support");
+        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Assignment Group")).click();
+        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Assignment Group")).press("CapsLock");
+        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Assignment Group")).fill("CHARMS Technical Support");
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitPhone")).click();
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitPhone")).fill("123");
         page.onceDialog(dialog -> {
@@ -119,9 +119,9 @@ public class CreateESRPageStepsImplementation {
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitOCIO Federal Lead")).fill("Alex Nordan");
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitBusiness Owner")).click();
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitBusiness Owner")).fill("Business Owner");
-        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Lead Assignment Group")).click();
-        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Lead Assignment Group")).press("CapsLock");
-        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Lead Assignment Group")).fill("CHARMS Technical Support");
+        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Assignment Group")).click();
+        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Assignment Group")).press("CapsLock");
+        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Assignment Group")).fill("CHARMS Technical Support");
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitPhone")).click();
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitPhone")).fill("123");
         page.onceDialog(dialog -> {
