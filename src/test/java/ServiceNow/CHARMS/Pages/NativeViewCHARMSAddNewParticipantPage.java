@@ -94,7 +94,7 @@ public class NativeViewCHARMSAddNewParticipantPage {
     /**
      * Relationship to Proband dropdown
      */
-    @FindBy(xpath = "//select[@name='x_naci_family_coho_family_history_details.relationship_to_you']")
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_family_history_details.relationship_to_you']")
     public WebElement relationshipToProbandDropdown;
 
     /**

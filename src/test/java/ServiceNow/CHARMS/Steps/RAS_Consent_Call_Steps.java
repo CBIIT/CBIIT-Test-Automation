@@ -414,6 +414,20 @@ public class RAS_Consent_Call_Steps {
     }
 
     /**
+     * Selects the specified option for age-appropriate assent obtained dropdown.
+     *
+     * @param selectOption The option to be selected for age-appropriate assent obtained dropdown.
+     */
+    @Then("selects {string} for Age-appropriate assent obtained")
+    public void selects_for_age_appropriate_assent_obtained(String selectOption) {
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.ageAppropriateAssentObtainedDropDown);
+        CommonUtils.sleep(500);
+        RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSParticipantConsentPage.ageAppropriateAssentObtainedDropDown, Native_View_Constants.consentRecordYesNoQuestionDropdownOptions, "---- VERIFYING AGE-APPROPRIATE ASSENT OBTAINED DROPDOWN OPTIONS ----");
+        CommonUtils.selectDropDownValue(selectOption, nativeViewCHARMSParticipantConsentPage.ageAppropriateAssentObtainedDropDown);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
      * Verifies "Age-appropriate assent obtained?" dropdown value.
      *
      * @param expectedDropDownValue The expected dropdown value to verify against
