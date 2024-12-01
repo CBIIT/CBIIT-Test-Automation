@@ -9,9 +9,10 @@
      And Submitter User is on VIBE Peer-to-Peer Appreciation Program home page
      And Submitter User can verify that What is your name field is already populated
      And Submitter User chooses Yes for Would you like your appreciation to be anonymous question
-     And Submitter User picks "Aaren King" as a colleague to apprecaite
+     And Submitter User picks "Aaren King" as a colleague to appreciate
      And Submitter User describes their appreciation as " I want to express my appreciation"
      And Submitter User can verify Optional Responses section is displayed
+     And Submitter User can verify Which value best reflects your appreciation section is displayed
      And Submitter User can verify that Add Attachment option is displayed
      When Submitter User submits VIBE Peer-to-Peer Appreciation Program request
      Then Submitter User can verify they are redirected to general tickets view page
