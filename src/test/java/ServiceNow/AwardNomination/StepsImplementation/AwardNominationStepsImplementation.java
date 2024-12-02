@@ -8,10 +8,6 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
-
-import java.awt.*;
-import java.awt.event.KeyEvent;
-
 import static Hooks.Hooks.softAssert;
 import static com.nci.automation.web.TestProperties.getAwardNominationUrl;
 
