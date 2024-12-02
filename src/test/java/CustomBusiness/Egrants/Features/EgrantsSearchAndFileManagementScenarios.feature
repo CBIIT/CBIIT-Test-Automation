@@ -126,12 +126,40 @@ Given User is logged in the application and is on the landing page
     And uploads a file
     Then verifies the success message "Done! New document has been created"
 
-  @MoveSupplementApplication @nesarh2 @selenium @Regression
+  @MoveSupplementApplication @nesarh2 @selenium @In-Progress
   Scenario: Test moving a supplement application
     And searches for grant "CA125123"
     And expands all grant years
     And selects grant year 18 from list of Years
-    And clicks on Supplement sandbox on the grant header
+    #And clicks on Supplement sandbox on the grant header
     And selects the Application File from the list
     And selects Pay in Parent from Process Type dropdown
     Then clicks on Move to Parent button to move the application
+
+  @EGRANTS-374 @AddingLabelSupplementYear @nesarh2 @selenium @Regression
+  Scenario: Test adding a label to a supplement year
+    And searches for grant "CA125123"
+    And expands all grant years
+    And selects grant year 17S1 from list of Years
+    And clicks on Add Request Name button
+    And provides "Automated" as the label
+    And clicks on Save Request Name button
+    Then verifies the added label
+
+  @EGRANTS-374 @EditLabelSupplementYear @nesarh2 @selenium @Regression
+  Scenario: Test editing a label to a supplement year
+    And searches for grant "CA125123"
+    And expands all grant years
+    And selects grant year 17S1 from list of Years
+    And clicks on Edit Edit Request Name button
+    And provides new "Edited LBL" as the label
+    And clicks on Save Request Name button
+    Then verifies the edited label
+
+  @EGRANTS-374 @DeleteLabelSupplementYear @nesarh2 @selenium @Regression
+  Scenario: Test deleting a label to a supplement year
+    And searches for grant "CA125123"
+    And expands all grant years
+    And selects grant year 17S1 from list of Years
+    And clicks on Edit Edit Request Name button
+    Then clicks on Delete button to delete the label

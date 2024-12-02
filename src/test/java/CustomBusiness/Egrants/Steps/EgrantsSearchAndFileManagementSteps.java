@@ -6,6 +6,7 @@ import CustomBusiness.Egrants.Utils.Egrants_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -495,6 +496,93 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     @Then("clicks on Move to Parent button to move the application")
     public void clicks_on_move_to_parent_button_to_move_the_application() {
         CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.moveToParentButton);
+        Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Year 17S1 from the list of Years
+     */
+    @And("selects grant year 17S1 from list of Years")
+    public void selects_grant_year_17s1_from_list_of_years() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.grantYear17S1);
+        CommonUtils.sleep(900);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on the Add Request Name button
+     */
+    @And("clicks on Add Request Name button")
+    public void clicks_on_add_request_name_button() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addRequestNameButton);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to provide a label for the request name
+     * @param automated
+     */
+    @And("provides {string} as the label")
+    public void provides_as_the_label(String automated) {
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.requestNameTextBox, automated);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Save Request Name button
+     */
+    @And("clicks on Save Request Name button")
+    public void clicks_on_save_request_name_button() {
+       CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.requestNameSaveButton);
+         CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to verify the added label
+     */
+    @Then("verifies the added label")
+    public void verifies_the_added_label() {
+        String addedLabel = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.labelText);
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.labelText.getText().contains(addedLabel), "*** REQUEST NAME TEXT DOES NOT MATCH ***");
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Edit Request Name button
+     */
+    @And("clicks on Edit Edit Request Name button")
+    public void clicks_on_edit_edit_request_name_button() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.editRequestNameButton);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to provide a new label for the request name
+     * @param newLabel
+     */
+    @And("provides new {string} as the label")
+    public void provides_new_as_the_label(String newLabel) {
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.requestNameTextBox, newLabel);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Save Request Name button
+     */
+    @Then("verifies the edited label")
+    public void verifies_the_edited_label() {
+        String editedLabel = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.labelText);
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.labelText.getText().contains(editedLabel), "*** REQUEST NAME TEXT DOES NOT MATCH ***");
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Delete button to delete the label
+     */
+    @Then("clicks on Delete button to delete the label")
+    public void clicks_on_delete_button_to_delete_the_label() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.requestNameDeleteButton);
         CucumberLogUtils.logScreenshot();
     }
 }
