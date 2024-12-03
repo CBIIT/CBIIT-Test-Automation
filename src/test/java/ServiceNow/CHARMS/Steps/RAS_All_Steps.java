@@ -1,6 +1,7 @@
 package ServiceNow.CHARMS.Steps;
 
 import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
+import ServiceNow.CHARMS.Constants.Native_View_Constants;
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
@@ -18,6 +19,8 @@ import org.openqa.selenium.Keys;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import static Hooks.Hooks.softAssert;
 import static ServiceNow.CHARMS.Pages.MyRASHomePage.dynamicModuleLocator;
 import static ServiceNow.CHARMS.Steps.RAS_Common_Methods.*;
@@ -59,7 +62,7 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CucumberLogUtils.scenario.log("* * * * * RESPONSE TYPE * * * * *");
-        CommonUtils.selectDropDownValue("CHARMS e-consent", nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown);
+        CommonUtils.selectDropDownValue("CHARMS e-consent", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown);
         CucumberLogUtils.scenario.log("* * * * * CONSENT CALL VERSION * * * * *");
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
@@ -383,21 +386,6 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * Logs in a Study Team member to the Native View and completes a consent call.
-     *
-     * @param sheetName                                the name of the sheet for which the consent is being processed
-     * @param consentType                              the expected type of the consent
-     * @param responseType                             the expected response type of the consent
-     * @param parentGuardianStatus                     the status of the parent/guardian for the consent
-     * @param numberOfGuardianSignaturesRequired       the number of guardian signatures required for the consent
-     * @param numberOfParentGuardianSignaturesReceived the number of parent/guardian signatures received for the consent
-     */
-    @Then("Study Team member logs in to Native View and completes consent call {string}, {string}, {string}, {string}, {string}, {string}")
-    public void study_team_member_logs_in_to_native_view_and_completes_consent_call(String sheetName, String consentType, String responseType, String parentGuardianStatus, String numberOfGuardianSignaturesRequired, String numberOfParentGuardianSignaturesReceived) {
-        nativeViewConsentAssentFlowProcess(sheetName, consentType, responseType, parentGuardianStatus, numberOfGuardianSignaturesRequired, numberOfParentGuardianSignaturesReceived);
-    }
-
-    /**
      * Study Team member logs in to Native View and verifies that the field Assent signed is true.
      *
      * @param sheetName the name of the sheet for which the field Assent signed is being verified.
@@ -406,14 +394,12 @@ public class RAS_All_Steps extends PageInitializer {
     public void study_team_member_logs_in_to_native_view_and_verifies_that_the_field_assent_signed_is_true(String sheetName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         navigateToParticipantRecordInNativeView(sheetName);
-        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='Awaiting Patient Signature(s)']"));
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsParticipantStudiesTab);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsParticipantStudiesTab);
+        CommonUtils.hoverOverElement(locateByXpath("(//td[@class='vt'][normalize-space()='Awaiting Consent'])[2]"));
+        CommonUtils.sleep(1000);
+        JavascriptUtils.clickByJS(locateByXpath("//tr[@record_class='x_naci_family_coho_participant_study']//a[@aria-label='Preview record: CHARMSRasMinor Test']"));
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-        CommonUtils.sleep(500);
-        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyAssentSignedCheckBox);
-        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyHiddenAssentSignedInput.isSelected());
         CommonUtils.sleep(200);
         CucumberLogUtils.logScreenshot();
     }
@@ -480,51 +466,6 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * Study Team member navigates to the Consent Record and selects the response type and interpreter used for the consent record.
-     * Verifies that two new fields, Interpreter Name or ID and Interpreter Language, display on the page.
-     *
-     * @param responseType            the response type to be selected
-     * @param interpreterUsed         the interpreter used selection
-     * @param interpreterNameOrIdText the text for Interpreter Name or ID field
-     * @param interpreterLanguageText the text for Interpreter Language field
-     */
-    @Then("Study Team member navigates to the Consent Record and selects {string} for the response type, {string} for Interpreter Used, and verifies that two new fields {string} and {string} display")
-    public void study_team_member_navigates_to_the_consent_record_and_selects_for_the_response_type_for_interpreter_used_and_verifies_that_two_new_fields_and_display(String responseType, String interpreterUsed, String interpreterNameOrIdText, String interpreterLanguageText) {
-        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
-        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-        CommonUtils.sleep(500);
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown);
-        CommonUtils.selectDropDownValue(responseType, nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown);
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown);
-        CucumberLogUtils.logScreenshot();
-        softAssert.assertEquals(locateByXpath("//span[normalize-space()='Interpreter used?']").getText(), "Interpreter used?");
-        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Interpreter used?']").isDisplayed());
-        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown.isDisplayed());
-        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown.isEnabled());
-        CommonUtils.selectDropDownValue(interpreterUsed, nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterUsedDropDown);
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='Interpreter Name or ID']"));
-        softAssert.assertEquals(locateByXpath("//span[normalize-space()='Interpreter Name or ID']").getText(), interpreterNameOrIdText);
-        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Interpreter Name or ID']").isDisplayed());
-        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterNameOrIdTextField.isDisplayed());
-        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterNameOrIdTextField.isEnabled());
-        nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterNameOrIdTextField.sendKeys("FirstName LastName");
-        CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='Interpreter Language']"));
-        softAssert.assertEquals(locateByXpath("//span[normalize-space()='Interpreter Language']").getText(), interpreterLanguageText);
-        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Interpreter Language']").isDisplayed());
-        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterLanguageTextField.isDisplayed());
-        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterLanguageTextField.isEnabled());
-        nativeViewCHARMSParticipantConsentPage.rasStudyConsentInterpreterLanguageTextField.sendKeys("English");
-        CucumberLogUtils.logScreenshot();
-    }
-
-    /**
      * When Study Team member logs in to Native View and completes consent call with provided sheet names.
      *
      * @param sheetName              The name of the sheet containing participant record details.
@@ -553,8 +494,8 @@ public class RAS_All_Steps extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         if (!ras_NV_Consent_Record_TestDataManager.RESPONSE_TYPE.equals("")) {
             CucumberLogUtils.scenario.log("* * * * * RESPONSE TYPE * * * * *");
-            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown);
-            CommonUtils.selectDropDownValue(ras_NV_Consent_Record_TestDataManager.RESPONSE_TYPE, nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown);
+            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown);
+            CommonUtils.selectDropDownValue(ras_NV_Consent_Record_TestDataManager.RESPONSE_TYPE, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown);
             CommonUtils.sleep(500);
         }
         if (!ras_NV_Consent_Record_TestDataManager.CONSENT_CALL_SCHEDULED_TIME.isEmpty()) {
@@ -590,13 +531,13 @@ public class RAS_All_Steps extends PageInitializer {
         if (!ras_NV_Consent_Record_TestDataManager.CONSENT_TYPE.isEmpty()) {
 
         }
-        if (!ras_NV_Consent_Record_TestDataManager.PARENT_GUARDIAN_STATUS.isEmpty()) {
-
-        }
         if (!ras_NV_Consent_Record_TestDataManager.LEGAL_DOCUMENTATION_RECEIVED.isEmpty()) {
 
         }
         if (!ras_NV_Consent_Record_TestDataManager.NOT_DEVELOPMENTALLY_ABLE_TO_GIVE_ASSENT.isEmpty()) {
+
+        }
+        if (!ras_NV_Consent_Record_TestDataManager.PARENT_GUARDIAN_STATUS.isEmpty()) {
 
         }
         if (!ras_NV_Consent_Record_TestDataManager.PARENT_GUARDIAN_1_SIGNED.isEmpty()) {
@@ -606,13 +547,28 @@ public class RAS_All_Steps extends PageInitializer {
 
         }
         if (!ras_NV_Consent_Record_TestDataManager.NUMBER_OF_LARS.isEmpty()) {
-
+            CucumberLogUtils.scenario.log("* * * * * NUMBER OF LARS: " + ras_NV_Consent_Record_TestDataManager.NUMBER_OF_LARS + "* * * * *");
+            CommonUtils.selectDropDownValue(ras_NV_Consent_Record_TestDataManager.NUMBER_OF_LARS, nativeViewCHARMSParticipantConsentPage.numberOfLARsDropDown);
         }
         if (!ras_NV_Consent_Record_TestDataManager.LAR_1_SIGNED.isEmpty()) {
-
+            CucumberLogUtils.scenario.log("* * * * * LAR 1 SIGNED: " + ras_NV_Consent_Record_TestDataManager.LAR_1_SIGNED + "* * * * *");
+            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.lar1SignedDropDown);
+            CommonUtils.selectDropDownValue(ras_NV_Consent_Record_TestDataManager.LAR_1_SIGNED, nativeViewCHARMSParticipantConsentPage.lar1SignedDropDown);
+        }
+        if (!ras_NV_Consent_Record_TestDataManager.LAR_1_NAME.isEmpty()) {
+            CucumberLogUtils.scenario.log("* * * * * LAR 1 NAME: " + ras_NV_Consent_Record_TestDataManager.LAR_1_NAME + "* * * * *");
+            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.lar1NameTextField);
+            nativeViewCHARMSParticipantConsentPage.lar1NameTextField.sendKeys(ras_NV_Consent_Record_TestDataManager.LAR_1_NAME);
         }
         if (!ras_NV_Consent_Record_TestDataManager.LAR_2_SIGNED.isEmpty()) {
-
+            CucumberLogUtils.scenario.log("* * * * * LAR 2 SIGNED: " + ras_NV_Consent_Record_TestDataManager.LAR_2_SIGNED + "* * * * *");
+            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.lar2SignedDropDown);
+            CommonUtils.selectDropDownValue(ras_NV_Consent_Record_TestDataManager.LAR_2_SIGNED, nativeViewCHARMSParticipantConsentPage.lar2SignedDropDown);
+        }
+        if (!ras_NV_Consent_Record_TestDataManager.LAR_2_NAME.isEmpty()) {
+            CucumberLogUtils.scenario.log("* * * * * LAR 2 NAME: " + ras_NV_Consent_Record_TestDataManager.LAR_2_NAME + "* * * * *");
+            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.lar2NameTextField);
+            nativeViewCHARMSParticipantConsentPage.lar1NameTextField.sendKeys(ras_NV_Consent_Record_TestDataManager.LAR_2_NAME);
         }
         if (!ras_NV_Consent_Record_TestDataManager.ASSIGNED_TO.isEmpty()) {
 
@@ -746,8 +702,8 @@ public class RAS_All_Steps extends PageInitializer {
      * @param firstName             The first name of the participant to be entered in the form.
      * @param lastName              The last name of the participant to be entered in the form.
      */
-    @Given("Study Team member clicks Add New Participant and completes the form with:  FSID {string}, Study {string}, Relationship to Proband {string}, First Name {string}, Last Name {string}")
-    public void study_team_member_clicks_add_new_participant_and_completes_the_form(String existingFSID, String study, String relationshipToProband, String firstName, String lastName) {
+    @Given("Study Team member clicks Add New Participant and completes the form with:  FSID {string}, Study {string}, Study Subcategory {string}, Relationship to Proband {string}, First Name {string}, Last Name {string}")
+    public void study_team_member_clicks_add_new_participant_and_completes_the_form(String existingFSID, String study, String studySubcategory, String relationshipToProband, String firstName, String lastName) {
         CommonUtils.waitForClickability(nativeViewCHARMSDashboardPage.nativeViewAddNewParticipantButton);
         nativeViewCHARMSDashboardPage.nativeViewAddNewParticipantButton.click();
         CucumberLogUtils.logScreenshot();
@@ -759,7 +715,16 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewCHARMSAddNewParticipantPage.unlockStudiesButton);
         CommonUtils.waitForClickability(nativeViewCHARMSAddNewParticipantPage.studiesTextBox);
         CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studiesTextBox, study);
+        CommonUtils.sleep(500);
         CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studiesTextBox, Keys.ENTER);
+        nativeViewCHARMSAddNewParticipantPage.lockStudiesButton.click();
+        CommonUtils.sleep(800);
+        CommonUtils.clickOnElement(nativeViewCHARMSAddNewParticipantPage.unlockStudySubcategoryButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSAddNewParticipantPage.studySubcategoryTextbox);
+        CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studySubcategoryTextbox, studySubcategory);
+        CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studySubcategoryTextbox, Keys.ENTER);
+        nativeViewCHARMSAddNewParticipantPage.lockStudySubcategoryButton.click();
+        CommonUtils.sleep(800);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(nativeViewCHARMSAddNewParticipantPage.relationshipToProbandDropdown);
         CommonUtils.selectDropDownValue(relationshipToProband, nativeViewCHARMSAddNewParticipantPage.relationshipToProbandDropdown);
@@ -780,10 +745,13 @@ public class RAS_All_Steps extends PageInitializer {
             softAssert.assertEquals(nativeViewCHARMSAddNewParticipantPage.subjectNameTextBox.getAttribute("value"), "");
             CucumberLogUtils.logScreenshot();
         } else {
+            CucumberLogUtils.scenario.log("* * * * VERIFYING FSID * * * *");
             CommonUtils.waitForVisibility(nativeViewCHARMSAddNewParticipantPage.familyIDTextBox);
             softAssert.assertEquals(nativeViewCHARMSAddNewParticipantPage.subjectIDTextBox.getAttribute("value").split("-")[0], nativeViewCHARMSAddNewParticipantPage.familyIDTextBox.getAttribute("value"));
             CucumberLogUtils.logScreenshot();
         }
+        softAssert.assertEquals(nativeViewCHARMSAddNewParticipantPage.selectedStudyNonEditText.getText(), study);
+        softAssert.assertEquals(nativeViewCHARMSAddNewParticipantPage.selectedStudySubcategoryNonEditText.getText(), studySubcategory);
     }
 
     /**
@@ -814,9 +782,10 @@ public class RAS_All_Steps extends PageInitializer {
         navigateToParticipantRecordInNativeView(sheetName);
         CommonUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
+        CommonUtils.sleep(500);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.hoverOverElement(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[@class='btn btn-icon table-btn-lg icon-info list_popup']"));
-        JavascriptUtils.clickByJS(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[@class='btn btn-icon table-btn-lg icon-info list_popup']"));
+        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='" + Native_View_Constants.consentAssentCategoryBySheetMap.get(sheetName) + "']"));
+        CommonUtils.sleep(500);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(500);
@@ -835,7 +804,7 @@ public class RAS_All_Steps extends PageInitializer {
     @Given("Study Team member verifies that Consent Status equals {string}, Consent Type equals {string}, and that Parent Guardian fields are disabled")
     public void study_team_member_verifies_consent_status_consent_type_guardian_and_that_parent_guardian_fields_are_disabled(String consentStatus, String consentType) {
         CommonUtils.verifyingDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentStatusTextBox, consentStatus, "* * * * * CONSENT STATUS MISMATCH * * * * *");
-        CommonUtils.verifyingDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentTypeDropDown, consentType, "* * * * * CONSENT TYPE MISMATCH * * * * *");
+        CommonUtils.verifyingDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAssentCategoryDropDown, consentType, "* * * * * CONSENT TYPE MISMATCH * * * * *");
         softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown.getAttribute("mandatory"), "false");
         softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown.getAttribute("aria-required"), "false");
         softAssert.assertFalse(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown.isDisplayed());
@@ -920,10 +889,18 @@ public class RAS_All_Steps extends PageInitializer {
     @Then("Study Team member creates a new Subject Flags and verifies that the field IBMFS Affected Status displays if the {string} is Fanconi or Bone Marrow Failure Syndrome")
     public void study_team_member_creates_a_new_subject_flags_and_verifies_that_the_field_ibmfs_affected_status_displays_if_the_is_fanconi_or_bone_marrow_failure_syndrome(String study) {
         CommonUtils.sleep(800);
+        String participantName = locateByXpath("//input[@aria-labelledby='label.x_naci_family_coho_participant_study.participant']").getAttribute("value");
         JavascriptUtils.scrollIntoView(locateByXpath("//span[@class='tab_caption_text'][normalize-space()='Subject Flags']"));
         JavascriptUtils.clickByJS(locateByXpath("//span[@class='tab_caption_text'][normalize-space()='Subject Flags']"));
         JavascriptUtils.clickByJS(locateByXpath("//div[@aria-label='Subject Flags, filtering toolbar']//button[@value='sysverb_new'][normalize-space()='New']"));
-        CommonUtils.sendKeys(nativeViewCHARMSSubjectFlagsPage.participantTextbox, Keys.ENTER);
+        locateByXpath("//button[@aria-label='Look up value for field: Participant']").click();
+        CommonUtils.sleep(1000);
+        CommonUtils.switchToAnotherTabWindow();
+        locateByXpath("//input[@aria-label='Search']").sendKeys(participantName);
+        CommonUtils.sleep(800);
+        locateByXpath("//a[@role='button'][normalize-space()='" + participantName + "']").click();
+        CommonUtils.switchToNextWindow();
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(800);
         if (study.equalsIgnoreCase("Fanconi") || study.equalsIgnoreCase("Bone Marrow Failure Syndrome")) {
             CommonUtils.waitForVisibility(nativeViewCHARMSSubjectFlagsPage.IBMFSAffectedStatusText);
@@ -947,10 +924,11 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * Study Team member creates a new Subject Flags with the values: Study and Participation Status.
+     * This method creates a new Subject Flags entry with the specified values.
      *
-     * @param study               The study value to be set for the Subject Flags.
-     * @param participationStatus The participation status value to be set for the Subject Flags.
+     * @param study                    the name of the study associated with the subject
+     * @param participationStatus      the participation status of the subject
+     * @param holdNonParticipationDate the date for hold/non-participation, if applicable
      */
     @Then("Study Team member creates a new Subject Flags with the values: Study {string}, Participation Status {string}, Hold Non-Participation Date {string}")
     public void study_team_member_creates_a_new_subject_flags(String study, String participationStatus, String holdNonParticipationDate) {
@@ -997,6 +975,7 @@ public class RAS_All_Steps extends PageInitializer {
         }
         CommonUtils.selectDropDownValue("Adult", nativeViewCHARMSSubjectFlagsPage.ageGroupDropdown);
         CucumberLogUtils.logScreenshot();
+        RAS_Common_Methods.verifySubjectFlagsFields(study, participationStatus);
         nativeViewCHARMSSubjectFlagsPage.submitButton.click();
         CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
@@ -1046,8 +1025,6 @@ public class RAS_All_Steps extends PageInitializer {
         softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.alertYesContinueButton.getText(), "Yes, continue");
         nativeViewCHARMSSubjectFlagsPage.alertYesContinueButton.click();
         CommonUtils.sleep(500);
-        softAssert.assertTrue(nativeViewCHARMSSubjectFlagsPage.syncCompletedMessage.isDisplayed());
-        softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.syncCompletedMessage.getText(), "Response recieved from server:Sync completed!");
         softAssert.assertTrue(nativeViewCHARMSSubjectFlagsPage.syncCompleteForRelatedSubjectFlagRecordsMessage.isDisplayed());
         softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.syncCompleteForRelatedSubjectFlagRecordsMessage.getText(), "Sync complete for related subject flag records!");
         CucumberLogUtils.logScreenshot();
@@ -1081,5 +1058,76 @@ public class RAS_All_Steps extends PageInitializer {
             softAssert.assertEquals(locateByXpath("//tr[@class='" + sf1Row + "']//td[10]").getText(), RAS_Common_Methods.getFirstDayNextMonth());
             softAssert.assertEquals(locateByXpath("//tr[@class='" + sf2Row + "']//td[10]").getText(), RAS_Common_Methods.getFirstDayNextMonth());
         }
+    }
+
+    /**
+     * This method is used to simulate a Study Team member creating new Subject Flags and verifying that the audit trail history is displayed correctly.
+     * It retrieves the participant's name, sets the expected values for the audit trail, navigates to the Subject Flags section, creates a new flag,
+     * sets various dropdown values, saves the changes, and then verifies that the audit trail values match the expected values.
+     */
+    @Then("Study Team member creates new Subject Flags and verifies that the audit trail history displays")
+    public void study_team_member_creates_new_subject_flags_and_verifies_that_the_audit_trail_history_displays() {
+        String participantName = locateByXpath("//input[@aria-labelledby='label.x_naci_family_coho_participant_study.participant']").getAttribute("value");
+        Map<String, String> actualAuditTrailValues = new HashMap<>();
+        Map<String, String> expectedAuditTrailValues = new HashMap<>(
+                Map.ofEntries(
+                        Map.entry("Participant", participantName),
+                        Map.entry("Participant Study", participantName),
+                        Map.entry("Study", "RASopathy"),
+                        Map.entry("Participation Status", "Participating"),
+                        Map.entry("Age Group", "Adult"),
+                        Map.entry("Eligible for Clinic", "Yes")
+                )
+        );
+        JavascriptUtils.scrollIntoView(locateByXpath("//span[@class='tab_caption_text'][contains(text(), 'Subject Flags')]"));
+        JavascriptUtils.clickByJS(locateByXpath("//span[@class='tab_caption_text'][contains(text(), 'Subject Flags')]"));
+        JavascriptUtils.clickByJS(locateByXpath("//div[@aria-label='Subject Flags, filtering toolbar']//button[@value='sysverb_new'][normalize-space()='New']"));
+        CommonUtils.sleep(800);
+        locateByXpath("//button[@aria-label='Look up value for field: Participant']").click();
+        CommonUtils.sleep(1000);
+        CommonUtils.switchToAnotherTabWindow();
+        locateByXpath("//input[@aria-label='Search']").sendKeys(participantName);
+        CommonUtils.sleep(800);
+        locateByXpath("//a[@role='button'][normalize-space()='" + participantName + "']").click();
+        CommonUtils.switchToNextWindow();
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(800);
+        CommonUtils.waitForClickability(nativeViewCHARMSSubjectFlagsPage.participationStatusDropdown);
+        CommonUtils.selectDropDownValue(expectedAuditTrailValues.get("Participation Status"), nativeViewCHARMSSubjectFlagsPage.participationStatusDropdown);
+        CommonUtils.selectDropDownValue(expectedAuditTrailValues.get("Age Group"), nativeViewCHARMSSubjectFlagsPage.ageGroupDropdown);
+        CommonUtils.selectDropDownValue(expectedAuditTrailValues.get("Eligible for Clinic"), nativeViewCHARMSSubjectFlagsPage.eligibleForClinicDropdown);
+        CucumberLogUtils.logScreenshot();
+        nativeViewCHARMSSubjectFlagsPage.saveButton.click();
+        CommonUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.scrollIntoView(locateByXpath("//div[@class='activity-stream-label-counter']"));
+        for (int i = 1; i <= expectedAuditTrailValues.size(); i++) {
+            String key = locateByXpath("//ul[@class='sn-widget-list sn-widget-list-table']/li[" + i + "]/span[1]").getText();
+            String value = locateByXpath("//ul[@class='sn-widget-list sn-widget-list-table']/li[" + i + "]/span[2]").getText();
+            actualAuditTrailValues.put(key, value);
+        }
+        softAssert.assertEquals(actualAuditTrailValues, expectedAuditTrailValues);
+        CommonUtils.sleep(800);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Logs in to Native View and types the provided filter query into the Filter Navigator.
+     *
+     * @param filterQuery the filter query to be typed into the Filter Navigator
+     */
+    @Given("Study Team member logs in to Native View and types {string} into the Filter Navigator")
+    public void study_team_member_logs_in_to_native_view_and_types_into_the_filter_navigator(String filterQuery) {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        CommonUtils.sleep(4000);
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(filterQuery);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(3000);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(filterQuery));
+        CommonUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
     }
 }

@@ -1,6 +1,8 @@
 package AnalysisTools.JPSurv.Steps;
 
 import java.io.File;
+import java.io.IOException;
+import AnalysisTools.JPSurv.StepsImplementations.JPSurvHomePageStepImp;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
@@ -88,10 +90,6 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@When("user click download full data set button")
 	public void clickDownloadFullDatasetButton() {
 		CommonUtils.clickOnElement(jpsurvHomePage.downloadFullDataSetButton);
-		try {
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 	@Then("user verify an excel file downloaded with name {string}")
@@ -336,5 +334,81 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@And("user click on year of diagnosed")
 	public void userClickOnYearOfDiagnosed() {
 		jpsurvHomePage.yearOfDiagnosed.click();
+	}
+
+	@Given("User is able to set the env for submitting data request")
+	public void user_is_able_to_set_the_env_for_submitting_data_request() {
+		JPSurvHomePageStepImp.setApiBaseUrl("https://analysistools-dev.cancer.gov/jpsurv/api/submit/fb16bc69-f75e-4fdf-98f4-60e8cef861d8");
+	}
+
+	@Then("User is able to send post request and receive valid response back on submitting of data")
+	public void user_is_able_to_send_post_request_and_receive_valid_response_back_on_submitting_of_data() throws IOException {
+		JPSurvHomePageStepImp.sendPostRequestForSubmit();
+	}
+
+	@Given("User is able to set the env for exporting data request")
+	public void user_is_able_to_set_the_env_for_exporting_data_request() {
+		JPSurvHomePageStepImp.setApiBaseUrl("https://analysistools-dev.cancer.gov/jpsurv/api/export/0b6d3b66-e04e-40c9-941e-99971652921b");
+	}
+
+	@Then("User is able to send get request and receive valid response back on exporting of data")
+	public void user_is_able_to_send_get_request_and_receive_valid_response_back_on_exporting_of_data() {
+		JPSurvHomePageStepImp.sendGetRequestForExport();
+	}
+
+	@Given("User is able to set the env for conditional survival recalculation")
+	public void user_is_able_to_set_the_env_for_conditional_survival_recalculation() {
+		JPSurvHomePageStepImp.setApiBaseUrl("https://analysistools-dev.cancer.gov/jpsurv/api/recalculateConditional/0b6d3b66-e04e-40c9-941e-99971652921b");
+	}
+
+	@Then("User is able to send post request and receive valid response back for conditional survival recalculation")
+	public void user_is_able_to_send_post_request_and_receive_valid_response_back_for_conditional_survival_recalculation() {
+		JPSurvHomePageStepImp.sendPostReqestWithBodyAndHeader("{\n" +
+				"    \"cohortIndex\": 1,\n" +
+				"    \"fitIndex\": 0,\n" +
+				"    \"conditionalIntervals\": [\n" +
+				"        {\n" +
+				"            \"start\": 4,\n" +
+				"            \"end\": 6\n" +
+				"        }\n" +
+				"    ]\n" +
+				"}");
+	}
+
+	@Given("User is able to set the env for getting the calendar trends")
+	public void user_is_able_to_set_the_env_for_getting_the_calendar_trends() {
+		JPSurvHomePageStepImp.setApiBaseUrl("https://analysistools-dev.cancer.gov/jpsurv/api/calendarTrends/24fc6461-d38a-4e85-bead-8e1a8bb1d0db");
+	}
+
+	@Then("User is able to send post request and receive valid response back for the calendar trends")
+	public void user_is_able_to_send_post_request_and_receive_valid_response_back_for_the_calendar_trends() {
+		JPSurvHomePageStepImp.sendPostReqestWithBodyAndHeader("{\n" +
+				"    \"yearRange\": [\n" +
+				"        1,\n" +
+				"        4\n" +
+				"    ],\n" +
+				"    \"cohortIndex\": 1,\n" +
+				"    \"useRelaxModel\": false\n" +
+				"}");
+	}
+
+	@Given("User is able to set the env for importing data request")
+	public void user_is_able_to_set_the_env_for_importing_data_request() {
+		JPSurvHomePageStepImp.setApiBaseUrl("https://analysistools-dev.cancer.gov/jpsurv/api/import/c99d27ec-9932-4dfe-87ef-4a7302ad3909");
+	}
+
+	@Then("User is able to send post request and receive valid response back on importing of data")
+	public void user_is_able_to_send_post_request_and_receive_valid_response_back_on_importing_of_data() {
+		JPSurvHomePageStepImp.sendPostRequestForImport();
+	}
+
+	@Then("Verify response of the API is submitted")
+	public void verify_response_of_the_api_is_submitted() {
+		JPSurvHomePageStepImp.validateSubittedResponse();
+	}
+
+	@Then("verify start and end year in the response of the API")
+	public void verify_start_and_end_year_in_the_response_of_the_api() {
+		JPSurvHomePageStepImp.validateStartAndEndYear();
 	}
 }

@@ -64,7 +64,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Grants drop-down
      */
-    @FindBy(xpath = "//select[@id='ddlAppls']")
+    @FindBy(id = "ddlAppls")
     public WebElement grantsDropdown;
 
     /**
@@ -336,6 +336,144 @@ public class EgrantsSearchAndFileManagementScenariosPage {
      */
     @FindBy(css = "div[id='appls_10_687129'] a[title='View All Documents for 3P30CA125123-18S1']")
     public WebElement year18S1;
+
+    /**
+     * Category Filter Icon
+     */
+    @FindBy(xpath = "//a/img[@src='/Content/images/filter.png']")
+    public WebElement categoryFilterIcon;
+
+    /**
+     * Activation Notice category
+     */
+    @FindBy(xpath = "//div/input[@id='cat_29']")
+    public WebElement activationNoticeCategory;
+
+    /**
+     * Application File category
+     */
+    @FindBy(xpath = "//div/input[@id='cat_38']")
+    public WebElement ApplicationFileCategory;
+
+    /**
+     * Search Icon
+     */
+    @FindBy(xpath = "//button/img[@src='/Content/images/searchicon.png']")
+    public WebElement searchIcon;
+
+    /**
+     * Number of years text box
+     */
+    @FindBy(xpath = "//input[@placeholder='Yrs']")
+    public WebElement numberOfYearsTextBox;
+
+    /**
+     * Application File Category Text
+     */
+    @FindBy(xpath = "(//a[contains(text(), 'Application File')])[1]")
+    public WebElement getApplicationFileCategoryText;
+
+    /**
+     *  Activation Notice Category Text
+     */
+    @FindBy(xpath = "(//a[contains(text(), 'Activation Notice')])[1]")
+    public WebElement getActivationNoticeCategoryText;
+
+    /**
+     *  Date picker
+     */
+    @FindBy(xpath = "//td/img[@class='ui-datepicker-trigger']")
+    public WebElement datePicker;
+
+    /**
+     *  Add Funding Document Button
+     */
+    @FindBy(xpath = "//button[@title='Click here to add new funding document [shift + alt + F]']")
+    public WebElement addFundingDocumentButton;
+
+    /**
+     *  Expand All Grant Years Button
+     */
+    @FindBy(xpath = "//a/img[@title='View All Grant Years']")
+    public WebElement expandAllGrantYearsButton;
+
+    /**
+     *  Funding SubCategory
+     */
+    @FindBy(xpath = "//div/input[@id='txtSubCategory']")
+    public WebElement fundingSubCategory;
+
+    /**
+     * Expanded - Grant year 18
+     */
+    @FindBy(css = "div[id='appls_all_687129'] a[title='View All Documents for 5P30CA125123-18']")
+    public WebElement grantYear18;
+
+    /**
+     * Supplement SandBox
+     */
+    @FindBy(css = "//a/b[@title='View Supplement Files']")
+    public WebElement supplementSandBox;
+
+    /**
+     * Supplement Application File Checkbox
+     */
+    @FindBy(css = "(//tr/td/input[@title='Check here to load suppelment'])[1]")
+    public WebElement supplementApplicationFileCheckbox;
+
+    /**
+     * Process Type Dropdown
+     */
+    @FindBy(css = "//div/select[@id='ddlProcess']")
+    public WebElement processTypeDropdown;
+
+    /**
+     * Move to Parent Button
+     */
+    @FindBy(css = "//button[@title='Click here to pay with Parent Grant by parent appl [alt + shift + M]']")
+    public WebElement moveToParentButton;
+
+    /**
+     * Expanded - Grant year 17S1
+     */
+    @FindBy(css = "div[id='appls_all_687129'] a[title='View All Documents for 3P30CA125123-17S1']")
+    public WebElement grantYear17S1;
+
+    /**
+     * Add Request Name Button
+     */
+    @FindBy(xpath = "//div/button[contains(text(), 'Add Request Name')]")
+    public WebElement addRequestNameButton;
+
+    /**
+     * Request Name Text Box
+     */
+    @FindBy(css = "input[id='newGrantYearName10831223']")
+    public WebElement requestNameTextBox;
+
+    /**
+     * Request Name Save Button
+     */
+    @FindBy(css = "div[id='renameModalId10831223'] div[class='modal-body'] div button:nth-child(1)")
+    public WebElement requestNameSaveButton;
+
+    /**
+     * Request Name Delete Button
+     */
+    @FindBy(css = "button[id='deleteGrantYearName10831223']")
+    public WebElement requestNameDeleteButton;
+
+    /**
+     * Edit Request Name Button
+     */
+    @FindBy(xpath = "//div/button[contains(text(), 'Edit Request Name')]")
+    public WebElement editRequestNameButton;
+
+    /**
+     * Label Text
+     */
+    @FindBy(css = "div[id='yearName10831223']")
+    public WebElement labelText;
 
     /**
      * Constructor

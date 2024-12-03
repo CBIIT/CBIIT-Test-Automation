@@ -1,13 +1,18 @@
 package CustomBusiness.Egrants.Steps;
 
 import CustomBusiness.Egrants.StepsImplementation.EgrantsStepImplementation;
+import CustomBusiness.Egrants.Utils.Egrants_CommonUtils;
 import CustomBusiness.Egrants.Utils.Egrants_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.WebDriverUtils;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.support.ui.Select;
+import static Hooks.Hooks.softAssert;
 
 public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
 
@@ -292,8 +297,292 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /***
+     * This method is used to verify the success icon for downloaded files
+     */
     @Then("verifies the success icon for downloaded files")
     public void verifies_the_success_icon_for_downloaded_files() {
         EgrantsStepImplementation.verifies_the_success_message_for_downloaded_files();
+    }
+
+    /***
+     * This method is used to select the number of years text box
+     * @param year
+     */
+    @Given("selects {int} for number grant years")
+    public void selects_for_number_grant_years(Integer year) {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.numberOfYearsTextBox);
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.numberOfYearsTextBox, year.toString());
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /***
+     * This method is used to click on the Category filter icon to select document types
+     */
+    @Given("clicks on category filter icon")
+    public void clicks_on_category_filter_icon() {
+       CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.categoryFilterIcon);
+       CucumberLogUtils.logScreenshot();
+    }
+
+    /***
+     * This method is used to select Activation Notice and Application File from the list of available documents
+     */
+    @Given("selects Activation Notice and Application File from the category dropdown")
+    public void selects_activation_notice_and_application_file_from_the_category_dropdown() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.activationNoticeCategory);
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.ApplicationFileCategory);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /***
+     * This method is used to click on the search icon to filter the documents
+     */
+    @Given("clicks on search icon")
+    public void clicks_on_search_icon() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.searchIcon);
+    }
+
+    /***
+     * This method is used to verify the filtered documents are displayed
+     */
+    @Then("verifies the filtered documents are displayed")
+    public void verifies_the_filtered_documents_are_displayed() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.getActivationNoticeCategoryText.getText().contains(Egrants_Constants.ACTIVATION_NOTICE), "*** ACTIVATION NOTICE TEXT IS NOT PRESENT ***");
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.getApplicationFileCategoryText.getText().contains(Egrants_Constants.APPLICATION_FILE), "*** APPLICATION FILE TEXT IS NOT PRESENT ***");
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /***
+     * This method is used to click on the Update icon for a document
+     */
+    @Given("clicks on Update icon for a document")
+    public void clicks_on_update_icon_for_an_application_file() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.gearIcon);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /***
+     * This method is used to select year 17 from the Grants dropdown. The user will keep selecting the year until it is selected
+     */
+    @Given("selects grant year 5P30CA125123-17 from the Grant dropdown")
+    public void selects_grant_year_from_the_grant_dropdown() {
+        Select grantsDropdown = new Select(egrantsSearchandFileManagementScenariosPage.grantsDropdown);
+        boolean isSelected = false;
+        while (!isSelected) {
+            grantsDropdown.selectByVisibleText(Egrants_Constants.YEAR_17);
+            CommonUtils.sleep(3000);
+            String selectedOption = grantsDropdown.getFirstSelectedOption().getText();
+            if (selectedOption.equals(Egrants_Constants.YEAR_17)) {
+                isSelected = true;
+            }
+        }
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /***
+     * This method is used to select the current date
+     */
+    @Given("selects the current date")
+    public void selects_the_current_date() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.calendar);
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.calendar, Egrants_CommonUtils.getCurrentDate());
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.datePicker);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /***
+     * This method is used to click on the Update button to move the document to a different grant year
+     */
+    @Then("clicks on Update button to move the document to a different grant year")
+    public void clicks_on_update_button_to_move_the_document_to_a_different_grant_year() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.updateButton);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Expand All Grant Years button
+     */
+    @And("expands all grant years")
+    public void expands_all_grant_years() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.expandAllGrantYearsButton);
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on year 18 from the Years
+     */
+    @When("selects grant year 18 from list of Years")
+    public void selects_expanded_grant_year_18() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.grantYear18);
+        CommonUtils.sleep(2000);
+    }
+
+    /**
+     * This method is used to click on Add Funding Document button
+     */
+    @And("clicks on Add Funding Document button")
+    public void clicks_on_add_funding_document_button() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addFundingDocumentButton);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to select Co-Funding Secondary as the document category
+     */
+    @And("selects category as Co-Funding Secondary")
+    public void selects_category_as_co_funding_secondary() {
+        CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.documentCategoryDropdown, 0);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to enter the subcategory text
+     * @param subCategory
+     */
+    @And("passes {string} as Funding Subcategory")
+    public void passes_as_funding_subcategory(String subCategory) {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.fundingSubCategory);
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.fundingSubCategory, subCategory);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Supplement sandbox on the grant header. The user will keep clicking on the button until it is clicked
+     */
+    @And("clicks on Supplement sandbox on the grant header")
+    public void clicks_on_supplement_sandbox_on_the_grant_header() {
+        boolean isClicked = false;
+        int attempts = 0;
+        while (!isClicked && attempts < 3) {
+            try {
+                CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.supplementSandBox);
+                isClicked = true;
+            } catch (Exception e) {
+                attempts++;
+                CommonUtils.sleep(2000);
+            }
+        }
+        if (!isClicked) {
+            throw new RuntimeException("*** FAILED TO CLICK ON SUPPLEMENT SANDBOX BUTTON AFTER 3 ATTEMPTS ***");
+        }
+        CommonUtils.switchToNextWindow();
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to select the Application File from the list
+     */
+    @And("selects the Application File from the list")
+    public void selects_the_application_file_from_the_list() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.supplementApplicationFileCheckbox);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to select Pay in Parent from Process Type dropdown
+     */
+    @And("selects Pay in Parent from Process Type dropdown")
+    public void selects_pay_in_parent_from_process_type_dropdown() {
+        CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.processTypeDropdown, 2);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Move to Parent button to move the application
+     */
+    @Then("clicks on Move to Parent button to move the application")
+    public void clicks_on_move_to_parent_button_to_move_the_application() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.moveToParentButton);
+        Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Year 17S1 from the list of Years
+     */
+    @And("selects grant year 17S1 from list of Years")
+    public void selects_grant_year_17s1_from_list_of_years() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.grantYear17S1);
+        CommonUtils.sleep(900);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on the Add Request Name button
+     */
+    @And("clicks on Add Request Name button")
+    public void clicks_on_add_request_name_button() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addRequestNameButton);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to provide a label for the request name
+     * @param automated
+     */
+    @And("provides {string} as the label")
+    public void provides_as_the_label(String automated) {
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.requestNameTextBox, automated);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Save Request Name button
+     */
+    @And("clicks on Save Request Name button")
+    public void clicks_on_save_request_name_button() {
+       CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.requestNameSaveButton);
+         CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to verify the added label
+     */
+    @Then("verifies the added label")
+    public void verifies_the_added_label() {
+        String addedLabel = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.labelText);
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.labelText.getText().contains(addedLabel), "*** REQUEST NAME TEXT DOES NOT MATCH ***");
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Edit Request Name button
+     */
+    @And("clicks on Edit Edit Request Name button")
+    public void clicks_on_edit_edit_request_name_button() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.editRequestNameButton);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to provide a new label for the request name
+     * @param newLabel
+     */
+    @And("provides new {string} as the label")
+    public void provides_new_as_the_label(String newLabel) {
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.requestNameTextBox, newLabel);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Save Request Name button
+     */
+    @Then("verifies the edited label")
+    public void verifies_the_edited_label() {
+        String editedLabel = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.labelText);
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.labelText.getText().contains(editedLabel), "*** REQUEST NAME TEXT DOES NOT MATCH ***");
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Delete button to delete the label
+     */
+    @Then("clicks on Delete button to delete the label")
+    public void clicks_on_delete_button_to_delete_the_label() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.requestNameDeleteButton);
+        CucumberLogUtils.logScreenshot();
     }
 }

@@ -55,6 +55,14 @@ public class NativeViewCHARMSSubjectFlagsPage {
     @FindBy(xpath = "//input[@id='x_naci_family_coho_subject_flag.hold_reason']")
     public WebElement holdReasonTextbox;
 
+
+    /**
+     * Preview Record for Field: Study. Button
+     */
+    @FindBy(xpath = "//button[@aria-label='Preview record for field: Study']")
+    public WebElement previewRecordForFieldStudyButton;
+
+
     /**
      * Age Group Dropdown
      */
@@ -62,10 +70,22 @@ public class NativeViewCHARMSSubjectFlagsPage {
     public WebElement ageGroupDropdown;
 
     /**
-     * Preview Record for Field: Study. Button
+     * Eligible for Clinic Dropdown
      */
-    @FindBy(xpath = "//button[@aria-label='Preview record for field: Study']")
-    public WebElement previewRecordForFieldStudyButton;
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_subject_flag.eligible_for_clinic']")
+    public WebElement eligibleForClinicDropdown;
+
+    /**
+     * Individual Affected Status Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_subject_flag.individual_affected_status']")
+    public WebElement individualAffectedStatusDropdown;
+
+    /**
+     * Individual Genetic Status Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_subject_flag.individual_genetic_status']")
+    public WebElement individualGeneticStatusDropdown;
 
     /**
      * IBMFS Affected Status Text
@@ -78,6 +98,12 @@ public class NativeViewCHARMSSubjectFlagsPage {
      */
     @FindBy(xpath = "//select[@id='x_naci_family_coho_subject_flag.ibmfs_affected_status']")
     public WebElement IBMFSAffectedStatusDropDown;
+
+    /**
+     * Family Genetic Status Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_subject_flag.participant.family.family_genetic_status']")
+    public WebElement familyGeneticStatusDropdown;
 
     /**
      * Back Button.
@@ -120,12 +146,6 @@ public class NativeViewCHARMSSubjectFlagsPage {
      */
     @FindBy(xpath = "//button[normalize-space()='No, cancel']")
     public WebElement alertNoCancelButton;
-
-    /**
-     * Response recieved from server:Sync completed! Message
-     */
-    @FindBy(xpath = "//span[normalize-space()='Response recieved from server:Sync completed!']")
-    public WebElement syncCompletedMessage;
 
     /**
      * Sync complete for related subject flag records! Message

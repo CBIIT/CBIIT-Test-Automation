@@ -94,3 +94,16 @@ Feature: ESR Tasks
     And the Engineering Project Execution catalog task is completed
     And the Closeout Preparation catalog task for ESR-I is completed
     Then the user confirms the Closeout Preparation catalog task is completed
+
+  @ESR-703 @sarwarahmed1 @In-Progress @playwright
+  Scenario: Test the Operational POC Approval catalog task in an ESR-I ticket
+    Given a user logs into Native View on the NCI at your service page
+    And navigates to create ESR
+    And fills out all required information for ESR-I and clicks submit
+    And user clicks on Intake Preparation catalog task
+    And user fills out all required information for ESR-I Intake Preparation
+    And the user is approved from a federal lead
+    And ESR Board Intake Review catalog task is completed
+    And the user is approved from the ESR Board approvers
+    And the Engineering Project Execution catalog task is completed
+    And the Closeout Preparation catalog task for ESR-I is completed
