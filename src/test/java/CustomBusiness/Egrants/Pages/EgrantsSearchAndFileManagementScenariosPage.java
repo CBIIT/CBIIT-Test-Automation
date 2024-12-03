@@ -434,6 +434,48 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement moveToParentButton;
 
     /**
+     * Expanded - Grant year 17S1
+     */
+    @FindBy(css = "div[id='appls_all_687129'] a[title='View All Documents for 3P30CA125123-17S1']")
+    public WebElement grantYear17S1;
+
+    /**
+     * Add Request Name Button
+     */
+    @FindBy(xpath = "//div/button[contains(text(), 'Add Request Name')]")
+    public WebElement addRequestNameButton;
+
+    /**
+     * Request Name Text Box
+     */
+    @FindBy(css = "input[id='newGrantYearName10831223']")
+    public WebElement requestNameTextBox;
+
+    /**
+     * Request Name Save Button
+     */
+    @FindBy(css = "div[id='renameModalId10831223'] div[class='modal-body'] div button:nth-child(1)")
+    public WebElement requestNameSaveButton;
+
+    /**
+     * Request Name Delete Button
+     */
+    @FindBy(css = "button[id='deleteGrantYearName10831223']")
+    public WebElement requestNameDeleteButton;
+
+    /**
+     * Edit Request Name Button
+     */
+    @FindBy(xpath = "//div/button[contains(text(), 'Edit Request Name')]")
+    public WebElement editRequestNameButton;
+
+    /**
+     * Label Text
+     */
+    @FindBy(css = "div[id='yearName10831223']")
+    public WebElement labelText;
+
+    /**
      * Constructor
      */
     public EgrantsSearchAndFileManagementScenariosPage() {
