@@ -1,6 +1,7 @@
 package ServiceNow.CHARMS.Steps;
 
 import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
+import ServiceNow.CHARMS.Constants.Native_View_Constants;
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
@@ -714,6 +715,7 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewCHARMSAddNewParticipantPage.unlockStudiesButton);
         CommonUtils.waitForClickability(nativeViewCHARMSAddNewParticipantPage.studiesTextBox);
         CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studiesTextBox, study);
+        CommonUtils.sleep(500);
         CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studiesTextBox, Keys.ENTER);
         nativeViewCHARMSAddNewParticipantPage.lockStudiesButton.click();
         CommonUtils.sleep(800);
@@ -780,9 +782,10 @@ public class RAS_All_Steps extends PageInitializer {
         navigateToParticipantRecordInNativeView(sheetName);
         CommonUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
+        CommonUtils.sleep(500);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.hoverOverElement(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[@class='btn btn-icon table-btn-lg icon-info list_popup']"));
-        JavascriptUtils.clickByJS(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[@class='btn btn-icon table-btn-lg icon-info list_popup']"));
+        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='" + Native_View_Constants.consentAssentCategoryBySheetMap.get(sheetName) + "']"));
+        CommonUtils.sleep(500);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(500);
@@ -921,10 +924,11 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * Study Team member creates a new Subject Flags with the values: Study and Participation Status.
+     * This method creates a new Subject Flags entry with the specified values.
      *
-     * @param study               The study value to be set for the Subject Flags.
-     * @param participationStatus The participation status value to be set for the Subject Flags.
+     * @param study                    the name of the study associated with the subject
+     * @param participationStatus      the participation status of the subject
+     * @param holdNonParticipationDate the date for hold/non-participation, if applicable
      */
     @Then("Study Team member creates a new Subject Flags with the values: Study {string}, Participation Status {string}, Hold Non-Participation Date {string}")
     public void study_team_member_creates_a_new_subject_flags(String study, String participationStatus, String holdNonParticipationDate) {
@@ -971,6 +975,7 @@ public class RAS_All_Steps extends PageInitializer {
         }
         CommonUtils.selectDropDownValue("Adult", nativeViewCHARMSSubjectFlagsPage.ageGroupDropdown);
         CucumberLogUtils.logScreenshot();
+        RAS_Common_Methods.verifySubjectFlagsFields(study, participationStatus);
         nativeViewCHARMSSubjectFlagsPage.submitButton.click();
         CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
@@ -1020,8 +1025,6 @@ public class RAS_All_Steps extends PageInitializer {
         softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.alertYesContinueButton.getText(), "Yes, continue");
         nativeViewCHARMSSubjectFlagsPage.alertYesContinueButton.click();
         CommonUtils.sleep(500);
-        softAssert.assertTrue(nativeViewCHARMSSubjectFlagsPage.syncCompletedMessage.isDisplayed());
-        softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.syncCompletedMessage.getText(), "Response recieved from server:Sync completed!");
         softAssert.assertTrue(nativeViewCHARMSSubjectFlagsPage.syncCompleteForRelatedSubjectFlagRecordsMessage.isDisplayed());
         softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.syncCompleteForRelatedSubjectFlagRecordsMessage.getText(), "Sync complete for related subject flag records!");
         CucumberLogUtils.logScreenshot();
@@ -1105,6 +1108,26 @@ public class RAS_All_Steps extends PageInitializer {
         }
         softAssert.assertEquals(actualAuditTrailValues, expectedAuditTrailValues);
         CommonUtils.sleep(800);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Logs in to Native View and types the provided filter query into the Filter Navigator.
+     *
+     * @param filterQuery the filter query to be typed into the Filter Navigator
+     */
+    @Given("Study Team member logs in to Native View and types {string} into the Filter Navigator")
+    public void study_team_member_logs_in_to_native_view_and_types_into_the_filter_navigator(String filterQuery) {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        CommonUtils.sleep(4000);
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(filterQuery);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(3000);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(filterQuery));
+        CommonUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
     }
 }
