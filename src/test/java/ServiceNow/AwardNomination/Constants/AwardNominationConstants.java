@@ -2,5 +2,5 @@ package ServiceNow.AwardNomination.Constants;
 
 public class AwardNominationConstants {
 
-    public static final String SUBMITTERAWARDNOMINATION = "Aaron Bonnell";
+    public static final String SUBMITTER_AWARD_NOMINATION = "Aaron Bonnell";
 }

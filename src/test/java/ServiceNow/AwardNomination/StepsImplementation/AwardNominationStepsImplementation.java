@@ -18,7 +18,7 @@ public class AwardNominationStepsImplementation extends PageInitializer {
      */
     public void awardNominationSubmitterUserLogin() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonate_Any_User_Without_Landing_In_Native_View((AwardNominationConstants.SUBMITTERAWARDNOMINATION));
+        ServiceNow_Common_Methods.impersonate_Any_User_Without_Landing_In_Native_View((AwardNominationConstants.SUBMITTER_AWARD_NOMINATION));
         WebDriverUtils.webDriver.get(getAwardNominationUrl());
         CucumberLogUtils.logScreenshot();
     }

@@ -104,8 +104,8 @@ public class TestProperties {
     /**
      * AWARD NOMINATION
      */
-    public static final String AWARDNOMINATION_TEST_URL = "https://service-test.nci.nih.gov/ncisp";
-    public static String AWARDNOMINATION_URL;
+    public static final String AWARD_NOMINATION_TEST_URL = "https://service-test.nci.nih.gov/ncisp";
+    public static String AWARD_NOMINATION_URL;
 
     /**
      * E-GRANTS URLS
@@ -835,9 +835,9 @@ public class TestProperties {
     public static String getAwardNominationUrl() {
         switch (ENV.toLowerCase()) {
             case "test":
-                AWARDNOMINATION_URL = AWARDNOMINATION_TEST_URL ;
+                AWARD_NOMINATION_URL = AWARD_NOMINATION_TEST_URL ;
                 break;
         }
-        return AWARDNOMINATION_URL;
+        return AWARD_NOMINATION_URL;
     }
 }
