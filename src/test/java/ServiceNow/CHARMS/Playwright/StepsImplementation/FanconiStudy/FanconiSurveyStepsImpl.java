@@ -2797,7 +2797,7 @@ public class FanconiSurveyStepsImpl {
         CommonUtils.sleep(500);
     }
 
-    /** This method allows the submissions of the Fanconi Survey for scenario1.*/
+    /** This method allows the submissions of the Fanconi Survey.*/
     public static void  submitFanconiSurvey(){
         var page = PlaywrightUtils.page;
         assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit Fanconi Questionnaire"))).isVisible();
