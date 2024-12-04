@@ -1,7 +1,7 @@
 package ServiceNow.COVIDCode.Steps;
 
 import com.nci.automation.utils.CucumberLogUtils;
-import appsCommon.PageInitializers.PageInitializer;
+import APPS_COMMON.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

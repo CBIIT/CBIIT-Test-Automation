@@ -2,8 +2,8 @@ package ServiceNow.COVIDDash.NativeView.StepsImplementation;
 
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-import appsCommon.Utils.PageCache;
-import appsCommon.PageInitializers.PageInitializer;
+import APPS_COMMON.Utils.PageCache;
+import APPS_COMMON.PageInitializers.PageInitializer;
 
 public class NativeViewDashboardPageImpl extends PageInitializer {
 

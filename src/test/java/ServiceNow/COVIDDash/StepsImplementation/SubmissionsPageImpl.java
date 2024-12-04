@@ -5,8 +5,8 @@ import com.nci.automation.web.CommonUtils;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
-import appsCommon.Utils.PageCache;
-import appsCommon.PageInitializers.PageInitializer;
+import APPS_COMMON.Utils.PageCache;
+import APPS_COMMON.PageInitializers.PageInitializer;
 
 public class SubmissionsPageImpl extends PageInitializer {
 

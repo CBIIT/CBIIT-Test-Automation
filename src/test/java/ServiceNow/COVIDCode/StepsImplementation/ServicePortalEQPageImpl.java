@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-import appsCommon.PageInitializers.PageInitializer;
+import APPS_COMMON.PageInitializers.PageInitializer;
 
 public class ServicePortalEQPageImpl extends PageInitializer {
 	public static ServicePortalEQPageImpl obj = new ServicePortalEQPageImpl();

@@ -7,8 +7,8 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
-import appsCommon.Utils.PageCache;
-import appsCommon.PageInitializers.PageInitializer;
+import APPS_COMMON.Utils.PageCache;
+import APPS_COMMON.PageInitializers.PageInitializer;
 
 public class COVIDHomePageImpl extends PageInitializer {
 

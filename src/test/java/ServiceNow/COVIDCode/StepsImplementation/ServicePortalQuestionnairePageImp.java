@@ -6,7 +6,7 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.junit.Assert;
-import appsCommon.PageInitializers.PageInitializer;
+import APPS_COMMON.PageInitializers.PageInitializer;
 
 public class ServicePortalQuestionnairePageImp extends PageInitializer {
 
