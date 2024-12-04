@@ -1,4 +1,4 @@
-package CustomBusiness.BusinessAppRunners;
+package CustomBusiness.Egrants.Runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -8,8 +8,8 @@ import io.cucumber.testng.CucumberOptions;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
         , features = "src/test/java/CustomBusiness/Egrants/Features"
         , glue = {"CustomBusiness.Egrants.Steps", "Hooks"}
-        , tags = "@Progression"
+        , tags = "@Smoke"
         , dryRun = false
 )
-    public class RunEgrantsProgressionTest extends AbstractTestNGCucumberTests {
+    public class RunEgrantsSmokeTest extends AbstractTestNGCucumberTests {
 }
