@@ -71,6 +71,7 @@ public class AwardNominationStepsImplementation extends PageInitializer {
 
     /**
      * enter Share AppreciationText
+     * @param text
      */
     public void enterShareAppreciation(String text) {
         CommonUtils.waitForVisibility(awardNominationPage.textFieldShareAppreciation);
