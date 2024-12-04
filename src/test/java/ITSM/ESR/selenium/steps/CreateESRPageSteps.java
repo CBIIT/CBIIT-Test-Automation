@@ -1,6 +1,6 @@
 package ITSM.ESR.selenium.steps;
 
-import ServiceNow.ITSM.ESR.Selenium.StepsImplementation.CreateESRPageStepsImplementation;
+import ITSM.ESR.selenium.stepsImplementation.CreateESRPageStepsImplementation;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

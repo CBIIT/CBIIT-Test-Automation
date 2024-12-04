@@ -3,12 +3,7 @@ package ATO.Steps;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.support.PageFactory;
-
-import ServiceNow.ATO.Pages.AuditAndAccountabilityPage;
-import ServiceNow.ATO.StepsImplementation.AuditAndAccountabilityStepImpl;
-import ServiceNow.ATO.Utils.DriverObjectFactory;
-
+import ATO.StepsImplementation.AuditAndAccountabilityStepImpl;
 
 public class AuditAndAccountabilitySteps {
 

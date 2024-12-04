@@ -1,6 +1,6 @@
 package ITSM.ESR.selenium.steps;
 
-import ServiceNow.ITSM.ESR.Selenium.StepsImplementation.ESRDefaultNotificationsStepsImplementation;
+import ITSM.ESR.selenium.stepsImplementation.ESRDefaultNotificationsStepsImplementation;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;

@@ -1,8 +1,7 @@
 package ATO.StepsImplementation;
 
 import org.openqa.selenium.Keys;
-
-import ServiceNow.ATO.Pages.ConfigurationManagementPlanPage;
+import ATO.Pages.ConfigurationManagementPlanPage;
 
 public class ConfigurationManagementPlanStepsImpl extends ConfigurationManagementPlanPage{
 

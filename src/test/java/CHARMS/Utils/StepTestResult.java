@@ -1,8 +1,5 @@
 package CHARMS.Utils;
 
-import ServiceNow.CHARMS.Utils.ComparisionResult;
-import ServiceNow.CHARMS.Utils.ComponentTestResult;
-
 import java.util.ArrayList;
 import java.util.List;
 

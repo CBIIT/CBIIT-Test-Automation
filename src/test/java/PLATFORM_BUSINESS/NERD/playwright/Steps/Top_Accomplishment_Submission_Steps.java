@@ -1,6 +1,6 @@
 package PLATFORM_BUSINESS.NERD.playwright.Steps;
 
-import ServiceNow.PLATFORM_BUSINESS.NERD.playwright.StepImplementation.Top_Accomplishment_Submission_StepImpl;
+import PLATFORM_BUSINESS.NERD.playwright.StepImplementation.Top_Accomplishment_Submission_StepImpl;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.options.AriaRole;

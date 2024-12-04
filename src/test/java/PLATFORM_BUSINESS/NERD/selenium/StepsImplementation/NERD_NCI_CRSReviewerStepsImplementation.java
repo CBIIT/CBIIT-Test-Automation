@@ -1,6 +1,6 @@
 package PLATFORM_BUSINESS.NERD.selenium.StepsImplementation;
 
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Constants.ReturningSubmissions_Constants;
+import PLATFORM_BUSINESS.NERD.selenium.Constants.ReturningSubmissions_Constants;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;

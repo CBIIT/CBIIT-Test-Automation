@@ -1,13 +1,9 @@
 package ATO.Pages;
 
-import ServiceNow.ATO.Pages.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import ServiceNow.ATO.Utils.DriverObjectFactory;
+import ATO.Utils.DriverObjectFactory;
 
 public class ContingencyPlanPage extends BasePage {
 	

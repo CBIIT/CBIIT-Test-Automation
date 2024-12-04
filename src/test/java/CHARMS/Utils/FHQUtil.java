@@ -2,10 +2,6 @@ package CHARMS.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import ServiceNow.CHARMS.Utils.CharmsUtil;
-import ServiceNow.CHARMS.Utils.ComparisionResult;
-import ServiceNow.CHARMS.Utils.ComponentTestResult;
 import com.nci.automation.web.CommonUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;

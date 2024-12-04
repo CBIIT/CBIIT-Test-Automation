@@ -1,13 +1,12 @@
 package PLATFORM_BUSINESS.NERD.selenium.StepsImplementation;
 
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Constants.Covid19ActivitiesSubmissions_Constants;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Constants.Other_Accomplishments_Submissions_Constants;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Constants.ReturningSubmissions_Constants;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Pages.Covid19ActivitiesSubmissionsPage;
+import PLATFORM_BUSINESS.NERD.selenium.Constants.Covid19ActivitiesSubmissions_Constants;
+import PLATFORM_BUSINESS.NERD.selenium.Constants.Other_Accomplishments_Submissions_Constants;
+import PLATFORM_BUSINESS.NERD.selenium.Constants.ReturningSubmissions_Constants;
+import PLATFORM_BUSINESS.NERD.selenium.Pages.Covid19ActivitiesSubmissionsPage;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -27,7 +26,7 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
     public static void userIsOnTheCOVID19ActivitiesSubmissionsPage(){
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(getNerdUrl());
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19CreateNewSubmissionButton);
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19CreateNewSubmissionButton);
     }
 
     /**
@@ -66,7 +65,7 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
     public static void nerduserIsOnTheKnowledgeBasePageAsSuperUser(String superUser) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser(superUser);
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
     }
 
     /**
@@ -74,7 +73,7 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
      * when the user is on COVID-19 Activities Submission then Category is 'COVID-19 Activities'
      */
     public static void selectTheCovid19ActivitiesCategory() {
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.superUserCovid19CreateNewSubmissionButton);
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.superUserCovid19CreateNewSubmissionButton);
         CommonUtils.waitForVisibility(createNewSubmissionPage.titleTextBox);
         CommonUtils.sendKeys(createNewSubmissionPage.titleTextBox, Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX);
         CommonUtils.waitForVisibility(createNewSubmissionPage.dOCDropDown);

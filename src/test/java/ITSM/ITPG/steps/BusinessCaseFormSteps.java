@@ -1,18 +1,13 @@
 package ITSM.ITPG.steps;
 
-import static org.junit.Assert.assertTrue;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
-import ServiceNow.ITSM.ITPG.Pages.BusinessCaseFormPage;
+import ITSM.ITPG.pages.BusinessCaseFormPage;
 import io.cucumber.java.Before;
 import org.junit.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
-
-import ServiceNow.ITSM.ITPG.StepsImplementation.LoginStepsImpl;
+import ITSM.ITPG.stepsImplementation.LoginStepsImpl;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

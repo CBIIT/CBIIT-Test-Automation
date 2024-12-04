@@ -1,6 +1,6 @@
 package PLATFORM_BUSINESS.SNOWOBF.steps;
 
-import ServiceNow.PLATFORM_BUSINESS.SNOWOBF.StepImpl.OBF_NCI_Portal_Form_StepImpl;
+import PLATFORM_BUSINESS.SNOWOBF.stepsImpl.OBF_NCI_Portal_Form_StepImpl;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

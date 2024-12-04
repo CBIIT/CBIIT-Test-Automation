@@ -1,13 +1,12 @@
 package CHARMS.Steps;
 
-import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
-import ServiceNow.CHARMS.Constants.Native_View_Constants;
-import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
+import CHARMS.Constants.CHARMSRASScreenerConstants;
+import CHARMS.Constants.Native_View_Constants;
+import CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
-import ServiceNow.CHARMS.Steps.RAS_Common_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -23,8 +22,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import static Hooks.Hooks.softAssert;
-import static ServiceNow.CHARMS.Pages.MyRASHomePage.dynamicModuleLocator;
-import static ServiceNow.CHARMS.Steps.RAS_Common_Methods.*;
+import static CHARMS.Pages.MyRASHomePage.dynamicModuleLocator;
+import static CHARMS.Steps.RAS_Common_Methods.*;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 
 public class RAS_All_Steps extends PageInitializer {

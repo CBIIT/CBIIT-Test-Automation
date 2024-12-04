@@ -1,6 +1,6 @@
 package ATO.StepsImplementation;
 
-import ServiceNow.ATO.Pages.IdentityAndAccessManagementPage;
+import ATO.Pages.IdentityAndAccessManagementPage;
 
 public class IdentityAndAccessManagementStepsImpl extends IdentityAndAccessManagementPage{
 

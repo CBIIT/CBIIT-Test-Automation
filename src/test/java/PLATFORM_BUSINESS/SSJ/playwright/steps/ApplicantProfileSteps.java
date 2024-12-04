@@ -1,8 +1,8 @@
 package PLATFORM_BUSINESS.SSJ.playwright.steps;
 
-import ServiceNow.PLATFORM_BUSINESS.SSJ.playwright.Pages.*;
-import ServiceNow.PLATFORM_BUSINESS.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
-import ServiceNow.PLATFORM_BUSINESS.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
+import PLATFORM_BUSINESS.SSJ.playwright.pages.*;
+import PLATFORM_BUSINESS.SSJ.playwright.stepsImplementation.ApplicantProfileStepsImpl;
+import PLATFORM_BUSINESS.SSJ.playwright.stepsImplementation.Reset_Account_StepsImpl;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

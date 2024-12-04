@@ -1,12 +1,8 @@
 package PLATFORM_BUSINESS.NERD.selenium.StepsImplementation;
 
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Constants.ReturningSubmissions_Constants;
+import PLATFORM_BUSINESS.NERD.selenium.Constants.ReturningSubmissions_Constants;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERD_NCI_DOC_PlanningContactStepsImplementation;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERD_NCI_StaffMemberStepsImplementation;
 import com.nci.automation.web.WebDriverUtils;
 import static com.nci.automation.web.TestProperties.getNerdUrl;
 

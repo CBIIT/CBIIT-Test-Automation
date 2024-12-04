@@ -1,6 +1,6 @@
 package ITSM.ESR.playwright.steps;
 
-import ServiceNow.ITSM.ESR.Playwright.StepsImplementation.ESRNotificationStepsImplementation;
+import ITSM.ESR.playwright.stepsImplementation.ESRNotificationStepsImplementation;
 import io.cucumber.java.en.Then;
 
 public class ESRNotificationSteps {

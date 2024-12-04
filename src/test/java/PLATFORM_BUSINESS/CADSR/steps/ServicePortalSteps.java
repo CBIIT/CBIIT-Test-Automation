@@ -2,11 +2,9 @@ package PLATFORM_BUSINESS.CADSR.steps;
 
 import io.cucumber.java.Before;
 import org.testng.Assert;
-
 import com.nci.automation.utils.EncryptionUtils;
-
-import ServiceNow.PLATFORM_BUSINESS.CADSR.Pages.ServicePortalPage;
-import ServiceNow.PLATFORM_BUSINESS.CADSR.StepsImplementation.LoginStepsImpl;
+import PLATFORM_BUSINESS.CADSR.pages.ServicePortalPage;
+import PLATFORM_BUSINESS.CADSR.stepsImplementation.LoginStepsImpl;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

@@ -1,7 +1,7 @@
 package CHARMS.Steps;
 
 import com.nci.automation.web.WebDriverUtils;
-import ServiceNow.CHARMS.StepsImplementation.FHQSubmissionStepsImpl;
+import CHARMS.StepsImplementation.FHQSubmissionStepsImpl;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

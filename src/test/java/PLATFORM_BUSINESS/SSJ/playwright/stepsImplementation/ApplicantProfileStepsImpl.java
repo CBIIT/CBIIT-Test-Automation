@@ -41,7 +41,7 @@ public class ApplicantProfileStepsImpl {
             CommonUtils.sleep(3000);
             PlaywrightUtils.page.navigate(getSSJUrl());
         } else if(user.equals("OKTA_APPLICANT")) {
-            Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(ServiceNow.PLATFORM_BUSINESS.SSJ.playwright.Utils.SSJ_Constants.OKTA_APPLICANT);
+            Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(PLATFORM_BUSINESS.SSJ.playwright.utils.SSJ_Constants.OKTA_APPLICANT);
             CommonUtils.sleep(3000);
             PlaywrightUtils.page.navigate(getSSJUrl());
         }

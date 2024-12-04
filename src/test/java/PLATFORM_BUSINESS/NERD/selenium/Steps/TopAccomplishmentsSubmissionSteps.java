@@ -1,6 +1,6 @@
 package PLATFORM_BUSINESS.NERD.selenium.Steps;
 
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation;
+import PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.web.WebDriverUtils;

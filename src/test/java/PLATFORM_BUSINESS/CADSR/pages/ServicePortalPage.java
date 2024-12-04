@@ -5,8 +5,6 @@ import static org.junit.Assert.assertTrue;
 import java.time.Duration;
 import java.util.LinkedList;
 import java.util.List;
-
-import ServiceNow.PLATFORM_BUSINESS.CADSR.Pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -19,7 +17,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import com.nci.automation.web.WebDriverUtils;
-import ServiceNow.ITSM.ITPG.Utils.CommonUtils;
+import ITSM.ITPG.utils.CommonUtils;
 
 public class ServicePortalPage extends BasePage {
 

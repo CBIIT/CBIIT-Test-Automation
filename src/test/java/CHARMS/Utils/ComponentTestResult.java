@@ -1,13 +1,11 @@
 package CHARMS.Utils;
 
-import ServiceNow.CHARMS.Utils.ComparisionResult;
-
 import java.util.List;
 
 public class ComponentTestResult {
 	
 	String stepText;
-	List<ServiceNow.CHARMS.Utils.ComparisionResult> comparisionResultList;
+	List<CHARMS.Utils.ComparisionResult> comparisionResultList;
 	String componentResult;
 	
 	public String getStepText() {
@@ -16,10 +14,10 @@ public class ComponentTestResult {
 	public void setStepText(String stepText) {
 		this.stepText = stepText;
 	}
-	public List<ServiceNow.CHARMS.Utils.ComparisionResult> getComparisionResultList() {
+	public List<CHARMS.Utils.ComparisionResult> getComparisionResultList() {
 		return comparisionResultList;
 	}
-	public void setComparisionResultList(List<ServiceNow.CHARMS.Utils.ComparisionResult> comparisionResultList) {
+	public void setComparisionResultList(List<CHARMS.Utils.ComparisionResult> comparisionResultList) {
 		this.comparisionResultList = comparisionResultList;
 	}
 

@@ -2,21 +2,19 @@ package CHARMS.Steps;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
 import org.openqa.selenium.By;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-import ServiceNow.CHARMS.Constants.FHQSurveyPageConstants;
-import ServiceNow.CHARMS.Utils.ComponentTestResult;
-import ServiceNow.CHARMS.Utils.FHQUtil;
-import ServiceNow.CHARMS.Utils.StepTestResult;
+import CHARMS.Constants.FHQSurveyPageConstants;
+import CHARMS.Utils.ComponentTestResult;
+import CHARMS.Utils.FHQUtil;
+import CHARMS.Utils.StepTestResult;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.And;
-
 import static com.nci.automation.web.TestProperties.getNativeViewSideDoorUrl;
 
 public class FHQRecordProducersNativeViewSteps extends PageInitializer {

@@ -1,13 +1,12 @@
 package PLATFORM_BUSINESS.NERD.selenium.StepsImplementation;
 
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Constants.NERDOGSRMemberOfCongress_Constants;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Pages.NERDOGCRAddNewEntryPage;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Pages.NativeViewMembersOfCongressPage;
+import PLATFORM_BUSINESS.NERD.selenium.Constants.NERDOGSRMemberOfCongress_Constants;
+import PLATFORM_BUSINESS.NERD.selenium.Pages.NERDOGCRAddNewEntryPage;
+import PLATFORM_BUSINESS.NERD.selenium.Pages.NativeViewMembersOfCongressPage;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;

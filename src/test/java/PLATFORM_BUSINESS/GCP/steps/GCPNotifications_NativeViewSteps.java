@@ -1,6 +1,6 @@
 package PLATFORM_BUSINESS.GCP.steps;
 
-import ServiceNow.PLATFORM_BUSINESS.GCP.StepsImplementation.GCPNotifications_NativeViewStepImpl;
+import PLATFORM_BUSINESS.GCP.stepsImplementation.GCPNotifications_NativeViewStepImpl;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

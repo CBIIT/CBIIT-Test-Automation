@@ -2,17 +2,14 @@ package ATO.Steps;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
-
-import ServiceNow.ATO.Pages.BasePage;
-import ServiceNow.ATO.Pages.CommonPage;
-import ServiceNow.ATO.StepsImplementation.AtoStepsImpl;
-import ServiceNow.ATO.StepsImplementation.SecurityFormStepsImpl;
-import ServiceNow.ATO.Utils.Constants;
-import ServiceNow.ATO.Utils.DriverObjectFactory;
-import ServiceNow.ATO.Utils.ReportUtil;
-import io.cucumber.java.en.Given;
+import ATO.Pages.BasePage;
+import ATO.Pages.CommonPage;
+import ATO.StepsImplementation.AtoStepsImpl;
+import ATO.StepsImplementation.SecurityFormStepsImpl;
+import ATO.Utils.Constants;
+import ATO.Utils.DriverObjectFactory;
+import ATO.Utils.ReportUtil;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 

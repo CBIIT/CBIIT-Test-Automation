@@ -4,7 +4,7 @@ import CHARMS.Constants.CHARMS_Data_File_Path_Constants;
 import CHARMS.Constants.CHARMSRASScreenerConstants;
 import CHARMS.Pages.*;
 import CHARMS.Steps.RAS_Common_Methods;
-import ServiceNow.COVIDDash.Utils.COVIDConstants;
+import DEPRECATED.COVIDDash.Utils.COVIDConstants;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.Dynamic_Locators;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;

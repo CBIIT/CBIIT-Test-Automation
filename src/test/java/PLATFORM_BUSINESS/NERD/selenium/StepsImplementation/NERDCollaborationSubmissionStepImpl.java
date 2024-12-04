@@ -1,12 +1,10 @@
 package PLATFORM_BUSINESS.NERD.selenium.StepsImplementation;
 
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Constants.ReturningSubmissions_Constants;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Pages.NERDDOCCollaborationsPage;
+import PLATFORM_BUSINESS.NERD.selenium.Constants.ReturningSubmissions_Constants;
+import PLATFORM_BUSINESS.NERD.selenium.Pages.NERDDOCCollaborationsPage;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -19,7 +17,7 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
      * Creates a new submission for the Collaboration category.
      */
     public static void createsANewSubmissionForCollaborationCategory() {
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewCollaborationSubmission(
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewCollaborationSubmission(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
     }
 
@@ -29,9 +27,9 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
     public static void aRegularUserHasSubmittedACollaboration() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(getNerdUrl());
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewSubmission(
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewSubmission(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
 
@@ -45,7 +43,7 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);
         WebDriverUtils.webDriver.get(getNerdUrl());
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.clickingOnCollaborationsLink();
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.clickingOnCollaborationsLink();
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration(nameOfRecord));
         CucumberLogUtils.logScreenshot();
     }
@@ -84,9 +82,9 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
     public static void aDOCPlanningContactClicksTheSubmitToCRSButtonForACollaboration(String docPlanningContact) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(getNerdUrl());
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewSubmission(
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewSubmission(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
         ServiceNow_Common_Methods.logOutOfNativeView();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser(docPlanningContact);

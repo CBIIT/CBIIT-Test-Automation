@@ -1,6 +1,6 @@
 package PLATFORM_BUSINESS.ETracking.steps;
 
-import ServiceNow.PLATFORM_BUSINESS.ETracking.StepsImplementation.EtrackAssetsRecords_NativeViewStepImplimentation;
+import PLATFORM_BUSINESS.ETracking.stepsImplementation.EtrackAssetsRecords_NativeViewStepImplimentation;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

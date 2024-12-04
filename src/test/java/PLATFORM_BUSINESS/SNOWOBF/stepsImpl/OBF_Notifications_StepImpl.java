@@ -1,11 +1,10 @@
 package PLATFORM_BUSINESS.SNOWOBF.stepsImpl;
 
-import ServiceNow.PLATFORM_BUSINESS.SNOWOBF.Pages.OBF_NCI_NV_Form_Page;
-import ServiceNow.PLATFORM_BUSINESS.SNOWOBF.Pages.OBF_NCI_Portal_Form_Page;
-import ServiceNow.PLATFORM_BUSINESS.SNOWOBF.Pages.OBF_Notifications_Page;
-import ServiceNow.PLATFORM_BUSINESS.SNOWOBF.Pages.NCISP_Portal_Page;
+import PLATFORM_BUSINESS.SNOWOBF.pages.OBF_NCI_NV_Form_Page;
+import PLATFORM_BUSINESS.SNOWOBF.pages.OBF_NCI_Portal_Form_Page;
+import PLATFORM_BUSINESS.SNOWOBF.pages.OBF_Notifications_Page;
+import PLATFORM_BUSINESS.SNOWOBF.pages.NCISP_Portal_Page;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
-import ServiceNow.PLATFORM_BUSINESS.SNOWOBF.StepImpl.OBF_NCI_NV_Form_StepImpl;
 import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;

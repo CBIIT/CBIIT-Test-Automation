@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import ServiceNow.ATO.Pages.BasePage;
+import ATO.Pages.BasePage;
 
 public class LoginStepsImplCCR extends BasePage {
 

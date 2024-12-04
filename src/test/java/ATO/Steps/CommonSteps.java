@@ -5,10 +5,9 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
-
-import ServiceNow.ATO.Pages.BasePage;
-import ServiceNow.ATO.Pages.CommonPage;
-import ServiceNow.ATO.Utils.DriverObjectFactory;
+import ATO.Pages.BasePage;
+import ATO.Pages.CommonPage;
+import ATO.Utils.DriverObjectFactory;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 

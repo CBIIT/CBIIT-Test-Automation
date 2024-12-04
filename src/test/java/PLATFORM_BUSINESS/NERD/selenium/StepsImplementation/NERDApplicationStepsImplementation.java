@@ -1,12 +1,11 @@
 package PLATFORM_BUSINESS.NERD.selenium.StepsImplementation;
 
-import ServiceNow.COVIDDash.Utils.COVIDConstants;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Constants.NCI_Staff_Members_Constants;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Constants.ReturningSubmissions_Constants;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Constants.TopAccomplishmentsSubmission_Constants;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Pages.NERDDynamicXPATHS;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERD_CRS_ReviewersStepImplementation;
-import ServiceNow.PLATFORM_BUSINESS.SEER.Constants.SEERNativeView_Constants;
+import DEPRECATED.COVIDDash.Utils.COVIDConstants;
+import PLATFORM_BUSINESS.NERD.selenium.Constants.NCI_Staff_Members_Constants;
+import PLATFORM_BUSINESS.NERD.selenium.Constants.ReturningSubmissions_Constants;
+import PLATFORM_BUSINESS.NERD.selenium.Constants.TopAccomplishmentsSubmission_Constants;
+import PLATFORM_BUSINESS.NERD.selenium.Pages.NERDDynamicXPATHS;
+import PLATFORM_BUSINESS.SEER.constants.SEERNativeView_Constants;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;

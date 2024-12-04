@@ -1,6 +1,6 @@
 package CHARMS.Playwright.StepsImplementation.FanconiStudy;
 
-import ServiceNow.CHARMS.Playwright.Pages.FanconiStudy.FanconiSurveyPage;
+import CHARMS.Playwright.Pages.FanconiStudy.FanconiSurveyPage;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Locator;

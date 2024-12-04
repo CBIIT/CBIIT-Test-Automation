@@ -1,9 +1,9 @@
 package PLATFORM_BUSINESS.SEER.steps;
 
-import ServiceNow.PLATFORM_BUSINESS.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
-import ServiceNow.PLATFORM_BUSINESS.SEER.StepsImplementation.SEERDataRejectionStepImpl;
-import ServiceNow.PLATFORM_BUSINESS.SEER.StepsImplementation.SEERLandingPageStepImpl;
-import ServiceNow.PLATFORM_BUSINESS.SEER.StepsImplementation.SEERUserRegistrationPageStepImpl;
+import PLATFORM_BUSINESS.SEER.stepsImplementation.SEERDataAccessRequestPageStepsImpl;
+import PLATFORM_BUSINESS.SEER.stepsImplementation.SEERDataRejectionStepImpl;
+import PLATFORM_BUSINESS.SEER.stepsImplementation.SEERLandingPageStepImpl;
+import PLATFORM_BUSINESS.SEER.stepsImplementation.SEERUserRegistrationPageStepImpl;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.WebDriverUtils;
 import APPS_COMMON.PageInitializers.PageInitializer;

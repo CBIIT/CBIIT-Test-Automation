@@ -1,8 +1,5 @@
 package PLATFORM_BUSINESS.SNOWOBF.pages;
 
-import ServiceNow.PLATFORM_BUSINESS.SNOWOBF.Pages.OBF_NCI_NV_Form_Page;
-import ServiceNow.PLATFORM_BUSINESS.SNOWOBF.Pages.OBF_NCI_Portal_Form_Page;
-
 public class OBF_Notifications_Page {
 
     /***
@@ -219,7 +216,7 @@ public class OBF_Notifications_Page {
     /***
      * NV EMAIL NOTIFICATION APPLICATION CONTENT LINE
      */
-    public static String nv_Email_Notification_Application_Content_Line = "Application: " + ServiceNow.PLATFORM_BUSINESS.SNOWOBF.Pages.OBF_NCI_NV_Form_Page.obf_NV_Page_Selected_Application_OneStream_BUS_Value;
+    public static String nv_Email_Notification_Application_Content_Line = "Application: " + PLATFORM_BUSINESS.SNOWOBF.pages.OBF_NCI_NV_Form_Page.obf_NV_Page_Selected_Application_OneStream_BUS_Value;
 
     /***
      * NV EMAIL NOTIFICATION TOPIC CONTENT LINE

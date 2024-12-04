@@ -1,10 +1,10 @@
 package PLATFORM_BUSINESS.CADSR.steps;
 
-import ServiceNow.PLATFORM_BUSINESS.CADSR.StepsImplementation.LoginStepsImpl;
+import PLATFORM_BUSINESS.CADSR.stepsImplementation.LoginStepsImpl;
 import io.cucumber.java.Before;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
-import ServiceNow.PLATFORM_BUSINESS.CADSR.Pages.NativeViewPage;
+import PLATFORM_BUSINESS.CADSR.pages.NativeViewPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

@@ -1,8 +1,6 @@
 package PLATFORM_BUSINESS.CADSR.pages;
 
 import java.util.List;
-
-import ServiceNow.PLATFORM_BUSINESS.CADSR.Pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchFrameException;
@@ -12,10 +10,8 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-
 import com.nci.automation.web.WebDriverUtils;
-
-import ServiceNow.ITSM.ITPG.Utils.CommonUtils;
+import ITSM.ITPG.utils.CommonUtils;
 import junit.framework.Assert;
 
 public class NativeViewPage extends BasePage {

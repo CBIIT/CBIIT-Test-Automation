@@ -675,9 +675,9 @@ public class OWM_Vacancy_Manager_StepsImpl {
         List<ElementHandle> pagination = page.querySelectorAll("//a[@rel='nofollow']");
         for (ElementHandle itemPage : pagination) {
             if (page.querySelector("//a[normalize-space()='" + vacancyTitle + " " + timestamp + "']") != null) {
-                String actualVacancy = page.locator("//a[normalize-space()='" + vacancyTitle + ' ' + ServiceNow.PLATFORM_BUSINESS.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl.timestamp).innerText();
+                String actualVacancy = page.locator("//a[normalize-space()='" + vacancyTitle + ' ' + PLATFORM_BUSINESS.SSJ.playwright.stepsImplementation.ApplicantProfileStepsImpl.timestamp).innerText();
                 CommonUtils.sleep(2000);
-                System.out.println("Timestamp before assertion: " + ServiceNow.PLATFORM_BUSINESS.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl.timestamp);
+                System.out.println("Timestamp before assertion: " + PLATFORM_BUSINESS.SSJ.playwright.stepsImplementation.ApplicantProfileStepsImpl.timestamp);
                 String expectedVacancy = vacancyTitle + " " + ApplicantProfileStepsImpl.timestamp;
                 Hooks.softAssert.assertEquals(actualVacancy,expectedVacancy);
                 break;

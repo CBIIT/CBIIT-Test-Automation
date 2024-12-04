@@ -1,16 +1,11 @@
 package ATO.Pages;
 
 import java.util.List;
-
-import ServiceNow.ATO.Pages.BasePage;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import ServiceNow.ATO.Utils.CommonUtils;
-import ServiceNow.ATO.Utils.DriverObjectFactory;
+import ATO.Utils.DriverObjectFactory;
 
 public class NewProjectPage extends BasePage {
 	

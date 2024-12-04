@@ -1,8 +1,8 @@
 package PLATFORM_BUSINESS.OFFBOARD.steps;
 
-import ServiceNow.PLATFORM_BUSINESS.OFFBOARD.Constants.CBIIT_OFFBOARD_FORM_Constants;
-import ServiceNow.PLATFORM_BUSINESS.OFFBOARD.Pages.OFFBOARD_Page;
-import ServiceNow.PLATFORM_BUSINESS.OFFBOARD.StepsImplementation.OFFBOARD_StepsImpl;
+import PLATFORM_BUSINESS.OFFBOARD.constants.CBIIT_OFFBOARD_FORM_Constants;
+import PLATFORM_BUSINESS.OFFBOARD.pages.OFFBOARD_Page;
+import PLATFORM_BUSINESS.OFFBOARD.stepsImplementation.OFFBOARD_StepsImpl;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;

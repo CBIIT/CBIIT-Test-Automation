@@ -1,11 +1,11 @@
 package APPS_COMMON.Utils;
 
-import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
-import ServiceNow.COVIDDash.NativeView.StepsImplementation.NativeViewDashboardPageImpl;
-import ServiceNow.COVIDDash.Pages.COVIDHomePage;
-import ServiceNow.COVIDDash.Pages.SubmissionsPage;
-import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
-import ServiceNow.COVIDDash.StepsImplementation.SubmissionsPageImpl;
+import DEPRECATED.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
+import DEPRECATED.COVIDDash.NativeView.StepsImplementation.NativeViewDashboardPageImpl;
+import DEPRECATED.COVIDDash.Pages.COVIDHomePage;
+import DEPRECATED.COVIDDash.Pages.SubmissionsPage;
+import DEPRECATED.COVIDDash.StepsImplementation.COVIDHomePageImpl;
+import DEPRECATED.COVIDDash.StepsImplementation.SubmissionsPageImpl;
 import APPS_COMMON.Pages.ITrustLoginPage;
 import APPS_COMMON.StepsImplementation.ITrustLoginPageImpl;
 

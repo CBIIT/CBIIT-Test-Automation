@@ -1,9 +1,6 @@
 package ATO.Pages;
 
-import static org.junit.Assert.assertEquals;
 import java.util.List;
-
-import ServiceNow.ATO.Pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchFrameException;

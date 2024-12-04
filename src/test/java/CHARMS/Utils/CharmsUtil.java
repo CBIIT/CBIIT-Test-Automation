@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import ServiceNow.CHARMS.Utils.ComparisionResult;
-import ServiceNow.CHARMS.Utils.ComponentTestResult;
 import com.nci.automation.web.CommonUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;

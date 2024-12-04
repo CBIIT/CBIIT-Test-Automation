@@ -1,10 +1,9 @@
 package CHARMS.Steps;
 
-import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
-import ServiceNow.CHARMS.Constants.Native_View_Constants;
-import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
-import ServiceNow.CHARMS.Steps.RAS_All_Steps;
-import ServiceNow.COVIDDash.Utils.COVIDConstants;
+import CHARMS.Constants.CHARMSRASScreenerConstants;
+import CHARMS.Constants.Native_View_Constants;
+import CHARMS.Pages.NativeViewCHARMSDashboardPage;
+import DEPRECATED.COVIDDash.Utils.COVIDConstants;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;

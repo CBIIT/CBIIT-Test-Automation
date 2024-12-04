@@ -1,7 +1,6 @@
 package ITSM.ESR.playwright.stepsImplementation;
 
-import ServiceNow.ITSM.ESR.Playwright.Pages.CreateESRPage;
-
+import ITSM.ESR.playwright.pages.CreateESRPage;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 

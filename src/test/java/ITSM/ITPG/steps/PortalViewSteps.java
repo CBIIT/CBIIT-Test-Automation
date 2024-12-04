@@ -1,10 +1,10 @@
 package ITSM.ITPG.steps;
 
-import ServiceNow.ITSM.ITPG.Pages.PortalViewPage;
+import ITSM.ITPG.pages.PortalViewPage;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
-import ServiceNow.ITSM.ITPG.StepsImplementation.LoginStepsImpl;
+import ITSM.ITPG.stepsImplementation.LoginStepsImpl;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

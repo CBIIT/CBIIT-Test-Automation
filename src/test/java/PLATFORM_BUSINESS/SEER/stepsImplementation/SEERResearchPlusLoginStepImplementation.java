@@ -1,6 +1,6 @@
 package PLATFORM_BUSINESS.SEER.stepsImplementation;
 
-import ServiceNow.PLATFORM_BUSINESS.SEER.Constants.SEERDataAccessRequest_Constants;
+import PLATFORM_BUSINESS.SEER.constants.SEERDataAccessRequest_Constants;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;

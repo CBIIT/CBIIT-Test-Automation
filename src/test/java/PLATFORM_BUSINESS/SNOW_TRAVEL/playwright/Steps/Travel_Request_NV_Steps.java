@@ -1,6 +1,6 @@
 package PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.Steps;
 
-import ServiceNow.PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.StepImpl.Travel_Request_NV_StepImpl;
+import PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.stepsImpl.Travel_Request_NV_StepImpl;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Locator;

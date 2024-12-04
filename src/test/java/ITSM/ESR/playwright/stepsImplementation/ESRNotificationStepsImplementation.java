@@ -1,6 +1,6 @@
 package ITSM.ESR.playwright.stepsImplementation;
 
-import ServiceNow.ITSM.ESR.Playwright.Pages.CreateESRPage;
+import ITSM.ESR.playwright.pages.CreateESRPage;
 import APPS_COMMON.Pages.Playwright_Common_Locators;
 import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.options.AriaRole;

@@ -1,7 +1,7 @@
 package PLATFORM_BUSINESS.NERD.selenium.Steps;
 
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDOGSRMemberOfCongressStepImpl;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NerdOGCREntryPageStepsImplementation;
+import PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDOGSRMemberOfCongressStepImpl;
+import PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NerdOGCREntryPageStepsImplementation;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;

@@ -1,6 +1,6 @@
 package PLATFORM_BUSINESS.GCP.stepsImplementation;
 
-import ServiceNow.PLATFORM_BUSINESS.GCP.Constants.GCPNotifications_NativeView_Constants;
+import PLATFORM_BUSINESS.GCP.constants.GCPNotifications_NativeView_Constants;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;

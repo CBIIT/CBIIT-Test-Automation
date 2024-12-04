@@ -1,6 +1,6 @@
 package ITSM.ESR.playwright.steps;
 
-import ServiceNow.ITSM.ESR.Playwright.StepsImplementation.ESRTaskStepsImplementation;
+import ITSM.ESR.playwright.stepsImplementation.ESRTaskStepsImplementation;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 

@@ -1,13 +1,12 @@
 package PLATFORM_BUSINESS.SEER.stepsImplementation;
 
-import ServiceNow.PLATFORM_BUSINESS.SEER.Constants.Registration_Constants;
-import ServiceNow.PLATFORM_BUSINESS.SEER.Constants.SEERDataRejection_Constants;
-import ServiceNow.PLATFORM_BUSINESS.SEER.Constants.SEERNativeView_Constants;
+import PLATFORM_BUSINESS.SEER.constants.Registration_Constants;
+import PLATFORM_BUSINESS.SEER.constants.SEERDataRejection_Constants;
+import PLATFORM_BUSINESS.SEER.constants.SEERNativeView_Constants;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
-import ServiceNow.PLATFORM_BUSINESS.SEER.StepsImplementation.SEERUserRegistrationPageStepImpl;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;

@@ -1,7 +1,7 @@
 package PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.stepsImpl;
 
-import ServiceNow.PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.Constants.Travel_Request_NV_Contants;
-import ServiceNow.PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.Constants.Travel_Request_Portal_Form_Constants;
+import PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.constants.Travel_Request_NV_Contants;
+import PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.constants.Travel_Request_Portal_Form_Constants;
 import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;

@@ -1,7 +1,7 @@
 package PLATFORM_BUSINESS.SEER.steps;
 
-import ServiceNow.PLATFORM_BUSINESS.SEER.Constants.DUA_Constants;
-import ServiceNow.PLATFORM_BUSINESS.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
+import PLATFORM_BUSINESS.SEER.constants.DUA_Constants;
+import PLATFORM_BUSINESS.SEER.stepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;

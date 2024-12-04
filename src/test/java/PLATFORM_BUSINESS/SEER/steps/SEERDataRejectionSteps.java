@@ -1,6 +1,6 @@
 package PLATFORM_BUSINESS.SEER.steps;
 
-import ServiceNow.PLATFORM_BUSINESS.SEER.StepsImplementation.SEERDataRejectionStepImpl;
+import PLATFORM_BUSINESS.SEER.stepsImplementation.SEERDataRejectionStepImpl;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;

@@ -2,17 +2,9 @@ package ATO.Steps;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.TimeZone;
-
-import ServiceNow.ATO.StepsImplementation.AtoStepsImpl;
+import ATO.StepsImplementation.AtoStepsImpl;
 import io.cucumber.java.Before;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 
 public class AtoSteps {
 	private AtoStepsImpl atoStepsImpl;

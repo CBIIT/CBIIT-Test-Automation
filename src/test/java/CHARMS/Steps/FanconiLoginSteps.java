@@ -3,7 +3,7 @@ package CHARMS.Steps;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-import ServiceNow.CHARMS.Utils.CharmsUtil;
+import CHARMS.Utils.CharmsUtil;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import static com.nci.automation.web.TestProperties.getFanconiUrl;

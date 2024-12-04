@@ -1,8 +1,7 @@
 package PLATFORM_BUSINESS.SEER.stepsImplementation;
 
-import ServiceNow.PLATFORM_BUSINESS.SEER.Constants.Registration_Constants;
+import PLATFORM_BUSINESS.SEER.constants.Registration_Constants;
 import APPS_COMMON.PageInitializers.PageInitializer;
-import ServiceNow.PLATFORM_BUSINESS.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;

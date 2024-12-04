@@ -1,7 +1,7 @@
 package PLATFORM_BUSINESS.NERD.selenium.Steps;
 
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERD_CRS_ReviewersStepImplementation;
+import PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation;
+import PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERD_CRS_ReviewersStepImplementation;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

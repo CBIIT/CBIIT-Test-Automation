@@ -1,8 +1,8 @@
 package PLATFORM_BUSINESS.SSJ.playwright.steps;
 
 import Hooks.Hooks;
-import ServiceNow.PLATFORM_BUSINESS.SSJ.playwright.Pages.Mandatory_Statements_Page;
-import ServiceNow.PLATFORM_BUSINESS.SSJ.playwright.StepsImplementation.OWM_Vacancy_Manager_StepsImpl;
+import PLATFORM_BUSINESS.SSJ.playwright.pages.Mandatory_Statements_Page;
+import PLATFORM_BUSINESS.SSJ.playwright.stepsImplementation.OWM_Vacancy_Manager_StepsImpl;
 import APPS_COMMON.Pages.Playwright_Common_Locators;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;

@@ -1,7 +1,7 @@
 package PLATFORM_BUSINESS.SSJ.playwright.stepsImplementation;
 
-import ServiceNow.PLATFORM_BUSINESS.SSJ.playwright.Pages.User_Table_Page;
-import ServiceNow.PLATFORM_BUSINESS.SSJ.playwright.Utils.SSJ_Constants;
+import PLATFORM_BUSINESS.SSJ.playwright.pages.User_Table_Page;
+import PLATFORM_BUSINESS.SSJ.playwright.utils.SSJ_Constants;
 import APPS_COMMON.Pages.Playwright_NativeView_Dashboard_Page;
 import APPS_COMMON.Pages.Playwright_ServiceNow_NCISP_Page;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;

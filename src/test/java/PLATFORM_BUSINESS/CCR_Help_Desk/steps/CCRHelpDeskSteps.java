@@ -1,7 +1,7 @@
 package PLATFORM_BUSINESS.CCR_Help_Desk.steps;
 
-import ServiceNow.CcrHelpDesk.Pages.CCRHelpDeskPage;
-import ServiceNow.CcrHelpDesk.Pages.LoginStepsImplCCR;
+import PLATFORM_BUSINESS.CCR_Help_Desk.pages.CCRHelpDeskPage;
+import PLATFORM_BUSINESS.CCR_Help_Desk.pages.LoginStepsImplCCR;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

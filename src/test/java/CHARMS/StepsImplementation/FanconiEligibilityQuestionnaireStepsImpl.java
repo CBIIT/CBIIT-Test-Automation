@@ -21,7 +21,7 @@ import static com.nci.automation.web.TestProperties.getNCISPUrl;
 
 public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     String referralValue;
-    String excelSheet = "ServiceNow/CHARMS/Resources/data.xlsx";
+    String excelSheet = "DEPRECATED/CHARMS/Resources/data.xlsx";
     Map<String, String> currentRow;
     Map<String, String> currentRowForCancerHistory;
     Map<String, String> currentRowForAnotherStudy;

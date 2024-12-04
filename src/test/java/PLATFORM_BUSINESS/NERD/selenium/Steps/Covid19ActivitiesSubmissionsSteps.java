@@ -1,6 +1,6 @@
 package PLATFORM_BUSINESS.NERD.selenium.Steps;
 
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.Covid19ActivitiesSubmissionsStepImplementation;
+import PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.Covid19ActivitiesSubmissionsStepImplementation;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;

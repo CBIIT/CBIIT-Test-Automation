@@ -1,7 +1,7 @@
 package PLATFORM_BUSINESS.CADSR.stepsImplementation;
 
 import com.nci.automation.web.CommonUtils;
-import ServiceNow.ITSM.ITPG.Pages.LoginPage;
+import ITSM.ITPG.pages.LoginPage;
 
 public class LoginStepsImpl extends LoginPage {
 

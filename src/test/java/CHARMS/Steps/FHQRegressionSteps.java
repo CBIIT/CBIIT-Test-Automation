@@ -1,7 +1,7 @@
 package CHARMS.Steps;
 
 import java.util.ArrayList;
-import ServiceNow.CHARMS.Utils.StepTestResult;
+import CHARMS.Utils.StepTestResult;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Then;

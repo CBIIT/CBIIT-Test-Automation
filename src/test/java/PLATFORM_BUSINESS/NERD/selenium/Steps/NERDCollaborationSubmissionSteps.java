@@ -1,7 +1,7 @@
 package PLATFORM_BUSINESS.NERD.selenium.Steps;
 
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Constants.ReturningSubmissions_Constants;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.*;
+import PLATFORM_BUSINESS.NERD.selenium.Constants.ReturningSubmissions_Constants;
+import PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.*;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;

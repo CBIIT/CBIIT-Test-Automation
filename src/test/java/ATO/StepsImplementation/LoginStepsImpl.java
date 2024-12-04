@@ -1,9 +1,8 @@
 package ATO.StepsImplementation;
 
 import org.openqa.selenium.By;
-
-import ServiceNow.ATO.Pages.LoginPage;
-import ServiceNow.ATO.Utils.CommonUtils;
+import ATO.Pages.LoginPage;
+import ATO.Utils.CommonUtils;
 
 public class LoginStepsImpl extends LoginPage {
 

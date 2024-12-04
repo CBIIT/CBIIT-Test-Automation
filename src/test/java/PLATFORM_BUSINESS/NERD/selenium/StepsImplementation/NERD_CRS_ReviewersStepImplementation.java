@@ -1,11 +1,10 @@
 package PLATFORM_BUSINESS.NERD.selenium.StepsImplementation;
 
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Pages.NERDCRSTOtherAccomplishmentsPage;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Pages.NERDKnowledgebasePage;
+import PLATFORM_BUSINESS.NERD.selenium.Pages.NERDCRSTOtherAccomplishmentsPage;
+import PLATFORM_BUSINESS.NERD.selenium.Pages.NERDKnowledgebasePage;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -24,7 +23,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
     public static void aCRSReviewerIsLoggedIntoNERDsCRSKnowledgeManagementSystem(String crsReviewer) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser(crsReviewer);
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
     }
 
     /**
@@ -43,7 +42,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
                                                                    String congressionalJustification, String hhsRequests, String antiHarrassmentCivilityMaterial,
                                                                    String donnasBlog, String furloughPlanning, String equityAndInclusionProgram,
                                                                    String covid19LeadershipMessages) {
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.verifyingOfOM_CheckBoxes(administrationTransitionMaterial,
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.verifyingOfOM_CheckBoxes(administrationTransitionMaterial,
                 congressionalJustification, hhsRequests, antiHarrassmentCivilityMaterial, donnasBlog,
                 furloughPlanning,
                 equityAndInclusionProgram, covid19LeadershipMessages);

@@ -5,8 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import com.nci.automation.web.JavascriptUtils;
-import ServiceNow.ITSM.ITPG.Pages.LoginPage;
-import ServiceNow.ITSM.ITPG.Utils.CommonUtils;
+import ITSM.ITPG.pages.LoginPage;
+import ITSM.ITPG.utils.CommonUtils;
 
 public class LoginStepsImpl extends LoginPage {
 

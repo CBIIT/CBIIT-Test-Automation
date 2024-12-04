@@ -1,7 +1,7 @@
 package PLATFORM_BUSINESS.ETracking.stepsImplementation;
 
-import ServiceNow.PLATFORM_BUSINESS.ETracking.Constants.EtrackAssetsRecords_NativeView_Constants;
-import ServiceNow.PLATFORM_BUSINESS.SEER.Constants.SEERNativeView_Constants;
+import PLATFORM_BUSINESS.ETracking.constants.EtrackAssetsRecords_NativeView_Constants;
+import PLATFORM_BUSINESS.SEER.constants.SEERNativeView_Constants;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;

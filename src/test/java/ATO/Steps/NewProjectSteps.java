@@ -2,14 +2,11 @@ package ATO.Steps;
 
 import io.cucumber.java.Before;
 import org.openqa.selenium.support.PageFactory;
-
-import ServiceNow.ATO.Pages.BasePage;
-import ServiceNow.ATO.Pages.NewProjectPage;
-import ServiceNow.ATO.StepsImplementation.NewProjectStepsImpl;
-import ServiceNow.ATO.Utils.DriverObjectFactory;
-import io.cucumber.java.en.Given;
+import ATO.Pages.BasePage;
+import ATO.Pages.NewProjectPage;
+import ATO.StepsImplementation.NewProjectStepsImpl;
+import ATO.Utils.DriverObjectFactory;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 
 public class NewProjectSteps {
 	private NewProjectStepsImpl newProjectStepsImpl;

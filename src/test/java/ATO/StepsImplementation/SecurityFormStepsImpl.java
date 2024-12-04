@@ -5,12 +5,10 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-
-import ServiceNow.ATO.Pages.SecurityFormPage;
-import ServiceNow.ATO.Utils.CommonUtils;
-import ServiceNow.ATO.Utils.Constants;
-import ServiceNow.ATO.Utils.ReportUtil;
+import ATO.Pages.SecurityFormPage;
+import ATO.Utils.CommonUtils;
+import ATO.Utils.Constants;
+import ATO.Utils.ReportUtil;
 
 public class SecurityFormStepsImpl extends SecurityFormPage {
 

@@ -1,6 +1,6 @@
 package ITSM.ESR.playwright.steps;
 
-import ServiceNow.ITSM.ESR.Playwright.StepsImplementation.CreateESRPageStepsImplementation;
+import ITSM.ESR.playwright.stepsImplementation.CreateESRPageStepsImplementation;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

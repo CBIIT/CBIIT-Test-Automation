@@ -1,6 +1,6 @@
 package ITSM.ESR.playwright.steps;
 
-import ServiceNow.ITSM.ESR.Playwright.StepsImplementation.ESRApprovalStepsImplementation;
+import ITSM.ESR.playwright.stepsImplementation.ESRApprovalStepsImplementation;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
@@ -20,6 +20,7 @@ public class ESRApprovalSteps {
     public void the_user_is_approved_from_the_esr_board_approvers() {
         ESRApprovalStepsImplementation.esrBoardIntakeApprovals();
     }
+
     @Then("the user confirms the ESR Board Intake Approvals are completed")
     public void the_user_confirms_the_esr_board_intake_approvals_are_completed() {
         ESRApprovalStepsImplementation.confirmESRBoardIntakeApprovalsAreCompleted();

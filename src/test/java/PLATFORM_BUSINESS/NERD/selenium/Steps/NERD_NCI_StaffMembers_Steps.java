@@ -1,7 +1,7 @@
 package PLATFORM_BUSINESS.NERD.selenium.Steps;
 
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERD_NCI_StaffMemberStepsImplementation;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Constants.*;
+import PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERD_NCI_StaffMemberStepsImplementation;
+import PLATFORM_BUSINESS.NERD.selenium.Constants.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

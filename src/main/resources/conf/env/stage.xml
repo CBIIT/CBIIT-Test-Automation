@@ -626,7 +626,7 @@
     </application>
 
     <!-- Application ID for Native View -->
-    <application id="ServiceNow NCISP">
+    <application id="DEPRECATED NCISP">
         <login_url>https://service-stage.nci.nih.gov/ncisp</login_url> <!-- add test
 			url -->
         <role name="Role">

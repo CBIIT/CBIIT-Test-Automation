@@ -3,17 +3,12 @@ package ATO.Steps;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.support.PageFactory;
-
-import ServiceNow.ATO.Pages.BasePage;
-import ServiceNow.ATO.Pages.CommonPage;
-import ServiceNow.ATO.Pages.ConfigurationManagementPlanPage;
-import ServiceNow.ATO.StepsImplementation.ConfigurationManagementPlanStepsImpl;
-import ServiceNow.ATO.Utils.CommonUtils;
-import ServiceNow.ATO.Utils.DriverObjectFactory;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
+import ATO.Pages.BasePage;
+import ATO.Pages.CommonPage;
+import ATO.StepsImplementation.ConfigurationManagementPlanStepsImpl;
+import ATO.Utils.CommonUtils;
+import ATO.Utils.DriverObjectFactory;
 import io.cucumber.java.en.When;
-
 
 public class ConfigurationManagementPlanSteps {
 

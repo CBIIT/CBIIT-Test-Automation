@@ -1,6 +1,6 @@
 package CHARMS.Steps;
 
-import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
+import CHARMS.StepsImplementation.TestAccountResetImpl;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

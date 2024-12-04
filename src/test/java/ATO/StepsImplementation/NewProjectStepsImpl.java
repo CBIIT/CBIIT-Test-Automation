@@ -1,14 +1,11 @@
 package ATO.StepsImplementation;
 
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-
-import ServiceNow.ATO.Pages.NewProjectPage;
-import ServiceNow.ATO.Utils.CommonUtils;
-import ServiceNow.ATO.Utils.Constants;
+import ATO.Pages.NewProjectPage;
+import ATO.Utils.CommonUtils;
 
 public class NewProjectStepsImpl extends NewProjectPage {
 

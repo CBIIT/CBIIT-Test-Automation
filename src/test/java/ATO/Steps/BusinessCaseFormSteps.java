@@ -4,10 +4,8 @@ import io.cucumber.java.Before;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.EncryptionUtils;
-
-import ServiceNow.ATO.Pages.BusinessCaseFormPage;
-import ServiceNow.ATO.StepsImplementation.LoginStepsImpl;
+import ATO.Pages.BusinessCaseFormPage;
+import ATO.StepsImplementation.LoginStepsImpl;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

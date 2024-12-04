@@ -1,10 +1,9 @@
 package PLATFORM_BUSINESS.NERD.selenium.StepsImplementation;
 
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.Constants.*;
+import PLATFORM_BUSINESS.NERD.selenium.Constants.*;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
-import ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -69,8 +68,8 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      */
     public static void creatingOfSubmissionByProgramStaff(String submissionName) {
         WebDriverUtils.webDriver.get(getNerdUrl());
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember(submissionName);
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember(submissionName);
     }
 
     /**
@@ -106,8 +105,8 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      * NCI Staff Member submits Top Accomplishment submission to DOC planning Contact
      */
     public static void nci_staff_member_submits_new_top_accomplishments_submission() {
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentsCreateNewSubmissionLink);
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.filingOutAllRequiredFieldsOfSubmission();
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentsCreateNewSubmissionLink);
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.filingOutAllRequiredFieldsOfSubmission();
         CommonUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.newSubmissionsPageSubmitButton);
         CommonUtils.sleep(2000);
@@ -213,7 +212,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      * NCI Staff Member submits Other Accomplishment submission to DOC planning Contact
      */
     public static void nci_staff_member_submits_new_other_accomplishments_submission() {
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.otherAccomplishmentsCreateNewSubmissionLink);
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.otherAccomplishmentsCreateNewSubmissionLink);
         CommonUtils.waitForVisibility(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.submissionsCategory(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSIONS_PAGE_CATEGORY_VALUE));
@@ -344,7 +343,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      * This method represents the process of an NCI staff member submitting a new Collaborations submission.
      */
     public static void nci_staff_member_submits_new_collaborations_submission() {
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewCollaborationSubmission(
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewCollaborationSubmission(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
         CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
@@ -453,7 +452,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19CreateNewSubmissionButton);
         JavascriptUtils.drawBlueBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19CreateNewSubmissionButton);
         CommonUtils.sleep(2000);
-        ServiceNow.PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19CreateNewSubmissionButton);
+        PLATFORM_BUSINESS.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19CreateNewSubmissionButton);
         CommonUtils.waitForVisibility(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.submissionsCategory(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE));

@@ -2,8 +2,7 @@ package ATO.StepsImplementation;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-
-import ServiceNow.ATO.Pages.ContingencyPlanPage;
+import ATO.Pages.ContingencyPlanPage;
 
 public class ContingencyPlanStepsImpl extends ContingencyPlanPage{
 

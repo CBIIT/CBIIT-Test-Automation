@@ -1,18 +1,10 @@
 package ATO.Pages;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.WebDriverUtils;
-
-import ServiceNow.ATO.Utils.CommonUtils;
-import ServiceNow.ATO.Utils.DriverObjectFactory;
 
 public class AtoPage extends BasePage {
 

@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 import org.junit.Assert;
 import com.nci.automation.web.CommonUtils;
-import ServiceNow.CHARMS.Constants.FHQSurveyPageConstants;
-import ServiceNow.CHARMS.Utils.ComponentTestResult;
-import ServiceNow.CHARMS.Utils.FHQUtil;
-import ServiceNow.CHARMS.Utils.StepTestResult;
+import CHARMS.Constants.FHQSurveyPageConstants;
+import CHARMS.Utils.ComponentTestResult;
+import CHARMS.Utils.FHQUtil;
+import CHARMS.Utils.StepTestResult;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

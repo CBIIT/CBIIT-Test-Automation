@@ -1,27 +1,18 @@
 package ATO.Pages;
 
 import java.util.List;
-
-import ServiceNow.ATO.Pages.BasePage;
-import ServiceNow.ATO.Pages.CommonPage;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import ServiceNow.ATO.Utils.CommonUtils;
-import ServiceNow.ATO.Utils.Constants;
-import ServiceNow.ATO.Utils.DriverObjectFactory;
-import ServiceNow.ATO.Utils.ReportUtil;
-//import io.cucumber.java.Scenario;
+import ATO.Utils.DriverObjectFactory;
 
 public class SecurityFormPage extends BasePage {
 
 	public Scenario scenario;
-	private ServiceNow.ATO.Pages.CommonPage commonPage= PageFactory.initElements(DriverObjectFactory.getWebDriver(), CommonPage.class);
+	private ATO.Pages.CommonPage commonPage= PageFactory.initElements(DriverObjectFactory.getWebDriver(), CommonPage.class);
 	
 	@FindBy(css = "select[id$='form_status']")
 	public WebElement formStatusDropdown;
