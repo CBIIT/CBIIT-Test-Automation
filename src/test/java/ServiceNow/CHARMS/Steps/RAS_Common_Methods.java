@@ -10,6 +10,7 @@ import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -20,6 +21,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import static Hooks.Hooks.softAssert;
 import static appsCommon.Pages.Selenium_Common_Locators.locateByXpath;
+import static appsCommon.Pages.Selenium_Common_Locators.locateElementsByXpath;
 
 public class RAS_Common_Methods extends PageInitializer {
 
@@ -317,5 +319,25 @@ public class RAS_Common_Methods extends PageInitializer {
         if (study.equalsIgnoreCase("Fanconi") || study.equalsIgnoreCase("Bone Marrow Failure Syndrome")) {
             RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSSubjectFlagsPage.IBMFSAffectedStatusDropDown, Native_View_Constants.IBMFSAffectedStatusDropdownOptions, "---- VERIFYING IBMFS AFFECTED STATUS DROPDOWN OPTIONS ----");
         }
+    }
+
+    /**
+     * Retrieves a list of web elements representing the columns in the NV table list view.
+     *
+     * @return a List of WebElement objects representing the columns in the NV table list view
+     */
+    public static List<String> getTableListViewColumns() {
+
+        // Locate elements using the specified XPath expression
+        List<WebElement> columns = locateElementsByXpath("//th[@class='text-align-left list_header_cell list_hdr ']//a[@role='button']");
+
+        // Create an ArrayList to hold the text of each element
+        List<String> tableListText = new ArrayList<>();
+
+        // Use forEach to iterate and add text to the ArrayList
+        columns.forEach(column -> tableListText.add(column.getText()));
+
+
+        return tableListText;
     }
 }
