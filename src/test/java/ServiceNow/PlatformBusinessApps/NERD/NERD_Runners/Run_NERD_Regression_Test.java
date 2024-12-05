@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 		"json:target/cucumber.json", "rerun:target/failed.txt",
 		"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 		, features= {"src/test/java/ServiceNow/PlatformBusinessApps/NERD/selenium/Features", "src/test/java/ServiceNow/PlatformBusinessApps/NERD/playwright/Features" }
-		, glue={"ServiceNow.PlatformBusinessApps.selenium.NERD.Steps", "ServiceNow.PlatformBusinessApps.NERD.playwright.Steps", "Hooks"}
+		, glue={"ServiceNow.PlatformBusinessApps.NERD.selenium.Steps", "ServiceNow.PlatformBusinessApps.NERD.playwright.Steps", "Hooks"}
 		, tags="@Regression"
 		, dryRun = false
 )

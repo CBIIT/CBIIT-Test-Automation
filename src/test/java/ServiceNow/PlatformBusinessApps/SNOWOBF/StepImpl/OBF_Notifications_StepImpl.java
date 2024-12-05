@@ -110,7 +110,7 @@ public class OBF_Notifications_StepImpl {
         page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Text_Box, new FrameLocator.GetByLabelOptions().setExact(true)).press(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Text_Box_Enter);
         assertThat(page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_OBF_Tickets_Label).locator(OBF_NCI_NV_Form_Page.obf_NV_Page_Body_Locator)).containsText(OBF_NCI_Portal_Form_Page.obf_Request_Form_DescriptionFieldInput);
         CucumberLogUtils.playwrightScreenshot(page);
-        page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator("//a[@aria-label='Preview record: ']").click();
+        page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator("//td[@class='list_decoration_cell col-small col-center ']//child::a").click();
         page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator("//a[normalize-space()='Open Record']").click();
         CucumberLogUtils.playwrightScreenshot(page);
         page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByRole(AriaRole.SEARCHBOX, new FrameLocator.GetByRoleOptions().setName(OBF_NCI_NV_Form_Page.obf_NV_Page_Assigned_To_Text_Box)).isVisible();

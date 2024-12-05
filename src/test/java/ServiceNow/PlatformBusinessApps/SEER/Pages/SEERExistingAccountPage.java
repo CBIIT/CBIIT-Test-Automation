@@ -16,7 +16,7 @@ public class SEERExistingAccountPage {
     public WebElement paragraph;
 
     /** PIV Card Login Message Text */
-    @FindBy(xpath = "//p[contains(text(),'Requestors associated with HHS agencies should log')]")
+    @FindBy(xpath = "//p[contains(text(),'Requesters associated with HHS agencies should log')]")
     public WebElement pIVCardLoginMessageText;
 
     /** Back to SEER Database Details button */
