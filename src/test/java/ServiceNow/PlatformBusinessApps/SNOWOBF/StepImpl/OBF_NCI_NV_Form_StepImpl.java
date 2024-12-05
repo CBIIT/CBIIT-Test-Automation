@@ -67,7 +67,7 @@ public class OBF_NCI_NV_Form_StepImpl {
         page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Text_Box, new FrameLocator.GetByLabelOptions().setExact(true)).press(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Text_Box_Enter);
         assertThat(page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_OBF_Tickets_Label).locator(OBF_NCI_NV_Form_Page.obf_NV_Page_Body_Locator)).containsText(OBF_NCI_Portal_Form_Page.obf_Request_Form_DescriptionFieldInput);
         CucumberLogUtils.playwrightScreenshot(page);
-        page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator("//a[@aria-label='Preview record: ']").click();
+        page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator("//td[@class='list_decoration_cell col-small col-center ']//child::a").click();
         page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator("//a[normalize-space()='Open Record']").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -104,9 +104,9 @@ public class OBF_NCI_NV_Form_StepImpl {
         assertThat(page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator(OBF_NCI_NV_Form_Page.obf_NV_Page_Request_Details_TAB_Label_Locator)).containsText(OBF_NCI_NV_Form_Page.obf_NV_Page_Request_Details_Label);
         assertThat(page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Application_Label, new FrameLocator.GetByLabelOptions().setExact(true))).isVisible();
         assertThat(page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Application_Label, new FrameLocator.GetByLabelOptions().setExact(true))).containsText(OBF_NCI_NV_Form_Page.obf_NV_Page_Selected_Application_OneStream_BUS_Value);
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_g_nci_obf_tickets\\.topic\"]")).containsText("Topic");
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"x_g_nci_obf_tickets\\.topic\"]")).hasValue("New Request for Access");
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"x_g_nci_obf_tickets\\.topic\"]")).containsText("New Request for Access");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.x_g_nci_obf_tickets\\.topic']")).containsText("Topic");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='x_g_nci_obf_tickets\\.topic']")).hasValue("New Request for Access");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='x_g_nci_obf_tickets\\.topic']")).containsText("New Request for Access");
         assertThat(page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByText(OBF_NCI_NV_Form_Page.obf_NV_Page_Access_Requested_For_Label)).isVisible();
         assertThat(page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Access_Requested_For_Label, new FrameLocator.GetByLabelOptions().setExact(true))).containsText(OBF_NCI_NV_Form_Page.obf_NV_Page_Selected_Budget_Analyst_Value);
         assertThat(page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Access_Requested_For_Label, new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(OBF_NCI_NV_Form_Page.obf_NV_Page_Selected_Budget_Analyst_Value);
@@ -132,7 +132,7 @@ public class OBF_NCI_NV_Form_StepImpl {
         assertThat(page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator(OBF_NCI_NV_Form_Page.obf_NV_Page_Additional_comments_Or_Work_Notes_Label_Locator)).containsText(OBF_NCI_NV_Form_Page.obf_NV_Page_Work_notes_Label);
         assertThat(page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByPlaceholder(OBF_NCI_NV_Form_Page.obf_NV_Page_Work_notes_Label)).isEmpty();
         assertThat(page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByText(OBF_NCI_NV_Form_Page.obf_NV_Page_Activities_Label)).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Comments, Notes & Activities form section").locator("td")).containsText("Activities");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Comments, Notes & Activities form section").locator("td")).containsText("Activities");
         page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByRole(AriaRole.SEARCHBOX, new FrameLocator.GetByRoleOptions().setName(OBF_NCI_NV_Form_Page.obf_NV_Page_Assigned_To_Text_Box)).click();
         page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName(OBF_NCI_NV_Form_Page.obf_NV_Page_Assigned_To_Text_Box)).fill(OBF_NCI_NV_Form_Page.obf_NV_Page_Assigned_To_Fulfiller);
         page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByRole(AriaRole.CELL, new FrameLocator.GetByRoleOptions().setName(OBF_NCI_NV_Form_Page.obf_NV_Page_Assigned_To_Fulfiller)).click();
@@ -176,12 +176,12 @@ public class OBF_NCI_NV_Form_StepImpl {
         CucumberLogUtils.playwrightScreenshot(page);
         page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Drop_Down_By_Label).selectOption(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Drop_Down_Description_Option);
         assertThat(page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Drop_Down_By_Label)).containsText(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Drop_Down_Description_Option);
-        page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Text_Box, new FrameLocator.GetByLabelOptions().setExact(true)).click();
-        page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Text_Box, new FrameLocator.GetByLabelOptions().setExact(true)).fill(OBF_NCI_Portal_Form_Page.obf_Request_Form_DescriptionFieldInput);
-        page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Text_Box, new FrameLocator.GetByLabelOptions().setExact(true)).press(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Text_Box_Enter);
+        page.frameLocator("iframe[name='gsft_main']").locator("(//input[@ class ='form-control'])[1]").click();
+        page.frameLocator("iframe[name='gsft_main']").locator("(//input[@ class ='form-control'])[1]").fill(OBF_NCI_Portal_Form_Page.obf_Request_Form_DescriptionFieldInput);
+        page.frameLocator("iframe[name='gsft_main']").locator("(//input[@ class ='form-control'])[1]").press(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Text_Box_Enter);
         assertThat(page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_OBF_Tickets_Label).locator(OBF_NCI_NV_Form_Page.obf_NV_Page_Body_Locator)).containsText(OBF_NCI_Portal_Form_Page.obf_Request_Form_DescriptionFieldInput);
         CucumberLogUtils.playwrightScreenshot(page);
-        page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator("//a[@aria-label='Preview record: ']").click();
+        page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator("//td[@class='list_decoration_cell col-small col-center ']//child::a").click();
         page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator("//a[normalize-space()='Open Record']").click();
         CucumberLogUtils.playwrightScreenshot(page);
         page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator(OBF_NCI_NV_Form_Page.obf_NV_Page_Delete_Button_Locator).isVisible();
