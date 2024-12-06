@@ -66,9 +66,9 @@ Feature: RAS Native View Verification Scenarios
 
   @muzipovay2 @RAS_STUDY @CP2-3960 @selenium @RAS_Regression
   Scenario: Verifying that audit trail history is visible to users.
-    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=0e9497c587161ad0ad46326d3fbb35c7" has been reset
+    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-    And logs in via Okta with username "ras_progression@yopmail.com" and password "Charms123$"
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "screenerScenarioAdult"
     And Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
@@ -84,8 +84,8 @@ Feature: RAS Native View Verification Scenarios
     And verifies that Consent Assent category auto-populated to "Adult"
     And presses the Call Complete button
     Then Study Team member logs out of Native View
-    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-    And logs in via Okta with username "ras_progression@yopmail.com" and password "Charms123$"
+    And a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And participant clicks on Study Consent and completes form with "Charms123$"
     And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAdult"
     And verifies Consent Assent status is "Consented only"
