@@ -146,7 +146,7 @@ public class CreateESRPageStepsImplementation {
         page.getByLabel("Phone").click();
         page.getByLabel("Phone").fill("000");
         page.getByLabel("Project Name").click();
-        page.getByLabel("Project Name").fill("Test Project");
+        page.getByLabel("Project Name").fill("Test Project - Portal View");
         page.locator("#s2id_sp_formfield_phase a").click();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Q-Branch")).click();
         page.locator("#s2id_sp_formfield_it_service_area").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
@@ -183,7 +183,7 @@ public class CreateESRPageStepsImplementation {
         page.getByLabel("Phone").click();
         page.getByLabel("Phone").fill("000");
         page.getByLabel("Project Name").click();
-        page.getByLabel("Project Name").fill("Test Project");
+        page.getByLabel("Project Name").fill("Test Project - Portal View");
         page.locator("#s2id_sp_formfield_it_service_area").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Cybersecurity")).click();
         page.getByLabel("Project Description").click();
