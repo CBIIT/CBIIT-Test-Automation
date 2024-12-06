@@ -282,7 +282,7 @@ public class TestProperties {
     /**
      * JP-SURV URLS
      */
-    public static String JP_SURV_TEST_URL = "https://analysistools-qa.cancer.gov/jpsurv/";
+    public static String JP_SURV_TEST_URL = "https://analysistools-dev.cancer.gov/jpsurv/";
     public static String JP_SURV_STAGE_URL = "https://analysistools-stage.cancer.gov/jpsurv/";
     public static String JP_SURV_URL;
 
@@ -538,10 +538,10 @@ public class TestProperties {
     public static String getAct24ParticipantUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
-                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_TEST_URL;
+                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_STAGE_URL;
                 break;
             case "test":
-                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_STAGE_URL;
+                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_TEST_URL;
                 break;
         }
         return ACT_24_PARTICIPANT_URL;
