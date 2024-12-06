@@ -25,12 +25,8 @@ Feature: RAS Native View Verification Scenarios
       |               | RASopathy                    | All               | Proband                 | RASopathyProband                 | TestIBMFS |
       |               | Bone Marrow Failure Syndrome | All               | Proband                 | BoneMarrowFailureSyndromeProband | TestIBMFS |
 
-  @muzipovay2 @RAS_STUDY @CP2-3959 @CP2-3958 @CP2-3961 @CP2-3760 @CP2-3861 @selenium @RAS_Regression @Progression
+  @muzipovay2 @RAS_STUDY @CP2-3959 @CP2-3958 @CP2-3961 @CP2-3760 @CP2-3861 @selenium @In-Progress
   Scenario Outline: Verifying that that an empty Hold/Non-Participation Date field does not remove the date from other synced records.
-#    Given Study Team member logs in to Native View and navigates to All Participant Details
-#    And Study Team member clicks Add New Participant and completes the form with:  FSID "<Existing FSID>", Study "<Study>", Study Subcategory "All", Relationship to Proband "<Relationship to Proband>", First Name "<First Name>", Last Name "<Last Name>"
-#    And Study Team member navigates to Participant Studies
-
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=0e9497c587161ad0ad46326d3fbb35c7" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "ras_progression@yopmail.com" and password "Charms123$"
@@ -59,8 +55,6 @@ Feature: RAS Native View Verification Scenarios
     Then Study Team member presses Sign and Complete
     And clicks the Back button
     And Study Team member navigates to Participant Studies
-
-
     And Study Team member creates a new Subject Flags with the values: Study "<Study>", Participation Status "<Participation Status Row 1>", Hold Non-Participation Date "<Hold/Non-Participation Date Row 1>"
     And Study Team member creates a new Subject Flags with the values: Study "<Study>", Participation Status "<Participation Status Row 2>", Hold Non-Participation Date "<Hold/Non-Participation Date Row 2>"
     Then Study Team syncs fields and verifies their values: Participant Name "<First Name> <Last Name>", Study "<Study>", Participation Status "<Participation Status Row 1>" "<Participation Status Row 2>", Hold Non-Participation Date "<Hold/Non-Participation Date Row 1>" "<Hold/Non-Participation Date Row 2>"

@@ -10,7 +10,6 @@ import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -303,10 +302,10 @@ public class RAS_Common_Methods extends PageInitializer {
      * @param participationStatus The participation status of the subject.
      * @param study               The study associated with the subject.
      */
-    public static void verifySubjectFlagsFields( String study, String participationStatus) {
-        if(participationStatus.equalsIgnoreCase("Not Participating")){
+    public static void verifySubjectFlagsFields(String study, String participationStatus) {
+        if (participationStatus.equalsIgnoreCase("Not Participating")) {
             RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSSubjectFlagsPage.nonParticipationReasonDropdown, Native_View_Constants.nonParticipationDropdownOptions, "---- VERIFYING NON-PARTICIPATION REASON DROPDOWN OPTIONS ----");
-        } else if(participationStatus.equalsIgnoreCase("Hold")) {
+        } else if (participationStatus.equalsIgnoreCase("Hold")) {
             softAssert.assertTrue(locateByXpath("//span[normalize-space()='Hold Reason']").isDisplayed());
             softAssert.assertTrue(locateByXpath("//div[@id='label.x_naci_family_coho_subject_flag.hold_non_participation_date']//span[2]").isDisplayed());
         }
@@ -327,17 +326,9 @@ public class RAS_Common_Methods extends PageInitializer {
      * @return a List of WebElement objects representing the columns in the NV table list view
      */
     public static List<String> getTableListViewColumns() {
-
-        // Locate elements using the specified XPath expression
         List<WebElement> columns = locateElementsByXpath("//th[@class='text-align-left list_header_cell list_hdr ']//a[@role='button']");
-
-        // Create an ArrayList to hold the text of each element
         List<String> tableListText = new ArrayList<>();
-
-        // Use forEach to iterate and add text to the ArrayList
         columns.forEach(column -> tableListText.add(column.getText()));
-
-
         return tableListText;
     }
 }
