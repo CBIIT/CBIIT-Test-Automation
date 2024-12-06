@@ -1068,6 +1068,7 @@ public class RAS_All_Steps extends PageInitializer {
     @Then("Study Team member creates new Subject Flags and verifies that the audit trail history displays")
     public void study_team_member_creates_new_subject_flags_and_verifies_that_the_audit_trail_history_displays() {
         String participantName = locateByXpath("//input[@aria-labelledby='label.x_naci_family_coho_participant_study.participant']").getAttribute("value");
+        CommonUtils.sleep(1000);
         Map<String, String> actualAuditTrailValues = new HashMap<>();
         Map<String, String> expectedAuditTrailValues = new HashMap<>(
                 Map.ofEntries(
@@ -1123,11 +1124,79 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(filterQuery);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.sleep(3000);
-        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(filterQuery));
+    }
+
+    /**
+     * Clicks the link for the specified table in the Native View dashboard.
+     *
+     * @param linkText the text of the link to be clicked
+     */
+    @Given("clicks the link for the {string} table")
+    public void clicks_the_link_for_the_NV_table(String linkText) {
+        NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(linkText).click();
         CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Verifies if the columns displayed in the list view of the table match the expected columns.
+     */
+    @Then("Study Team member verifies the columns displayed in the list view of the Participant Studies table")
+    public void study_team_member_verifies_the_columns_displayed_in_the_list_view_of_the_participant_studies_table() {
+        softAssert.assertEquals(RAS_Common_Methods.getTableListViewColumns(), Native_View_Constants.participantStudiesListViewColumns, "---- TABLE LIST VIEW COLUMNS DO NOT MATCH ----");
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Opens the first record in the Participant Studies table
+     */
+    @Given("Study Team member opens the first Participant Studies record")
+    public void study_team_member_opens_first_participant_studies_record() {
+        CommonUtils.sleep(2000);
+        JavascriptUtils.clickByJS(locateByXpath("(//*[@class='btn btn-icon table-btn-lg icon-info list_popup'])[1]"));
+        CommonUtils.sleep(1000);
+        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
+        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(2000);
+    }
+
+    /**
+     * Verifies the presence and visibility of various fields in the Participant Studies record.
+     * Checks if specific elements such as labels and dropdown options are displayed on the page.
+     */
+    @Then("verifies fields in the Participant Studies record")
+    public void verifies_fields_in_the_participant_studies_record() {
+        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Participant']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Subject ID']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[normalize-space()='NIH MRN number']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Screener']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='IIQ']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[contains(text(),'FA Survey')]").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Available Questionnaires']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Study']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Cohort']").isDisplayed());
+        RAS_Common_Methods.softAssertDropdownOptions(locateByXpath("//select[@id='x_naci_family_coho_participant_study.cohort']"), Native_View_Constants.consentRecordCohortDropdownOptions, "---- VERIFYING COHORT OPTIONS IN PARTICIPANT STUDIES RECORD ----");
+        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Study Sub Categories']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Eligibility Status']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Enrollment Status']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Screener Complete']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='IIQ Complete']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Study Survey Complete']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Ever Consented']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Ever Assented']").isDisplayed());
+        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='MRR Complete']").isDisplayed());
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Waits for the Back button to be clickable and then clicks it to navigate to the previous page.
+     */
+    @Then("clicks the Back button")
+    public void clicks_the_back_button() {
+        CommonUtils.waitForClickability(locateByXpath("//button[@aria-label='Back']"));
+        locateByXpath("//button[@aria-label='Back']").click();
     }
 }
