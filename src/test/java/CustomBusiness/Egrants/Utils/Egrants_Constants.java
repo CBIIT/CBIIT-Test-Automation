@@ -46,4 +46,5 @@ public class Egrants_Constants {
     public static final String ACTIVATION_NOTICE = "Activation Notice";
     public static final String APPLICATION_FILE = "Application File";
     public static final String YEAR_17 = "5P30CA125123-17";
+    public static final String SUPPLEMENT = "Supplement";
 }

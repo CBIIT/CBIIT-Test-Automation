@@ -585,4 +585,77 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
         CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.requestNameDeleteButton);
         CucumberLogUtils.logScreenshot();
     }
+
+    /**
+     * This method is used to select Supplement from the dropdown
+     */
+    @And("User selects Supplements from the dropdown")
+    public void user_selects_supplements_from_the_dropdown() {
+        CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.menuOptions);
+        CommonUtils.selectDropDownValue(egrantsQuickLinkAndManagementMenuPage.menuOptions, Egrants_Constants.SUPPLEMENT);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on the Edit Notification button
+     */
+    @And("the user clicks on Edit button")
+    public void the_user_clicks_on_edit_button() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.editButtonSupplementNotification);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to select the PA field
+     * @param paNumber
+     */
+    @And("the user provides {string} in the PA field")
+    public void the_user_provides_in_the_pa_field(String paNumber) {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.paTextField);
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.paTextField, paNumber);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Save button and confirm the changes
+     */
+    @Then("the user clicks on Save button and confirms the changes")
+    public void the_user_clicks_on_save_button_and_confirms_the_changes() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.saveButtonSupplementNotification);
+        Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on the eRA Notification tab
+     */
+    @Given("the user clicks on eRA Notificaton tab")
+    public void the_user_clicks_on_e_ra_notificaton_tab() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.eRANotificationTab);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on the Delete button and accept the alert if prompted more than once
+     */
+    @And("the user clicks on Delete button")
+    public void the_user_clicks_on_delete_button() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.deleteButtonSupplementNotification);
+        for (int i = 0; i < 2; i++) {
+            try {
+                Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
+            } catch (Exception e) {
+            }
+        }
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to confirm the deletion of the notification
+     */
+    @Then("the user confirms deletion of the notification")
+    public void the_user_confirms_deletion_of_the_notification() {
+        Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
+        CucumberLogUtils.logScreenshot();
+    }
 }
