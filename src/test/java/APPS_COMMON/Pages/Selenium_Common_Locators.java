@@ -2,6 +2,7 @@ package APPS_COMMON.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import java.util.List;
 import static com.nci.automation.web.WebDriverUtils.webDriver;
 
 public class Selenium_Common_Locators {
@@ -11,8 +12,18 @@ public class Selenium_Common_Locators {
      *
      * @param xpath the XPath expression used to locate the element
      */
-    public static WebElement locateByXpath(String xpath){
+    public static WebElement locateByXpath(String xpath) {
         return webDriver.findElement(By.xpath(xpath));
+    }
+
+    /**
+     * Locates multiple web elements on the web page using the provided XPath expression.
+     *
+     * @param xpath the XPath expression used to locate the elements
+     * @return a list of WebElement objects located by the XPath expression
+     */
+    public static List<WebElement> locateElementsByXpath(String xpath) {
+        return webDriver.findElements(By.xpath(xpath));
     }
 
     /**

@@ -44,6 +44,8 @@ public class Native_View_Constants {
             add("Language Problem");
             add("Do Not Contact");
             add("Not able to Locate");
+            add("Final Refusal by Family Contact");
+            add("Other Reason");
         }
     };
 
@@ -467,14 +469,457 @@ public class Native_View_Constants {
             add("Study");
             add("Eligibility Status");
             add("Enrollment Status");
+            add("Screener");
             add("Cohort");
             add("Vital Status");
             add("Date of Birth");
             add("Date of Death");
-            add("NIH MRN Number");
+            add("NIH MRN number");
             add("Ever Consented");
             add("Updated");
             add("Created");
         }
     };
+
+    /*********************************************************************************
+     *                                                                               *
+     *                              PARTICIPANT DETAILS                              *
+     *                                                                               *
+     *********************************************************************************/
+
+    /**
+     * Participant Details - Permission to contact
+     */
+    List<String> permissionToContactDropdownOptions = new ArrayList<String>() {{
+        add("Yes");
+        add("No");
+        add("Unknown");
+        add("Conditional");
+    }};
+
+    /**
+     * Personal Information Tab - Relationship to Proband dropdown options
+     */
+    List<String> relationshipToProbandDropdownOptions = new ArrayList<String>() {{
+        add("-- None --");
+        add("Unknown");
+        add("Proband");
+        add("Mother");
+        add("Father");
+        add("Sister");
+        add("Brother");
+        add("Half-Brother (same mother)");
+        add("Half-Brother (same father)");
+        add("Half-Sister (same mother)");
+        add("Half-Sister (same father)");
+        add("Mother's Mother");
+        add("Mother's Father");
+        add("Father's Mother");
+        add("Father's Father");
+        add("Child");
+        add("Grandchild");
+        add("Maternal Uncle");
+        add("Paternal Uncle");
+        add("Maternal Aunt");
+        add("Paternal Aunt");
+        add("Cousin (mom's side)");
+        add("Cousin");
+        add("Cousin (dad's side)");
+        add("Niece");
+        add("Nephew");
+        add("Great Nephew");
+        add("Great Niece");
+        add("Sister In Law");
+        add("Brother In Law");
+        add("Step Mother");
+        add("Great Aunt");
+        add("Step Father");
+        add("Great Uncle");
+        add("Other");
+    }};
+
+    /**
+     * Demographics Tab - Biological Gender dropdown options
+     */
+    List<String> biologicalGenderDropdownOptions = new ArrayList<String>() {{
+        add("-- None --");
+        add("Female");
+        add("Male");
+        add("Unknown/Unsure");
+        add("Prefer not to answer");
+    }};
+
+    /**
+     * Demographics Tab - Identified Gender dropdown options
+     */
+    List<String> identifiedGenderDropdownOptions = new ArrayList<String>() {{
+        add("-- None --");
+        add("Female");
+        add("Male");
+        add("Transgender");
+        add("I use a different term:");
+        add("Unknown/Unsure");
+        add("Prefer not to answer");
+    }};
+
+    /**
+     * Demographics Tab - Ethnicity dropdown options
+     */
+    List<String> ethnicityDropdownOptions = new ArrayList<String>() {{
+        add("Not answered");
+        add("Don't know");
+        add("Not Hispanic/Latino");
+        add("Hispanic/Latino");
+        add("Prefer not to answer");
+    }};
+
+    /**
+     * Demographics Tab - Pronouns dropdown options
+     */
+    List<String> pronounsDropdownOptions = new ArrayList<String>() {{
+        add("-- None --");
+        add("She/her");
+        add("He/him");
+        add("They/them");
+        add("I use a different term");
+        add("Unknown/Unsure");
+        add("Prefer not to answer");
+    }};
+
+    /**
+     * Demographics Tab - Is the participant adopted? dropdown options
+     */
+    List<String> isTheParticipantAdoptedDropdownOptions = new ArrayList<String>() {{
+        add("Unknown");
+        add("Yes");
+        add("No");
+        add("Prefer not to answer");
+    }};
+
+    /**
+     * Demographics Tab - Vital Status dropdown options
+     */
+    List<String> vitalStatusDropdownOptions = new ArrayList<String>() {{
+        add("Unknown");
+        add("Not answered");
+        add("Alive");
+        add("Dead");
+    }};
+
+    /**
+     * Demographics Tab - If Date of Birth is unkown, is this person 18 years old or older dropdown options
+     */
+    List<String> dobUnknownIsThisPerson18YearsOldOrOlderDropdownOptions = new ArrayList<String>() {{
+        add("-- None --");
+        add("Unknown");
+        add("No");
+        add("Yes");
+    }};
+
+    /**
+     * Contact Info Tab - What is your relationship to the participant? dropdown options
+     */
+    List<String> whatIsYourRelationshipToTheParticipantDropdownOptions = new ArrayList<String>() {{
+        add("-- None --");
+        add("Self");
+        add("I am the person's parent");
+        add("I am the person's sibling");
+        add("I am the person's child");
+        add("I am the person's cousin");
+        add("I am the person's aunt/uncle");
+        add("I am the person's spouse/long term partner");
+        add("I am this person's grandparent");
+        add("Other");
+    }};
+
+    /**
+     * Contact Info Tab - Are you the legal guardian of this person? dropdown options
+     */
+    List<String> areYouTheLegalGuardianOfThisPersonDropdownOptions = new ArrayList<String>() {{
+        add("Yes");
+        add("No");
+    }};
+
+    /**
+     * Contact Info Tab - Does the participant need legal representation? dropdown options
+     */
+    List<String> doesParticipantNeedLegalRepresentationDropdownOptions = new ArrayList<String>() {{
+        add("-- None --");
+        add("Yes, minor under 18");
+        add("Yes, adult needing LAR");
+        add("No");
+        add("Don't Know");
+    }};
+
+    /**
+     * Contact Info Tab - Contact Country dropdown options
+     */
+    List<String> contactCountryDropdownOptions = new ArrayList<String>() {{
+        add("-- None --");
+        add("AE");
+        add("AR");
+        add("AT");
+        add("AU");
+        add("BE");
+        add("BM");
+        add("BR");
+        add("CA");
+        add("CD");
+        add("CH");
+        add("CL");
+        add("CN");
+        add("CO");
+        add("CZ");
+        add("DE");
+        add("DK");
+        add("DO");
+        add("EC");
+        add("ES");
+        add("ET");
+        add("FI");
+        add("FR");
+        add("GB");
+        add("GR");
+        add("GT");
+        add("GU");
+        add("HK");
+        add("HN");
+        add("HR");
+        add("HU");
+        add("ID");
+        add("IE");
+        add("IL");
+        add("IN");
+        add("IR");
+        add("IS");
+        add("IT");
+        add("JM");
+        add("JP");
+        add("KR");
+        add("KY");
+        add("LB");
+        add("LT");
+        add("MA");
+        add("MU");
+        add("MX");
+        add("MY");
+        add("NA");
+        add("NL");
+        add("NO");
+        add("NZ");
+        add("PE");
+        add("PH");
+        add("PR");
+        add("PT");
+        add("PY");
+        add("RO");
+        add("RU");
+        add("SA");
+        add("SD");
+        add("SE");
+        add("SK");
+        add("SV");
+        add("TH");
+        add("TR");
+        add("TW");
+        add("UA");
+        add("US");
+        add("VE");
+        add("VI");
+        add("YE");
+        add("ZA");
+        add("United States of America");
+        add("Afghanistan");
+        add("Albania");
+        add("Algeria");
+        add("Andorra");
+        add("Angola");
+        add("Antigua and Barbuda");
+        add("Argentina");
+        add("Armenia");
+        add("Australia");
+        add("Austria");
+        add("Azerbaijan");
+        add("Bahamas");
+        add("Bahrain");
+        add("Bangladesh");
+        add("Barbados");
+        add("Belarus");
+        add("Belgium");
+        add("Belize");
+        add("Benin");
+        add("Bhutan");
+        add("Bolivia");
+        add("Bosnia and Herzegovina");
+        add("Botswana");
+        add("Brazil");
+        add("Brunei Darussalam");
+        add("Bulgaria");
+        add("Burkina Faso");
+        add("Burundi");
+        add("Cambodia");
+        add("Cameroon");
+        add("Canada");
+        add("Cape Verde");
+        add("Central African Republic");
+        add("Chad");
+        add("Chile");
+        add("China");
+        add("Colombia");
+        add("Comoros");
+        add("Congo, Republic of the");
+        add("Costa Rica");
+        add("Côte d'Ivoire");
+        add("Croatia");
+        add("Cuba");
+        add("Cyprus");
+        add("Czech Republic");
+        add("Democratic Republic of the Congo");
+        add("Denmark");
+        add("Djibouti");
+        add("Dominica");
+        add("Dominican Republic");
+        add("Ecuador");
+        add("Egypt");
+        add("El Salvador");
+        add("Equatorial Guinea");
+        add("Eritrea");
+        add("Estonia");
+        add("Ethiopia");
+        add("Fiji");
+        add("Finland");
+        add("France");
+        add("Gabon");
+        add("Gambia");
+        add("Georgia");
+        add("Germany");
+        add("Ghana");
+        add("Greece");
+        add("Grenada");
+        add("Guatemala");
+        add("Guinea");
+        add("Guinea-Bissau");
+        add("Guyana");
+        add("Haiti");
+        add("Honduras");
+        add("Hong Kong (S.A.R.)");
+        add("Hungary");
+        add("Iceland");
+        add("India");
+        add("Indonesia");
+        add("Iran");
+        add("Iraq");
+        add("Ireland");
+        add("Israel");
+        add("Italy");
+        add("Jamaica");
+        add("Japan");
+        add("Jordan");
+        add("Kazakhstan");
+        add("Kenya");
+        add("Kiribati");
+        add("Kuwait");
+        add("Kyrgyzstan");
+        add("Lao People's Democratic Republic");
+        add("Latvia");
+        add("Lebanon");
+        add("Lesotho");
+        add("Liberia");
+        add("Libyan Arab Jamahiriya");
+        add("Liechtenstein");
+        add("Lithuania");
+        add("Luxembourg");
+        add("Madagascar");
+        add("Malawi");
+        add("Malaysia");
+        add("Maldives");
+        add("Mali");
+        add("Malta");
+        add("Marshall Islands");
+        add("Mauritania");
+        add("Mauritius");
+        add("Mexico");
+        add("Micronesia, Federated States of");
+        add("Monaco");
+        add("Mongolia");
+        add("Montenegro");
+        add("Morocco");
+        add("Mozambique");
+        add("Myanmar");
+        add("Namibia");
+        add("Nauru");
+        add("Nepal");
+        add("Netherlands");
+        add("New Zealand");
+        add("Nicaragua");
+        add("Niger");
+        add("Nigeria");
+        add("North Korea");
+        add("Norway");
+        add("Oman");
+        add("Pakistan");
+        add("Palau");
+        add("Panama");
+        add("Papua New Guinea");
+        add("Paraguay");
+        add("Peru");
+        add("Philippines");
+        add("Poland");
+        add("Portugal");
+        add("Qatar");
+        add("Republic of Moldova");
+        add("Romania");
+        add("Russian Federation");
+        add("Rwanda");
+        add("Saint Kitts and Nevis");
+        add("Saint Lucia");
+        add("Saint Vincent and the Grenadines");
+        add("Samoa");
+        add("San Marino");
+        add("Sao Tome and Principe");
+        add("Saudi Arabia");
+        add("Senegal");
+        add("Serbia");
+        add("Seychelles");
+        add("Sierra Leone");
+        add("Singapore");
+        add("Slovakia");
+        add("Slovenia");
+        add("Solomon Islands");
+        add("Somalia");
+        add("South Africa");
+        add("South Korea");
+        add("Spain");
+        add("Sri Lanka");
+        add("Sudan");
+        add("Suriname");
+        add("Swaziland");
+        add("Sweden");
+        add("Switzerland");
+        add("Syrian Arab Republic");
+        add("Tajikistan");
+        add("Thailand");
+        add("The former Yugoslav Republic of Macedonia");
+        add("Timor-Leste");
+        add("Togo");
+        add("Tonga");
+        add("Trinidad and Tobago");
+        add("Tunisia");
+        add("Turkey");
+        add("Turkmenistan");
+        add("Tuvalu");
+        add("Uganda");
+        add("Ukraine");
+        add("United Arab Emirates");
+        add("United Kingdom of Great Britain and Northern Ireland");
+        add("United Republic of Tanzania");
+        add("Uruguay");
+        add("Uzbekistan");
+        add("Vanuatu");
+        add("Venezuela, Bolivarian Republic of");
+        add("Viet Nam");
+        add("Yemen");
+        add("Zambia");
+        add("Zimbabwe");
+    }};
 }
