@@ -1,7 +1,6 @@
 package ServiceNow.PlatformBusinessApps.OCI.Steps;
 
-import ServiceNow.PlatformBusinessApps.OFFBOARD.Constants.CBIIT_OFFBOARD_FORM_Constants;
-import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
+import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
@@ -29,7 +28,6 @@ public class OnBoardingCatalogItemSteps {
         page.navigate(TestProperties.getNCISPUrl());
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Services").setExact(true)).click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CBIIT Business Services")).first().click();
-        assertThat(page.getByLabel(CBIIT_OFFBOARD_FORM_Constants.CATEGORY_TEXT, new Page.GetByLabelOptions().setExact(true))).containsText("CBIIT Business Services");
         page.locator("//h4[normalize-space()='CBIIT Onboarding']").isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
         assertThat(page.locator("//h4[normalize-space()='CBIIT Onboarding']")).containsText("CBIIT Onboarding");

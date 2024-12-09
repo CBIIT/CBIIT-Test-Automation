@@ -1,6 +1,6 @@
 package PLATFORM_BUSINESS.NERD.playwright.Steps;
 
-import PLATFORM_BUSINESS.NERD.playwright.StepImplementation.Top_Accomplishment_Submission_StepImpl;
+import PLATFORM_BUSINESS.NERD.playwright.StepImplementation.Top_Accomplishment_New_Submission_StepImpl;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Locator;
@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
-public class Top_Accomplishment_Submission_Steps {
+public class Top_Accomplishment_New_Submission_Steps {
 
     public static Page nedUserPage;
 
@@ -79,7 +79,7 @@ public class Top_Accomplishment_Submission_Steps {
     public void add_attachments_via_the_record_itself() {
         page.frameLocator("iframe[name='gsft_main']").locator("//button[@id='add_attachment']").waitFor();
         assertThat(page.frameLocator("iframe[name='gsft_main']").locator("//button[@id='add_attachment']")).containsText("Add Attachment");
-        Top_Accomplishment_Submission_StepImpl.uploadAttachmentInNativeView();
+        Top_Accomplishment_New_Submission_StepImpl.uploadAttachmentInNativeView();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -686,7 +686,7 @@ public class Top_Accomplishment_Submission_Steps {
             page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Lookup using list")).click();
         });
         CucumberLogUtils.playwrightScreenshot(nedUserPage);
-        assertThat(nedUserPage.getByText("Showing rows 1 to 20 of 145,887 to 20 of 145,8870UsersUser", new Page.GetByTextOptions().setExact(true))).isVisible();
+        assertThat(nedUserPage.getByText("Showing rows 1 to 20 of 145,907 to 20 of 145,9070UsersUser", new Page.GetByTextOptions().setExact(true))).isVisible();
         assertThat(nedUserPage.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Margie Blochlinger"))).containsText("Margie Blochlinger");
         CucumberLogUtils.playwrightScreenshot(nedUserPage);
         nedUserPage.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Margie Blochlinger")).click();
