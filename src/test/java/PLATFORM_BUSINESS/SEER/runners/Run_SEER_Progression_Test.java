@@ -12,11 +12,5 @@ import io.cucumber.testng.CucumberOptions;
         dryRun = false
 )
 
-/**
- * This class is annotated with @RunWith(Cucumber.class) and it will run
- * cucumber feature(s).
- *
- * @author juarezds
- */
 public class Run_SEER_Progression_Test extends AbstractTestNGCucumberTests {
 }

@@ -11,5 +11,6 @@ import io.cucumber.testng.CucumberOptions;
         , tags = "@Smoke"
         , dryRun = false
 )
+
 public class Run_OffBoard_Smoke_Test extends AbstractTestNGCucumberTests {
 }

@@ -11,5 +11,6 @@ import io.cucumber.testng.CucumberOptions;
         , tags = "@Regression"
         , dryRun = false
 )
+
 public class Run_OBF_PW_Regression_Test extends AbstractTestNGCucumberTests {
 }

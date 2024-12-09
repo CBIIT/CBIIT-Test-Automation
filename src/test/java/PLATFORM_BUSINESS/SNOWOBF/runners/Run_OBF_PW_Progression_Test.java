@@ -11,5 +11,6 @@ import io.cucumber.testng.CucumberOptions;
         , tags = "@Progression"
         , dryRun = false
 )
+
 public class Run_OBF_PW_Progression_Test extends AbstractTestNGCucumberTests {
 }

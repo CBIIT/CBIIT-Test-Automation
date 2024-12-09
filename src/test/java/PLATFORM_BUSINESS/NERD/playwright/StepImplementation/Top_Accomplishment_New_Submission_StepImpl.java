@@ -5,13 +5,13 @@ import com.nci.automation.web.CommonUtils;
 import java.nio.file.Paths;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
-public class Top_Accomplishment_Submission_StepImpl {
+public class Top_Accomplishment_New_Submission_StepImpl {
 
     /**
      * Method to upload the Pdf attachment to Top Accomplishment Submission
      */
     public static void uploadAttachmentInNativeView() {
-        String uploadAttchment = System.getProperty("user.dir") + "/src/test/java/ServiceNow/CHARMS/Resources/Family Cohort Study Consent.pdf";
+        String uploadAttchment = System.getProperty("user.dir") + "/src/test/java/CHARMS/Resources/Family Cohort Study Consent.pdf";
         page.frameLocator("iframe[name='gsft_main']").locator("#add_attachment").waitFor();
         page.frameLocator("iframe[name='gsft_main']").locator("#add_attachment").click();
         CommonUtils.sleep(2000);

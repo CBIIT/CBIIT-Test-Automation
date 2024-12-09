@@ -14,12 +14,12 @@ public class AwardNominationSteps extends PageInitializer {
 
     @Given("User navigates to VIBE Peer-to-Peer Appreciation Program via Services menu")
     public void user_navigates_to_vibe_peer_to_peer_appreciation_program_via_services_menu() {
-       awardNominationStepsImplementation.navigateToVIBE();
+        awardNominationStepsImplementation.navigateToVIBE();
     }
 
     @Given("Submitter User is on VIBE Peer-to-Peer Appreciation Program home page")
     public void submitter_user_is_on_vibe_peer_to_peer_appreciation_program_home_page() {
-      awardNominationStepsImplementation.verifyVIBEPageTitle();
+        awardNominationStepsImplementation.verifyVIBEPageTitle();
     }
 
     @Given("Submitter User can verify that What is your name field is already populated")
@@ -39,22 +39,22 @@ public class AwardNominationSteps extends PageInitializer {
 
     @Given("Submitter User describes their appreciation as {string}")
     public void submitter_user_describes_their_appreciation_as(String text) {
-       awardNominationStepsImplementation.enterShareAppreciation(text);
+        awardNominationStepsImplementation.enterShareAppreciation(text);
     }
 
     @Given("Submitter User can verify Optional Responses section is displayed")
     public void submitter_user_can_verify_optional_responses_section_is_displayed() {
-      awardNominationStepsImplementation.verifySectionOptionalResponsesDisplayed();
+        awardNominationStepsImplementation.verifySectionOptionalResponsesDisplayed();
     }
 
     @Given("Submitter User can verify Which value best reflects your appreciation section is displayed")
     public void submitter_user_can_verify_which_value_best_reflects_your_appreciation_section_is_displayed() {
-       awardNominationStepsImplementation.verifySectionAppreciationValueDisplayed();
+        awardNominationStepsImplementation.verifySectionAppreciationValueDisplayed();
     }
 
     @Given("Submitter User can verify that Add Attachment option is displayed")
     public void submitter_user_can_verify_that_add_attachment_option_is_displayed() {
-       awardNominationStepsImplementation.verifySectionAddAttachmentDisplayed();
+        awardNominationStepsImplementation.verifySectionAddAttachmentDisplayed();
     }
 
     @When("Submitter User submits VIBE Peer-to-Peer Appreciation Program request")
