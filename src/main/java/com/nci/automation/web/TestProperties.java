@@ -286,7 +286,7 @@ public class TestProperties {
     public static String JP_SURV_STAGE_URL = "https://analysistools-stage.cancer.gov/jpsurv/";
     public static String JP_SURV_URL;
 
-    /**f
+    /**
      * GWAS TARGET URLS
      */
     public static String GWAS_TARGET_TEST_URL = "https://analysistools-qa.cancer.gov/gwas-target/home";
