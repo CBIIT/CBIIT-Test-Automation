@@ -1,6 +1,6 @@
 Feature: Top Accomplishments Submission
 
-  @NERDSNOW-759 @chaudhryma @Regression @playwright @Progression
+  @NERDSNOW-759 @chaudhryma @Regression @playwright
   Scenario: Test Create a 'Top Accomplishments' Record
     Given any user is on NERD
     When they access the 'NERD' Catalog
