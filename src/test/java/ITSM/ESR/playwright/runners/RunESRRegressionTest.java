@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
         "json:target/cucumber.json", "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
         , features = "src/test/java/ITSM/ESR/playwright/features"
-        , glue = {"ITSM.ESR.Playwright.steps", "Hooks"}
+        , glue = {"ITSM.ESR.playwright.steps", "Hooks"}
         , tags = "@Regression"
         , dryRun = false
 )
