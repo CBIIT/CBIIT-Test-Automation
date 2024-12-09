@@ -195,23 +195,20 @@ public class FanconiSurveyStepsImpl {
     public static void assertParticipantDetailsPageFieldsInNativeView() {
         var page = PlaywrightUtils.page;
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Subject ID")).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Subject ID"))).isVisible();
-        CommonUtils.sleep(400);
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Name").click();
-        CommonUtils.sleep(400);
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Name").setExact(true))).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Subject ID"))).isEmpty();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Name")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Name").setExact(true))).hasValue("Participant First Name PL");
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Permission to contact")).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Permission to contact")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Permission to contact")).hasValue("Unknown");
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByText("FHQ Patient")).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("FHQ Patient", new FrameLocator.GetByLabelOptions().setExact(true))).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("FHQ Patient", new FrameLocator.GetByLabelOptions().setExact(true))).isEmpty();
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Eligibility Status")).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Eligibility Status")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Eligibility Status")).hasValue("waiting_for_eligibility");
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Enrollment Status")).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Enrollment Status")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Enrollment Status")).hasValue("1");
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByText("Studies", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"x_naci_family_coho_family_history_details\\.studies_nonedit\"]")).isVisible();
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByText("NIH MRN number", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("NIH MRN number")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("NIH MRN number")).isEmpty();
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByText("NIH MRN number should include")).isVisible();
     }
 
@@ -220,8 +217,10 @@ public class FanconiSurveyStepsImpl {
         var page = PlaywrightUtils.page;
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("#study_panel_review")).isVisible();
         page.frameLocator("iframe[name=\"gsft_main\"]").locator("#study_panel_review").click();
+        CommonUtils.sleep(400);
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("#mark_eligible")).isVisible();
         page.frameLocator("iframe[name=\"gsft_main\"]").locator("#mark_eligible").click();
+        CommonUtils.sleep(400);
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Eligibility Status")).hasValue("eligible");
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Enrollment Status")).hasValue("5");
     }
