@@ -1,4 +1,4 @@
-package ServiceNow.PlatformBusinessApps.OCI.Steps;
+package PLATFORM_BUSINESS.OCI.Steps;
 
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.Locator;

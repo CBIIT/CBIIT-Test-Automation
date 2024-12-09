@@ -1,4 +1,4 @@
-package ServiceNow.PlatformBusinessApps.OCI.OCI_Runners;
+package PLATFORM_BUSINESS.OCI.OCI_Runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -12,9 +12,5 @@ import io.cucumber.testng.CucumberOptions;
         dryRun = false
 )
 
-/**
- * This class is annotated with @RunWith(Cucumber.class) and it will run cucumber feature(s).
- *  @author sohilz2
- */
 public class Run_OCI_Regression_Test extends AbstractTestNGCucumberTests {
 }
