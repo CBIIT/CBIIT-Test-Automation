@@ -22,8 +22,6 @@ import static Hooks.Hooks.softAssert;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateElementsByXpath;
 
-
-
 public class RAS_Common_Methods extends PageInitializer {
 
     /**
