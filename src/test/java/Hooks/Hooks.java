@@ -1,6 +1,6 @@
 package Hooks;
 
-import appsCommon.PageInitializers.PageInitializer;
+import APPS_COMMON.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import com.nci.automation.web.WebDriverUtils;
