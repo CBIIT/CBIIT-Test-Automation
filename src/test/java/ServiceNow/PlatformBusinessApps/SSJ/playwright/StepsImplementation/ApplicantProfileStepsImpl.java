@@ -371,6 +371,7 @@ public class ApplicantProfileStepsImpl {
      * @param name The name of the committee member to be selected.
      */
     public static void selects_for_committee_member_with_chair_role(String name) {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("plus Add Member")).isVisible();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("plus Add Member")).click();
         page.locator(".css-yk16xz-control").click();
         page.getByText(name, new Page.GetByTextOptions().setExact(true)).click();
