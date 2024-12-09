@@ -158,7 +158,7 @@ public class CreateESRPageStepsImplementation {
         page.locator("#s2id_sp_formfield_assignment_group_esr").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("CHARMS Technical Support")).click();
         page.locator("#s2id_sp_formfield_business_owner").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
-        page.getByText("Aaliyah Robertson").click();
+        page.getByText("Aaron Bell").click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true)).click();
     }
 
@@ -172,6 +172,7 @@ public class CreateESRPageStepsImplementation {
         Page page1 = page.waitForPopup(() -> {
             page.locator("//span[@ng-if=\"data.table == 'sc_req_item'\"]//a").click();
         });
+        CommonUtils.sleep(2000);
         assertThat(page1.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]")).containsText("Q-Branch");
     }
 
@@ -192,7 +193,7 @@ public class CreateESRPageStepsImplementation {
         page.locator("#s2id_sp_formfield_assignment_group_esr").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("CHARMS Technical Support")).click();
         page.locator("#s2id_sp_formfield_business_owner").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
-        page.getByText("Aaliyah Robertson").click();
+        page.getByText("Aaron Bell").click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true)).click();
     }
 
@@ -206,6 +207,7 @@ public class CreateESRPageStepsImplementation {
         Page page1 = page.waitForPopup(() -> {
             page.locator("//span[@ng-if=\"data.table == 'sc_req_item'\"]//a").click();
         });
+        CommonUtils.sleep(2000);
         assertThat(page1.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]")).containsText("Implementation");
     }
 }
