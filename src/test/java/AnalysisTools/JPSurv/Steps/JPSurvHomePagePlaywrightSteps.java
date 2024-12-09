@@ -14,7 +14,6 @@ import io.cucumber.java.en.Then;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.TestProperties.getJpSurvUrl;
 
-
 public class JPSurvHomePagePlaywrightSteps extends PageInitializer {
 
     @Given("User navigates to JPSurv home page")

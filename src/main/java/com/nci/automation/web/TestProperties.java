@@ -4,7 +4,7 @@ public class TestProperties {
 
     public static String ENV = "test";
     public static String BROWSER = "chrome";
-    public static boolean HEADLESS = true;
+    public static boolean HEADLESS = false;
     public static int SET_SLOW_MO_TIME = 1000;
 
     /**
@@ -282,7 +282,7 @@ public class TestProperties {
     /**
      * JP-SURV URLS
      */
-    public static String JP_SURV_TEST_URL = "https://analysistools-dev.cancer.gov/jpsurv/";
+    public static String JP_SURV_TEST_URL = "https://analysistools-test.cancer.gov/jpsurv/";
     public static String JP_SURV_STAGE_URL = "https://analysistools-stage.cancer.gov/jpsurv/";
     public static String JP_SURV_URL;
 
