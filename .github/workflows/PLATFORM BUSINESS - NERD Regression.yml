@@ -31,6 +31,7 @@ jobs:
           $dateTime = [System.TimeZoneInfo]::ConvertTime([System.DateTime]::UtcNow, $timeZone)
           $timestamp = $dateTime.ToString("yyyy-MM-dd_hh-mm-ss_tt")
           Add-Content -Path $env:GITHUB_ENV -Value "timestamp=$timestamp"
+
       - name: Determine report path
         id: reportpath
         run: echo "path=nerd-regression-reports" >> $GITHUB_ENV
@@ -54,3 +55,5 @@ jobs:
           tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
           client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
           client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}
+          timestamp: ${{ env.timestamp }}
+          UPLOAD_FOLDER: "Platform Business Applications/TEST AUTOMATION REPORTS/NERD"
