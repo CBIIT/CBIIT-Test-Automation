@@ -1,6 +1,6 @@
 package ServiceNow.AwardNomination.Steps;
 
-import appsCommon.PageInitializers.PageInitializer;
+import APPS_COMMON.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,7 +9,7 @@ public class AwardNominationSteps extends PageInitializer {
 
     @Given("Submitter User logged in to VIBE Peer-to-Peer Appreciation Program application via Portal")
     public void submitter_user_logged_in_to_vibe_peer_to_peer_appreciation_program_application_via_portal() {
-     awardNominationStepsImplementation.awardNominationSubmitterUserLogin();
+        awardNominationStepsImplementation.awardNominationSubmitterUserLogin();
     }
 
     @Given("User navigates to VIBE Peer-to-Peer Appreciation Program via Services menu")
