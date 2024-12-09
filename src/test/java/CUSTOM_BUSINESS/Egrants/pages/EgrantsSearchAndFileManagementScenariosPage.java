@@ -476,6 +476,36 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement labelText;
 
     /**
+     * Edit Button Supplement Notification
+     */
+    @FindBy(xpath = "(//td/button[contains(text(), 'Edit')])[1]")
+    public WebElement editButtonSupplementNotification;
+
+    /**
+     * PA Text Field
+     */
+    @FindBy(xpath = "(//input[starts-with(@id, 'txtPA_')])[1]")
+    public WebElement paTextField;
+
+    /**
+     * Save Button Supplement Notification
+     */
+    @FindBy(xpath = "(//td/button[contains(text(), 'Save')])[1]")
+    public WebElement saveButtonSupplementNotification;
+
+    /**
+     * eRA Notification Tab
+     */
+    @FindBy(xpath = "//a[normalize-space()='eRA Notification']")
+    public WebElement eRANotificationTab;
+
+    /**
+     * Delete Button Supplement Notification
+     */
+    @FindBy(xpath = "(//td/button[contains(text(), 'Delete')])[1]")
+    public WebElement deleteButtonSupplementNotification;
+
+    /**
      * Constructor
      */
     public EgrantsSearchAndFileManagementScenariosPage() {
