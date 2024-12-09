@@ -25,7 +25,7 @@ Feature: RAS Native View Verification Scenarios
       |               | RASopathy                    | All               | Proband                 | RASopathyProband                 | TestIBMFS |
       |               | Bone Marrow Failure Syndrome | All               | Proband                 | BoneMarrowFailureSyndromeProband | TestIBMFS |
 
-  @muzipovay2 @RAS_STUDY @CP2-3959 @CP2-3958 @CP2-3961 @CP2-3760 @CP2-3861 @selenium @In-Progress @Progression
+  @muzipovay2 @RAS_STUDY @CP2-3959 @CP2-3958 @CP2-3961 @CP2-3760 @CP2-3861 @selenium @In-Progress
   Scenario Outline: Verifying that that an empty Hold/Non-Participation Date field does not remove the date from other synced records.
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=0e9497c587161ad0ad46326d3fbb35c7" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
