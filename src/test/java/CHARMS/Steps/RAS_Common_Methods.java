@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import static Hooks.Hooks.softAssert;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
+import static APPS_COMMON.Pages.Selenium_Common_Locators.locateElementsByXpath;
 
 public class RAS_Common_Methods extends PageInitializer {
 
@@ -301,10 +302,10 @@ public class RAS_Common_Methods extends PageInitializer {
      * @param participationStatus The participation status of the subject.
      * @param study               The study associated with the subject.
      */
-    public static void verifySubjectFlagsFields( String study, String participationStatus) {
-        if(participationStatus.equalsIgnoreCase("Not Participating")){
+    public static void verifySubjectFlagsFields(String study, String participationStatus) {
+        if (participationStatus.equalsIgnoreCase("Not Participating")) {
             RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSSubjectFlagsPage.nonParticipationReasonDropdown, Native_View_Constants.nonParticipationDropdownOptions, "---- VERIFYING NON-PARTICIPATION REASON DROPDOWN OPTIONS ----");
-        } else if(participationStatus.equalsIgnoreCase("Hold")) {
+        } else if (participationStatus.equalsIgnoreCase("Hold")) {
             softAssert.assertTrue(locateByXpath("//span[normalize-space()='Hold Reason']").isDisplayed());
             softAssert.assertTrue(locateByXpath("//div[@id='label.x_naci_family_coho_subject_flag.hold_non_participation_date']//span[2]").isDisplayed());
         }
@@ -317,5 +318,17 @@ public class RAS_Common_Methods extends PageInitializer {
         if (study.equalsIgnoreCase("Fanconi") || study.equalsIgnoreCase("Bone Marrow Failure Syndrome")) {
             RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSSubjectFlagsPage.IBMFSAffectedStatusDropDown, Native_View_Constants.IBMFSAffectedStatusDropdownOptions, "---- VERIFYING IBMFS AFFECTED STATUS DROPDOWN OPTIONS ----");
         }
+    }
+
+    /**
+     * Retrieves a list of web elements representing the columns in the NV table list view.
+     *
+     * @return a List of WebElement objects representing the columns in the NV table list view
+     */
+    public static List<String> getTableListViewColumns() {
+        List<WebElement> columns = locateElementsByXpath("//th[@class='text-align-left list_header_cell list_hdr ']//a[@role='button']");
+        List<String> tableListText = new ArrayList<>();
+        columns.forEach(column -> tableListText.add(column.getText()));
+        return tableListText;
     }
 }
