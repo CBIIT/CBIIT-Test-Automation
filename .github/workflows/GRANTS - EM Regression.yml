@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="GrantsApps.GrantsRunners.EnterpriseMaintenance.RunEMRegressionTest" test
+        run: mvn -B -q -Dtest="GRANTS.runners.EnterpriseMaintenance.RunEMRegressionTest" test
         continue-on-error: true
 
       - name: Generate timestamp
