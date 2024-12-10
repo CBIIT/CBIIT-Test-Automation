@@ -19,8 +19,8 @@ public class FanconiSurveyStepsImpl {
     /** Method to Reset Fanconi Screener and Survey accounts method to Fanconi Survey */
     public static void resetFanconiScreenerAndSurveyAccount(){
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
-        resetFanconiScreener();
         resetFanconiSurvey();
+        resetFanconiScreener();
     }
 
     /** Method to fill Fanconi Screener */
@@ -159,17 +159,17 @@ public class FanconiSurveyStepsImpl {
         page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"section_head_right\\.e3dbd323bf3220001875647fcf0739c2\"]").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Run Fix Script")).click();
         page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Proceed in Background")).click();
         page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Close").setExact(true)).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CBIIT Test Account: available")).click();
+        page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName("Log out")).click();
     }
 
     /** Method to Reset Fanconi Screener */
     public static void resetFanconiSurvey() {
         var page = PlaywrightUtils.page;
-        page.navigate("https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Db5a3cb4887799e107e87a8a60cbb35d9");
+        page.navigate("https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3D5de132b887f116507e87a8a60cbb35da%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D7%26sysparm_record_rows%3D1292%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
         page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"section_head_right\\.e3dbd323bf3220001875647fcf0739c2\"]").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Run Fix Script")).click();
         page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Proceed in Background")).click();
         page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Close").setExact(true)).click();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CBIIT Test Account: available")).click();
-        page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName("Log out")).click();
     }
 
     /** Method to log in to Participant details page in NativeView */
@@ -195,21 +195,20 @@ public class FanconiSurveyStepsImpl {
     public static void assertParticipantDetailsPageFieldsInNativeView() {
         var page = PlaywrightUtils.page;
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Subject ID")).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Subject ID"))).isVisible();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Name").click();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Name").setExact(true))).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Subject ID"))).isEmpty();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_family_history_details\\.name\"]")).containsText("Name");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Name").setExact(true))).hasValue("Participant First Name PL");
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Permission to contact")).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Permission to contact")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Permission to contact")).hasValue("Unknown");
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByText("FHQ Patient")).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("FHQ Patient", new FrameLocator.GetByLabelOptions().setExact(true))).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("FHQ Patient", new FrameLocator.GetByLabelOptions().setExact(true))).isEmpty();
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Eligibility Status")).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Eligibility Status")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Eligibility Status")).hasValue("waiting_for_eligibility");
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Enrollment Status")).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Enrollment Status")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Enrollment Status")).hasValue("1");
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByText("Studies", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"x_naci_family_coho_family_history_details\\.studies_nonedit\"]")).isVisible();
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByText("NIH MRN number", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("NIH MRN number")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("NIH MRN number")).isEmpty();
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByText("NIH MRN number should include")).isVisible();
     }
 
@@ -218,8 +217,10 @@ public class FanconiSurveyStepsImpl {
         var page = PlaywrightUtils.page;
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("#study_panel_review")).isVisible();
         page.frameLocator("iframe[name=\"gsft_main\"]").locator("#study_panel_review").click();
+        CommonUtils.sleep(400);
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("#mark_eligible")).isVisible();
         page.frameLocator("iframe[name=\"gsft_main\"]").locator("#mark_eligible").click();
+        CommonUtils.sleep(400);
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Eligibility Status")).hasValue("eligible");
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Enrollment Status")).hasValue("5");
     }
@@ -294,8 +295,10 @@ public class FanconiSurveyStepsImpl {
         page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Interpreter Language").fill("Spanish");
         page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Interpreter Witness?").selectOption("1");
         page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Interpreter Signed").selectOption("1");
-        page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"x_naci_family_coho_fcsms_consent\\.form_header\"]").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Save")).click();
+      //  page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"x_naci_family_coho_fcsms_consent\\.form_header\"]").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Save")).click();
+        CommonUtils.sleep(300);
         page.frameLocator("iframe[name=\"gsft_main\"]").locator("#call_complete").click();
+        CommonUtils.sleep(400);
     }
 
     /** Method to upload the Consent Pdf to Fanconi Consent */
@@ -307,6 +310,7 @@ public class FanconiSurveyStepsImpl {
         page.frameLocator("iframe[name=\"gsft_main\"]").locator("input[aria-hidden=\"true\"][id=\"attachFile\"]").setInputFiles(Paths.get(consentPDF));
         CommonUtils.sleep(2000);
         page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Close", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        CommonUtils.sleep(400);
     }
 
     /** Method to Complete Consent to */
@@ -330,6 +334,9 @@ public class FanconiSurveyStepsImpl {
         page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated")).fill("Renne Gray");
         page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated")).press("Enter");
         page.frameLocator("iframe[name=\"gsft_main\"]").locator("#complete_consent").click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CBIIT Test Account: available")).click();
+        page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName("Log out")).click();
+        CommonUtils.sleep(400);
     }
 
     /** Login method to Fanconi Survey */
@@ -337,8 +344,9 @@ public class FanconiSurveyStepsImpl {
         var page = PlaywrightUtils.page;
         page.navigate(TestProperties.FANCONI_TEST_URL);
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(FanconiSurveyPage.LOGIN_BUTTON_LINK)).click();
-        page.getByLabel(FanconiSurveyPage.USERNAME).fill(FanconiSurveyPage.EMAIL);
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.NEXT)).click();
+        CommonUtils.sleep(2000);
+      //  page.getByLabel(FanconiSurveyPage.USERNAME).fill(FanconiSurveyPage.EMAIL);
+     //   page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.NEXT)).click();
         page.getByLabel(FanconiSurveyPage.PASSWORD).fill(FanconiSurveyPage.USER_PASSWORD);
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.VERIFY)).click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.AGREE)).click();
@@ -364,143 +372,6 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.getByLabel(FanconiSurveyPage.SURGICAL_MEDICATION_AND_OTHER_MEDICAL_HISTORY).locator(FanconiSurveyPage.SPAN)).hasText(FanconiSurveyPage.SURGICAL_MEDICATION_AND_OTHER_MEDICAL_HISTORY);
         assertThat(page.getByLabel(FanconiSurveyPage.SEXUAL_HISTORY).locator(FanconiSurveyPage.SPAN)).hasText(FanconiSurveyPage.SEXUAL_HISTORY);
         CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
-    }
-
-    /** This method allows the submissions and assertions of the Background Information section of the Fanconi Survey for scenario1.*/
-    public static void backgroundInformationSectionScenario1() {
-        var page = PlaywrightUtils.page;
-        assertThat(page.getByLabel(FanconiSurveyPage.BACKGROUND_INFORMATION)).hasText(FanconiSurveyPage.BACKGROUND_INFORMATION);
-        assertThat(page.getByLabel(FanconiSurveyPage.BACKGROUND_INFORMATION)).isEnabled();
-        page.getByLabel(FanconiSurveyPage.BACKGROUND_INFORMATION).click();
-        assertThat(page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(FanconiSurveyPage.HOME))).isVisible();
-        assertThat(page.getByLabel(FanconiSurveyPage.PAGE_BREADCRUMBS).getByRole(AriaRole.LIST)).containsText(FanconiSurveyPage.BACKGROUND_INFORMATION);
-        assertThat(page.locator(FanconiSurveyPage.H_2)).hasText(FanconiSurveyPage.BACKGROUND_INFORMATION);
-        assertThat(page.getByLabel(FanconiSurveyPage.FORM, new Page.GetByLabelOptions().setExact(true))).containsText(FanconiSurveyPage.INDICATES_REQUIRED);
-        assertThat(page.getByText(FanconiSurveyPage.THIS_FIRST_SECTION)).hasText(FanconiSurveyPage.THIS_FIRST_SECTION);
-        assertThat(page.getByText(FanconiSurveyPage.PLEASE_RESPOND_FROM_THE_PERSPECTIVE_OF_THE_PARTICIPANT)).hasText(FanconiSurveyPage.PLEASE_RESPOND_FROM_THE_PERSPECTIVE_OF_THE_PARTICIPANT);
-        assertThat(page.getByLabel(FanconiSurveyPage.FORM, new Page.GetByLabelOptions().setExact(true)).getByText(FanconiSurveyPage.TO_CONFIRM_ARE_YOU_COMPLETING_THIS_FORM_FOR_YOURSELF_OR_FOR_SOMEONE_ELSE, new Locator.GetByTextOptions().setExact(true))).hasText(FanconiSurveyPage.TO_CONFIRM_ARE_YOU_COMPLETING_THIS_FORM_FOR_YOURSELF_OR_FOR_SOMEONE_ELSE);
-        assertThat(page.getByText(FanconiSurveyPage.I_AM_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE)).hasText(FanconiSurveyPage.I_AM_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);
-        assertThat(page.getByText(FanconiSurveyPage.I_AM_COMPLETING_THIS_FORM_FOR_MYSELF)).hasText(FanconiSurveyPage.I_AM_COMPLETING_THIS_FORM_FOR_MYSELF);
-        page.getByText(FanconiSurveyPage.I_AM_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE).click();
-        assertThat(page.getByText(FanconiSurveyPage.PROXY_ENTER_YOUR_NAME)).hasText(FanconiSurveyPage.PROXY_ENTER_YOUR_NAME);
-        assertThat(page.locator(FanconiSurveyPage.FA_PROXY_FIRST_NAME)).hasText(FanconiSurveyPage.FIRST_NAME);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_PROXY_FIRST_NAME).fill(FanconiSurveyPage.PROXY_FIRST_NAME);
-        assertThat(page.locator(FanconiSurveyPage.FA_PROXY_MIDDLE_INITIAL)).hasText(FanconiSurveyPage.MIDDLE_INITIAL);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_PROXY_MIDDLE_INITIAL).fill(FanconiSurveyPage.PROXY_MIDDLE_INITIAL);
-        assertThat(page.locator(FanconiSurveyPage.FA_PROXY_LAST_NAME).getByText(FanconiSurveyPage.LAST_NAME)).hasText(FanconiSurveyPage.LAST_NAME);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_PROXY_LAST_NAME).fill(FanconiSurveyPage.PROXY_LAST_NAME);
-        assertThat(page.getByText(FanconiSurveyPage.WHAT_IS_YOUR_THE_PARTICIPANT_S_NAME)).hasText(FanconiSurveyPage.WHAT_IS_YOUR_THE_PARTICIPANT_S_NAME);
-        assertThat(page.locator(FanconiSurveyPage.FA_FIRST_NAME)).hasText(FanconiSurveyPage.FIRST_NAME);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_FIRST_NAME).fill(FanconiSurveyPage.PARTICIPANT_FIRST_NAME);
-        assertThat(page.locator(FanconiSurveyPage.FA_LAST_NAME)).hasText(FanconiSurveyPage.LAST_NAME);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_LAST_NAME).fill(FanconiSurveyPage.PARTICIPANT_LAST_NAME);
-        assertThat(page.locator(FanconiSurveyPage.FA_MIDDLE_INITIAL)).hasText(FanconiSurveyPage.MIDDLE_INITIAL);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_MIDDLE_INITIAL).fill(FanconiSurveyPage.PARTICIPANT_MIDDLE_INITIAL);
-        assertThat(page.getByText(FanconiSurveyPage.WHO_IS_YOUR_THE_PARTICIPANT_PHYSICIAN)).hasText(FanconiSurveyPage.WHO_IS_YOUR_THE_PARTICIPANT_PHYSICIAN);
-        assertThat(page.getByText(FanconiSurveyPage.PHYSICIAN_CONTACT_DETAIL)).isVisible();
-        assertThat(page.locator(FanconiSurveyPage.FA_TREATING_PHYSICIAN)).containsText(FanconiSurveyPage.PHYSICIAN_DETAILS);
-        assertThat(page.getByLabel(FanconiSurveyPage.ADD_A_ROW_FOR_PHYSICIAN)).hasText(FanconiSurveyPage.ADD);
-        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ACTIONS))).isVisible();
-        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.NAME_OF_PHYSICIAN_FIRST_NAME_AND_LAST_NAME))).isVisible();
-        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.INSTITUTION_HOSPITAL_NAME))).isVisible();
-        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.INSTITUTION_HOSPITAL_LOCATION_CITY_STATE_PROVINCE_COUNTRY_ZIP_CODE))).isVisible();
-        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.INSTITUTION_HOSPITAL_NAME))).isVisible();
-        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.INSTITUTION_HOSPITAL_LOCATION))).isVisible();
-        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.TELEPHONE))).isVisible();
-        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.FAX_NUMBER))).isVisible();
-        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.EMAIL_ADDRESS))).isVisible();
-        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("No data to display"))).isVisible();
-        page.getByLabel(FanconiSurveyPage.ADD_A_ROW_FOR_PHYSICIAN).click();
-        assertThat(page.locator(FanconiSurveyPage.FA_NAME_OF_PHYSICIAN)).hasText(FanconiSurveyPage.NAME_OF_PHYSICIAN_FIRST_NAME_AND_LAST_NAME);
-        page.getByLabel(FanconiSurveyPage.NAME_OF_PHYSICIAN_FIRST_NAME).click();
-        page.getByLabel(FanconiSurveyPage.NAME_OF_PHYSICIAN_FIRST_NAME).fill(FanconiSurveyPage.PHYSICIAN_FIRST_NAME);
-        assertThat(page.locator(FanconiSurveyPage.FA_TREATMENT_FACILITY)).hasText(FanconiSurveyPage.INSTITUTION_HOSPITAL_NAME);
-        page.getByLabel(FanconiSurveyPage.INSTITUTION_HOSPITAL_NAME).click();
-        page.getByLabel(FanconiSurveyPage.INSTITUTION_HOSPITAL_NAME).fill(FanconiSurveyPage.INSTITUTION_NAME);
-        assertThat(page.locator(FanconiSurveyPage.FA_TREATMENT_FACILITY_LOCATION)).hasText(FanconiSurveyPage.INSTITUTION_HOSPITAL_LOCATION_CITY_STATE_PROVINCE_COUNTRY_ZIP_CODE);
-        page.getByLabel(FanconiSurveyPage.INSTITUTION_HOSPITAL_LOCATION).click();
-        page.getByLabel(FanconiSurveyPage.INSTITUTION_HOSPITAL_LOCATION).fill(FanconiSurveyPage.INSTITUTION_LOCATION);
-        assertThat(page.locator(FanconiSurveyPage.FA_PHYSICIAN_TELEPHONE)).hasText(FanconiSurveyPage.TELEPHONE);
-        page.getByLabel(FanconiSurveyPage.TELEPHONE).click();
-        page.getByLabel(FanconiSurveyPage.TELEPHONE).fill(FanconiSurveyPage.ADD_TELEPHONE_NUMBER);
-        assertThat(page.locator(FanconiSurveyPage.FA_PHYSICIAN_FAX_NUMBER)).hasText(FanconiSurveyPage.FAX_NUMBER);
-        page.getByLabel(FanconiSurveyPage.FAX_NUMBER).click();
-        page.getByLabel(FanconiSurveyPage.FAX_NUMBER).fill(FanconiSurveyPage.ADD_FAX_NUMBER);
-        assertThat(page.locator(FanconiSurveyPage.FA_PHYSICIAN_EMAIL_ADDRESS)).hasText(FanconiSurveyPage.EMAIL_ADDRESS);
-        page.getByLabel(FanconiSurveyPage.EMAIL_ADDRESS).click();
-        page.getByLabel(FanconiSurveyPage.EMAIL_ADDRESS).fill(FanconiSurveyPage.ADD_EMAIL_ADDRESS);
-        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.CANCEL))).isVisible();
-        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ADD))).isVisible();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ADD)).click();
-        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(FanconiSurveyPage.PHYSICIAN_FIRST_NAME))).isVisible();
-        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(FanconiSurveyPage.INSTITUTION_NAME))).isVisible();
-        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(FanconiSurveyPage.INSTITUTION_LOCATION))).isVisible();
-        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ADD_TELEPHONE_NUMBER))).isVisible();
-        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ADD_FAX_NUMBER))).isVisible();
-        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ADD_EMAIL_ADDRESS))).isVisible();
-        assertThat(page.locator(FanconiSurveyPage.NUM_AFFECTED_FAMILY_MEMBER)).containsText(FanconiSurveyPage.NUM_AFFECTED_FAMILY_MEMBER_DETAIL);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_NUM_AFFECTED_FAMILY_MEMBER_A).click();
-        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("1").setExact(true)).click();
-        assertThat(page.getByText(FanconiSurveyPage.AFFECTED_FAMILY_MEMBER_DETAIL_NOTE)).isVisible();
-        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVES_DETAILS)).containsText(FanconiSurveyPage.FAMILY_MEMBERS);
-        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.FAMILY_MEMBER))).isVisible();
-        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.OTHER_RELATIVE_PLEASE_SPECIFY))).isVisible();
-        page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.CURRENT_VITAL_STATUS)).click();
-        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.CURRENT_AGE_OR_AGE_AT_DEATH))).isVisible();
-        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.HAVE_THEY_RECEIVED_A_HEMATOPOIETIC_STEM_CELL_TRANSPLANT))).isVisible();
-        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.DO_THEY_HAVE_A_HISTORY_OF_CANCER))).isVisible();
-        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.IF_YES_SPECIFY_CANCER_TYPE_SITE))).isVisible();
-        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.OTHER_CANCER_TYPE_SITE_PLEASE_SPECIFY))).isVisible();
-        page.getByLabel(FanconiSurveyPage.ADD_A_ROW_FOR_FAMILY_MEMBERS).click();
-        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVE_RELATION)).containsText(FanconiSurveyPage.FAMILY_MEMBER);
-        assertThat(page.getByLabel(FanconiSurveyPage.FAMILY_MEMBERS, new Page.GetByLabelOptions().setExact(true)).locator(FanconiSurveyPage.SP_HELP_TAG)).hasText(FanconiSurveyPage.IF_YOU_DO_NOT_KNOW_PLEASE_SELECT_UNKNOWN_UNSURE);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_AFFECTED_RELATIVE_RELATION_A).click();
-        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.OTHER_RELATIVE_PLEASE)).click();
-        assertThat(page.locator(FanconiSurveyPage.FA_OTHER_RELATIVE_PLEASE_SPECIFY)).hasText(FanconiSurveyPage.OTHER_RELATIVE_PLEASE_SPECIFY);
-        page.getByLabel(FanconiSurveyPage.OTHER_RELATIVE_PLEASE_SPECIFY, new Page.GetByLabelOptions().setExact(true)).click();
-        page.getByLabel(FanconiSurveyPage.OTHER_RELATIVE_PLEASE_SPECIFY, new Page.GetByLabelOptions().setExact(true)).fill(FanconiSurveyPage.OTHER_RELATIVE_PLEASE_SPECIFY_ENTERED);
-        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVE_VITAL_STATUS)).containsText(FanconiSurveyPage.CURRENT_VITAL_STATUS);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_AFFECTED_RELATIVE_VITAL_STATUS_A).click();
-        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ALIVE)).click();
-        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVE_CURRENT_AGE_OR_AGE_AT_DEATH)).containsText(FanconiSurveyPage.CURRENT_AGE_OR_AGE_AT_DEATH);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_AFFECTED_RELATIVE_CURRENT_AGE_OR_AGE_AT_DEATH_A).click();
-        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.AGE_ENTERED).setExact(true)).click();
-        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVE_STEM_CELL_TRANSPLANT)).containsText(FanconiSurveyPage.HAVE_THEY_RECEIVED_A_HEMATOPOIETIC_STEM_CELL_TRANSPLANT);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_AFFECTED_RELATIVE_STEM_CELL_TRANSPLANT_A).click();
-        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.YES)).click();
-        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVE_CANCER)).containsText(FanconiSurveyPage.DO_THEY_HAVE_A_HISTORY_OF_CANCER);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_AFFECTED_RELATIVE_CANCER_A).click();
-        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.YES)).click();
-        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVE_CANCER)).containsText(FanconiSurveyPage.DO_THEY_HAVE_A_HISTORY_OF_CANCER);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_AFFECTED_RELATIVE_CANCER_A).click();
-        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.YES)).click();
-        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVE_CANCER_DETAILS)).containsText(FanconiSurveyPage.IF_YES_SPECIFY_CANCER_TYPE_SITE);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_AFFECTED_RELATIVE_CANCER_DETAILS_A).click();
-        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.CANCER_ENTERED)).click();
-        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.CANCEL))).isVisible();
-        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ADD))).isVisible();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ADD)).click();
-        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVES_DETAILS)).containsText(FanconiSurveyPage.OTHER_RELATIVE_PLEASE_SPECIFY);
-        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVES_DETAILS)).containsText(FanconiSurveyPage.OTHER_RELATIVE_PLEASE_SPECIFY_ENTERED);
-        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVES_DETAILS)).containsText(FanconiSurveyPage.ALIVE);
-        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVES_DETAILS)).containsText(FanconiSurveyPage.AGE_ENTERED);
-        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVES_DETAILS)).containsText(FanconiSurveyPage.YES);
-        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVES_DETAILS)).containsText(FanconiSurveyPage.YES);
-        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVES_DETAILS)).containsText(FanconiSurveyPage.CANCER_ENTERED);
-        assertThat(page.locator(FanconiSurveyPage.FA_FAMILY_CAMP)).containsText(FanconiSurveyPage.FA_FAMILY_CAMP_DETAIL);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_FAMILY_CAMP_A).click();
-        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.YES)).click();
-        assertThat(page.locator(FanconiSurveyPage.FA_FAMILY_CAMP_COUNT)).containsText(FanconiSurveyPage.FA_FAMILY_CAMP_COUNT_DETAILS);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_FAMILY_CAMP_COUNT_A).click();
-        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.FA_FAMILY_CAMP_COUNT_ENTERED).setExact(true)).click();
-        assertThat(page.locator(FanconiSurveyPage.FA_INCLUDED_IN_PUBLICATION)).containsText(FanconiSurveyPage.FA_INCLUDED_IN_PUBLICATION_DETAILS);
-        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_INCLUDED_IN_PUBLICATION_A).click();
-        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.YES)).click();
-        assertThat(page.locator(FanconiSurveyPage.FA_PUBLICATION)).containsText(FanconiSurveyPage.FA_PUBLICATION_DETAILS);
-        page.getByLabel(FanconiSurveyPage.PLEASE_PROVIDE_ANY_ADDITIONAL).click();
-        page.getByLabel(FanconiSurveyPage.PLEASE_PROVIDE_ANY_ADDITIONAL).fill(FanconiSurveyPage.PLEASE_PROVIDE_ANY_ADDITIONAL_DETAILS);
-        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.SUBMIT))).isVisible();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.SUBMIT)).click();
     }
 
     /** This method allows the submissions and assertions of the Demographic section of the Fanconi Survey for scenario1.*/
@@ -532,6 +403,7 @@ public class FanconiSurveyStepsImpl {
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.FATHERS_RACE_ENTERED).setExact(true)).click();
         assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.SUBMIT))).isVisible();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.SUBMIT)).click();
+        CommonUtils.sleep(500);
     }
 
     /** This method allows the submissions and assertions of the Medical History section of the Fanconi Survey for scenario1.*/
@@ -812,6 +684,7 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.locator(FanconiSurveyPage.FA_FANCONI_ANEMIA_SIGNS)).containsText(FanconiSurveyPage.FA_MONTH_SIGNS_FIRST_APPEARED_ENTERED);
         assertThat(page.locator(FanconiSurveyPage.FA_FANCONI_ANEMIA_SIGNS)).containsText(FanconiSurveyPage.FA_YEAR_SIGNS_FIRST_APPEARED_ENTERED);
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.SUBMIT)).click();
+        CommonUtils.sleep(500);
     }
 
     /** This method allows the submissions and assertions of the Medical History Continued section of the Fanconi Survey for scenario1.*/
@@ -1729,6 +1602,7 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.locator("#fa_endocrine_disorder_mrvs")).containsText("Test treatment received");
         assertThat(page.locator("#fa_endocrine_disorder_mrvs")).containsText("Still receiving treatment");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.SUBMIT)).click();
+        CommonUtils.sleep(500);
     }
 
     /** This method allows the submissions and assertions of the Reproductive History section of the Fanconi Survey for scenario1.*/
@@ -2746,6 +2620,146 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("106"))).isVisible();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("102")).click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.SUBMIT)).click();
+        CommonUtils.sleep(500);
+    }
+
+    /** This method allows the submissions and assertions of the Background Information section of the Fanconi Survey for scenario1.*/
+    public static void backgroundInformationSectionScenario1() {
+        var page = PlaywrightUtils.page;
+        assertThat(page.getByLabel(FanconiSurveyPage.BACKGROUND_INFORMATION)).hasText(FanconiSurveyPage.BACKGROUND_INFORMATION);
+        assertThat(page.getByLabel(FanconiSurveyPage.BACKGROUND_INFORMATION)).isEnabled();
+        page.getByLabel(FanconiSurveyPage.BACKGROUND_INFORMATION).click();
+        CommonUtils.sleep(2000);
+        assertThat(page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(FanconiSurveyPage.HOME))).isVisible();
+        assertThat(page.getByLabel(FanconiSurveyPage.PAGE_BREADCRUMBS).getByRole(AriaRole.LIST)).containsText(FanconiSurveyPage.BACKGROUND_INFORMATION);
+        assertThat(page.locator(FanconiSurveyPage.H_2)).hasText(FanconiSurveyPage.BACKGROUND_INFORMATION);
+        assertThat(page.getByLabel(FanconiSurveyPage.FORM, new Page.GetByLabelOptions().setExact(true))).containsText(FanconiSurveyPage.INDICATES_REQUIRED);
+        assertThat(page.getByText(FanconiSurveyPage.THIS_FIRST_SECTION)).hasText(FanconiSurveyPage.THIS_FIRST_SECTION);
+        assertThat(page.getByText(FanconiSurveyPage.PLEASE_RESPOND_FROM_THE_PERSPECTIVE_OF_THE_PARTICIPANT)).hasText(FanconiSurveyPage.PLEASE_RESPOND_FROM_THE_PERSPECTIVE_OF_THE_PARTICIPANT);
+        assertThat(page.getByLabel(FanconiSurveyPage.FORM, new Page.GetByLabelOptions().setExact(true)).getByText(FanconiSurveyPage.TO_CONFIRM_ARE_YOU_COMPLETING_THIS_FORM_FOR_YOURSELF_OR_FOR_SOMEONE_ELSE, new Locator.GetByTextOptions().setExact(true))).hasText(FanconiSurveyPage.TO_CONFIRM_ARE_YOU_COMPLETING_THIS_FORM_FOR_YOURSELF_OR_FOR_SOMEONE_ELSE);
+        assertThat(page.getByText(FanconiSurveyPage.I_AM_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE)).hasText(FanconiSurveyPage.I_AM_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);
+        assertThat(page.getByText(FanconiSurveyPage.I_AM_COMPLETING_THIS_FORM_FOR_MYSELF)).hasText(FanconiSurveyPage.I_AM_COMPLETING_THIS_FORM_FOR_MYSELF);
+        page.getByText(FanconiSurveyPage.I_AM_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE).click();
+        assertThat(page.getByText(FanconiSurveyPage.PROXY_ENTER_YOUR_NAME)).hasText(FanconiSurveyPage.PROXY_ENTER_YOUR_NAME);
+        assertThat(page.locator(FanconiSurveyPage.FA_PROXY_FIRST_NAME)).hasText(FanconiSurveyPage.FIRST_NAME);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_PROXY_FIRST_NAME).fill(FanconiSurveyPage.PROXY_FIRST_NAME);
+        assertThat(page.locator(FanconiSurveyPage.FA_PROXY_MIDDLE_INITIAL)).hasText(FanconiSurveyPage.MIDDLE_INITIAL);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_PROXY_MIDDLE_INITIAL).fill(FanconiSurveyPage.PROXY_MIDDLE_INITIAL);
+        assertThat(page.locator(FanconiSurveyPage.FA_PROXY_LAST_NAME).getByText(FanconiSurveyPage.LAST_NAME)).hasText(FanconiSurveyPage.LAST_NAME);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_PROXY_LAST_NAME).fill(FanconiSurveyPage.PROXY_LAST_NAME);
+        assertThat(page.getByText(FanconiSurveyPage.WHAT_IS_YOUR_THE_PARTICIPANT_S_NAME)).hasText(FanconiSurveyPage.WHAT_IS_YOUR_THE_PARTICIPANT_S_NAME);
+        assertThat(page.locator(FanconiSurveyPage.FA_FIRST_NAME)).hasText(FanconiSurveyPage.FIRST_NAME);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_FIRST_NAME).fill(FanconiSurveyPage.PARTICIPANT_FIRST_NAME);
+        assertThat(page.locator(FanconiSurveyPage.FA_LAST_NAME)).hasText(FanconiSurveyPage.LAST_NAME);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_LAST_NAME).fill(FanconiSurveyPage.PARTICIPANT_LAST_NAME);
+        assertThat(page.locator(FanconiSurveyPage.FA_MIDDLE_INITIAL)).hasText(FanconiSurveyPage.MIDDLE_INITIAL);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_MIDDLE_INITIAL).fill(FanconiSurveyPage.PARTICIPANT_MIDDLE_INITIAL);
+        assertThat(page.getByText(FanconiSurveyPage.WHO_IS_YOUR_THE_PARTICIPANT_PHYSICIAN)).hasText(FanconiSurveyPage.WHO_IS_YOUR_THE_PARTICIPANT_PHYSICIAN);
+        assertThat(page.getByText(FanconiSurveyPage.PHYSICIAN_CONTACT_DETAIL)).isVisible();
+        assertThat(page.locator(FanconiSurveyPage.FA_TREATING_PHYSICIAN)).containsText(FanconiSurveyPage.PHYSICIAN_DETAILS);
+        assertThat(page.getByLabel(FanconiSurveyPage.ADD_A_ROW_FOR_PHYSICIAN)).hasText(FanconiSurveyPage.ADD);
+        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ACTIONS))).isVisible();
+        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.NAME_OF_PHYSICIAN_FIRST_NAME_AND_LAST_NAME))).isVisible();
+        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.INSTITUTION_HOSPITAL_NAME))).isVisible();
+        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.INSTITUTION_HOSPITAL_LOCATION_CITY_STATE_PROVINCE_COUNTRY_ZIP_CODE))).isVisible();
+        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.INSTITUTION_HOSPITAL_NAME))).isVisible();
+        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.INSTITUTION_HOSPITAL_LOCATION))).isVisible();
+        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.TELEPHONE))).isVisible();
+        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.FAX_NUMBER))).isVisible();
+        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.EMAIL_ADDRESS))).isVisible();
+        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("No data to display"))).isVisible();
+        page.getByLabel(FanconiSurveyPage.ADD_A_ROW_FOR_PHYSICIAN).click();
+        assertThat(page.locator(FanconiSurveyPage.FA_NAME_OF_PHYSICIAN)).hasText(FanconiSurveyPage.NAME_OF_PHYSICIAN_FIRST_NAME_AND_LAST_NAME);
+        page.getByLabel(FanconiSurveyPage.NAME_OF_PHYSICIAN_FIRST_NAME).click();
+        page.getByLabel(FanconiSurveyPage.NAME_OF_PHYSICIAN_FIRST_NAME).fill(FanconiSurveyPage.PHYSICIAN_FIRST_NAME);
+        assertThat(page.locator(FanconiSurveyPage.FA_TREATMENT_FACILITY)).hasText(FanconiSurveyPage.INSTITUTION_HOSPITAL_NAME);
+        page.getByLabel(FanconiSurveyPage.INSTITUTION_HOSPITAL_NAME).click();
+        page.getByLabel(FanconiSurveyPage.INSTITUTION_HOSPITAL_NAME).fill(FanconiSurveyPage.INSTITUTION_NAME);
+        assertThat(page.locator(FanconiSurveyPage.FA_TREATMENT_FACILITY_LOCATION)).hasText(FanconiSurveyPage.INSTITUTION_HOSPITAL_LOCATION_CITY_STATE_PROVINCE_COUNTRY_ZIP_CODE);
+        page.getByLabel(FanconiSurveyPage.INSTITUTION_HOSPITAL_LOCATION).click();
+        page.getByLabel(FanconiSurveyPage.INSTITUTION_HOSPITAL_LOCATION).fill(FanconiSurveyPage.INSTITUTION_LOCATION);
+        assertThat(page.locator(FanconiSurveyPage.FA_PHYSICIAN_TELEPHONE)).hasText(FanconiSurveyPage.TELEPHONE);
+        page.getByLabel(FanconiSurveyPage.TELEPHONE).click();
+        page.getByLabel(FanconiSurveyPage.TELEPHONE).fill(FanconiSurveyPage.ADD_TELEPHONE_NUMBER);
+        assertThat(page.locator(FanconiSurveyPage.FA_PHYSICIAN_FAX_NUMBER)).hasText(FanconiSurveyPage.FAX_NUMBER);
+        page.getByLabel(FanconiSurveyPage.FAX_NUMBER).click();
+        page.getByLabel(FanconiSurveyPage.FAX_NUMBER).fill(FanconiSurveyPage.ADD_FAX_NUMBER);
+        assertThat(page.locator(FanconiSurveyPage.FA_PHYSICIAN_EMAIL_ADDRESS)).hasText(FanconiSurveyPage.EMAIL_ADDRESS);
+        page.getByLabel(FanconiSurveyPage.EMAIL_ADDRESS).click();
+        page.getByLabel(FanconiSurveyPage.EMAIL_ADDRESS).fill(FanconiSurveyPage.ADD_EMAIL_ADDRESS);
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.CANCEL))).isVisible();
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ADD))).isVisible();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ADD)).click();
+        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(FanconiSurveyPage.PHYSICIAN_FIRST_NAME))).isVisible();
+        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(FanconiSurveyPage.INSTITUTION_NAME))).isVisible();
+        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(FanconiSurveyPage.INSTITUTION_LOCATION))).isVisible();
+        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ADD_TELEPHONE_NUMBER))).isVisible();
+        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ADD_FAX_NUMBER))).isVisible();
+        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ADD_EMAIL_ADDRESS))).isVisible();
+        assertThat(page.locator(FanconiSurveyPage.NUM_AFFECTED_FAMILY_MEMBER)).containsText(FanconiSurveyPage.NUM_AFFECTED_FAMILY_MEMBER_DETAIL);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_NUM_AFFECTED_FAMILY_MEMBER_A).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("1").setExact(true)).click();
+        assertThat(page.getByText(FanconiSurveyPage.AFFECTED_FAMILY_MEMBER_DETAIL_NOTE)).isVisible();
+        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVES_DETAILS)).containsText(FanconiSurveyPage.FAMILY_MEMBERS);
+        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.FAMILY_MEMBER))).isVisible();
+        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.OTHER_RELATIVE_PLEASE_SPECIFY))).isVisible();
+        page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.CURRENT_VITAL_STATUS)).click();
+        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.CURRENT_AGE_OR_AGE_AT_DEATH))).isVisible();
+        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.HAVE_THEY_RECEIVED_A_HEMATOPOIETIC_STEM_CELL_TRANSPLANT))).isVisible();
+        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.DO_THEY_HAVE_A_HISTORY_OF_CANCER))).isVisible();
+        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.IF_YES_SPECIFY_CANCER_TYPE_SITE))).isVisible();
+        assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(FanconiSurveyPage.OTHER_CANCER_TYPE_SITE_PLEASE_SPECIFY))).isVisible();
+        page.getByLabel(FanconiSurveyPage.ADD_A_ROW_FOR_FAMILY_MEMBERS).click();
+        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVE_RELATION)).containsText(FanconiSurveyPage.FAMILY_MEMBER);
+        assertThat(page.getByLabel(FanconiSurveyPage.FAMILY_MEMBERS, new Page.GetByLabelOptions().setExact(true)).locator(FanconiSurveyPage.SP_HELP_TAG)).hasText(FanconiSurveyPage.IF_YOU_DO_NOT_KNOW_PLEASE_SELECT_UNKNOWN_UNSURE);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_AFFECTED_RELATIVE_RELATION_A).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.OTHER_RELATIVE_PLEASE)).click();
+        assertThat(page.locator(FanconiSurveyPage.FA_OTHER_RELATIVE_PLEASE_SPECIFY)).hasText(FanconiSurveyPage.OTHER_RELATIVE_PLEASE_SPECIFY);
+        page.getByLabel(FanconiSurveyPage.OTHER_RELATIVE_PLEASE_SPECIFY, new Page.GetByLabelOptions().setExact(true)).click();
+        page.getByLabel(FanconiSurveyPage.OTHER_RELATIVE_PLEASE_SPECIFY, new Page.GetByLabelOptions().setExact(true)).fill(FanconiSurveyPage.OTHER_RELATIVE_PLEASE_SPECIFY_ENTERED);
+        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVE_VITAL_STATUS)).containsText(FanconiSurveyPage.CURRENT_VITAL_STATUS);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_AFFECTED_RELATIVE_VITAL_STATUS_A).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ALIVE)).click();
+        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVE_CURRENT_AGE_OR_AGE_AT_DEATH)).containsText(FanconiSurveyPage.CURRENT_AGE_OR_AGE_AT_DEATH);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_AFFECTED_RELATIVE_CURRENT_AGE_OR_AGE_AT_DEATH_A).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.AGE_ENTERED).setExact(true)).click();
+        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVE_STEM_CELL_TRANSPLANT)).containsText(FanconiSurveyPage.HAVE_THEY_RECEIVED_A_HEMATOPOIETIC_STEM_CELL_TRANSPLANT);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_AFFECTED_RELATIVE_STEM_CELL_TRANSPLANT_A).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.YES)).click();
+        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVE_CANCER)).containsText(FanconiSurveyPage.DO_THEY_HAVE_A_HISTORY_OF_CANCER);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_AFFECTED_RELATIVE_CANCER_A).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.YES)).click();
+        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVE_CANCER)).containsText(FanconiSurveyPage.DO_THEY_HAVE_A_HISTORY_OF_CANCER);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_AFFECTED_RELATIVE_CANCER_A).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.YES)).click();
+        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVE_CANCER_DETAILS)).containsText(FanconiSurveyPage.IF_YES_SPECIFY_CANCER_TYPE_SITE);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_AFFECTED_RELATIVE_CANCER_DETAILS_A).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.CANCER_ENTERED)).click();
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.CANCEL))).isVisible();
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ADD))).isVisible();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.ADD)).click();
+        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVES_DETAILS)).containsText(FanconiSurveyPage.OTHER_RELATIVE_PLEASE_SPECIFY);
+        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVES_DETAILS)).containsText(FanconiSurveyPage.OTHER_RELATIVE_PLEASE_SPECIFY_ENTERED);
+        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVES_DETAILS)).containsText(FanconiSurveyPage.ALIVE);
+        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVES_DETAILS)).containsText(FanconiSurveyPage.AGE_ENTERED);
+        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVES_DETAILS)).containsText(FanconiSurveyPage.YES);
+        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVES_DETAILS)).containsText(FanconiSurveyPage.YES);
+        assertThat(page.locator(FanconiSurveyPage.FA_AFFECTED_RELATIVES_DETAILS)).containsText(FanconiSurveyPage.CANCER_ENTERED);
+        assertThat(page.locator(FanconiSurveyPage.FA_FAMILY_CAMP)).containsText(FanconiSurveyPage.FA_FAMILY_CAMP_DETAIL);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_FAMILY_CAMP_A).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.YES)).click();
+        assertThat(page.locator(FanconiSurveyPage.FA_FAMILY_CAMP_COUNT)).containsText(FanconiSurveyPage.FA_FAMILY_CAMP_COUNT_DETAILS);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_FAMILY_CAMP_COUNT_A).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.FA_FAMILY_CAMP_COUNT_ENTERED).setExact(true)).click();
+        assertThat(page.locator(FanconiSurveyPage.FA_INCLUDED_IN_PUBLICATION)).containsText(FanconiSurveyPage.FA_INCLUDED_IN_PUBLICATION_DETAILS);
+        page.locator(FanconiSurveyPage.SP_FORMFIELD_FA_INCLUDED_IN_PUBLICATION_A).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(FanconiSurveyPage.YES)).click();
+        assertThat(page.locator(FanconiSurveyPage.FA_PUBLICATION)).containsText(FanconiSurveyPage.FA_PUBLICATION_DETAILS);
+        page.getByLabel(FanconiSurveyPage.PLEASE_PROVIDE_ANY_ADDITIONAL).click();
+        page.getByLabel(FanconiSurveyPage.PLEASE_PROVIDE_ANY_ADDITIONAL).fill(FanconiSurveyPage.PLEASE_PROVIDE_ANY_ADDITIONAL_DETAILS);
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.SUBMIT))).isVisible();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.SUBMIT)).click();
+        CommonUtils.sleep(500);
     }
 
     /** This method allows the submissions and assertions of the Sexual History section of the Fanconi Survey for scenario1.*/
@@ -2779,5 +2793,24 @@ public class FanconiSurveyStepsImpl {
         assertThat(page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Unknown/Unsure"))).isVisible();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("to 2")).click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.SUBMIT)).click();
+        CommonUtils.sleep(500);
+    }
+
+    /** This method allows the submissions of the Fanconi Survey.*/
+    public static void  submitFanconiSurvey(){
+        var page = PlaywrightUtils.page;
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit Fanconi Questionnaire"))).isVisible();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit Fanconi Questionnaire")).click();
+        assertThat(page.getByRole(AriaRole.DIALOG)).containsText("Thank you for completing the Fanconi Anemia Survey! If there are any other health issues present that have not been captured by this survey, please list them here");
+        page.locator("#textArea1").click();
+        page.locator("#textArea1").fill("Fanconi SUrvey COmpleted");
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Cancel"))).isVisible();
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Confirm and submit"))).isVisible();
+        page.onceDialog(dialog -> {
+            System.out.println(String.format("Dialog message: %s", dialog.message()));
+            dialog.dismiss();
+        });
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Confirm and submit")).click();
+        page.navigate("https://service-test.nci.nih.gov/fanconi");
     }
 }
