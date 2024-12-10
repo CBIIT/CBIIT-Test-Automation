@@ -196,7 +196,7 @@ public class FanconiSurveyStepsImpl {
         var page = PlaywrightUtils.page;
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Subject ID")).isVisible();
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Subject ID"))).isEmpty();
-        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Name")).isVisible();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"label\\.x_naci_family_coho_family_history_details\\.name\"]")).containsText("Name");
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Name").setExact(true))).hasValue("Participant First Name PL");
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByText("Permission to contact")).isVisible();
         assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Participant Details form").getByLabel("Permission to contact")).hasValue("Unknown");
