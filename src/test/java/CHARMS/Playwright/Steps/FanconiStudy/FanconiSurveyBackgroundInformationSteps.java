@@ -31,4 +31,9 @@ public class FanconiSurveyBackgroundInformationSteps {
     public void fills_the_background_information_section_for_scenario_1() {
         FanconiSurveyStepsImpl.backgroundInformationSectionScenario1();
     }
+
+    @Then("submit the Fanconi Survey")
+    public void submit_the_fanconi_survey() {
+        FanconiSurveyStepsImpl.submitFanconiSurvey();
+    }
 }
