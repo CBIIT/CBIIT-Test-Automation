@@ -1,4 +1,4 @@
-package PLATFORM_BUSINESS.NERD.runners;
+package PLATFORM_BUSINESS.NERD.NERD_Runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;

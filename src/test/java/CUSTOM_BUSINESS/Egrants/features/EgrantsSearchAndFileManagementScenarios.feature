@@ -163,3 +163,19 @@ Given User is logged in the application and is on the landing page
     And selects grant year 17S1 from list of Years
     And clicks on Edit Edit Request Name button
     Then clicks on Delete button to delete the label
+
+  @AssignPA @nesarh2 @selenium @Regression
+  Scenario: User assigns a PA number to a grant number
+    Given User is on the Admin menu
+    And User selects Supplements from the dropdown
+    And the user clicks on Edit button
+    And the user provides "PA-15-322" in the PA field
+    Then the user clicks on Save button and confirms the changes
+
+  @DeleteNotification @nesarh2 @selenium @Regression
+  Scenario: User deletes an eRA Notification for a grant year
+    Given User is on the Admin menu
+    And User selects Supplements from the dropdown
+    And the user clicks on eRA Notificaton tab
+    And the user clicks on Delete button
+    Then the user confirms deletion of the notification

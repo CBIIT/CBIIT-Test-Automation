@@ -44,6 +44,8 @@ import GRANTS.EM.selenium.pages.CreateNewAccountPage;
 import GRANTS.EM.selenium.pages.ManageI2EUsersPage;
 import GRANTS.EM.selenium.pages.ModifyAccountPage;
 import GRANTS.EM.selenium.stepImplementation.EMStepsImplementation;
+import ServiceNow.AwardNomination.Pages.AwardNominationPage;
+import ServiceNow.AwardNomination.StepsImplementation.AwardNominationStepsImplementation;
 import CHARMS.Constants.*;
 import CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import CHARMS.Pages.*;
@@ -178,6 +180,10 @@ public class PageInitializer extends WebDriverUtils {
 	/** NCCR instances */
 	public static NCCRStepsImplementation nccrStepsImplementation;
 	public static NCCRPage nccrPage;
+
+	/** AWARD NOMINATION instances */
+	public static AwardNominationStepsImplementation awardNominationStepsImplementation;
+	public static AwardNominationPage awardNominationPage;
 
 	/** SEER instances */
 	public static SEERLandingPage seerLandingPage;
