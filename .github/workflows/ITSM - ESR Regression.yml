@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="ServiceNow.ESR.Playwright.Runners.RunESRRegressionTest" test
+        run: mvn -B -q -Dtest="ITSM.ESR.playwright.runners.RunESRRegressionTest" test
         continue-on-error: true
 
       - name: Generate timestamp
@@ -34,7 +34,7 @@ jobs:
 
       - name: Determine report path
         id: reportpath
-        run: echo "path=html-ESR-reports" >> $GITHUB_ENV
+        run: echo "path=target/ESR-reports" >> $GITHUB_ENV
 
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v4
