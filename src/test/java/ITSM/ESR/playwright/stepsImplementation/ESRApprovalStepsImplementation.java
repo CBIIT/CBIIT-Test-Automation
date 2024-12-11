@@ -53,7 +53,7 @@ public class ESRApprovalStepsImplementation {
     }
 
     /**
-     * This method approves the ESR from the Operational POC
+     * This method completes the required Operational POC approval
      */
     public static void operationalPOCApproval() {
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (10)").click();
