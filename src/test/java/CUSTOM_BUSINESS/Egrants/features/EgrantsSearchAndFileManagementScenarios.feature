@@ -176,6 +176,25 @@ Given User is logged in the application and is on the landing page
   Scenario: User deletes an eRA Notification for a grant year
     Given User is on the Admin menu
     And User selects Supplements from the dropdown
-    And the user clicks on eRA Notificaton tab
+    And the user clicks on eRA notification tab
     And the user clicks on Delete button
     Then the user confirms deletion of the notification
+
+  @EGRANTS-629 @ResendNotification @nesarh2 @selenium @Regression1
+  Scenario: User resends the notification to PD and SPEC for a grant year
+    Given User is on the Admin menu
+    And User selects Supplements from the dropdown
+    And the user clicks on eRA notification tab
+    And the user clicks on Review button
+    And the user clicks on Resend This Notification button
+    And the user selects "TO" as the PD Notification Type
+    And the user selects "TESTPD" as the PD Position
+    And the user provides "Test Program Director" as the PD Name
+    And the user provides "testpd@test.com" as the PD Email address
+    Then the user clicks on Add button
+    And the user selects "CC" as the SPEC Notification Type
+    And the user selects "TESTSPEC" as the SPEC Position
+    And the user provides "Test Specialist" as the SPEC Name
+    And the user provides "testspec@test.com" as the SPEC Email address
+    Then the user clicks on Resend Notification button
+   # Then the user confirms the notification to be resent
