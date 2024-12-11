@@ -578,7 +578,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement secondEmailTextBoxNotification;
 
     /**
-     * New Exception Code Tab
+     * New Exception Code Tab - Grants Archival Process
      */
     @FindBy(xpath = "//a[normalize-space()='New Exception Code']")
     public WebElement newExceptionCodeTab;
