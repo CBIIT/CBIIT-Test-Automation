@@ -1,7 +1,7 @@
-package AnalysisTools.JPSurv.StepsImplementations;
+package ANALYSIS_TOOLS.JPSurv.stepsImplementations;
 
-import AnalysisTools.JPSurv.Pages.JPSurvHomePagePlaywright;
-import appsCommon.PageInitializers.PageInitializer;
+import ANALYSIS_TOOLS.JPSurv.pages.JPSurvHomePagePlaywright;
+import APPS_COMMON.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import java.nio.file.Path;

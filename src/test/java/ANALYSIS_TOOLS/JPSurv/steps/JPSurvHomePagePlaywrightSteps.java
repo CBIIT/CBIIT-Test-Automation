@@ -1,10 +1,10 @@
-package AnalysisTools.JPSurv.Steps;
+package ANALYSIS_TOOLS.JPSurv.steps;
 
-import AnalysisTools.JPSurv.Pages.JPSurvHomePagePlaywright;
-import AnalysisTools.JPSurv.StepsImplementations.JPSurvHomePagePlaywrightStepImp;
-import AnalysisTools.JPSurv.Utils.JPSurvConstants;
-import appsCommon.PageInitializers.PageInitializer;
-import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
+import ANALYSIS_TOOLS.JPSurv.pages.JPSurvHomePagePlaywright;
+import ANALYSIS_TOOLS.JPSurv.stepsImplementations.JPSurvHomePagePlaywrightStepImp;
+import ANALYSIS_TOOLS.JPSurv.utils.JPSurvConstants;
+import APPS_COMMON.PageInitializers.PageInitializer;
+import APPS_COMMON.PlaywrightUtils.Playwright_Common_Utils;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.web.CommonUtils;

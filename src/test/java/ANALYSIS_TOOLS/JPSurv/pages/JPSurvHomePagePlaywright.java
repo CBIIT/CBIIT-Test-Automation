@@ -1,4 +1,4 @@
-package AnalysisTools.JPSurv.Pages;
+package ANALYSIS_TOOLS.JPSurv.pages;
 
 public class JPSurvHomePagePlaywright {
 
