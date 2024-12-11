@@ -48,4 +48,5 @@ public class Egrants_Constants {
     public static final String YEAR_17 = "5P30CA125123-17";
     public static final String SUPPLEMENT = "Supplement";
     public static final String NOTIFICATION_VERIFICATION_MESSAGE = "New email notification has been created";
+    public static final String GRANTS_ARCHIVAL_PROCESS = "Grants Archival Process";
 }

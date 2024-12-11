@@ -578,6 +578,36 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement secondEmailTextBoxNotification;
 
     /**
+     * New Exception Code Tab
+     */
+    @FindBy(xpath = "//a[normalize-space()='New Exception Code']")
+    public WebElement newExceptionCodeTab;
+
+    /**
+     * Exception Code Text Box
+     */
+    @FindBy(xpath = "//input[@title='Execption Code']")
+    public WebElement exceptionCodeTextBox;
+
+    /**
+     * Exception Code Details Text Box
+     */
+    @FindBy(xpath = "//input[@title='Execption Code Detail']")
+    public WebElement newExceptionDetailsTextBox;
+
+    /**
+     * Create New Exception Code Button
+     */
+    @FindBy(xpath = "//button[@id='txtCreate']")
+    public WebElement createNewExceptionCodeButton;
+
+    /**
+     * Delete Exception Button
+     */
+    @FindBy(xpath = "//tr[td[text()='Test Exception Code'] and td[text()='Test Exception Description']]//button[@id='btnDelete']")
+    public WebElement deleteExceptionButton;
+
+    /**
      * Constructor
      */
     public EgrantsSearchAndFileManagementScenariosPage() {

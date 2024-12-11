@@ -180,7 +180,7 @@ Given User is logged in the application and is on the landing page
     And the user clicks on Delete button
     Then the user confirms deletion of the notification
 
-  @EGRANTS-629 @ResendNotification @nesarh2 @selenium @Regression1
+  @EGRANTS-629 @ResendNotification @nesarh2 @selenium @Regression
   Scenario: User resends the notification to PD and SPEC for a grant year
     Given User is on the Admin menu
     And User selects Supplements from the dropdown
@@ -197,4 +197,19 @@ Given User is logged in the application and is on the landing page
     And the user provides "Test Specialist" as the SPEC Name
     And the user provides "testspec@test.com" as the SPEC Email address
     Then the user clicks on Resend Notification button
-   # Then the user confirms the notification to be resent
+
+  @EGRANTS-629 @CreateNewExceptionCode @nesarh2 @selenium @Regression
+  Scenario: User creates a new exception code
+    Given User is on the Admin menu
+    And User selects Grants Archival Process from the dropdown
+    And the user clicks on New Exception Code tab
+    And the user provides "Test Exception Code" as the Exception Code
+    And the user provides "Test Exception Description" as the Exception Details
+    Then the user clicks on Create New Exception Code button to confirm the creation
+
+  @EGRANTS-629 @DeleteAnExceptionCode @nesarh2 @selenium @Regression
+  Scenario: User deletes an new exception code
+    Given User is on the Admin menu
+    And User selects Grants Archival Process from the dropdown
+    And the user clicks on New Exception Code tab
+    Then the user clicks on Delete Exception button to delete Test Exception Code
