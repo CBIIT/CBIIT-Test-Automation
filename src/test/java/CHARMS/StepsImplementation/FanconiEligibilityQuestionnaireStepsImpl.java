@@ -1,5 +1,6 @@
 package CHARMS.StepsImplementation;
 
+import CHARMS.Constants.CHARMS_Data_File_Path_Constants;
 import CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import CHARMS.Utils.CharmsUtil;
 import APPS_COMMON.PageInitializers.PageInitializer;
@@ -21,7 +22,7 @@ import static com.nci.automation.web.TestProperties.getNCISPUrl;
 
 public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     String referralValue;
-    String excelSheet = "DEPRECATED/CHARMS/Resources/data.xlsx";
+    String excelSheet = CHARMS_Data_File_Path_Constants.FANCONI_SCREENER_DATA;
     Map<String, String> currentRow;
     Map<String, String> currentRowForCancerHistory;
     Map<String, String> currentRowForAnotherStudy;
