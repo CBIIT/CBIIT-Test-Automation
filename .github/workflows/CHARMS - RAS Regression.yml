@@ -2,7 +2,6 @@ name: CHARMS - RAS Regression
 
 on:
   schedule:
-    # This corresponds to 8:45 AM EST (1:45 PM UTC) from Monday to Friday
     - cron: '45 13 * * MON-FRI'
   workflow_dispatch:
     inputs:
@@ -21,7 +20,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="ServiceNow.CHARMS.Runners.Run_CHARMS_RAS_Regression_Test" test
+        run: mvn -B -q -Dtest="CHARMS.Runners.Run_CHARMS_RAS_Regression_Test" test
         continue-on-error: true
 
       - name: Generate timestamp
@@ -54,3 +53,5 @@ jobs:
           tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
           client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
           client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}
+          timestamp: ${{ env.timestamp }}
+          UPLOAD_FOLDER: "Platform Scientific - CHARMS/TEST AUTOMATION REPORTS/Rasopathy"
