@@ -60,7 +60,6 @@ public class ESRApprovalStepsImplementation {
         Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
         Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
-
     }
 
     /**
