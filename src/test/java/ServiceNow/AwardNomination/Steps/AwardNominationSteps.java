@@ -157,6 +157,3 @@ public class AwardNominationSteps extends PageInitializer {
       softAssert.assertTrue(awardNominationPage.attachmentAdded.isDisplayed());
     }
 }
-
-
-
