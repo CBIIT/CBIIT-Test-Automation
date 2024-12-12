@@ -405,8 +405,8 @@ public class ServicePortalSteps {
 
 	}
 
-	@Then("Go to native view")
-	public void getNativeView() {
+	@Then("Go to native viewmm")
+	public void getNativeViewm() {
 		servicePortalPage.clickOnNativeView();
 	}
 
@@ -449,8 +449,8 @@ public class ServicePortalSteps {
 
 	}
 
-	@Then("Verify Email notification with subject as {string}")
-	public void verifyEmail(String subject) throws InterruptedException {
+	@Then("Verify Email notificationkkk with subject as {string}")
+	public void verifyEmailkkk(String subject) throws InterruptedException {
 		boolean status = servicePortalPage.verifyEmail(subject);
 
 		Assert.assertEquals(true, status);

@@ -146,14 +146,15 @@ public class AwardNominationSteps extends PageInitializer {
 
     @When("User adds attachment")
     public void user_adds_attachment() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        awardNominationStepsImplementation.uploadFile();
     }
 
+    /**
+     * verify attachment is added
+     */
     @Then("User can verify that attachment is added")
     public void user_can_verify_that_attachment_is_added() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      softAssert.assertTrue(awardNominationPage.attachmentAdded.isDisplayed());
     }
 }
 

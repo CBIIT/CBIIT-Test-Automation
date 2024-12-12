@@ -2,7 +2,7 @@
 
    Description: This feature file contains scenarios relating to VIBE Peer-to-Peer Appreciation Program
 
-   @selenium @Alena @AWARDNOM-1 @AWARDNOM-10
+   @selenium @Alena @Regression @AWARDNOM-1 @AWARDNOM-10
    Scenario: Submit VIBE Peer-to-Peer Appreciation Program request
      Given Submitter User logged in to VIBE Peer-to-Peer Appreciation Program application via Portal
      And User navigates to VIBE Peer-to-Peer Appreciation Program via Services menu

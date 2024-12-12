@@ -113,7 +113,7 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.enterTextInBusinessNeedBox("TestingAutomtaionTesting");
 	}
 
-	@Then("Go to Native view of application")
+	@Then("Go to Native viewkkkk of application")
 	public void getNativeView() {
 		businessCaseFormPage.clickOnNativeView();
 	}
@@ -138,8 +138,8 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.askForMoreInfoOnRequestForm();
 	}
 
-	@Then("Verify Email notification with subject as {string}")
-	public void verifyEmail(String subject) throws InterruptedException {
+	@Then("Verify Email notification withkk subject as {string}")
+	public void verifyEmailmm(String subject) throws InterruptedException {
 		boolean status = businessCaseFormPage.verifyEmail(subject);
 
 		Assert.assertEquals(true, status);
@@ -272,15 +272,15 @@ public class BusinessCaseFormSteps {
 
 	}
 
-	@When("User logins to the application for RCMDB")
-	public void login() throws Exception {
-		if (loginStepsImpl.isLoginButtonDisplayed()) {
-			loginStepsImpl.clckOnLoginButton();
-		}
-		loginStepsImpl.enterUsername("");
-		String decyptedPass = EncryptionUtils.decrypt("");
-		loginStepsImpl.enterPassword(decyptedPass);
-		CucumberLogUtils.logScreenshot();
-		loginStepsImpl.clickOnSignInButton();
-	}
+//	@When("User logins to the application for RCMDB")
+//	public void login() throws Exception {
+//		if (loginStepsImpl.isLoginButtonDisplayed()) {
+//			loginStepsImpl.clckOnLoginButton();
+//		}
+//		loginStepsImpl.enterUsername("");
+//		String decyptedPass = EncryptionUtils.decrypt("");
+//		loginStepsImpl.enterPassword(decyptedPass);
+//		CucumberLogUtils.logScreenshot();
+//		loginStepsImpl.clickOnSignInButton();
+//	}
 }

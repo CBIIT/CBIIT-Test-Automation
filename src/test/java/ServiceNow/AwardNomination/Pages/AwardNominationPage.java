@@ -107,6 +107,10 @@ public class AwardNominationPage {
     @FindBy(xpath = "(//div[@class='ng-binding ng-scope'])[5]")
     public WebElement watchListField;
 
+    /**  attachment Added */
+    @FindBy(xpath = "//strong[.='AWARD_NOMINATION.docx']")
+    public WebElement attachmentAdded;
+
     public AwardNominationPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
