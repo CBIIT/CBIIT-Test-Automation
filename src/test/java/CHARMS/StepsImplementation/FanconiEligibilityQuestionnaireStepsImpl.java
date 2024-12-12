@@ -472,6 +472,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
                     currentRow.get("HowWouldYouLikeToProvideChromosomeBreakageTestResults"));
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
+            CommonUtils.sleep(300);
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         }
     }
@@ -1717,9 +1718,9 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * Fanconi Eligibility Question submission method
      */
     public void fanconiEligibilityAllScenariosQuestionnaireSubmission() {
-        for (int i = 10; i <= 10; ++i) {
-            String username = "charmsparticipant" + i + "@yopmail.com";
-            String password = "Charms123";
+        for (int i = 1; i <= 10; ++i) {
+            String username = "sj.fanconitester" + i + "@yopmail.com";
+            String password = "Test123$$";
             System.out.println(username);
             CommonUtils.sleep(1000);
             if (i != 1) {
