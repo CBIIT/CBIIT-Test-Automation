@@ -1,9 +1,9 @@
 package ServiceNow.AwardNomination.StepsImplementation;
 
 import ServiceNow.AwardNomination.Constants.AwardNominationConstants;
-import appsCommon.PageInitializers.PageInitializer;
-import appsCommon.Utils.ServiceNow_Common_Methods;
-import appsCommon.Utils.ServiceNow_Login_Methods;
+import APPS_COMMON.PageInitializers.PageInitializer;
+import APPS_COMMON.Utils.ServiceNow_Common_Methods;
+import APPS_COMMON.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -176,3 +176,4 @@ public class AwardNominationStepsImplementation extends PageInitializer {
         softAssert.assertTrue(awardNominationPage.watchListField.getText().equals(watcher));
     }
 }
+

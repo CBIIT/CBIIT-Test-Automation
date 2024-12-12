@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="ServiceNow.CHARMS.Runners.Run_CHARMS_Fanconi_Regression_Test" test
+        run: mvn -B -q -Dtest="CHARMS.Runners.Run_CHARMS_Fanconi_Regression_Test" test
         continue-on-error: true
 
       - name: Generate timestamp
@@ -54,3 +54,5 @@ jobs:
           tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
           client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
           client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}
+          timestamp: ${{ env.timestamp }}
+          UPLOAD_FOLDER: "Platform Scientific - CHARMS/TEST AUTOMATION REPORTS/Fanconi"
