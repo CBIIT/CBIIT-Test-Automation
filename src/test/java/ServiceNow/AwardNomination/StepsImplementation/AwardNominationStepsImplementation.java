@@ -113,4 +113,66 @@ public class AwardNominationStepsImplementation extends PageInitializer {
     public void verifySectionTicketsDisplayed() {
         softAssert.assertTrue(awardNominationPage.sectionTickets.isDisplayed());
     }
+
+    /**
+     * verify last ticket status
+     * @param statusWorkInProgress
+     */
+    public void verifyLastTicketsStatus(String statusWorkInProgress) {
+        CommonUtils.waitForVisibility(awardNominationPage.ticketsStatusPageView);
+        softAssert.assertEquals(awardNominationPage.ticketsStatusPageView, statusWorkInProgress);
+    }
+
+    /**
+     * verify approval status
+     * @param approvalStatus
+     */
+    public void verifyApprovalStatus(String approvalStatus) {
+        CommonUtils.waitForVisibility(awardNominationPage.approvalStatusPageView);
+        softAssert.assertEquals(awardNominationPage.approvalStatusPageView, approvalStatus);
+    }
+
+    /**
+     * verify Cancel button is displayed
+     */
+    public void verifyCancelButtonDisplayed() {
+        CommonUtils.waitForVisibility(awardNominationPage.cancelButton);
+        softAssert.assertTrue(awardNominationPage.cancelButton.isDisplayed());
+    }
+
+    /**
+     * verify Add Watchers button is displayed
+     */
+    public void verifyAddWatchersButtonDisplayed() {
+        CommonUtils.waitForVisibility(awardNominationPage.addWatchersButton);
+        softAssert.assertTrue(awardNominationPage.addWatchersButton.isDisplayed());
+    }
+
+    /**
+     * verify Add Attachment button is displayed
+     */
+    public void verifyAddAttachmentButtonDisplayed() {
+        CommonUtils.waitForVisibility(awardNominationPage.addAttachmentButton);
+        softAssert.assertTrue(awardNominationPage.addAttachmentButton.isDisplayed());
+    }
+
+    /**
+     * add Watcher
+     * @param watcher
+     */
+    public void addWatcher(String watcher) {
+        CommonUtils.waitForVisibility(awardNominationPage.textFieldAddWatchers);
+        CommonUtils.sendKeysToElement(awardNominationPage.textFieldAddWatchers,watcher);
+        awardNominationPage.textFieldAddWatchers.sendKeys(Keys.TAB);
+        CommonUtils.clickOnElement(awardNominationPage.saveChangesConfModalButton);
+    }
+
+    /**
+     * verify Watcher is added
+     * @param watcher
+     */
+    public void verifyWatcherAdded(String watcher) {
+        CommonUtils.waitForVisibility(awardNominationPage.watchListField);
+        softAssert.assertTrue(awardNominationPage.watchListField.getText().equals(watcher));
+    }
 }
