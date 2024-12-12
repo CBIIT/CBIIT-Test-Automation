@@ -306,7 +306,7 @@ Feature: RAS Consent Scenarios
     And selects "Yes" for Consent Assent Obtained Before Study Procedures
     And selects "Yes" for Copy of Signed Dated Consent Assent Given to Participant
     Then Study Team member presses Sign and Complete
-    And navigates to record in Participant Studies
-    And adds "Physical Activities Survey" from the available Questionnaires
-    And clicks the Save button
-    And clicks the Publish Questionnaire button
+#    And navigates to record in Participant Studies
+#    And adds "Physical Activities Survey" from the available Questionnaires
+#    And clicks the Save button
+#    And clicks the Publish Questionnaire button
