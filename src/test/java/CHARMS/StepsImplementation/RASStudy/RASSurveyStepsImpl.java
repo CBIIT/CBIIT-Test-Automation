@@ -1,6 +1,6 @@
-package ServiceNow.CHARMS.StepsImplementation;
+package CHARMS.StepsImplementation.RASStudy;
 
-import appsCommon.PageInitializers.PageInitializer;
+import APPS_COMMON.PageInitializers.PageInitializer;
 
 public class RASSurveyStepsImpl extends PageInitializer {
 
