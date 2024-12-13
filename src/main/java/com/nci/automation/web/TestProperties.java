@@ -95,6 +95,19 @@ public class TestProperties {
     public static String OAINTAKE_URL;
 
     /**
+     * NCCR
+     */
+    public static final String NCCR_TEST_URL = "https://service-test.nci.nih.gov/nccr";
+    public static final String NCCR_STAGE_URL = "https://service-stage.nci.nih.gov/nccr";
+    public static String NCCR_URL;
+
+    /**
+     * AWARD NOMINATION
+     */
+    public static final String AWARD_NOMINATION_TEST_URL = "https://service-test.nci.nih.gov/ncisp";
+    public static String AWARD_NOMINATION_URL;
+
+    /**
      * E-GRANTS URLS
      */
     public static final String E_GRANTS_TEST_URL = "https://egrants-web-test.nci.nih.gov/";
@@ -545,10 +558,10 @@ public class TestProperties {
     public static String getAct24ParticipantUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
-                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_TEST_URL;
+                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_STAGE_URL;
                 break;
             case "test":
-                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_STAGE_URL;
+                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_TEST_URL;
                 break;
         }
         return ACT_24_PARTICIPANT_URL;
@@ -818,6 +831,18 @@ public class TestProperties {
         return OAINTAKE_URL;
     }
 
+    public static String getNCCRUrl() {
+        switch (ENV.toLowerCase()) {
+            case "test":
+                NCCR_URL = NCCR_TEST_URL;
+                break;
+            case "stage":
+                NCCR_URL = NCCR_STAGE_URL;
+                break;
+        }
+        return NCCR_URL;
+    }
+
     public static String getMRATUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
@@ -828,5 +853,14 @@ public class TestProperties {
                 break;
         }
         return MRAT_URL;
+    }
+
+    public static String getAwardNominationUrl() {
+        switch (ENV.toLowerCase()) {
+            case "test":
+                AWARD_NOMINATION_URL = AWARD_NOMINATION_TEST_URL ;
+                break;
+        }
+        return AWARD_NOMINATION_URL;
     }
 }

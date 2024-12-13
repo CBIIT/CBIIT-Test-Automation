@@ -1,0 +1,59 @@
+name: PLATFORM BUSINESS - OFFBOARD Regression
+
+on:
+  schedule:
+    # This corresponds to 3:45 PM EST (8:45 PM UTC) from Monday to Friday
+    - cron: '45 20 * * MON-FRI'
+  workflow_dispatch:
+    inputs:
+      testBrowser:
+        description: 'Browser'
+        required: true
+        default: 'chrome'
+
+jobs:
+  build:
+    runs-on: NCI-WINDOWS
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+
+      - name: Run specific runner class
+        run: mvn -B -q -Dtest="ServiceNow.PlatformBusinessApps.OFFBOARD.Runners.Run_OffBoard_PW_Regression_Test" test
+        continue-on-error: true
+
+      - name: Generate timestamp
+        id: timestamp
+        run: |
+          $timeZone = [System.TimeZoneInfo]::FindSystemTimeZoneById("Eastern Standard Time")
+          $dateTime = [System.TimeZoneInfo]::ConvertTime([System.DateTime]::UtcNow, $timeZone)
+          $timestamp = $dateTime.ToString("yyyy-MM-dd_hh-mm-ss_tt")
+          Add-Content -Path $env:GITHUB_ENV -Value "timestamp=$timestamp"
+
+      - name: Determine report path
+        id: reportpath
+        run: echo "path=offboard-regression-reports" >> $GITHUB_ENV
+
+      - name: Upload Cucumber Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: OFFBOARD-REGRESSION-${{ env.timestamp }}
+          path: target/offboard-regression-reports/*
+
+      - name: Upload to SharePoint
+        shell: powershell
+        run: |
+          $Env:PATH = "C:\Users\juarezds\AppData\Local\Programs\Python\Python312;$Env:PATH"
+          python $Env:GITHUB_WORKSPACE\.github\scripts\upload_to_sharepoint.py
+        env:
+          FILES_PATH: target/offboard-regression-reports/*
+          SHAREPOINT_SITE_ID: ${{ secrets.SHAREPOINT_SITE_ID }}
+          SHAREPOINT_DRIVE_ID: ${{ secrets.SHAREPOINT_DRIVE_ID }}
+          tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
+          client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
+          client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}
+          timestamp: ${{ env.timestamp }}
+          UPLOAD_FOLDER: "Platform Business Applications/TEST AUTOMATION REPORTS/OFFBOARD"

@@ -1,0 +1,57 @@
+name: CUSTOM BUSINESS (Java) - CCR Regression Tests
+
+on:
+  schedule:
+    # This corresponds to 6:15 PM EST (11:15 PM UTC) from Monday to Friday
+    - cron: '15 23 * * MON-FRI'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: NCI-WINDOWS
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+
+      - name: Run CCR Regression Tests
+        shell: cmd
+        run: mvn -B -q -Dtest=CustomBusiness.CCR.Runners.RunCCRRegressionTest test
+        continue-on-error: true
+
+      - name: Generate timestamp
+        id: timestamp
+        shell: powershell
+        run: |
+          $timeZone = [System.TimeZoneInfo]::FindSystemTimeZoneById("Eastern Standard Time")
+          $dateTime = [System.TimeZoneInfo]::ConvertTime([System.DateTime]::UtcNow, $timeZone)
+          $timestamp = $dateTime.ToString("yyyy-MM-dd_hh-mm-ss_tt")
+          Add-Content -Path $env:GITHUB_ENV -Value "timestamp=$timestamp"
+
+      - name: Determine report path
+        id: reportpath
+        shell: cmd
+        run: echo "::set-output name=path::CCR-regression-reports"
+
+      - name: Upload Cucumber Report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: CCR-regression-report-${{ env.timestamp }}
+          path: target/CCR-regression-reports/*
+
+      - name: Upload to SharePoint
+        shell: powershell
+        run: |
+          $Env:PATH = "C:\Users\juarezds\AppData\Local\Programs\Python\Python312;$Env:PATH"
+          python $Env:GITHUB_WORKSPACE\.github\scripts\upload_to_sharepoint.py
+        env:
+          FILES_PATH: target/CCR-regression-reports/*
+          SHAREPOINT_SITE_ID: ${{ secrets.SHAREPOINT_SITE_ID }}
+          SHAREPOINT_DRIVE_ID: ${{ secrets.SHAREPOINT_DRIVE_ID }}
+          tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
+          client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
+          client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}
+          timestamp: ${{ env.timestamp }}
+          UPLOAD_FOLDER: "Custom Business Applications - Java/TEST AUTOMATION REPORTS/CCR"
