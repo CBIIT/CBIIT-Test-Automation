@@ -152,7 +152,7 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Given("participant clicks on Study Consent and completes form with {string}")
     public static void participant_clicks_on_Study_Consent_and_completes_form_with(String password) {
-        CommonUtils.waitForVisibility(myRASHomePage.rasopathyStudyConsent);
+        CommonUtils.waitForClickability(myRASHomePage.rasopathyStudyConsent);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(myRASHomePage.rasopathyStudyConsent);
         CommonUtils.sleep(5000);
@@ -247,7 +247,6 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Then("PI completes consent and verifies {string} {string} {string} {string} in Native View")
     public static void PI_completes_consent_and_verifies_in_Native_View(String sheetName, String consentStatus, String consentType, String responseType) {
-        ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sleep(8000);
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
@@ -777,7 +776,6 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Given("Study Team member logs in to Native View and navigates to Participant Consent record {string}")
     public void study_team_member_logs_in_to_native_view_and_navigates_to_participant_consent_record(String sheetName) {
-        ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         navigateToParticipantRecordInNativeView(sheetName);
         CommonUtils.sleep(2000);
