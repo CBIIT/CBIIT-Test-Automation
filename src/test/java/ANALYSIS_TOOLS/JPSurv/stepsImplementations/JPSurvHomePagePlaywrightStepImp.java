@@ -89,4 +89,16 @@ public class JPSurvHomePagePlaywrightStepImp extends PageInitializer {
         PlaywrightUtils.page.locator("//label[@for='Non-Hodgkin Lymphoma']").click();
         PlaywrightUtils.page.locator("//label[@for='Chronic Myeloid Leukemia']").click();
     }
+
+    /**
+     * SELECTS THE RELAX PROPORTIONALITY AND CUTPOINT
+     *
+     * @param string
+     */
+    public static void checkRelaxProportionalityAndCutPoint(String string) {
+        PlaywrightUtils.page.locator("//input[@id='useRelaxModel']").click();
+        CommonUtils.sleep(2000);
+        PlaywrightUtils.page.locator("//select[@name='cutpoint']").selectOption(string);
+        CommonUtils.sleep(4000);
+    }
 }
