@@ -36,4 +36,3 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     Given a user is logged on FHQ Landing Page after filling out patient data using the Test Account credentials in Test side door login page
     And user clicks the Partner Grid link on FHQ Grid page to land on the FHQ Partners list view page
     And verifies the Partner List View details
- 

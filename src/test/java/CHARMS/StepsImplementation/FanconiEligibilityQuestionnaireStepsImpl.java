@@ -1718,6 +1718,11 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * Fanconi Eligibility Question submission method
      */
     public void fanconiEligibilityAllScenariosQuestionnaireSubmission() {
+        fanconiEligibilityQuestionnaireStepsImpl.loginToNativeView();
+        fanconiEligibilityQuestionnaireStepsImpl.resetTestAccountSignIn();
+        fanconiEligibilityQuestionnaireStepsImpl.resetTestAccount();
+        fanconiEligibilityQuestionnaireStepsImpl.nativeViewProfilelogOut();
+        WebDriverUtils.webDriver.get(getFanconiUrl());
         for (int i = 1; i <= 10; ++i) {
             String username = "sj.fanconitester" + i + "@yopmail.com";
             String password = "Test123$$";
@@ -1730,8 +1735,20 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 } catch (Exception e) {
                 }
             }
-            WebDriverUtils.webDriver.get(getFanconiUrl());
-            System.out.println(WebDriverUtils.webDriver.getCurrentUrl());
+            CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton1);
+            CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton1);
+            CharmsUtil.sendKeysToElement(oktaLoginPage.usernameTxtBox, username);
+            CharmsUtil.clickOnElement(oktaLoginPage.nextButton);
+            CharmsUtil.sendKeysToElement(oktaLoginPage.passwordTxtBox, password);
+            CharmsUtil.clickOnElement(oktaLoginPage.verifyBtn);
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.waitForVisibility(oktaLoginPage.agreeBtn);
+            CharmsUtil.clickOnElement(oktaLoginPage.agreeBtn);
+            fanconiLoginPage.eligibilityQuestionnaireLink.click();
+
+
+
+            /*System.out.println(WebDriverUtils.webDriver.getCurrentUrl());
             CommonUtils.sleep(1000);
             CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton);
             CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton);
@@ -1742,7 +1759,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.clickOnElement(oktaLoginPage.loginBtn);
             CommonUtils.waitForVisibility(fanconiLoginPage.warningAgreeButton);
             CharmsUtil.clickOnElement(fanconiLoginPage.warningAgreeButton);
-            fanconiLoginPage.eligibilityQuestionnaireLink.click();
+            fanconiLoginPage.eligibilityQuestionnaireLink.click();*/
             fanconiEligibilityQuestionnaireStepsImpl.fanconiEligibilityQuestionnaireSubmissionScenario(i - 1);
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
             Set<String> windows = WebDriverUtils.webDriver.getWindowHandles();
