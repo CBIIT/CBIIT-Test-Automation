@@ -199,7 +199,7 @@ public class ESRTaskStepsImplementation {
         Playwright_Common_Locators.iframeLocator().getByLabel("Go to Today", new FrameLocator.GetByLabelOptions().setExact(true)).click();
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Outcomes")).click();
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Outcomes")).fill("Outcomes Test");
-        Playwright_Common_Locators.iframeLocator().locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[2]").selectOption("Proceed to Operations and Maintanence");
+        Playwright_Common_Locators.iframeLocator().locator("(//select)[8]").selectOption("Proceed to Operations and Maintanence");
         Playwright_Common_Locators.iframeLocator().getByText("Linked all artifacts from the").click();
         Playwright_Common_Locators.iframeLocator().getByText("Conducted knowledge sharing").click();
         Playwright_Common_Locators.iframeLocator().getByLabel("Catalog Task form section").getByLabel("State").selectOption("3");
