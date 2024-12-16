@@ -176,6 +176,40 @@ Given User is logged in the application and is on the landing page
   Scenario: User deletes an eRA Notification for a grant year
     Given User is on the Admin menu
     And User selects Supplements from the dropdown
-    And the user clicks on eRA Notificaton tab
+    And the user clicks on eRA notification tab
     And the user clicks on Delete button
     Then the user confirms deletion of the notification
+
+  @EGRANTS-629 @ResendNotification @nesarh2 @selenium @Regression
+  Scenario: User resends the notification to PD and SPEC for a grant year
+    Given User is on the Admin menu
+    And User selects Supplements from the dropdown
+    And the user clicks on eRA notification tab
+    And the user clicks on Review button
+    And the user clicks on Resend This Notification button
+    And the user selects "TO" as the PD Notification Type
+    And the user selects "TESTPD" as the PD Position
+    And the user provides "Test Program Director" as the PD Name
+    And the user provides "testpd@test.com" as the PD Email address
+    Then the user clicks on Add button
+    And the user selects "CC" as the SPEC Notification Type
+    And the user selects "TESTSPEC" as the SPEC Position
+    And the user provides "Test Specialist" as the SPEC Name
+    And the user provides "testspec@test.com" as the SPEC Email address
+    Then the user clicks on Resend Notification button
+
+  @EGRANTS-629 @CreateNewExceptionCode @nesarh2 @selenium @Regression
+  Scenario: User creates a new exception code
+    Given User is on the Admin menu
+    And User selects Grants Archival Process from the dropdown
+    And the user clicks on New Exception Code tab
+    And the user provides "Test Exception Code" as the Exception Code
+    And the user provides "Test Exception Description" as the Exception Details
+    Then the user clicks on Create New Exception Code button to confirm the creation
+
+  @EGRANTS-629 @DeleteAnExceptionCode @nesarh2 @selenium @Regression
+  Scenario: User deletes an new exception code
+    Given User is on the Admin menu
+    And User selects Grants Archival Process from the dropdown
+    And the user clicks on New Exception Code tab
+    Then the user clicks on Delete Exception button to delete Test Exception Code

@@ -506,6 +506,108 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement deleteButtonSupplementNotification;
 
     /**
+     * Review Button Supplement Notification
+     */
+    @FindBy(xpath = "(//td/button[contains(text(), 'Review')])[1]")
+    public WebElement reviewButtonSupplementNotification;
+
+    /**
+     * Resend This Notification Button
+     */
+    @FindBy(xpath = "//td/a[contains(text(), 'To Resend this Notification...')]")
+    public WebElement resendThisNotificationButton;
+
+    /**
+     * Type Drop Down
+     */
+    @FindBy(xpath = "//td/select[@id='ddlEmail_Type_1']")
+    public WebElement typeDropDown;
+
+    /**
+     * Position Drop Down
+     */
+    @FindBy(xpath = "//td/select[@id='ddlEmail_Position_1']")
+    public WebElement positionDropDown;
+
+    /**
+     * Name Text Box Notification
+     */
+    @FindBy(xpath = "//td/input[@id='txtName_1']")
+    public WebElement nameTextBoxNotification;
+
+    /**
+     * Email Text Box Notification
+     */
+    @FindBy(xpath = "//td/input[@id='txtAddress_1']")
+    public WebElement emailTextBoxNotification;
+
+    /**
+     * Add Button Notification
+     */
+    @FindBy(xpath = "(//td/input[@id='btnAdd'])[1]")
+    public WebElement addButtonNotification;
+
+    /**
+     * Resend Button Notification
+     */
+    @FindBy(xpath = "(//td/input[@id='btnResent'])[1]")
+    public WebElement resendButtonNotification;
+
+    /**
+     * Second Type Drop Down
+     */
+    @FindBy(xpath = "//td/select[@id='ddlEmail_Type_2']")
+    public WebElement secondTypeDropDown;
+
+    /**
+     * Second Position Drop Down
+     */
+    @FindBy(xpath = "//td/select[@id='ddlEmail_Position_2']")
+    public WebElement secondPositionDropDown;
+
+    /**
+     * Second Name Text Box Notification
+     */
+    @FindBy(xpath = "//td/input[@id='txtName_2']")
+    public WebElement secondNameTextBoxNotification;
+
+    /**
+     * Second Email Text Box Notification
+     */
+    @FindBy(xpath = "//td/input[@id='txtAddress_2']")
+    public WebElement secondEmailTextBoxNotification;
+
+    /**
+     * New Exception Code Tab - Grants Archival Process
+     */
+    @FindBy(xpath = "//a[normalize-space()='New Exception Code']")
+    public WebElement newExceptionCodeTab;
+
+    /**
+     * Exception Code Text Box
+     */
+    @FindBy(xpath = "//input[@title='Execption Code']")
+    public WebElement exceptionCodeTextBox;
+
+    /**
+     * Exception Code Details Text Box
+     */
+    @FindBy(xpath = "//input[@title='Execption Code Detail']")
+    public WebElement newExceptionDetailsTextBox;
+
+    /**
+     * Create New Exception Code Button
+     */
+    @FindBy(xpath = "//button[@id='txtCreate']")
+    public WebElement createNewExceptionCodeButton;
+
+    /**
+     * Delete Exception Button
+     */
+    @FindBy(xpath = "//tr[td[text()='Test Exception Code'] and td[text()='Test Exception Description']]//button[@id='btnDelete']")
+    public WebElement deleteExceptionButton;
+
+    /**
      * Constructor
      */
     public EgrantsSearchAndFileManagementScenariosPage() {
