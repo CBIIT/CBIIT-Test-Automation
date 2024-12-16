@@ -25,4 +25,14 @@ public class ESRApprovalSteps {
     public void the_user_confirms_the_esr_board_intake_approvals_are_completed() {
         ESRApprovalStepsImplementation.confirmESRBoardIntakeApprovalsAreCompleted();
     }
+
+    @And("the user is approved from the Operational POC")
+    public void the_user_is_approved_from_the_operational_poc() {
+        ESRApprovalStepsImplementation.operationalPOCApproval();
+    }
+
+    @Then("the user confirms the Operational POC Approval is completed")
+    public void the_user_confirms_the_operational_poc_approval_is_completed() {
+        ESRApprovalStepsImplementation.confirmOperationalPOCApprovalIsCompleted();
+    }
 }

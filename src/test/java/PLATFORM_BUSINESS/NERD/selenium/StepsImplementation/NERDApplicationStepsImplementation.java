@@ -268,7 +268,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
     public static void userIsOnSubmissionsPage(String applicationName) {
         WebDriverUtils.webDriver.get(getNerdUrl());
         WebDriverUtils.webDriver.navigate().refresh();
-        CommonUtils.sleep(5000);
+        CommonUtils.sleep(55000); //This is the only solution as per current situation for loading NERD records
         CommonUtils.waitForVisibility(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton);
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton.click();

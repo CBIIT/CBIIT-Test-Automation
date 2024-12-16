@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="ServiceNow.ESR.Playwright.Runners.RunESRRegressionTest" test
+        run: mvn -B -q -Dtest="ITSM.ESR.playwright.runners.RunESRRegressionTest" test
         continue-on-error: true
 
       - name: Generate timestamp

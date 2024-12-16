@@ -24,7 +24,7 @@ public class CharmsUtil {
 		ExcelReader excelReader = new ExcelReader();
 		Map<String, String> currentRow = null;
 		try {
-			List<Map<String, String>> excelDataMapList = excelReader.getData(excelSheet, sheet);
+			List<Map<String, String>> excelDataMapList = excelReader.getDataIOStream(excelSheet, sheet);
 			currentRow = excelDataMapList.get(rowNum);
 		} catch (InvalidFormatException | IOException e) {
 			e.printStackTrace();
