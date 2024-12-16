@@ -39,9 +39,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And Grandparents list view page is updated and verified
     And click the new GrandParent added and verify the completed record producer data
     And click the FHQ Home button
-    
-    
-
+   
   @jains 
   Scenario: FHQ Grandparent Record
     Given a user is logged on FHQ Landing Page after filling out patient data using the Test Account credentials in Test side door login page
