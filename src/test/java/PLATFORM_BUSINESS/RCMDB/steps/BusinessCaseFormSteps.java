@@ -113,7 +113,7 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.enterTextInBusinessNeedBox("TestingAutomtaionTesting");
 	}
 
-	@Then("Go to Native viewkkkk of application")
+	@Then("Go to Native view of application")
 	public void getNativeView() {
 		businessCaseFormPage.clickOnNativeView();
 	}
@@ -141,9 +141,7 @@ public class BusinessCaseFormSteps {
 	@Then("Verify Email notification withkk subject as {string}")
 	public void verifyEmailmm(String subject) throws InterruptedException {
 		boolean status = businessCaseFormPage.verifyEmail(subject);
-
 		Assert.assertEquals(true, status);
-
 	}
 
 	@Given("user navigates to the Record management home page")
@@ -154,46 +152,39 @@ public class BusinessCaseFormSteps {
 	@Then("verify that the page has all the exsisting labels")
 	public void verify_that_the_page_has_all_the_exsisting_labels() {
 		businessCaseFormPage.validateLabels();
-
 	}
 
 	@Then("Validate tracking log")
 	public void Validate_tracking_log() {
 		businessCaseFormPage.validateTrackingLog();
 		CucumberLogUtils.logScreenshot();
-
 	}
 
 	@Then("User clicks on Quaterly Costs")
 	public void User_clicks_on_Quaterly_Costs() {
 		businessCaseFormPage.clickOnQuaterlyCosts();
-
 	}
 
 	@Then("User clicks on RM Tracking Record Import")
 	public void User_clicks_on_RM_Tracking_Record_Import() {
 		businessCaseFormPage.clickOnCreateNewRMTrackingRecord();
 		CucumberLogUtils.logScreenshot();
-
 	}
 
 	@Then("Click on new Quaterly Cost")
 	public void Click_on_new_Quaterly_Cost() {
 		businessCaseFormPage.clickOnNewQuaterlyCost();
-
 	}
 
 	@Then("Click on new RM Tracking record")
 	public void Click_on_new_RM_Tracking_record() {
 		businessCaseFormPage.clickOnNewRMTrackingRecordButton();
 		CucumberLogUtils.logScreenshot();
-
 	}
 
 	@Then("Fill all the record details")
 	public void Fill_all_the_record_details() {
 		businessCaseFormPage.fillRMTrackingForm();
-
 	}
 
 	@Then("Fill all the Quaterly Cost details")
@@ -205,33 +196,28 @@ public class BusinessCaseFormSteps {
 	@Then("Validate added recorded")
 	public void Validate_added_recorded() throws InterruptedException {
 		businessCaseFormPage.validateAddedRecorded();
-
 	}
 
 	@Then("Validate added new record")
 	public void Validate_added_new_recorded() throws InterruptedException {
 		businessCaseFormPage.validateAddedNewRecord();
-
 	}
 
 	@Then("User clicks on create new record button")
 	public void User_clicks_on_create_new_record_button() {
 		businessCaseFormPage.clickOnCreateNewRecord();
-
 	}
 
 	@Then("User clicks on all tracking records")
 	public void User_clicks_on_all_tracking_record_button() {
 		businessCaseFormPage.clickOnAllTrackingRecord();
 		CucumberLogUtils.logScreenshot();
-
 	}
 
 	@Then("Click on submit")
 	public void ClickOnSubmit() {
 		businessCaseFormPage.ClickOnSubmit();
 		CucumberLogUtils.logScreenshot();
-
 	}
 
 	@Then("Click on submit record")
@@ -244,24 +230,21 @@ public class BusinessCaseFormSteps {
 	public void Click_on_submit_button() {
 		businessCaseFormPage.ClickOnSubmitButton();
 		CucumberLogUtils.logScreenshot();
-
 	}
 
 	@Then("Enter Disposition Authority more than accepted limit")
-	public void Enter_Disposition_Authority_more_than_accepted_limit() throws InterruptedException {
+	public void Enter_Disposition_Authority_more_than_accepted_limit(){
 		businessCaseFormPage.enterInvalidDispositionAuthority();
-
 	}
 
 	@Then("Enter customer name manually")
-	public void Enter_customer_name_manually() throws InterruptedException {
+	public void Enter_customer_name_manually(){
 		businessCaseFormPage.enterCustomerNameManually();
 		CucumberLogUtils.logScreenshot();
-
 	}
 
 	@Then("User should see error message")
-	public void User_should_see_error_message() throws InterruptedException {
+	public void User_should_see_error_message(){
 		businessCaseFormPage.validateErrorMessage();
 		CucumberLogUtils.logScreenshot();
 	}
@@ -269,18 +252,5 @@ public class BusinessCaseFormSteps {
 	@Then("Fill all the details")
 	public void Fill_all_the_details() throws InterruptedException {
 		businessCaseFormPage.fillTrackingRecordForm();
-
 	}
-
-//	@When("User logins to the application for RCMDB")
-//	public void login() throws Exception {
-//		if (loginStepsImpl.isLoginButtonDisplayed()) {
-//			loginStepsImpl.clckOnLoginButton();
-//		}
-//		loginStepsImpl.enterUsername("");
-//		String decyptedPass = EncryptionUtils.decrypt("");
-//		loginStepsImpl.enterPassword(decyptedPass);
-//		CucumberLogUtils.logScreenshot();
-//		loginStepsImpl.clickOnSignInButton();
-//	}
 }

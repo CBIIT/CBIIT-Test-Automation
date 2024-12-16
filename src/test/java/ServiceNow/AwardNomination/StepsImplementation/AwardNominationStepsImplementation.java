@@ -12,8 +12,7 @@ import static Hooks.Hooks.softAssert;
 import static com.nci.automation.web.TestProperties.getAwardNominationUrl;
 
 public class AwardNominationStepsImplementation  extends PageInitializer{
-
-        /**
+    /**
      * Logs in as a Submitter User to NCCR Portal.
      */
     public void awardNominationSubmitterUserLogin() {
@@ -176,6 +175,9 @@ public class AwardNominationStepsImplementation  extends PageInitializer{
         softAssert.assertTrue(awardNominationPage.watchListField.getText().equals(watcher));
     }
 
+    /**
+     * upload a file
+     */
     public void uploadFile(){
         awardNominationPage.addAttachmentButton.sendKeys("C:\\Users\\nekrashevicha2\\Desktop\\projectIDEA\\src\\test\\java\\ServiceNow\\AwardNomination\\Attachments\\AWARD_NOMINATION.docx");
         CucumberLogUtils.logScreenshot();

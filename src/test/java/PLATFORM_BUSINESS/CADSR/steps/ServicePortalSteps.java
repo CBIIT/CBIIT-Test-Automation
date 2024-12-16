@@ -55,7 +55,6 @@ public class ServicePortalSteps {
 
 	@Then("User should see request form")
 	public void seeUserRequestFor() throws InterruptedException {
-		// This will fail if the form is not there
 		servicePortalPage.submitandContinue();
 	}
 
@@ -63,7 +62,6 @@ public class ServicePortalSteps {
 	public void selectCuration() throws InterruptedException {
 		servicePortalPage.selectRandomTask("Curation");
 		servicePortalPage.verifyCurationHelpText();
-
 	}
 
 	@Then("User should see multiple widget")
@@ -152,13 +150,11 @@ public class ServicePortalSteps {
 	@Then("Clear default phone number")
 	public void clearPhoneNumber() throws InterruptedException {
 		servicePortalPage.clearPhoneNumber();
-
 	}
 
 	@Then("Select multiple curation operations")
 	public void selectMultipleCuration() throws InterruptedException {
 		servicePortalPage.selectCuration("Curation");
-
 	}
 
 	@Then("Close latest child ticket")
@@ -179,7 +175,6 @@ public class ServicePortalSteps {
 	@Then("Update Requested For and validated updated Phone , email and organisation based on selection")
 	public void updateRequestedFor() throws InterruptedException {
 		servicePortalPage.updateRequestedFor();
-
 	}
 
 	@Then("Click on Save button")
@@ -196,7 +191,7 @@ public class ServicePortalSteps {
 	public void user_should_see_assignment_group_as(String string) {
 		String actual = servicePortalPage.getTheAssignmentGroup();
 		Assert.assertTrue(string.equalsIgnoreCase(actual),
-				"Excpeted assignment group was " + string + " but found" + actual);
+				"Expected assignment group was " + string + " but found" + actual);
 	}
 
 	@Then("User should have option to upload attachment")
@@ -227,55 +222,46 @@ public class ServicePortalSteps {
 	@Then("Go to View My Tickets")
 	public void clickOnViewMyTicketButton() throws InterruptedException {
 		servicePortalPage.viewMyTicket();
-
 	}
 
 	@Then("Go to View My Historical Ticket")
 	public void clickOnViewMyHistoricalTicketButton() throws InterruptedException {
 		servicePortalPage.clickOnViewMyHistoricalTicketButton();
-
 	}
 
 	@Then("Validate close incomplete and resolved tickets")
 	public void validateCloseAndResolvedTicket() throws InterruptedException {
 		servicePortalPage.validateCloseAndResolvedTicket();
-
 	}
 
 	@Then("Validate resolved and close incomplete tickets")
 	public void validateResolvedAndClosedTicket() throws InterruptedException {
 		servicePortalPage.validateResolvedAndClosedTicket();
-
 	}
 
 	@Then("Validate resolved confirmed status")
 	public void validateResolvedTicket() throws InterruptedException {
 		servicePortalPage.validateResolvedTicket();
-
 	}
 
 	@Then("User should see new request button")
-	public void viewNewRequestButton() throws InterruptedException {
+	public void viewNewRequestButton(){
 		servicePortalPage.viewNewRequestButton();
-
 	}
 
 	@Then("Validate ticket ID in native view")
 	public void validateTicketInNativeView() throws InterruptedException {
 		servicePortalPage.validateTicketInNativeView();
-
 	}
 
 	@Then("Sort the tickets by requested date")
 	public void sortTickets() {
 		servicePortalPage.sortTicketsByRequestedDate();
-
 	}
 
 	@Then("Open latest caDSR ticket")
 	public void openLatestTicket() throws InterruptedException {
 		servicePortalPage.openLatestTicket();
-
 	}
 
 	@Then("Click on Resolve")
@@ -295,7 +281,6 @@ public class ServicePortalSteps {
 
 	@Then("Update request due date")
 	public void update_request_due_date() {
-		// Write code here that turns the phrase above into concrete actions
 		servicePortalPage.updateRequestedDateTextBox();
 	}
 
@@ -307,49 +292,41 @@ public class ServicePortalSteps {
 	@Then("Validate update of caDSR to caDSR II")
 	public void validatecaDSRFilteredMenuName() throws InterruptedException {
 		servicePortalPage.validatecaDSRFilteredMenuName();
-
 	}
 
 	@Then("Open Latest Ticket")
-	public void openMyLatestTicket() throws InterruptedException {
+	public void openMyLatestTicket() {
 		servicePortalPage.openMyLatestTicket();
-
 	}
 
 	@Then("User shouldnt have Add watcher and Add Attachments button")
 	public void validateAddWatcherButton() throws InterruptedException {
 		servicePortalPage.validateAddWatcherButton();
-
 	}
 
 	@Then("User should see read only view of the ticket")
-	public void validateReadOnlyAccess() throws InterruptedException {
+	public void validateReadOnlyAccess(){
 		servicePortalPage.validateReadOnlyAccess();
-
 	}
 
 	@Then("User should see default SOW number selected")
 	public void validateSOWNumber() throws InterruptedException {
 		servicePortalPage.validateSOWNumber();
-
 	}
 
 	@Then("Close ticket without filling resolution info")
 	public void closeTicket() throws InterruptedException {
 		servicePortalPage.closeTicket();
-
 	}
 
 	@Then("Complete child ticket and update")
 	public void completeChildTicket() throws InterruptedException {
 		servicePortalPage.completeChildTicket();
-
 	}
 
 	@Then("Close parent ticket without curation count and update")
 	public void completeParentTicket() throws InterruptedException {
 		servicePortalPage.completeTicket();
-
 	}
 
 	@Then("verify that the fields are disabled")
@@ -360,52 +337,44 @@ public class ServicePortalSteps {
 	@Then("Resolve parent ticket without curation count and update")
 	public void resolveParentTicket() throws InterruptedException {
 		servicePortalPage.resolveTicket();
-
 	}
 
 	@Then("Validate autofill of user record information")
 	public void validateAutoFillOfUserInformation() throws InterruptedException {
 		servicePortalPage.validateAutoFillOfUserInformation();
-
 	}
 
 	@Then("User should see new format of add attachment page with matching current caDSR format")
 	public void validateAddAttachmentPage() throws InterruptedException {
 		servicePortalPage.validateAddAttachmentPage();
-
 	}
 
 	@Then("User shouldnt see hyperlink on the Request Form")
 	public void validateRequestFormHyperlink() throws InterruptedException {
 		servicePortalPage.validateRequestFormHyperlink();
-
 	}
 
 	@Then("User shouldnt see Get Help Footer")
 	public void validateGetHelpFooter() throws InterruptedException {
 		servicePortalPage.validateGetHelpFooter();
-
 	}
 
 	@Then("User should be able to enter additional contact email addresses")
 	public void validateAdditionalEmail() throws InterruptedException {
 		servicePortalPage.validateAdditionalEmail();
-
 	}
 
 	@Then("User should see error message when he enter invalid additional contact email addresses")
 	public void enterAdditionalEmail() throws InterruptedException {
 		servicePortalPage.enterAdditionalEmail();
-
 	}
 
 	@Then("User should see default priority as Moderate")
 	public void validatePriority() throws InterruptedException {
 		servicePortalPage.validatePriority();
-
 	}
 
-	@Then("Go to native viewmm")
+	@Then("Go to native view")
 	public void getNativeViewm() {
 		servicePortalPage.clickOnNativeView();
 	}
@@ -446,15 +415,12 @@ public class ServicePortalSteps {
 	@Then("User should see updated curation count for parent ticket")
 	public void assertCurationCountAs10() {
 		servicePortalPage.verifyCurationCOunt();
-
 	}
 
 	@Then("Verify Email notificationkkk with subject as {string}")
 	public void verifyEmailkkk(String subject) throws InterruptedException {
 		boolean status = servicePortalPage.verifyEmail(subject);
-
 		Assert.assertEquals(true, status);
-
 	}
 
 	@Then("Go to view my tickets")
@@ -487,16 +453,5 @@ public class ServicePortalSteps {
 	@Then("User shouldnt see Ticket detail link")
 	public void ticketDetailsLinkMissing() {
 		Assert.assertTrue(servicePortalPage.isBreadCrumTrailAvailable(), "Ticket details link might be present");
-
 	}
-
-//	@After
-//	public void genericTearDown(Scenario s)  {
-//		CucumberLogUtils.logScreenshot();
-//		if (WebDriverUtils.webDriver != null) {
-//			WebDriverUtils.closeWebDriver();
-//			PageCache.getInstance().destroyInstances();
-//		}
-//	}
-
 }

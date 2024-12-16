@@ -27,19 +27,13 @@ public class NativeViewSteps {
 
 	@When("User Logins to the CADSR application")
 	public void login() throws Exception {
-		//loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
-		//String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
-		//loginStepsImpl.enterPassword(decyptedPass);
 		loginStepsImpl.clickOnSignInButton();
 	}
 
-	@Then("Go to Native viewkkkk of the application")
+	@Then("Go to Native view of the application")
 	public void getNativeView() {
 		nativeViewPage.clickOnNativeView();
 	}
-
-
-
 
 	@Then("Go to CADSR Requests")
 	public void clickonCADSRRequest() throws InterruptedException {
@@ -49,7 +43,6 @@ public class NativeViewSteps {
 	@Then("User should see default columns for incident grid")
 	public void viewDefaultColumns() throws InterruptedException {
 		nativeViewPage.viewDefaultColumns();
-
 	}
 
 	@Then("Go to All Business Case")
@@ -118,15 +111,12 @@ public class NativeViewSteps {
 	@Then("User should see Save, Add Attachments and Submit button")
 	public void user_should_see_Save_Add_Attachments_and_Submit_button() {
 		nativeViewPage.switchToFrame();
-
 		Assert.assertTrue("Save button is not present on the screen",
 				nativeViewPage.isElementPresent(nativeViewPage.saveButton));
 		Assert.assertTrue("Add Attachement button is not present on the screen",
 				nativeViewPage.isElementPresent(nativeViewPage.addAttachemdnBottom));
 		Assert.assertTrue("Submit button is not present on the screen",
 				nativeViewPage.isElementPresent(nativeViewPage.submitButtonOnNewRequestForm));
-
-
 	}
 
 	@Then("Start a new request on nativ view")
@@ -134,28 +124,23 @@ public class NativeViewSteps {
 		nativeViewPage.startANewRequest();
 	}
 
-
 	@Then("User should see available different choices of status")
 	public void validateStatusCHoices() throws Exception {
 		nativeViewPage.allSelectOptions();
-
 	}
 
 	@Then("take the final page screenshot and add it to the report")
 	public void logScreenshot() {
-
 	}
 
 	@Then("Set Assigned to and save")
 	public void set_assigned_to() {
 		nativeViewPage.selectAssignedTo("Janice Knable");
 		nativeViewPage.justSaveTicket();
-
 	}
 
 	@Then("Validate assigned to value in child ticket")
 	public void validate_assigned_to() throws InterruptedException {
-
 		String value = nativeViewPage.getAssignedToValue();
 		Assert.assertTrue("Assigned to value in child ticket is not correct", "Janice Knable".equalsIgnoreCase(value));
 	}
@@ -163,12 +148,10 @@ public class NativeViewSteps {
 	@Then("User should see Status field")
 	public void user_should_see_Status_field() {
 		nativeViewPage.validateTheLabelAsStatus();
-
 	}
 
 	@Then("Validate parent ticket reference")
 	public void validatePerenetTicketReference() {
-
 		nativeViewPage.validateParentTicketReference();
 	}
 
@@ -179,7 +162,6 @@ public class NativeViewSteps {
 
 	@Then("validate text on request form page")
 	public void validateTextonRequestFormPage() {
-
 		nativeViewPage.validateTextOnRequestFormPage();
 	}
 
@@ -191,12 +173,10 @@ public class NativeViewSteps {
 	@Then("validate page footer")
 	public void validatePageFooter() {
 		nativeViewPage.checkIfPageFooterISasExpected();
-
 	}
 
 	@Then("validate that the list of organiation is as expected")
 	public void validateTheListOfOrganization() throws Exception {
 		nativeViewPage.validateTheListOfOrganization();
-
 	}
 }

@@ -32,11 +32,7 @@ public class PortalViewSteps {
 			loginStepsImpl.clckOnLoginButton();
 			loginStepsImpl.enterUsername("");
 			String decyptedPass = EncryptionUtils.decrypt("");
-			// loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
-			// decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
 			loginStepsImpl.enterPassword(decyptedPass);
-			// loginPage.enterUsername(ConfigFileReader.getConfigFileReader().getUserName());
-			// loginPage.enterPassword(ConfigFileReader.getConfigFileReader().getPassword());
 			loginStepsImpl.clickOnSignInButton();
 		}
 	}

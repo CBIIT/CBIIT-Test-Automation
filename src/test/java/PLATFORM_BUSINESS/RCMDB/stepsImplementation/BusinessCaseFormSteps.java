@@ -20,7 +20,6 @@ public class BusinessCaseFormSteps {
 		this.loginStepsImpl = new LoginStepsImpl();
 	}
 
-
 	@When("Click on {string}")
 	public void navigateToQUickLin(String quickLinkOption) {
 		try {
@@ -47,11 +46,7 @@ public class BusinessCaseFormSteps {
 			loginStepsImpl.clckOnLoginButton();
 			loginStepsImpl.enterUsername("");
 			String decyptedPass = EncryptionUtils.decrypt("");
-			// loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
-			// decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
 			loginStepsImpl.enterPassword(decyptedPass);
-			// loginPage.enterUsername(ConfigFileReader.getConfigFileReader().getUserName());
-			// loginPage.enterPassword(ConfigFileReader.getConfigFileReader().getPassword());
 			loginStepsImpl.clickOnSignInButton();
 		}
 	}
@@ -137,7 +132,6 @@ public class BusinessCaseFormSteps {
 	public void approve() {
 		businessCaseFormPage.approveRequestForm();
 	}
-
 
 	@Then("Open Request approval form and reject")
 	public void reject() {
