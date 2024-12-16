@@ -1745,21 +1745,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CommonUtils.waitForVisibility(oktaLoginPage.agreeBtn);
             CharmsUtil.clickOnElement(oktaLoginPage.agreeBtn);
             fanconiLoginPage.eligibilityQuestionnaireLink.click();
-
-
-
-            /*System.out.println(WebDriverUtils.webDriver.getCurrentUrl());
-            CommonUtils.sleep(1000);
-            CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton);
-            CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton);
-            CharmsUtil.sendKeysToElement(oktaLoginPage.usernameTxtBox, username);
-            CharmsUtil.sendKeysToElement(oktaLoginPage.passwordTxtBox, password);
-            CommonUtils.sleep(600);
-            CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
-            CharmsUtil.clickOnElement(oktaLoginPage.loginBtn);
-            CommonUtils.waitForVisibility(fanconiLoginPage.warningAgreeButton);
-            CharmsUtil.clickOnElement(fanconiLoginPage.warningAgreeButton);
-            fanconiLoginPage.eligibilityQuestionnaireLink.click();*/
             fanconiEligibilityQuestionnaireStepsImpl.fanconiEligibilityQuestionnaireSubmissionScenario(i - 1);
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
             Set<String> windows = WebDriverUtils.webDriver.getWindowHandles();

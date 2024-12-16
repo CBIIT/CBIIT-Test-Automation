@@ -12,7 +12,7 @@ Feature: FHQ Form Submission Scenarios
       | Email                  | Password      | FHQScenario  |
       | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 |
-    
+
   @jains @FHQSubmissionInPortal @CP2-562 @FHQ_Regression @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
     Given participant open RASopathies Longitudinal Cohort Study login page
@@ -69,7 +69,7 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative |
-     # | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Children    |
+      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Children    |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Children    |
 
   @jains @FHQSubmissionInPortal @CP2-603 @CP2-1020 @FHQ_Regression @selenium
@@ -80,9 +80,9 @@ Feature: FHQ Form Submission Scenarios
     And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
 
     Examples:
-      | Email                | Password      | FHQScenario  | FHQRelative |
-     # | charmsras3@yahoo.com | RASTest2023$$ | FHQScenario1 | Sibling     |
-      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Sibling   |
+      | Email                  | Password      | FHQScenario  | FHQRelative |
+      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Sibling     |
+      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Sibling     |
 
   @jains @FHQSubmissionInPortal @CP2-550 @FHQ_Regression @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
@@ -92,9 +92,9 @@ Feature: FHQ Form Submission Scenarios
     And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
 
     Examples:
-      | Email                | Password      | FHQScenario  | FHQRelative |
-     # | charmsras3@yahoo.com | RASTest2023$$ | FHQScenario1 | Aunt        |
-      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Aunt   |
+      | Email                  | Password      | FHQScenario  | FHQRelative |
+      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Aunt        |
+      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Aunt        |
 
   @jains @FHQSubmissionInPortal @CP2-550 @FHQ_Regression @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
@@ -104,9 +104,9 @@ Feature: FHQ Form Submission Scenarios
     And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
 
     Examples:
-      | Email                | Password      | FHQScenario  | FHQRelative |
-      #| charmsras3@yahoo.com | RASTest2023$$ | FHQScenario1 | Uncle       |
-      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Uncle   |
+      | Email                  | Password      | FHQScenario  | FHQRelative |
+      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Uncle       |
+      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Uncle       |
 
   @jains @FHQSubmissionInPortal @CP2-550 @FHQ_Regression @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
@@ -116,9 +116,9 @@ Feature: FHQ Form Submission Scenarios
     And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
 
     Examples:
-      | Email                | Password      | FHQScenario  | FHQRelative |
-     # | charmsras3@yahoo.com | RASTest2023$$ | FHQScenario1 | NieceNephew |
-      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | NieceNephew   |
+      | Email                  | Password      | FHQScenario  | FHQRelative |
+      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | NieceNephew |
+      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | NieceNephew |
 
   @jains @FHQSubmissionInPortal @CP2-559 @FHQ_Regression @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
@@ -128,9 +128,9 @@ Feature: FHQ Form Submission Scenarios
     And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
 
     Examples:
-      | Email                | Password      | FHQScenario  | FHQRelative         |
-     # | charmsras3@yahoo.com | RASTest2023$$ | FHQScenario1 | MaternalGrandMother |
-      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | MaternalGrandMother   |
+      | Email                  | Password      | FHQScenario  | FHQRelative         |
+      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | MaternalGrandMother |
+      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | MaternalGrandMother |
 
   @jains @FHQSubmissionInPortal @CP2-559 @FHQ_Regression @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
@@ -140,9 +140,9 @@ Feature: FHQ Form Submission Scenarios
     And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
 
     Examples:
-      | Email                | Password      | FHQScenario  | FHQRelative         |
-    # | charmsras3@yahoo.com | RASTest2023$$ | FHQScenario1 | MaternalGrandFather |
-      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | MaternalGrandFather   |
+      | Email                  | Password      | FHQScenario  | FHQRelative         |
+      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | MaternalGrandFather |
+      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | MaternalGrandFather |
 
   @jains @FHQSubmissionInPortal @CP2-559 @FHQ_Regression @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
@@ -152,9 +152,9 @@ Feature: FHQ Form Submission Scenarios
     And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
 
     Examples:
-      | Email                | Password      | FHQScenario  | FHQRelative         |
-     # | charmsras3@yahoo.com | RASTest2023$$ | FHQScenario1 | PaternalGrandMother |
-      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | PaternalGrandMother   |
+      | Email                  | Password      | FHQScenario  | FHQRelative         |
+      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | PaternalGrandMother |
+      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | PaternalGrandMother |
 
   @jains @FHQSubmissionInPortal @CP2-559 @FHQ_Regression @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
@@ -164,9 +164,9 @@ Feature: FHQ Form Submission Scenarios
     And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
 
     Examples:
-      | Email                | Password      | FHQScenario  | FHQRelative         |
-     # | charmsras3@yahoo.com | RASTest2023$$ | FHQScenario1 | PaternalGrandFather |
-      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | PaternalGrandFather   |
+      | Email                  | Password      | FHQScenario  | FHQRelative         |
+      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | PaternalGrandFather |
+      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | PaternalGrandFather |
 
   @jains @FHQSubmissionInPortal @CP2-563 @FHQ_Regression @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
@@ -176,9 +176,9 @@ Feature: FHQ Form Submission Scenarios
     And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
 
     Examples:
-      | Email                | Password      | FHQScenario  | FHQRelative   |
-    #  | charmsras3@yahoo.com | RASTest2023$$ | FHQScenario1 | GrandChildren |
-      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | GrandChildren   |
+      | Email                  | Password      | FHQScenario  | FHQRelative   |
+      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | GrandChildren |
+      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | GrandChildren |
 
   @jains @FHQSubmissionInPortal @CP2-563 @FHQ_Regression @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
@@ -188,9 +188,9 @@ Feature: FHQ Form Submission Scenarios
     And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
 
     Examples:
-      | Email                | Password      | FHQScenario  | FHQRelative |
-     # | charmsras3@yahoo.com | RASTest2023$$ | FHQScenario1 | Cousin      |
-      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Cousin   |
+      | Email                  | Password      | FHQScenario  | FHQRelative |
+      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Cousin      |
+      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Cousin      |
 
   @jains @FHQAssertionInNV @CP2-1013 @FHQ_Regression @selenium
   Scenario Outline: This scenario outline the assertion of the completed FHQ Form for one Relative Type
