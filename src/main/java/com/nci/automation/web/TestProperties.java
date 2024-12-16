@@ -4,7 +4,7 @@ public class TestProperties {
 
     public static String ENV = "test";
     public static String BROWSER = "chrome";
-    public static boolean HEADLESS = true;
+    public static boolean HEADLESS = false;
     public static int SET_SLOW_MO_TIME = 1000;
 
     /**
@@ -113,6 +113,13 @@ public class TestProperties {
     public static final String E_GRANTS_TEST_URL = "https://egrants-web-test.nci.nih.gov/";
     public static final String E_GRANTS_STAGE_URL = "https://egrants-web-stage.nci.nih.gov/";
     public static String E_GRANTS_URL;
+
+    /**
+     * OASYS URLS
+     */
+    public static final String OASYS_TEST_URL = "https://oasys-qa.cancer.gov/#/";
+    public static final String OASYS_STAGE_URL = "https://oasys-stage.cancer.gov/#/";
+    public static String OASYS_URL;
 
     /**
      * COMETS ANALYTICS URLS
@@ -447,6 +454,18 @@ public class TestProperties {
                 break;
         }
         return E_GRANTS_URL;
+    }
+
+    public static String getOasysUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                OASYS_URL = OASYS_STAGE_URL;
+                break;
+            case "test":
+                OASYS_URL = OASYS_TEST_URL;
+                break;
+        }
+        return OASYS_URL;
     }
 
     public static String getCometsAnalyticsUrl() {
