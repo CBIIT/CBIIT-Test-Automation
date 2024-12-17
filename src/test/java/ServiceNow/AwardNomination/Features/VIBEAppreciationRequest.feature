@@ -34,4 +34,3 @@
      Then User can see that Watch List ticket field is populated with "Anna Nicholson" name
      When User adds attachment
      Then User can verify that attachment is added
-
