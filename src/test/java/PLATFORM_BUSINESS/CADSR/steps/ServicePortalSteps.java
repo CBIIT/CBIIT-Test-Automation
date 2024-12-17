@@ -375,7 +375,7 @@ public class ServicePortalSteps {
 	}
 
 	@Then("Go to native view")
-	public void getNativeViewm() {
+	public void getNativeView() {
 		servicePortalPage.clickOnNativeView();
 	}
 
@@ -417,7 +417,7 @@ public class ServicePortalSteps {
 		servicePortalPage.verifyCurationCOunt();
 	}
 
-	@Then("Verify Email notificationkkk with subject as {string}")
+	@Then("Verify Email notification with subject as {string}")
 	public void verifyEmailkkk(String subject) throws InterruptedException {
 		boolean status = servicePortalPage.verifyEmail(subject);
 		Assert.assertEquals(true, status);
