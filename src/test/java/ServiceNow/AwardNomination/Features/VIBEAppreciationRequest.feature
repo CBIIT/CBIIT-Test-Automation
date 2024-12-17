@@ -35,4 +35,3 @@
      When User adds attachment
      Then User can verify that attachment is added
 
-
