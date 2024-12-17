@@ -49,12 +49,11 @@ Feature: Recordmanagement feature files
     Then Click on submit record
 
      @QuaterlyCost
-  Scenario: Naviate to the Quaterly Costs and create new Quaterly Cost
+  Scenario: Navigate to the Quaterly Costs and create new Quaterly Cost
     Given user navigates to the Record management home page
     Then User logins to the application for RCMDB
     Then User clicks on Quarterly Costs
-    Then Click on new Quaterly Cost
-    Then Fill all the Quaterly Cost details
+    Then Click on new Quarterly Cost
+    Then Fill all the Quarterly Cost details
     Then Click on submit button
     Then Validate added recorded
-

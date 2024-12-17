@@ -31,8 +31,8 @@ public class PortalViewSteps {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 			loginStepsImpl.enterUsername("");
-			String decyptedPass = EncryptionUtils.decrypt("");
-			loginStepsImpl.enterPassword(decyptedPass);
+			String decryptedPass = EncryptionUtils.decrypt("");
+			loginStepsImpl.enterPassword(decryptedPass);
 			loginStepsImpl.clickOnSignInButton();
 		}
 	}
@@ -43,7 +43,7 @@ public class PortalViewSteps {
 	}
 
 	@Then("Go to All Ideas")
-	public void clickonAllIdeaCase() {
+	public void clickOnAllIdeaCase() {
 		portalViewPage.clickOnAllIdeas();
 	}
 
@@ -82,7 +82,7 @@ public class PortalViewSteps {
 	}
 
 	@Then("State is Updated to {string}")
-	public void verifystate(String expectedState) throws Exception {
+	public void verifyState(String expectedState) throws Exception {
 		Thread.sleep(2000);
 		String actualState = portalViewPage.getState();
 		CucumberLogUtils.logScreenshot();
@@ -99,7 +99,7 @@ public class PortalViewSteps {
 
 	@Then("Update details on Business form and submit")
 	public void FillBusinessForm() throws InterruptedException {
-		portalViewPage.enterTextInBusinessNeedBox("TestingAutomtaionTesting");
+		portalViewPage.enterTextInBusinessNeedBox("TestingAutomationTesting");
 	}
 
 	@Then("Open Request Approval form and approve")
@@ -107,7 +107,7 @@ public class PortalViewSteps {
 		portalViewPage.approveRequestForm();
 	}
 
-	@Then("Click on Elevate Permision")
+	@Then("Click on Elevate Permission")
 	public void elevatePermission() throws InterruptedException {
 		portalViewPage.elevateButton();
 	}

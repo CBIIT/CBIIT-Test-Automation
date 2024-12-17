@@ -37,8 +37,8 @@ public class ServicePortalSteps {
 	@When("User Logins to the caDSR application")
 	public void login() throws Exception {
 		loginStepsImpl.enterUsername("");
-		String decyptedPass = EncryptionUtils.decrypt("");
-		loginStepsImpl.enterPassword(decyptedPass);
+		String decryptedPass = EncryptionUtils.decrypt("");
+		loginStepsImpl.enterPassword(decryptedPass);
 		loginStepsImpl.clickOnSignInButton();
 	}
 

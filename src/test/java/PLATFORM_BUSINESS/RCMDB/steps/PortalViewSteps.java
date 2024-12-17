@@ -31,8 +31,8 @@ public class PortalViewSteps {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 			loginStepsImpl.enterUsername("");
-			String decyptedPass = EncryptionUtils.decrypt("");
-			loginStepsImpl.enterPassword(decyptedPass);
+			String decryptedPass = EncryptionUtils.decrypt("");
+			loginStepsImpl.enterPassword(decryptedPass);
 			loginStepsImpl.clickOnSignInButton();
 		}
 	}
@@ -61,7 +61,7 @@ public class PortalViewSteps {
 	public void enterIdeaDetails() throws InterruptedException {
 		portalViewPage.selectDocDirector("Justin Campany");
 		portalViewPage.fillFITARATextBox();
-		portalViewPage.fillIDeaBox("Test IDea Form");
+		portalViewPage.fillIDeaBox("Test Idea Form");
 		portalViewPage.programaticSUpportCheckBox();
 	}
 
@@ -99,7 +99,7 @@ public class PortalViewSteps {
 
 	@Then("Update details on Business form and submit")
 	public void FillBusinessForm() throws InterruptedException {
-		portalViewPage.enterTextInBusinessNeedBox("TestingAutomtaionTesting");
+		portalViewPage.enterTextInBusinessNeedBox("TestingAutomationTesting");
 	}
 
 	@Then("Open Request Approval form and approve")
@@ -107,7 +107,7 @@ public class PortalViewSteps {
 		portalViewPage.approveRequestForm();
 	}
 
-	@Then("Click on Elevate Permision")
+	@Then("Click on Elevate Permission")
 	public void elevatePermission() throws InterruptedException {
 		portalViewPage.elevateButton();
 	}

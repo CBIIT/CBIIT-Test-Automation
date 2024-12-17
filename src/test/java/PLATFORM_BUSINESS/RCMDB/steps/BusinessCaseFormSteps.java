@@ -27,7 +27,7 @@ public class BusinessCaseFormSteps {
 	}
 
 	@When("Click on {string}")
-	public void navigateToQUickLin(String quickLinkOption) {
+	public void navigateToQuickLink(String quickLinkOption) {
 		try {
 			businessCaseFormPage.selectOptionFromQuickLink(quickLinkOption);
 		} catch (Exception e) {
@@ -36,7 +36,7 @@ public class BusinessCaseFormSteps {
 	}
 
 	@Then("State is updated to {string}")
-	public void verifystate(String expectedState) throws Exception {
+	public void verifyState(String expectedState) throws Exception {
 		Thread.sleep(7000);
 		String actualState = businessCaseFormPage.getState();
 		CucumberLogUtils.logScreenshot();
@@ -110,7 +110,7 @@ public class BusinessCaseFormSteps {
 
 	@Then("Update details on business form and submit")
 	public void FillBusinessForm() throws InterruptedException {
-		businessCaseFormPage.enterTextInBusinessNeedBox("TestingAutomtaionTesting");
+		businessCaseFormPage.enterTextInBusinessNeedBox("TestingAutomationTesting");
 	}
 
 	@Then("Go to Native view of application")
@@ -118,7 +118,7 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.clickOnNativeView();
 	}
 
-	@Then("Click on Elevate permision")
+	@Then("Click on Elevate permission")
 	public void elevatePermission() {
 		businessCaseFormPage.elevateButton();
 	}
@@ -138,8 +138,8 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.askForMoreInfoOnRequestForm();
 	}
 
-	@Then("Verify Email notification withkk subject as {string}")
-	public void verifyEmailmm(String subject) throws InterruptedException {
+	@Then("Verify Email notification with subject as {string}")
+	public void verifyEmail(String subject) throws InterruptedException {
 		boolean status = businessCaseFormPage.verifyEmail(subject);
 		Assert.assertEquals(true, status);
 	}
@@ -160,8 +160,8 @@ public class BusinessCaseFormSteps {
 		CucumberLogUtils.logScreenshot();
 	}
 
-	@Then("User clicks on Quaterly Costs")
-	public void User_clicks_on_Quaterly_Costs() {
+	@Then("User clicks on Quarterly Costs")
+	public void User_clicks_on_Quarterly_Costs() {
 		businessCaseFormPage.clickOnQuaterlyCosts();
 	}
 
@@ -171,7 +171,7 @@ public class BusinessCaseFormSteps {
 		CucumberLogUtils.logScreenshot();
 	}
 
-	@Then("Click on new Quaterly Cost")
+	@Then("Click on new Quarterly Cost")
 	public void Click_on_new_Quarterly_Cost() {
 		businessCaseFormPage.clickOnNewQuarterlyCost();
 	}

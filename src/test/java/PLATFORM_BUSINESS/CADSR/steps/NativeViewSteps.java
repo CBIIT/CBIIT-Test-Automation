@@ -36,7 +36,7 @@ public class NativeViewSteps {
 	}
 
 	@Then("Go to CADSR Requests")
-	public void clickonCADSRRequest() throws InterruptedException {
+	public void clickOnCADSRRequest() throws InterruptedException {
 		nativeViewPage.clickOnCADSRRequest();
 	}
 
@@ -78,7 +78,7 @@ public class NativeViewSteps {
 	}
 
 	@Then("State is Updated to {string}")
-	public void verifystate(String expectedState) throws Exception {
+	public void verifyState(String expectedState) throws Exception {
 		Thread.sleep(2000);
 		String actualState = nativeViewPage.getState();
 		CucumberLogUtils.logScreenshot();
@@ -95,7 +95,7 @@ public class NativeViewSteps {
 
 	@Then("Update details on Business form and submit")
 	public void FillBusinessForm() throws InterruptedException {
-		nativeViewPage.enterTextInBusinessNeedBox("TestingAutomtaionTesting");
+		nativeViewPage.enterTextInBusinessNeedBox("TestingAutomationTesting");
 	}
 
 	@Then("Open Request Approval form and approve")
@@ -103,7 +103,7 @@ public class NativeViewSteps {
 		nativeViewPage.approveRequestForm();
 	}
 
-	@Then("Click on Elevate Permision")
+	@Then("Click on Elevate Permission")
 	public void elevatePermission() throws InterruptedException {
 		nativeViewPage.elevateButton();
 	}
@@ -113,19 +113,19 @@ public class NativeViewSteps {
 		nativeViewPage.switchToFrame();
 		Assert.assertTrue("Save button is not present on the screen",
 				nativeViewPage.isElementPresent(nativeViewPage.saveButton));
-		Assert.assertTrue("Add Attachement button is not present on the screen",
+		Assert.assertTrue("Add Attachment button is not present on the screen",
 				nativeViewPage.isElementPresent(nativeViewPage.addAttachemdnBottom));
 		Assert.assertTrue("Submit button is not present on the screen",
 				nativeViewPage.isElementPresent(nativeViewPage.submitButtonOnNewRequestForm));
 	}
 
-	@Then("Start a new request on nativ view")
-	public void start_new_Requst() {
+	@Then("Start a new request on native view")
+	public void start_new_Request() {
 		nativeViewPage.startANewRequest();
 	}
 
 	@Then("User should see available different choices of status")
-	public void validateStatusCHoices() throws Exception {
+	public void validateStatusChoices() throws Exception {
 		nativeViewPage.allSelectOptions();
 	}
 
@@ -151,7 +151,7 @@ public class NativeViewSteps {
 	}
 
 	@Then("Validate parent ticket reference")
-	public void validatePerenetTicketReference() {
+	public void validateParentTicketReference() {
 		nativeViewPage.validateParentTicketReference();
 	}
 
@@ -161,7 +161,7 @@ public class NativeViewSteps {
 	}
 
 	@Then("validate text on request form page")
-	public void validateTextonRequestFormPage() {
+	public void validateTextOnRequestFormPage() {
 		nativeViewPage.validateTextOnRequestFormPage();
 	}
 
@@ -175,7 +175,7 @@ public class NativeViewSteps {
 		nativeViewPage.checkIfPageFooterISasExpected();
 	}
 
-	@Then("validate that the list of organiation is as expected")
+	@Then("validate that the list of organization is as expected")
 	public void validateTheListOfOrganization() throws Exception {
 		nativeViewPage.validateTheListOfOrganization();
 	}

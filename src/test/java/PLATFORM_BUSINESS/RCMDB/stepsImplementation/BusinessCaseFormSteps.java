@@ -21,7 +21,7 @@ public class BusinessCaseFormSteps {
 	}
 
 	@When("Click on {string}")
-	public void navigateToQUickLin(String quickLinkOption) {
+	public void navigateToQuickLin(String quickLinkOption) {
 		try {
 			businessCaseFormPage.selectOptionFromQuickLink(quickLinkOption);
 		} catch (Exception e) {
@@ -30,7 +30,7 @@ public class BusinessCaseFormSteps {
 	}
 
 	@Then("State is updated to {string}")
-	public void verifystate(String expectedState) throws Exception {
+	public void verifyState(String expectedState) throws Exception {
 		Thread.sleep(7000);
 		String actualState = businessCaseFormPage.getState();
 		CucumberLogUtils.logScreenshot();
@@ -45,8 +45,8 @@ public class BusinessCaseFormSteps {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 			loginStepsImpl.enterUsername("");
-			String decyptedPass = EncryptionUtils.decrypt("");
-			loginStepsImpl.enterPassword(decyptedPass);
+			String decryptedPass = EncryptionUtils.decrypt("");
+			loginStepsImpl.enterPassword(decryptedPass);
 			loginStepsImpl.clickOnSignInButton();
 		}
 	}
@@ -60,7 +60,7 @@ public class BusinessCaseFormSteps {
 	public void fillIdeaDetails() throws InterruptedException {
 		businessCaseFormPage.selectDocDirector("Justin Cam");
 		businessCaseFormPage.fillFITARATextBox();
-		businessCaseFormPage.fillIDeaBox("Test IDea Form");
+		businessCaseFormPage.fillIDeaBox("Test Idea Form");
 		businessCaseFormPage.programaticSUpportCheckBox();
 	}
 
@@ -115,7 +115,7 @@ public class BusinessCaseFormSteps {
 
 	@Then("Update details on business form and submit")
 	public void FillBusinessForm() throws InterruptedException {
-		businessCaseFormPage.enterTextInBusinessNeedBox("TestingAutomtaionTesting");
+		businessCaseFormPage.enterTextInBusinessNeedBox("TestingAutomationTesting");
 	}
 
 	@Then("Go to native view")
@@ -123,7 +123,7 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.clickOnNativeView();
 	}
 
-	@Then("Click on Elevate permision")
+	@Then("Click on Elevate permission")
 	public void elevatePermission() {
 		businessCaseFormPage.elevateButton();
 	}
