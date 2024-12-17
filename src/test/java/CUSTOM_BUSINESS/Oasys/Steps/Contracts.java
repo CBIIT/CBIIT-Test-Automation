@@ -6,6 +6,7 @@ import static com.nci.automation.web.PlaywrightUtils.page;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.*;
 import com.nci.automation.utils.CucumberLogUtils;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -35,7 +36,7 @@ public class Contracts {
      * This method is selecting a contract from the list of contracts
      * @param ITcommodities
      */
-    @When("user selects {string} from the list of contracts")
+    @And("user selects {string} from the list of contracts")
     public void user_selects_from_the_list_of_contracts(String ITcommodities) {
         page.getByRole(AriaRole.ROW, new Page.GetByRoleOptions().setName("IT Commodities and Solutions HHSN316201500067W Other SWORD & SHIELD ENTERPRISE")).locator("div").first().click();
         CucumberLogUtils.playwrightScreenshot(page);
@@ -44,7 +45,7 @@ public class Contracts {
     /**
      * This method is clicking on Edit Contract Information button
      */
-    @When("user clicks on Edit Contract Information button")
+    @And("user clicks on Edit Contract Information button")
     public void user_clicks_on_edit_contract_information_button() {
         page.getByRole(AriaRole.REGION, new Page.GetByRoleOptions().setName("Contract Information")).getByRole(AriaRole.BUTTON).click();
         CucumberLogUtils.playwrightScreenshot(page);
@@ -53,27 +54,17 @@ public class Contracts {
     /**
      * This method is changing the Severability to Severable
      */
-    @When("user changes the Severability to Severable")
+    @And("user changes the Severability to Severable")
     public void user_changes_the_severability_to_severable() {
         page.locator("xpath=//div/mat-select[@ng-reflect-placeholder='Severability']").click();
-        //page.locator("xpath=/html[1]/body[1]/div[1]/div[4]/div[1]/mat-dialog-container[1]/edit-contract-details-modal[1]/div[1]/div[1]/compass-form[1]/div[1]/div[37]/ng-component[1]/mat-form-field[1]/div[1]/div[1]/div[1]/mat-select[1]/div[1]/div[2]/div[1]").click();
         page.locator("xpath=//span[@class='mat-option-text'][normalize-space()='Severable']").click();
-        CucumberLogUtils.playwrightScreenshot(page);
-    }
-
-    /**
-     * This method is saving the changes made to the contract
-     */
-    @Then("User clicks on Save button to confirm the changes")
-    public void user_clicks_on_save_button_to_confirm_the_changes() {
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
      * This method is selecting Yes from the IT related dropdown
      */
-    @When("User selects Yes from the IT related dropdown")
+    @And("User selects Yes from the IT related dropdown")
     public void user_selects_from_the_it_related_dropdown() {
         page.locator("xpath=//div/mat-select[@ng-reflect-placeholder='IT Related *']").click();
         page.locator("xpath=//mat-option/span[contains(text(),'Yes')]").click();
@@ -83,7 +74,7 @@ public class Contracts {
     /**
      * This method is selecting Open Market for the Procurement Mechanism
      */
-    @When("User selects Open Market for the Procurement Mechanism")
+    @And("User selects Open Market for the Procurement Mechanism")
     public void user_selects_for_the_procurement_mechanism() {
         page.locator("xpath=//div/mat-select[@ng-reflect-placeholder='Procurment Mechanism *']").click();
         page.locator("xpath=//mat-option/span[contains(text(),'Open Market')]").click();
@@ -103,7 +94,7 @@ public class Contracts {
     /**
      * This method is selecting No for Does the COR advise continued performance?
      */
-    @When("User selects No for Does the COR advise continued performance?")
+    @And("User selects No for Does the COR advise continued performance?")
     public void user_selects_for_does_the_cor_advise_continued_performance() {
         page.locator("xpath=//div/mat-select[@ng-reflect-placeholder='Does the COR Advise Continued ']").click();
         page.locator("xpath=//mat-option/span[contains(text(),'No')]").click();
@@ -117,6 +108,15 @@ public class Contracts {
     public void user_selects_for_what_notice_will_be_sent_in_the_event_of_a_shutdown() {
         page.locator("xpath=//div/mat-select[@ng-reflect-placeholder='What notice will be sent in th']").click();
         page.locator("xpath=//span[@class='mat-option-text'][normalize-space()='Stop Work']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is saving the changes made to the contract
+     */
+    @Then("User clicks on Save button to confirm the changes")
+    public void user_clicks_on_save_button_to_confirm_the_changes() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -175,5 +175,4 @@ public class Contracts {
         page.locator("xpath=//span[contains(text(),'Save')]").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
-
 }
