@@ -6,7 +6,7 @@ Feature: Recordmanagement feature files
     Given user navigates to the Record management home page
     Then User logins to the application for RCMDB
     Then Go to Native view of application
-    Then verify that the page has all the exsisting labels
+    Then verify that the page has all the existing labels
 
   @SNOWRMDB-10
   Scenario: Naviate to the create new record form and create new tracking record
@@ -40,7 +40,7 @@ Feature: Recordmanagement feature files
     Then Enter Disposition Authority more than accepted limit
 
     @RCMDB
-  Scenario: Naviate to the RM Teacking record Import and create new tracking record
+  Scenario: Naviate to the RM Tracking record Import and create new tracking record
     Given user navigates to the Record management home page
     Then User logins to the application for RCMDB
     Then User clicks on RM Tracking Record Import
@@ -52,7 +52,7 @@ Feature: Recordmanagement feature files
   Scenario: Naviate to the Quaterly Costs and create new Quaterly Cost
     Given user navigates to the Record management home page
     Then User logins to the application for RCMDB
-    Then User clicks on Quaterly Costs
+    Then User clicks on Quarterly Costs
     Then Click on new Quaterly Cost
     Then Fill all the Quaterly Cost details
     Then Click on submit button

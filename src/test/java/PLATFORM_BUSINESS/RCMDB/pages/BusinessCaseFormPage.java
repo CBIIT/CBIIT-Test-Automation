@@ -257,7 +257,7 @@ public class BusinessCaseFormPage extends BasePage {
 	
 	
 	@FindBy(id = "x_g_nci_record_mgt_quarterly_cost.quarterly_cost.display")
-	private WebElement quaterlyCost;
+	private WebElement quarterlyCost;
 	
 	@FindBy(id = "x_g_nci_record_mgt_quarterly_cost.total_records")
 	private WebElement totalRecords;
@@ -837,7 +837,7 @@ public class BusinessCaseFormPage extends BasePage {
 		switchToDefaultFrame();
 	}
 	
-	public void clickOnNewQuaterlyCost() {
+	public void clickOnNewQuarterlyCost() {
 		// TODO Auto-generated method stub
 		switchToFrame();
 		clickOnElement(newQuaterlyCost);
@@ -879,12 +879,12 @@ public class BusinessCaseFormPage extends BasePage {
 
 	}
 	
-	public void fillQuaterlyCostForm() throws InterruptedException {
+	public void fillQuarterlyCostForm() throws InterruptedException {
 		// TODO Auto-generated method stub
 		switchToFrame();
 		setText(endDate,"11/11/2022");
-		quaterlyCost.clear();
-		setText(quaterlyCost,"0.00");
+		quarterlyCost.clear();
+		setText(quarterlyCost,"0.00");
 		setText(totalRecords,"10");
 		setText(totalBoxes,"110");
 		switchToDefaultFrame();
@@ -903,7 +903,7 @@ public class BusinessCaseFormPage extends BasePage {
 		Thread.sleep(2000);
 		switchToFrame();
 		Assert.assertEquals(endDate.getAttribute("value"), "11/11/2022");
-		Assert.assertEquals(quaterlyCost.getAttribute("value"), "0.00");
+		Assert.assertEquals(quarterlyCost.getAttribute("value"), "0.00");
 		Assert.assertEquals(totalRecords.getAttribute("value"), "10");
 		Assert.assertEquals(totalBoxes.getAttribute("value"), "110");
 		CucumberLogUtils.logScreenshot();

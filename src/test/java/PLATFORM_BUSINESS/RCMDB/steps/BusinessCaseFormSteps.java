@@ -149,8 +149,8 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.openApp();
 	}
 
-	@Then("verify that the page has all the exsisting labels")
-	public void verify_that_the_page_has_all_the_exsisting_labels() {
+	@Then("verify that the page has all the existing labels")
+	public void verify_that_the_page_has_all_the_existing_labels() {
 		businessCaseFormPage.validateLabels();
 	}
 
@@ -172,8 +172,8 @@ public class BusinessCaseFormSteps {
 	}
 
 	@Then("Click on new Quaterly Cost")
-	public void Click_on_new_Quaterly_Cost() {
-		businessCaseFormPage.clickOnNewQuaterlyCost();
+	public void Click_on_new_Quarterly_Cost() {
+		businessCaseFormPage.clickOnNewQuarterlyCost();
 	}
 
 	@Then("Click on new RM Tracking record")
@@ -187,9 +187,9 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.fillRMTrackingForm();
 	}
 
-	@Then("Fill all the Quaterly Cost details")
-	public void Fill_all_the_Quaterly_Cost_details() throws InterruptedException {
-		businessCaseFormPage.fillQuaterlyCostForm();
+	@Then("Fill all the Quarterly Cost details")
+	public void Fill_all_the_Quarterly_Cost_details() throws InterruptedException {
+		businessCaseFormPage.fillQuarterlyCostForm();
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -252,5 +252,17 @@ public class BusinessCaseFormSteps {
 	@Then("Fill all the details")
 	public void Fill_all_the_details() throws InterruptedException {
 		businessCaseFormPage.fillTrackingRecordForm();
+	}
+
+	@When("User logins to the application for RCMDB")
+	public void login() throws Exception {
+		if (loginStepsImpl.isLoginButtonDisplayed()) {
+			loginStepsImpl.clckOnLoginButton();
+		}
+		loginStepsImpl.enterUsername("");
+		String decyptedPass = EncryptionUtils.decrypt("");
+		loginStepsImpl.enterPassword(decyptedPass);
+		CucumberLogUtils.logScreenshot();
+		loginStepsImpl.clickOnSignInButton();
 	}
 }
