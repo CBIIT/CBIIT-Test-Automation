@@ -96,4 +96,14 @@ public class JPSurvHomePagePlaywright {
      * INPUT FILE LOCATOR
      */
     public static String inputFileLocator = "xpath=//input[@id='inputFile']";
+
+    /***
+     * CUTPOINT LOCATOR
+     */
+    public static String cutPointLocator = "//label[text()='Cutpoint']/parent::div//select";
+
+    /***
+     * TOOLTIP LOCATOR
+     */
+    public static String toolTipLocator = "//a[@rel='tooltip']";
 }
