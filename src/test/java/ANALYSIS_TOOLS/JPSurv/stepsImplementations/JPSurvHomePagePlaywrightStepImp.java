@@ -93,12 +93,12 @@ public class JPSurvHomePagePlaywrightStepImp extends PageInitializer {
     /**
      * SELECTS THE RELAX PROPORTIONALITY AND CUTPOINT
      *
-     * @param string
+     * @param cutpoint
      */
-    public static void checkRelaxProportionalityAndCutPoint(String string) {
+    public static void checkRelaxProportionalityAndCutPoint(String cutpoint) {
         PlaywrightUtils.page.locator("//input[@id='useRelaxModel']").click();
         CommonUtils.sleep(2000);
-        PlaywrightUtils.page.locator("//select[@name='cutpoint']").selectOption(string);
+        PlaywrightUtils.page.locator("//select[@name='cutpoint']").selectOption(cutpoint);
         CommonUtils.sleep(4000);
     }
 }
