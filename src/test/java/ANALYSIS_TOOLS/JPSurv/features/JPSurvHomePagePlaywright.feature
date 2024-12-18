@@ -132,3 +132,28 @@ Feature: These are the scenarios for the Home page on the JPSurv Application
     Then User changes cohort from NHL to CML
     Then User clicks on every presentation of nav item
     Then Verify user is able to hide the configuration panel
+
+  @Smoke @satya @playwright @NCIATWP-8065 @NCIATWP-1696
+  Scenario: Verify user clicks on the submit button to calculate cohert and model specifications
+    Given User navigates to JPSurv home page
+    Then User uploads file in the homepage
+    Then User selects start year of diagnosis
+    Then User selects end year of diagnosis
+    Then User selects interval of maximum years of diagnosis
+    Then User clicks on the NHL checkbox
+    Then User checks the relax proportionality and selects the cutpoint "5"
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then User changes the Cutpoint to "2"
+    Then User changes the Cutpoint to optimal
+
+  @Smoke @satya @playwright @NCIATWP-8065 @NCIATWP-1696
+  Scenario: Verify user clicks on the submit button to calculate cohert and model specifications
+    Given User navigates to JPSurv home page
+    Then User uploads file in the homepage
+    Then User selects start year of diagnosis
+    Then User selects end year of diagnosis
+    Then User selects interval of maximum years of diagnosis
+    Then User clicks on the NHL checkbox
+    Then User checks the relax proportionality and selects the cutpoint "5"
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then Verify Cutpoint is coming next to Cohort and Model table headings
