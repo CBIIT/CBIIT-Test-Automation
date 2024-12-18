@@ -92,12 +92,12 @@ public class BusinessCaseFormSteps {
 	}
 
 	@Then("Click on Approve request")
-	public void approveRequest() {
-		businessCaseFormPage.approveRequest();
+	public void approveRCMDBRequest() {
+		businessCaseFormPage.approveRequestRCMDB();
 	}
 
 	@Then("Open latest Business Case")
-	public void openLatestBusinessCase() {
+	public void openLatestBusinessCaseRCMDB() {
 		businessCaseFormPage.sortCreatedDateForBusinessCasesInDecendingOrder();
 		businessCaseFormPage.clickOnFirstBusinessCase();
 	}
@@ -129,7 +129,7 @@ public class BusinessCaseFormSteps {
 	}
 
 	@Then("Open Request approval form and reject")
-	public void reject() {
+	public void rejectRCMDBApproval() {
 		businessCaseFormPage.rejectRequestForm();
 	}
 
@@ -255,13 +255,13 @@ public class BusinessCaseFormSteps {
 	}
 
 	@When("User logins to the application for RCMDB")
-	public void login() throws Exception {
+	public void loginRCMDB() throws Exception {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 		}
 		loginStepsImpl.enterUsername("");
-		String decyptedPass = EncryptionUtils.decrypt("");
-		loginStepsImpl.enterPassword(decyptedPass);
+		String decryptedPass = EncryptionUtils.decrypt("");
+		loginStepsImpl.enterPassword(decryptedPass);
 		CucumberLogUtils.logScreenshot();
 		loginStepsImpl.clickOnSignInButton();
 	}

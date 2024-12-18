@@ -49,19 +49,15 @@ public class BusinessCaseFormSteps {
 	}
 
 	@When("User logins to the application")
-	public void login() throws Exception {
+	public void loginITPG() throws Exception {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 		}
 		loginStepsImpl.enterUsername("");
-		String decyptedPass = EncryptionUtils.decrypt("");
+		String decryptedPass = EncryptionUtils.decrypt("");
 		CucumberLogUtils.logScreenshot();
-		// loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
-		// decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
-		loginStepsImpl.enterPassword(decyptedPass);
+		loginStepsImpl.enterPassword(decryptedPass);
 		CucumberLogUtils.logScreenshot();
-		// loginPage.enterUsername(ConfigFileReader.getConfigFileReader().getUserName());
-		// loginPage.enterPassword(ConfigFileReader.getConfigFileReader().getPassword());
 		loginStepsImpl.clickOnSignInButton();
 
 	}
@@ -207,8 +203,7 @@ public class BusinessCaseFormSteps {
 	}
 
 	@Then("Open latest Business Case")
-	public void openLatestBusinessCase() {
-		// businessCaseFormPage.sortCreatedDateForBusinessCasesInDecendingOrder();
+	public void openLatestBusinessCaseITPG() {
 		businessCaseFormPage.clickOnFirstBusinessCase();
 	}
 
@@ -290,12 +285,12 @@ public class BusinessCaseFormSteps {
 	}
 
 	@Then("Open Request approval form and approve")
-	public void approve() {
+	public void approveITPGRequest() {
 		businessCaseFormPage.approveRequestForm();
 	}
 
 	@Then("Open Request approval form and reject")
-	public void reject() {
+	public void rejectITPGApproval() {
 		businessCaseFormPage.rejectRequestForm();
 	}
 

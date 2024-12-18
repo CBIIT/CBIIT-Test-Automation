@@ -40,8 +40,8 @@ public class BusinessCaseFormSteps {
 		}
 	}
 
-	@When("User logins to the application")
-	public void login() throws Exception {
+	@When("User logins to the application RCMDB")
+	public void loginRCMDB() throws Exception {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 			loginStepsImpl.enterUsername("");
@@ -134,7 +134,7 @@ public class BusinessCaseFormSteps {
 	}
 
 	@Then("Open Request approval form and reject")
-	public void reject() {
+	public void rejectRCMDB() {
 		businessCaseFormPage.rejectRequestForm();
 	}
 

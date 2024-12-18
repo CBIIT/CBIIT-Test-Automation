@@ -542,7 +542,7 @@ public class BusinessCaseFormPage extends BasePage {
 		clickOnElement(expandActivity);
 	}
 
-	public void approveRequest() {
+	public void approveRequestRCMDB() {
 		clickOnElement(approveRequest);
 	}
 
