@@ -2,6 +2,7 @@ package CHARMS.Steps;
 
 import CHARMS.Constants.CHARMSRASScreenerConstants;
 import CHARMS.Constants.Native_View_Constants;
+import CHARMS.Pages.MyRASHomePage;
 import CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
@@ -426,6 +427,10 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @When("Study Team member logs in to Native View and navigates to participant's record {string}")
     public void study_team_member_logs_in_to_native_view_and_navigates_to_participant_s_record(String sheetName) {
+        /**
+         * REMOVE THIS
+         */
+        ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         navigateToParticipantRecordInNativeView(sheetName);
     }
@@ -1197,4 +1202,37 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//button[@aria-label='Back']"));
         locateByXpath("//button[@aria-label='Back']").click();
     }
+
+    /**
+     * Adds a specific survey from the available Questionnaires section.
+     *
+     * @param surveyName The name of the survey to be added.
+     */
+    @When("adds {string} from the Available Questionnaires")
+    public void adds_from_the_available_questionnaires(String surveyName) {
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantStudyPage.availableQuestionnairesButton);
+        nativeViewCHARMSParticipantStudyPage.availableQuestionnairesButton.click();
+        CommonUtils.sleep(1000);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantStudyPage.availableQuestionnairesRecordSelectTextBox);
+        CommonUtils.sendKeys(nativeViewCHARMSParticipantStudyPage.availableQuestionnairesRecordSelectTextBox, surveyName);
+        CommonUtils.sendKeys(nativeViewCHARMSParticipantStudyPage.availableQuestionnairesRecordSelectTextBox, Keys.ENTER);
+        CommonUtils.sleep(800);
+        JavascriptUtils.clickByJS(nativeViewCHARMSParticipantStudyPage.availableQuestionnairesLockButton);
+        CommonUtils.sleep(800);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Initiates the process of publishing questionnaires by a Study Team member.
+     */
+    @Given("Study Team member publishes questionnaires")
+    public void study_team_member_publishes_questionnaires() {
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantStudyPage.saveButton);
+        nativeViewCHARMSParticipantStudyPage.saveButton.click();
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantStudyPage.publishQuestionnaireButton);
+        nativeViewCHARMSParticipantStudyPage.publishQuestionnaireButton.click();
+        CommonUtils.sleep(800);
+        CucumberLogUtils.logScreenshot();
+    }
 }
+

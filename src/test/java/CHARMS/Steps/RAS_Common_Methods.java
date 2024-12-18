@@ -4,7 +4,6 @@ import CHARMS.Constants.CHARMSRASScreenerConstants;
 import CHARMS.Constants.CHARMS_Data_File_Path_Constants;
 import CHARMS.Constants.Native_View_Constants;
 import CHARMS.Pages.NativeViewCHARMSDashboardPage;
-import DEPRECATED.COVIDDash.Utils.COVIDConstants;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
