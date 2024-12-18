@@ -1,5 +1,6 @@
 package CHARMS.StepsImplementation;
 
+import CHARMS.Constants.CHARMS_Data_File_Path_Constants;
 import CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import CHARMS.Utils.CharmsUtil;
 import APPS_COMMON.PageInitializers.PageInitializer;
@@ -21,7 +22,7 @@ import static com.nci.automation.web.TestProperties.getNCISPUrl;
 
 public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     String referralValue;
-    String excelSheet = "DEPRECATED/CHARMS/Resources/data.xlsx";
+    String excelSheet = CHARMS_Data_File_Path_Constants.FANCONI_SCREENER_DATA;
     Map<String, String> currentRow;
     Map<String, String> currentRowForCancerHistory;
     Map<String, String> currentRowForAnotherStudy;
@@ -471,6 +472,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
                     currentRow.get("HowWouldYouLikeToProvideChromosomeBreakageTestResults"));
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
+            CommonUtils.sleep(300);
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         }
     }
@@ -1716,9 +1718,14 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * Fanconi Eligibility Question submission method
      */
     public void fanconiEligibilityAllScenariosQuestionnaireSubmission() {
-        for (int i = 10; i <= 10; ++i) {
-            String username = "charmsparticipant" + i + "@yopmail.com";
-            String password = "Charms123";
+        fanconiEligibilityQuestionnaireStepsImpl.loginToNativeView();
+        fanconiEligibilityQuestionnaireStepsImpl.resetTestAccountSignIn();
+        fanconiEligibilityQuestionnaireStepsImpl.resetTestAccount();
+        fanconiEligibilityQuestionnaireStepsImpl.nativeViewProfilelogOut();
+        WebDriverUtils.webDriver.get(getFanconiUrl());
+        for (int i = 1; i <= 10; ++i) {
+            String username = "sj.fanconitester" + i + "@yopmail.com";
+            String password = "Test123$$";
             System.out.println(username);
             CommonUtils.sleep(1000);
             if (i != 1) {
@@ -1728,18 +1735,15 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 } catch (Exception e) {
                 }
             }
-            WebDriverUtils.webDriver.get(getFanconiUrl());
-            System.out.println(WebDriverUtils.webDriver.getCurrentUrl());
-            CommonUtils.sleep(1000);
-            CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton);
-            CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton);
+            CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton1);
+            CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton1);
             CharmsUtil.sendKeysToElement(oktaLoginPage.usernameTxtBox, username);
+            CharmsUtil.clickOnElement(oktaLoginPage.nextButton);
             CharmsUtil.sendKeysToElement(oktaLoginPage.passwordTxtBox, password);
-            CommonUtils.sleep(600);
-            CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
-            CharmsUtil.clickOnElement(oktaLoginPage.loginBtn);
-            CommonUtils.waitForVisibility(fanconiLoginPage.warningAgreeButton);
-            CharmsUtil.clickOnElement(fanconiLoginPage.warningAgreeButton);
+            CharmsUtil.clickOnElement(oktaLoginPage.verifyBtn);
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.waitForVisibility(oktaLoginPage.agreeBtn);
+            CharmsUtil.clickOnElement(oktaLoginPage.agreeBtn);
             fanconiLoginPage.eligibilityQuestionnaireLink.click();
             fanconiEligibilityQuestionnaireStepsImpl.fanconiEligibilityQuestionnaireSubmissionScenario(i - 1);
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
