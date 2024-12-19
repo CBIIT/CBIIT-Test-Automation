@@ -96,7 +96,7 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.approveRequestRCMDB();
 	}
 
-	@Then("Open latest Business Case")
+	@Then("Open latest Business Case RCMDB")
 	public void openLatestBusinessCaseRCMDB() {
 		businessCaseFormPage.sortCreatedDateForBusinessCasesInDecendingOrder();
 		businessCaseFormPage.clickOnFirstBusinessCase();
@@ -123,7 +123,7 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.elevateButton();
 	}
 
-	@Then("Open Request approval form and approve")
+	@Then("Open Request approval form and approve RCMDB")
 	public void approve() {
 		businessCaseFormPage.approveRequestForm();
 	}

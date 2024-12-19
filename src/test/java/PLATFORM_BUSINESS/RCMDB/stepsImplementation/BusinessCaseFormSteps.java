@@ -128,7 +128,7 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.elevateButton();
 	}
 
-	@Then("Open Request approval form and approve")
+	@Then("Open Request approval form and approve RCMDB")
 	public void approve() {
 		businessCaseFormPage.approveRequestForm();
 	}

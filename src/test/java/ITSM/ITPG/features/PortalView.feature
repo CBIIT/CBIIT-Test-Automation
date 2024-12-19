@@ -261,7 +261,7 @@ Feature: ITO feature files
     Then Start a new idea case
     Then Fill Idea case details
 		Then Click on save and continue
-		Then Click on Approve request
+		Then Click on Approve request ITPG
 		Then Click on "CIO Review for IT and Biomedical IT Acquisitions"
 		Then Open latest Business Case
 		Then Update details on business form and submit

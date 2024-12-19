@@ -38,7 +38,7 @@ public class BusinessCaseFormSteps {
 	}
 
 	@Then("State is updated to {string}")
-	public void verifystate(String expectedState) throws Exception {
+	public void verifyStateITPG(String expectedState) throws Exception {
 		Thread.sleep(7000);
 		String actualState = businessCaseFormPage.getState();
 		CucumberLogUtils.logScreenshot();
@@ -48,7 +48,7 @@ public class BusinessCaseFormSteps {
 		}
 	}
 
-	@When("User logins to the application")
+	@When("User logs in to the application ITPG")
 	public void loginITPG() throws Exception {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
@@ -197,12 +197,12 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.needMoreInfoOnRequest();
 	}
 
-	@Then("Click on Approve request")
+	@Then("Click on Approve request ITPG")
 	public void approveRequest() {
 		businessCaseFormPage.approveRequest();
 	}
 
-	@Then("Open latest Business Case")
+	@Then("Open latest Business Case ITPG")
 	public void openLatestBusinessCaseITPG() {
 		businessCaseFormPage.clickOnFirstBusinessCase();
 	}

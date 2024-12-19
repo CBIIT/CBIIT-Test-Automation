@@ -97,7 +97,7 @@ public class PortalViewSteps {
         }
     }
 
-    @Then("Open Latest Business Case")
+    @Then("Open Latest Business Case ITPG")
     public void openLatestBusinessCase() {
         portalViewPage.clickOnFirstBusinessCase();
     }
