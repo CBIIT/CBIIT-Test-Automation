@@ -54,9 +54,9 @@ public class BusinessCaseFormSteps {
 			loginStepsImpl.clckOnLoginButton();
 		}
 		loginStepsImpl.enterUsername("");
-		String decyptedPass = EncryptionUtils.decrypt("");
+		String decryptedPass = EncryptionUtils.decrypt("");
 		CucumberLogUtils.logScreenshot();
-		loginStepsImpl.enterPassword(decyptedPass);
+		loginStepsImpl.enterPassword(decryptedPass);
 		CucumberLogUtils.logScreenshot();
 		loginStepsImpl.clickOnSignInButton();
 
