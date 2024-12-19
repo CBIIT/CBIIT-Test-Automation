@@ -207,12 +207,6 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.clickOnFirstBusinessCase();
 	}
 
-	@Then("Open latest business Case")
-	public void openLatestIdeaCase() {
-		// businessCaseFormPage.sortCreatedDateForIdeaCasesInDecendingOrder();
-		businessCaseFormPage.clickOnFirstIdeaCase();
-	}
-
 	@Then("verify that Assistance Provided button is available and moves the business case back in open state")
 	public void verifyStateAfterAssistanceProvided() {
 		businessCaseFormPage.verifyStateAfterAssistanceProvided();
