@@ -254,14 +254,14 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.fillTrackingRecordForm();
 	}
 
-	@When("User logins to the application")
+	@When("User logins to the application for RCMDB")
 	public void login() throws Exception {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 		}
 		loginStepsImpl.enterUsername("");
-		String decryptedPass = EncryptionUtils.decrypt("");
-		loginStepsImpl.enterPassword(decryptedPass);
+		String decyptedPass = EncryptionUtils.decrypt("");
+		loginStepsImpl.enterPassword(decyptedPass);
 		CucumberLogUtils.logScreenshot();
 		loginStepsImpl.clickOnSignInButton();
 	}
