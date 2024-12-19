@@ -128,7 +128,7 @@ public class AwardNominationStepsImplementation  extends PageInitializer{
      */
     public void verifyApprovalStatus(String approvalStatus) {
         CommonUtils.waitForVisibility(awardNominationPage.approvalStatusPageView);
-        softAssert.assertEquals(awardNominationPage.approvalStatusPageView, approvalStatus);
+        softAssert.assertEquals(awardNominationPage.approvalStatusPageView.getText(), approvalStatus);
     }
 
     /**
@@ -160,9 +160,8 @@ public class AwardNominationStepsImplementation  extends PageInitializer{
      * @param watcher
      */
     public void addWatcher(String watcher) {
-        CommonUtils.waitForVisibility(awardNominationPage.textFieldAddWatchers);
         CommonUtils.sendKeysToElement(awardNominationPage.textFieldAddWatchers,watcher);
-        awardNominationPage.textFieldAddWatchers.sendKeys(Keys.TAB);
+        CommonUtils.clickOnElement(awardNominationPage.chosenWatcher);
         CommonUtils.clickOnElement(awardNominationPage.saveChangesConfModalButton);
     }
 
@@ -179,8 +178,9 @@ public class AwardNominationStepsImplementation  extends PageInitializer{
      * upload a file
      */
     public void uploadFile(){
-        awardNominationPage.addAttachmentButton.sendKeys("C:\\Users\\nekrashevicha2\\Desktop\\projectIDEA\\src\\test\\java\\ServiceNow\\AwardNomination\\Attachments\\AWARD_NOMINATION.docx");
+        CommonUtils.clickOnElement(awardNominationPage.addAttachmentButton);
+        awardNominationPage.chooseFileButton.sendKeys("C:\\Users\\nekrashevicha2\\Desktop\\projectIDEA\\src\\test\\java\\ServiceNow\\AwardNomination\\Attachments\\AWARD_NOMINATION.docx");
         CucumberLogUtils.logScreenshot();
-        CommonUtils.sleep(3000);
+        CommonUtils.sleep(8000);
     }
 }

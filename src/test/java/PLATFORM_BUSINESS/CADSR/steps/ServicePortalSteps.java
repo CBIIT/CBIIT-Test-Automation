@@ -418,7 +418,7 @@ public class ServicePortalSteps {
 	}
 
 	@Then("Verify Email notification with subject as {string}")
-	public void verifyEmailkkk(String subject) throws InterruptedException {
+	public void verifyEmail(String subject) throws InterruptedException {
 		boolean status = servicePortalPage.verifyEmail(subject);
 		Assert.assertEquals(true, status);
 	}
