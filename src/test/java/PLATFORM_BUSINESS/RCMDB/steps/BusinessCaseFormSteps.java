@@ -129,7 +129,7 @@ public class BusinessCaseFormSteps {
 	}
 
 	@Then("Open Request approval form and reject")
-	public void rejectApproval() {
+	public void reject() {
 		businessCaseFormPage.rejectRequestForm();
 	}
 
