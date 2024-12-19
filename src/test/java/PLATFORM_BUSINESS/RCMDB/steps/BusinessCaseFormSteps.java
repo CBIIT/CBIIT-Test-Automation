@@ -92,12 +92,12 @@ public class BusinessCaseFormSteps {
 	}
 
 	@Then("Click on Approve request")
-	public void approveRCMDBRequest() {
-		businessCaseFormPage.approveRequestRCMDB();
+	public void approveRequest() {
+		businessCaseFormPage.approveRequest();
 	}
 
-	@Then("Open latest Business Case RCMDB")
-	public void openLatestBusinessCaseRCMDB() {
+	@Then("Open latest Business Case")
+	public void openLatestBusinessCase() {
 		businessCaseFormPage.sortCreatedDateForBusinessCasesInDecendingOrder();
 		businessCaseFormPage.clickOnFirstBusinessCase();
 	}
@@ -123,13 +123,13 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.elevateButton();
 	}
 
-	@Then("Open Request approval form and approve RCMDB")
+	@Then("Open Request approval form and approve")
 	public void approve() {
 		businessCaseFormPage.approveRequestForm();
 	}
 
 	@Then("Open Request approval form and reject")
-	public void rejectRCMDBApproval() {
+	public void rejectApproval() {
 		businessCaseFormPage.rejectRequestForm();
 	}
 
@@ -254,8 +254,8 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.fillTrackingRecordForm();
 	}
 
-	@When("User logins to the application for RCMDB")
-	public void loginRCMDB() throws Exception {
+	@When("User logins to the application")
+	public void login() throws Exception {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 		}

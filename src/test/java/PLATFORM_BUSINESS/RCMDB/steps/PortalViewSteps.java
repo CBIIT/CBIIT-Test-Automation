@@ -27,7 +27,7 @@ public class PortalViewSteps {
 	}
 
 	@When("User Logins to the application")
-	public void loginToRCMDB() throws Exception {
+	public void login() throws Exception {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 			loginStepsImpl.enterUsername("");
