@@ -40,8 +40,8 @@ public class BusinessCaseFormSteps {
 		}
 	}
 
-	@When("User logins to the application RCMDB")
-	public void loginRCMDB() throws Exception {
+	@When("User logins to the application")
+	public void login() throws Exception {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 			loginStepsImpl.enterUsername("");
@@ -128,13 +128,13 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.elevateButton();
 	}
 
-	@Then("Open Request approval form and approve RCMDB")
+	@Then("Open Request approval form and approve")
 	public void approve() {
 		businessCaseFormPage.approveRequestForm();
 	}
 
 	@Then("Open Request approval form and reject")
-	public void rejectRCMDB() {
+	public void reject() {
 		businessCaseFormPage.rejectRequestForm();
 	}
 
