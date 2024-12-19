@@ -48,15 +48,15 @@ public class BusinessCaseFormSteps {
 		}
 	}
 
-	@When("User logs in to the application")
+	@When("User logins to the application")
 	public void login() throws Exception {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 		}
 		loginStepsImpl.enterUsername("");
-		String decryptedPass = EncryptionUtils.decrypt("");
+		String decyptedPass = EncryptionUtils.decrypt("");
 		CucumberLogUtils.logScreenshot();
-		loginStepsImpl.enterPassword(decryptedPass);
+		loginStepsImpl.enterPassword(decyptedPass);
 		CucumberLogUtils.logScreenshot();
 		loginStepsImpl.clickOnSignInButton();
 
@@ -285,12 +285,12 @@ public class BusinessCaseFormSteps {
 	}
 
 	@Then("Open Request approval form and approve")
-	public void approveITPGRequest() {
+	public void approve() {
 		businessCaseFormPage.approveRequestForm();
 	}
 
 	@Then("Open Request approval form and reject")
-	public void rejectApproval() {
+	public void reject() {
 		businessCaseFormPage.rejectRequestForm();
 	}
 
