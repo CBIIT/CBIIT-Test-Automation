@@ -71,11 +71,11 @@ public class OAIntakePage {
     public WebElement recompeteContract;
 
     /**  Re-compete Contract Number field */
-    @FindBy(xpath = "//*[@id='sp_formfield_contract_number']")
+    @FindBy(xpath = "//div[@id='s2id_sp_formfield_previous_contract_num']")
     public WebElement previousContractNumberField;
 
     /**  Previous Number field */
-    @FindBy(xpath = "//*[@id='sp_formfield_previous_co']")
+    @FindBy(xpath = "(//a[@class='select2-choice select2-default form-control'])[2]")
     public WebElement previousBuyerField;
 
     /**  Recommended Contract Mechanism dropdown*/
@@ -151,7 +151,7 @@ public class OAIntakePage {
     public WebElement modalSubmitButton;
 
     /**Confirmation Modal Text Task Order Acquisition Plan*/
-    @FindBy(xpath = "//ul//li[contains(text(),'Task Order Acquisition Plans (TOAPs) are required for both Internal and External Call/ Order submissions.')]")
+    @FindBy(xpath = "//li[.='Task Order Acquisition Plans (TOAPs) are required for both Internal and External Call/ Order submissions.']")
     public WebElement textConfModalTaskOrderAcquisitionPlans;
 
     /**Confirmation Modal Text Concept SPL*/
@@ -159,7 +159,7 @@ public class OAIntakePage {
     public WebElement textConfModalConceptSPL;
 
     /**Confirmation Modal Text draft Statement of Work and IGCE*/
-    @FindBy(xpath = "//ul//li[contains(text(),'In order for your new requirement to be assigned, you must at a minimum submit a draft Statement of Work and IGCE!')]")
+    @FindBy(xpath = "//li[.='In order for your new requirement to be assigned, you are encouraged to submit AT A MINIMUM a draft Statement of Work and IGCE!']")
     public WebElement textConfModalDraftStWorkICGE;
 
     /**OA Intake Page header*/
@@ -245,4 +245,88 @@ public class OAIntakePage {
     /**profile Log Out option*/
     @FindBy(xpath = "(//a[.='Log out'])[1]")
     public WebElement profileLogOutOption;
+
+    /**Requsted For page header*/
+    @FindBy(xpath = "//h2[contains(text(),'Requestor (Requested For) Queue for ')]")
+    public WebElement pageHeaderRequestedFor;
+
+    /**New Request button*/
+    @FindBy(xpath = "//h2[.='New Request']")
+    public WebElement buttonNewRequest;
+
+    /**Contact Support button*/
+    @FindBy(xpath = "//h2[.='Contact Support']")
+    public WebElement buttonContactSupport;
+
+    /**hyperlink POTS*/
+    @FindBy(xpath = "//a[@href='https://pots.nci.nih.gov']")
+    public WebElement hyperlinkPOTS;
+
+    /**NIH login content*/
+    @FindBy(xpath = "//main[@class='nih-login-content']")
+    public WebElement nihLoginContent;
+
+    /**hyperlink FCAS*/
+    @FindBy(xpath = "//a[@href='https://fcas.cancer.gov/']")
+    public WebElement hyperlinkFCAS;
+
+    /**requestor breadcrumbs*/
+    @FindBy(xpath = "//a[contains(text(),'Requestor (Requested For) = Wanda Neal')]")
+    public WebElement requestorBreadcrumbs;
+
+    /**Request ID sort by ascending option*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Request ID')]")
+    public WebElement sortAscendingRequestID;
+
+    /**Request ID sort by descending option*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Request ID')]")
+    public WebElement sortDescendingRequestID;
+
+    /**Status sort by ascending option*/
+    @FindBy(xpath = "(//div[@title='Sort by Ascending'][contains(text(),'Status')])[1]")
+    public WebElement sortAscendingStatus;
+
+    /**Status sort by descending option*/
+    @FindBy(xpath = "(//div[@title='Sort by Descending'][contains(text(),'Status')])[1]")
+    public WebElement sortDescendingStatus;
+
+    /**Request Title by ascending option*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Request Title')]")
+    public WebElement sortAscendingRequestTitle;
+
+    /**Request Title by descending option*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Request Title')]")
+    public WebElement sortDescendingRequestTitle;
+
+    /**Requested For by ascending option*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),' Requestor (Requested For')]")
+    public WebElement sortAscendingRequestedFor;
+
+    /**Requested For by descending option*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),' Requestor (Requested For')]")
+    public WebElement sortDescendingRequestedFor;
+
+    /**Submitter by ascending option*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),' Submitter')]")
+    public WebElement sortAscendingSubmitter;
+
+    /**Submitter by descending option*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),' Submitter')]")
+    public WebElement sortDescendingSubmitter;
+
+    /**Created on by ascending option*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Created On')]")
+    public WebElement sortAscendingCreatedOn;
+
+    /**Created on by descending option*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Created On')]")
+    public WebElement sortDescendingCreatedOn;
+
+    /**Status Date by ascending option*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Status Date')]")
+    public WebElement sortAscendingStatusDate;
+
+    /**Status Date by ascending option*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Status Date')]")
+    public WebElement sortDescendingStatusDate;
 }
