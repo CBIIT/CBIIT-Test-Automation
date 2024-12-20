@@ -154,7 +154,6 @@ public class AwardNominationSteps extends PageInitializer {
      */
     @Then("User can verify that VIBE attachment is added")
     public void user_can_verify_that_attachment_is_added() {
-        CommonUtils.sleep(2000);
       softAssert.assertTrue(awardNominationPage. attachmentAdded.isDisplayed());
     }
 

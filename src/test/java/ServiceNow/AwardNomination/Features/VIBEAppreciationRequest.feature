@@ -2,7 +2,7 @@
 
    Description: This feature file contains scenarios relating to VIBE Peer-to-Peer Appreciation Program
 
-   @selenium @Alena @Regression @AWARDNOM-1 @AWARDNOM-10 @Progression
+   @selenium @Alena @Regression @AWARDNOM-1 @AWARDNOM-10
    Scenario: Submit VIBE Peer-to-Peer Appreciation Program request
      Given Submitter User logged in to VIBE Peer-to-Peer Appreciation Program application via Portal
      And User navigates to VIBE Peer-to-Peer Appreciation Program via Services menu
@@ -17,7 +17,7 @@
      When Submitter User submits VIBE Peer-to-Peer Appreciation Program request
      Then Submitter User can verify they are redirected to general tickets view page
 
-   @selenium @Alena @Regression @AWARDNOM-31 @AWARDNOM-22 @Progression
+   @selenium @Alena @Regression @AWARDNOM-31 @AWARDNOM-22
    Scenario: Submit VIBE Peer-to-Peer Appreciation Program request
      Given Submitter User logged in to VIBE Peer-to-Peer Appreciation Program application via Portal
      And User navigates to Tickets tab
