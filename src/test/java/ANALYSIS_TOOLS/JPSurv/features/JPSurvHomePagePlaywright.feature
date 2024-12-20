@@ -157,3 +157,33 @@ Feature: These are the scenarios for the Home page on the JPSurv Application
     Then User checks the relax proportionality and selects the cutpoint "5"
     Then User clicks on the submit button to calculate cohert and model specifications
     Then Verify Cutpoint is coming next to Cohort and Model table headings
+
+  @Smoke @satya @playwright @NCIATWP-6669
+  Scenario: Verify user is able to get the trend measures on recalculating between calendar year of diagnosis
+    Given User navigates to JPSurv home page
+    Then User uploads file in the homepage
+    Then User selects start year of diagnosis
+    Then User selects end year of diagnosis
+    Then User selects interval of maximum years of diagnosis
+    Then User selects only CML checkbox only
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then User clicks on recalculate after selecting calendar year from "1980" to "1990"
+    Then Verify the user is getting result after recalculating
+
+  @Smoke @satya @playwright @NCIATWP-8065
+  Scenario: Verify user is able to click on the footer links
+    Given User navigates to JPSurv home page
+    Then user clicks on the cancer control link and verify
+    Then user clicks on the accessibility link and verify it
+    Then user clicks on the FOIA link and verify it
+
+  @Smoke @satya @playwright @NCIATWP-6669
+  Scenario: Verify user is able to click on the death vs year at diagnosis tab
+    Given User navigates to JPSurv home page
+    Then User uploads file in the homepage
+    Then User selects start year of diagnosis
+    Then User selects end year of diagnosis
+    Then User selects interval of maximum years of diagnosis
+    Then User selects only CML checkbox only
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then User clicks on death vs year at diagnosis

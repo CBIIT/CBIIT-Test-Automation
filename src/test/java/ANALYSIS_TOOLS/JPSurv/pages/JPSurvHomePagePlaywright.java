@@ -106,4 +106,24 @@ public class JPSurvHomePagePlaywright {
      * TOOLTIP LOCATOR
      */
     public static String toolTipLocator = "//a[@rel='tooltip']";
+
+    /***
+     * CANCER CONTROL LINK LOCATOR
+     */
+    public static String cancerControl = "Division of Cancer Control and Population Sciences";
+
+    /***
+     * ACCESSIBILITY PAGE
+     */
+    public static String accessibilityPage = "Accessibility";
+
+    /***
+     * FOIA PAGE LINK
+     */
+    public static String FOIAPage = "FOIA";
+
+    /***
+     * DEATH VS YEAR DIAGNOSIS LINK
+     */
+    public static String deathVsYear = "//ul//li//button[contains(text(),'Death vs. Year at Diagnosis')]";
 }

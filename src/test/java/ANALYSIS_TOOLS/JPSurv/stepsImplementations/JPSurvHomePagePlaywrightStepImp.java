@@ -2,10 +2,13 @@ package ANALYSIS_TOOLS.JPSurv.stepsImplementations;
 
 import ANALYSIS_TOOLS.JPSurv.pages.JPSurvHomePagePlaywright;
 import APPS_COMMON.PageInitializers.PageInitializer;
+import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class JPSurvHomePagePlaywrightStepImp extends PageInitializer {
 
@@ -100,5 +103,31 @@ public class JPSurvHomePagePlaywrightStepImp extends PageInitializer {
         CommonUtils.sleep(2000);
         PlaywrightUtils.page.locator("//select[@name='cutpoint']").selectOption(cutpoint);
         CommonUtils.sleep(4000);
+    }
+
+    /**
+     * SELECTS ONLY CHL CHECKBOX
+     */
+    public static void selectOnlyCML() {
+        PlaywrightUtils.page.locator("//label[@for='Chronic Myeloid Leukemia']").click();
+    }
+
+    /**
+     * RECALCULATE AFTER SELECTING FROM AND TO YEAR
+     */
+    public static void reCalculateAfterSelectingYear(String startYear, String endYear) {
+        PlaywrightUtils.page.locator("//input[@id='calendarTrend']").click();
+        PlaywrightUtils.page.locator("//select[@id='trendStart']").selectOption(startYear);
+        CommonUtils.sleep(2000);
+        PlaywrightUtils.page.locator("//select[@id='trendEnd']").selectOption(endYear);
+        PlaywrightUtils.page.locator("//form[@class='border rounded m-1']//div[@class='d-flex justify-content-center align-items-center col-sm-2']//button[@type='submit'][normalize-space()='Recalculate']").click();
+        CommonUtils.sleep(4000);
+    }
+
+    /**
+     * ASSERTING THE TEXT AFTER RECALCULATING
+     */
+    public static void assertText() {
+        assertThat(PlaywrightUtils.page.getByRole(AriaRole.MAIN)).containsText("Trend Measures for User Selected Years");
     }
 }
