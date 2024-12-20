@@ -68,4 +68,21 @@ public class ESRApprovalStepsImplementation {
     public static void confirmOperationalPOCApprovalIsCompleted() {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Federal Lead Closeout Approval");
     }
+
+    /**
+     * This method completes the Federal Lead Closeout approval
+     */
+    public static void federalLeadCloseoutApproval() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (10)").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the Federal Lead Closeout Approval is completed
+     */
+    public static void confirmFederalLeadCloseoutApprovalIsCompleted() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("ESR Board Closeout Review");
+    }
 }

@@ -35,4 +35,14 @@ public class ESRApprovalSteps {
     public void the_user_confirms_the_operational_poc_approval_is_completed() {
         ESRApprovalStepsImplementation.confirmOperationalPOCApprovalIsCompleted();
     }
+
+    @And("the user is approved from a federal lead for closeout approval")
+    public void the_user_is_approved_from_a_federal_lead_for_closeout_approval() {
+        ESRApprovalStepsImplementation.federalLeadCloseoutApproval();
+    }
+
+    @Then("the user confirms the Federal Lead Closeout Approval is completed")
+    public void the_user_confirms_the_federal_lead_closeout_approval_is_completed() {
+        ESRApprovalStepsImplementation.confirmFederalLeadCloseoutApprovalIsCompleted();
+    }
 }

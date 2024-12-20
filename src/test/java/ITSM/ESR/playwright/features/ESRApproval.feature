@@ -45,7 +45,7 @@ Feature: ESR Approvals
     And the user is approved from the ESR Board approvers
     Then the user confirms the ESR Board Intake Approvals are completed
 
-  @ESR-702 @sarwarahmed1 @In-Progress @playwright
+  @ESR-702 @sarwarahmed1 @Regression @playwright
   Scenario: Test the Federal Lead Closeout Approval in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
@@ -57,6 +57,8 @@ Feature: ESR Approvals
     And the user is approved from the ESR Board approvers
     And the Engineering Project Execution catalog task is completed
     And the Closeout Preparation catalog task for ESR-Q is completed
+    And the user is approved from a federal lead for closeout approval
+    Then the user confirms the Federal Lead Closeout Approval is completed
 
   @ESR-703 @sarwarahmed1 @Regression @playwright
   Scenario: Test the Operational POC Approval catalog task in an ESR-I ticket
