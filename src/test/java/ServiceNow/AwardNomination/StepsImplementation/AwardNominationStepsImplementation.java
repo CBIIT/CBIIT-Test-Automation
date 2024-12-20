@@ -174,4 +174,12 @@ public class AwardNominationStepsImplementation  extends PageInitializer{
         softAssert.assertTrue(awardNominationPage.watchListField.getText().equals(watcher));
     }
 
+    /**
+     * upload a file
+     */
+    public void uploadFile(){
+        CommonUtils.clickOnElement(awardNominationPage.addAttachmentButton);
+        awardNominationPage.chooseFileButton.sendKeys("C:\\Users\\nekrashevicha2\\Desktop\\projectIDEA\\src\\test\\java\\ServiceNow\\AwardNomination\\Attachments\\AWARD_NOMINATION.docx");
+        CucumberLogUtils.logScreenshot();
+    }
 }
