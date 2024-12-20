@@ -227,8 +227,8 @@ public class OnBoardingCatalogItemSteps {
     public void i_access_to_the_submitted_onboarding_request_from_my_portal() {
         assertThat(page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Tickets"))).isVisible();
         page.locator("//span[@class='h2 _m-0'][normalize-space()='Tickets']").click();
-        page.locator("(//div[contains(@ng-show,'ticket.type == 'request'')])[1]").isVisible();
-        page.locator("(//div[contains(@ng-show,'ticket.type == 'request'')])[1]").click();
+        page.locator("(//div[contains(@ng-show,\"ticket.type == 'request'\")])[1]").isVisible();
+        page.locator("(//div[contains(@ng-show,\"ticket.type == 'request'\")])[1]").click();
         assertThat(page.getByRole(AriaRole.MAIN)).containsText("New Employee Onboarding request");
         assertThat(page.getByRole(AriaRole.MAIN)).containsText("Federal Point of Contact (POC)/Supervisor");
         assertThat(page.getByRole(AriaRole.MAIN)).containsText("Umit Topaloglu");
@@ -242,10 +242,10 @@ public class OnBoardingCatalogItemSteps {
      */
     @Then("I should have access to view the submitted onboarding request for that new hire in the Native View.")
     public void i_should_have_access_to_view_the_submitted_onboarding_request_for_that_new_hire_in_the_native_view() {
-        page.locator("//span[@ng-if='data.table == 'sc_req_item'']").scrollIntoViewIfNeeded();
-        page.locator("//span[@ng-if='data.table == 'sc_req_item'']").isVisible();
+        page.locator("//span[@ng-if=\"data.table == 'sc_req_item'\"]").scrollIntoViewIfNeeded();
+        page.locator("//span[@ng-if=\"data.table == 'sc_req_item'\"]").isVisible();
         onBoardingNVPage = page.waitForPopup(() -> {
-            page.locator("//span[@ng-if='data.table == 'sc_req_item'']").click();
+            page.locator("//span[@ng-if=\"data.table == 'sc_req_item'\"]").click();
         });
         CucumberLogUtils.playwrightScreenshot(onBoardingNVPage);
         assertThat(onBoardingNVPage.frameLocator("iframe[name='gsft_main']").getByLabel("Requested Item form section").getByText("Number")).isVisible();
