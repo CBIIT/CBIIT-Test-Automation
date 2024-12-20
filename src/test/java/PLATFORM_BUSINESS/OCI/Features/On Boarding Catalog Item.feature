@@ -8,7 +8,7 @@ Feature: CBIIT On-Boarding form Scenarios
     And I access to the submitted Onboarding Request from my portal
     Then I should have access to view the submitted onboarding request for that new hire in the Native View.
 
-  @OCI-10 @chaudhryma @playwright @Progression
+  @OCI-10 @chaudhryma @playwright @Regression
   Scenario:Test Enhance Onboarding notification to include contract company name
     Given I am a CBIIT Supervisor "Umit Topaloglu" for Onboarding Request submitted for a New Hire (contractor)
     When a new hires onboarding process has been completed and the Onboarding Request state is closed complete
