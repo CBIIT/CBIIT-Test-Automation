@@ -279,7 +279,7 @@ Feature: RAS Consent Scenarios
     And selects "Yes" for Copy of Signed Dated Consent Assent Given to Participant
     Then Study Team member presses Sign and Complete
 
-  @muzipovay2 @RAS_STUDY @CP2-4088 @selenium @Regression
+  @muzipovay2 @RAS_STUDY @CP2-4088 @selenium @RAS_Regression
   Scenario: Completing Physical Activities Survey survey
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=0e9497c587161ad0ad46326d3fbb35c7" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"

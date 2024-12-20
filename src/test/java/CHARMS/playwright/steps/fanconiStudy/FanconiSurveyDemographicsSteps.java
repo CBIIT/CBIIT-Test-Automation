@@ -1,6 +1,6 @@
-package CHARMS.playwright.Steps.fanconiStudy;
+package CHARMS.playwright.steps.fanconiStudy;
 
-import CHARMS.playwright.StepsImplementation.fanconiStudy.FanconiSurveyStepsImpl;
+import CHARMS.playwright.stepsImplementation.fanconiStudy.FanconiSurveyStepsImpl;
 import io.cucumber.java.en.Given;
 
 public class FanconiSurveyDemographicsSteps {

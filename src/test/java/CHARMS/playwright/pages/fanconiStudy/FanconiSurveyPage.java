@@ -1,4 +1,4 @@
-package CHARMS.playwright.Pages.fanconiStudy;
+package CHARMS.playwright.pages.fanconiStudy;
 
 public class FanconiSurveyPage {
 
