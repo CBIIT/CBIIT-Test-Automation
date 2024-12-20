@@ -281,9 +281,9 @@ Feature: RAS Consent Scenarios
 
   @muzipovay2 @RAS_STUDY @CP2-4088 @selenium @RAS_Regression
   Scenario: Completing Physical Activities Survey survey
-    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=0e9497c587161ad0ad46326d3fbb35c7" has been reset
+    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-    And logs in via Okta with username "ras_progression@yopmail.com" and password "Charms123$"
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "screenerScenarioAdult"
     And Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
@@ -300,7 +300,7 @@ Feature: RAS Consent Scenarios
     And presses the Call Complete button
     Then Study Team member logs out of Native View
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-    And logs in via Okta with username "ras_progression@yopmail.com" and password "Charms123$"
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And participant clicks on Study Consent and completes form with "Charms123$"
     Then participant logs out of RAS portal
     And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAdult"
@@ -314,6 +314,6 @@ Feature: RAS Consent Scenarios
     And Study Team member publishes questionnaires
     Then Study Team member logs out of Native View
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-    And logs in via Okta with username "ras_progression@yopmail.com" and password "Charms123$"
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And clicks on "Physical Activities Survey" to begin survey
     And submits the Physical Activities Survey
