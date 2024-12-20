@@ -249,7 +249,6 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @Then("Submitter User can verify a submission confirmation modal OA Intake form appears")
     public void submitter_user_can_verify_a_submission_confirmation_modal_oa_intake_form_appears() {
-        CommonUtils.sleep(5000);
         Assert.assertTrue(oaIntakePage.textConfModalTaskOrderAcquisitionPlans.isDisplayed());
         Assert.assertTrue(oaIntakePage.textConfModalConceptSPL.isDisplayed());
         Assert.assertTrue(oaIntakePage.textConfModalDraftStWorkICGE.isDisplayed());
