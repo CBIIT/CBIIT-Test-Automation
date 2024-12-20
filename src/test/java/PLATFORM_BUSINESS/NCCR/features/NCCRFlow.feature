@@ -21,6 +21,3 @@ Feature: NCCR flow
     Then User can see Load Filter, Save Filter, Add Sort, and New Criteria buttons
     And User can close filter
     And User can see pagination for All Data Requests tab
-
-
-
