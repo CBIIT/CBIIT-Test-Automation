@@ -31,6 +31,16 @@ public class ExcelReader {
 		return readSheet(sheet);
 	}
 
+	public List<Map<String, String>> getDataIOStream(String excelFilePath, String sheetName)
+			throws InvalidFormatException, IOException {
+		FileInputStream file= new FileInputStream(excelFilePath);
+		//Opens Workbook object with the file
+		Workbook book= new XSSFWorkbook(file);
+		//Gets sheet from excel file by sheet name
+		Sheet sheet= book.getSheet(sheetName);
+		return readSheet(sheet);
+	}
+
 	public List<Map<String, String>> getData(String excelFilePath, int sheetNumber)
 			throws InvalidFormatException, IOException {
 		Sheet sheet = getSheetByIndex(excelFilePath, sheetNumber);

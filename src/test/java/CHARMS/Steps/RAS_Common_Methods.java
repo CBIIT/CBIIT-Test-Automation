@@ -1,6 +1,7 @@
 package CHARMS.Steps;
 
 import CHARMS.Constants.CHARMSRASScreenerConstants;
+import CHARMS.Constants.CHARMS_Data_File_Path_Constants;
 import CHARMS.Constants.Native_View_Constants;
 import CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import DEPRECATED.COVIDDash.Utils.COVIDConstants;
@@ -208,7 +209,7 @@ public class RAS_Common_Methods extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.sleep(5000);
-        JavascriptUtils.uploadFileToHiddenFieldWithInputTag(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileButton, COVIDConstants.IIQ_STUDY_DOCUMENTATION_PDF_PATH);
+        JavascriptUtils.uploadFileToHiddenFieldWithInputTag(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileButton, CHARMS_Data_File_Path_Constants.FAMILY_COHORT_STUDY_PDF_PATH);
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileCloseButton);

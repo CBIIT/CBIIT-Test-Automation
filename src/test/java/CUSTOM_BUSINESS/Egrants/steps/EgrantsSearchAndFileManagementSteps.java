@@ -629,8 +629,8 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     /**
      * This method is used to click on the eRA Notification tab
      */
-    @Given("the user clicks on eRA Notificaton tab")
-    public void the_user_clicks_on_e_ra_notificaton_tab() {
+    @Given("the user clicks on eRA notification tab")
+    public void the_user_clicks_on_e_ra_notification_tab() {
         CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.eRANotificationTab);
         CucumberLogUtils.logScreenshot();
     }
@@ -655,6 +655,201 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
      */
     @Then("the user confirms deletion of the notification")
     public void the_user_confirms_deletion_of_the_notification() {
+        Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on the Review button
+     */
+    @And("the user clicks on Review button")
+    public void the_user_clicks_on_review_button() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.reviewButtonSupplementNotification);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on the Resend This Notification button
+     */
+    @And("the user clicks on Resend This Notification button")
+    public void the_user_clicks_on_resend_this_notification_button() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.resendThisNotificationButton);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to select TO from the Type dropdown
+     *
+     * @param TO
+     */
+    @And("the user selects {string} as the PD Notification Type")
+    public void the_user_selects_as_the_pd_notification_type(String TO) {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.typeDropDown);
+        CommonUtils.selectDropDownValue(TO, egrantsSearchandFileManagementScenariosPage.typeDropDown);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to select the PD Position
+     *
+     * @param TestPD
+     */
+    @And("the user selects {string} as the PD Position")
+    public void the_user_selects_as_the_pd_position(String TestPD) {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.positionDropDown);
+        CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.positionDropDown, TestPD);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to provide the PD Name
+     *
+     * @param TestPDName
+     */
+    @And("the user provides {string} as the PD Name")
+    public void the_user_provides_as_the_pd_name(String TestPDName) {
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.nameTextBoxNotification, TestPDName);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to provide the PD Email address
+     * @param TestPDEmail
+     */
+    @And("the user provides {string} as the PD Email address")
+    public void the_user_provides_as_the_pd_email_address(String TestPDEmail) {
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.emailTextBoxNotification, TestPDEmail);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on the Add button
+     */
+    @Then("the user clicks on Add button")
+    public void the_user_clicks_on_add_button() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addButtonNotification);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to select CC from Type dropdown
+     *
+     * @param CC
+     */
+    @And("the user selects {string} as the SPEC Notification Type")
+    public void the_user_selects_as_the_spec_notification_type(String CC) {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.secondTypeDropDown);
+        CommonUtils.selectDropDownValue(CC, egrantsSearchandFileManagementScenariosPage.secondTypeDropDown);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to select the SPEC Position
+     *
+     * @param TestSPEC
+     */
+    @And("the user selects {string} as the SPEC Position")
+    public void the_user_selects_as_the_spec_position(String TestSPEC) {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.secondPositionDropDown);
+        CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.secondPositionDropDown, TestSPEC);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to provide the SPEC Name
+     *
+     * @param TestSPECName
+     */
+    @And("the user provides {string} as the SPEC Name")
+    public void the_user_provides_as_the_spec_name(String TestSPECName) {
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.secondNameTextBoxNotification, TestSPECName);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to provide the SPEC Email address
+     *
+     * @param SpecEmail
+     */
+    @And("the user provides {string} as the SPEC Email address")
+    public void the_user_provides_as_the_spec_email_address(String SpecEmail) {
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.secondEmailTextBoxNotification, SpecEmail);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on the Resend Notification button, verify and accept the alert message
+     *
+     */
+    @Then("the user clicks on Resend Notification button")
+    public void the_user_clicks_on_resend_notification_button() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.resendButtonNotification);
+        String alertText = CommonUtils.getAlertText();
+        softAssert.assertTrue(Egrants_Constants.NOTIFICATION_VERIFICATION_MESSAGE.equals(alertText), "*** THE ALERT VERIFICATION MESSAGE DOES NOT MATCH: ***" + alertText);
+        Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
+        softAssert.assertAll();
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to select the Grants Archival Process from the dropdown
+     */
+    @And("User selects Grants Archival Process from the dropdown")
+    public void user_selects_grants_archival_process_from_the_dropdown() {
+        CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.menuOptions);
+        CommonUtils.selectDropDownValue(Egrants_Constants.GRANTS_ARCHIVAL_PROCESS, egrantsQuickLinkAndManagementMenuPage.menuOptions);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on the Add New Exception Code tab
+     */
+    @And("the user clicks on New Exception Code tab")
+    public void the_user_clicks_on_new_exception_code_tab() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.newExceptionCodeTab);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to provide the Exception Code
+     *
+     * @param ExceptionCode
+     */
+    @And("the user provides {string} as the Exception Code")
+    public void the_user_provides_as_the_exception_code(String ExceptionCode) {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.exceptionCodeTextBox);
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.exceptionCodeTextBox, ExceptionCode);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to provide the Exception Details
+     *
+     * @param ExceptionDetails
+     */
+    @And("the user provides {string} as the Exception Details")
+    public void the_user_provides_as_the_exception_details(String ExceptionDetails) {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.newExceptionDetailsTextBox);
+        CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.newExceptionDetailsTextBox, ExceptionDetails);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on Create New Exception Code button to confirm the creation
+     */
+    @Then("the user clicks on Create New Exception Code button to confirm the creation")
+    public void the_user_clicks_on_create_new_exception_code_button_to_confirm_the_creation() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.createNewExceptionCodeButton);
+        Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to click on the Delete Exception button to delete the Test Exception Code
+     */
+    @Then("the user clicks on Delete Exception button to delete Test Exception Code")
+    public void the_user_clicks_on_delete_exception_button_to_delete_test_exception_code() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.deleteExceptionButton);
         Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
         CucumberLogUtils.logScreenshot();
     }

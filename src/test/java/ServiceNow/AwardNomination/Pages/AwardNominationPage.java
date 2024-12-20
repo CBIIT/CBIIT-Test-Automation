@@ -67,6 +67,50 @@ public class AwardNominationPage {
     @FindBy(xpath = "//span[.=' Tickets ']")
     public WebElement sectionTickets;
 
+    /**  Last submitted VIBE Ticket */
+    @FindBy(xpath = "(//h4[.='VIBE Peer-to-Peer Appreciation Program'])[1]")
+    public WebElement lastSubmittedVIBETicket;
+
+    /**  ticket status Page View */
+    @FindBy(xpath = "//div[contains(text(),' Work in Progress')]")
+    public WebElement ticketsStatusPageView;
+
+    /**  approval status Page View */
+    @FindBy(xpath = "//div[contains(text(),' Requested')]")
+    public WebElement approvalStatusPageView;
+
+    /**  Cancel button */
+    @FindBy(xpath = "//span[contains(text(),'Cancel')]")
+    public WebElement cancelButton;
+
+    /**  Add Watchers button */
+    @FindBy(xpath = "//span[contains(text(),'Add Watchers')]")
+    public WebElement addWatchersButton;
+
+    /**  Add Attachment button */
+    @FindBy(xpath = "(//span[@class='glyphicon glyphicon-paperclip'])[1]")
+    public WebElement addAttachmentButton;
+
+    /**  Cancel My Ticket modal */
+    @FindBy(xpath = "//h3[.='Cancel My Ticket']")
+    public WebElement modalCancelMyTicket;
+
+    /**  text Field Add Watchers */
+    @FindBy(xpath = "//input[@class='select2-input select2-default']")
+    public WebElement textFieldAddWatchers;
+
+    /**  Save Changes confirmation modal button */
+    @FindBy(xpath = "//span[contains(text(),'Save Changes')]")
+    public WebElement saveChangesConfModalButton;
+
+    /**  Watch list field */
+    @FindBy(xpath = "(//div[@class='ng-binding ng-scope'])[5]")
+    public WebElement watchListField;
+
+    /**  attachment Added */
+    @FindBy(xpath = "//strong[.='AWARD_NOMINATION.docx']")
+    public WebElement attachmentAdded;
+
     public AwardNominationPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

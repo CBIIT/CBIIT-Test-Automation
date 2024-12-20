@@ -56,7 +56,7 @@ Feature: This Feature File contains Quick Link, logged in user verifications and
     And the IC Coordinator provides the Email Address
     And the IC Coordinator provides access to Management and Dashboard tabs
     And the IC Coordinator selects Program Staff as the Role
-    And the IC Coordinator selects "Qaulity, Associates" as the Coordinator
+    And the IC Coordinator selects "Quality, Associates" as the Coordinator
     Then the IC Coordinator clicks on Add New button to confirm adding the new user
 
   @AddExistingUser @nesarh2 @selenium @Regression @EGRANTS-586
