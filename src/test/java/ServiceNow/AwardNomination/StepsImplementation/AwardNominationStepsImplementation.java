@@ -179,7 +179,6 @@ public class AwardNominationStepsImplementation  extends PageInitializer{
      */
     public void uploadFile(){
         CommonUtils.clickOnElement(awardNominationPage.addAttachmentButton);
-
         awardNominationPage.chooseFileButton.sendKeys("C:\\Users\\nekrashevicha2\\Desktop\\projectIDEA\\src\\test\\java\\ServiceNow\\AwardNomination\\Attachments\\AWARD_NOMINATION.docx");
         CucumberLogUtils.logScreenshot();
     }
