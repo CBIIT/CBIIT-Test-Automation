@@ -191,4 +191,30 @@ public class JPSurvHomePagePlaywrightSteps extends PageInitializer {
     public void user_changes_cohort_from_nhl_to_cml() {
         PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.selectCohort).selectOption("Chronic Myeloid Leukemia");
     }
+
+    @Then("User checks the relax proportionality and selects the cutpoint {string}")
+    public void user_checks_the_relax_proportionality_and_selects_the_cutpoint(String string) {
+        JPSurvHomePagePlaywrightStepImp.checkRelaxProportionalityAndCutPoint(string);
+    }
+
+    @Then("User changes the Cutpoint to {string}")
+    public void user_changes_the_cutpoint_to(String string) {
+        PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.cutPointLocator).selectOption(string);
+    }
+
+    @Then("User changes the Cutpoint to optimal")
+    public void user_changes_the_cutpoint_to_optimal() {
+        PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.cutPointLocator).selectOption("1");
+    }
+
+    @Then("Verify Cutpoint is coming next to Cohort and Model table headings")
+    public void verify_cutpoint_is_coming_next_to_cohort_and_model_table_headings() {
+        assertThat(PlaywrightUtils.page.getByRole(AriaRole.MAIN)).containsText("cut-point");
+    }
+
+    @Then("User downloads the plot")
+    public void user_downloads_the_plot() {
+        CommonUtils.sleep(2000);
+        PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.toolTipLocator).click();
+    }
 }
