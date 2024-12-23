@@ -1,5 +1,6 @@
 @ITAONative
 Feature: ITO feature files
+
   @ITAONativeApprove
   Scenario: Validate ITO approve test case from Native View
     Given User opens IT Procurement Governance Application in browser
