@@ -6,7 +6,6 @@ Feature: ITO feature files
     Given User opens IT Procurement Governance Application in browser
     When User Logins to the application
     Then Go to Native view
-  #  Then Click on Elevate Permision
     Then Go to All Ideas
     Then start a new idea case
     Then Enter Idea case details
