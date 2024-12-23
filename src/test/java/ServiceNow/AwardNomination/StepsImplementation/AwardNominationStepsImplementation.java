@@ -179,7 +179,7 @@ public class AwardNominationStepsImplementation  extends PageInitializer{
      */
     public void uploadFile(){
         CommonUtils.clickOnElement(awardNominationPage.addAttachmentButton);
-        String uploadAttachment = "/Users/alenaminsk/git/CBIIT-Test-Automation/src/test/java/AwardNomination/Attachments/AWARD_NOMINATION.docx";
+        String uploadAttachment = System.getProperty("user.dir") + "/src/test/resources/AwardNominationResources/AWARD_NOMINATION.docx";
         awardNominationPage.chooseFileButton.sendKeys(uploadAttachment);
         CucumberLogUtils.logScreenshot();
     }
