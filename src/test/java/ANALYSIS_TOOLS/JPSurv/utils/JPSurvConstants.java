@@ -21,4 +21,19 @@ public class JPSurvConstants {
      * JOB SUBMITTED TEXT
      */
     public static final String JOB_SUBMITTED_TEXT = "Your job has been submitted";
+
+    /***
+     * CANCER CONTROL LINK
+     */
+    public static final String CANCER_CONTROL_LINK = "https://cancercontrol.cancer.gov/";
+
+    /***
+     * ACCESSIBILITY LINK
+     */
+    public static String ACCESSIBILITY_LINK = "https://www.cancer.gov/policies/accessibility";
+
+    /***
+     * FOIA URL
+     */
+    public static String FOIA_LINK = "https://www.cancer.gov/policies/foia";
 }

@@ -217,4 +217,39 @@ public class JPSurvHomePagePlaywrightSteps extends PageInitializer {
         CommonUtils.sleep(2000);
         PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.toolTipLocator).click();
     }
+
+    @Then("User selects only CML checkbox only")
+    public void user_selects_only_cml_checkbox_only() {
+        JPSurvHomePagePlaywrightStepImp.selectOnlyCML();
+    }
+
+    @Then("User clicks on recalculate after selecting calendar year from {string} to {string}")
+    public void user_clicks_on_recalculate_after_selecting_calendar_year_from_to(String startYear, String endYear) {
+        JPSurvHomePagePlaywrightStepImp.reCalculateAfterSelectingYear(startYear, endYear);
+    }
+
+    @Then("Verify the user is getting result after recalculating")
+    public void verify_the_user_is_getting_result_after_recalculating() {
+        JPSurvHomePagePlaywrightStepImp.assertText();
+    }
+
+    @Then("user clicks on the accessibility link and verify it")
+    public void user_clicks_on_the_accessibility_link_and_verify_it() {
+        Playwright_Common_Utils.clickAndAssertNewPage(JPSurvHomePagePlaywright.accessibilityPage, JPSurvConstants.ACCESSIBILITY_LINK);
+    }
+
+    @Then("user clicks on the FOIA link and verify it")
+    public void user_clicks_on_the_foia_link_and_verify_it() {
+        Playwright_Common_Utils.clickAndAssertNewPage(JPSurvHomePagePlaywright.FOIAPage, JPSurvConstants.FOIA_LINK);
+    }
+
+    @Then("user clicks on the cancer control link and verify")
+    public void user_clicks_on_the_cancer_control_link_and_verify() {
+        Playwright_Common_Utils.clickAndAssertNewPage(JPSurvHomePagePlaywright.cancerControl, JPSurvConstants.CANCER_CONTROL_LINK);
+    }
+
+    @Then("User clicks on death vs year at diagnosis")
+    public void user_clicks_on_death_vs_year_at_diagnosis() {
+        PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.deathVsYear).click();
+    }
 }
