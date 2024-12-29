@@ -8,7 +8,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import java.util.ArrayList;
-
 import static Hooks.Hooks.softAssert;
 
 public class OAIntakeSteps extends PageInitializer {
