@@ -704,5 +704,9 @@ public class PageInitializer extends WebDriverUtils {
 		cometsAnalyticsPage = new CometsAnalyticsPage();
 		cometsAnalyticsStepImp = new CometsAnalyticsStepImp();
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
+
+		/** AWARD NOMINATION variables */
+		awardNominationPage = new AwardNominationPage();
+		awardNominationStepsImplementation = new AwardNominationStepsImplementation();
 	}
 }

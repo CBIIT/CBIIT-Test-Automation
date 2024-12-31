@@ -8,6 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import java.util.ArrayList;
+import static Hooks.Hooks.softAssert;
 
 public class OAIntakeSteps extends PageInitializer {
 
@@ -433,5 +434,157 @@ public class OAIntakeSteps extends PageInitializer {
         Assert.assertTrue(oaIntakePage.menuRequestorQueue.isDisplayed());
         CommonUtils.waitForVisibility(oaIntakePage.menuUserGuide);
         Assert.assertTrue(oaIntakePage.menuUserGuide.isDisplayed());
+    }
+
+    /**
+     * click on (Requested For) Queue tab
+     */
+    @Given("User clicks on Requestor \\(Requested For) Queue tab")
+    public void user_clicks_on_requestor_requested_for_queue_tab() {
+        CommonUtils.clickOnElement(oaIntakePage.tabRequestorQueue);
+    }
+
+    /**
+     * verify Requestor \(Requested For) Queue tab is displayed
+     */
+    @Given("User can verify page header as {string}")
+    public void user_can_verify_page_header_as(String string) {
+        softAssert.assertTrue(oaIntakePage.pageHeaderRequestedFor.isDisplayed());
+    }
+
+    /**
+     * verify New request button is displayed
+     */
+    @Given("User can see New Request button")
+    public void user_can_see_new_request_button() {
+       softAssert.assertTrue(oaIntakePage.buttonNewRequest.isDisplayed());
+    }
+
+    /**
+     * verify Contact Support button is displayed
+     */
+    @Given("User can see Contact Support button")
+    public void user_can_see_contact_support_button() {
+        softAssert.assertTrue(oaIntakePage.buttonContactSupport.isDisplayed());
+    }
+
+    /**
+     * verify POTS hyperlink is displayed
+     */
+    @Given("User can verify Purchasing Online Tracking System \\(POTS) hyperlink is displayed")
+    public void user_can_verify_purchasing_online_tracking_system_pots_hyperlink_is_displayed() {
+        softAssert.assertTrue(oaIntakePage.hyperlinkPOTS.isDisplayed());
+    }
+
+    /**
+     * Click on POTS hyperlink
+     */
+    @When("User clicks Purchasing Online Tracking System \\(POTS) hyperlink")
+    public void user_clicks_purchasing_online_tracking_system_pots_hyperlink() {
+       CommonUtils.clickOnElement(oaIntakePage.hyperlinkPOTS);
+    }
+
+    /**
+     * verify that User is redirected to NIH authentication page
+     */
+    @Then("User is redirected to authentication page")
+    public void user_is_redirected_to_authentication_page() {
+        ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
+        webDriver.switchTo().window(tabs.get(1));
+        softAssert.assertTrue(oaIntakePage.nihLoginContent.isDisplayed());
+        webDriver.close();
+        webDriver.switchTo().window(tabs.get(0));
+        CommonUtils.sleep(2000);
+    }
+
+    /**
+     * verify (FCAS) hyperlink is displayed
+     */
+    @Then("User can verify FFRDC Contract Administration System \\(FCAS) hyperlink is displayed")
+    public void user_can_verify_ffrdc_contract_administration_system_fcas_hyperlink_is_displayed() {
+        softAssert.assertTrue(oaIntakePage.hyperlinkFCAS.isDisplayed());
+    }
+
+    /**
+     * verify that OA Intakes are pre-filtered for a logged in Leadership User
+     */
+    @Then("User can verify that OA Intakes are pre-filtered for a logged in Leadership User")
+    public void user_can_verify_that_oa_intakes_are_pre_filtered_for_a_logged_in_leadership_user() {
+        softAssert.assertTrue(oaIntakePage.requestorBreadcrumbs.isDisplayed());
+    }
+
+    /**
+     *Request ID column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Request ID column can be sorted in descending and ascending order")
+    public void user_can_verify_that_request_id_column_can_be_sorted_in_descending_and_ascending_order() {
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingRequestID);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingRequestID);
+    }
+
+    /**
+     *Status column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Status column can be sorted in descending and ascending order")
+    public void user_can_verify_that_status_column_can_be_sorted_in_descending_and_ascending_order() {
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingStatus);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingStatus);
+    }
+
+    /**
+     *  Request Title column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Request Title column can be sorted in descending and ascending order")
+    public void user_can_verify_that_request_title_column_can_be_sorted_in_descending_and_ascending_order() {
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingRequestTitle);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingRequestTitle);
+    }
+
+    /**
+     * Requestor \(Requested For)column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Requestor \\(Requested For) column can be sorted in descending and ascending order")
+    public void user_can_verify_that_requestor_requested_for_column_can_be_sorted_in_descending_and_ascending_order() {
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingRequestedFor);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingRequestedFor);
+    }
+
+    /**
+     * Submitter column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Submitter column can be sorted in descending and ascending order")
+    public void user_can_verify_that_submitter_column_can_be_sorted_in_descending_and_ascending_order() {
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingSubmitter);
+        CommonUtils.sleep(2000);
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingSubmitter);
+    }
+
+    /**
+     * Created On column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Created On column can be sorted in descending and ascending order")
+    public void user_can_verify_that_created_on_column_can_be_sorted_in_descending_and_ascending_order() {
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingCreatedOn);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingCreatedOn);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingCreatedOn);
+        System.out.println("click");
+    }
+
+    /**
+     * Status Date column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Status Date column can be sorted in descending and ascending order")
+    public void user_can_verify_that_status_date_column_can_be_sorted_in_descending_and_ascending_order() {
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingStatusDate);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingStatusDate);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingStatusDate);
     }
 }

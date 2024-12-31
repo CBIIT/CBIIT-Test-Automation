@@ -152,8 +152,16 @@ public class AwardNominationSteps extends PageInitializer {
     /**
      * verify attachment is added
      */
-    @Then("User can verify that attachment is added")
+    @Then("User can verify that VIBE attachment is added")
     public void user_can_verify_that_attachment_is_added() {
-      softAssert.assertTrue(awardNominationPage.attachmentAdded.isDisplayed());
+      softAssert.assertTrue(awardNominationPage. attachmentAdded.isDisplayed());
+    }
+
+    /**
+     * Click on Cancel button of Cancel confirmation modal
+     */
+    @Then("User cancels the Cancel confirmation modal")
+    public void user_cancels_the_cancel_confirmation_modal() {
+        CommonUtils.clickOnElement(awardNominationPage.cancelButtonCancelModal);
     }
 }
