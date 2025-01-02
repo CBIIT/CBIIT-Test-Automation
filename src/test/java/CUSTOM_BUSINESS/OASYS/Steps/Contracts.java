@@ -2,7 +2,6 @@ package CUSTOM_BUSINESS.OASYS.Steps;
 
 import APPS_COMMON.PlaywrightUtils.Playwright_Common_Utils;
 import CUSTOM_BUSINESS.OASYS.StepsImplementation.OASYS_Steps_Implementation;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 import com.microsoft.playwright.*;
@@ -190,7 +189,7 @@ public class Contracts {
     /**
      * This method is clicking on NEW Message button
      */
-    @When("User clicks on NEW Message button")
+    @And("User clicks on NEW Message button")
     public void user_clicks_on_new_message_button() {
         page.locator("xpath=//div/div/button/span[contains(text(), ' New Message')]").click();
         CucumberLogUtils.playwrightScreenshot(page);
@@ -199,7 +198,7 @@ public class Contracts {
     /**
      * This method is typing TEST CONTRACT MESSAGE in the Subject line
      */
-    @When("User types TEST CONTRACT MESSAGE in the Subject line")
+    @And("User types TEST CONTRACT MESSAGE in the Subject line")
     public void user_types_test_message_in_the_subject() {
         page.locator("xpath=//div/input[@ng-reflect-name='Subject']").fill("TEST CONTRACT MESSAGE");
         CucumberLogUtils.playwrightScreenshot(page);
@@ -208,7 +207,7 @@ public class Contracts {
     /**
      * This method is typing a text in the message body
      */
-    @When("User types a text in the message body")
+    @And("User types a text in the message body")
     public void user_types_a_text_in_message_body() {
         page.locator("xpath=//div[@class='ql-editor ql-blank']").fill("*** THIS IS A TEST CONTRACT MESSAGE ***");
         CucumberLogUtils.playwrightScreenshot(page);
@@ -217,7 +216,7 @@ public class Contracts {
     /**
      * This method is clicking on Submit button
      */
-    @When("User clicks on Submit button")
+    @And("User clicks on Submit button")
     public void user_clicks_on_submit_button() {
         page.locator("xpath=//mat-dialog-actions/button/span[contains(text(),'Submit')]").click();
         CucumberLogUtils.playwrightScreenshot(page);
@@ -225,21 +224,21 @@ public class Contracts {
 
     /**
      * This method is verifying the submitted message. It iterates through the list of messages and checks if the message with the expected subject line is present
-     * @param messageSubject
+     * @param MessageSubject
      */
     @Then("User verifies the submitted message contains {string}")
-    public void user_verifies_the_submitted_message(String messageSubject) {
+    public void user_verifies_the_submitted_message(String MessageSubject) {
         Locator contractMessages = page.locator("xpath=//div/div/div/div[@class='detail']");
         boolean contractMessageFound = false;
         for (int i = 0; i < contractMessages.count(); i++) {
-            if (contractMessages.nth(i).innerText().contains(messageSubject)) {
+            if (contractMessages.nth(i).innerText().contains(MessageSubject)) {
                 contractMessageFound = true;
-                assertThat(contractMessages.nth(i)).containsText(messageSubject);
+                assertThat(contractMessages.nth(i)).containsText(MessageSubject);
                 break;
             }
         }
         if (!contractMessageFound) {
-            throw new AssertionError("*** MESSAGE WITH SUBJECT LINE '" + messageSubject + "' NOT FOUND.***");
+            throw new AssertionError("*** MESSAGE WITH SUBJECT LINE '" + MessageSubject + "' NOT FOUND.***");
         }
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -256,7 +255,7 @@ public class Contracts {
     /**
      * This method is clicking on ADD NEW button
      */
-    @When("User clicks on ADD NEW button")
+    @And("User clicks on ADD NEW button")
     public void user_clicks_on_add_new_button() {
         page.locator("xpath=//div/button/span[contains(text(),'Add New')]").click();
         CucumberLogUtils.playwrightScreenshot(page);
@@ -266,7 +265,7 @@ public class Contracts {
      * This method is typing a text in the First Name field
      * @param FirstName
      */
-    @When("User types {string} in First Name field")
+    @And("User types {string} in First Name field")
     public void user_types_in_first_name(String FirstName) {
         page.locator("xpath=//div/input[@ng-reflect-placeholder='First Name *']").fill(FirstName);
         CucumberLogUtils.playwrightScreenshot(page);
@@ -276,7 +275,7 @@ public class Contracts {
      * This method is typing a text in the Last Name field
      * @param LastName
      */
-    @When("User types {string} in Last Name field")
+    @And("User types {string} in Last Name field")
     public void user_types_in_last_name(String LastName) {
         page.locator("xpath=//div/input[@ng-reflect-placeholder='Last Name *']").fill(LastName);
         CucumberLogUtils.playwrightScreenshot(page);
@@ -286,7 +285,7 @@ public class Contracts {
      * This method is typing a text in the Email field
      * @param Email
      */
-    @When("User types {string} in Email field")
+    @And("User types {string} in Email field")
     public void user_types_in_email(String Email) {
         page.locator("xpath=//div/input[@ng-reflect-placeholder='Email *']").fill(Email);
         CucumberLogUtils.playwrightScreenshot(page);
@@ -296,7 +295,7 @@ public class Contracts {
      * This method is typing a text in the Title field
      * @param Title
      */
-    @When("User types {string} in Title field")
+    @And("User types {string} in Title field")
     public void user_types_manager_in_title(String Title) {
         page.locator("xpath=//div/input[@ng-reflect-placeholder='Title *']").fill(Title);
         CucumberLogUtils.playwrightScreenshot(page);
@@ -306,7 +305,7 @@ public class Contracts {
      * This method is typing a text in the Phone field
      * @param Phone
      */
-    @When("User types {string} in Phone field")
+    @And("User types {string} in Phone field")
     public void user_types_in_phone(String Phone) {
         page.locator("xpath=//div/input[@ng-reflect-placeholder='Phone *']").fill(Phone);
         CucumberLogUtils.playwrightScreenshot(page);
@@ -315,7 +314,7 @@ public class Contracts {
     /**
      * This method is selecting Business Representative from Contact Type
      */
-    @When("User selects Business Representative from Contact Type")
+    @And("User selects Business Representative from Contact Type")
     public void user_selects_business_representative_from_contact_type() {
         page.locator("xpath=//div/mat-select[@ng-reflect-placeholder='Contact Type *']").click();
         page.locator("xpath=//div/mat-option/span[contains(text(), 'Business Representative')]").click();
