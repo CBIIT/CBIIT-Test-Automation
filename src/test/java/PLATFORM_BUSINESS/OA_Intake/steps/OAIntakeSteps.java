@@ -4,15 +4,12 @@ import APPS_COMMON.PageInitializers.PageInitializer;
 import CUSTOM_BUSINESS.EIDP.utils.CommonUtil;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.web.WebDriverUtils;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.Map;
-
 import static Hooks.Hooks.softAssert;
 
 public class OAIntakeSteps extends PageInitializer {

@@ -92,7 +92,6 @@ Feature: Create OA Intake form
     And User can verify that Status Date column can be sorted in descending and ascending order
     And User logs out of OA Intake application
 
-
   @selenium @Alena @Regression @OAIntake-657 @OAIntake-640 @OAIntake-700 @OAIntake-708
   Scenario: Contracting Officer/Contract Specialist Queue
     Given Leadership User logged in to OA Intake Portal
