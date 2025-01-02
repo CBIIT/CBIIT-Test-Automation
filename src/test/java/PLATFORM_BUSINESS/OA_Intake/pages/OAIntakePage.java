@@ -246,9 +246,13 @@ public class OAIntakePage {
     @FindBy(xpath = "(//a[.='Log out'])[1]")
     public WebElement profileLogOutOption;
 
-    /**Requsted For page header*/
+    /**Requested For page header*/
     @FindBy(xpath = "//h2[contains(text(),'Requestor (Requested For) Queue for ')]")
     public WebElement pageHeaderRequestedFor;
+
+    /**Requsted For page header*/
+    @FindBy(xpath = "//h1[contains(text(),'Contracting Officer/Contract Specialist Queue')]")
+    public WebElement pageHeaderContractingOfficer;
 
     /**New Request button*/
     @FindBy(xpath = "//h2[.='New Request']")
@@ -329,4 +333,88 @@ public class OAIntakePage {
     /**Status Date by ascending option*/
     @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Status Date')]")
     public WebElement sortDescendingStatusDate;
+
+    /**OA Intakes - Assigned section*/
+    @FindBy(xpath = "//h2[contains(text(),'OA Intakes - Assigned')]")
+    public WebElement sectionOAIntakesAssigned;
+
+    /**OA Intakes - Assigned menu*/
+    @FindBy(xpath = "//button[@aria-label='OA Intakes - Assigned Context Menu']")
+    public WebElement sectionOAIntakesAssignedMenu;
+
+    /**OA Intakes - Assigned menu Export as PDF*/
+    @FindBy(xpath = "(//a[.='Export as PDF'])[1]")
+    public WebElement exportAsPDFOAIntakesAssignedMenu;
+
+    /**OA Intakes - Assigned menu Export as Excel*/
+    @FindBy(xpath = "(//a[.='Export as Excel'])[1]")
+    public WebElement exportAsExcelOAIntakesAssignedMenu;
+
+    /**OA Intakes - Assigned menu Export as CSV*/
+    @FindBy(xpath = "(//a[.='Export as CSV'])[1]")
+    public WebElement exportAsCSVOAIntakesAssignedMenu;
+
+    /**OA Intakes - Accepted section*/
+    @FindBy(xpath = "//h2[contains(text(),'OA Intakes - Accepted')]")
+    public WebElement sectionOAIntakesAccepted;
+
+    /**OA Intakes - Cancelled section*/
+    @FindBy(xpath = "//h2[contains(text(),'OA Intakes - Cancelled')]")
+    public WebElement sectionOAIntakesCancelled;
+
+    /**OA Intakes - Accepted menu*/
+    @FindBy(xpath = "//button[@aria-label='OA Intakes - Accepted Context Menu']")
+    public WebElement sectionOAIntakesAcceptedMenu;
+
+    /**OA Intakes - Accepted menu Export as PDF*/
+    @FindBy(xpath = "(//a[.='Export as PDF'])[2]")
+    public WebElement exportAsPDFOAIntakesAcceptedMenu;
+
+    /**OA Intakes - Accepted menu Export as Excel*/
+    @FindBy(xpath = "(//a[.='Export as Excel'])[2]")
+    public WebElement exportAsExcelOAIntakesAcceptedMenu;
+
+    /**OA Intakes - Accepted menu Export as CSV*/
+    @FindBy(xpath = "(//a[.='Export as CSV'])[2]")
+    public WebElement exportAsCSVOAIntakesAcceptedMenu;
+
+    /**OA Intakes - AssignedStatus = Assigned*/
+    @FindBy(xpath = "//a[.='Status = Assigned']")
+    public WebElement presetFilterAssigned;
+
+    /**OA Intakes - Cancelled Status = Cancelled*/
+    @FindBy(xpath = "//a[.='Status = Cancelled']")
+    public WebElement presetFilterCancelled;
+
+    /**OA Intakes - Assigned remove Subsequent conditions*/
+    @FindBy(xpath = "(//a[@aria-label='All Press enter to remove all subsequent conditions'])[1]")
+    public WebElement removeSubsequentConditionsAssigned;
+
+    /**OA Intakes - Accepted remove Subsequent conditions*/
+    @FindBy(xpath = "//*[@id='xad4221091bee8e10c5c40e1ce54bcb2e']/div/div/div/div[2]/div[1]/div/div/span[1]/a")
+    public WebElement removeSubsequentConditionsAccepted;
+
+    /**OA Intakes - Cancelled remove Subsequent conditions*/
+    @FindBy(xpath = "//*[@id='x10fadd561bce4a10c5c40e1ce54bcbbd']/div/div/div/div[2]/div[1]/div/div/span[1]/a")
+    public WebElement removeSubsequentConditionsCancelled;
+
+    /**OA Intakes - Accepted Status = Accepted*/
+    @FindBy(xpath = "//a[.='Status = Accepted']")
+    public WebElement presetFilterAccepted;
+
+    /**OA Intakes - Cancelled menu*/
+    @FindBy(xpath = "(//span[@class='dropdown m-r-xs'])[3]")
+    public WebElement sectionOAIntakesCancelledMenu;
+
+    /**OA Intakes - Cancelled menu Export as PDF*/
+    @FindBy(xpath = "//*[@id='x10fadd561bce4a10c5c40e1ce54bcbbd']/div/div/div/div[1]/span/ul/li[1]/a")
+    public WebElement exportAsPDFOAIntakesCancelledMenu;
+
+    /**OA Intakes - Cancelled menu Export as Excel*/
+    @FindBy(xpath = "//*[@id='x10fadd561bce4a10c5c40e1ce54bcbbd']/div/div/div/div[1]/span/ul/li[2]/a")
+    public WebElement exportAsExcelOAIntakesCancelledMenu;
+
+    /**OA Intakes - Cancelled menu Export as CSV*/
+    @FindBy(xpath = "//*[@id='x10fadd561bce4a10c5c40e1ce54bcbbd']/div/div/div/div[1]/span/ul/li[3]/a")
+    public WebElement exportAsCSVOAIntakesCancelledMenu;
 }

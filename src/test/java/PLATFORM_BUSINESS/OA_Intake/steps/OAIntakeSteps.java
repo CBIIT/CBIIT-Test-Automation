@@ -1,13 +1,18 @@
 package PLATFORM_BUSINESS.OA_Intake.steps;
 
 import APPS_COMMON.PageInitializers.PageInitializer;
+import CUSTOM_BUSINESS.EIDP.utils.CommonUtil;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.web.WebDriverUtils;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import java.util.ArrayList;
+import java.util.Map;
+
 import static Hooks.Hooks.softAssert;
 
 public class OAIntakeSteps extends PageInitializer {
@@ -453,6 +458,14 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
+     * verify Requestor \(Requested For) Queue tab is displayed
+     */
+    @Given("User can verify page header is {string}")
+    public void user_can_verify_page_header_is(String header) {
+       softAssert.assertEquals(oaIntakePage.pageHeaderContractingOfficer.getText(), header);
+    }
+
+    /**
      * verify New request button is displayed
      */
     @Given("User can see New Request button")
@@ -586,5 +599,149 @@ public class OAIntakeSteps extends PageInitializer {
         CommonUtils.clickOnElement(oaIntakePage.sortAscendingStatusDate);
         CommonUtils.sleep(1000);
         CommonUtils.clickOnElement(oaIntakePage.sortDescendingStatusDate);
+    }
+
+    /**
+     * User clicks on CO CS Queue tab
+     */
+    @Given("User clicks on CO CS Queue tab")
+    public void user_clicks_on_co_cs_queue_tab() {
+       CommonUtils.clickOnElement(oaIntakePage.tabCOCSQueue);
+    }
+
+    /**
+     * User can see OA Intakes - Assigned section
+     */
+    @Given("User can see OA Intakes - Assigned section")
+    public void user_can_see_oa_intakes_assigned_section() {
+       softAssert.assertTrue(oaIntakePage.sectionOAIntakesAssigned.isDisplayed());
+    }
+
+    /**
+     * User clicks on OA Intakes - Assigned menu
+     */
+    @When("User clicks on OA Intakes - Assigned menu")
+    public void user_clicks_on_oa_intakes_assigned_menu() {
+        CommonUtils.clickOnElement(oaIntakePage.sectionOAIntakesAssignedMenu);
+    }
+
+    /**
+     *User verifies options for OA Intakes - Assigned requests
+     */
+    @Then("User can see the following options for OA Intakes - Assigned requests")
+    public void user_can_see_the_following_options_for_oa_intakes_assigned_requests(io.cucumber.datatable.DataTable dataTable) {
+        Map<String, String> options = CommonUtil.getMapFromDataTable(dataTable);
+        softAssert.assertTrue(oaIntakePage.exportAsPDFOAIntakesAssignedMenu.isDisplayed(), options.get("option1"));
+        softAssert.assertTrue(oaIntakePage.exportAsExcelOAIntakesAssignedMenu.isDisplayed(), options.get("option2"));
+        softAssert.assertTrue(oaIntakePage.exportAsCSVOAIntakesAssignedMenu.isDisplayed(), options.get("option3"));
+        CommonUtils.clickOnElement(oaIntakePage.sectionOAIntakesAssignedMenu);
+    }
+
+    /**
+     *User verifies OA Intakes - Assigned filter is preset with assigned requests
+     */
+    @Then("User can see OA Intakes - Assigned filter is preset with assigned requests")
+    public void user_can_see_oa_intakes_assigned_filter_is_preset_with_assigned_requests() {
+      String expectedTextFilter = "Status = Assigned";
+      softAssert.assertEquals(oaIntakePage.presetFilterAssigned.getText(),expectedTextFilter);
+    }
+
+    /**
+     *User clicks to remove filters for OA Intakes - Assigned requests
+     */
+    @Then("User can remove filters for OA Intakes - Assigned requests")
+    public void user_can_remove_filters_for_oa_intakes_assigned_requests() {
+     CommonUtils.clickOnElement(oaIntakePage.removeSubsequentConditionsAssigned);
+    }
+
+    /**
+     * User verifies OA Intakes - Accepted section is displayed
+     */
+    @Then("User can see OA Intakes - Accepted section")
+    public void user_can_see_oa_intakes_accepted_section() {
+        softAssert.assertTrue(oaIntakePage.sectionOAIntakesAccepted.isDisplayed());
+    }
+
+    /**
+     * User clicks on OA Intakes - Accepted menu
+     */
+    @When("User clicks on OA Intakes - Accepted menu")
+    public void user_clicks_on_oa_intakes_accepted_menu() {
+       CommonUtils.clickOnElement(oaIntakePage.sectionOAIntakesAcceptedMenu);
+    }
+
+    /**
+     *User verifies options for OA Intakes - Accepted requests
+     */
+    @Then("User can see the following options for OA Intakes - Accepted requests")
+    public void user_can_see_the_following_options_for_oa_intakes_accepted_requests(io.cucumber.datatable.DataTable dataTable) {
+        Map<String, String> options = CommonUtil.getMapFromDataTable(dataTable);
+        softAssert.assertTrue(oaIntakePage.exportAsPDFOAIntakesAcceptedMenu.isDisplayed(), options.get("option1"));
+        softAssert.assertTrue(oaIntakePage.exportAsExcelOAIntakesAcceptedMenu.isDisplayed(), options.get("option2"));
+        softAssert.assertTrue(oaIntakePage.exportAsCSVOAIntakesAcceptedMenu.isDisplayed(), options.get("option3"));
+        CommonUtils.clickOnElement(oaIntakePage.sectionOAIntakesAcceptedMenu);
+    }
+
+    /**
+     *User verifies OA Intakes - Accepted filter is preset with accepted requests
+     */
+    @Then("User can see OA Intakes - Accepted filter is preset with accepted requests")
+    public void user_can_see_oa_intakes_accepted_filter_is_preset_with_accepted_requests() {
+        String expectedTextFilter = "Status = Accepted";
+        softAssert.assertEquals(oaIntakePage.presetFilterAccepted.getText(),expectedTextFilter);
+    }
+
+    /**
+     *User removes filters for OA Intakes - Accepted requests
+     */
+    @Then("User can remove filters for OA Intakes - Accepted requests")
+    public void user_can_remove_filters_for_oa_intakes_accepted_requests() {
+     CommonUtils.clickOnElement(oaIntakePage.removeSubsequentConditionsAccepted);
+    }
+
+    /**
+     *User verifies OA Intakes - Cancelled section is displayed
+     */
+    @Then("User can see OA Intakes - Cancelled section")
+    public void user_can_see_oa_intakes_cancelled_section() {
+        softAssert.assertTrue(oaIntakePage.sectionOAIntakesCancelled.isDisplayed());
+    }
+
+    /**
+     *User clicks on OA Intakes - Cancelled menu
+     */
+    @When("User clicks on OA Intakes - Cancelled menu")
+    public void user_clicks_on_oa_intakes_cancelled_menu() {
+       CommonUtils.clickOnElement(oaIntakePage.sectionOAIntakesCancelledMenu);
+    }
+
+    /**
+     *User verifies options for OA Intakes - Cancelled requests
+     */
+    @Then("User can see the following options for OA Intakes - Cancelled requests")
+    public void user_can_see_the_following_options_for_oa_intakes_cancelled_requests(io.cucumber.datatable.DataTable dataTable) {
+        CommonUtils.sleep(3000);
+        Map<String, String> options = CommonUtil.getMapFromDataTable(dataTable);
+        softAssert.assertTrue(oaIntakePage.exportAsPDFOAIntakesCancelledMenu.isDisplayed(), options.get("option1"));
+        softAssert.assertTrue(oaIntakePage.exportAsExcelOAIntakesCancelledMenu.isDisplayed(), options.get("option2"));
+        softAssert.assertTrue(oaIntakePage.exportAsCSVOAIntakesCancelledMenu.isDisplayed(), options.get("option3"));
+        CommonUtils.clickOnElement(oaIntakePage.sectionOAIntakesCancelledMenu);
+    }
+
+    /**
+     *User verifies options for OA Intakes - Cancelled requests
+     */
+    @Then("User can see OA Intakes - Cancelled filter is preset with cancelled requests")
+    public void user_can_see_oa_intakes_cancelled_filter_is_preset_with_cancelled_requests() {
+        String expectedTextFilter = "Status = Cancelled";
+        softAssert.assertEquals(oaIntakePage.presetFilterCancelled.getText(),expectedTextFilter);
+    }
+
+    /**
+     *User removes filters for OA Intakes - Cancelled request
+     */
+    @Then("User can remove filters for OA Intakes - Cancelled requests")
+    public void user_can_remove_filters_for_oa_intakes_cancelled_requests() {
+        CommonUtils.clickOnElement(oaIntakePage.removeSubsequentConditionsCancelled);
     }
 }
