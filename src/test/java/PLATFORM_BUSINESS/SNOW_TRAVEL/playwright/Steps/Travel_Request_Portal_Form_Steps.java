@@ -428,4 +428,75 @@ public class Travel_Request_Portal_Form_Steps {
                 "-- VERIFY THAT 'URL of Registration Site' FIELD IS NOT REQUIRED WHEN 'No' IS SELECTED FOR REGISTRATION FEE FIELD --");
         CucumberLogUtils.playwrightScreenshot(page);
     }
+
+    /**
+     *
+     * Clicks the CBIIT Business Services menu item under the Services Tab.
+     *
+     * @param cbiitBusinessServices The name of the menu item under the category
+     * @param services The name of the category under which the menu item is located
+     */
+    @When("I click the {string} menu item under {string}")
+    public void i_click_the_menu_item_under(String cbiitBusinessServices, String services) {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(services).setExact(true)).waitFor();
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(services).setExact(true))).isVisible();
+        assertThat(page.locator("#fresponsive")).containsText(services);
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(services).setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(cbiitBusinessServices)).first()).isVisible();
+        assertThat(page.locator("#fresponsive")).containsText(cbiitBusinessServices);
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(cbiitBusinessServices)).first().click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Verifies if the "Travel Planning System" catalog item is available on the page.
+     *
+     * @param travelPlanningSystem The name of the catalog item to be verified for availability
+     */
+    @Then("the catalog item {string} should be available")
+    public void the_catalog_item_should_be_available(String travelPlanningSystem) {
+        page.getByRole(AriaRole.MAIN).locator("a").filter(new Locator.FilterOptions().setHasText(travelPlanningSystem)).waitFor();
+        assertThat(page.getByRole(AriaRole.MAIN).locator("a").filter(new Locator.FilterOptions().setHasText(travelPlanningSystem))).isVisible();
+        assertThat(page.getByRole(AriaRole.MAIN)).containsText(travelPlanningSystem);
+        page.getByRole(AriaRole.MAIN).locator("a").filter(new Locator.FilterOptions().setHasText(travelPlanningSystem)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        CucumberLogUtils.scenario.log("---- VERIFYING THE BREAD CRUMB ----");
+        page.locator("//a[@class='ng-binding ng-scope'][normalize-space()='CBIIT Business Services']").isVisible();
+        assertThat(page.locator("//a[@class='ng-binding ng-scope'][normalize-space()='CBIIT Business Services']")).containsText("CBIIT Business Services");
+        assertThat(page.getByLabel("Page breadcrumbs").getByText(travelPlanningSystem)).isVisible();
+        assertThat(page.getByLabel("Page breadcrumbs").getByRole(AriaRole.LIST)).containsText(travelPlanningSystem);
+        assertThat(page.locator("#catItemTop")).containsText(travelPlanningSystem);
+        page.locator("#catItemTop").getByRole(AriaRole.HEADING, new Locator.GetByRoleOptions().setName(travelPlanningSystem)).scrollIntoViewIfNeeded();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Navigates to a Exceed Threshold field on the Travel Request Portal Form Page.
+     *
+     * @param exceedThreshold the text to be checked in the field
+     */
+    @When("I navigate to field {string},")
+    public void i_navigate_to_field(String exceedThreshold) {
+        page.navigate(Travel_Request_Portal_Form_Constants.TRAVEL_PLANNING_SYSTEM_PORTAL_FORM_URL);
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.locator("span").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Exceed Threshold\\?$"))).scrollIntoViewIfNeeded();
+        assertThat(page.locator("span").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Exceed Threshold\\?$")))).isVisible();
+        assertThat(page.locator("#exceed_threshold")).containsText(exceedThreshold);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Asserts that the help text displayed on the page matches the expected help text.
+     *
+     * @param helpText The expected help text to be displayed on the page
+     */
+    @Then("I should see help text that states: {string}")
+    public void i_should_see_help_text_that_states(String helpText) {
+        page.locator("#exceed_threshold").scrollIntoViewIfNeeded();
+        assertThat(page.getByText("Select 'Yes' if total travel")).isVisible();
+        assertThat(page.locator("#exceed_threshold")).containsText(helpText);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
 }
