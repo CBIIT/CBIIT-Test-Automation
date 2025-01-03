@@ -118,4 +118,27 @@ Feature: Create OA Intake form
       | Export as PDF | Export as Excel | Export as CSV|
     And User can see OA Intakes - Cancelled filter is preset with cancelled requests
     And User can remove filters for OA Intakes - Cancelled requests
+    And User logs out of OA Intake application
 
+  @selenium @Alena @Regression @OAIntake-650 @OAIntake-606
+  Scenario: Leadership Queue (Pending Action)
+    Given Leadership User logged in to OA Intake Portal
+    And User clicks on Leadership Queue tab
+    And User can verify page header is "Leadership Queue (Pending Action)"
+    When User clicks on OA Intake Leadership Queue menu
+    Then User can see the following options for OA Intake Leadership Queue menu
+      |option1        |option2          |option3       |
+      | Export as PDF | Export as Excel | Export as CSV|
+    And User can see OA Intakes filter is preset with submitted requests
+    And User can verify that Leadership Queue Request ID column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Status column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Branch column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Request Title column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Requestor (Requested For) column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Estimated Amount column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Recommended Contract Mechanism column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Requested Award Date column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Submitter column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Status Date column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Created On column can be sorted in descending and ascending order
+    And User logs out of OA Intake application
