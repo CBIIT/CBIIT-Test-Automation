@@ -862,10 +862,10 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @Then("User can verify that Leadership Queue Requested Award Date column can be sorted in descending and ascending order")
     public void user_can_verify_that_leadership_queue_requested_award_date_column_can_be_sorted_in_descending_and_ascending_order() {
-        CommonUtils.clickOnElement(oaIntakePage.sortAscendingRequestedAwardDateLeadershipQueue);
-        CommonUtils.sleep(1000);
-        CommonUtils.clickOnElement(oaIntakePage.sortAscendingRequestedAwardDateLeadershipQueue);
-        CommonUtils.sleep(1000);
+        for (int i = 0; i < 2; i++) {
+            CommonUtils.clickOnElement(oaIntakePage.sortAscendingRequestedAwardDateLeadershipQueue);
+            CommonUtils.sleep(1000);
+        }
         CommonUtils.clickOnElement(oaIntakePage.sortDescendingRequestedAwardDateLeadershipQueue);
         CommonUtils.sleep(1000);
     }
@@ -886,10 +886,10 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @Then("User can verify that Leadership Queue Status Date column can be sorted in descending and ascending order")
     public void user_can_verify_that_leadership_queue_status_date_column_can_be_sorted_in_descending_and_ascending_order() {
-        CommonUtils.clickOnElement(oaIntakePage.sortAscendingStatusDateLeadershipQueue);
-        CommonUtils.sleep(1000);
-        CommonUtils.clickOnElement(oaIntakePage.sortAscendingStatusDateLeadershipQueue);
-        CommonUtils.sleep(1000);
+        for (int i = 0; i < 2; i++) {
+            CommonUtils.clickOnElement(oaIntakePage.sortAscendingStatusDateLeadershipQueue);
+            CommonUtils.sleep(1000);
+        }
         CommonUtils.clickOnElement(oaIntakePage.sortDescendingStatusDateLeadershipQueue);
         CommonUtils.sleep(1000);
     }
@@ -899,10 +899,10 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @Then("User can verify that Leadership Queue Created On column can be sorted in descending and ascending order")
     public void user_can_verify_that_leadership_queue_created_on_column_can_be_sorted_in_descending_and_ascending_order() {
-        CommonUtils.clickOnElement(oaIntakePage.sortAscendingCreatedOnLeadershipQueue);
-        CommonUtils.sleep(1000);
-        CommonUtils.clickOnElement(oaIntakePage.sortAscendingCreatedOnLeadershipQueue);
-        CommonUtils.sleep(1000);
+        for (int i = 0; i < 2; i++) {
+            CommonUtils.clickOnElement(oaIntakePage.sortAscendingCreatedOnLeadershipQueue);
+            CommonUtils.sleep(1000);
+        }
         CommonUtils.clickOnElement(oaIntakePage.sortDescendingCreatedOnLeadershipQueue);
         CommonUtils.sleep(1000);
     }
