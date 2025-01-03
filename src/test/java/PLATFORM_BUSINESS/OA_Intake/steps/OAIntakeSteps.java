@@ -1,7 +1,7 @@
 package PLATFORM_BUSINESS.OA_Intake.steps;
 
 import APPS_COMMON.PageInitializers.PageInitializer;
-import CUSTOM_BUSINESS.EIDP.utils.CommonUtil;
+import PLATFORM_BUSINESS.OA_Intake.utilities.OAIntakeCommonUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.Given;
@@ -627,7 +627,7 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @Then("User can see the following options for OA Intakes - Assigned requests")
     public void user_can_see_the_following_options_for_oa_intakes_assigned_requests(io.cucumber.datatable.DataTable dataTable) {
-        Map<String, String> options = CommonUtil.getMapFromDataTable(dataTable);
+        Map<String, String> options = OAIntakeCommonUtils.getMapFromDataTable(dataTable);
         softAssert.assertTrue(oaIntakePage.exportAsPDFOAIntakesAssignedMenu.isDisplayed(), options.get("option1"));
         softAssert.assertTrue(oaIntakePage.exportAsExcelOAIntakesAssignedMenu.isDisplayed(), options.get("option2"));
         softAssert.assertTrue(oaIntakePage.exportAsCSVOAIntakesAssignedMenu.isDisplayed(), options.get("option3"));
@@ -672,7 +672,7 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @Then("User can see the following options for OA Intakes - Accepted requests")
     public void user_can_see_the_following_options_for_oa_intakes_accepted_requests(io.cucumber.datatable.DataTable dataTable) {
-        Map<String, String> options = CommonUtil.getMapFromDataTable(dataTable);
+        Map<String, String> options = OAIntakeCommonUtils.getMapFromDataTable(dataTable);
         softAssert.assertTrue(oaIntakePage.exportAsPDFOAIntakesAcceptedMenu.isDisplayed(), options.get("option1"));
         softAssert.assertTrue(oaIntakePage.exportAsExcelOAIntakesAcceptedMenu.isDisplayed(), options.get("option2"));
         softAssert.assertTrue(oaIntakePage.exportAsCSVOAIntakesAcceptedMenu.isDisplayed(), options.get("option3"));
@@ -718,7 +718,7 @@ public class OAIntakeSteps extends PageInitializer {
     @Then("User can see the following options for OA Intakes - Cancelled requests")
     public void user_can_see_the_following_options_for_oa_intakes_cancelled_requests(io.cucumber.datatable.DataTable dataTable) {
         CommonUtils.sleep(3000);
-        Map<String, String> options = CommonUtil.getMapFromDataTable(dataTable);
+        Map<String, String> options = OAIntakeCommonUtils.getMapFromDataTable(dataTable);
         softAssert.assertTrue(oaIntakePage.exportAsPDFOAIntakesCancelledMenu.isDisplayed(), options.get("option1"));
         softAssert.assertTrue(oaIntakePage.exportAsExcelOAIntakesCancelledMenu.isDisplayed(), options.get("option2"));
         softAssert.assertTrue(oaIntakePage.exportAsCSVOAIntakesCancelledMenu.isDisplayed(), options.get("option3"));

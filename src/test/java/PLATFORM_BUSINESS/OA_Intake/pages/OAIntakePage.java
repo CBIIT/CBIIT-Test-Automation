@@ -250,7 +250,7 @@ public class OAIntakePage {
     @FindBy(xpath = "//h2[contains(text(),'Requestor (Requested For) Queue for ')]")
     public WebElement pageHeaderRequestedFor;
 
-    /**Requsted For page header*/
+    /**Contracting Officer page header*/
     @FindBy(xpath = "//h1[contains(text(),'Contracting Officer/Contract Specialist Queue')]")
     public WebElement pageHeaderContractingOfficer;
 

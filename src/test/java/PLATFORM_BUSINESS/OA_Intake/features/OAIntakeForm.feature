@@ -118,3 +118,4 @@ Feature: Create OA Intake form
       | Export as PDF | Export as Excel | Export as CSV|
     And User can see OA Intakes - Cancelled filter is preset with cancelled requests
     And User can remove filters for OA Intakes - Cancelled requests
+
