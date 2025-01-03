@@ -1,14 +1,11 @@
 package PLATFORM_BUSINESS.OA_Intake.utilities;
 
 import io.cucumber.datatable.DataTable;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class OAIntakeCommonUtils {
-
-
 	/**
 	 * This method will convert the cucumber datatable into java hashmap.
 	 * The first row in the datatable is considered as the header of the table.
