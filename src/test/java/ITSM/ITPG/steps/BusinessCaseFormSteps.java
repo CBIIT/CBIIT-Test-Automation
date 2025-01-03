@@ -38,7 +38,7 @@ public class BusinessCaseFormSteps {
 	}
 
 	@Then("State is updated to {string}")
-	public void verifystate(String expectedState) throws Exception {
+	public void verifyState(String expectedState) throws Exception {
 		Thread.sleep(7000);
 		String actualState = businessCaseFormPage.getState();
 		CucumberLogUtils.logScreenshot();
@@ -54,14 +54,10 @@ public class BusinessCaseFormSteps {
 			loginStepsImpl.clckOnLoginButton();
 		}
 		loginStepsImpl.enterUsername("");
-		String decyptedPass = EncryptionUtils.decrypt("");
+		String decryptedPass = EncryptionUtils.decrypt("");
 		CucumberLogUtils.logScreenshot();
-		// loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
-		// decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
-		loginStepsImpl.enterPassword(decyptedPass);
+		loginStepsImpl.enterPassword(decryptedPass);
 		CucumberLogUtils.logScreenshot();
-		// loginPage.enterUsername(ConfigFileReader.getConfigFileReader().getUserName());
-		// loginPage.enterPassword(ConfigFileReader.getConfigFileReader().getPassword());
 		loginStepsImpl.clickOnSignInButton();
 
 	}
@@ -208,14 +204,7 @@ public class BusinessCaseFormSteps {
 
 	@Then("Open latest Business Case")
 	public void openLatestBusinessCase() {
-		// businessCaseFormPage.sortCreatedDateForBusinessCasesInDecendingOrder();
 		businessCaseFormPage.clickOnFirstBusinessCase();
-	}
-
-	@Then("Open latest business Case")
-	public void openLatestIdeaCase() {
-		// businessCaseFormPage.sortCreatedDateForIdeaCasesInDecendingOrder();
-		businessCaseFormPage.clickOnFirstIdeaCase();
 	}
 
 	@Then("verify that Assistance Provided button is available and moves the business case back in open state")

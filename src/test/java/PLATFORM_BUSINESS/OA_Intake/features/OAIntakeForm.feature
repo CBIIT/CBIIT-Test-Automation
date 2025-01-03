@@ -70,3 +70,24 @@ Feature: Create OA Intake form
     When User clicks on  OA Intake Home button
     Then User can verify they are redirected to Home Page
     And User logs out of OA Intake application
+
+  @selenium @Alena @Regression @OAIntake-332 @OAIntake-670 @OAIntake-669
+  Scenario: Requestor (Requested For) Queue for Negotiated Contracts
+    Given Leadership User logged in to OA Intake Portal
+    And User clicks on Requestor (Requested For) Queue tab
+    And User can verify page header as "Requestor (Requested For) Queue for Negotiated Contracts "
+    And User can see New Request button
+    And User can see Contact Support button
+    And User can verify Purchasing Online Tracking System (POTS) hyperlink is displayed
+    When User clicks Purchasing Online Tracking System (POTS) hyperlink
+    Then User is redirected to authentication page
+    And User can verify FFRDC Contract Administration System (FCAS) hyperlink is displayed
+    And User can verify that OA Intakes are pre-filtered for a logged in Leadership User
+    And User can verify that Request ID column can be sorted in descending and ascending order
+    And User can verify that Status column can be sorted in descending and ascending order
+    And User can verify that Request Title column can be sorted in descending and ascending order
+    And User can verify that Requestor (Requested For) column can be sorted in descending and ascending order
+    And User can verify that Submitter column can be sorted in descending and ascending order
+    And User can verify that Created On column can be sorted in descending and ascending order
+    And User can verify that Status Date column can be sorted in descending and ascending order
+    And User logs out of OA Intake application

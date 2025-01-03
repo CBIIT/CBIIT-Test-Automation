@@ -172,9 +172,8 @@ public class ESRTaskStepsImplementation {
         Playwright_Common_Locators.iframeLocator().locator("(//div[@class='sc_variable_editor']/div/select)[4]").selectOption("Proceed to Implementation");
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("   OCIO Federal Lead to")).click();
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("   OCIO Federal Lead to")).fill("Jennifer Kwok");
-        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("   Project Lead Assignment")).click();
-        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("   Project Lead Assignment")).click();
-        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("   Project Lead Assignment")).fill("CHARMS Technical Support");
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("   Project Assignment Group")).click();
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("   Project Assignment Group")).fill("CHARMS Technical Support");
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Project Lead to implement Q-")).click();
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Project Lead to implement Q-")).fill("Larry Brem");
         Playwright_Common_Locators.iframeLocator().getByLabel("Add a row for Technology").click();
