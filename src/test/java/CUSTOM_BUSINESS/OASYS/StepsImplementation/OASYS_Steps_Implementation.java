@@ -1,6 +1,6 @@
-package CUSTOM_BUSINESS.Oasys.StepsImplementation;
+package CUSTOM_BUSINESS.OASYS.StepsImplementation;
 
-import CUSTOM_BUSINESS.Oasys.Pages.I_Trust_Page;
+import CUSTOM_BUSINESS.OASYS.Pages.I_Trust_Page;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -8,7 +8,7 @@ import com.nci.automation.utils.EncryptionUtils;
 import static com.nci.automation.web.PlaywrightUtils.page;
 import static com.nci.automation.web.TestProperties.*;
 
-public class Oasys_Steps_Implementation {
+public class OASYS_Steps_Implementation {
 
     /**
      * User is logged into OASYS
