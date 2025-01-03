@@ -459,7 +459,7 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @Given("User can verify page header is {string}")
     public void user_can_verify_page_header_is(String header) {
-       softAssert.assertEquals(oaIntakePage.pageHeaderContractingOfficer.getText(), header);
+       softAssert.assertEquals(oaIntakePage.leadershipQueuePageHeader.getText(), header);
     }
 
     /**
@@ -740,5 +740,170 @@ public class OAIntakeSteps extends PageInitializer {
     @Then("User can remove filters for OA Intakes - Cancelled requests")
     public void user_can_remove_filters_for_oa_intakes_cancelled_requests() {
         CommonUtils.clickOnElement(oaIntakePage.removeSubsequentConditionsCancelled);
+    }
+
+    /**
+     *User clicks on Leadership Queue tab
+     */
+    @Given("User clicks on Leadership Queue tab")
+    public void user_clicks_on_leadership_queue_tab() {
+        CommonUtils.clickOnElement(oaIntakePage.tabLeadershipQueue);
+    }
+
+    /**
+     *User clicks on OA Intake Leadership Queue menu
+     */
+    @When("User clicks on OA Intake Leadership Queue menu")
+    public void user_clicks_on_oa_intake_leadership_queue_menu() {
+       CommonUtils.clickOnElement(oaIntakePage.oAIntakesContextMenu);
+    }
+
+    /**
+     *User  verifies options for OA Intake Leadership Queue menu
+     */
+    @Then("User can see the following options for OA Intake Leadership Queue menu")
+    public void user_can_see_the_following_options_for_oa_intake_leadership_queue_menu(io.cucumber.datatable.DataTable dataTable) {
+        CommonUtils.sleep(3000);
+        Map<String, String> options = OAIntakeCommonUtils.getMapFromDataTable(dataTable);
+        softAssert.assertTrue(oaIntakePage.exportAsPDFLeadershipQueueMenu.isDisplayed(), options.get("option1"));
+        softAssert.assertTrue(oaIntakePage.exportAsExcelLeadershipQueueMenu.isDisplayed(), options.get("option2"));
+        softAssert.assertTrue(oaIntakePage.exportAsCSVLeadershipQueueMenu.isDisplayed(), options.get("option3"));
+        CommonUtils.clickOnElement(oaIntakePage.oAIntakesContextMenu);
+    }
+
+    /**
+     *User can see OA Intakes filter is preset with submitted requests
+     */
+    @Then("User can see OA Intakes filter is preset with submitted requests")
+    public void user_can_see_oa_intakes_accepted_filter_is_preset_with_submitted_requests() {
+        String expectedTextFilter = "Status = Submitted";
+        softAssert.assertEquals(oaIntakePage.presetSubmittedStatusLeadershipQueue.getText(),expectedTextFilter);
+    }
+
+    /**
+     *User verifies that Leadership Queue Request ID column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Leadership Queue Request ID column can be sorted in descending and ascending order")
+    public void user_can_verify_that_leadership_queue_request_id_column_can_be_sorted_in_descending_and_ascending_order() {
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingRequestIDLeadershipQueue);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingRequestIDLeadershipQueue);
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     *User verifies that Leadership Queue Status column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Leadership Queue Status column can be sorted in descending and ascending order")
+    public void user_can_verify_that_leadership_queue_status_column_can_be_sorted_in_descending_and_ascending_order() {
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingStatusLeadershipQueue);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingStatusLeadershipQueue);
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     *User verifies that Leadership Queue Branch column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Leadership Queue Branch column can be sorted in descending and ascending order")
+    public void user_can_verify_that_leadership_queue_branch_column_can_be_sorted_in_descending_and_ascending_order() {
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingBranchLeadershipQueue);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingBranchLeadershipQueue);
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     *User verifies that Leadership Queue Request Title column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Leadership Queue Request Title column can be sorted in descending and ascending order")
+    public void user_can_verify_that_leadership_queue_request_title_column_can_be_sorted_in_descending_and_ascending_order() {
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingRequestTitleLeadershipQueue);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingRequestTitleLeadershipQueue);
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     *User verifies that Leadership Queue Requestor column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Leadership Queue Requestor \\(Requested For) column can be sorted in descending and ascending order")
+    public void user_can_verify_that_leadership_queue_requestor_requested_for_column_can_be_sorted_in_descending_and_ascending_order() {
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingRequestorLeadershipQueue);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingRequestorLeadershipQueue);
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     *User verifies that Leadership Queue Estimated Amount column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Leadership Queue Estimated Amount column can be sorted in descending and ascending order")
+    public void user_can_verify_that_leadership_queue_estimated_amount_column_can_be_sorted_in_descending_and_ascending_order() {
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingEstimatedAmountLeadershipQueue);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingEstimatedAmountLeadershipQueue);
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     *User verifies that Leadership Queue Recommended Contract Mechanism column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Leadership Queue Recommended Contract Mechanism column can be sorted in descending and ascending order")
+    public void user_can_verify_that_leadership_queue_recommended_contract_mechanism_column_can_be_sorted_in_descending_and_ascending_order() {
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingRecommendedContractMechanismLeadershipQueue);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingRecommendedContractMechanismLeadershipQueue);
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     *User verifies that Leadership Queue Requested Award Date column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Leadership Queue Requested Award Date column can be sorted in descending and ascending order")
+    public void user_can_verify_that_leadership_queue_requested_award_date_column_can_be_sorted_in_descending_and_ascending_order() {
+        for (int i = 0; i < 2; i++) {
+            CommonUtils.clickOnElement(oaIntakePage.sortAscendingRequestedAwardDateLeadershipQueue);
+            CommonUtils.sleep(1000);
+        }
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingRequestedAwardDateLeadershipQueue);
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     *User verifies that Leadership Queue  Submitter column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Leadership Queue Submitter column can be sorted in descending and ascending order")
+    public void user_can_verify_that_leadership_queue_submitter_column_can_be_sorted_in_descending_and_ascending_order() {
+        CommonUtils.clickOnElement(oaIntakePage.sortAscendingSubmitterLeadershipQueue);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingSubmitterLeadershipQueue);
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     *User verifies that Leadership Queue Status Date column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Leadership Queue Status Date column can be sorted in descending and ascending order")
+    public void user_can_verify_that_leadership_queue_status_date_column_can_be_sorted_in_descending_and_ascending_order() {
+        for (int i = 0; i < 2; i++) {
+            CommonUtils.clickOnElement(oaIntakePage.sortAscendingStatusDateLeadershipQueue);
+            CommonUtils.sleep(1000);
+        }
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingStatusDateLeadershipQueue);
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     *User verifies that Leadership Queue Created On column can be sorted in descending and ascending order
+     */
+    @Then("User can verify that Leadership Queue Created On column can be sorted in descending and ascending order")
+    public void user_can_verify_that_leadership_queue_created_on_column_can_be_sorted_in_descending_and_ascending_order() {
+        for (int i = 0; i < 2; i++) {
+            CommonUtils.clickOnElement(oaIntakePage.sortAscendingCreatedOnLeadershipQueue);
+            CommonUtils.sleep(1000);
+        }
+        CommonUtils.clickOnElement(oaIntakePage.sortDescendingCreatedOnLeadershipQueue);
+        CommonUtils.sleep(1000);
     }
 }

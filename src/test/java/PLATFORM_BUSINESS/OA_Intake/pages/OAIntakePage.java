@@ -417,4 +417,116 @@ public class OAIntakePage {
     /**OA Intakes - Cancelled menu Export as CSV*/
     @FindBy(xpath = "//*[@id='x10fadd561bce4a10c5c40e1ce54bcbbd']/div/div/div/div[1]/span/ul/li[3]/a")
     public WebElement exportAsCSVOAIntakesCancelledMenu;
+
+    /**OA Intakes Context Menu*/
+    @FindBy(xpath = "//button[@aria-label='OA Intakes Context Menu']")
+    public WebElement oAIntakesContextMenu;
+
+    /**OA Intakes - Leadership Queue menu Export as PDF*/
+    @FindBy(xpath = "//a[.='Export as PDF']")
+    public WebElement exportAsPDFLeadershipQueueMenu;
+
+    /**OA Intakes - Leadership Queue menu Export as Excel*/
+    @FindBy(xpath = "//a[.='Export as Excel']")
+    public WebElement exportAsExcelLeadershipQueueMenu;
+
+    /**OA Intakes - Leadership Queue menu Export as CSV*/
+    @FindBy(xpath = "//a[.='Export as CSV']")
+    public WebElement exportAsCSVLeadershipQueueMenu;
+
+    /**preset Submitted status Leadership queue*/
+    @FindBy(xpath = "//a[.='Status = Submitted']")
+    public WebElement presetSubmittedStatusLeadershipQueue;
+
+    /** Leadership queue page header */
+    @FindBy(xpath = "(//span[contains(text(),'Leadership Queue (Pending Action)')])[2]")
+    public WebElement leadershipQueuePageHeader;
+
+    /**Request ID sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Request ID')]")
+    public WebElement sortAscendingRequestIDLeadershipQueue;
+
+    /**Request ID sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Request ID')]")
+    public WebElement sortDescendingRequestIDLeadershipQueue;
+
+    /**Status sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Status')]")
+    public WebElement sortAscendingStatusLeadershipQueue;
+
+    /**Status sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Status')]")
+    public WebElement sortDescendingStatusLeadershipQueue;
+
+    /**Branch sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Branch')]")
+    public WebElement sortAscendingBranchLeadershipQueue;
+
+    /**Branch sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Branch')]")
+    public WebElement sortDescendingBranchLeadershipQueue;
+
+    /**Request Title sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Request Title')]")
+    public WebElement sortAscendingRequestTitleLeadershipQueue;
+
+    /**Request Title  sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Request Title')]")
+    public WebElement sortDescendingRequestTitleLeadershipQueue;
+
+    /**Requestor sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Requestor (Requested For)')]")
+    public WebElement sortAscendingRequestorLeadershipQueue;
+
+    /**Requestor  sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Requestor (Requested For)')]")
+    public WebElement sortDescendingRequestorLeadershipQueue;
+
+    /**Estimated Amount sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Estimated Amount')]")
+    public WebElement sortAscendingEstimatedAmountLeadershipQueue;
+
+    /**Estimated Amount sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Estimated Amount')]")
+    public WebElement sortDescendingEstimatedAmountLeadershipQueue;
+
+    /**Recommended Contract Mechanism sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Recommended Contract Mechanism')]")
+    public WebElement sortAscendingRecommendedContractMechanismLeadershipQueue;
+
+    /**Recommended Contract Mechanism sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Recommended Contract Mechanism')]")
+    public WebElement sortDescendingRecommendedContractMechanismLeadershipQueue;
+
+    /**Requested Award Date sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Requested Award Date')]")
+    public WebElement sortAscendingRequestedAwardDateLeadershipQueue;
+
+    /**Requested Award Date sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Requested Award Date')]")
+    public WebElement sortDescendingRequestedAwardDateLeadershipQueue;
+
+    /**Submitter sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Submitter')]")
+    public WebElement sortAscendingSubmitterLeadershipQueue;
+
+    /**Submitter sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Submitter')]")
+    public WebElement sortDescendingSubmitterLeadershipQueue;
+
+    /**Status Date sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Status Date')]")
+    public WebElement sortAscendingStatusDateLeadershipQueue;
+
+    /**Status Date sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Status Date')]")
+    public WebElement sortDescendingStatusDateLeadershipQueue;
+
+    /**Created on sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Created On')]")
+    public WebElement sortAscendingCreatedOnLeadershipQueue;
+
+    /**Created on sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Created On')]")
+    public WebElement sortDescendingCreatedOnLeadershipQueue;
 }
