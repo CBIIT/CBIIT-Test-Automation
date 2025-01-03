@@ -67,3 +67,15 @@ Feature: SNOWTRAVEL Portal Form Scenarios
     And I am Completing a Travel Planning Request form,
     When I select "No" for the "Registration Fees?" field
     Then the "URL of Registration Site" field will not be required.
+
+  @SNOWTRAVEL-200 @Chaudhryma @Regression @playwright
+  Scenario: Test Travel Planning System Catalog Item is Not Appearing in test environments - Clone restoration confirmation
+    Given I am an authenticated DOC CGH Travel Request User "Dimetria Branch"
+    When I click the "CBIIT Business Services" menu item under "Services"
+    Then the catalog item "Travel Planning System" should be available
+
+  @SNOWTRAVEL-256 @Chaudhryma @Regression @playwright
+  Scenario: Test Help text for the "Exceed Threshold?" field in the Travel Planning Request Form
+    Given I am a CGH User "Ann Chao"
+    When I navigate to field "Exceed Threshold?",
+    Then I should see help text that states: "Select 'Yes' if total travel expenses are expected to exceed $5,000."
