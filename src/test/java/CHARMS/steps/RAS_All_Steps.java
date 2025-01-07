@@ -1177,7 +1177,9 @@ public class RAS_All_Steps extends PageInitializer {
         softAssert.assertTrue(locateByXpath("//span[normalize-space()='NIH MRN number']").isDisplayed());
         softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Screener']").isDisplayed());
         softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='IIQ']").isDisplayed());
-        softAssert.assertTrue(locateByXpath("//span[contains(text(),'FA Survey')]").isDisplayed());
+        if(locateByXpath("//input[@id='sys_display.x_naci_family_coho_participant_study.study']").getDomAttribute("value").equalsIgnoreCase("Fanconi")) {
+            softAssert.assertTrue(locateByXpath("//span[contains(text(),'FA Survey')]").isDisplayed());
+        }
         softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Available Questionnaires']").isDisplayed());
         softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Study']").isDisplayed());
         softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Cohort']").isDisplayed());
