@@ -4,7 +4,6 @@ import APPS_COMMON.PlaywrightUtils.Playwright_Common_Utils;
 import CUSTOM_BUSINESS.OASYS.StepsImplementation.OASYS_Steps_Implementation;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
-
 import CUSTOM_BUSINESS.OASYS.Utils.OASYS_Constants;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.*;
@@ -13,7 +12,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import java.nio.file.Paths;
 
 public class Contracts {
@@ -376,7 +374,7 @@ public class Contracts {
      */
     @And("User double clicks on Testing Folder")
     public void user_double_clicks_on_testing_folder() {
-        page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("January 6,")).nth(2).dblclick();
+        page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("Testing Folder")).dblclick();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
