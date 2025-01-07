@@ -4,6 +4,8 @@ import APPS_COMMON.PlaywrightUtils.Playwright_Common_Utils;
 import CUSTOM_BUSINESS.OASYS.StepsImplementation.OASYS_Steps_Implementation;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
+
+import CUSTOM_BUSINESS.OASYS.Utils.OASYS_Constants;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.*;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -11,6 +13,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import java.nio.file.Paths;
 
 public class Contracts {
 
@@ -327,6 +331,129 @@ public class Contracts {
     @Then("User clicks on SAVE button")
     public void user_clicks_on_save_button() {
         page.locator("xpath=//span[contains(text(),'Save')]").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is clicking on Files tab
+     */
+    @And("User clicks on FILES tab")
+    public void user_clicks_on_files_tab() {
+        page.getByText("Files").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is clicking on ADD button on the Files tab
+     */
+    @And("User clicks on ADD button on the Files tab")
+    public void user_clicks_on_add_button_on_the_files_tab() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is clicking on Folder button
+     */
+    @And("User clicks on Folder")
+    public void user_clicks_on_folder() {
+        page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName("Folder").setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is typing Testing Folder in the Name field
+     * @param FolderName
+     */
+    @And("User types {string} in the Name field")
+    public void user_types_in_the_name_field(String FolderName) {
+        page.getByLabel("Name *").fill(FolderName);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is double-clicking on the expected folder
+     */
+    @And("User double clicks on Testing Folder")
+    public void user_double_clicks_on_testing_folder() {
+        page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("January 6,")).nth(2).dblclick();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is clicking on FILE button
+     */
+    @And("User clicks on FILE")
+    public void user_clicks_on_file() {
+        page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName("File")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is uploading a File
+     */
+    @And("User clicks on CHOOSE FILE button on New Files page")
+    public void user_clicks_on_choose_file_button_on_new_files_page() {
+        page.locator("input[type='file']").setInputFiles(Paths.get(OASYS_Constants.TEST_FILE_PATH));
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is typing the document description
+     * @param Description
+     */
+    @And("User types {string} in Description")
+    public void user_types_in_description(String Description) {
+        page.getByLabel("Description").click();
+        page.getByLabel("Description").fill(Description);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting Acquisition Plan (AP) from the Type dropdown
+     */
+    @And("User selects Acquisition Plan from the Type dropdown")
+    public void user_selects_acquisition_plan_from_the_type_dropdown() {
+        page.getByLabel("Type").getByText("Type").click();
+        page.locator("xpath=//span[normalize-space()='Acquisition Plan (AP)']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting Ready For Review from the Status dropdown
+     */
+    @And("User selects Ready For Review from the Status dropdown")
+    public void user_selects_ready_for_review_from_the_status_dropdown() {
+        page.getByLabel("Status").getByText("Status").click();
+        page.locator("xpath=//span[normalize-space()='Ready For Review']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is uploading the file by clicking on the SAVE button
+     */
+    @Then("User will upload the file by clicking on the SAVE button")
+    public void user_will_upload_the_file_by_clicking_on_the_save_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting the Testing Folder and clicking on DELETE icon
+     */
+    @And("User selects Testing Folder and clicks on DELETE icon")
+    public void user_clicks_on_delete_icon() {
+        page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("Testing Folder")).click();
+        page.locator("button").filter(new Locator.FilterOptions().setHasText("delete")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is clicking on DELETE button to confirm the deletion
+     */
+    @Then("User clicks on DELETE button to confirm the deletion")
+    public void user_clicks_on_delete_button_to_confirm_the_deletion() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Delete")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }
