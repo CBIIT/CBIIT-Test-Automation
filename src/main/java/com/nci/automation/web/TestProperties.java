@@ -115,6 +115,13 @@ public class TestProperties {
     public static String E_GRANTS_URL;
 
     /**
+     * OASYS URLS
+     */
+    public static final String OASYS_TEST_URL = "https://oasys-qa.cancer.gov/#/";
+    public static final String OASYS_STAGE_URL = "https://oasys-stage.cancer.gov/#/";
+    public static String OASYS_URL;
+
+    /**
      * COMETS ANALYTICS URLS
      */
     public static final String COMETS_ANALYTICS_TEST_URL = "https://www.comets-analytics-test.org/analysis";
@@ -449,6 +456,18 @@ public class TestProperties {
         return E_GRANTS_URL;
     }
 
+    public static String getOasysUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                OASYS_URL = OASYS_STAGE_URL;
+                break;
+            case "test":
+                OASYS_URL = OASYS_TEST_URL;
+                break;
+        }
+        return OASYS_URL;
+    }
+
     public static String getCometsAnalyticsUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
@@ -538,10 +557,10 @@ public class TestProperties {
     public static String getAct24ParticipantUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
-                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_TEST_URL;
+                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_STAGE_URL;
                 break;
             case "test":
-                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_STAGE_URL;
+                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_TEST_URL;
                 break;
         }
         return ACT_24_PARTICIPANT_URL;

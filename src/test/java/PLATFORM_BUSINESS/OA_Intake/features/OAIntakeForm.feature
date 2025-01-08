@@ -70,3 +70,75 @@ Feature: Create OA Intake form
     When User clicks on  OA Intake Home button
     Then User can verify they are redirected to Home Page
     And User logs out of OA Intake application
+
+  @selenium @Alena @Regression @OAIntake-332 @OAIntake-670 @OAIntake-669
+  Scenario: Requestor (Requested For) Queue for Negotiated Contracts
+    Given Leadership User logged in to OA Intake Portal
+    And User clicks on Requestor (Requested For) Queue tab
+    And User can verify page header as "Requestor (Requested For) Queue for Negotiated Contracts "
+    And User can see New Request button
+    And User can see Contact Support button
+    And User can verify Purchasing Online Tracking System (POTS) hyperlink is displayed
+    When User clicks Purchasing Online Tracking System (POTS) hyperlink
+    Then User is redirected to authentication page
+    And User can verify FFRDC Contract Administration System (FCAS) hyperlink is displayed
+    And User can verify that OA Intakes are pre-filtered for a logged in Leadership User
+    And User can verify that Request ID column can be sorted in descending and ascending order
+    And User can verify that Status column can be sorted in descending and ascending order
+    And User can verify that Request Title column can be sorted in descending and ascending order
+    And User can verify that Requestor (Requested For) column can be sorted in descending and ascending order
+    And User can verify that Submitter column can be sorted in descending and ascending order
+    And User can verify that Created On column can be sorted in descending and ascending order
+    And User can verify that Status Date column can be sorted in descending and ascending order
+    And User logs out of OA Intake application
+
+  @selenium @Alena @Regression @OAIntake-657 @OAIntake-640 @OAIntake-700 @OAIntake-708
+  Scenario: Contracting Officer/Contract Specialist Queue
+    Given Leadership User logged in to OA Intake Portal
+    And User clicks on CO CS Queue tab
+    And User can verify page header is "Contracting Officer/Contract Specialist Queue"
+    And User can see OA Intakes - Assigned section
+    When User clicks on OA Intakes - Assigned menu
+    Then User can see the following options for OA Intakes - Assigned requests
+      |option1        |option2          |option3       |
+      | Export as PDF | Export as Excel | Export as CSV|
+    And User can see OA Intakes - Assigned filter is preset with assigned requests
+    And User can remove filters for OA Intakes - Assigned requests
+    And User can see OA Intakes - Accepted section
+    When User clicks on OA Intakes - Accepted menu
+    Then User can see the following options for OA Intakes - Accepted requests
+      |option1        |option2          |option3       |
+      | Export as PDF | Export as Excel | Export as CSV|
+    And User can see OA Intakes - Accepted filter is preset with accepted requests
+    And User can remove filters for OA Intakes - Accepted requests
+    And User can see OA Intakes - Cancelled section
+    When User clicks on OA Intakes - Cancelled menu
+    Then User can see the following options for OA Intakes - Cancelled requests
+      |option1        |option2          |option3       |
+      | Export as PDF | Export as Excel | Export as CSV|
+    And User can see OA Intakes - Cancelled filter is preset with cancelled requests
+    And User can remove filters for OA Intakes - Cancelled requests
+    And User logs out of OA Intake application
+
+  @selenium @Alena @Regression @OAIntake-650 @OAIntake-606
+  Scenario: Leadership Queue (Pending Action)
+    Given Leadership User logged in to OA Intake Portal
+    And User clicks on Leadership Queue tab
+    And User can verify page header is "Leadership Queue (Pending Action)"
+    When User clicks on OA Intake Leadership Queue menu
+    Then User can see the following options for OA Intake Leadership Queue menu
+      |option1        |option2          |option3       |
+      | Export as PDF | Export as Excel | Export as CSV|
+    And User can see OA Intakes filter is preset with submitted requests
+    And User can verify that Leadership Queue Request ID column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Status column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Branch column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Request Title column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Requestor (Requested For) column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Estimated Amount column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Recommended Contract Mechanism column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Requested Award Date column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Submitter column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Status Date column can be sorted in descending and ascending order
+    And User can verify that Leadership Queue Created On column can be sorted in descending and ascending order
+    And User logs out of OA Intake application

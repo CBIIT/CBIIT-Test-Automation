@@ -17,5 +17,20 @@
      When Submitter User submits VIBE Peer-to-Peer Appreciation Program request
      Then Submitter User can verify they are redirected to general tickets view page
 
-
-
+   @selenium @Alena @Regression @AWARDNOM-31 @AWARDNOM-22
+   Scenario: Submit VIBE Peer-to-Peer Appreciation Program request
+     Given Submitter User logged in to VIBE Peer-to-Peer Appreciation Program application via Portal
+     And User navigates to Tickets tab
+     And User opens the last VIBE Peer-to-Peer Appreciation Program request submitted
+     And User can verify that Approval status is "Requested"
+     And User can confirm Cancel button is displayed
+     And User can confirm Add Watchers button is displayed
+     And User can confirm Add Attachment button is displayed
+     When User clicks Cancel button
+     Then User can see Cancel confirmation modal
+     And User cancels the Cancel confirmation modal
+     When User clicks Add Watchers button
+     And User adds "Anna Nicholson" as a watcher
+     Then User can see that Watch List ticket field is populated with "Anna Nicholson" name
+     When User adds attachment
+     Then User can verify that VIBE attachment is added

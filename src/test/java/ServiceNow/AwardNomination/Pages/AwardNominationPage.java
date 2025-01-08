@@ -67,6 +67,62 @@ public class AwardNominationPage {
     @FindBy(xpath = "//span[.=' Tickets ']")
     public WebElement sectionTickets;
 
+    /**  Last submitted VIBE Ticket */
+    @FindBy(xpath = "(//h4[.='VIBE Peer-to-Peer Appreciation Program'])[1]")
+    public WebElement lastSubmittedVIBETicket;
+
+    /**  ticket status Page View */
+    @FindBy(xpath = "//div[contains(text(),' Work in Progress')]")
+    public WebElement ticketsStatusPageView;
+
+    /**  approval status Page View */
+    @FindBy(xpath = "//div[contains(text(),' Requested')]")
+    public WebElement approvalStatusPageView;
+
+    /**  Cancel button */
+    @FindBy(xpath = "//span[contains(text(),'Cancel')]")
+    public WebElement cancelButton;
+
+    /**  Cancel Modal Cancel button */
+    @FindBy(xpath = "(//span[contains(text(),'Cancel')])[1]")
+    public WebElement cancelButtonCancelModal;
+
+    /**  Add Watchers button */
+    @FindBy(xpath = "//span[contains(text(),'Add Watchers')]")
+    public WebElement addWatchersButton;
+
+    /**  Add Attachment button */
+    @FindBy(xpath = "(//span[@class='glyphicon glyphicon-paperclip'])[2]")
+    public WebElement addAttachmentButton;
+
+    /**  choose file button */
+    @FindBy(xpath = "//div[@class='sn-file-drop-zone__drag-info ng-binding ng-scope']//input")
+    public WebElement chooseFileButton;
+
+    /**  Cancel My Ticket modal */
+    @FindBy(xpath = "//h3[.='Cancel My Ticket']")
+    public WebElement modalCancelMyTicket;
+
+    /**  text Field Add Watchers */
+    @FindBy(xpath = "//input[@class='select2-input select2-default']")
+    public WebElement textFieldAddWatchers;
+
+    /**  Save Changes confirmation modal button */
+    @FindBy(xpath = "//button[@class='md-raised md-primary md-button md-ink-ripple']")
+    public WebElement saveChangesConfModalButton;
+
+    /**  Watch list field */
+    @FindBy(xpath = "(//div[@class='ng-binding ng-scope'])[5]")
+    public WebElement watchListField;
+
+    /**  attachment Added */
+    @FindBy(xpath = "//a[@title='Download AWARD_NOMINATION.docx']")
+    public WebElement attachmentAdded;
+
+    /**  chosen watcher */
+    @FindBy(xpath = "//div[@class='select2-result-label']")
+    public WebElement chosenWatcher;
+
     public AwardNominationPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

@@ -11,8 +11,7 @@ import org.openqa.selenium.Keys;
 import static Hooks.Hooks.softAssert;
 import static com.nci.automation.web.TestProperties.getAwardNominationUrl;
 
-public class AwardNominationStepsImplementation extends PageInitializer {
-
+public class AwardNominationStepsImplementation  extends PageInitializer{
     /**
      * Logs in as a Submitter User to NCCR Portal.
      */
@@ -112,5 +111,76 @@ public class AwardNominationStepsImplementation extends PageInitializer {
      */
     public void verifySectionTicketsDisplayed() {
         softAssert.assertTrue(awardNominationPage.sectionTickets.isDisplayed());
+    }
+
+    /**
+     * verify last ticket status
+     * @param statusWorkInProgress
+     */
+    public void verifyLastTicketsStatus(String statusWorkInProgress) {
+        CommonUtils.waitForVisibility(awardNominationPage.ticketsStatusPageView);
+        softAssert.assertEquals(awardNominationPage.ticketsStatusPageView, statusWorkInProgress);
+    }
+
+    /**
+     * verify approval status
+     * @param approvalStatus
+     */
+    public void verifyApprovalStatus(String approvalStatus) {
+        CommonUtils.waitForVisibility(awardNominationPage.approvalStatusPageView);
+        softAssert.assertEquals(awardNominationPage.approvalStatusPageView.getText(), approvalStatus);
+    }
+
+    /**
+     * verify Cancel button is displayed
+     */
+    public void verifyCancelButtonDisplayed() {
+        CommonUtils.waitForVisibility(awardNominationPage.cancelButton);
+        softAssert.assertTrue(awardNominationPage.cancelButton.isDisplayed());
+    }
+
+    /**
+     * verify Add Watchers button is displayed
+     */
+    public void verifyAddWatchersButtonDisplayed() {
+        CommonUtils.waitForVisibility(awardNominationPage.addWatchersButton);
+        softAssert.assertTrue(awardNominationPage.addWatchersButton.isDisplayed());
+    }
+
+    /**
+     * verify Add Attachment button is displayed
+     */
+    public void verifyAddAttachmentButtonDisplayed() {
+        CommonUtils.waitForVisibility(awardNominationPage.addAttachmentButton);
+        softAssert.assertTrue(awardNominationPage.addAttachmentButton.isDisplayed());
+    }
+
+    /**
+     * add Watcher
+     * @param watcher
+     */
+    public void addWatcher(String watcher) {
+        CommonUtils.sendKeysToElement(awardNominationPage.textFieldAddWatchers,watcher);
+        CommonUtils.clickOnElement(awardNominationPage.chosenWatcher);
+        CommonUtils.clickOnElement(awardNominationPage.saveChangesConfModalButton);
+    }
+
+    /**
+     * verify Watcher is added
+     * @param watcher
+     */
+    public void verifyWatcherAdded(String watcher) {
+        CommonUtils.waitForVisibility(awardNominationPage.watchListField);
+        softAssert.assertTrue(awardNominationPage.watchListField.getText().equals(watcher));
+    }
+
+    /**
+     * upload a file
+     */
+    public void uploadFile(){
+        CommonUtils.clickOnElement(awardNominationPage.addAttachmentButton);
+        String uploadAttachment = System.getProperty("user.dir") + "/src/test/resources/AwardNominationResources/AWARD_NOMINATION.docx";
+        awardNominationPage.chooseFileButton.sendKeys(uploadAttachment);
+        CucumberLogUtils.logScreenshot();
     }
 }

@@ -71,11 +71,11 @@ public class OAIntakePage {
     public WebElement recompeteContract;
 
     /**  Re-compete Contract Number field */
-    @FindBy(xpath = "//*[@id='sp_formfield_contract_number']")
+    @FindBy(xpath = "//div[@id='s2id_sp_formfield_previous_contract_num']")
     public WebElement previousContractNumberField;
 
     /**  Previous Number field */
-    @FindBy(xpath = "//*[@id='sp_formfield_previous_co']")
+    @FindBy(xpath = "(//a[@class='select2-choice select2-default form-control'])[2]")
     public WebElement previousBuyerField;
 
     /**  Recommended Contract Mechanism dropdown*/
@@ -151,7 +151,7 @@ public class OAIntakePage {
     public WebElement modalSubmitButton;
 
     /**Confirmation Modal Text Task Order Acquisition Plan*/
-    @FindBy(xpath = "//ul//li[contains(text(),'Task Order Acquisition Plans (TOAPs) are required for both Internal and External Call/ Order submissions.')]")
+    @FindBy(xpath = "//li[.='Task Order Acquisition Plans (TOAPs) are required for both Internal and External Call/ Order submissions.']")
     public WebElement textConfModalTaskOrderAcquisitionPlans;
 
     /**Confirmation Modal Text Concept SPL*/
@@ -159,7 +159,7 @@ public class OAIntakePage {
     public WebElement textConfModalConceptSPL;
 
     /**Confirmation Modal Text draft Statement of Work and IGCE*/
-    @FindBy(xpath = "//ul//li[contains(text(),'In order for your new requirement to be assigned, you must at a minimum submit a draft Statement of Work and IGCE!')]")
+    @FindBy(xpath = "//li[.='In order for your new requirement to be assigned, you are encouraged to submit AT A MINIMUM a draft Statement of Work and IGCE!']")
     public WebElement textConfModalDraftStWorkICGE;
 
     /**OA Intake Page header*/
@@ -245,4 +245,288 @@ public class OAIntakePage {
     /**profile Log Out option*/
     @FindBy(xpath = "(//a[.='Log out'])[1]")
     public WebElement profileLogOutOption;
+
+    /**Requested For page header*/
+    @FindBy(xpath = "//h2[contains(text(),'Requestor (Requested For) Queue for ')]")
+    public WebElement pageHeaderRequestedFor;
+
+    /**Contracting Officer page header*/
+    @FindBy(xpath = "//h1[contains(text(),'Contracting Officer/Contract Specialist Queue')]")
+    public WebElement pageHeaderContractingOfficer;
+
+    /**New Request button*/
+    @FindBy(xpath = "//h2[.='New Request']")
+    public WebElement buttonNewRequest;
+
+    /**Contact Support button*/
+    @FindBy(xpath = "//h2[.='Contact Support']")
+    public WebElement buttonContactSupport;
+
+    /**hyperlink POTS*/
+    @FindBy(xpath = "//a[@href='https://pots.nci.nih.gov']")
+    public WebElement hyperlinkPOTS;
+
+    /**NIH login content*/
+    @FindBy(xpath = "//main[@class='nih-login-content']")
+    public WebElement nihLoginContent;
+
+    /**hyperlink FCAS*/
+    @FindBy(xpath = "//a[@href='https://fcas.cancer.gov/']")
+    public WebElement hyperlinkFCAS;
+
+    /**requestor breadcrumbs*/
+    @FindBy(xpath = "//a[contains(text(),'Requestor (Requested For) = Wanda Neal')]")
+    public WebElement requestorBreadcrumbs;
+
+    /**Request ID sort by ascending option*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Request ID')]")
+    public WebElement sortAscendingRequestID;
+
+    /**Request ID sort by descending option*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Request ID')]")
+    public WebElement sortDescendingRequestID;
+
+    /**Status sort by ascending option*/
+    @FindBy(xpath = "(//div[@title='Sort by Ascending'][contains(text(),'Status')])[1]")
+    public WebElement sortAscendingStatus;
+
+    /**Status sort by descending option*/
+    @FindBy(xpath = "(//div[@title='Sort by Descending'][contains(text(),'Status')])[1]")
+    public WebElement sortDescendingStatus;
+
+    /**Request Title by ascending option*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Request Title')]")
+    public WebElement sortAscendingRequestTitle;
+
+    /**Request Title by descending option*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Request Title')]")
+    public WebElement sortDescendingRequestTitle;
+
+    /**Requested For by ascending option*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),' Requestor (Requested For')]")
+    public WebElement sortAscendingRequestedFor;
+
+    /**Requested For by descending option*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),' Requestor (Requested For')]")
+    public WebElement sortDescendingRequestedFor;
+
+    /**Submitter by ascending option*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),' Submitter')]")
+    public WebElement sortAscendingSubmitter;
+
+    /**Submitter by descending option*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),' Submitter')]")
+    public WebElement sortDescendingSubmitter;
+
+    /**Created on by ascending option*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Created On')]")
+    public WebElement sortAscendingCreatedOn;
+
+    /**Created on by descending option*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Created On')]")
+    public WebElement sortDescendingCreatedOn;
+
+    /**Status Date by ascending option*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Status Date')]")
+    public WebElement sortAscendingStatusDate;
+
+    /**Status Date by ascending option*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Status Date')]")
+    public WebElement sortDescendingStatusDate;
+
+    /**OA Intakes - Assigned section*/
+    @FindBy(xpath = "//h2[contains(text(),'OA Intakes - Assigned')]")
+    public WebElement sectionOAIntakesAssigned;
+
+    /**OA Intakes - Assigned menu*/
+    @FindBy(xpath = "//button[@aria-label='OA Intakes - Assigned Context Menu']")
+    public WebElement sectionOAIntakesAssignedMenu;
+
+    /**OA Intakes - Assigned menu Export as PDF*/
+    @FindBy(xpath = "(//a[.='Export as PDF'])[1]")
+    public WebElement exportAsPDFOAIntakesAssignedMenu;
+
+    /**OA Intakes - Assigned menu Export as Excel*/
+    @FindBy(xpath = "(//a[.='Export as Excel'])[1]")
+    public WebElement exportAsExcelOAIntakesAssignedMenu;
+
+    /**OA Intakes - Assigned menu Export as CSV*/
+    @FindBy(xpath = "(//a[.='Export as CSV'])[1]")
+    public WebElement exportAsCSVOAIntakesAssignedMenu;
+
+    /**OA Intakes - Accepted section*/
+    @FindBy(xpath = "//h2[contains(text(),'OA Intakes - Accepted')]")
+    public WebElement sectionOAIntakesAccepted;
+
+    /**OA Intakes - Cancelled section*/
+    @FindBy(xpath = "//h2[contains(text(),'OA Intakes - Cancelled')]")
+    public WebElement sectionOAIntakesCancelled;
+
+    /**OA Intakes - Accepted menu*/
+    @FindBy(xpath = "//button[@aria-label='OA Intakes - Accepted Context Menu']")
+    public WebElement sectionOAIntakesAcceptedMenu;
+
+    /**OA Intakes - Accepted menu Export as PDF*/
+    @FindBy(xpath = "(//a[.='Export as PDF'])[2]")
+    public WebElement exportAsPDFOAIntakesAcceptedMenu;
+
+    /**OA Intakes - Accepted menu Export as Excel*/
+    @FindBy(xpath = "(//a[.='Export as Excel'])[2]")
+    public WebElement exportAsExcelOAIntakesAcceptedMenu;
+
+    /**OA Intakes - Accepted menu Export as CSV*/
+    @FindBy(xpath = "(//a[.='Export as CSV'])[2]")
+    public WebElement exportAsCSVOAIntakesAcceptedMenu;
+
+    /**OA Intakes - AssignedStatus = Assigned*/
+    @FindBy(xpath = "//a[.='Status = Assigned']")
+    public WebElement presetFilterAssigned;
+
+    /**OA Intakes - Cancelled Status = Cancelled*/
+    @FindBy(xpath = "//a[.='Status = Cancelled']")
+    public WebElement presetFilterCancelled;
+
+    /**OA Intakes - Assigned remove Subsequent conditions*/
+    @FindBy(xpath = "(//a[@aria-label='All Press enter to remove all subsequent conditions'])[1]")
+    public WebElement removeSubsequentConditionsAssigned;
+
+    /**OA Intakes - Accepted remove Subsequent conditions*/
+    @FindBy(xpath = "//*[@id='xad4221091bee8e10c5c40e1ce54bcb2e']/div/div/div/div[2]/div[1]/div/div/span[1]/a")
+    public WebElement removeSubsequentConditionsAccepted;
+
+    /**OA Intakes - Cancelled remove Subsequent conditions*/
+    @FindBy(xpath = "//*[@id='x10fadd561bce4a10c5c40e1ce54bcbbd']/div/div/div/div[2]/div[1]/div/div/span[1]/a")
+    public WebElement removeSubsequentConditionsCancelled;
+
+    /**OA Intakes - Accepted Status = Accepted*/
+    @FindBy(xpath = "//a[.='Status = Accepted']")
+    public WebElement presetFilterAccepted;
+
+    /**OA Intakes - Cancelled menu*/
+    @FindBy(xpath = "(//span[@class='dropdown m-r-xs'])[3]")
+    public WebElement sectionOAIntakesCancelledMenu;
+
+    /**OA Intakes - Cancelled menu Export as PDF*/
+    @FindBy(xpath = "//*[@id='x10fadd561bce4a10c5c40e1ce54bcbbd']/div/div/div/div[1]/span/ul/li[1]/a")
+    public WebElement exportAsPDFOAIntakesCancelledMenu;
+
+    /**OA Intakes - Cancelled menu Export as Excel*/
+    @FindBy(xpath = "//*[@id='x10fadd561bce4a10c5c40e1ce54bcbbd']/div/div/div/div[1]/span/ul/li[2]/a")
+    public WebElement exportAsExcelOAIntakesCancelledMenu;
+
+    /**OA Intakes - Cancelled menu Export as CSV*/
+    @FindBy(xpath = "//*[@id='x10fadd561bce4a10c5c40e1ce54bcbbd']/div/div/div/div[1]/span/ul/li[3]/a")
+    public WebElement exportAsCSVOAIntakesCancelledMenu;
+
+    /**OA Intakes Context Menu*/
+    @FindBy(xpath = "//button[@aria-label='OA Intakes Context Menu']")
+    public WebElement oAIntakesContextMenu;
+
+    /**OA Intakes - Leadership Queue menu Export as PDF*/
+    @FindBy(xpath = "//a[.='Export as PDF']")
+    public WebElement exportAsPDFLeadershipQueueMenu;
+
+    /**OA Intakes - Leadership Queue menu Export as Excel*/
+    @FindBy(xpath = "//a[.='Export as Excel']")
+    public WebElement exportAsExcelLeadershipQueueMenu;
+
+    /**OA Intakes - Leadership Queue menu Export as CSV*/
+    @FindBy(xpath = "//a[.='Export as CSV']")
+    public WebElement exportAsCSVLeadershipQueueMenu;
+
+    /**preset Submitted status Leadership queue*/
+    @FindBy(xpath = "//a[.='Status = Submitted']")
+    public WebElement presetSubmittedStatusLeadershipQueue;
+
+    /** Leadership queue page header */
+    @FindBy(xpath = "(//span[contains(text(),'Leadership Queue (Pending Action)')])[2]")
+    public WebElement leadershipQueuePageHeader;
+
+    /**Request ID sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Request ID')]")
+    public WebElement sortAscendingRequestIDLeadershipQueue;
+
+    /**Request ID sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Request ID')]")
+    public WebElement sortDescendingRequestIDLeadershipQueue;
+
+    /**Status sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Status')]")
+    public WebElement sortAscendingStatusLeadershipQueue;
+
+    /**Status sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Status')]")
+    public WebElement sortDescendingStatusLeadershipQueue;
+
+    /**Branch sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Branch')]")
+    public WebElement sortAscendingBranchLeadershipQueue;
+
+    /**Branch sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Branch')]")
+    public WebElement sortDescendingBranchLeadershipQueue;
+
+    /**Request Title sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Request Title')]")
+    public WebElement sortAscendingRequestTitleLeadershipQueue;
+
+    /**Request Title  sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Request Title')]")
+    public WebElement sortDescendingRequestTitleLeadershipQueue;
+
+    /**Requestor sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Requestor (Requested For)')]")
+    public WebElement sortAscendingRequestorLeadershipQueue;
+
+    /**Requestor  sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Requestor (Requested For)')]")
+    public WebElement sortDescendingRequestorLeadershipQueue;
+
+    /**Estimated Amount sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Estimated Amount')]")
+    public WebElement sortAscendingEstimatedAmountLeadershipQueue;
+
+    /**Estimated Amount sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Estimated Amount')]")
+    public WebElement sortDescendingEstimatedAmountLeadershipQueue;
+
+    /**Recommended Contract Mechanism sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Recommended Contract Mechanism')]")
+    public WebElement sortAscendingRecommendedContractMechanismLeadershipQueue;
+
+    /**Recommended Contract Mechanism sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Recommended Contract Mechanism')]")
+    public WebElement sortDescendingRecommendedContractMechanismLeadershipQueue;
+
+    /**Requested Award Date sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Requested Award Date')]")
+    public WebElement sortAscendingRequestedAwardDateLeadershipQueue;
+
+    /**Requested Award Date sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Requested Award Date')]")
+    public WebElement sortDescendingRequestedAwardDateLeadershipQueue;
+
+    /**Submitter sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Submitter')]")
+    public WebElement sortAscendingSubmitterLeadershipQueue;
+
+    /**Submitter sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Submitter')]")
+    public WebElement sortDescendingSubmitterLeadershipQueue;
+
+    /**Status Date sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Status Date')]")
+    public WebElement sortAscendingStatusDateLeadershipQueue;
+
+    /**Status Date sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Status Date')]")
+    public WebElement sortDescendingStatusDateLeadershipQueue;
+
+    /**Created on sort by ascending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Ascending'][contains(text(),'Created On')]")
+    public WebElement sortAscendingCreatedOnLeadershipQueue;
+
+    /**Created on sort by descending option Leadership Queue*/
+    @FindBy(xpath = "//div[@title='Sort by Descending'][contains(text(),'Created On')]")
+    public WebElement sortDescendingCreatedOnLeadershipQueue;
 }
