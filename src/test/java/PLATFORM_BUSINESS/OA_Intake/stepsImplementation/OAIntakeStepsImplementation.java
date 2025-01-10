@@ -8,7 +8,6 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.testng.Assert;
-
 import static com.nci.automation.web.TestProperties.getOAntakeUrl;
 
 public class OAIntakeStepsImplementation extends PageInitializer {
