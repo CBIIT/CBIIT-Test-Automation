@@ -11,18 +11,13 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.TestProperties;
 import com.nci.automation.web.WebDriverUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
-
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import static com.nci.automation.web.TestProperties.getFanconiUrl;
-import static com.nci.automation.web.TestProperties.getNCISPUrl;
 
 public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     String referralValue;
