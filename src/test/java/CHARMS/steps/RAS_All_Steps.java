@@ -3,6 +3,7 @@ package CHARMS.steps;
 import CHARMS.constants.CHARMSRASScreenerConstants;
 import CHARMS.constants.Native_View_Constants;
 import CHARMS.pages.MyRASPhysicalActivitiesSurvey;
+import CHARMS.pages.MyRASSmokingSurveyPage;
 import CHARMS.pages.NativeViewCHARMSDashboardPage;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
@@ -17,11 +18,14 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+
+import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByCssSelector;
 import static Hooks.Hooks.softAssert;
 import static CHARMS.pages.MyRASHomePage.dynamicModuleLocator;
 import static CHARMS.steps.RAS_Common_Methods.*;
@@ -726,6 +730,7 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewCHARMSAddNewParticipantPage.unlockStudySubcategoryButton);
         CommonUtils.waitForClickability(nativeViewCHARMSAddNewParticipantPage.studySubcategoryTextbox);
         CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studySubcategoryTextbox, studySubcategory);
+        CommonUtils.sleep(500);
         CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studySubcategoryTextbox, Keys.ENTER);
         nativeViewCHARMSAddNewParticipantPage.lockStudySubcategoryButton.click();
         CommonUtils.sleep(800);
@@ -870,12 +875,11 @@ public class RAS_All_Steps extends PageInitializer {
     @Given("Study Team member navigates to Participant Studies")
     public void study_team_member_navigates_to_participant_studies() {
         CommonUtils.sleep(2000);
-        String participantName = locateByXpath("//input[@aria-label='Name']").getAttribute("value");
         JavascriptUtils.scrollIntoView(nativeViewCHARMSAddNewParticipantPage.participantStudiesTab);
         CommonUtils.clickOnElement(nativeViewCHARMSAddNewParticipantPage.participantStudiesTab);
-        CommonUtils.hoverOverElement(locateByXpath("//a[normalize-space()='Eligible']"));
+        CommonUtils.hoverOverElement(locateByXpath("//*[@glide_table='x_naci_family_coho_participant_study']//child::tbody//child::tr//child::td[5]"));
         CommonUtils.sleep(500);
-        JavascriptUtils.clickByJS(locateByXpath("(//a[@aria-label='Preview record: " + participantName + "'])[2]"));
+        CommonUtils.clickOnElement(locateByXpath("//*[@glide_table='x_naci_family_coho_participant_study']//child::tbody//child::tr//child::td[2]//child::a"));
         CommonUtils.sleep(500);
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(200);
@@ -1177,7 +1181,7 @@ public class RAS_All_Steps extends PageInitializer {
         softAssert.assertTrue(locateByXpath("//span[normalize-space()='NIH MRN number']").isDisplayed());
         softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Screener']").isDisplayed());
         softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='IIQ']").isDisplayed());
-        if(locateByXpath("//input[@id='sys_display.x_naci_family_coho_participant_study.study']").getDomAttribute("value").equalsIgnoreCase("Fanconi")) {
+        if (locateByXpath("//input[@id='sys_display.x_naci_family_coho_participant_study.study']").getDomAttribute("value").equalsIgnoreCase("Fanconi")) {
             softAssert.assertTrue(locateByXpath("//span[contains(text(),'FA Survey')]").isDisplayed());
         }
         softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Available Questionnaires']").isDisplayed());
@@ -1287,5 +1291,81 @@ public class RAS_All_Steps extends PageInitializer {
         myRASPhysicalActivitiesSurvey.submitButton.click();
         CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Submits the Smoking Survey by initializing data, selecting radio buttons and dropdown values.
+     */
+    @Given("submits the Smoking Survey Survey")
+    public void submits_the_smoking_survey_survey() {
+        ras_Survey_Smoking_Survey_TestDataManager.dataInitializerSmokingSurvey("RASSmokingSurvey");
+        CommonUtils.sleep(500);
+        MyRASSmokingSurveyPage.dynamicRadioButtonSelector(ras_Survey_Smoking_Survey_TestDataManager.HAVE_YOU_EVER_USED_ANY_OF_THESE_TOBACCO_PRODUCTS_EVEN_ONCE_SELECT_ALL_THAT_APPLY);
+        CommonUtils.selectDropDownValue(ras_Survey_Smoking_Survey_TestDataManager.HOW_MANY_CIGARETTES_HAVE_YOU_SMOKED_IN_YOUR_LIFE_PROVIDE_AN_ESTIMATE, myRASSmokingSurveyPage.howManyCigarettesHaveYouSmokedInYourLifeSelectDropdown);
+        CommonUtils.selectDropDownValue(ras_Survey_Smoking_Survey_TestDataManager.HOW_OLD_WERE_YOU_WHEN_YOU_FIRST_SMOKED_A_CIGARETTE, myRASSmokingSurveyPage.ageWhenYouFirstSmokedACigaretteSelectDropdown);
+        CommonUtils.selectDropDownValue(ras_Survey_Smoking_Survey_TestDataManager.HOW_OLD_WERE_YOU_WHEN_YOU_STARTED_SMOKING_CIGARETTES_ON_A_REGULAR_BASIS, myRASSmokingSurveyPage.ageWhenStartedSmokingCigarettesOnARegularBasisSelectDropdown);
+        myRASSmokingSurveyPage.howManyCigarettesHaveYouSmokedPerDayInputField.sendKeys(ras_Survey_Smoking_Survey_TestDataManager.ON_DAYS_THAT_YOU_SMOKE_SMOKED_HOW_MANY_CIGARETTES_DO_DID_YOU_SMOKE_PER_DAY);
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+        myRASSmokingSurveyPage.submitButton.click();
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Study Team members logs in to Native View and verifies QBank data for a specific survey.
+     *
+     * @param surveyName the name of the survey for which QBank data needs to be verified
+     */
+    @Given("Study Team members logs in to Native View and verifies {string} QBank data")
+    public void study_team_members_logs_in_to_native_view_and_verifies_qbank_data(String surveyName) {
+//        ras_Screener_TestDataManager.dataInitializerRasScreener("screenerScenarioAdult");
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        CommonUtils.sleep(4000);
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("Participant Studies");
+        CucumberLogUtils.logScreenshot();
+        NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch("Participant Studies").click();
+        CommonUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME));
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME));
+        CommonUtils.sleep(1000);
+        if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        }
+        CommonUtils.sleep(2000);
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantStudyPage.questionBanksTab);
+        nativeViewCHARMSParticipantStudyPage.questionBanksTab.click();
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(500);
+        if (surveyName.equals("Patient Smoking History")) {
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantStudyPage.patientSmokingHistoryText);
+            CommonUtils.waitForVisibility(nativeViewCHARMSParticipantStudyPage.questionBanksPreviewButton);
+            nativeViewCHARMSParticipantStudyPage.questionBanksPreviewButton.click();
+            CommonUtils.sleep(500);
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+            CommonUtils.sleep(500);
+            verify_patient_smoking_history_in_native_view();
+        }
+
+    }
+
+    /**
+     * Method for verifying that Patient Smoking History in Native View matches the values provided by the RasSmokingSurvey Excel sheet.
+     */
+    public void verify_patient_smoking_history_in_native_view() {
+//        ras_Survey_Smoking_Survey_TestDataManager.dataInitializerSmokingSurvey("RASSmokingSurvey");
+        softAssert.assertTrue(nativeViewCHARMSPatientSmokingHistoryPage.checkboxIsChecked(ras_Survey_Smoking_Survey_TestDataManager.HAVE_YOU_EVER_USED_ANY_OF_THESE_TOBACCO_PRODUCTS_EVEN_ONCE_SELECT_ALL_THAT_APPLY), "* * * * *  PATIENT SMOKING HISTORY -- CHECKBOX NOT CHECKED * * * * *");
+        CommonUtils.verifyingDropDownValueIsSelected(nativeViewCHARMSPatientSmokingHistoryPage.howManyCigarettesHaveYouSmokedInYourLifeDropdown, ras_Survey_Smoking_Survey_TestDataManager.HOW_MANY_CIGARETTES_HAVE_YOU_SMOKED_IN_YOUR_LIFE_PROVIDE_AN_ESTIMATE, "* * * * *  PATIENT SMOKING HISTORY -- VALUE MISMATCH IN 'How many cigarettes have you smoked in your life? Provide an estimate.' DROPDOWN * * * * *");
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSPatientSmokingHistoryPage.ageAtFirstCigarette);
+        CommonUtils.verifyingDropDownValueIsSelected(nativeViewCHARMSPatientSmokingHistoryPage.ageAtFirstCigarette, ras_Survey_Smoking_Survey_TestDataManager.HOW_OLD_WERE_YOU_WHEN_YOU_FIRST_SMOKED_A_CIGARETTE, "* * * * * PATIENT SMOKING HISTORY -- VALUE MISMATCH IN 'How old were you when you first smoked a cigarette?' DROPDOWN * * * * *");
+        CommonUtils.verifyingDropDownValueIsSelected(nativeViewCHARMSPatientSmokingHistoryPage.ageAtRegularCigaretteUse, ras_Survey_Smoking_Survey_TestDataManager.HOW_OLD_WERE_YOU_WHEN_YOU_STARTED_SMOKING_CIGARETTES_ON_A_REGULAR_BASIS, "* * * * *  PATIENT SMOKING HISTORY -- VALUE MISMATCH IN 'How old were you when you started smoking cigarettes on a regular basis?' DROPDOWN * * * * *");
+        softAssert.assertEquals(nativeViewCHARMSPatientSmokingHistoryPage.cigarettesPerDay.getDomAttribute("value"), ras_Survey_Smoking_Survey_TestDataManager.ON_DAYS_THAT_YOU_SMOKE_SMOKED_HOW_MANY_CIGARETTES_DO_DID_YOU_SMOKE_PER_DAY, "* * * * *  PATIENT SMOKING HISTORY -- VALUE MISMATCH IN 'On days that you [smoke/smoked] how many cigarettes [do/did] you smoke per day?' FIELD * * * * *");
     }
 }
