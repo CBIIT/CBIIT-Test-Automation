@@ -28,7 +28,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     SoftAssert softAssert = new SoftAssert();
 
     /**
-     * Login to the Nativeview to run the reset accounts script for the Fanconi screener accounts
+     * Login to the NativeView to run the reset accounts script for the Fanconi screener accounts
      */
     public void resetTestAccountSignIn() {
         if (TestProperties.ENV.equals("test")) {
