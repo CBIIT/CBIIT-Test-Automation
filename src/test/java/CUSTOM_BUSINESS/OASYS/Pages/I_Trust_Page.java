@@ -1,4 +1,4 @@
-package CUSTOM_BUSINESS.Oasys.Pages;
+package CUSTOM_BUSINESS.OASYS.Pages;
 
 public class I_Trust_Page {
 
