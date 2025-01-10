@@ -51,3 +51,35 @@ Scenario: Verify that a User can add vendor contacts to a contract
   And User types "111-222-3344" in Phone field
   And User selects Business Representative from Contact Type
   Then User clicks on SAVE button
+
+@AddContractFolder @NESARH2 @Regression @playwright
+Scenario: Add a folder to a contract
+  When User clicks on Contracts
+  And user selects "IT Commodities and Solutions" from the list of contracts
+  And User clicks on FILES tab
+  And User clicks on ADD button on the Files tab
+  And User clicks on Folder
+  And User types "Testing Folder" in the Name field
+  Then User clicks on SAVE button
+
+@AddContractFiles @NESARH2 @Regression @playwright
+Scenario: Add a file to a contract
+  When User clicks on Contracts
+  And user selects "IT Commodities and Solutions" from the list of contracts
+  And User clicks on FILES tab
+  And User double clicks on Testing Folder
+  And User clicks on ADD button on the Files tab
+  And User clicks on FILE
+  And User clicks on CHOOSE FILE button on New Files page
+  And User types "Test Document" in Description
+  And User selects Acquisition Plan from the Type dropdown
+  And User selects Ready For Review from the Status dropdown
+  Then User will upload the file by clicking on the SAVE button
+
+@DeleteContractFolder @NESARH2 @Regression @playwright
+Scenario: Verify that Test COR can not access All Contracts
+  When User clicks on Contracts
+  And user selects "IT Commodities and Solutions" from the list of contracts
+  And User clicks on FILES tab
+  And User selects Testing Folder and clicks on DELETE icon
+  Then User clicks on DELETE button to confirm the deletion

@@ -6,7 +6,7 @@ Feature: Top Accomplishments Submission
     When they access the 'NERD' Catalog
     Then they can create a record called "Top Accomplishments"
     And add attachments via the record itself
-    And 'Category' Field Auto Populated with the following value "Top Accomplishments"
+    And 'Category' Field Auto Populated with the following value "Top Accomplishment"
     And 'Rank' field is mandatory drop-down with the following options "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Not Top 10"
     And 'Fiscal Year' field is mandatory dropdown with the following options for Previous year "2023", and Current year "2024"
     And 'Title' field is mandatory short text field

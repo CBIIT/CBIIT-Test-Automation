@@ -24,6 +24,7 @@ import ANALYSIS_TOOLS.ThreeDVizSNP.pages.ThreeDVizSNPPage;
 import ANALYSIS_TOOLS.mSigPortal.pages.*;
 import ANALYSIS_TOOLS.scAtlas.pages.SCAtlasCohortsPage;
 import ANALYSIS_TOOLS.scAtlas.pages.SCAtlasHomePage;
+import CHARMS.scenariosData.*;
 import CUSTOM_BUSINESS.CCR.pages.*;
 import CUSTOM_BUSINESS.CCR.stepsImplementation.*;
 import CUSTOM_BUSINESS.DCEG.pages.*;
@@ -49,7 +50,6 @@ import ServiceNow.AwardNomination.StepsImplementation.AwardNominationStepsImplem
 import CHARMS.constants.*;
 import CHARMS.nativeView.pages.CHARMSParticipantDetailsPage;
 import CHARMS.pages.*;
-import CHARMS.scenariosData.*;
 import CHARMS.stepsImplementation.*;
 import CHARMS.stepsImplementation.RASStudy.*;
 import DEPRECATED.COVIDCode.Pages.*;
