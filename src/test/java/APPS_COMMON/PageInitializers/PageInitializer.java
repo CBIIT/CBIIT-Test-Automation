@@ -24,6 +24,7 @@ import ANALYSIS_TOOLS.ThreeDVizSNP.pages.ThreeDVizSNPPage;
 import ANALYSIS_TOOLS.mSigPortal.pages.*;
 import ANALYSIS_TOOLS.scAtlas.pages.SCAtlasCohortsPage;
 import ANALYSIS_TOOLS.scAtlas.pages.SCAtlasHomePage;
+import CHARMS.scenariosData.*;
 import CUSTOM_BUSINESS.CCR.pages.*;
 import CUSTOM_BUSINESS.CCR.stepsImplementation.*;
 import CUSTOM_BUSINESS.DCEG.pages.*;
@@ -49,7 +50,7 @@ import ServiceNow.AwardNomination.StepsImplementation.AwardNominationStepsImplem
 import CHARMS.constants.*;
 import CHARMS.nativeView.pages.CHARMSParticipantDetailsPage;
 import CHARMS.pages.*;
-import CHARMS.scenariosData.*;
+
 import CHARMS.stepsImplementation.*;
 import CHARMS.stepsImplementation.RASStudy.*;
 import DEPRECATED.COVIDCode.Pages.*;
@@ -154,11 +155,11 @@ public class PageInitializer extends WebDriverUtils {
 	public static FHQSubmissionPage fHQSubmissionPage;
 	public static FHQSubmissionStepsImpl fHQSubmissionStepsImpl;
 	public static FHQConstants fHQConstants;
-	public static FHQ_TestDataManager fHQ_TestDataManager;
-	public static RAS_Screener_TestDataManager ras_Screener_TestDataManager;
-	public static RAS_NV_Consent_Record_TestDataManager ras_NV_Consent_Record_TestDataManager;
-	public static RAS_Survey_TestDataManager ras_Survey_TestDataManager;
-	public static IIQ_TestDataManager iiq_TestDataManager;
+	public static CHARMS.scenariosData.FHQ_TestDataManager fHQ_TestDataManager;
+	public static CHARMS.scenariosData.RAS_Screener_TestDataManager ras_Screener_TestDataManager;
+	public static CHARMS.scenariosData.RAS_NV_Consent_Record_TestDataManager ras_NV_Consent_Record_TestDataManager;
+	public static CHARMS.scenariosData.RAS_Survey_TestDataManager ras_Survey_TestDataManager;
+	public static CHARMS.scenariosData.IIQ_TestDataManager iiq_TestDataManager;
 	public static ParticipantDetailsPage participantDetailsPage;
 	public static ReferralTablePage referralTablePage;
 	public static FanconiEligibilityQuestionnairePage fanconiEligibilityQuestionnairePage;
