@@ -45,4 +45,9 @@ public class ESRApprovalSteps {
     public void the_user_confirms_the_federal_lead_closeout_approval_is_completed() {
         ESRApprovalStepsImplementation.confirmFederalLeadCloseoutApprovalIsCompleted();
     }
+
+    @And("the user is approved from a federal lead for ESR-I closeout approval")
+    public void the_user_is_approved_from_a_federal_lead_for_esr_i_closeout_approval() {
+        ESRApprovalStepsImplementation.federalLeadESRIApproval();
+    }
 }
