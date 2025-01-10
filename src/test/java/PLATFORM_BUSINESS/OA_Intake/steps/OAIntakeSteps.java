@@ -7,6 +7,8 @@ import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.Map;
@@ -66,6 +68,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter confirms draft status is default for a new request
+     *
      * @param statusDraft
      */
     @Given("Submitter User confirms that Status is {string} by default")
@@ -75,6 +78,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter  fills in Request Title field
+     *
      * @param title
      */
     @Given("Submitter User fills in Request Title field as {string}")
@@ -84,6 +88,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter  fills in Request Description field
+     *
      * @param description
      */
     @Given("Submitter User fills in Request Description field as {string}")
@@ -93,6 +98,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter fills in Requested Award Date field
+     *
      * @param awardDate
      */
     @Given("Submitter User fills in Requested Award Date as {string}")
@@ -112,6 +118,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter fills in NAICS Code
+     *
      * @param code
      */
     @Then("Submitter User can fill in a NAICS Code Number field as {string}")
@@ -157,6 +164,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter sees alert message for choosing Task Order Plans
+     *
      * @param alert
      */
     @Then("Submitter User can see alert message {string}")
@@ -175,6 +183,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter fills in Date Concept Peer Review Complete field
+     *
      * @param date
      */
     @Then("Submitter User can fill in a field Date Concept Peer Review Completed as {string}")
@@ -193,6 +202,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter fills in PSC Code field
+     *
      * @param pscCode
      */
     @Then("Submitter User can fill in PSC Code field as {string}")
@@ -211,6 +221,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter fills in Please enter the estimated value of IT field
+     *
      * @param sum
      */
     @Then("Submitter User can enter {string} for Please enter the estimated value of IT and biomedical computing requirement")
@@ -230,6 +241,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter fills in SSO Clearance Ticket field
+     *
      * @param ticket
      */
     @Then("Submitter User can enter {string} for SSO Clearance Ticket field")
@@ -250,6 +262,7 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @Then("Submitter User can verify a submission confirmation modal OA Intake form appears")
     public void submitter_user_can_verify_a_submission_confirmation_modal_oa_intake_form_appears() {
+        CommonUtils.sleep(2000);
         Assert.assertTrue(oaIntakePage.textConfModalTaskOrderAcquisitionPlans.isDisplayed());
         Assert.assertTrue(oaIntakePage.textConfModalConceptSPL.isDisplayed());
         Assert.assertTrue(oaIntakePage.textConfModalDraftStWorkICGE.isDisplayed());
@@ -316,6 +329,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * User verifies various tabs are displayed
+     *
      * @param option
      */
     @Given("User can verify {string} tab is displayed")
@@ -328,26 +342,26 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @When("User clicks on Menu dropdown")
     public void user_clicks_on_menu_dropdown() {
-     CommonUtils.clickOnElement(oaIntakePage.menuDrpdwn);
+        CommonUtils.clickOnElement(oaIntakePage.menuDrpdwn);
     }
 
     /**
-     *  Leadership User verifies Menu options are displayed
+     * Leadership User verifies Menu options are displayed
      */
     @Then("Leadership User can verify the menu options displayed")
     public void leadership_user_can_verify_the_menu_options_displayed() {
-     CommonUtils.waitForVisibility(oaIntakePage.menuHome);
-     Assert.assertTrue(oaIntakePage.menuHome.isDisplayed());
-     CommonUtils.waitForVisibility(oaIntakePage.menuRequestorQueue);
-     Assert.assertTrue(oaIntakePage.menuRequestorQueue.isDisplayed());
-     CommonUtils.waitForVisibility(oaIntakePage.menuLeadershipQueue);
-     Assert.assertTrue(oaIntakePage.menuLeadershipQueue.isDisplayed());
-     CommonUtils.waitForVisibility(oaIntakePage.menuCOCSQueue);
-     Assert.assertTrue(oaIntakePage.menuCOCSQueue.isDisplayed());
-     CommonUtils.waitForVisibility(oaIntakePage.menuManagementDashboard);
-     Assert.assertTrue(oaIntakePage.menuManagementDashboard.isDisplayed());
-     CommonUtils.waitForVisibility(oaIntakePage.menuUserGuide);
-     Assert.assertTrue(oaIntakePage.menuUserGuide.isDisplayed());
+        CommonUtils.waitForVisibility(oaIntakePage.menuHome);
+        Assert.assertTrue(oaIntakePage.menuHome.isDisplayed());
+        CommonUtils.waitForVisibility(oaIntakePage.menuRequestorQueue);
+        Assert.assertTrue(oaIntakePage.menuRequestorQueue.isDisplayed());
+        CommonUtils.waitForVisibility(oaIntakePage.menuLeadershipQueue);
+        Assert.assertTrue(oaIntakePage.menuLeadershipQueue.isDisplayed());
+        CommonUtils.waitForVisibility(oaIntakePage.menuCOCSQueue);
+        Assert.assertTrue(oaIntakePage.menuCOCSQueue.isDisplayed());
+        CommonUtils.waitForVisibility(oaIntakePage.menuManagementDashboard);
+        Assert.assertTrue(oaIntakePage.menuManagementDashboard.isDisplayed());
+        CommonUtils.waitForVisibility(oaIntakePage.menuUserGuide);
+        Assert.assertTrue(oaIntakePage.menuUserGuide.isDisplayed());
     }
 
     /**
@@ -355,7 +369,7 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @When("User clicks on Instructions")
     public void user_clicks_on_instructions() {
-    CommonUtils.clickOnElement(oaIntakePage.hyperlinkInstructions);
+        CommonUtils.clickOnElement(oaIntakePage.hyperlinkInstructions);
     }
 
     /**
@@ -393,7 +407,8 @@ public class OAIntakeSteps extends PageInitializer {
     @Then("User can verify they are redirected to Home Page")
     public void user_can_verify_they_are_redirected_to_home_page() {
         CommonUtils.waitForVisibility(oaIntakePage.pageHeaderOAIntake);
-        Assert.assertTrue(oaIntakePage.pageHeaderOAIntake.isDisplayed());;
+        Assert.assertTrue(oaIntakePage.pageHeaderOAIntake.isDisplayed());
+        ;
     }
 
     /**
@@ -459,7 +474,7 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @Given("User can verify page header is {string}")
     public void user_can_verify_page_header_is(String header) {
-       softAssert.assertEquals(oaIntakePage.leadershipQueuePageHeader.getText(), header);
+        softAssert.assertEquals(oaIntakePage.leadershipQueuePageHeader.getText(), header);
     }
 
     /**
@@ -467,7 +482,7 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @Given("User can see New Request button")
     public void user_can_see_new_request_button() {
-       softAssert.assertTrue(oaIntakePage.buttonNewRequest.isDisplayed());
+        softAssert.assertTrue(oaIntakePage.buttonNewRequest.isDisplayed());
     }
 
     /**
@@ -491,7 +506,7 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @When("User clicks Purchasing Online Tracking System \\(POTS) hyperlink")
     public void user_clicks_purchasing_online_tracking_system_pots_hyperlink() {
-       CommonUtils.clickOnElement(oaIntakePage.hyperlinkPOTS);
+        CommonUtils.clickOnElement(oaIntakePage.hyperlinkPOTS);
     }
 
     /**
@@ -524,7 +539,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *Request ID column can be sorted in descending and ascending order
+     * Request ID column can be sorted in descending and ascending order
      */
     @Then("User can verify that Request ID column can be sorted in descending and ascending order")
     public void user_can_verify_that_request_id_column_can_be_sorted_in_descending_and_ascending_order() {
@@ -534,7 +549,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *Status column can be sorted in descending and ascending order
+     * Status column can be sorted in descending and ascending order
      */
     @Then("User can verify that Status column can be sorted in descending and ascending order")
     public void user_can_verify_that_status_column_can_be_sorted_in_descending_and_ascending_order() {
@@ -544,7 +559,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *  Request Title column can be sorted in descending and ascending order
+     * Request Title column can be sorted in descending and ascending order
      */
     @Then("User can verify that Request Title column can be sorted in descending and ascending order")
     public void user_can_verify_that_request_title_column_can_be_sorted_in_descending_and_ascending_order() {
@@ -603,7 +618,8 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @Given("User clicks on CO CS Queue tab")
     public void user_clicks_on_co_cs_queue_tab() {
-       CommonUtils.clickOnElement(oaIntakePage.tabCOCSQueue);
+        CommonUtils.clickOnElement(oaIntakePage.tabCOCSQueue);
+        CommonUtils.sleep(5000);
     }
 
     /**
@@ -611,7 +627,7 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @Given("User can see OA Intakes - Assigned section")
     public void user_can_see_oa_intakes_assigned_section() {
-       softAssert.assertTrue(oaIntakePage.sectionOAIntakesAssigned.isDisplayed());
+        softAssert.assertTrue(oaIntakePage.sectionOAIntakesAssigned.isDisplayed());
     }
 
     /**
@@ -623,7 +639,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User verifies options for OA Intakes - Assigned requests
+     * User verifies options for OA Intakes - Assigned requests
      */
     @Then("User can see the following options for OA Intakes - Assigned requests")
     public void user_can_see_the_following_options_for_oa_intakes_assigned_requests(io.cucumber.datatable.DataTable dataTable) {
@@ -635,20 +651,20 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User verifies OA Intakes - Assigned filter is preset with assigned requests
+     * User verifies OA Intakes - Assigned filter is preset with assigned requests
      */
     @Then("User can see OA Intakes - Assigned filter is preset with assigned requests")
     public void user_can_see_oa_intakes_assigned_filter_is_preset_with_assigned_requests() {
-      String expectedTextFilter = "Status = Assigned";
-      softAssert.assertEquals(oaIntakePage.presetFilterAssigned.getText(),expectedTextFilter);
+        String expectedTextFilter = "Status = Assigned";
+        softAssert.assertEquals(oaIntakePage.presetFilterAssigned.getText(), expectedTextFilter);
     }
 
     /**
-     *User clicks to remove filters for OA Intakes - Assigned requests
+     * User clicks to remove filters for OA Intakes - Assigned requests
      */
     @Then("User can remove filters for OA Intakes - Assigned requests")
     public void user_can_remove_filters_for_oa_intakes_assigned_requests() {
-     CommonUtils.clickOnElement(oaIntakePage.removeSubsequentConditionsAssigned);
+        CommonUtils.clickOnElement(oaIntakePage.removeSubsequentConditionsAssigned);
     }
 
     /**
@@ -664,11 +680,11 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @When("User clicks on OA Intakes - Accepted menu")
     public void user_clicks_on_oa_intakes_accepted_menu() {
-       CommonUtils.clickOnElement(oaIntakePage.sectionOAIntakesAcceptedMenu);
+        CommonUtils.clickOnElement(oaIntakePage.sectionOAIntakesAcceptedMenu);
     }
 
     /**
-     *User verifies options for OA Intakes - Accepted requests
+     * User verifies options for OA Intakes - Accepted requests
      */
     @Then("User can see the following options for OA Intakes - Accepted requests")
     public void user_can_see_the_following_options_for_oa_intakes_accepted_requests(io.cucumber.datatable.DataTable dataTable) {
@@ -680,24 +696,24 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User verifies OA Intakes - Accepted filter is preset with accepted requests
+     * User verifies OA Intakes - Accepted filter is preset with accepted requests
      */
     @Then("User can see OA Intakes - Accepted filter is preset with accepted requests")
     public void user_can_see_oa_intakes_accepted_filter_is_preset_with_accepted_requests() {
         String expectedTextFilter = "Status = Accepted";
-        softAssert.assertEquals(oaIntakePage.presetFilterAccepted.getText(),expectedTextFilter);
+        softAssert.assertEquals(oaIntakePage.presetFilterAccepted.getText(), expectedTextFilter);
     }
 
     /**
-     *User removes filters for OA Intakes - Accepted requests
+     * User removes filters for OA Intakes - Accepted requests
      */
     @Then("User can remove filters for OA Intakes - Accepted requests")
     public void user_can_remove_filters_for_oa_intakes_accepted_requests() {
-     CommonUtils.clickOnElement(oaIntakePage.removeSubsequentConditionsAccepted);
+        CommonUtils.clickOnElement(oaIntakePage.removeSubsequentConditionsAccepted);
     }
 
     /**
-     *User verifies OA Intakes - Cancelled section is displayed
+     * User verifies OA Intakes - Cancelled section is displayed
      */
     @Then("User can see OA Intakes - Cancelled section")
     public void user_can_see_oa_intakes_cancelled_section() {
@@ -705,15 +721,15 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User clicks on OA Intakes - Cancelled menu
+     * User clicks on OA Intakes - Cancelled menu
      */
     @When("User clicks on OA Intakes - Cancelled menu")
     public void user_clicks_on_oa_intakes_cancelled_menu() {
-       CommonUtils.clickOnElement(oaIntakePage.sectionOAIntakesCancelledMenu);
+        CommonUtils.clickOnElement(oaIntakePage.sectionOAIntakesCancelledMenu);
     }
 
     /**
-     *User verifies options for OA Intakes - Cancelled requests
+     * User verifies options for OA Intakes - Cancelled requests
      */
     @Then("User can see the following options for OA Intakes - Cancelled requests")
     public void user_can_see_the_following_options_for_oa_intakes_cancelled_requests(io.cucumber.datatable.DataTable dataTable) {
@@ -726,16 +742,16 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User verifies options for OA Intakes - Cancelled requests
+     * User verifies options for OA Intakes - Cancelled requests
      */
     @Then("User can see OA Intakes - Cancelled filter is preset with cancelled requests")
     public void user_can_see_oa_intakes_cancelled_filter_is_preset_with_cancelled_requests() {
         String expectedTextFilter = "Status = Cancelled";
-        softAssert.assertEquals(oaIntakePage.presetFilterCancelled.getText(),expectedTextFilter);
+        softAssert.assertEquals(oaIntakePage.presetFilterCancelled.getText(), expectedTextFilter);
     }
 
     /**
-     *User removes filters for OA Intakes - Cancelled request
+     * User removes filters for OA Intakes - Cancelled request
      */
     @Then("User can remove filters for OA Intakes - Cancelled requests")
     public void user_can_remove_filters_for_oa_intakes_cancelled_requests() {
@@ -743,7 +759,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User clicks on Leadership Queue tab
+     * User clicks on Leadership Queue tab
      */
     @Given("User clicks on Leadership Queue tab")
     public void user_clicks_on_leadership_queue_tab() {
@@ -751,15 +767,15 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User clicks on OA Intake Leadership Queue menu
+     * User clicks on OA Intake Leadership Queue menu
      */
     @When("User clicks on OA Intake Leadership Queue menu")
     public void user_clicks_on_oa_intake_leadership_queue_menu() {
-       CommonUtils.clickOnElement(oaIntakePage.oAIntakesContextMenu);
+        CommonUtils.clickOnElement(oaIntakePage.oAIntakesContextMenu);
     }
 
     /**
-     *User  verifies options for OA Intake Leadership Queue menu
+     * User  verifies options for OA Intake Leadership Queue menu
      */
     @Then("User can see the following options for OA Intake Leadership Queue menu")
     public void user_can_see_the_following_options_for_oa_intake_leadership_queue_menu(io.cucumber.datatable.DataTable dataTable) {
@@ -772,16 +788,16 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User can see OA Intakes filter is preset with submitted requests
+     * User can see OA Intakes filter is preset with submitted requests
      */
     @Then("User can see OA Intakes filter is preset with submitted requests")
     public void user_can_see_oa_intakes_accepted_filter_is_preset_with_submitted_requests() {
         String expectedTextFilter = "Status = Submitted";
-        softAssert.assertEquals(oaIntakePage.presetSubmittedStatusLeadershipQueue.getText(),expectedTextFilter);
+        softAssert.assertEquals(oaIntakePage.presetSubmittedStatusLeadershipQueue.getText(), expectedTextFilter);
     }
 
     /**
-     *User verifies that Leadership Queue Request ID column can be sorted in descending and ascending order
+     * User verifies that Leadership Queue Request ID column can be sorted in descending and ascending order
      */
     @Then("User can verify that Leadership Queue Request ID column can be sorted in descending and ascending order")
     public void user_can_verify_that_leadership_queue_request_id_column_can_be_sorted_in_descending_and_ascending_order() {
@@ -792,7 +808,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User verifies that Leadership Queue Status column can be sorted in descending and ascending order
+     * User verifies that Leadership Queue Status column can be sorted in descending and ascending order
      */
     @Then("User can verify that Leadership Queue Status column can be sorted in descending and ascending order")
     public void user_can_verify_that_leadership_queue_status_column_can_be_sorted_in_descending_and_ascending_order() {
@@ -803,7 +819,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User verifies that Leadership Queue Branch column can be sorted in descending and ascending order
+     * User verifies that Leadership Queue Branch column can be sorted in descending and ascending order
      */
     @Then("User can verify that Leadership Queue Branch column can be sorted in descending and ascending order")
     public void user_can_verify_that_leadership_queue_branch_column_can_be_sorted_in_descending_and_ascending_order() {
@@ -814,7 +830,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User verifies that Leadership Queue Request Title column can be sorted in descending and ascending order
+     * User verifies that Leadership Queue Request Title column can be sorted in descending and ascending order
      */
     @Then("User can verify that Leadership Queue Request Title column can be sorted in descending and ascending order")
     public void user_can_verify_that_leadership_queue_request_title_column_can_be_sorted_in_descending_and_ascending_order() {
@@ -825,7 +841,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User verifies that Leadership Queue Requestor column can be sorted in descending and ascending order
+     * User verifies that Leadership Queue Requestor column can be sorted in descending and ascending order
      */
     @Then("User can verify that Leadership Queue Requestor \\(Requested For) column can be sorted in descending and ascending order")
     public void user_can_verify_that_leadership_queue_requestor_requested_for_column_can_be_sorted_in_descending_and_ascending_order() {
@@ -836,7 +852,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User verifies that Leadership Queue Estimated Amount column can be sorted in descending and ascending order
+     * User verifies that Leadership Queue Estimated Amount column can be sorted in descending and ascending order
      */
     @Then("User can verify that Leadership Queue Estimated Amount column can be sorted in descending and ascending order")
     public void user_can_verify_that_leadership_queue_estimated_amount_column_can_be_sorted_in_descending_and_ascending_order() {
@@ -847,7 +863,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User verifies that Leadership Queue Recommended Contract Mechanism column can be sorted in descending and ascending order
+     * User verifies that Leadership Queue Recommended Contract Mechanism column can be sorted in descending and ascending order
      */
     @Then("User can verify that Leadership Queue Recommended Contract Mechanism column can be sorted in descending and ascending order")
     public void user_can_verify_that_leadership_queue_recommended_contract_mechanism_column_can_be_sorted_in_descending_and_ascending_order() {
@@ -858,7 +874,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User verifies that Leadership Queue Requested Award Date column can be sorted in descending and ascending order
+     * User verifies that Leadership Queue Requested Award Date column can be sorted in descending and ascending order
      */
     @Then("User can verify that Leadership Queue Requested Award Date column can be sorted in descending and ascending order")
     public void user_can_verify_that_leadership_queue_requested_award_date_column_can_be_sorted_in_descending_and_ascending_order() {
@@ -871,7 +887,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User verifies that Leadership Queue  Submitter column can be sorted in descending and ascending order
+     * User verifies that Leadership Queue  Submitter column can be sorted in descending and ascending order
      */
     @Then("User can verify that Leadership Queue Submitter column can be sorted in descending and ascending order")
     public void user_can_verify_that_leadership_queue_submitter_column_can_be_sorted_in_descending_and_ascending_order() {
@@ -882,7 +898,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User verifies that Leadership Queue Status Date column can be sorted in descending and ascending order
+     * User verifies that Leadership Queue Status Date column can be sorted in descending and ascending order
      */
     @Then("User can verify that Leadership Queue Status Date column can be sorted in descending and ascending order")
     public void user_can_verify_that_leadership_queue_status_date_column_can_be_sorted_in_descending_and_ascending_order() {
@@ -895,7 +911,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User verifies that Leadership Queue Created On column can be sorted in descending and ascending order
+     * User verifies that Leadership Queue Created On column can be sorted in descending and ascending order
      */
     @Then("User can verify that Leadership Queue Created On column can be sorted in descending and ascending order")
     public void user_can_verify_that_leadership_queue_created_on_column_can_be_sorted_in_descending_and_ascending_order() {
@@ -904,6 +920,124 @@ public class OAIntakeSteps extends PageInitializer {
             CommonUtils.sleep(1000);
         }
         CommonUtils.clickOnElement(oaIntakePage.sortDescendingCreatedOnLeadershipQueue);
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     * User clicks on recently submitted OA Intake request
+     */
+    @Given("User picks recently submitted OA Intake request")
+    public void user_picks_recently_submitted_oa_intake_request() {
+        CommonUtils.clickOnElement(oaIntakePage.lastSubmittedOAIntakeRequest);
+    }
+
+    /**
+     * User adds Team Lead
+     */
+    @Given("User adds Team Lead as {string}")
+    public void user_adds_team_lead_as(String text) {
+        CommonUtils.clickOnElement(oaIntakePage.dropdownTeamLead);
+        CommonUtils.sleep(1000);
+        CommonUtils.sendKeys(oaIntakePage.searchFieldTeamLead, text);
+        CommonUtils.sleep(1000);
+        CommonUtils.sendKeys(oaIntakePage.activeElement, Keys.TAB);
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     * User adds Contracting Officer
+     */
+    @Given("User adds Contracting Officer as {string}")
+    public void user_adds_contracting_officer_as(String text) {
+        CommonUtils.clickOnElement(oaIntakePage.dropdownContractOfficer);
+        CommonUtils.sleep(1000);
+        CommonUtils.sendKeys(oaIntakePage.searchFieldContractOfficer, text);
+        CommonUtils.sleep(3000);
+        CommonUtils.sendKeys(oaIntakePage.activeElement, Keys.TAB);
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     * User clicks Send To Branch button"
+     */
+    @When("User clicks Send To Branch button")
+    public void user_clicks_send_to_branch_button() {
+        CommonUtils.clickOnElement(oaIntakePage.buttonSendToBranch);
+        CommonUtils.sleep(2000);
+    }
+
+    /**
+     * User verifies alert
+     */
+    @Then("User can verify confirmation modal This request has been successfully assigned to Branch Review appears")
+    public void user_can_verify_confirmation_modal_this_request_has_been_successfully_assigned_to_branch_review_appears() {
+        try {
+            Alert alert = webDriver.switchTo().alert();
+            String alertTextBrReview = alert.getText();
+            softAssert.assertTrue(alertTextBrReview.equals("This request has been successfully assigned to Branch Review"));
+            alert.dismiss();
+        } catch (Exception e) {
+            CommonUtils.sleep(3000);
+        }
+    }
+
+    /**
+     * User clicks Send CO CS button
+     */
+    @When("User clicks Send To CO CS button")
+    public void user_clicks_send_to_co_cs_button() {
+        CommonUtils.clickOnElement(oaIntakePage.buttonSendToCOCS);
+        CommonUtils.sleep(2000);
+    }
+
+    @Then("User can verify confirmation modal This request has been successfully assigned to CO CS review")
+    public void user_can_verify_confirmation_modal_this_request_has_been_successfully_assigned_to_co_cs_review() {
+        try {
+            Alert alert = webDriver.switchTo().alert();
+            String alertText = alert.getText();
+            softAssert.assertTrue(alertText.equals("This request has been successfully assigned to CO/CS review."));
+            alert.dismiss();
+        } catch (Exception e) {
+            CommonUtils.sleep(3000);
+        }
+    }
+
+    @Given("User logs in as Contracting Officer to OA Intake Portal")
+    public void user_logs_in_as_contracting_officer_to_oa_intake_portal() {
+        oaIntakeStepsImplementation.oaIntakeContrOfficerUserLogin();
+    }
+
+    /**
+     * User clicks Accept Submission button
+     */
+    @Given("User clicks Accept Submission")
+    public void user_clicks_accept_submission() {
+        CommonUtils.clickOnElement(oaIntakePage.buttonAcceptSubmission);
+        CommonUtils.sleep(2000);
+        try {
+            Alert alert = webDriver.switchTo().alert();
+            alert.dismiss();
+        } catch (Exception e) {
+            CommonUtils.sleep(3000);
+        }
+    }
+
+    /**
+     * User can verify the status of the request is Accepted
+     */
+    @Then("User can verify the status of the request is Accepted")
+    public void user_can_verify_the_status_of_the_request_is_accepted() {
+        String actualStatus = oaIntakePage.statusTextField.getText();
+        System.out.println(actualStatus);
+        softAssert.assertEquals(actualStatus,"Accepted");
+    }
+
+    /**
+     * User picks last accepted request
+     */
+    @Given("User picks recently accepted OA Intake request")
+    public void user_picks_recently_accepted_oa_intake_request() {
+        CommonUtils.clickOnElement(oaIntakePage.lastAcceptedOAIntakeRequest);
         CommonUtils.sleep(1000);
     }
 }
