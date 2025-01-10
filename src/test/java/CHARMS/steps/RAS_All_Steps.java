@@ -1316,7 +1316,6 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Given("Study Team members logs in to Native View and verifies {string} QBank data")
     public void study_team_members_logs_in_to_native_view_and_verifies_qbank_data(String surveyName) {
-//        ras_Screener_TestDataManager.dataInitializerRasScreener("screenerScenarioAdult");
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sleep(4000);
         CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
@@ -1357,7 +1356,6 @@ public class RAS_All_Steps extends PageInitializer {
      * Method for verifying that Patient Smoking History in Native View matches the values provided by the RasSmokingSurvey Excel sheet.
      */
     public void verify_patient_smoking_history_in_native_view() {
-//        ras_Survey_Smoking_Survey_TestDataManager.dataInitializerSmokingSurvey("RASSmokingSurvey");
         softAssert.assertTrue(nativeViewCHARMSPatientSmokingHistoryPage.checkboxIsChecked(ras_Survey_Smoking_Survey_TestDataManager.HAVE_YOU_EVER_USED_ANY_OF_THESE_TOBACCO_PRODUCTS_EVEN_ONCE_SELECT_ALL_THAT_APPLY), "* * * * *  PATIENT SMOKING HISTORY -- CHECKBOX NOT CHECKED * * * * *");
         CommonUtils.verifyingDropDownValueIsSelected(nativeViewCHARMSPatientSmokingHistoryPage.howManyCigarettesHaveYouSmokedInYourLifeDropdown, ras_Survey_Smoking_Survey_TestDataManager.HOW_MANY_CIGARETTES_HAVE_YOU_SMOKED_IN_YOUR_LIFE_PROVIDE_AN_ESTIMATE, "* * * * *  PATIENT SMOKING HISTORY -- VALUE MISMATCH IN 'How many cigarettes have you smoked in your life? Provide an estimate.' DROPDOWN * * * * *");
         JavascriptUtils.scrollIntoView(nativeViewCHARMSPatientSmokingHistoryPage.ageAtFirstCigarette);
