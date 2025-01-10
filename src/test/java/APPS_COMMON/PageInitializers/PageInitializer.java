@@ -50,7 +50,6 @@ import ServiceNow.AwardNomination.StepsImplementation.AwardNominationStepsImplem
 import CHARMS.constants.*;
 import CHARMS.nativeView.pages.CHARMSParticipantDetailsPage;
 import CHARMS.pages.*;
-
 import CHARMS.stepsImplementation.*;
 import CHARMS.stepsImplementation.RASStudy.*;
 import DEPRECATED.COVIDCode.Pages.*;
