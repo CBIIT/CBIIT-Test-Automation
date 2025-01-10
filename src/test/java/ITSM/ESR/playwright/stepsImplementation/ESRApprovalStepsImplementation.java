@@ -85,4 +85,14 @@ public class ESRApprovalStepsImplementation {
     public static void confirmFederalLeadCloseoutApprovalIsCompleted() {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("ESR Board Closeout Review");
     }
+
+    /**
+     * This method completes the Federal Lead Closeout approval for ESR-I
+     */
+    public static void federalLeadESRIApproval() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (11)").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
 }
