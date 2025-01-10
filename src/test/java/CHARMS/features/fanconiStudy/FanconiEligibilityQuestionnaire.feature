@@ -97,7 +97,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
     Given run the Fanconi reset script to reset the accounts
     Given All scenarios are submitted
 
-  @jains @FanconiAssertion @CP2-1995 @Fanconi_Regression1 @selenium @Smoke
+  @jains @FanconiAssertion @CP2-1995 @Fanconi_Regression @selenium @Smoke
   Scenario: Participant Details Page Assertions for all the scenarios in ServiceNow
     Given the study nurse log in Native View
     Then data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for all scenarios
