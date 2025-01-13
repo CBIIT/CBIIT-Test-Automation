@@ -211,4 +211,20 @@ public class ESRTaskStepsImplementation {
     public static void confirmCloseoutPreparationCatalogTaskIsCompleted() {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Federal Lead Closeout Approval");
     }
+
+    /**
+     * Completes the ESR Board Closeout Review catalog task for an ESR-Q ticket
+     */
+    public static void completeESRBoardCloseoutReviewCatalogTask() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (5)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[1]").click();
+        Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").fill("Kui Wu");
+        Playwright_Common_Locators.iframeLocator().getByLabel("Catalog Task form section").getByLabel("State").selectOption("3");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    public static void confirmESRBoardCloseoutReviewCatalogTaskIsCompleted() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Approval']")).containsText("Requested");
+    }
 }
