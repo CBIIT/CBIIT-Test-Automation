@@ -233,17 +233,17 @@ public class JPSurvHomePagePlaywrightSteps extends PageInitializer {
         JPSurvHomePagePlaywrightStepImp.assertText();
     }
 
-    @Then("user clicks on the accessibility link and verify it")
+    @Then("User clicks on the accessibility link and verify it")
     public void user_clicks_on_the_accessibility_link_and_verify_it() {
         Playwright_Common_Utils.clickAndAssertNewPage(JPSurvHomePagePlaywright.accessibilityPage, JPSurvConstants.ACCESSIBILITY_LINK);
     }
 
-    @Then("user clicks on the FOIA link and verify it")
+    @Then("User clicks on the FOIA link and verify it")
     public void user_clicks_on_the_foia_link_and_verify_it() {
         Playwright_Common_Utils.clickAndAssertNewPage(JPSurvHomePagePlaywright.FOIAPage, JPSurvConstants.FOIA_LINK);
     }
 
-    @Then("user clicks on the cancer control link and verify")
+    @Then("User clicks on the cancer control link and verify")
     public void user_clicks_on_the_cancer_control_link_and_verify() {
         Playwright_Common_Utils.clickAndAssertNewPage(JPSurvHomePagePlaywright.cancerControl, JPSurvConstants.CANCER_CONTROL_LINK);
     }
@@ -251,5 +251,95 @@ public class JPSurvHomePagePlaywrightSteps extends PageInitializer {
     @Then("User clicks on death vs year at diagnosis")
     public void user_clicks_on_death_vs_year_at_diagnosis() {
         PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.deathVsYear).click();
+    }
+
+    @Then("Verify model is selected as {string}")
+    public void verify_model_is_selected_as(String model) {
+        assertThat(PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.modelLocator)).containsText(JPSurvConstants.MODEL_TEXT);
+    }
+
+    @Then("User adds and remove interval after clicking on the conditional survival calculation")
+    public void user_adds_and_remove_interval_after_clicking_on_the_conditional_survival_calculation() {
+        JPSurvHomePagePlaywrightStepImp.addAndRemoveInterval();
+    }
+
+    @Then("User clicks on the HHS of US Department link and verify it")
+    public void User_clicks_on_the_hhs_of_us_department_link_and_verify_it() {
+        Playwright_Common_Utils.clickAndAssertNewPage(JPSurvHomePagePlaywright.hhsLink, JPSurvConstants.HHS_LINK);
+    }
+
+    @Then("User clicks on the NIH link and verify it")
+    public void User_clicks_on_the_nih_link_and_verify_it() {
+        Playwright_Common_Utils.clickAndAssertNewPage(JPSurvHomePagePlaywright.NIHPage, JPSurvConstants.NIH_LINK);
+    }
+
+    @Then("User clicks on the NCI link and verify it")
+    public void User_clicks_on_the_nci_link_and_verify_it() {
+        JPSurvHomePagePlaywrightStepImp.clickNCILinkAndVerify(JPSurvHomePagePlaywright.NCIPage, JPSurvConstants.NCI_LINK);
+    }
+
+    @Then("User clicks on the USA gov link and verify it")
+    public void User_clicks_on_the_usa_gov_link_and_verify_it() {
+        Playwright_Common_Utils.clickAndAssertNewPage(JPSurvHomePagePlaywright.USAGov, JPSurvConstants.USA_GOV_LINK);
+    }
+
+    @Then("User clicks on the Disclaimer link and verify it")
+    public void user_clicks_on_the_disclaimer_link_and_verify_it() {
+        Playwright_Common_Utils.clickAndAssertNewPage(JPSurvHomePagePlaywright.Disclaimer, JPSurvConstants.DISCLAIMER_LINK);
+    }
+
+    @Then("User clicks on the HHS Vulnerability Disclosure link and verify it")
+    public void user_clicks_on_the_hhs_vulnerability_disclosure_link_and_verify_it() {
+        Playwright_Common_Utils.clickAndAssertNewPage(JPSurvHomePagePlaywright.HHSVulnerability, JPSurvConstants.HHS_VULNERABILITY_URL);
+    }
+
+    @Then("User clicks on the NCI link and verify it under div tag")
+    public void user_clicks_on_the_nci_link_and_verify_it_under_div_tag() {
+        JPSurvHomePagePlaywrightStepImp.clickNCILinkAndVerifyUnderDiv(JPSurvHomePagePlaywright.NCIPage, JPSurvConstants.NCI_LINK);
+    }
+
+    @Then("Validate that result page contains plots")
+    public void validate_that_result_page_contains_plots() {
+        JPSurvHomePagePlaywrightStepImp.validatePlotCount();
+    }
+
+    @Then("User calculates cohert and model specifications with Conditional Survival Model Using Truncated Data")
+    public void user_calculates_cohert_and_model_specifications_with_conditional_survival_model_using_truncated_data() {
+        JPSurvHomePagePlaywrightStepImp.calculateCohertAndModelSpecificationWithCSM();
+    }
+
+    @Then("Validate Conditional Survival Calculation button is not available after calculation.")
+    public void validate_conditional_survival_calculation_button_is_not_available_after_calculation() {
+        JPSurvHomePagePlaywrightStepImp.validateCSCButtonNotAvailable();
+    }
+
+    @Then("User calculates cohert and model specifications with Relax proportionality")
+    public void user_calculates_cohert_and_model_specifications_with_relax_proportionality() {
+        JPSurvHomePagePlaywrightStepImp.calculateCohertAndModelSpecificationWithRelaxProportionality();
+    }
+
+    @Then("User calculates cohert and model specifications with No Options")
+    public void user_calculates_cohert_and_model_specifications_with_no_options() {
+        JPSurvHomePagePlaywrightStepImp.calculateCohertAndModelSpecificationWithNoOptions();
+    }
+
+    @Then("Validate Conditional Survival Calculation button is available after calculation.")
+    public void validate_conditional_survival_calculation_button_is_available_after_calculation() {
+        JPSurvHomePagePlaywrightStepImp.validateCSCButtonAvailable();
+    }
+
+    @Then("User uploads files and adds other data with relax proportionality")
+    public void user_uploads_files_and_adds_other_data_with_relax_proportionality() {
+        JPSurvHomePagePlaywrightStepImp.uploadsFileAndSelectRelaxProportionality();
+    }
+
+    @Then("Validate that cut point is already selected with optimum value")
+    public void validate_that_cut_point_is_already_selected_with_optimum_value() {
+        JPSurvHomePagePlaywrightStepImp.validateCutpointAlreadySelected();
+    }
+
+    @Then("Validate that cut point text is visible")
+    public void validate_that_cut_point_text_is_visible() {
+        JPSurvHomePagePlaywrightStepImp.validateSpecifiedText();
     }
 }
