@@ -1,7 +1,7 @@
 Feature: Create OA Intake form
   Description: This feature file contains scenarios relating to OA Intake form
 
-  @selenium @Regression @OAIntake-708 @OAIntake-640 @OAIntake-639 @OAIntake-709 @OAIntake-538 @OAIntake-682 @OAIntake-576 @OAIntake-544 @OAIntake-575 @OAIntake-499 @OAIntake-657 @OAIntake-430 @OAIntake-408 @OAIntake-623
+  @selenium @Alena @Regression @OAIntake-708 @OAIntake-640 @OAIntake-639 @OAIntake-709 @OAIntake-538 @OAIntake-682 @OAIntake-576 @OAIntake-544 @OAIntake-575 @OAIntake-499 @OAIntake-657 @OAIntake-430 @OAIntake-408 @OAIntake-623
   Scenario: Create OA Intake form and give approvals till Accepted Status
     Given Submitter User logged in to OA Intake Portal
     When Submitter User clicks on New Request button
@@ -52,7 +52,7 @@ Feature: Create OA Intake form
     Then User can verify the status of the request is Accepted
     And User logs out of OA Intake application
 
-  @selenium @Regression @OAIntake-8 @OAIntake-417 @OAIntake-425 @OAIntake-426 @OAIntake-439 @OAIntake-260 @OAIntake-261 @OAIntake-263
+  @selenium @Alena @Regression @OAIntake-8 @OAIntake-417 @OAIntake-425 @OAIntake-426 @OAIntake-439 @OAIntake-260 @OAIntake-261 @OAIntake-263
   Scenario: OA Intake Home Page tabs and options for various roles
     Given Leadership User logged in to OA Intake Portal
     Then User can verify the Home page header
@@ -90,7 +90,7 @@ Feature: Create OA Intake form
     Then User can verify they are redirected to Home Page
     And User logs out of OA Intake application
 
-  @selenium @Regression @OAIntake-332 @OAIntake-670 @OAIntake-669
+  @selenium @Alena @Regression @OAIntake-332 @OAIntake-670 @OAIntake-669
   Scenario: Requestor (Requested For) Queue for Negotiated Contracts
     Given Leadership User logged in to OA Intake Portal
     And User clicks on Requestor (Requested For) Queue tab
@@ -111,7 +111,7 @@ Feature: Create OA Intake form
     And User can verify that Status Date column can be sorted in descending and ascending order
     And User logs out of OA Intake application
 
-  @selenium @Regression @OAIntake-657 @OAIntake-640 @OAIntake-700 @OAIntake-708
+  @selenium @Alena @Regression @OAIntake-657 @OAIntake-640 @OAIntake-700 @OAIntake-708
   Scenario: Contracting Officer/Contract Specialist Queue
     Given Leadership User logged in to OA Intake Portal
     And User clicks on CO CS Queue tab
@@ -139,7 +139,7 @@ Feature: Create OA Intake form
     And User can remove filters for OA Intakes - Cancelled requests
     And User logs out of OA Intake application
 
-  @selenium @Regression @OAIntake-650 @OAIntake-606
+  @selenium @Alena @Regression @OAIntake-650 @OAIntake-606
   Scenario: Leadership Queue (Pending Action)
     Given Leadership User logged in to OA Intake Portal
     And User clicks on Leadership Queue tab
