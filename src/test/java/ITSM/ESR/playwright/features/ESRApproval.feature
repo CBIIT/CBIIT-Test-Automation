@@ -106,7 +106,6 @@ Feature: ESR Approvals
     And the user is approved from a federal lead for closeout approval
     And the ESR Board Closeout Review catalog task is completed
 
-
   @ESR-714 @sarwarahmed1 @In-Progress @playwright
   Scenario: Test the ESR Board Closeout Review approvals in an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page

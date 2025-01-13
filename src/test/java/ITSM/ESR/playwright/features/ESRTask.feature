@@ -96,7 +96,7 @@ Feature: ESR Tasks
     Then the user confirms the Closeout Preparation catalog task is completed
 
   @ESR-710 @sarwarahmed1 @Regression @playwright
-  Scenario: Test the ESR Board Closeout Review approvals in an ESR-Q ticket
+  Scenario: Test the ESR Board Closeout catalog task in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
     And fills out all required information for ESR-Q and clicks submit
@@ -112,7 +112,7 @@ Feature: ESR Tasks
     Then the user confirms the ESR Board Closeout Review catalog task is completed
 
   @ESR-??? @sarwarahmed1 @In-Progress @playwright
-  Scenario: Test the ESR Board Closeout Review approvals in an ESR-I ticket
+  Scenario: Test the ESR Board Closeout catalog task in an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
     And fills out all required information for ESR-I and clicks submit

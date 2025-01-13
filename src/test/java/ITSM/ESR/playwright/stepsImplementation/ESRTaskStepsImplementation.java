@@ -224,6 +224,9 @@ public class ESRTaskStepsImplementation {
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
     }
 
+    /**
+     * Confirms that the ESR Board Closeout Review catalog task is completed
+     */
     public static void confirmESRBoardCloseoutReviewCatalogTaskIsCompleted() {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Approval']")).containsText("Requested");
     }
