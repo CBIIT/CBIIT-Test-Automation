@@ -1,6 +1,6 @@
 Feature: CRS Reviewers Test Scenarios
    
-  @SS-3450 @bucurgb @Regression1 @Smoke @selenium
+  @SS-3450 @bucurgb @Regression @Smoke @selenium
   Scenario: Verifying New OM Category Type - Service Portal
     Given a CRS reviewer "hoffmanela@nih.gov" is logged into NERDs CRS Knowledge Management System
     When adding a new OM entry
