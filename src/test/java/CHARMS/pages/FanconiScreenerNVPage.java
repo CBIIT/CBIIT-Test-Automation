@@ -102,9 +102,9 @@ public class FanconiScreenerNVPage extends PageInitializer {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='x_naci_family_coho_intake_participate_another_study." + text + "'])[1]"));
     }
 
-	/* Method to dynamically locate CheckBox Select elements in Native View */
-	public WebElement dynamicLocatorForCheckBoxElements(String text) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("(//label[@id='label.ni.x_naci_family_coho_participant_study." + text + "'])[1]"));
+    /* Method to dynamically locate CheckBox Select elements in Native View */
+    public WebElement dynamicLocatorForCheckBoxElements(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//label[@id='label.ni.x_naci_family_coho_participant_study." + text + "'])[1]"));
     }
 
     /* Intake participates in another study tab--> Study Contact Person */
