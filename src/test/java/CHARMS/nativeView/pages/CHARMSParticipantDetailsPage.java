@@ -304,7 +304,7 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	public WebElement nVParticipantContactInfoTabRegistrationEmail;
 
 	/* CONTACT INFO tab-> Contact Proxy Email TextBox */
-	@FindBy(xpath = "(//input[@id='sys_readonly.x_naci_family_coho_family_history_details.user_record.email'])[1]")
+	@FindBy(xpath = "(//input[@id='x_naci_family_coho_family_history_details.proxy_email_address'])[1]")
 	public WebElement nVParticipantContactInfoTabProxyEmail;
 
 	/* CONTACT INFO tab-> Contact Home Phone TextBox */

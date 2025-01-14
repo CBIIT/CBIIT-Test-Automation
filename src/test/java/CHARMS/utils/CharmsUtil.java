@@ -54,7 +54,7 @@ public class CharmsUtil {
 				CommonUtils.sleep(1200);
 				break;
 			} catch (WebDriverException ex) {
-				CommonUtils.sleep(2000);
+				CommonUtils.sleep(1200);
 				count++;
 			}
 		}
@@ -94,13 +94,13 @@ public class CharmsUtil {
 
 	/* @param webElement:Element to be Verified */
 	public static void assertCheckBox(SoftAssert softAssert, WebElement webElement, boolean expectedValue,
-			String messsage) {
+			String message) {
 		CharmsUtil.labelHighlight(webElement);
 		boolean actualValue = webElement.isSelected();
-		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
+		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + message + "-->");
 	}
 	
-	/* @param webElement:Button Labelto be Verified */
+	/* @param webElement:Button Label to be Verified */
 	public static void assertButtonLabel(SoftAssert softAssert, WebElement webElement, String expectedValue, String messsage) {		
 		CharmsUtil.labelHighlight(webElement);
 		String actualValue = webElement.getText();

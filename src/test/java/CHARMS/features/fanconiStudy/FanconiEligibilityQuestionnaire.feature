@@ -102,6 +102,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
     Given the study nurse log in Native View
     Then data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for all scenarios
     Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page for all scenarios
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Screener page for all scenarios
 
   @jains @FanconiAssertion @CP2-1995 @Fanconi_Regression @selenium
   Scenario: Participant Details Page Assertions for one scenario at a time in ServiceNow
