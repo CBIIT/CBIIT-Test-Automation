@@ -60,4 +60,14 @@ public class ESRTaskSteps {
     public void the_user_confirms_the_closeout_preparation_catalog_task_is_completed() {
         ESRTaskStepsImplementation.confirmCloseoutPreparationCatalogTaskIsCompleted();
     }
+
+    @And("the ESR Board Closeout Review catalog task is completed")
+    public void the_esr_board_closeout_review_catalog_task_is_completed() {
+        ESRTaskStepsImplementation.completeESRBoardCloseoutReviewCatalogTask();
+    }
+
+    @Then("the user confirms the ESR Board Closeout Review catalog task is completed")
+    public void the_user_confirms_the_esr_board_closeout_review_catalog_task_is_completed() {
+        ESRTaskStepsImplementation.confirmESRBoardCloseoutReviewCatalogTaskIsCompleted();
+    }
 }
