@@ -160,7 +160,7 @@ public class JPSurvHomePagePlaywright {
     /***
      * DISCLAIMER ELEMENT
      */
-    public static String Disclaimer = "USA.gov";
+    public static String Disclaimer = "Disclaimer";
 
     /***
      * HHS VULNERABILITY ELEMENT
