@@ -173,9 +173,8 @@ Feature: These are the scenarios for the Home page on the JPSurv Application
   @Smoke @satya @playwright @Regression @NCIATWP-8065
   Scenario: Verify user is able to click on the footer links
     Given User navigates to JPSurv home page
-    Then user clicks on the cancer control link and verify
-    Then user clicks on the accessibility link and verify it
-    Then user clicks on the FOIA link and verify it
+    Then User clicks on the cancer control link and verify
+    Then User clicks on the NCI link and verify it under div tag
 
   @Smoke @satya @playwright @Regression @NCIATWP-6669
   Scenario: Verify user is able to click on the death vs year at diagnosis tab
@@ -187,3 +186,59 @@ Feature: These are the scenarios for the Home page on the JPSurv Application
     Then User selects only CML checkbox only
     Then User clicks on the submit button to calculate cohert and model specifications
     Then User clicks on death vs year at diagnosis
+
+  @Smoke @satya @playwright @Regression @NCIATWP-6611 @NCIATWP-6565
+  Scenario: Verify user is able to click on the death vs year at diagnosis tab
+    Given User navigates to JPSurv home page
+    Then User uploads file in the homepage
+    Then User selects start year of diagnosis
+    Then User selects end year of diagnosis
+    Then User selects interval of maximum years of diagnosis
+    Then User selects only CML checkbox only
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then Verify model is selected as "1 (final selected model)"
+    Then User adds and remove interval after clicking on the conditional survival calculation
+
+  @Smoke @satya @playwright @Regression @NCIATWP-8065
+  Scenario: Verify user is able to click on the footer links under more information
+    Given User navigates to JPSurv home page
+    Then User clicks on the HHS of US Department link and verify it
+    Then User clicks on the NIH link and verify it
+    Then User clicks on the NCI link and verify it
+    Then User clicks on the USA gov link and verify it
+
+  @Smoke @satya @playwright @Regression @NCIATWP-8065
+  Scenario: Verify user is able to click on the footer links under policies
+    Given User navigates to JPSurv home page
+    Then User clicks on the accessibility link and verify it
+    Then User clicks on the Disclaimer link and verify it
+    Then User clicks on the FOIA link and verify it
+    Then User clicks on the HHS Vulnerability Disclosure link and verify it
+
+  @Smoke @satya @playwright @Regression @NCIATWP-7683
+  Scenario: Verify result page contains plots after calculations
+    Given User navigates to JPSurv home page
+    Then User uploads file in the homepage
+    Then User selects start year of diagnosis
+    Then User selects end year of diagnosis
+    Then User selects interval of maximum years of diagnosis
+    Then User selects only CML checkbox only
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then Validate that result page contains plots
+
+  @Smoke @satya @playwright @Regression @NCIATWP-7669
+  Scenario: Verify Conditional Survival Calculation button availability after calculation
+    Given User navigates to JPSurv home page
+    Then User calculates cohert and model specifications with Conditional Survival Model Using Truncated Data
+    Then Validate Conditional Survival Calculation button is not available after calculation.
+    Then User calculates cohert and model specifications with Relax proportionality
+    Then Validate Conditional Survival Calculation button is not available after calculation.
+    Then User calculates cohert and model specifications with No Options
+    Then Validate Conditional Survival Calculation button is available after calculation.
+
+  @Smoke @satya @playwright @Regression @NCIATWP-7668 @NCIATWP-7660
+  Scenario: Verify cut point is already selected and cut point text ia also visible
+    Given User navigates to JPSurv home page
+    Then User uploads files and adds other data with relax proportionality
+    Then Validate that cut point is already selected with optimum value
+    Then Validate that cut point text is visible
