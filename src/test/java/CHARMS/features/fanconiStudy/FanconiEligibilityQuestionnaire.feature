@@ -2,10 +2,6 @@
 Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal Cohort Study Portal
   Description:This feature file has different submissions and assertion scenarios for the Fanconi Eligibility Questionnaire by the proband and the legal guardian (Proxy)
 
-  @jains @FanconiSubmission @In-progress @selenium
-  Scenario: Participant fills the Fanconi screener for all different scenarios
-    Given All scenarios are submitted
-
   @jains @FanconiSubmission @CP2-1949 @Fanconi_Regression @selenium @Smoke
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 1
     Given run the Fanconi reset script to reset the accounts
@@ -96,10 +92,17 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
     Then fills the Fanconi Eligibility Questionnaire form for scenario10
     Then clicks the submit button
 
+  @jains @FanconiSubmission @Fanconi_Regression @selenium
+  Scenario: Participant fills the Fanconi screener for all different scenarios
+    Given run the Fanconi reset script to reset the accounts
+    Given All scenarios are submitted
+
   @jains @FanconiAssertion @CP2-1995 @Fanconi_Regression @selenium @Smoke
   Scenario: Participant Details Page Assertions for all the scenarios in ServiceNow
     Given the study nurse log in Native View
     Then data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for all scenarios
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page for all scenarios
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Screener page for all scenarios
 
   @jains @FanconiAssertion @CP2-1995 @Fanconi_Regression @selenium
   Scenario: Participant Details Page Assertions for one scenario at a time in ServiceNow

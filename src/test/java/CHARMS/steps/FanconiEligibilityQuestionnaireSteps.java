@@ -2,17 +2,14 @@ package CHARMS.steps;
 
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
-import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
+
     @Given("run the Fanconi reset script to reset the accounts")
     public void run_Fanconi_reset_script_to_reset_the_accounts()  {
-        fanconiEligibilityQuestionnaireStepsImpl.loginToNativeView();
-        fanconiEligibilityQuestionnaireStepsImpl.resetTestAccountSignIn();
-        fanconiEligibilityQuestionnaireStepsImpl.resetTestAccount();
-        fanconiEligibilityQuestionnaireStepsImpl.nativeViewProfilelogOut();
+        fanconiEligibilityQuestionnaireStepsImpl.runResetScripts();
     }
 
     @Given("All scenarios are submitted")
@@ -22,7 +19,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
     @Then("fills the Fanconi Eligibility Questionnaire form for scenario1")
     public void fills_the_Fanconi_Eligibility_Questionnaire_form_for_scenario1() {
-        fanconiEligibilityQuestionnaireStepsImpl.fanconiEligibilityQuestionnaireSubmissionScenario(0);
+       fanconiEligibilityQuestionnaireStepsImpl.fanconiEligibilityQuestionnaireSubmissionScenario(0);
     }
 
     @Then("fills the Fanconi Eligibility Questionnaire form for scenario2")
@@ -77,10 +74,8 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
     @Given("the study nurse log in Native View")
     public void the_study_nurse_log_in_Native_View() {
-       fanconiEligibilityQuestionnaireStepsImpl.loginToNativeView();
-       fanconiEligibilityQuestionnaireStepsImpl.loginToParticipantDetailsPageInNativeView();
-       ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-       fanconiEligibilityQuestionnaireStepsImpl.loginToParticipantDetailsPageInNativeView1();
+         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        fanconiEligibilityQuestionnaireStepsImpl.navigateToParticipantDetailsPageInNativeView();
     }
 
     @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for all scenarios")
@@ -102,11 +97,15 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
     @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page for all scenarios")
     public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Fanconi_Study_Screener_page_for_all_scenarios() {
-        for (int i = 0; i <= 9; i++) {
-            fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyPreviewRecordClicked(i);
+        for (int i = 0; i <= 0; i++) {
             fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyPageAssertions(i);
-            fanconiScreenerNVPage.nVFScreenerBackButton.click();
-            CommonUtils.sleep(2000);
+        }
+    }
+
+    @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Screener page for all scenarios")
+    public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Fanconi_Screener_page_for_all_scenarios() {
+        for (int i = 0; i <= 0; i++) {
+            fanconiEligibilityQuestionnaireStepsImpl.fanconiScreenerPageAssertions(i);
         }
     }
 

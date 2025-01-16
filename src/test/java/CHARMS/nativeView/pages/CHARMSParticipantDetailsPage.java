@@ -82,6 +82,10 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	@FindBy(xpath = "(//input[@aria-label='Subject ID'])[1]")
 	public WebElement nVParticipantSubjectID;
 
+	/* Participant--> Search column: name TextBox */
+	@FindBy(xpath = "(//input[@aria-label='Search column: name'])[1]")
+	public WebElement nVParticipantSearchColumnName;
+
 	/* Participant--> Name TextBox */
 	@FindBy(xpath = "(//input[@aria-label='Name'])[1]")
 	public WebElement nVParticipantName;
@@ -202,9 +206,22 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_family_history_details.adopted'])[1]")
 	public WebElement nVParticipantDemographicsTabIsTheParticipantAdopted;
 
+	/* DEMOGRAPHICS tab-> Vital Status DropDown */
+	@FindBy(xpath = "(//select[@id='x_naci_family_coho_family_history_details.person_alive'])[1]")
+	public WebElement nVParticipantDemographicsTabVitalStatus;
+
+
 	/* DEMOGRAPHICS tab-> Date of Birth iFrame */
 	@FindBy(xpath = "(//input[@name='x_naci_family_coho_family_history_details.date_of_birth_month_day_year'])[1]")
 	public WebElement nVParticipantDemographicsTabDOB;
+
+	/* DEMOGRAPHICS tab-> Date of Death iFrame */
+	@FindBy(xpath = "(//input[@id='x_naci_family_coho_family_history_details.date_of_death'])[1]")
+	public WebElement nVParticipantDemographicsTabDOD;
+
+	/* DEMOGRAPHICS tab-> Age iFrame */
+	@FindBy(xpath = "(//span[@data-html='false'][normalize-space()='Age'])[1]")
+	public WebElement nVParticipantDemographicsTabAge;
 
 	/*
 	 * DEMOGRAPHICS tab-> If Date of Birth is unkown, is this person 18 years old or
@@ -231,8 +248,16 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	@FindBy(xpath = "(//select[contains(@name,'x_naci_family_coho_family_history_details.proxy_required')])[1]")
 	public WebElement nVParticipantContactInfoTabDoesParticipantNeedLegalRepresentation;
 
-	/* CONTACT INFO tab-> Are you the legal guardian of this person? DropDown */
-	@FindBy(xpath = "(//select[@name='x_naci_family_coho_family_history_details.legal_guardian'])[1]")
+	/* CONTACT INFO tab-> Person who filled the screener */
+	@FindBy(xpath = "(//input[@id='x_naci_family_coho_family_history_details.legal_representative_name'])[1]")
+	public WebElement nVParticipantContactInfoTabPersonWhoFilledTheScreener;
+
+	/* CONTACT INFO tab-> What is your relationship to the participant?*/
+	@FindBy(xpath = "(//select[@id='x_naci_family_coho_family_history_details.relationship'])[1]")
+	public WebElement nVParticipantContactInfoTabWhatIsYourRelationshipToTheParticipant;
+
+	/* CONTACT INFO tab->Are you the legal guardian of this person?*/
+	@FindBy(xpath = "(//select[@id='x_naci_family_coho_family_history_details.legal_guardian'])[1]")
 	public WebElement nVParticipantContactInfoTabAreYouTheLegalGuardianOfThisPerson;
 
 	/* CONTACT INFO tab-> Legal Representative Name TextBox */
@@ -273,6 +298,14 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	/* CONTACT INFO tab-> Contact Email TextBox */
 	@FindBy(xpath = "(//input[@id='x_naci_family_coho_family_history_details.email_address'])[1]")
 	public WebElement nVParticipantContactInfoTabEmail;
+
+	/* CONTACT INFO tab-> Contact Registration Email TextBox */
+	@FindBy(xpath = "(//input[@id='sys_readonly.x_naci_family_coho_family_history_details.user_record.email'])[1]")
+	public WebElement nVParticipantContactInfoTabRegistrationEmail;
+
+	/* CONTACT INFO tab-> Contact Proxy Email TextBox */
+	@FindBy(xpath = "(//input[@id='x_naci_family_coho_family_history_details.proxy_email_address'])[1]")
+	public WebElement nVParticipantContactInfoTabProxyEmail;
 
 	/* CONTACT INFO tab-> Contact Home Phone TextBox */
 	@FindBy(xpath = "(//input[@name='x_naci_family_coho_family_history_details.phone'])[1]")
