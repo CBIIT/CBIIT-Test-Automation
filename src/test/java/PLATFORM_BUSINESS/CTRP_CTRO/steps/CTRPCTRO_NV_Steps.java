@@ -1,6 +1,6 @@
-package PLATFORM_BUSINESS.CTRP_CTRO.selenium.steps;
+package PLATFORM_BUSINESS.CTRP_CTRO.steps;
 
-import PLATFORM_BUSINESS.CTRP_CTRO.selenium.stepsImplementation.CTRPCTRO_NV_StepImpl;
+import PLATFORM_BUSINESS.CTRP_CTRO.stepsImplementation.CTRPCTRO_NV_StepImpl;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
