@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="ServiceNow.PlatformBusinessApps.GCP.GCP_Runners.RunGCPRegressionTest" test
+        run: mvn -B -q -Dtest="PLATFORM_BUSINESS.GCP.runners.RunGCPRegressionTest" test
         continue-on-error: true
 
       - name: Generate timestamp

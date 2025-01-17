@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="ServiceNow.PlatformBusinessApps.SEER.SEER_Runners.Run_SEER_Regression_Test" test
+        run: mvn -B -q -Dtest="PLATFORM_BUSINESS.SEER.runners.Run_SEER_Regression_Test" test
         continue-on-error: true
 
       - name: Generate timestamp

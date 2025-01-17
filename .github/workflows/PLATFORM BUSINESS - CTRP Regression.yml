@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Selenium_Runners.Run_CTRP_Regression_Test" test
+        run: mvn -B -q -Dtest="PLATFORM_BUSINESS.CTRP_CTRO.runners.Run_CTRP_Regression_Test" test
         continue-on-error: true
 
       - name: Generate timestamp

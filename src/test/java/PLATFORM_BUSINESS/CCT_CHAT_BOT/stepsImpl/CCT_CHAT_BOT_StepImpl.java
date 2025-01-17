@@ -1,7 +1,7 @@
-package PLATFORM_BUSINESS.CCT_CHAT_BOT.playwright.stepsImpl;
+package PLATFORM_BUSINESS.CCT_CHAT_BOT.stepsImpl;
 
-import PLATFORM_BUSINESS.CCT_CHAT_BOT.playwright.constants.CCT_CHAT_BOT_Constants;
-import PLATFORM_BUSINESS.CCT_CHAT_BOT.playwright.pages.CCT_CHAT_BOT_Page;
+import PLATFORM_BUSINESS.CCT_CHAT_BOT.constants.CCT_CHAT_BOT_Constants;
+import PLATFORM_BUSINESS.CCT_CHAT_BOT.pages.CCT_CHAT_BOT_Page;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Locator;

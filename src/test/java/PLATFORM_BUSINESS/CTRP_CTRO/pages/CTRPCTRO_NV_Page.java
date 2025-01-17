@@ -1,4 +1,4 @@
-package PLATFORM_BUSINESS.CTRP_CTRO.selenium.pages;
+package PLATFORM_BUSINESS.CTRP_CTRO.pages;
 
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;

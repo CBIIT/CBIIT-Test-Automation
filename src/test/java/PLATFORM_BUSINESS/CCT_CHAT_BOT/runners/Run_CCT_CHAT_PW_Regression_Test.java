@@ -1,4 +1,4 @@
-package PLATFORM_BUSINESS.CCT_CHAT_BOT.playwright.runners;
+package PLATFORM_BUSINESS.CCT_CHAT_BOT.runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;

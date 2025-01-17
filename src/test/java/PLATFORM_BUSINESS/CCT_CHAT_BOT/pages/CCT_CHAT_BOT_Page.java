@@ -1,4 +1,4 @@
-package PLATFORM_BUSINESS.CCT_CHAT_BOT.playwright.pages;
+package PLATFORM_BUSINESS.CCT_CHAT_BOT.pages;
 
 public class CCT_CHAT_BOT_Page {
 

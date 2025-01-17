@@ -1,7 +1,7 @@
-package PLATFORM_BUSINESS.CTRP_CTRO.selenium.stepsImplementation;
+package PLATFORM_BUSINESS.CTRP_CTRO.stepsImplementation;
 
-import PLATFORM_BUSINESS.CTRP_CTRO.selenium.constants.CTRPCTRO_NV_Constants;
-import PLATFORM_BUSINESS.CTRP_CTRO.selenium.pages.CTRPCTRO_NV_Page;
+import PLATFORM_BUSINESS.CTRP_CTRO.constants.CTRPCTRO_NV_Constants;
+import PLATFORM_BUSINESS.CTRP_CTRO.pages.CTRPCTRO_NV_Page;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;

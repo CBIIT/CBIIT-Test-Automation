@@ -1,6 +1,6 @@
-package PLATFORM_BUSINESS.CCT_CHAT_BOT.playwright.steps;
+package PLATFORM_BUSINESS.CCT_CHAT_BOT.steps;
 
-import PLATFORM_BUSINESS.CCT_CHAT_BOT.playwright.stepsImpl.CCT_CHAT_BOT_StepImpl;
+import PLATFORM_BUSINESS.CCT_CHAT_BOT.stepsImpl.CCT_CHAT_BOT_StepImpl;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="ServiceNow.PlatformBusinessApps.CCT_CHAT_BOT.Playwright.Runners.Run_CCT_CHAT_PW_Regression_Test" test
+        run: mvn -B -q -Dtest="PLATFORM_BUSINESS.CCT_CHAT_BOT.runners.Run_CCT_CHAT_PW_Regression_Test" test
         continue-on-error: true
 
       - name: Generate timestamp

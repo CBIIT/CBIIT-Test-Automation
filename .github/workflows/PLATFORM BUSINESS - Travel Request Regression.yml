@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="ServiceNow.PlatformBusinessApps.SNOW_TRAVEL.Travel_Runners.Run_TRAVEL_PW_Regression_Test" test
+        run: mvn -B -q -Dtest="PLATFORM_BUSINESS.SNOW_TRAVEL.runners.Run_TRAVEL_PW_Regression_Test" test
         continue-on-error: true
 
       - name: Generate timestamp

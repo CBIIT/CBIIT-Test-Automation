@@ -17,7 +17,7 @@ jobs:
 
       - name: Run OCPL Training Regression Tests
         shell: cmd
-        run: mvn -B -q -Dtest=ServiceNow.PlatformBusinessApps.OCPL_Training.Runners.Run_OCPL_PW_Regression_Test test
+        run: mvn -B -q -Dtest=PLATFORM_BUSINESS.OCPL_Training.runners.Run_OCPL_PW_Regression_Test test
         continue-on-error: true
 
       - name: Generate timestamp
