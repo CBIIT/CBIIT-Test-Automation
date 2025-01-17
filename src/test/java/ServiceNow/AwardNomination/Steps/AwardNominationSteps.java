@@ -164,4 +164,14 @@ public class AwardNominationSteps extends PageInitializer {
     public void user_cancels_the_cancel_confirmation_modal() {
         CommonUtils.clickOnElement(awardNominationPage.cancelButtonCancelModal);
     }
+
+    @Given("User can verify Optional Responses option {string} is displayed")
+    public void user_can_verify_optional_responses_option_is_displayed(String option) {
+        awardNominationStepsImplementation.verifyOptionalResponsesOptions(option);
+    }
+
+    @Given("User can see Which value best reflects your appreciation option {string}")
+    public void user_can_see_which_value_best_reflects_your_appreciation_option(String option) {
+        awardNominationStepsImplementation.verifyWhichValueBestReflectsYourAppreciationsOptions(option);
+    }
 }
