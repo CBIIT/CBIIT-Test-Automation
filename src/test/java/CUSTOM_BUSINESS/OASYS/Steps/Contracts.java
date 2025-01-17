@@ -8,11 +8,13 @@ import CUSTOM_BUSINESS.OASYS.Utils.OASYS_Constants;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.*;
 import com.nci.automation.utils.CucumberLogUtils;
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import java.nio.file.Paths;
+import java.util.regex.Pattern;
 
 public class Contracts {
 
@@ -474,11 +476,11 @@ public class Contracts {
     }
 
     /**
-     * This method is pass the Contract Number
+     * This method is passing the Contract Number
      */
     @When("User types the Contract Number")
     public void user_types_the_contract_number() {
-        page.locator("xpath=//div/input[@ng-reflect-placeholder='Contract Number *']").fill("HHSTESTN01500067W");
+        page.locator("xpath=//div/input[@ng-reflect-placeholder='Contract Number *']").fill(OASYS_Constants.CONTRACT_HEADER);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -488,7 +490,7 @@ public class Contracts {
     @When("User selects a Vendor")
     public void user_selects_a_vendor() {
         page.locator("xpath=//div/input[@ng-reflect-placeholder='Type to Search...']").click();
-        page.locator("xpath=//div/input[@ng-reflect-placeholder='Type to Search...']").fill("SWORD & SHIELD ENTERPRISE");
+        page.locator("xpath=//div/input[@ng-reflect-placeholder='Type to Search...']").fill(OASYS_Constants.VENDOR);
         page.locator("xpath=//span[contains(text(),'SWORD & SHIELD ENTERPRISE SECURITY INC')]").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -503,7 +505,7 @@ public class Contracts {
     }
 
     /**
-     * This method is NonSeverable from the Severability dropdown
+     * This method is selecting NonSeverable from the Severability dropdown
      */
     @When("User selects Non Severable for the Severability")
     public void user_selects_non_severable_for_the_severability() {
@@ -540,7 +542,7 @@ public class Contracts {
     @When("User types the Project title")
     public void user_types_the_project_title() {
         page.getByLabel("Project Title").click();
-        page.getByLabel("Project Title").fill("TEST CONTRACT IMPORT");
+        page.getByLabel("Project Title").fill(OASYS_Constants.PROJECT_TITLE);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -551,7 +553,8 @@ public class Contracts {
     @When("User selects {string} from Conference Support")
     public void user_selects_from_conference_support(String No) {
         page.getByText("Conference SupportConference").click();
-        page.getByText(No, new Page.GetByTextOptions().setExact(true)).click();
+        page.locator("xpath=//mat-option/span[normalize-space()='No']").click();
+        //page.getByText(No, new Page.GetByTextOptions().setExact(true)).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -603,10 +606,10 @@ public class Contracts {
     /**
      * This method is selecting Open Market for the Procurement Mechanism
      */
-    @When("User selects Open Market for the Procurement Mechanism")
-    public void user_selects_open_market_for_the_procurement_mechanism() {
+    @When("User selects GSA for the Procurement Mechanism")
+    public void user_selects_gsa_for_the_procurement_mechanism() {
         page.getByLabel("Procurment Mechanism *").getByText("Procurment Mechanism *").click();
-        page.getByText("Open Market").click();
+        page.getByText("GSA").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -623,12 +626,12 @@ public class Contracts {
 
     /**
      * This method is selecting Other from the Internal Issuing Agency dropdown
-     * @param Other
+     * @param NITACC
      */
     @When("User selects {string} from Internal Issuing Agency")
-    public void user_selects_from_internal_issuing_agency(String Other) {
+    public void user_selects_from_internal_issuing_agency(String NITACC) {
         page.getByText("Internal Issuing AgencyInternal Issuing Agency").click();
-        page.getByText(Other).click();
+        page.getByText(NITACC).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -661,7 +664,7 @@ public class Contracts {
     @When("User selects {string} from Multiple Year")
     public void user_selects_from_multiple_year(String Yes) {
         page.getByLabel("Multiple Year").getByText("Multiple Year").click();
-        page.getByText(Yes).click();
+        page.locator("xpath=//mat-option/span[normalize-space()='" + Yes + "']").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -713,10 +716,60 @@ public class Contracts {
     /**
      * This method is verifying the Contract Header
      */
-    @Then("User verifies the Contract Header")
+    @Then("User verifies the contract header")
     public void user_verifies_the_contract_header() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        assertThat(page.locator("xpath=(//div/div[@class='left-title-display']//div/span)[1]")).containsText(OASYS_Constants.CONTRACT_HEADER);
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * This method is passing the Contract Title in the Contract Title field
+     * @param ContractTitle
+     */
+    @And("User types {string} in the Contract Title field")
+    public void user_types_in_contract_title_field(String ContractTitle) {
+        page.getByLabel("Title").click();
+        page.getByLabel("Title").fill(ContractTitle);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting the Contract Specialist from the Staff Assignment dropdown
+     * @param ContractSpecialist
+     */
+    @And("User selects {string} from the Staff Assignment dropdown on the contract page")
+    public void user_selects_from_the_staff_assignment_dropdown_on_the_contract_page(String ContractSpecialist) {
+        page.locator("div").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Staff Assignment$"))).click();
+        page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName("Staff Assignment")).fill(ContractSpecialist);
+        page.getByText("(I) RUSSELL John (john.").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting Inactive Contracts
+     */
+    @And("User selects Show inactive contracts")
+    public void user_selects_show_inactive_contracts() {
+        page.locator(".mat-checkbox-inner-container").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is clicking on SEARCH button to search for defined contracts
+     */
+    @And("User clicks on SEARCH button to search for defined contracts")
+    public void user_clicks_on_search_button_to_search_for_defined_contracts() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Search").setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is verifying if the expected contract is listed in the search results
+     * @param ExpectedContractTile
+     */
+    @Then("User will verify if {string} is listed in the search results")
+    public void user_will_verify_if_is_listed_in_the_search_results(String ExpectedContractTile) {
+        assertThat(page.locator("mat-row")).containsText(ExpectedContractTile);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
 }

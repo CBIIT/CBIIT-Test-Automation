@@ -84,7 +84,7 @@ Scenario: Verify that Test COR can not access All Contracts
   And User selects Testing Folder and clicks on DELETE icon
   Then User clicks on DELETE button to confirm the deletion
 
-@Regression1 @Contract @ImportContract @playwright
+@ImportContract @NESARH2 @Regression @playwright
 Scenario: Verify that a user can create a contract
   When User clicks on Contracts
   And User clicks on Import button on the contract page
@@ -101,15 +101,24 @@ Scenario: Verify that a user can create a contract
   And User selects "Not Applicable" from High Risk
   And User selects "Core IT" from Excepted Contracts
   And User selects "FFP" from Type of Contract
-  And User selects Open Market for the Procurement Mechanism
+  And User selects GSA for the Procurement Mechanism
   And User selects "BPA Call" from Award Type
-  And User selects "Other" from Internal Issuing Agency
+  And User selects "NITAAC" from Internal Issuing Agency
   And User selects "DoD" from External Issuing Agency
   And User selects "Other" from Services Rendered for Federal Employees
   And User selects "Yes" from Multiple Year
   And User selects a date for Funded Through Date
   And User selects "Yes" for Will funding need to be added for expected activities within the next three months?
   And User selects "Yes" for Does the COR advise continued performance?
-  And User selects "Stop Work" for What notice will be sent in the event of a shutdown?
+  And User selects "Partial Stop Work" for What notice will be sent in the event of a shutdown?
   And User will click on SAVE button
-  #Then User verifies the Contract Header
+  Then User verifies the contract header
+
+@ContractSearchFilters @NESARH2 @Regression @playwright
+Scenario: Using search filters to narrow down search results
+  When User clicks on Contracts
+  And User types "Dell EMC Isilon Hardware and Software Support and Maintenance" in the Contract Title field
+  And User selects "RUSSELL John" from the Staff Assignment dropdown on the contract page
+  And User selects Show inactive contracts
+  And User clicks on SEARCH button to search for defined contracts
+  Then User will verify if "Dell EMC Isilon Hardware and Software Support and Maintenance" is listed in the search results
