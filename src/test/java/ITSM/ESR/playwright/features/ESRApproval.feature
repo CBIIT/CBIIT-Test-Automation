@@ -125,4 +125,3 @@ Feature: ESR Approvals
     And the ESR Board Closeout Review catalog task is completed
     And the user is approved for ESR Board Closeout Review
     Then the user confirms the ESR Board Closeout Review approvals are completed
-
