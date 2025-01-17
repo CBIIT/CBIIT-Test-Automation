@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/java/CHARMS/features",
         glue = {"CHARMS.steps", "Hooks"},
-        tags = "@Progression",
+        tags = "@Progression1",
         dryRun = false
 )
 public class Run_CHARMS_Progression_Test extends AbstractTestNGCucumberTests {

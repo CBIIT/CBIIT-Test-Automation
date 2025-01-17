@@ -1,8 +1,12 @@
 package CHARMS.stepsImplementation;
 
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
+import CHARMS.constants.CHARMSRASScreenerConstants;
 import CHARMS.constants.CHARMS_Data_File_Path_Constants;
 import CHARMS.nativeView.pages.CHARMSParticipantDetailsPage;
+import CHARMS.pages.NativeViewCHARMSDashboardPage;
+import CHARMS.steps.RAS_All_Steps;
+import CHARMS.steps.RAS_Common_Methods;
 import CHARMS.utils.CharmsUtil;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
@@ -17,6 +21,7 @@ import org.testng.asserts.SoftAssert;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 import static com.nci.automation.web.TestProperties.getFanconiUrl;
 
 public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
@@ -766,7 +771,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     /**
      * PARTICIPANT DETAILS PAGE IN NATIVE VIEW ASSERTIONS
      */
-    public void runResetScripts(){
+    public void runResetScripts() {
         fanconiEligibilityQuestionnaireStepsImpl.loginToNativeView();
         fanconiEligibilityQuestionnaireStepsImpl.resetTestAccountSignIn();
         fanconiEligibilityQuestionnaireStepsImpl.resetTestAccount();
@@ -1046,7 +1051,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingDataNormalizeSpaceInSpan("Participant"), "Participant", "Participant label of the General Information on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("participant"), (currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")), "Participant Name of General Information on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Subject ID"), "Subject ID", "Subject ID label of the General Information on Fanconi Study Screener page ");
-         }
+    }
 
     /**
      * Method to click the Fanconi screener Page Preview button
@@ -1063,7 +1068,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Number"), "Number", " Number label on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsInFAScreener("number"), referralValue, " Referral Number on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Does the participant need legal representation?"), "Does the participant need legal representation?", " Does the participant need legal representation? label on Fanconi Study Screener page ");
-         }
+    }
 
     /**
      * Method to assert the Fanconi Screener: Contact Information
@@ -1082,7 +1087,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_middle_name"), currentRow.get("ProxyMiddleName"), " Proxy Middle Name of the Contact Information in Fanconi Study screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Last Name"), "Proxy Last Name", " Proxy Last Name label of the Contact Information in Fanconi Study screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_last_name"), currentRow.get("ProxyLastName"), " Proxy Last Name of the Contact Information in Fanconi Study screener page ");
-        }
+    }
 
     /**
      * Method to assert the Fanconi Screener: Demographics Information
@@ -1094,7 +1099,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Biological Gender"), "Biological Gender", " Biological Gender label of the Demographics Information in Fanconi Study screener page ");
         CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.nVFScreenerBiologicalGender, currentRow.get("SexAssigned"), " Biological Gender of the Demographics in Fanconi Study screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Identified Gender"), "Biological Gender", " Identified Gender label of the Demographics Information in Fanconi Study screener page ");
-         }
+    }
 
     /**
      * Method to assert the Fanconi Screener: Fanconi History Information
@@ -1224,7 +1229,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementInFAScreenerPage("head_craniofacial_abnormalities"), currentRow.get("HeadCraniofacialAbnormalities"), " Head Craniofacial Abnormalities of the Participant Features in Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Mouth abnormalities"), "Mouth abnormalities", " Mouth abnormalities label of the Participant Features in Fanconi Study Screener page ");
         CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementInFAScreenerPage("mouth_abnormalities"), currentRow.get("MouthAbnormalities"), " Mouth abnormalities of the Participant Features in Fanconi Study Screener page ");
-          }
+    }
 
     /**
      * Method to assert the Fanconi Study: Final Information
@@ -1235,7 +1240,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementInFAScreenerPage("particpant_in_inherited_bone_marrow_study"), currentRow.get("AreOrWereYouAParticipanInNIHInheritedBoneMarrowFailuresyndromeStudy"), " Particpant in NIH Inherited Bone Marrow Failure Syndrome study of the Final Information in Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Main reasons for participating in this study?"), "Main reasons for participating in this study?  Select all that apply.", " Main reasons for participating in this study?  Select all that apply. label of the Final Information in Fanconi Study Screener page ");
         CharmsUtil.labelHighlight(fanconiScreenerNVPage.nVFScreenerParticpantInNIHInheritedBoneMarrowFailureSyndromeStudyLock);
-       }
+    }
 
     /**
      * Method to assert the Fanconi Screener: Intake participates in another study
@@ -1341,7 +1346,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CommonUtils.sleep(500);
             CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton1);
             CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton1);
-            if (i !=1){
+            if (i != 1) {
                 CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpace("Back to sign in"));
                 oktaLoginPage.usernameTxtBox.clear();
             }
@@ -1434,9 +1439,9 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * Method to assert the Participant Detail Page: Assertion of the Participant Detail page
      */
     public void allScenariosParticipantDetailPageAssertion() {
-            for (int i = 0; i <= 9; i++) {
+        for (int i = 0; i <= 9; i++) {
             fanconiEligibilityQuestionnaireStepsImpl.participantDetailPageAssertion(i);
-          CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.nVAllParticipantDetailsBackButton);
+            CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.nVAllParticipantDetailsBackButton);
         }
     }
 
@@ -1876,5 +1881,184 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 " Name of physician who performed the biopsy in Fanconi Study Screener page ");
         CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerBackButton);
         softAssert.assertAll();
+    }
+
+
+    /**
+     * Submits consent with the provided collection method for a participant.
+     *
+     * @param collectionMethod The method used for collecting consent
+     */
+    public void consent_is_submitted_with_collection_method(String collectionMethod) {
+        currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", 0);
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        CommonUtils.sleep(4000);
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(3000);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
+        CommonUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
+        CommonUtils.sleep(1000);
+        if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        }
+        CommonUtils.sleep(2000);
+        RAS_Common_Methods.submitParticipantForReviewAndEligibility();
+        /**
+         * BEGINNING: CONSENT FLOW PROCESS
+         */
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
+        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
+        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
+        CucumberLogUtils.logScreenshot();
+        CucumberLogUtils.scenario.log("* * * * CONSENT CALL SCHEDULED TIME * * * *");
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeAcceptButton);
+        CucumberLogUtils.scenario.log("* * * * CONSENT CALL DATE * * * *");
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleDateCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CucumberLogUtils.scenario.log("* * * * RESPONSE TYPE * * * *");
+        CommonUtils.selectDropDownValue(collectionMethod, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown);
+        CucumberLogUtils.scenario.log("* * * * CONSENT CALL VERSION * * * *");
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CucumberLogUtils.scenario.log("* * * * CONSENT DATE * * * *");
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CucumberLogUtils.scenario.log("* * * * CONSENTED BY * * * *");
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox);
+        CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, CHARMSRASScreenerConstants.CONSENTED_BY_USER_NAME);
+        CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
+        CommonUtils.sleep(500);
+        if (!collectionMethod.equalsIgnoreCase("iMed")) {
+            CucumberLogUtils.scenario.log("* * * * COPY OF CONSENT/ASSENT PROVIDED PROVIDED BEFORE SIGNING * * * *");
+            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
+            CucumberLogUtils.scenario.log("* * * * PROTOCOL DISCUSSED IN PRIVATE SETTING * * * *");
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentProtocolDiscussedInPrivateSettingDropDown);
+            CucumberLogUtils.scenario.log("* * * * PARTICIPANT VERBALIZED UNDERSTANDING OF STUDY CONDITIONS AND PARTICIPATION * * * *");
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantVerbalizedUnderstandingOfStudyConditionsAndParticipationDropDown);
+            CucumberLogUtils.scenario.log("* * * * QUESTIONS ADDRESSED BEFORE SIGNING * * * *");
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentQuestionsAddressedBeforeSigningDropDown);
+            CucumberLogUtils.logScreenshot();
+        }
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallCompleteButton);
+        CommonUtils.sleep(1000);
+        if (!collectionMethod.equalsIgnoreCase("iMed")) {
+            CucumberLogUtils.scenario.log("* * * * CONSENT/ASSENT OBTAINED BEFORE STUDY PROCEDURES * * * *");
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentObtainedBeforeStudyProceduresDropDown);
+            CucumberLogUtils.scenario.log("* * * * COPY OF SIGNED/DATED CONSENT/ASSENT GIVEN TO PARTICIPANT * * * *");
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfSignedDatedConsentAssentGivenToParticipantDropDown);
+        } else {
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureSpecimensAndDataDropDown);
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureUseCollaboratorsDropDown);
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown);
+            CommonUtils.sleep(500);
+            CucumberLogUtils.logScreenshot();
+        }
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(5000);
+        JavascriptUtils.uploadFileToHiddenFieldWithInputTag(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileButton, CHARMS_Data_File_Path_Constants.FAMILY_COHORT_STUDY_PDF_PATH);
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileCloseButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage);
+        softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage.getText(), CHARMSRASScreenerConstants.PARTICIPANT_READY_TO_PROGRESS_TEXT, "---- VERIFYING PARTICIPANT RECORD READY TO PROGRESS MESSAGE ----");
+        softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage.getText(), CHARMSRASScreenerConstants.CONSENT_RECORD_COMPLETED_TEXT, "---- VERIFYING CONSENT RECORD COMPLETED AND FAMILY RECORD IS NOW ACTIVE! MESSAGE ----");
+        CommonUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        RAS_All_Steps.nativeViewStudyTeamMemberLogsOut();
+    }
+
+    /**
+     * Logs in to Native View and navigates to the participant's CGB IIQ record.
+     */
+    public void study_team_navigate_to_participant_s_cgb_iiq_record() {
+        currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", 0);
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        CommonUtils.sleep(4000);
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(3000);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
+        CommonUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
+        CommonUtils.sleep(1000);
+        if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        }
+        CommonUtils.sleep(2000);
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsCGBIIQTab);
+        nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsCGBIIQTab.click();
+        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='CGB Individual Information Questionnaire']"));
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.cgbIiqPreviewButton);
+        nativeViewCHARMSParticipantDetailsPage.cgbIiqPreviewButton.click();
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(500);
+        verify_fields_in_native_view_cgb_iqq_record();
+    }
+
+    /**
+     * Method for verifying CGB IIQ record fields in Native View.
+     */
+    public void verify_fields_in_native_view_cgb_iqq_record() {
+        softAssert.assertEquals(nativeViewCGBIIQPage.participantsCityOfBirthTextField.getDomAttribute("value"), iiq_TestDataManager.whereWereYouBornCityTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Participants city of birth\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.participantsStateProvidenceOfTextField.getDomAttribute("value"), iiq_TestDataManager.whereWereYouBornStateTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Participants state/province of birth\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.participantsCountryOfBirthTextField.getDomAttribute("value"), iiq_TestDataManager.whereWereYouBornCountryTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Participants country of birth\" * * * * *");
+        softAssert.assertTrue(nativeViewCGBIIQPage.participantsBirthLocationUnknownCheckbox.getDomAttribute("value").equals("true"), "* * * * * CGB IIQ - MISMATCH IN \"Birth location unknown\" * * * * *");
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.scrollIntoView(nativeViewCGBIIQPage.participantsBioMomAncestryNonEdit);
+        softAssert.assertEquals(nativeViewCGBIIQPage.participantsBioMomAncestryNonEdit, iiq_TestDataManager.mostPeopleHaveAncestorsCheckBox, "* * * * * CGB IIQ - MISMATCH IN \"Biological mothers ancestral background\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.participantsBioDadAncestryNonEdit, iiq_TestDataManager.whatIsYourBiologicalFatherAncestralBackgroundTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Biological mothers ancestral background\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.familysReligiousBackgroundNonEdit, iiq_TestDataManager.whatIsYourFammilysReligiousBackgroundCheckBox, "* * * * * CGB IIQ - MISMATCH IN \"Family's religous background\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.raisedByNonBioParentDropdown, iiq_TestDataManager.wereYouRaisedPrimarilyRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Was the participant raised by someone other than their own bio parent?\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.isTheParticipantOfAshkenaziJewishDescentDropdown, iiq_TestDataManager.areYouOfAshkenazyJewishDescentRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Is the participant of Ashkenazi jewish descent?\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.maritalStatusDropdown, iiq_TestDataManager.whatIsYourMaritalStatusCheckBox, "* * * * * CGB IIQ - MISMATCH IN \"Participant's marital status\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.householdIncomeDropdown, iiq_TestDataManager.whatIsTheTotalCombinedYearlyIncomeRadioButton.split(", or")[0], "* * * * * CGB IIQ - MISMATCH IN \"Total household income in the last 12 months\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.participantsHighestLevelOfSchoolingDropdown, iiq_TestDataManager.whatIsTheHighestLevelOfSchoolingRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Participants highest level of schooling\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.participantsUsualJobOrMainOccupationTextArea.getText(), iiq_TestDataManager.whatHasBeenYourUsualJobOther, "* * * * * CGB IIQ - MISMATCH IN \"Participants usual job or main occupation during their lifetime\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.doesTheParticipantHaveHealthInsuranceDropdown, iiq_TestDataManager.doYouCurrentlyHaveHealthInsuranceRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Does the participant have health insurance?\" * * * * *");
+        CucumberLogUtils.logScreenshot();
     }
 }
