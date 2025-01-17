@@ -861,32 +861,33 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantDemographicsTab);
         cHARMSParticipantDetailsPage.nVParticipantDemographicsTab.click();
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Biological Gender"), "Biological Gender", " Biological Gender Label of the General Information on Participant Details page ");
-        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabBiologicalGender, currentRow.get("SexAssigned"), " Biological Gender of the Demographics on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("biological_gender"), currentRow.get("SexAssigned"), " Biological Gender Value of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Identified Gender"), "Identified Gender", " Identified Gender Label of the General Information on Participant Details page ");
-        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabIdentifiedGender, currentRow.get("CurrentGender"), " Identified Gender of the Demographics on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("screener_identified_gender"), currentRow.get("CurrentGender"), " Identified Gender Value of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Participant Race (Select all that apply)"), "Participant Race (Select all that apply)", " Participant Race (Select all that apply) Label of the General Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabRaceDetails, currentRow.get("RaceList"), " Participant Race link of the Demographics on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabRaceOtherText, currentRow.get("OtherRace"), " Participant Other Race of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingSpanNormalizeSpace("Other"), "Other", " Other Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("other_race"), currentRow.get("OtherRace"), " Participant Other Race Value of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Ethnicity"), "Ethnicity", " Ethnicity Label of the General Information on Participant Details page ");
-        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabEthnicity, currentRow.get("Ethnicity"), " Ethnicity of the Demographics on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("ethnicity"), currentRow.get("Ethnicity"), " Ethnicity Value of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Pronouns"), "Pronouns", " Pronouns Label of the General Information on Participant Details page ");
-        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabPronouns, currentRow.get("Pronouns"), " Pronouns of the Demographics on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("pronouns"), currentRow.get("Pronouns"), " Pronouns Value of the Demographics on Participant Details page ");
         if (currentRow.get("Pronouns").contentEquals("I use a different term:")) {
             CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Other pronouns"), "Other pronouns", " Other pronouns Label of the General Information on Participant Details page ");
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabPronounsOtherText, currentRow.get("PronounsOther"), " Other Pronouns of the Demographics on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("pronouns_other'"), currentRow.get("PronounsOther"), " Other Pronouns Value of the Demographics on Participant Details page ");
         }
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Is the participant adopted?"), "Is the participant adopted?", " Is the participant adopted? Label of the General Information on Participant Details page ");
-        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabIsTheParticipantAdopted, currentRow.get("AreYouAdopted"), " Is the participant adopted of the Demographics on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("adopted"), currentRow.get("AreYouAdopted"), " Is the participant adopted of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Vital Status"), "Vital Status", " Vital Status Label of the General Information on Participant Details page ");
-        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabVitalStatus, currentRow.get("VitalStatus"), " Vital Status of the Demographics on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("person_alive"), currentRow.get("VitalStatus"), " Vital Status Value of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Date of Birth"), "Date of Birth", " Date of Birth Label of the General Information on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabDOB, currentRow.get("DOB"), " Date of Birth of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("date_of_birth_month_day_year"), currentRow.get("DOB"), " Date of Birth value of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Date of Death"), "Date of Death", " Date of Death Label of the General Information on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabDOD, "", " Date of Death of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("date_of_death"), "", " Date of Death value of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("If Date of Birth is unknown, is this person 18 years old or older"), "If Date of Birth is unknown, is this person 18 years old or older", " If Date of Birth is unknown, is this person 18 years old or older Label of the General Information on Participant Details page ");
-        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabIfDOBUnknownAge18, "-- None --", " If Date of Birth is unkown of the Demographics on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabAge, "Age", " Age Label of the General Information on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabtAge, currentRow.get("CalculatedAge"), " Age of the Demographics on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("if_date_of_birth_is_unkown_is_this_person_18_years_old_or_older"), "-- None --", " If Date of Birth is unkown of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Age"), "Age", " Age Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("age"), currentRow.get("CalculatedAge"), " Age of the Demographics on Participant Details page ");
     }
 
     /**
@@ -1581,8 +1582,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         fanconiEligibilityQuestionnaireStepsImpl.participantDetailRecordClicked(rowNumForAssertion);
        fanconiEligibilityQuestionnaireStepsImpl.generalInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
      fanconiEligibilityQuestionnaireStepsImpl.personalInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
-        /*   fanconiEligibilityQuestionnaireStepsImpl.demographicsAssertionOnParticipantDetailPage(rowNumForAssertion);
-        fanconiEligibilityQuestionnaireStepsImpl.contactInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
+       fanconiEligibilityQuestionnaireStepsImpl.demographicsAssertionOnParticipantDetailPage(rowNumForAssertion);
+        /*   fanconiEligibilityQuestionnaireStepsImpl.contactInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
       */ softAssert.assertAll();
     }
 

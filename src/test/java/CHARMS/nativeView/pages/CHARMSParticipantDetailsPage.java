@@ -16,6 +16,7 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	public static WebElement dynamicPreviewButtonLocator(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//a[normalize-space()='" + text + "'])[1]"));
 	}
+
 	public static WebElement dynamicPreviewButtonLocators(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record:’” +text+”'])[1]"));
 	}
@@ -24,6 +25,7 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	public CHARMSParticipantDetailsPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
+
 	/* **************************** */
 	/* VERIFIES NAVIGATION PANEL */
 	/* ***************************/
@@ -74,6 +76,11 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	}
 
 	/* Method to dynamically locate elements in Native View */
+	public WebElement dynamicLocatorUsingSpanNormalizeSpace(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//span[normalize-space()='" + text + "'])[1]"));
+	}
+
+	/* Method to dynamically locate elements in Native View */
 	public WebElement dynamicLocatorUsingNormalizeSpaceInSpan(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//span[@class='label-text'][normalize-space()='" + text + "']"));
 	}
@@ -101,6 +108,11 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	/* Method to dynamically locate Read Only select Values in Participant Details page for Fanconi Native View */
 	public WebElement dynamicLocatorForReadOnlySelectValuesInParticipantDetailsPage(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='sys_readonly.x_naci_family_coho_family_history_details." + text + "'])[1]"));
+	}
+
+	/* Method to dynamically locate Read Only Input Values in Participant Details page for Fanconi Native View */
+	public WebElement dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_readonly.x_naci_family_coho_family_history_details." + text + "'])[1]"));
 	}
 
 	/* Method to dynamically locate Select Value elements in Participant Details page for Fanconi Native View */
