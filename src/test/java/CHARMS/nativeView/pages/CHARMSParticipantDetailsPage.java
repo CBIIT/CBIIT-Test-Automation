@@ -78,6 +78,31 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//span[@class='label-text'][normalize-space()='" + text + "']"));
 	}
 
+	/* Method to dynamically locate Read only Values in Participant Details page for Fanconi Native View */
+	public WebElement dynamicLocatorForReadOnlyInputElementsInParticipantDetailsPage(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_readonly.x_naci_family_coho_family_history_details." + text + "'])[1]"));
+	}
+
+	/* Method to dynamically locate Input Values in Participant Details page for Fanconi Native View */
+	public WebElement dynamicLocatorForInputElementsInParticipantDetailsPage(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_display.x_naci_family_coho_family_history_details." + text + "'])[1]"));
+	}
+
+	/* Method to dynamically locate Input Values in Participant Details page for Fanconi Native View */
+	public WebElement dynamicLocatorForInputElementInParticipantDetailsPage(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='x_naci_family_coho_family_history_details." + text + "'])[1]"));
+	}
+
+	/* Method to dynamically locate select Values in Participant Details page for Fanconi Native View */
+	public WebElement dynamicLocatorForSelectValuesInParticipantDetailsPage(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='x_naci_family_coho_family_history_details." + text + "'])[1]"));
+	}
+
+	/* Method to dynamically locate Read Only select Values in Participant Details page for Fanconi Native View */
+	public WebElement dynamicLocatorForReadOnlySelectValuesInParticipantDetailsPage(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='sys_readonly.x_naci_family_coho_family_history_details." + text + "'])[1]"));
+	}
+
 	/* Participant--> Subject ID TextBox */
 	@FindBy(xpath = "(//input[@aria-label='Subject ID'])[1]")
 	public WebElement nVParticipantSubjectID;
@@ -125,6 +150,7 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	/* Participant--> NIH MRN number */
 	@FindBy(xpath = "(//input[@id='x_naci_family_coho_family_history_details.nih_number'])[1]")
 	public WebElement nVParticipantNIHMRNnumber;
+
 
 	/* Participant--> NIH MRN number Info =NIH MRN number should include the dashes */
 	@FindBy(xpath = "(//div[@class='fieldmsg notification notification-info'])[1]")
