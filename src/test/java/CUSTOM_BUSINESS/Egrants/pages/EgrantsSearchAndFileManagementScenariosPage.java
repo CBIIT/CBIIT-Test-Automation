@@ -202,7 +202,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Replace Button
      */
-    @FindBy (xpath = "//tbody/tr[1]/td[5]/a[1]/img[1]")
+    @FindBy (xpath = "(//a[@title='Replace Document'])[1]")
     public WebElement replaceButton;
 
     /**
