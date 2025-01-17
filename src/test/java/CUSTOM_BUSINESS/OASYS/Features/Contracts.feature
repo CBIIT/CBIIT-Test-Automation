@@ -83,3 +83,33 @@ Scenario: Verify that Test COR can not access All Contracts
   And User clicks on FILES tab
   And User selects Testing Folder and clicks on DELETE icon
   Then User clicks on DELETE button to confirm the deletion
+
+@Regression1 @Contract @ImportContract @playwright
+Scenario: Verify that a user can create a contract
+  When User clicks on Contracts
+  And User clicks on Import button on the contract page
+  And User clicks on Contract
+  And User types the Contract Number
+  And User selects a Vendor
+  And User clicks on Open to Correspondence
+  And User selects Non Severable for the Severability
+  And User selects "Yes" from the IT related dropdown
+  And User selects "No" from IDIQ
+  And User types the Project title
+  And User selects "No" from Conference Support
+  And User selects "Yes" from Government Oversight Required
+  And User selects "Not Applicable" from High Risk
+  And User selects "Core IT" from Excepted Contracts
+  And User selects "FFP" from Type of Contract
+  And User selects Open Market for the Procurement Mechanism
+  And User selects "BPA Call" from Award Type
+  And User selects "Other" from Internal Issuing Agency
+  And User selects "DoD" from External Issuing Agency
+  And User selects "Other" from Services Rendered for Federal Employees
+  And User selects "Yes" from Multiple Year
+  And User selects a date for Funded Through Date
+  And User selects "Yes" for Will funding need to be added for expected activities within the next three months?
+  And User selects "Yes" for Does the COR advise continued performance?
+  And User selects "Stop Work" for What notice will be sent in the event of a shutdown?
+  And User will click on SAVE button
+  #Then User verifies the Contract Header

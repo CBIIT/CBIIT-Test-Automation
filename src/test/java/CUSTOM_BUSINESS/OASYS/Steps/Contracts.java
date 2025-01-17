@@ -454,4 +454,269 @@ public class Contracts {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Delete")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
+
+    /**
+     * This method is clicking on Import Contract button
+     */
+    @When("User clicks on Import button on the contract page")
+    public void user_clicks_on_import_button_on_the_contract_page() {
+        page.locator("xpath=//div/button/span[contains(text(),'Import')]").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is clicking on Contract from the dropdown
+     */
+    @When("User clicks on Contract")
+    public void user_clicks_on_contract() {
+        page.locator("xpath=//div/button[contains(text(),' CONTRACT')]").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is pass the Contract Number
+     */
+    @When("User types the Contract Number")
+    public void user_types_the_contract_number() {
+        page.locator("xpath=//div/input[@ng-reflect-placeholder='Contract Number *']").fill("HHSTESTN01500067W");
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting a vendor from the dropdown
+     */
+    @When("User selects a Vendor")
+    public void user_selects_a_vendor() {
+        page.locator("xpath=//div/input[@ng-reflect-placeholder='Type to Search...']").click();
+        page.locator("xpath=//div/input[@ng-reflect-placeholder='Type to Search...']").fill("SWORD & SHIELD ENTERPRISE");
+        page.locator("xpath=//span[contains(text(),'SWORD & SHIELD ENTERPRISE SECURITY INC')]").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is clicking on Open to Correspondence checkbox
+     */
+    @When("User clicks on Open to Correspondence")
+    public void user_clicks_on_open_to_correspondence() {
+        page.getByText("Open to Correspondence").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is NonSeverable from the Severability dropdown
+     */
+    @When("User selects Non Severable for the Severability")
+    public void user_selects_non_severable_for_the_severability() {
+        page.getByLabel("Severability").getByText("Severability").click();
+        page.getByText("Non Severable").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting Yes from the IT related dropdown
+     *  @param Yes
+     */
+    @When("User selects {string} from the IT related dropdown")
+    public void user_selects_from_the_it_related_dropdown(String Yes) {
+        page.getByLabel("IT Related *").getByText("IT Related *").click();
+        page.getByText(Yes, new Page.GetByTextOptions().setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting No from the IDIQ dropdown
+     * @param No
+     */
+    @When("User selects {string} from IDIQ")
+    public void user_selects_from_idiq(String No) {
+        page.getByLabel("IDIQ").getByText("IDIQ").click();
+        page.getByText(No, new Page.GetByTextOptions().setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is inserting the Project title in the Project Title field
+     */
+    @When("User types the Project title")
+    public void user_types_the_project_title() {
+        page.getByLabel("Project Title").click();
+        page.getByLabel("Project Title").fill("TEST CONTRACT IMPORT");
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting No from the Conference Support dropdown
+     * @param No
+     */
+    @When("User selects {string} from Conference Support")
+    public void user_selects_from_conference_support(String No) {
+        page.getByText("Conference SupportConference").click();
+        page.getByText(No, new Page.GetByTextOptions().setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting Yes from the Government Oversight Required dropdown
+     * @param Yes
+     */
+    @When("User selects {string} from Government Oversight Required")
+    public void user_selects_from_government_oversight_required(String Yes) {
+        page.locator("compass-form").filter(new Locator.FilterOptions().setHasText("Open to")).click();
+        page.getByLabel("Government Oversight Required").getByText("Government Oversight Required").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(Yes)).locator("span").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting Not Applicable from the High Risk dropdown
+     * @param Not_Applicable
+     */
+    @When("User selects {string} from High Risk")
+    public void user_selects_from_high_risk(String Not_Applicable) {
+        page.getByLabel("High Risk").getByText("High Risk").click();
+        page.getByText(Not_Applicable).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting CoreIT from the Expected Contracts dropdown
+     * @param CoreIT
+     */
+    @When("User selects {string} from Excepted Contracts")
+    public void user_selects_from_excepted_contracts(String CoreIT) {
+        page.getByLabel("Excepted Contracts").getByText("Excepted Contracts").click();
+        page.getByText(CoreIT).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting FFP from the Type of Contract dropdown
+     * @param FFP
+     */
+    @When("User selects {string} from Type of Contract")
+    public void user_selects_from_type_of_contract(String FFP) {
+        page.getByText("Type of ContractType of").click();
+        page.getByText(FFP).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting Open Market for the Procurement Mechanism
+     */
+    @When("User selects Open Market for the Procurement Mechanism")
+    public void user_selects_open_market_for_the_procurement_mechanism() {
+        page.getByLabel("Procurment Mechanism *").getByText("Procurment Mechanism *").click();
+        page.getByText("Open Market").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting BPA Call from the Award Type dropdown
+     * @param BPA_Call
+     */
+    @When("User selects {string} from Award Type")
+    public void user_selects_from_award_type(String BPA_Call) {
+        page.getByLabel("Award Type").getByText("Award Type").click();
+        page.getByText(BPA_Call).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting Other from the Internal Issuing Agency dropdown
+     * @param Other
+     */
+    @When("User selects {string} from Internal Issuing Agency")
+    public void user_selects_from_internal_issuing_agency(String Other) {
+        page.getByText("Internal Issuing AgencyInternal Issuing Agency").click();
+        page.getByText(Other).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting DoD from the External Issuing Agency dropdown
+     * @param DoD
+     */
+    @When("User selects {string} from External Issuing Agency")
+    public void user_selects_from_external_issuing_agency(String DoD) {
+        page.getByText("External Issuing AgencyExternal Issuing Agency").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(DoD)).locator("span").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting Other from the Services Rendered for Federal Employees dropdown
+     * @param Other
+     */
+    @When("User selects {string} from Services Rendered for Federal Employees")
+    public void user_selects_from_services_rendered_for_federal_employees(String Other) {
+        page.getByLabel("Services Rendered for Federal").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(Other)).locator("span").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting Yes from the Multiple Year dropdown
+     * @param Yes
+     */
+    @When("User selects {string} from Multiple Year")
+    public void user_selects_from_multiple_year(String Yes) {
+        page.getByLabel("Multiple Year").getByText("Multiple Year").click();
+        page.getByText(Yes).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting a date for Funded Through Date
+     */
+    @When("User selects a date for Funded Through Date")
+    public void user_selects_a_date_for_funded_through_date() {
+        page.getByLabel("Funded Through Date").click();
+        page.getByLabel("Next month").click(new Locator.ClickOptions().setClickCount(9));
+        page.getByLabel("Next month").click();
+        page.getByText("24", new Page.GetByTextOptions().setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting Yes for Will funding need to be added for expected activities within the next three months?
+     * @param Yes
+     */
+    @When("User selects {string} for Will funding need to be added for expected activities within the next three months?")
+    public void user_selects_for_will_funding_need_to_be_added_for_expected_activities_within_the_next_three_months(String Yes) {
+        page.getByLabel("Will funding need to be added").getByText("Will funding need to be added").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(Yes)).locator("span").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting Yes for Does the COR advise continued performance?
+     * @param Yes
+     */
+    @When("User selects {string} for Does the COR advise continued performance?")
+    public void user_selects_for_does_the_cor_advise_continued_performance(String Yes) {
+        page.getByLabel("Does the COR Advise Continued").getByText("Does the COR Advise Continued").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(Yes)).locator("span").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is selecting Stop Work for What notice will be sent in the event of a shutdown?
+     * @param StopWork
+     */
+    @When("User selects {string} for What notice will be sent in the event of a shutdown?")
+    public void user_selects_for_what_notice_will_be_sent_in_the_event_of_a_shutdown(String StopWork) {
+        page.getByText("What notice will be sent in the event of a shutdown?What notice will be sent in").click();
+        page.getByText(StopWork, new Page.GetByTextOptions().setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is verifying the Contract Header
+     */
+    @Then("User verifies the Contract Header")
+    public void user_verifies_the_contract_header() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
 }
