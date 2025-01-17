@@ -102,10 +102,10 @@ public class FanconiScreenerNVPage extends PageInitializer {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='x_naci_family_coho_intake_participate_another_study." + text + "'])[1]"));
     }
 
-	/* Method to dynamically locate CheckBox Select elements in Native View */
-	public WebElement dynamicLocatorForCheckBoxElements(String text) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("(//label[@id='label.ni.x_naci_family_coho_participant_study." + text + "'])[1]"));
-	}
+    /* Method to dynamically locate CheckBox Select elements in Native View */
+    public WebElement dynamicLocatorForCheckBoxElements(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//label[@id='label.ni.x_naci_family_coho_participant_study." + text + "'])[1]"));
+    }
 
     /* Intake participates in another study tab--> Study Contact Person */
     @FindBy(xpath = "(//input[@id='x_naci_family_coho_intake_participate_another_study.study_contact_person'])[1]")
@@ -250,6 +250,10 @@ public class FanconiScreenerNVPage extends PageInitializer {
     /* CONTACT INFO tab->Contact City TextBox */
     @FindBy(xpath = "(//input[@name='x_naci_family_coho_fanconi_study_screener.family_member_record.city'])[1]")
     public WebElement nVFScreenerCity;
+
+    /* CONTACT INFO tab->Contact State TextBox */
+    @FindBy(xpath = "(//input[@name='x_naci_family_coho_fanconi_study_screener.family_member_record.state])[1]")
+    public WebElement nVFScreenerState;
 
     /* CONTACT INFO tab->Contact ZipCode TextBox */
     @FindBy(xpath = "(//input[@name='x_naci_family_coho_fanconi_study_screener.family_member_record.zipcode'])[1]")
