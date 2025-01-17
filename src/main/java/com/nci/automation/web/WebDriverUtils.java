@@ -43,7 +43,7 @@ public class WebDriverUtils {
         ChromeOptions chromeOptions = new ChromeOptions();
 
         if (headless) {
-            chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("--headless=old");
         }
 
         if ("true".equals(ci)) {
