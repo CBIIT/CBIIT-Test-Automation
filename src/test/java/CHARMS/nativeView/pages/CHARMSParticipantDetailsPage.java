@@ -103,6 +103,11 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='sys_readonly.x_naci_family_coho_family_history_details." + text + "'])[1]"));
 	}
 
+	/* Method to dynamically locate Select Value elements in Participant Details page for Fanconi Native View */
+	public WebElement dynamicLocatorForSelectElementsInParticipantDetailsPage(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='x_naci_family_coho_family_history_details." + text + "'])[1]"));
+	}
+
 	/* Participant--> Subject ID TextBox */
 	@FindBy(xpath = "(//input[@aria-label='Subject ID'])[1]")
 	public WebElement nVParticipantSubjectID;
