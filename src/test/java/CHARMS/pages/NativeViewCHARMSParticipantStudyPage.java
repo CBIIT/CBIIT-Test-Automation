@@ -47,6 +47,24 @@ public class NativeViewCHARMSParticipantStudyPage {
     @FindBy(xpath = "//button[@id='publish_questionnaire']")
     public WebElement publishQuestionnaireButton;
 
+    /**
+     * Question Banks Tab
+     */
+    @FindBy(xpath = "//span[@class ='tab_caption_text' and contains(text(), 'Question Banks')]")
+    public WebElement questionBanksTab;
+
+    /**
+     * Survey Type Patient Smoking History Text
+     */
+    @FindBy(xpath = "//td[normalize-space()='Patient Smoking History']")
+    public WebElement patientSmokingHistoryText;
+
+    /**
+     * Question Banks Preview Button
+     */
+    @FindBy(xpath = "//*[@data-list_id='x_naci_family_coho_participant_study.x_naci_family_coho_question_bank.participant_study']//child::tbody//child::tr//child::td[2]//child::a")
+    public WebElement questionBanksPreviewButton;
+
     public NativeViewCHARMSParticipantStudyPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

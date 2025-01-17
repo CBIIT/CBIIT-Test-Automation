@@ -454,5 +454,10 @@ public class RAS_Consent_Call_Steps {
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentStatusTextBox, "Complete", "---- Consent Status value mismatch ----");
         softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateTextBox.getAttribute("value"), CommonUtils.getTodayDate(), "---- Consent Date value mismatch ----");
         softAssert.assertEquals(locateByXpath("//input[@id='sys_display.x_naci_family_coho_fcsms_consent.consent_by']").getAttribute("value"), "CBIIT Test Account", "---- Signed By value mismatch ----");
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
+        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
     }
 }
