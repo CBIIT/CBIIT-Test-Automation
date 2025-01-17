@@ -375,6 +375,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSPatientSmokingHistoryPage nativeViewCHARMSPatientSmokingHistoryPage;
 	public static NativeViewCHARMSAddNewParticipantPage nativeViewCHARMSAddNewParticipantPage;
 	public static NativeViewCHARMSSubjectFlagsPage nativeViewCHARMSSubjectFlagsPage;
+	public static NativeViewCGBIIQPage nativeViewCGBIIQPage;
 
 	/** --------------- EGRANTS INSTANCES --------------- */
 	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;
@@ -660,6 +661,7 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSPatientSmokingHistoryPage = new NativeViewCHARMSPatientSmokingHistoryPage();
 		nativeViewSSJReportsPage = new NativeViewSSJReportsPage();
 		nativeViewCHARMSSubjectFlagsPage = new NativeViewCHARMSSubjectFlagsPage();
+		nativeViewCGBIIQPage = new NativeViewCGBIIQPage();
 
 		/****** GRANTS INSTANCES *******/
 		/** Grants ChangePassword app **/

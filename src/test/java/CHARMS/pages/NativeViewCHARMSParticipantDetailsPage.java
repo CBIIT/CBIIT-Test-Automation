@@ -73,6 +73,18 @@ public class NativeViewCHARMSParticipantDetailsPage {
     @FindBy(xpath = "//select[contains(@name,'x_naci_family_coho_family_history_details.proxy_required')]")
     public WebElement doesParticipantNeedLegalRepresentationDropdown;
 
+    /**
+     * CGB Individual Information Questionnaires Tab
+     */
+    @FindBy(xpath = "//span[@class ='tab_caption_text' and contains(text(), 'CGB Individual Information Questionnaires')]")
+    public WebElement nativeViewPatientDetailsCGBIIQTab;
+
+    /**
+     * CGB Individual Information Questionnaire Preview Button
+     */
+    @FindBy(xpath = "//*[@data-list_id='x_naci_family_coho_family_history_details.x_naci_family_coho_cgb_iiq.participant']//child::tbody//child::tr//child::td[2]//child::a")
+    public WebElement cgbIiqPreviewButton;
+
     public NativeViewCHARMSParticipantDetailsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
