@@ -195,4 +195,3 @@ public class AwardNominationPage {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
 }
-

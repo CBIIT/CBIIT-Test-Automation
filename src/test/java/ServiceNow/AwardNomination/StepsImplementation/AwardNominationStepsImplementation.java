@@ -8,7 +8,6 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
-
 import static Hooks.Hooks.softAssert;
 import static com.nci.automation.web.TestProperties.getAwardNominationUrl;
 
@@ -75,7 +74,6 @@ public class AwardNominationStepsImplementation extends PageInitializer {
      * @param text
      */
     public void enterShareAppreciation(String text) {
-        CommonUtils.waitForVisibility(awardNominationPage.textFieldShareAppreciation);
         CommonUtils.sendKeysToElement(awardNominationPage.textFieldShareAppreciation, text);
         awardNominationPage.textFieldShareAppreciation.sendKeys(Keys.TAB);
     }
