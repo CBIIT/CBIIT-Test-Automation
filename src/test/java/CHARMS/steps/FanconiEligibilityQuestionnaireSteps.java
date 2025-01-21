@@ -8,18 +8,18 @@ import io.cucumber.java.en.Then;
 public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
     @Given("run the Fanconi reset script to reset the accounts")
-    public void run_Fanconi_reset_script_to_reset_the_accounts()  {
+    public void run_Fanconi_reset_script_to_reset_the_accounts() {
         fanconiEligibilityQuestionnaireStepsImpl.runResetScripts();
     }
 
     @Given("All scenarios are submitted")
-    public void all_scenarios_are_submitted()  {
+    public void all_scenarios_are_submitted() {
         fanconiEligibilityQuestionnaireStepsImpl.fanconiEligibilityAllScenariosQuestionnaireSubmission();
     }
 
     @Then("fills the Fanconi Eligibility Questionnaire form for scenario1")
     public void fills_the_Fanconi_Eligibility_Questionnaire_form_for_scenario1() {
-       fanconiEligibilityQuestionnaireStepsImpl.fanconiEligibilityQuestionnaireSubmissionScenario(0);
+        fanconiEligibilityQuestionnaireStepsImpl.fanconiEligibilityQuestionnaireSubmissionScenario(0);
     }
 
     @Then("fills the Fanconi Eligibility Questionnaire form for scenario2")
@@ -74,7 +74,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
     @Given("the study nurse log in Native View")
     public void the_study_nurse_log_in_Native_View() {
-         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         fanconiEligibilityQuestionnaireStepsImpl.navigateToParticipantDetailsPageInNativeView();
     }
 
