@@ -1,4 +1,4 @@
-package PLATFORM_BUSINESS.CCT_CHAT_BOT.playwright.constants;
+package PLATFORM_BUSINESS.CCT_CHAT_BOT.constants;
 
 public class CCT_CHAT_BOT_Constants {
 
