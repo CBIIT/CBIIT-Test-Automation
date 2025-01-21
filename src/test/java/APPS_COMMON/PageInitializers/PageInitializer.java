@@ -66,7 +66,7 @@ import PLATFORM_BUSINESS.NCCR.stepsImplementation.NCCRStepsImplementation;
 import PLATFORM_BUSINESS.OA_Intake.pages.OAIntakePage;
 import PLATFORM_BUSINESS.OA_Intake.stepsImplementation.OAIntakeStepsImplementation;
 import PLATFORM_BUSINESS.ETracking.pages.EtrackAssetsRecords_NativeViewPage;
-import PLATFORM_BUSINESS.CTRP_CTRO.selenium.pages.CTRPCTRO_NV_Page;
+import PLATFORM_BUSINESS.CTRP_CTRO.pages.CTRPCTRO_NV_Page;
 import PLATFORM_BUSINESS.GDC.pages.GDC_Workflow_NativeView_Page;
 import PLATFORM_BUSINESS.GCP.pages.GCPNotifications_NativeViewPage;
 import PLATFORM_BUSINESS.NERD.selenium.Pages.*;
@@ -375,6 +375,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSPatientSmokingHistoryPage nativeViewCHARMSPatientSmokingHistoryPage;
 	public static NativeViewCHARMSAddNewParticipantPage nativeViewCHARMSAddNewParticipantPage;
 	public static NativeViewCHARMSSubjectFlagsPage nativeViewCHARMSSubjectFlagsPage;
+	public static NativeViewCGBIIQPage nativeViewCGBIIQPage;
 
 	/** --------------- EGRANTS INSTANCES --------------- */
 	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;
@@ -660,6 +661,7 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSPatientSmokingHistoryPage = new NativeViewCHARMSPatientSmokingHistoryPage();
 		nativeViewSSJReportsPage = new NativeViewSSJReportsPage();
 		nativeViewCHARMSSubjectFlagsPage = new NativeViewCHARMSSubjectFlagsPage();
+		nativeViewCGBIIQPage = new NativeViewCGBIIQPage();
 
 		/****** GRANTS INSTANCES *******/
 		/** Grants ChangePassword app **/

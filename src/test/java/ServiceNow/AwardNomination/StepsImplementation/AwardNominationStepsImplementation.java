@@ -11,7 +11,7 @@ import org.openqa.selenium.Keys;
 import static Hooks.Hooks.softAssert;
 import static com.nci.automation.web.TestProperties.getAwardNominationUrl;
 
-public class AwardNominationStepsImplementation  extends PageInitializer{
+public class AwardNominationStepsImplementation extends PageInitializer {
     /**
      * Logs in as a Submitter User to NCCR Portal.
      */
@@ -61,19 +61,19 @@ public class AwardNominationStepsImplementation  extends PageInitializer{
     /**
      * enter colleague name
      */
-    public void enterColleagueToAppreciation(String person){
+    public void enterColleagueToAppreciation(String person) {
         CommonUtils.waitForVisibility(awardNominationPage.dropdownAppreciationAnonymous);
-        CommonUtils.sendKeysToElement(awardNominationPage.fieldColleagueName,person);
+        CommonUtils.sendKeysToElement(awardNominationPage.fieldColleagueName, person);
         CommonUtils.waitForVisibility(awardNominationPage.chosenPerson);
         CommonUtils.clickOnElement(awardNominationPage.chosenPerson);
     }
 
     /**
      * enter Share AppreciationText
+     *
      * @param text
      */
     public void enterShareAppreciation(String text) {
-        CommonUtils.waitForVisibility(awardNominationPage.textFieldShareAppreciation);
         CommonUtils.sendKeysToElement(awardNominationPage.textFieldShareAppreciation, text);
         awardNominationPage.textFieldShareAppreciation.sendKeys(Keys.TAB);
     }
@@ -115,6 +115,7 @@ public class AwardNominationStepsImplementation  extends PageInitializer{
 
     /**
      * verify last ticket status
+     *
      * @param statusWorkInProgress
      */
     public void verifyLastTicketsStatus(String statusWorkInProgress) {
@@ -124,6 +125,7 @@ public class AwardNominationStepsImplementation  extends PageInitializer{
 
     /**
      * verify approval status
+     *
      * @param approvalStatus
      */
     public void verifyApprovalStatus(String approvalStatus) {
@@ -157,16 +159,18 @@ public class AwardNominationStepsImplementation  extends PageInitializer{
 
     /**
      * add Watcher
+     *
      * @param watcher
      */
     public void addWatcher(String watcher) {
-        CommonUtils.sendKeysToElement(awardNominationPage.textFieldAddWatchers,watcher);
+        CommonUtils.sendKeysToElement(awardNominationPage.textFieldAddWatchers, watcher);
         CommonUtils.clickOnElement(awardNominationPage.chosenWatcher);
         CommonUtils.clickOnElement(awardNominationPage.saveChangesConfModalButton);
     }
 
     /**
      * verify Watcher is added
+     *
      * @param watcher
      */
     public void verifyWatcherAdded(String watcher) {
@@ -177,10 +181,94 @@ public class AwardNominationStepsImplementation  extends PageInitializer{
     /**
      * upload a file
      */
-    public void uploadFile(){
+    public void uploadFile() {
         CommonUtils.clickOnElement(awardNominationPage.addAttachmentButton);
         String uploadAttachment = System.getProperty("user.dir") + "/src/test/resources/AwardNominationResources/AWARD_NOMINATION.docx";
         awardNominationPage.chooseFileButton.sendKeys(uploadAttachment);
         CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * verify Which value best reflects your appreciation options
+     *
+     * @param option
+     */
+    public void verifyWhichValueBestReflectsYourAppreciationsOptions(String option) {
+        switch (option) {
+            case "Breaking Down Barriers—They actively work to dismantle all forms of discrimination.":
+                CommonUtils.waitForVisibility(awardNominationPage.optResponseSectionGoingAboveBeyondOption);
+                softAssert.assertTrue(awardNominationPage.optResponseSectionGoingAboveBeyondOption.isDisplayed());
+                break;
+            case "Using Evidence—They base decisions on data and feedback to promote equity.":
+                CommonUtils.waitForVisibility(awardNominationPage.optResponseSectionBuildingOurCommunityOption);
+                softAssert.assertTrue(awardNominationPage.optResponseSectionBuildingOurCommunityOption.isDisplayed());
+                break;
+            case "Empowering Others—They help foster a sense of belonging and inclusivity.":
+                CommonUtils.waitForVisibility(awardNominationPage.optResponseSectionWorkingBehindScenesOption);
+                softAssert.assertTrue(awardNominationPage.optResponseSectionWorkingBehindScenesOption.isDisplayed());
+                break;
+            case "Being Trustworthy and Accountable—They promote shared responsibility and accountability in making NCI equitable and inclusive.":
+                CommonUtils.waitForVisibility(awardNominationPage.optResponseSectionMakingItHappenOption);
+                softAssert.assertTrue(awardNominationPage.optResponseSectionMakingItHappenOption.isDisplayed());
+                break;
+            case "Fostering Belonging and Respect—They cultivate a respectful environment where everyone feels valued.":
+                CommonUtils.waitForVisibility(awardNominationPage.optResponseSectionFindingCreativeSolutionsOption);
+                softAssert.assertTrue(awardNominationPage.optResponseSectionFindingCreativeSolutionsOption.isDisplayed());
+                break;
+            case "Promoting Transparency—They ensure that diversity, equity, and inclusion processes are clear and accessible.":
+                CommonUtils.waitForVisibility(awardNominationPage.optResponseSectionBrighteningDaysOption);
+                softAssert.assertTrue(awardNominationPage.optResponseSectionBrighteningDaysOption.isDisplayed());
+                break;
+            case "Being an Ally—They advocate for marginalized or excluded colleagues.":
+                CommonUtils.waitForVisibility(awardNominationPage.optResponseSectionLeadingChargeOption);
+                softAssert.assertTrue(awardNominationPage.optResponseSectionLeadingChargeOption.isDisplayed());
+                break;
+            case "In My Own Words - A text box will appear below when checked.":
+                CommonUtils.waitForVisibility(awardNominationPage.optResponseSectionInMyOwnWordsOption);
+                softAssert.assertTrue(awardNominationPage.optResponseSectionInMyOwnWordsOption.isDisplayed());
+                break;
+        }
+    }
+
+    /**
+     * verify Optional Responses options
+     *
+     * @param option
+     */
+    public void verifyOptionalResponsesOptions(String option) {
+        switch (option) {
+            case "Going Above and Beyond—They go the extra mile and provide excellent service.":
+                CommonUtils.waitForVisibility(awardNominationPage.whichValueSectionBreakingDownBarriersOption);
+                softAssert.assertTrue(awardNominationPage.whichValueSectionBreakingDownBarriersOption.isDisplayed());
+                break;
+            case "Using Evidence—They base decisions on data and feedback to promote equity.":
+                CommonUtils.waitForVisibility(awardNominationPage.whichValueSectionUsingEvidenceOption);
+                softAssert.assertTrue(awardNominationPage.whichValueSectionUsingEvidenceOption.isDisplayed());
+                break;
+            case "Empowering Others—They help foster a sense of belonging and inclusivity.":
+                CommonUtils.waitForVisibility(awardNominationPage.whichValueSectionEmpoweringOthersOption);
+                softAssert.assertTrue(awardNominationPage.whichValueSectionEmpoweringOthersOption.isDisplayed());
+                break;
+            case "Being Trustworthy and Accountable—They promote shared responsibility and accountability in making NCI equitable and inclusive.":
+                CommonUtils.waitForVisibility(awardNominationPage.whichValueSectionBeingTrustworthyOption);
+                softAssert.assertTrue(awardNominationPage.whichValueSectionBeingTrustworthyOption.isDisplayed());
+                break;
+            case "Fostering Belonging and Respect—They cultivate a respectful environment where everyone feels valued.":
+                CommonUtils.waitForVisibility(awardNominationPage.whichValueSectionFosteringBelongingOption);
+                softAssert.assertTrue(awardNominationPage.whichValueSectionFosteringBelongingOption.isDisplayed());
+                break;
+            case "Promoting Transparency—They ensure that diversity, equity, and inclusion processes are clear and accessible.":
+                CommonUtils.waitForVisibility(awardNominationPage.whichValueSectionPromotingTransparencyOption);
+                softAssert.assertTrue(awardNominationPage.whichValueSectionPromotingTransparencyOption.isDisplayed());
+                break;
+            case "Being an Ally—They advocate for marginalized or excluded colleagues.":
+                CommonUtils.waitForVisibility(awardNominationPage.whichValueSectionBeingAllyOption);
+                softAssert.assertTrue(awardNominationPage.whichValueSectionBeingAllyOption.isDisplayed());
+                break;
+            case "In My Own Words - A text box will appear below when checked.":
+                CommonUtils.waitForVisibility(awardNominationPage.whichValueSectionInMyOwnWordsOption);
+                softAssert.assertTrue(awardNominationPage.whichValueSectionInMyOwnWordsOption.isDisplayed());
+                break;
+        }
     }
 }
