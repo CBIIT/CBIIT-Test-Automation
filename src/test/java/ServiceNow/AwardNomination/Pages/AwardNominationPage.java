@@ -67,7 +67,6 @@ public class AwardNominationPage {
     @FindBy(xpath = "//span[.=' Tickets ']")
     public WebElement sectionTickets;
 
-
     /**  confirmation We have received your request */
     @FindBy(xpath = "//h2[.='We have received your request.']")
     public WebElement confWeHaveReceivedYourRequest;

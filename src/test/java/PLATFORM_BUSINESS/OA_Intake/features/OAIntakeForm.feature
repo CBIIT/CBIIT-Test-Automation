@@ -91,7 +91,6 @@ Feature: Create OA Intake form
     And User logs out of OA Intake application
 
   @selenium @Alena @Regression @OAIntake-332 @OAIntake-670 @OAIntake-669
-
   Scenario: Requestor (Requested For) Queue for Negotiated Contracts
     Given Leadership User logged in to OA Intake Portal
     And User clicks on Requestor (Requested For) Queue tab

@@ -50,7 +50,6 @@ Feature: VIBE Peer-to-Peer Appreciation Program
     And User can verify Optional Responses option "Collaborating on a Project—They are key partners on projects." is displayed
     And User can verify Optional Responses option "In My Own Words - A text box will appear below when checked." is displayed
 
-
   @selenium @Alena @Regression @AWARDNOM-78 @AWARDNOM-82
   Scenario: Verify Optional Responses
     Given Submitter User logged in to VIBE Peer-to-Peer Appreciation Program application via Portal
