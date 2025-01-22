@@ -487,13 +487,13 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void mutationsVariantsInformationSelected() {
         if (currentRow.get("WasTheGeneticTestingPositiveForFanconiAnemia").contentEquals("Yes")) {
             CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.geneNameDropDownList, currentRow.get("GeneName"));
-            CommonUtils.sleep(800);
+            CommonUtils.sleep(500);
             CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.mutationVariant1TextBox, currentRow.get("MutationVariant1"));
             CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.inheritedFrom1DropDownList, currentRow.get("InheritedFrom1"));
             CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.mutationVariant2TextBox, currentRow.get("MutationVariant2"));
             CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.inheritedFrom2DropDownList, currentRow.get("InheritedFrom2"));
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-            CommonUtils.sleep(800);
+            CommonUtils.sleep(500);
         }
     }
 
@@ -549,7 +549,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void everBeenDiagnosedWithBoneMarrowFailure() {
         CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("HaveYouEverBeenDiagnosedWithBoneMarrowFailure"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(500);
+        CommonUtils.sleep(800);
     }
 
     /**
@@ -658,7 +658,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     /**
      * Method to provide all information about cancer
      */
-    public void cancerdetailsAdded() {
+    public void cancerDetailsAdded() {
         if (currentRow.get("HaveYouEverBeenDiagnosedWithCancer").contentEquals("No")) {
         } else {
             if (currentRow.get("AreYouCompletingThisQuestionnaireForSomeoneElse").contentEquals("No, I am completing this form for myself")) {
@@ -986,7 +986,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         fanconiEligibilityQuestionnaireStepsImpl.everReceivedBoneMarrowTransplant();
         fanconiEligibilityQuestionnaireStepsImpl.reportDateOrAgeOfTransplant();
         fanconiEligibilityQuestionnaireStepsImpl.everBeenDiagnosedWithCancer();
-        fanconiEligibilityQuestionnaireStepsImpl.cancerdetailsAdded();
+        fanconiEligibilityQuestionnaireStepsImpl.cancerDetailsAdded();
         fanconiEligibilityQuestionnaireStepsImpl.currentMedicationsAreYouReceiving();
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         fanconiEligibilityQuestionnaireStepsImpl.howDidYouHearAboutThisStudy();
