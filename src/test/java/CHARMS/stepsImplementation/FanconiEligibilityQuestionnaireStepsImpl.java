@@ -125,7 +125,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void participantSubmission() {
         CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.participantCompletingRBtonList, currentRow.get("AreYouCompletingThisQuestionnaireForSomeoneElse"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(500);
     }
 
     /**
@@ -153,7 +153,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.middleNameTextBox, currentRow.get("ParticipantMiddleName"));
             CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.lastNameTextBox, currentRow.get("ParticipantLastName"));
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-            CommonUtils.sleep(800);
+            CommonUtils.sleep(500);
         }
     }
 
@@ -163,14 +163,14 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void participantBasicInformationSelected() {
         CommonUtils.waitForVisibility(fanconiEligibilityQuestionnairePage.calendarMonthDropDown);
         fanconiEligibilityQuestionnairePage.calendarYearTextBox.clear();
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(500);
         CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.calendarYearTextBox, currentRow.get("DOBYear"));
         CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.calendarMonthDropDown, currentRow.get("DOBMonth"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.calendarDayOption);
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.sexAssignedRBtonList, currentRow.get("SexAssigned"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(500);
     }
 
     /**
@@ -1833,7 +1833,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerBackButton);
         softAssert.assertAll();
     }
-
 
     /**
      * Submits consent with the provided collection method for a participant.
