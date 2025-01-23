@@ -138,7 +138,7 @@ Scenario: Verify a contract details on the slider matches the main contract page
 Scenario: Export search results
   When User clicks on Contracts
   And User selects Show inactive contracts
-  And User types "Commodities" in the Contract Title field
+  And User types "IT Commodities" in the Contract Title field
   And User clicks on SEARCH button to search for defined contracts
   Then User will click on EXPORT SEARCH RESULT button
 
