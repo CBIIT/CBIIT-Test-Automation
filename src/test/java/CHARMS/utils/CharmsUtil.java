@@ -51,7 +51,7 @@ public class CharmsUtil {
 		while (count < 5) {
 			try {
 				webElement.click();
-				CommonUtils.sleep(500);
+				CommonUtils.sleep(600);
 				break;
 			} catch (WebDriverException ex) {
 				CommonUtils.sleep(2000);

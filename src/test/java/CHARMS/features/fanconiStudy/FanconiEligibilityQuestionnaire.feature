@@ -16,17 +16,17 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
     Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Screener page "<FanconiScenario>"
     And consent is submitted with collection method "<ConsentCollectionMethod>"
     Examples:
-      | Email                         | Password | ConsentCollectionMethod | FanconiScenario |
-      | sj.fanconitester1@yopmail.com | Test123$$| iMed                    | 0               |
+      | Email                         | Password  | ConsentCollectionMethod | FanconiScenario |
+      | sj.fanconitester1@yopmail.com | Test123$$ | iMed                    | 0               |
 
   @jains @FanconiSubmission @CP2-1949 @Fanconi_Regression @selenium @Smoke
   Scenario Outline: Participant fills the Fanconi screener by the Proband for scenario 2
-   Given run the Fanconi reset script to reset the accounts
-  Given a Participant is on the Fanconi Study login page
-And logs in Fanconi page via Okta with username "sj.fanconitester2@yopmail.com" and password "Test123$$"
-   And clicks the Fanconi Eligibility Questionnaire widget
-   Then fills the Fanconi Eligibility Questionnaire form for scenario2
-   Then clicks the submit button
+    Given run the Fanconi reset script to reset the accounts
+    Given a Participant is on the Fanconi Study login page
+    And logs in Fanconi page via Okta with username "sj.fanconitester2@yopmail.com" and password "Test123$$"
+    And clicks the Fanconi Eligibility Questionnaire widget
+    Then fills the Fanconi Eligibility Questionnaire form for scenario2
+    Then clicks the submit button
     Given the study nurse log in Native View
     Then data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page "<FanconiScenario>"
     Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page "<FanconiScenario>"
