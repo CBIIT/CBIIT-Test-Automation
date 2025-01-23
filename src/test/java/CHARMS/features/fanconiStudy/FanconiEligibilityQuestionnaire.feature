@@ -6,45 +6,69 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
   Scenario Outline: Participant fills the Fanconi screener by the Proband for scenario 1
     Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
-    And logs in Fanconi page via Okta with username "sj.fanconitester1@yopmail.com" and password "Test123$$"
+    And logs in Fanconi page via Okta with username "<Email>" and password "<Password>"
     And clicks the Fanconi Eligibility Questionnaire widget
     Then fills the Fanconi Eligibility Questionnaire form for scenario1
     Then clicks the submit button
     Given the study nurse log in Native View
-    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for all scenarios
-    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page for all scenarios
-    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Screener page for all scenarios
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page "<FanconiScenario>"
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page "<FanconiScenario>"
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Screener page "<FanconiScenario>"
     And consent is submitted with collection method "<ConsentCollectionMethod>"
     Examples:
-      | ConsentCollectionMethod |
-      | iMed                    |
+      | Email                         | Password | ConsentCollectionMethod | FanconiScenario |
+      | sj.fanconitester1@yopmail.com | Test123$$| iMed                    | 0               |
 
   @jains @FanconiSubmission @CP2-1949 @Fanconi_Regression @selenium @Smoke
-  Scenario: Participant fills the Fanconi screener by the Proband for scenario 2
-    Given run the Fanconi reset script to reset the accounts
-    Given a Participant is on the Fanconi Study login page
-    And logs in Fanconi page via Okta with username "sj.fanconitester2@yopmail.com" and password "Test123$$"
-    And clicks the Fanconi Eligibility Questionnaire widget
-    Then fills the Fanconi Eligibility Questionnaire form for scenario2
-    Then clicks the submit button
+  Scenario Outline: Participant fills the Fanconi screener by the Proband for scenario 2
+   Given run the Fanconi reset script to reset the accounts
+  Given a Participant is on the Fanconi Study login page
+And logs in Fanconi page via Okta with username "sj.fanconitester2@yopmail.com" and password "Test123$$"
+   And clicks the Fanconi Eligibility Questionnaire widget
+   Then fills the Fanconi Eligibility Questionnaire form for scenario2
+   Then clicks the submit button
+    Given the study nurse log in Native View
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page "<FanconiScenario>"
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page "<FanconiScenario>"
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Screener page "<FanconiScenario>"
+    And consent is submitted with collection method "<ConsentCollectionMethod>"
+    Examples:
+      | ConsentCollectionMethod | FanconiScenario |
+      | iMed                    | 1               |
 
   @jains @FanconiSubmission @CP2-1949 @Fanconi_Regression @selenium @Smoke
-  Scenario: Participant fills the Fanconi screener by the Proband for scenario 3
+  Scenario Outline: Participant fills the Fanconi screener by the Proband for scenario 3
     Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
     And logs in Fanconi page via Okta with username "sj.fanconitester3@yopmail.com" and password "Test123$$"
     And clicks the Fanconi Eligibility Questionnaire widget
     Then fills the Fanconi Eligibility Questionnaire form for scenario3
     Then clicks the submit button
+    Given the study nurse log in Native View
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page "<FanconiScenario>"
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page "<FanconiScenario>"
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Screener page "<FanconiScenario>"
+    And consent is submitted with collection method "<ConsentCollectionMethod>"
+    Examples:
+      | ConsentCollectionMethod | FanconiScenario |
+      | iMed                    | 2               |
 
   @jains @FanconiSubmission @CP2-1949 @Fanconi_Regression @selenium @Smoke
-  Scenario: Participant fills the Fanconi screener by the Proband for scenario 4
+  Scenario Outline: Participant fills the Fanconi screener by the Proband for scenario 4
     Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
     And logs in Fanconi page via Okta with username "sj.fanconitester4@yopmail.com" and password "Test123$$"
     And clicks the Fanconi Eligibility Questionnaire widget
     Then fills the Fanconi Eligibility Questionnaire form for scenario4
     Then clicks the submit button
+    Given the study nurse log in Native View
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page "<FanconiScenario>"
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page "<FanconiScenario>"
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Screener page "<FanconiScenario>"
+    And consent is submitted with collection method "<ConsentCollectionMethod>"
+    Examples:
+      | ConsentCollectionMethod | FanconiScenario |
+      | iMed                    | 3               |
 
   @jains @FanconiSubmission @CP2-1949 @Fanconi_Regression @selenium @Smoke
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 5
@@ -106,11 +130,14 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
     Given All scenarios are submitted
 
   @jains @FanconiAssertion @CP2-1995 @Fanconi_Regression @selenium @Smoke
-  Scenario: Participant Details Page Assertions for all the scenarios in ServiceNow
+  Scenario Outline:: Participant Details Page Assertions for all the scenarios in ServiceNow
     Given the study nurse log in Native View
-    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for all scenarios
-    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page for all scenarios
-    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Screener page for all scenarios
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page "<FanconiScenario>"
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page "<FanconiScenario>"
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Screener page "<FanconiScenario>"
+    Examples:
+      | FanconiScenario |
+      | 1               |
 
   @jains @FanconiAssertion @CP2-1995 @Fanconi_Regression @selenium
   Scenario: Participant Details Page Assertions for one scenario at a time in ServiceNow
@@ -131,7 +158,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
   @jains @FanconiAssertion @CP2-1995 @Fanconi_Regression @selenium
   Scenario: Fanconi Study Screener page Assertions for all the scenarios in ServiceNow
     Given the study nurse log in Native View and go to Study Screener page
-    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page for all scenarios
+    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page for each scenario
 
   @jains @FanconiAssertion @CP2-1995 @Fanconi_Regression @selenium
   Scenario: Fanconi Study Screener page Assertions for one scenario at a time in ServiceNow

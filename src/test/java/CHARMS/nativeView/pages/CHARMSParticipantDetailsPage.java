@@ -80,34 +80,9 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//span[normalize-space()='" + text + "'])[1]"));
 	}
 
-	/* Method to dynamically locate elements in Native View */
+	/* Method to dynamically locate text elements in Native View */
 	public WebElement dynamicLocatorUsingNormalizeSpaceInSpan(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//span[@class='label-text'][normalize-space()='" + text + "']"));
-	}
-
-	/* Method to dynamically locate Read only Values in Participant Details page for Fanconi Native View */
-	public WebElement dynamicLocatorForReadOnlyInputElementsInParticipantDetailsPage(String text) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_readonly.x_naci_family_coho_family_history_details." + text + "'])[1]"));
-	}
-
-	/* Method to dynamically locate Input Values in Participant Details page for Fanconi Native View */
-	public WebElement dynamicLocatorForInputElementsInParticipantDetailsPage(String text) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_display.x_naci_family_coho_family_history_details." + text + "'])[1]"));
-	}
-
-	/* Method to dynamically locate Input Values in Participant Details page for Fanconi Native View */
-	public WebElement dynamicLocatorForInputElementInParticipantDetailsPage(String text) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='x_naci_family_coho_family_history_details." + text + "'])[1]"));
-	}
-
-	/* Method to dynamically locate select Values in Participant Details page for Fanconi Native View */
-	public WebElement dynamicLocatorForSelectValuesInParticipantDetailsPage(String text) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='x_naci_family_coho_family_history_details." + text + "'])[1]"));
-	}
-
-	/* Method to dynamically locate Read Only select Values in Participant Details page for Fanconi Native View */
-	public WebElement dynamicLocatorForReadOnlySelectValuesInParticipantDetailsPage(String text) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='sys_readonly.x_naci_family_coho_family_history_details." + text + "'])[1]"));
 	}
 
 	/* Method to dynamically locate Read Only Input Values in Participant Details page for Fanconi Native View */
@@ -115,7 +90,22 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_readonly.x_naci_family_coho_family_history_details." + text + "'])[1]"));
 	}
 
-	/* Method to dynamically locate Select Value elements in Participant Details page for Fanconi Native View */
+	/* Method to dynamically locate Display only Input Values in Participant Details page for Fanconi Native View */
+	public WebElement dynamicLocatorForInputElementsInParticipantDetailsPage(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_display.x_naci_family_coho_family_history_details." + text + "'])[1]"));
+	}
+
+	/* Method to dynamically locate Input Values added by the user in Participant Details page for Fanconi Native View */
+	public WebElement dynamicLocatorForInputElementInParticipantDetailsPage(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='x_naci_family_coho_family_history_details." + text + "'])[1]"));
+	}
+
+	/* Method to dynamically locate Read Only select Values by the user in Participant Details page for Fanconi Native View */
+	public WebElement dynamicLocatorForReadOnlySelectValuesInParticipantDetailsPage(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='sys_readonly.x_naci_family_coho_family_history_details." + text + "'])[1]"));
+	}
+
+	/* Method to dynamically locate editable select Values by the user in Participant Details page for Fanconi Native View */
 	public WebElement dynamicLocatorForSelectElementsInParticipantDetailsPage(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='x_naci_family_coho_family_history_details." + text + "'])[1]"));
 	}
@@ -164,22 +154,9 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@id='x_naci_family_coho_family_history_details.studies_edit'] | //p[@id='x_naci_family_coho_family_history_details.studies_nonedit'])[2]")
 	public WebElement nVParticipantStudies;
 
-	/* Participant--> NIH MRN number */
-	@FindBy(xpath = "(//input[@id='x_naci_family_coho_family_history_details.nih_number'])[1]")
-	public WebElement nVParticipantNIHMRNnumber;
-
-
 	/* Participant--> NIH MRN number Info =NIH MRN number should include the dashes */
 	@FindBy(xpath = "(//div[@class='fieldmsg notification notification-info'])[1]")
 	public WebElement nVParticipantNIHMRNnumberInfo;
-
-	/* Participant--> Referral */
-	@FindBy(xpath = "(//input[@id='sys_display.x_naci_family_coho_family_history_details.proband_screener'])[1]")
-	public WebElement nVParticipantReferral;
-
-	/* Participant--> Assigned To */
-	@FindBy(xpath = "(//input[contains(@name,'sys_display.x_naci_family_coho_family_history_details.assigned_to')])[1]")
-	public WebElement nVParticipantAssignedTo;
 
 	/* *************************************************************** */
 	/* VERIFIES PERSONAL INFORMATION DATA */

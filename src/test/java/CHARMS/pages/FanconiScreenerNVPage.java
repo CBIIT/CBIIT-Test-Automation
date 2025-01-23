@@ -52,7 +52,7 @@ public class FanconiScreenerNVPage extends PageInitializer {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_display.x_naci_family_coho_participant_study." + text + "'])[1]"));
     }
 
-    /* Method to dynamically locate Input Display  Read Value elements in Fanconi Study Screener in Native View */
+    /* Method to dynamically locate Input Display Read Value elements in Fanconi Study Screener in Native View */
     public WebElement dynamicLocatorForDisplayReadOnlyInputElementsInFAScreener(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_display.x_naci_family_coho_fanconi_study_screener." + text + "'])[1]"));
     }
@@ -97,13 +97,12 @@ public class FanconiScreenerNVPage extends PageInitializer {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='x_naci_family_coho_intake_participate_another_study." + text + "'])[1]"));
     }
 
-    /* Method to dynamically locate CheckBox Select elements in Native View */
+    /* Method to dynamically locate CheckBox labels in Fanconi study page in Native View */
     public WebElement dynamicLocatorForCheckBoxElements(String text) {
-        //  return WebDriverUtils.webDriver.findElement(By.xpath("(//label[@id='label.ni.x_naci_family_coho_participant_study." + text + "'])[1]"));
         return WebDriverUtils.webDriver.findElement(By.xpath("(//label[@id='label.ni.x_naci_family_coho_participant_study." + text + "'])[1]"));
     }
 
-    /* Method to dynamically locate CheckBox Select elements in Native View */
+    /* Method to dynamically locate CheckBox elements in Fanconi study page in Native View */
     public WebElement dynamicLocatorForCheckBoxElements(int i) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//span[@class='input-group-checkbox'])["+ i +"]"));
     }
