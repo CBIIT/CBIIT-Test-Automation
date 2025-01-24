@@ -30,7 +30,7 @@ public class JPSurvHomePagePlaywright {
     /***
      * NON HODGKIN LYMPHOMA LOCATOR
      */
-    public static String nhlLocator = "//select[@name='yearEnd']";
+    public static String nhlLocator = "//input[@id='Non-Hodgkin Lymphoma']";
 
     /***
      * CONDITIONAL SURVIVAL CALCULATION LOCATOR

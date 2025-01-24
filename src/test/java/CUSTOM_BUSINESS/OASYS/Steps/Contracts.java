@@ -154,20 +154,23 @@ public class Contracts {
 
     /**
      * This method is typing Test COR in Invoice Support Staff field
-     * @param TestCor
+     * @param TestAO
      */
     @When("User types {string} in Invoice Support Staff field")
-    public void user_types_in_invoice_support_staff_field(String TestCor) {
-        page.locator("xpath=//div/input[@ng-reflect-placeholder='Add Invoice Support Staff']").fill(TestCor);
+    public void user_types_in_invoice_support_staff_field(String TestAO) {
+        if (page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Test AO")).isVisible()) {
+            page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Test AO")).locator("mat-icon").click();
+        }
+        page.locator("xpath=//div/input[@ng-reflect-placeholder='Add Invoice Support Staff']").fill(TestAO);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
-     * This method is clicking on Test COR
+     * This method is clicking on Test AO
      */
-    @When("User clicks on Test COR")
-    public void user_clicks_on_test_cor() {
-        page.locator("//span[contains(text(),'Test COR')]").click();
+    @When("User clicks on Test AO")
+    public void user_clicks_on_test_AO() {
+        page.locator("//span[contains(text(),'Test AO')]").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -769,6 +772,111 @@ public class Contracts {
     @Then("User will verify if {string} is listed in the search results")
     public void user_will_verify_if_is_listed_in_the_search_results(String ExpectedContractTile) {
         assertThat(page.locator("mat-row")).containsText(ExpectedContractTile);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is clicking on the eye icon for IT Commodities and Solutions
+     */
+    @And("User clicks on the eye icon for IT Commodities and Solutions")
+    public void user_clicks_on_the_eye_icon_for_it_commodities_and_solutions() {
+        page.getByRole(AriaRole.ROW, new Page.GetByRoleOptions().setName("IT Commodities and Solutions HHSN316201500067W Other SWORD & SHIELD ENTERPRISE")).getByRole(AriaRole.BUTTON).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is verifying the project title
+     */
+    @And("User verifies the project title")
+    public void user_verifies_the_project_title() {
+        assertThat(page.locator("contractsoverview-contract-details-drawer")).containsText(OASYS_Constants.PROJ_TITLE_IT);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is verifying the contract number
+     */
+    @And("User verifies the REFPIID-PIID")
+    public void user_verifies_the_refpiid_piid() {
+        assertThat(page.locator("contractsoverview-contract-details-drawer")).containsText(OASYS_Constants.REFPIID_PIID);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is verifying the assigned CO
+     */
+    @And("User verifies the CO assigned on the contract")
+    public void user_verifies_the_co_assigned_on_the_contract() {
+        assertThat(page.locator("contractsoverview-contract-details-drawer")).containsText(OASYS_Constants.ASSIGNED_CO);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is verifying the assigned CS
+     */
+    @And("User verifies the CS assigned on the contract")
+    public void user_verifies_the_cs_assigned_on_the_contract() {
+        assertThat(page.locator("contractsoverview-contract-details-drawer")).containsText(OASYS_Constants.ASSIGNED_CS);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is verifying the assigned COR
+     */
+    @And("User verifies the COR assigned on the contract")
+    public void user_verifies_the_cor_assigned_on_the_contract() {
+        assertThat(page.locator("contractsoverview-contract-details-drawer")).containsText(OASYS_Constants.ASSIGNED_COR);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is closing the contract slider
+     */
+    @Then("User closes the slider")
+    public void user_closes_the_slider() {
+        page.locator("button").filter(new Locator.FilterOptions().setHasText("close")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is clicking on Export Search Result button
+     */
+    @Then("User will click on EXPORT SEARCH RESULT button")
+    public void user_will_click_on_export_search_result_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Export Search Result")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is signing in the application as TEST COR
+     */
+    @When("a user with Test COR logs in the application")
+    public void a_user_with_test_cor_logs_in_the_application() {
+        page.navigate(OASYS_Constants.OASYS_SIDE_LOGIN);
+        page.getByLabel("UserName").click();
+        page.getByLabel("UserName").fill(OASYS_Constants.OASYS_TEST_USERNAME);
+        page.getByLabel("Password").click();
+        page.getByLabel("Password").fill(OASYS_Constants.OASYS_TEST_PASSWORD);
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is navigating to Contracts
+     */
+    @And("User navigates to Contracts")
+    public void user_navigates_to_contracts() {
+        page.getByText("Contract Administrationkeyboard_arrow_down").click();
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Contract")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is verifying that the Test COR can not access All Contracts
+     */
+    @Then("User will verify that Test COR can not access All Contracts")
+    public void user_will_verify_that_test_cor_can_not_access_all_contracts() {
+        assertThat(page.locator("div").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^All Contracts$"))).nth(2)).isHidden();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }
