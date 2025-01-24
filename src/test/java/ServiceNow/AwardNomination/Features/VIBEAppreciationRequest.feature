@@ -70,6 +70,3 @@ Feature: VIBE Peer-to-Peer Appreciation Program
     Given Admin User logged in to view PEIC Appreciation Program - Administrator Approvers
     And Admin User can see that Administrator Approvers Group Manager is "Nic Perez"
     Then Admin User can see that listed Administrator Approvers are "Brandy Wimberly", "Nic Perez", and "Staci Tyler"
-
-
-
