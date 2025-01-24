@@ -1920,7 +1920,10 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfSignedDatedConsentAssentGivenToParticipantDropDown);
         } else {
             CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureSpecimensAndDataDropDown);
+            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureUseCollaboratorsDropDown);
             CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureUseCollaboratorsDropDown);
+            JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown);
+            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown);
             CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown);
             CommonUtils.sleep(500);
             CucumberLogUtils.logScreenshot();
@@ -1981,13 +1984,16 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(500);
-        verify_fields_in_native_view_cgb_iqq_record();
+        verify_demographics_fields_in_native_view_cgb_iqq_record();
+        verify_medical_history_fields_in_native_view_cgb_iqq_record();
+        verify_physical_findings_in_native_view_cgb_iqq_record();
+        verify_reproductive_history_in_native_view_cgb_iqq_record();
     }
 
     /**
-     * Method for verifying CGB IIQ record fields in Native View.
+     * Method for verifying CGB IIQ Demographics tab fields in Native View.
      */
-    public void verify_fields_in_native_view_cgb_iqq_record() {
+    public void verify_demographics_fields_in_native_view_cgb_iqq_record() {
         softAssert.assertEquals(nativeViewCGBIIQPage.participantsCityOfBirthTextField.getDomAttribute("value"), iiq_TestDataManager.whereWereYouBornCityTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Participants city of birth\" * * * * *");
         softAssert.assertEquals(nativeViewCGBIIQPage.participantsStateProvidenceOfTextField.getDomAttribute("value"), iiq_TestDataManager.whereWereYouBornStateTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Participants state/province of birth\" * * * * *");
         softAssert.assertEquals(nativeViewCGBIIQPage.participantsCountryOfBirthTextField.getDomAttribute("value"), iiq_TestDataManager.whereWereYouBornCountryTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Participants country of birth\" * * * * *");
@@ -1995,9 +2001,11 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.scrollIntoView(nativeViewCGBIIQPage.participantsBioMomAncestryNonEdit);
+        CommonUtils.waitForClickability(nativeViewCGBIIQPage.participantsBioMomAncestryNonEdit);
+        CommonUtils.sleep(500);
         softAssert.assertEquals(nativeViewCGBIIQPage.participantsBioMomAncestryNonEdit, iiq_TestDataManager.mostPeopleHaveAncestorsCheckBox, "* * * * * CGB IIQ - MISMATCH IN \"Biological mothers ancestral background\" * * * * *");
         softAssert.assertEquals(nativeViewCGBIIQPage.participantsBioDadAncestryNonEdit, iiq_TestDataManager.whatIsYourBiologicalFatherAncestralBackgroundTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Biological mothers ancestral background\" * * * * *");
-        softAssert.assertEquals(nativeViewCGBIIQPage.familysReligiousBackgroundNonEdit, iiq_TestDataManager.whatIsYourFammilysReligiousBackgroundCheckBox, "* * * * * CGB IIQ - MISMATCH IN \"Family's religous background\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.familysReligiousBackgroundNonEdit, iiq_TestDataManager.whatIsYourFammilysReligiousBackgroundCheckBox, "* * * * * CGB IIQ - MISMATCH IN \"Family's religious background\" * * * * *");
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.raisedByNonBioParentDropdown, iiq_TestDataManager.wereYouRaisedPrimarilyRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Was the participant raised by someone other than their own bio parent?\" * * * * *");
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.isTheParticipantOfAshkenaziJewishDescentDropdown, iiq_TestDataManager.areYouOfAshkenazyJewishDescentRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Is the participant of Ashkenazi jewish descent?\" * * * * *");
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.maritalStatusDropdown, iiq_TestDataManager.whatIsYourMaritalStatusCheckBox, "* * * * * CGB IIQ - MISMATCH IN \"Participant's marital status\" * * * * *");
@@ -2005,6 +2013,53 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.participantsHighestLevelOfSchoolingDropdown, iiq_TestDataManager.whatIsTheHighestLevelOfSchoolingRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Participants highest level of schooling\" * * * * *");
         softAssert.assertEquals(nativeViewCGBIIQPage.participantsUsualJobOrMainOccupationTextArea.getText(), iiq_TestDataManager.whatHasBeenYourUsualJobOther, "* * * * * CGB IIQ - MISMATCH IN \"Participants usual job or main occupation during their lifetime\" * * * * *");
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.doesTheParticipantHaveHealthInsuranceDropdown, iiq_TestDataManager.doYouCurrentlyHaveHealthInsuranceRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Does the participant have health insurance?\" * * * * *");
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Method for verifying CGB IIQ Medical History tab fields in Native View.
+     */
+    public void verify_medical_history_fields_in_native_view_cgb_iqq_record() {
+        nativeViewCGBIIQPage.medicalHistoryTab.click();
+        CommonUtils.waitForVisibility(nativeViewCGBIIQPage.birthTimingDropdown);
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.birthTimingDropdown, iiq_TestDataManager.wouldYouSayYouWereBornRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Participants birth timing\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.birthWeightInputField.getDomAttribute("value"), iiq_TestDataManager.pleaseFillOutBirtWeightNumericTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Participant birth weight (grams)\" * * * * *");
+        softAssert.assertTrue(nativeViewCGBIIQPage.birthWeightUnknownCheckbox.getDomAttribute("value").equals("true"), "* * * * * CGB IIQ - MISMATCH IN \"Birth weight unknown\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.birthLengthInputField.getDomAttribute("value"), iiq_TestDataManager.pleaseFillOutHeadNumericTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Participant birth length (cm)\" * * * * *");
+        softAssert.assertTrue(nativeViewCGBIIQPage.birthLengthUnknownCheckbox.getDomAttribute("value").equals("true"), "* * * * * CGB IIQ - MISMATCH IN \"Birth length unknown\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.headCircumferenceAtBirthInputField.getDomAttribute("value"), iiq_TestDataManager.pleaseFillOutHeadCircumferenceNumericTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Participants head circumference at birth (cm)\" * * * * *");
+        softAssert.assertTrue(nativeViewCGBIIQPage.headCircumferenceUnknownCheckbox.getDomAttribute("value").equals("true"), "* * * * * CGB IIQ - MISMATCH IN \"Head circumference unknown\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.bioParentsRelatedDropdown, iiq_TestDataManager.areYourBiologicalParentsBloodRelatedRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Are participants bio parents blood-related\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.twinMultipleBirthDropdown, iiq_TestDataManager.wereYouATwinRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Is participant a twin or multiple birth?\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.inVitroFertilizationDropdown, iiq_TestDataManager.wereYouConceivedUsingVitroRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Participant conceived using in vitro fertilization\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.hasBeenEvaluatedForGeneticDiseaseOrSyndromeEvaluationDropdown, iiq_TestDataManager.haveYouEverHadMedicalGeneticTestingRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Has the participant been evaluated for genetic disease or syndrome?\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.participantDiagnosedWithCancerOrBenignTumorDropdown, iiq_TestDataManager.haveYouEverBeenDiagnosedWithAnyCancerRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Has the participant been diagnosed with cancer and/or benign tumor?\" * * * * *");
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Method for verifying CGB IIQ Physical Findings tab fields in Native View.
+     */
+    public void verify_physical_findings_in_native_view_cgb_iqq_record() {
+        nativeViewCGBIIQPage.physicalFindingsTab.click();
+        softAssert.assertEquals(nativeViewCGBIIQPage.currentHeightInputField.getDomAttribute("value"), iiq_TestDataManager.pleaseFillTheTableBelowWithHeightNumericTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Current height (CM)\" * * * * *");
+        softAssert.assertTrue(nativeViewCGBIIQPage.currentHeightUnknownCheckbox.getDomAttribute("value").equals("true"), "* * * * * CGB IIQ - MISMATCH IN \"Current height unknown\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.weightAt18InputField.getDomAttribute("value"), iiq_TestDataManager.pleaseFillTheTableBelowWithWeightAt18UnitDropDown, "* * * * * CGB IIQ - MISMATCH IN \"Weight at 18 years of age (kg)\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.weightAt30InputField.getDomAttribute("value"), iiq_TestDataManager.pleaseCompleteTheTableBelowIndicatingYourWeightColumn1Option4, "* * * * * CGB IIQ - MISMATCH IN \"Weight at 30 years of age (kg)\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.ageAtHighestWeightInputField.getDomAttribute("value"), iiq_TestDataManager.atWhatAgeWereYouAtTheHighestWeightTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Age at highest weight input\" * * * * *");
+        softAssert.assertTrue(nativeViewCGBIIQPage.currentWeightUnknownCheckbox.getDomAttribute("value").equals("true"), "* * * * * CGB IIQ - MISMATCH IN \"Current weight unknown\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.weightAt40InputField.getDomAttribute("value"), iiq_TestDataManager.pleaseCompleteTheTableBelowIndicatingYourWeightColumn1Option5, "* * * * * CGB IIQ - MISMATCH IN \"Weight at 40 years of age (kg)\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.highestWeightDuringLifetimeInputField.getDomAttribute("value"), iiq_TestDataManager.pleaseCompleteTheTableBelowIndicatingYourWeightColumn1Option2, "* * * * * CGB IIQ - MISMATCH IN \"Highest weight during lifetime? (excluding pregnancy) (kg)\" * * * * *");
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Method for verifying CGB IIQ Reproductive History tab fields in Native View.
+     */
+    public void verify_reproductive_history_in_native_view_cgb_iqq_record() {
+        nativeViewCGBIIQPage.reproductiveHistoryTab.click();
+        CommonUtils.waitForClickability(nativeViewCGBIIQPage.hasParticipantConsultedADoctorBecauseOfDifficultyGettingPregnantDropdown);
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.hasParticipantConsultedADoctorBecauseOfDifficultyGettingPregnantDropdown, iiq_TestDataManager.haveYouSoughtMedicalAdviceRegardingFertilityRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Has the participant consulted a doctor because of difficulty getting pregnant?\" * * * * *");
         CucumberLogUtils.logScreenshot();
     }
 }

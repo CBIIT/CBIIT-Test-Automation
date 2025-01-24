@@ -23,6 +23,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByCssSelector;
 import static Hooks.Hooks.softAssert;
 import static CHARMS.pages.MyRASHomePage.dynamicModuleLocator;
 import static CHARMS.steps.RAS_Common_Methods.*;
@@ -310,8 +311,8 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentSignAndCompleteButton);
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForClickability(locateByXpath("//button[@title='Back']"));
-        CommonUtils.clickOnElement(locateByXpath("//button[@title='Back']"));
+        CommonUtils.waitForClickability(locateByCssSelector("button[aria-label='Back']"));
+        locateByCssSelector("button[aria-label='Back']").click();
         CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
