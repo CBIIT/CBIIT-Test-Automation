@@ -52,7 +52,7 @@ public class NCCRPage {
     public WebElement rowsPaginationDataRequestsAwaitingMyReviewTab;
 
     /**Rows pagination*/
-    @FindBy(xpath = "(//div [@class='btn-toolbar m-r pull-left'])[2]")
+    @FindBy(xpath = "//div[contains(text(),'Rows')]")
     public WebElement rowsPaginationAllDataRequestTab;
 
     /**Show filter button*/

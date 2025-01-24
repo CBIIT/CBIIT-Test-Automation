@@ -98,8 +98,6 @@ Feature: Create OA Intake form
     And User can see New Request button
     And User can see Contact Support button
     And User can verify Purchasing Online Tracking System (POTS) hyperlink is displayed
-    When User clicks Purchasing Online Tracking System (POTS) hyperlink
-    Then User is redirected to authentication page
     And User can verify FFRDC Contract Administration System (FCAS) hyperlink is displayed
     And User can verify that OA Intakes are pre-filtered for a logged in Leadership User
     And User can verify that Request ID column can be sorted in descending and ascending order
@@ -111,8 +109,8 @@ Feature: Create OA Intake form
     And User can verify that Status Date column can be sorted in descending and ascending order
     And User logs out of OA Intake application
 
-  @selenium @Alena @Regression @OAIntake-657 @OAIntake-640 @OAIntake-700 @OAIntake-708
-  Scenario: Contracting Officer/Contract Specialist Queue
+  @selenium @Alena @Regression @OAIntake-657  @OAIntake-700
+  Scenario: Contracting Officer/Contract Specialist Queue Assigned menu
     Given Leadership User logged in to OA Intake Portal
     And User clicks on CO CS Queue tab
     And User can verify page header is "Contracting Officer/Contract Specialist Queue"
@@ -123,6 +121,13 @@ Feature: Create OA Intake form
       | Export as PDF | Export as Excel | Export as CSV |
     And User can see OA Intakes - Assigned filter is preset with assigned requests
     And User can remove filters for OA Intakes - Assigned requests
+    And User logs out of OA Intake application
+
+  @selenium @Alena @Regression @OAIntake-708
+  Scenario: Contracting Officer/Contract Specialist Queue Accepted menu
+    Given Leadership User logged in to OA Intake Portal
+    And User clicks on CO CS Queue tab
+    And User can verify page header is "Contracting Officer/Contract Specialist Queue"
     And User can see OA Intakes - Accepted section
     When User clicks on OA Intakes - Accepted menu
     Then User can see the following options for OA Intakes - Accepted requests
@@ -130,6 +135,13 @@ Feature: Create OA Intake form
       | Export as PDF | Export as Excel | Export as CSV |
     And User can see OA Intakes - Accepted filter is preset with accepted requests
     And User can remove filters for OA Intakes - Accepted requests
+    And User logs out of OA Intake application
+
+  @selenium @Alena @Regression @OAIntake-640
+  Scenario: Contracting Officer/Contract Specialist Queue Cancelled menu
+    Given Leadership User logged in to OA Intake Portal
+    And User clicks on CO CS Queue tab
+    And User can verify page header is "Contracting Officer/Contract Specialist Queue"
     And User can see OA Intakes - Cancelled section
     When User clicks on OA Intakes - Cancelled menu
     Then User can see the following options for OA Intakes - Cancelled requests
