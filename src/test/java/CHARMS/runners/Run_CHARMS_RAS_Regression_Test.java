@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 		"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 		features = {"src/test/java/CHARMS/features/RASAccountReset", "src/test/java/CHARMS/features/rasopathyStudy"},
 		glue = {"CHARMS.steps", "Hooks"},
-		tags = "@RAS_Regression",
+		tags = "@RAS_Regression1 or @Ras_Regression2",
 		dryRun = false
 )
 public class Run_CHARMS_RAS_Regression_Test extends AbstractTestNGCucumberTests{

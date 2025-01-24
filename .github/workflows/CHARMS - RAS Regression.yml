@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="CHARMS.runners.Run_CHARMS_RAS_Regression_Test" test
+        run: mvn -B -q -Dtest="CHARMS.runners.Run_CHARMS_RAS_Regression_Test" -Dcucumber.filter.tags="@RAS_Regression1" test
         continue-on-error: true
 
       - name: Generate timestamp
