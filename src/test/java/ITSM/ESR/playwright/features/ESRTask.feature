@@ -111,7 +111,7 @@ Feature: ESR Tasks
     And the ESR Board Closeout Review catalog task is completed
     Then the user confirms the ESR Board Closeout Review catalog task is completed
 
-  @ESR-??? @sarwarahmed1 @In-Progress @playwright
+  @ESR-711 @sarwarahmed1 @Regression @playwright
   Scenario: Test the ESR Board Closeout catalog task in an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
@@ -125,3 +125,5 @@ Feature: ESR Tasks
     And the Closeout Preparation catalog task for ESR-I is completed
     And the user is approved from the Operational POC
     And the user is approved from a federal lead for ESR-I closeout approval
+    And the ESR Board Closeout Review catalog task is completed
+    Then the user confirms the ESR Board Closeout Review catalog task is completed
