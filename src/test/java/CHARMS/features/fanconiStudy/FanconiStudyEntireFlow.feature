@@ -3,7 +3,7 @@ Feature: Fanconi end-to-end flow on the Fanconi Longitudinal Cohort Study Portal
 
   @FanconiSubmission @selenium @Fanconi_Regression @Progression
   Scenario Outline: This scenario submits the IIQ form and verifies the data in Native View.
-#    Given run the Fanconi reset script to reset the accounts
+    Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
     And logs in Fanconi page via Okta with username "<Email>" and password "<Password>"
     And clicks the Fanconi Eligibility Questionnaire widget
@@ -17,5 +17,5 @@ Feature: Fanconi end-to-end flow on the Fanconi Longitudinal Cohort Study Portal
     And the participant submits a Individual Information Questionnaire for excel sheet "<IIQScenario>"
     Then Study Team member logs in to Native View and verifies fields in participant's CGB IIQ record
     Examples:
-      | Email                | Password      | ConsentCollectionMethod | IIQScenario  |
-      | charmsras3@yahoo.com | RASTest2023$$ | iMed                    | IIQScenario1 |
+      | Email                         | Password  | ConsentCollectionMethod | IIQScenario  |
+      | sj.fanconitester1@yopmail.com | Test123$$ | iMed                    | IIQScenario1 |
