@@ -106,7 +106,6 @@ public class TestProperties {
      */
     public static final String AWARD_NOMINATION_TEST_URL = "https://service-test.nci.nih.gov/ncisp";
     public static String AWARD_NOMINATION_URL;
-
     public static final String AWARD_NOMINATION_ADMIN_GROUP_URL = "https://service-test.nci.nih.gov/sys_user_group.do?sys_id=5c673fd31b45921089b9ece0f54bcb03";
 
     /**
