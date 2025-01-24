@@ -154,14 +154,14 @@ public class Contracts {
 
     /**
      * This method is typing Test COR in Invoice Support Staff field
-     * @param TestCor
+     * @param TestAO
      */
     @When("User types {string} in Invoice Support Staff field")
-    public void user_types_in_invoice_support_staff_field(String TestCor) {
+    public void user_types_in_invoice_support_staff_field(String TestAO) {
         if (page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Test AO")).isVisible()) {
             page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Test AO")).locator("mat-icon").click();
         }
-        page.locator("xpath=//div/input[@ng-reflect-placeholder='Add Invoice Support Staff']").fill(TestCor);
+        page.locator("xpath=//div/input[@ng-reflect-placeholder='Add Invoice Support Staff']").fill(TestAO);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
