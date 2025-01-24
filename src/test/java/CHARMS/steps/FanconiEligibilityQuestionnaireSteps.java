@@ -78,9 +78,10 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
         fanconiEligibilityQuestionnaireStepsImpl.navigateToParticipantDetailsPageInNativeView();
     }
 
-    @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for all scenarios")
-    public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Participant_Details_page_for_all_scenarios() {
-        fanconiEligibilityQuestionnaireStepsImpl.allScenariosParticipantDetailPageAssertion();
+    @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page {string}")
+    public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Participant_Details_page(String fanconiScenario) {
+        int i = Integer.parseInt(fanconiScenario);
+        fanconiEligibilityQuestionnaireStepsImpl.participantDetailPageAssertion(i);
     }
 
     @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for each scenario")
@@ -95,18 +96,16 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
         fanconiEligibilityQuestionnaireStepsImpl.loginToFanconiStudyPageInNativeView();
     }
 
-    @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page for all scenarios")
-    public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Fanconi_Study_Screener_page_for_all_scenarios() {
-        for (int i = 0; i <= 0; i++) {
-            fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyPageAssertions(i);
-        }
+    @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page {string}")
+    public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Fanconi_Study_Screener_page(String fanconiScenario) {
+      int i = Integer.parseInt(fanconiScenario);
+      fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyPageAssertions(i);
     }
 
-    @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Screener page for all scenarios")
-    public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Fanconi_Screener_page_for_all_scenarios() {
-        for (int i = 0; i <= 0; i++) {
-            fanconiEligibilityQuestionnaireStepsImpl.fanconiScreenerPageAssertions(i);
-        }
+    @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Screener page {string}")
+    public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Fanconi_Screener_page(String fanconiScenario) {
+        int i = Integer.parseInt(fanconiScenario);
+        fanconiEligibilityQuestionnaireStepsImpl.fanconiScreenerPageAssertions(i);
     }
 
     @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page for each scenario")

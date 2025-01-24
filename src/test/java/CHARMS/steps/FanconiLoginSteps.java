@@ -13,6 +13,7 @@ public class FanconiLoginSteps extends PageInitializer {
 	public void a_Participant_is_on_the_Fanconi_Study_login_page() {
 		WebDriverUtils.webDriver.get(getFanconiUrl());
 	}
+
 	@Given("logs in Fanconi page via Okta with username {string} and password {string}")
 	public void logs_in_Fanconi_page_via_Okta_with_username_and_password(String username, String password) {
 		CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton1);
@@ -25,6 +26,7 @@ public class FanconiLoginSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(oktaLoginPage.agreeBtn);
 		CharmsUtil.clickOnElement(oktaLoginPage.agreeBtn);
 	}
+
 	@Given("clicks the Fanconi Eligibility Questionnaire widget")
 	public void clicks_the_Fanconi_Eligibility_Questionnaire_widget() {
 		fanconiLoginPage.eligibilityQuestionnaireLink.click();
