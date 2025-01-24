@@ -168,8 +168,8 @@ public class Contracts {
     /**
      * This method is clicking on Test COR
      */
-    @When("User clicks on Test COR")
-    public void user_clicks_on_test_cor() {
+    @When("User clicks on Test AO")
+    public void user_clicks_on_test_AO() {
         page.locator("//span[contains(text(),'Test AO')]").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }

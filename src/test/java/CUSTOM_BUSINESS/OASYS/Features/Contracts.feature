@@ -24,7 +24,7 @@ Scenario: Edit contract assignments
   And User clicks on Edit button
   And User clicks on ADD INVOICE Support Staff
   And User types "Test AO" in Invoice Support Staff field
-  And User clicks on Test COR
+  And User clicks on Test AO
   Then User will click on SAVE button
 
 @CreateContractMessage @NESARH2 @Regression @playwright
