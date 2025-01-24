@@ -1,6 +1,7 @@
 package PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.Steps;
 
 import PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.constants.Travel_Request_Portal_Form_Constants;
+import PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.pages.OCPL_Training_Request_Page;
 import PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.stepsImpl.Travel_Request_Portal_Form_StepImpl;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.Locator;
@@ -497,6 +498,63 @@ public class Travel_Request_Portal_Form_Steps {
         page.locator("#exceed_threshold").scrollIntoViewIfNeeded();
         assertThat(page.getByText("Select 'Yes' if total travel")).isVisible();
         assertThat(page.locator("#exceed_threshold")).containsText(helpText);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Selects the Foreign option for destination type on a Travel Planning Request form.
+     *
+     * @param foreign the destination type to be selected (e.g. "Foreign")
+     */
+    @When("I select the destination type, {string} on a Travel Planning Request form")
+    public void i_select_the_destination_type_on_a_travel_planning_request_form(String foreign) {
+        page.navigate(Travel_Request_Portal_Form_Constants.TRAVEL_PLANNING_SYSTEM_PORTAL_FORM_URL);
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        CucumberLogUtils.scenario.log("----  TRAVELER ACCOMODATIONs -- A REQUIRED FIELD ----");
+        page.waitForSelector("#traveler_accomodations");
+        assertThat(page.locator("#traveler_accomodations")).containsText(Travel_Request_Portal_Form_Constants.TRAVELER_ACCOMODATIONS_FIELD_TEXT);
+        page.locator("#s2id_sp_formfield_traveler_accomodations a").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(Travel_Request_Portal_Form_Constants.REQUESTING_BUSINESS_CLASS_SELECTED_DROP_DOWN_OPTION)).click();
+
+        CucumberLogUtils.scenario.log("----  SELECTS FOREIGN OPTION FOR DESTINATION TYPE -- A REQUIRED FIELD ----");
+        assertThat(page.locator("//span[normalize-space()='Destination Type']")).containsText(Travel_Request_Portal_Form_Constants.DESTINATION_TYPE_FIELD_TEXT);
+        assertThat(page.locator("//span[@id='label_foreign']")).containsText(foreign);
+        assertThat(page.locator("#label_foreign")).containsText("Foreign");
+        page.getByText("Foreign", new Page.GetByTextOptions().setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Specifies that the following fields will become required when the Foreign option  is selected for Destination type:
+     * - Contact Name
+     * - Contact Address
+     * - Contact Phone
+     *
+     * @param contactName The name of the contact that will become required
+     * @param contactAddress The address of the contact that will become required
+     * @param contactPhone The phone number of the contact that will become required
+     */
+    @Then("the following fields will become required, {string}, {string}, {string}")
+    public void the_following_fields_will_become_required(String contactName, String contactAddress, String contactPhone) {
+        page.locator("//span[normalize-space()='Contact Name']").scrollIntoViewIfNeeded();
+        page.locator("//span[normalize-space()='Contact Name']").isVisible();
+        assertThat(page.locator("//span[normalize-space()='Contact Name']")).containsText(contactName);
+        String contactNameRequired = page.locator("//label[@for='sp_formfield_contact_name']//span[contains(@aria-label,'Required')]").getAttribute(OCPL_Training_Request_Page.oCPL_TRAINING_REQUEST_REQUIRED_FIELD_ATTRIBUTE);
+        Assert.assertEquals(contactNameRequired, OCPL_Training_Request_Page.MANDATORY_FIELD,
+                "---- VERIFY 'CONTACT NAME' IS REQUIRED WHEN THE 'DESTINATION TYPE' IS 'FOREIGN' ----");
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.locator("//label[@for='sp_formfield_contact_address']").isVisible();
+        assertThat(page.locator("//label[@for='sp_formfield_contact_address']")).containsText(contactAddress);
+        String contactAddressRequired = page.locator("//label[@for='sp_formfield_contact_address']//span[contains(@aria-label,'Required')]").getAttribute(OCPL_Training_Request_Page.oCPL_TRAINING_REQUEST_REQUIRED_FIELD_ATTRIBUTE);
+        Assert.assertEquals(contactAddressRequired, OCPL_Training_Request_Page.MANDATORY_FIELD,
+                "---- VERIFY 'CONTACT ADDRESS' IS REQUIRED WHEN THE 'DESTINATION TYPE' IS 'FOREIGN' ----");
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.locator("//label[@for='sp_formfield_contact_phone']").isVisible();
+        assertThat(page.locator("//label[@for='sp_formfield_contact_phone']")).containsText(contactPhone);
+        String contactPhoneRequired = page.locator("//label[@for='sp_formfield_contact_phone']//span[contains(@aria-label,'Required')]").getAttribute(OCPL_Training_Request_Page.oCPL_TRAINING_REQUEST_REQUIRED_FIELD_ATTRIBUTE);
+        Assert.assertEquals(contactPhoneRequired, OCPL_Training_Request_Page.MANDATORY_FIELD,
+                "---- VERIFY 'CONTACT PHONE' IS REQUIRED WHEN THE 'DESTINATION TYPE' IS 'FOREIGN' ----");
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }

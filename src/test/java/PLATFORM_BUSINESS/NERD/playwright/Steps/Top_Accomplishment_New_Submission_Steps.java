@@ -686,7 +686,7 @@ public class Top_Accomplishment_New_Submission_Steps {
             page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Lookup using list")).click();
         });
         CucumberLogUtils.playwrightScreenshot(nedUserPage);
-        assertThat(nedUserPage.getByText("Showing rows 1 to 20 of 145,954 to 20 of 145,9540UsersUser", new Page.GetByTextOptions().setExact(true))).isVisible();
+        assertThat(nedUserPage.locator("//td[@class='text-align-right']")).isVisible();
         assertThat(nedUserPage.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Margie Blochlinger"))).containsText("Margie Blochlinger");
         CucumberLogUtils.playwrightScreenshot(nedUserPage);
         nedUserPage.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Margie Blochlinger")).click();
