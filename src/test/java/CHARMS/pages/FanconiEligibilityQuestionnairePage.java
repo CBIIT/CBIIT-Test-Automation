@@ -393,6 +393,12 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	public List<WebElement> yesForFeaturesOptions;
 
 	/*
+	 * Participant: Heart Problems such as: congenital heart disease, other
+	 */
+	@FindBy(xpath = "(//input[@id='QR~QID168~13~TEXT'])[1]")
+	public WebElement heartProblemsOtherText;
+
+	/*
 	 * Participant: Have you been told that you have any of the following features
 	 */
 	@FindBy(xpath = "//td[@class='c5   ']")

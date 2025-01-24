@@ -51,10 +51,10 @@ public class CharmsUtil {
 		while (count < 5) {
 			try {
 				webElement.click();
-				CommonUtils.sleep(1200);
+				CommonUtils.sleep(500);
 				break;
 			} catch (WebDriverException ex) {
-				CommonUtils.sleep(1200);
+				CommonUtils.sleep(2000);
 				count++;
 			}
 		}
@@ -67,7 +67,7 @@ public class CharmsUtil {
 		while (count < 5) {
 			try {
 				webElement.click();
-				CommonUtils.sleep(400);
+				CommonUtils.sleep(500);
 				break;
 			} catch (WebDriverException ex) {
 				CommonUtils.sleep(2000);
@@ -83,7 +83,7 @@ public class CharmsUtil {
 			try {
 				CharmsUtil.labelHighlight(webElement);
 				webElement.sendKeys(text);
-				CommonUtils.sleep(600);
+				CommonUtils.sleep(500);
 				break;
 			} catch (WebDriverException ex) {
 				CommonUtils.sleep(2000);
@@ -101,13 +101,13 @@ public class CharmsUtil {
 	}
 	
 	/* @param webElement:Button Label to be Verified */
-	public static void assertButtonLabel(SoftAssert softAssert, WebElement webElement, String expectedValue, String messsage) {		
+	public static void assertButtonLabel(SoftAssert softAssert, WebElement webElement, String expectedValue, String message) {
 		CharmsUtil.labelHighlight(webElement);
 		String actualValue = webElement.getText();
-		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
+		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + message + "-->");
 	}
 	
-	/* @param webElement:Button Labelto be Verified */
+	/* @param webElement:Button Label to be Verified */
 	public static void assertButtonLabelWithSpace(SoftAssert softAssert, WebElement webElement, String expectedValue, String messsage) {		
 		CharmsUtil.labelHighlight(webElement);
 		String actualValue = webElement.getText();
@@ -132,7 +132,7 @@ public class CharmsUtil {
 	}
 	
 	/* webElement:A text box to be Verified */
-	public static void assertTextBoxData(SoftAssert softAssert, WebElement webElement, String expectedValue,String messsage) {
+	public static void assertTextBoxData(SoftAssert softAssert, WebElement webElement, String expectedValue,String message) {
 		CharmsUtil.labelHighlight(webElement);
 		CommonUtils.sleep(300);
 		String actualValue = null;
@@ -143,11 +143,11 @@ public class CharmsUtil {
 			actualValue = webElement.getText();
 			actualValue = actualValue.trim();
 		}
-		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
+		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + message + "-->");
 	}
 
 	/* webElement:A text box to be Verified */
-	public static void assertTextBoxDataSelected(SoftAssert softAssert, WebElement webElement, String expectedValue,String messsage) {
+	public static void assertTextBoxDataSelected(SoftAssert softAssert, WebElement webElement, String expectedValue,String message) {
 		CharmsUtil.labelHighlight(webElement);
 		CommonUtils.sleep(300);
 		String actualValue = null;
@@ -160,11 +160,11 @@ public class CharmsUtil {
 		else {
 			actualValue = webElement.getText();
 		}
-		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
+		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + message + "-->");
 	}
 	
 	/* webElement:A DropDown value to be Verified */
-	public static void assertDropDownData(SoftAssert softAssert, WebElement webElement, String expectedValue,String messsage) {
+	public static void assertDropDownData(SoftAssert softAssert, WebElement webElement, String expectedValue,String message) {
 		CharmsUtil.labelHighlight(webElement);
 		CommonUtils.sleep(200);
 		Select select = new Select(webElement);
@@ -173,14 +173,14 @@ public class CharmsUtil {
 		if (expectedValue == "Don't know") {
 			expectedValue = "Unknown/Unsure";
 		}
-		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
+		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + message + "-->");
 	}
 	
-	public static void compareExpectedActualValue(SoftAssert softAssert,WebElement webElement, String expectedValue,String messsage) {		
+	public static void compareExpectedActualValue(SoftAssert softAssert,WebElement webElement, String expectedValue,String message) {
 		CharmsUtil.labelHighlight(webElement);
 		Select select = new Select(webElement);
 		String actualValue = select.getFirstSelectedOption().getText(); // getFirstSelectedOption() returns the selected
-	softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
+	softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + message + "-->");
 	}
 	
 	/* Method to select a value from the Drop down List */
@@ -196,7 +196,7 @@ public class CharmsUtil {
 				try {
 					CharmsUtil.labelHighlight(e.get(l));
 					e.get(l).click();
-					CommonUtils.sleep(500);
+					CommonUtils.sleep(800);
 				} catch (Exception ex) {
 					CommonUtils.sleep(2000);
 					e.get(l).click();
@@ -230,7 +230,7 @@ public class CharmsUtil {
 			if ( options.equals(dropDownValue))
 			{
 				selectResultsAsListCollection.get(i).click();
-				CommonUtils.sleep(1000);
+				CommonUtils.sleep(300);
 				break;
 			}
 		}
@@ -244,7 +244,7 @@ public class CharmsUtil {
 				try {
 					CharmsUtil.labelHighlight(radioButtonList.get(l));
 					radioButtonList.get(l).click();
-					CommonUtils.sleep(600);
+					CommonUtils.sleep(200);
 				} catch (Exception ex) {
 					radioButtonList.get(l).click();
 					CommonUtils.sleep(2000);
@@ -260,7 +260,7 @@ public class CharmsUtil {
 	 * to the final Component Test Result */
 	public static ComponentTestResult verifyLabel(WebElement webElement, String expectedValue) {
 		CharmsUtil.labelHighlight(webElement);
-		CommonUtils.sleep(500);
+		CommonUtils.sleep(100);
 		String result = "PASSED";
 		List<ComparisionResult> comparisionResultList = new ArrayList<ComparisionResult>();
 		String actualValue = webElement.getText();
@@ -271,7 +271,7 @@ public class CharmsUtil {
 			ComparisionResult comparisionResult = new ComparisionResult(actualValue, expectedValue, "FAILED");
 			comparisionResultList.add(comparisionResult);
 		}
-		CommonUtils.sleep(500);
+		CommonUtils.sleep(100);
 		ComponentTestResult componentTestResult = new ComponentTestResult();
 		componentTestResult.setComparisionResultList(comparisionResultList);
 		componentTestResult.setComponentResult(result);
@@ -283,7 +283,7 @@ public class CharmsUtil {
 	 * v.s. expected) */
 	public static ComponentTestResult verifyDropDowns(WebElement webElement, List<String> list) {
 		CharmsUtil.labelHighlight(webElement);
-		CommonUtils.sleep(500);
+		CommonUtils.sleep(100);
 		String result = "PASSED";
 		List<ComparisionResult> comparisionResultList = new ArrayList<ComparisionResult>();
 		Select select = new Select(webElement);
