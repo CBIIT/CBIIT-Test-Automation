@@ -54,11 +54,6 @@ public class AwardNominationSteps extends PageInitializer {
         awardNominationStepsImplementation.verifySectionAppreciationValueDisplayed();
     }
 
-    @Given("Submitter User can verify that Add Attachment option is displayed")
-    public void submitter_user_can_verify_that_add_attachment_option_is_displayed() {
-        awardNominationStepsImplementation.verifySectionAddAttachmentDisplayed();
-    }
-
     @When("Submitter User submits VIBE Peer-to-Peer Appreciation Program request")
     public void submitter_user_submits_vibe_peer_to_peer_appreciation_program_request() {
         awardNominationStepsImplementation.clickSubmitButton();
@@ -66,7 +61,7 @@ public class AwardNominationSteps extends PageInitializer {
 
     @Then("Submitter User can verify they are redirected to general tickets view page")
     public void submitter_user_can_verify_they_are_redirected_to_general_tickets_view_page() {
-        awardNominationStepsImplementation.verifySectionTicketsDisplayed();
+        awardNominationStepsImplementation.verifyWeHaveReceivedRequest();
     }
 
     /**

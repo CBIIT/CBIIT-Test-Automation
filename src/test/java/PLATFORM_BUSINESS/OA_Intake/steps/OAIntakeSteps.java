@@ -469,12 +469,9 @@ public class OAIntakeSteps extends PageInitializer {
         softAssert.assertTrue(oaIntakePage.pageHeaderRequestedFor.isDisplayed());
     }
 
-    /**
-     * verify Requestor \(Requested For) Queue tab is displayed
-     */
     @Given("User can verify page header is {string}")
     public void user_can_verify_page_header_is(String header) {
-        softAssert.assertEquals(oaIntakePage.leadershipQueuePageHeader.getText(), header);
+       oaIntakeStepsImplementation.verifyHeadrDisplayed(header);
     }
 
     /**
@@ -499,27 +496,6 @@ public class OAIntakeSteps extends PageInitializer {
     @Given("User can verify Purchasing Online Tracking System \\(POTS) hyperlink is displayed")
     public void user_can_verify_purchasing_online_tracking_system_pots_hyperlink_is_displayed() {
         softAssert.assertTrue(oaIntakePage.hyperlinkPOTS.isDisplayed());
-    }
-
-    /**
-     * Click on POTS hyperlink
-     */
-    @When("User clicks Purchasing Online Tracking System \\(POTS) hyperlink")
-    public void user_clicks_purchasing_online_tracking_system_pots_hyperlink() {
-        CommonUtils.clickOnElement(oaIntakePage.hyperlinkPOTS);
-    }
-
-    /**
-     * verify that User is redirected to NIH authentication page
-     */
-    @Then("User is redirected to authentication page")
-    public void user_is_redirected_to_authentication_page() {
-        ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
-        webDriver.switchTo().window(tabs.get(1));
-        softAssert.assertTrue(oaIntakePage.nihLoginContent.isDisplayed());
-        webDriver.close();
-        webDriver.switchTo().window(tabs.get(0));
-        CommonUtils.sleep(2000);
     }
 
     /**

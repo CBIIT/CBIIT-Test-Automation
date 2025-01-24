@@ -23,8 +23,8 @@ Scenario: Edit contract assignments
   And User clicks on Assignments
   And User clicks on Edit button
   And User clicks on ADD INVOICE Support Staff
-  And User types "Test COR" in Invoice Support Staff field
-  And User clicks on Test COR
+  And User types "Test AO" in Invoice Support Staff field
+  And User clicks on Test AO
   Then User will click on SAVE button
 
 @CreateContractMessage @NESARH2 @Regression @playwright
@@ -122,3 +122,28 @@ Scenario: Using search filters to narrow down search results
   And User selects Show inactive contracts
   And User clicks on SEARCH button to search for defined contracts
   Then User will verify if "Dell EMC Isilon Hardware and Software Support and Maintenance" is listed in the search results
+
+@ContractSliderDetails @NESARH2 @Regression @playwright
+Scenario: Verify a contract details on the slider matches the main contract page
+  When User clicks on Contracts
+  And User clicks on the eye icon for IT Commodities and Solutions
+  And User verifies the project title
+  And User verifies the REFPIID-PIID
+  And User verifies the CO assigned on the contract
+  And User verifies the CS assigned on the contract
+  And User verifies the COR assigned on the contract
+  Then User closes the slider
+
+@ExportContractSearchResults @NESARH2 @Regression @playwright
+Scenario: Export search results
+  When User clicks on Contracts
+  And User selects Show inactive contracts
+  And User types "IT Commodities" in the Contract Title field
+  And User clicks on SEARCH button to search for defined contracts
+  Then User will click on EXPORT SEARCH RESULT button
+
+@TestCORUserAccessLevel @NESARH2 @Regression @playwright
+Scenario: Verify that Test COR can not access All Contracts
+  When a user with Test COR logs in the application
+  And User navigates to Contracts
+  Then User will verify that Test COR can not access All Contracts

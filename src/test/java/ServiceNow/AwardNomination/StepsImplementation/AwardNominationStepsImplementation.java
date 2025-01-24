@@ -107,10 +107,10 @@ public class AwardNominationStepsImplementation extends PageInitializer {
     }
 
     /**
-     * verify Tickets section displayed
+     * verify we have received request displayed
      */
-    public void verifySectionTicketsDisplayed() {
-        softAssert.assertTrue(awardNominationPage.sectionTickets.isDisplayed());
+    public void verifyWeHaveReceivedRequest() {
+        softAssert.assertTrue(awardNominationPage.confWeHaveReceivedYourRequest.isDisplayed());
     }
 
     /**

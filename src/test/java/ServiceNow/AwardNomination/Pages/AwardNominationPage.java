@@ -44,7 +44,7 @@ public class AwardNominationPage {
     public WebElement chosenPerson;
 
     /**  text field Share Appreciation*/
-    @FindBy(xpath = "//textarea[@id='sp_formfield_reason_for_your_appreciations']")
+    @FindBy(xpath = "//textarea[@id='sp_formfield_share_your_appreciation']")
     public WebElement textFieldShareAppreciation;
 
     /**  section Header Optional Responses*/
@@ -66,6 +66,10 @@ public class AwardNominationPage {
     /**  section Tickets */
     @FindBy(xpath = "//span[.=' Tickets ']")
     public WebElement sectionTickets;
+
+    /**  confirmation We have received your request */
+    @FindBy(xpath = "//h2[.='We have received your request.']")
+    public WebElement confWeHaveReceivedYourRequest;
 
     /**  Last submitted VIBE Ticket */
     @FindBy(xpath = "(//h4[.='VIBE Peer-to-Peer Appreciation Program'])[1]")
