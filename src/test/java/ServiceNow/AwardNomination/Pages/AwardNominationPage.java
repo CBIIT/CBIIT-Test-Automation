@@ -112,7 +112,7 @@ public class AwardNominationPage {
     public WebElement textFieldAddWatchers;
 
     /**  Save Changes confirmation modal button */
-    @FindBy(xpath = "//button[@class='md-raised md-primary md-button md-ink-ripple']")
+    @FindBy(xpath = "//span[contains(text(),'Save Changes')]")
     public WebElement saveChangesConfModalButton;
 
     /**  Watch list field */
@@ -194,6 +194,26 @@ public class AwardNominationPage {
     /**  Which value best reflects your appreciation: In My Own Words - A text box will appear below when checked.*/
     @FindBy(xpath = "//span[contains(text(),'In My Own Words - A text box will appear below when checked.')]")
     public WebElement whichValueSectionInMyOwnWordsOption;
+
+    /**  group manager*/
+    @FindBy(xpath = "//*[@id='sys_display.sys_user_group.manager']")
+    public WebElement groupManagerTextField;
+
+    /**  tab Admin Group Members*/
+    @FindBy(xpath = "//span[.='Group Members (3)']")
+    public WebElement tabAdminGroupMembers;
+
+    /** Admin Group Member One*/
+    @FindBy(xpath = "//a[@sys_id='4d77a2986fc54e001c857eeeae3ee41b']")
+    public WebElement adminGroupMemberOne;
+
+    /** Admin Group Member Two*/
+    @FindBy(xpath = "//a[@sys_id='b73b214a6f0671002b0d58622e3ee445']")
+    public WebElement adminGroupMemberTwo;
+
+    /** Admin Group Member Three*/
+    @FindBy(xpath = "//a[@sys_id='3793a3691be6a190550143bae54bcb28']")
+    public WebElement adminGroupMemberThree;
 
     public AwardNominationPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
