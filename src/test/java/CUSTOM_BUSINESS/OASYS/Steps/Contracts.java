@@ -166,7 +166,7 @@ public class Contracts {
     }
 
     /**
-     * This method is clicking on Test COR
+     * This method is clicking on Test AO
      */
     @When("User clicks on Test AO")
     public void user_clicks_on_test_AO() {
