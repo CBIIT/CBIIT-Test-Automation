@@ -99,7 +99,7 @@ public class ESRApprovalStepsImplementation {
     /**
      * This method completes the ESR Board Closeout Review approvals for ESR-Q tickets
      */
-    public static void esrBoardCloseoutApprovals() {
+    public static void esrBoardCloseoutApprovalsforESRQ() {
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (18)").click();
         Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[16]").click();
         Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
