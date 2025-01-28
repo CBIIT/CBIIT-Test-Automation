@@ -99,7 +99,7 @@ public class ESRApprovalStepsImplementation {
     /**
      * This method completes the ESR Board Closeout Review approvals for ESR-Q tickets
      */
-    public static void esrBoardCloseoutApprovalsforESRQ() {
+    public static void esrBoardCloseoutApprovalsForESRQ() {
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (18)").click();
         Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[16]").click();
         Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
@@ -108,6 +108,29 @@ public class ESRApprovalStepsImplementation {
         Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (18)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[20]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[22]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[24]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method completes the ESR Board Closeout Review approvals for ESR-I tickets
+     */
+    public static void esrBoardCloseoutApprovalsForESRI() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (19)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[16]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[18]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (19)").click();
         Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[20]").click();
         Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();

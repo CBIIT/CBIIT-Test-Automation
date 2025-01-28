@@ -91,7 +91,7 @@ Feature: ESR Approvals
     And the user is approved from a federal lead for ESR-I closeout approval
     Then the user confirms the Federal Lead Closeout Approval is completed
 
-  @ESR-712 @sarwarahmed1 @Progression @playwright
+  @ESR-712 @sarwarahmed1 @Regression @playwright
   Scenario: Test the ESR Board Closeout Review approvals in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
@@ -108,7 +108,7 @@ Feature: ESR Approvals
     And the user is approved for ESR Board Closeout Review for ESR-Q
     Then the user confirms the ESR Board Closeout Review approvals are completed
 
-  @ESR-714 @sarwarahmed1 @Proooogression @playwright
+  @ESR-714 @sarwarahmed1 @Progression @playwright
   Scenario: Test the ESR Board Closeout Review approvals in an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR

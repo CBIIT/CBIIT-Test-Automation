@@ -53,7 +53,12 @@ public class ESRApprovalSteps {
 
     @And("the user is approved for ESR Board Closeout Review for ESR-Q")
     public void the_user_is_approved_for_esr_board_closeout_review_for_esr_q() {
-        ESRApprovalStepsImplementation.esrBoardCloseoutApprovalsforESRQ();
+        ESRApprovalStepsImplementation.esrBoardCloseoutApprovalsForESRQ();
+    }
+
+    @And("the user is approved for ESR Board Closeout Review for ESR-I")
+    public void the_user_is_approved_for_esr_board_closeout_review_for_esr_i() {
+        ESRApprovalStepsImplementation.esrBoardCloseoutApprovalsForESRI();
     }
 
     @Then("the user confirms the ESR Board Closeout Review approvals are completed")
