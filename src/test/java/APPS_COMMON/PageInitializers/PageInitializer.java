@@ -24,6 +24,7 @@ import ANALYSIS_TOOLS.ThreeDVizSNP.pages.ThreeDVizSNPPage;
 import ANALYSIS_TOOLS.mSigPortal.pages.*;
 import ANALYSIS_TOOLS.scAtlas.pages.SCAtlasCohortsPage;
 import ANALYSIS_TOOLS.scAtlas.pages.SCAtlasHomePage;
+import CHARMS.scenariosData.*;
 import CUSTOM_BUSINESS.CCR.pages.*;
 import CUSTOM_BUSINESS.CCR.stepsImplementation.*;
 import CUSTOM_BUSINESS.DCEG.pages.*;
@@ -44,12 +45,13 @@ import GRANTS.EM.selenium.pages.CreateNewAccountPage;
 import GRANTS.EM.selenium.pages.ManageI2EUsersPage;
 import GRANTS.EM.selenium.pages.ModifyAccountPage;
 import GRANTS.EM.selenium.stepImplementation.EMStepsImplementation;
-import CHARMS.Constants.*;
-import CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
-import CHARMS.Pages.*;
-import CHARMS.ScenariosData.*;
-import CHARMS.StepsImplementation.*;
-import CHARMS.StepsImplementation.RASStudy.*;
+import ServiceNow.AwardNomination.Pages.AwardNominationPage;
+import ServiceNow.AwardNomination.StepsImplementation.AwardNominationStepsImplementation;
+import CHARMS.constants.*;
+import CHARMS.nativeView.pages.CHARMSParticipantDetailsPage;
+import CHARMS.pages.*;
+import CHARMS.stepsImplementation.*;
+import CHARMS.stepsImplementation.RASStudy.*;
 import DEPRECATED.COVIDCode.Pages.*;
 import DEPRECATED.COVIDCode.StepsImplementation.*;
 import DEPRECATED.COVIDCode.StepsImplementation.DashboardStepImpl;
@@ -64,7 +66,7 @@ import PLATFORM_BUSINESS.NCCR.stepsImplementation.NCCRStepsImplementation;
 import PLATFORM_BUSINESS.OA_Intake.pages.OAIntakePage;
 import PLATFORM_BUSINESS.OA_Intake.stepsImplementation.OAIntakeStepsImplementation;
 import PLATFORM_BUSINESS.ETracking.pages.EtrackAssetsRecords_NativeViewPage;
-import PLATFORM_BUSINESS.CTRP_CTRO.selenium.pages.CTRPCTRO_NV_Page;
+import PLATFORM_BUSINESS.CTRP_CTRO.pages.CTRPCTRO_NV_Page;
 import PLATFORM_BUSINESS.GDC.pages.GDC_Workflow_NativeView_Page;
 import PLATFORM_BUSINESS.GCP.pages.GCPNotifications_NativeViewPage;
 import PLATFORM_BUSINESS.NERD.selenium.Pages.*;
@@ -142,6 +144,8 @@ public class PageInitializer extends WebDriverUtils {
 	public static TestAccountResetPage testAccountResetPage;
 	public static MyRASStudyConsentPage myRasStudyConsentPage;
 	public static MyRASStudyAssentPage myRASStudyAssentPage;
+	public static MyRASPhysicalActivitiesSurvey myRASPhysicalActivitiesSurvey;
+	public static MyRASSmokingSurveyPage myRASSmokingSurveyPage;
 	public static CGBIIQPage cgbIIQPage;
 	public static CGBIIQPages cGBIIQPages;
 	public static RAS_Survey_Page rAS_Survey_Page;
@@ -155,6 +159,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static RAS_Screener_TestDataManager ras_Screener_TestDataManager;
 	public static RAS_NV_Consent_Record_TestDataManager ras_NV_Consent_Record_TestDataManager;
 	public static RAS_Survey_TestDataManager ras_Survey_TestDataManager;
+	public static RAS_Survey_Smoking_Survey_TestDataManager ras_Survey_Smoking_Survey_TestDataManager;
 	public static IIQ_TestDataManager iiq_TestDataManager;
 	public static ParticipantDetailsPage participantDetailsPage;
 	public static ReferralTablePage referralTablePage;
@@ -178,6 +183,10 @@ public class PageInitializer extends WebDriverUtils {
 	/** NCCR instances */
 	public static NCCRStepsImplementation nccrStepsImplementation;
 	public static NCCRPage nccrPage;
+
+	/** AWARD NOMINATION instances */
+	public static AwardNominationStepsImplementation awardNominationStepsImplementation;
+	public static AwardNominationPage awardNominationPage;
 
 	/** SEER instances */
 	public static SEERLandingPage seerLandingPage;
@@ -363,8 +372,10 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
+	public static NativeViewCHARMSPatientSmokingHistoryPage nativeViewCHARMSPatientSmokingHistoryPage;
 	public static NativeViewCHARMSAddNewParticipantPage nativeViewCHARMSAddNewParticipantPage;
 	public static NativeViewCHARMSSubjectFlagsPage nativeViewCHARMSSubjectFlagsPage;
+	public static NativeViewCGBIIQPage nativeViewCGBIIQPage;
 
 	/** --------------- EGRANTS INSTANCES --------------- */
 	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;
@@ -437,9 +448,12 @@ public class PageInitializer extends WebDriverUtils {
 		testAccountResetPage = new TestAccountResetPage();
 		myRasStudyConsentPage = new MyRASStudyConsentPage();
 		myRASStudyAssentPage = new MyRASStudyAssentPage();
+		myRASPhysicalActivitiesSurvey = new MyRASPhysicalActivitiesSurvey();
+		myRASSmokingSurveyPage = new MyRASSmokingSurveyPage();
 		ras_Screener_TestDataManager = new RAS_Screener_TestDataManager();
 		ras_NV_Consent_Record_TestDataManager = new RAS_NV_Consent_Record_TestDataManager();
 		ras_Survey_TestDataManager = new RAS_Survey_TestDataManager();
+		ras_Survey_Smoking_Survey_TestDataManager = new RAS_Survey_Smoking_Survey_TestDataManager();
 		iiq_TestDataManager = new IIQ_TestDataManager();
 		cgbIIQPage = new CGBIIQPage();
 		cGBIIQPages = new CGBIIQPages();
@@ -644,8 +658,10 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSParticipantConsentPage = new NativeViewCHARMSParticipantConsentPage();
 		nativeViewCHARMSParticipantStudyPage = new NativeViewCHARMSParticipantStudyPage();
 		nativeViewCHARMSAddNewParticipantPage = new NativeViewCHARMSAddNewParticipantPage();
+		nativeViewCHARMSPatientSmokingHistoryPage = new NativeViewCHARMSPatientSmokingHistoryPage();
 		nativeViewSSJReportsPage = new NativeViewSSJReportsPage();
 		nativeViewCHARMSSubjectFlagsPage = new NativeViewCHARMSSubjectFlagsPage();
+		nativeViewCGBIIQPage = new NativeViewCGBIIQPage();
 
 		/****** GRANTS INSTANCES *******/
 		/** Grants ChangePassword app **/
@@ -696,5 +712,9 @@ public class PageInitializer extends WebDriverUtils {
 		cometsAnalyticsPage = new CometsAnalyticsPage();
 		cometsAnalyticsStepImp = new CometsAnalyticsStepImp();
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
+
+		/** AWARD NOMINATION variables */
+		awardNominationPage = new AwardNominationPage();
+		awardNominationStepsImplementation = new AwardNominationStepsImplementation();
 	}
 }

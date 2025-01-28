@@ -96,6 +96,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * @param SubmissionType
      */
     public static void creatingNewSubmission(WebElement SubmissionType) {
+        CommonUtils.sleep(20000);
         CommonUtils.waitForClickability(SubmissionType);
         CommonUtils.clickOnElement(SubmissionType);
         Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
@@ -268,7 +269,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
     public static void userIsOnSubmissionsPage(String applicationName) {
         WebDriverUtils.webDriver.get(getNerdUrl());
         WebDriverUtils.webDriver.navigate().refresh();
-        CommonUtils.sleep(5000);
+        CommonUtils.sleep(55000); //This is the only solution as per current situation for loading NERD records
         CommonUtils.waitForVisibility(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton);
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton.click();
@@ -301,7 +302,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * This method will open new tab for adding new OM Entry
      */
     public static void addingNewOM_Entry() {
-        CommonUtils.sleep(1000);
+        CommonUtils.sleep(20000); //this wait time is needed for NERD that will be replaced by NERD redesign soon
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.omAddNewEntryButton);
         JavascriptUtils.scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.omAddNewEntryButton);
         CommonUtils.sleep(1000);

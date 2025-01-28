@@ -17,3 +17,11 @@ Feature: OCPL Training Request Form Scenarios
       """
     And when the user submits the form containing their responses to the questions, the system will capture their response.
     And verify the response in the body of "OCPL Training Request" email in the System log emails
+
+  @SNOWPROJ-163 @Chaudhryma @Regression @playwright
+  Scenario:Test OCPL- Training Request Form Field Additions
+    Given the user is filling the OCPL Training request form
+    When the user reaches the required field "Transportation By",
+    Then the user will have the ability to select the option "NA",
+    And when the user submits the form containing their responses to the questions, the system will capture their response.
+    And verify the response for given field in the body of "OCPL Training Request" email in the System log emails

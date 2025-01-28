@@ -45,8 +45,8 @@ Feature: ESR Approvals
     And the user is approved from the ESR Board approvers
     Then the user confirms the ESR Board Intake Approvals are completed
 
-  @ESR-702 @sarwarahmed1 @In-Progress @playwright
-  Scenario: Test the Federal Lead CLoseout Approval in an ESR-Q ticket
+  @ESR-702 @sarwarahmed1 @Regression @playwright
+  Scenario: Test the Federal Lead Closeout Approval in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
     And fills out all required information for ESR-Q and clicks submit
@@ -57,3 +57,71 @@ Feature: ESR Approvals
     And the user is approved from the ESR Board approvers
     And the Engineering Project Execution catalog task is completed
     And the Closeout Preparation catalog task for ESR-Q is completed
+    And the user is approved from a federal lead for closeout approval
+    Then the user confirms the Federal Lead Closeout Approval is completed
+
+  @ESR-703 @sarwarahmed1 @Regression @playwright
+  Scenario: Test the Operational POC Approval in an ESR-I ticket
+    Given a user logs into Native View on the NCI at your service page
+    And navigates to create ESR
+    And fills out all required information for ESR-I and clicks submit
+    And user clicks on Intake Preparation catalog task
+    And user fills out all required information for ESR-I Intake Preparation
+    And the user is approved from a federal lead
+    And ESR Board Intake Review catalog task is completed
+    And the user is approved from the ESR Board approvers
+    And the Engineering Project Execution catalog task is completed
+    And the Closeout Preparation catalog task for ESR-I is completed
+    And the user is approved from the Operational POC
+    Then the user confirms the Operational POC Approval is completed
+
+  @ESR-704 @sarwarahmed1 @Regression @playwright
+  Scenario: Test the Federal Lead Closeout Approval in an ESR-I ticket
+    Given a user logs into Native View on the NCI at your service page
+    And navigates to create ESR
+    And fills out all required information for ESR-I and clicks submit
+    And user clicks on Intake Preparation catalog task
+    And user fills out all required information for ESR-I Intake Preparation
+    And the user is approved from a federal lead
+    And ESR Board Intake Review catalog task is completed
+    And the user is approved from the ESR Board approvers
+    And the Engineering Project Execution catalog task is completed
+    And the Closeout Preparation catalog task for ESR-I is completed
+    And the user is approved from the Operational POC
+    And the user is approved from a federal lead for ESR-I closeout approval
+    Then the user confirms the Federal Lead Closeout Approval is completed
+
+  @ESR-712 @sarwarahmed1 @Regression @playwright
+  Scenario: Test the ESR Board Closeout Review approvals in an ESR-Q ticket
+    Given a user logs into Native View on the NCI at your service page
+    And navigates to create ESR
+    And fills out all required information for ESR-Q and clicks submit
+    And user clicks on Intake Preparation catalog task
+    And user fills out all required information for ESR-Q Intake Preparation
+    And the user is approved from a federal lead
+    And ESR Board Intake Review catalog task is completed
+    And the user is approved from the ESR Board approvers
+    And the Engineering Project Execution catalog task is completed
+    And the Closeout Preparation catalog task for ESR-Q is completed
+    And the user is approved from a federal lead for closeout approval
+    And the ESR Board Closeout Review catalog task is completed
+    And the user is approved for ESR Board Closeout Review
+    Then the user confirms the ESR Board Closeout Review approvals are completed
+
+  @ESR-714 @sarwarahmed1 @In-Progress @playwright
+  Scenario: Test the ESR Board Closeout Review approvals in an ESR-I ticket
+    Given a user logs into Native View on the NCI at your service page
+    And navigates to create ESR
+    And fills out all required information for ESR-I and clicks submit
+    And user clicks on Intake Preparation catalog task
+    And user fills out all required information for ESR-I Intake Preparation
+    And the user is approved from a federal lead
+    And ESR Board Intake Review catalog task is completed
+    And the user is approved from the ESR Board approvers
+    And the Engineering Project Execution catalog task is completed
+    And the Closeout Preparation catalog task for ESR-I is completed
+    And the user is approved from the Operational POC
+    And the user is approved from a federal lead for ESR-I closeout approval
+    And the ESR Board Closeout Review catalog task is completed
+    And the user is approved for ESR Board Closeout Review
+    Then the user confirms the ESR Board Closeout Review approvals are completed

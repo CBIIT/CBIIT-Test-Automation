@@ -78,7 +78,7 @@ Feature: SEER User Registration Scenarios
     Given a user is on the SEER Data Access landing page
     Then a user should see (which Federal Government Agencies can sign in with a PIV):
     """
-    Requestors associated with HHS agencies should login with their PIV cards to request the data.
+    Requesters associated with HHS agencies should log in with their PIV cards to request the data.
     """
 
   @ODS-362 @ODS-345 @ODS-363 @ODS-345 @ODS-363 @ODS-345 @bucurgb @Regression @Smoke @selenium

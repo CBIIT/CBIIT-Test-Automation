@@ -25,4 +25,39 @@ public class ESRApprovalSteps {
     public void the_user_confirms_the_esr_board_intake_approvals_are_completed() {
         ESRApprovalStepsImplementation.confirmESRBoardIntakeApprovalsAreCompleted();
     }
+
+    @And("the user is approved from the Operational POC")
+    public void the_user_is_approved_from_the_operational_poc() {
+        ESRApprovalStepsImplementation.operationalPOCApproval();
+    }
+
+    @Then("the user confirms the Operational POC Approval is completed")
+    public void the_user_confirms_the_operational_poc_approval_is_completed() {
+        ESRApprovalStepsImplementation.confirmOperationalPOCApprovalIsCompleted();
+    }
+
+    @And("the user is approved from a federal lead for closeout approval")
+    public void the_user_is_approved_from_a_federal_lead_for_closeout_approval() {
+        ESRApprovalStepsImplementation.federalLeadCloseoutApproval();
+    }
+
+    @Then("the user confirms the Federal Lead Closeout Approval is completed")
+    public void the_user_confirms_the_federal_lead_closeout_approval_is_completed() {
+        ESRApprovalStepsImplementation.confirmFederalLeadCloseoutApprovalIsCompleted();
+    }
+
+    @And("the user is approved from a federal lead for ESR-I closeout approval")
+    public void the_user_is_approved_from_a_federal_lead_for_esr_i_closeout_approval() {
+        ESRApprovalStepsImplementation.federalLeadESRIApproval();
+    }
+
+    @And("the user is approved for ESR Board Closeout Review")
+    public void the_user_is_approved_for_esr_board_closeout_review() {
+        ESRApprovalStepsImplementation.esrBoardCloseoutApprovals();
+    }
+
+    @Then("the user confirms the ESR Board Closeout Review approvals are completed")
+    public void the_user_confirms_the_esr_board_closeout_review_approvals_are_completed() {
+        ESRApprovalStepsImplementation.confirmESRBoardCloseoutReviewApprovalsAreCompleted();
+    }
 }

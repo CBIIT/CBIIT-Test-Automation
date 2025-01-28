@@ -18,7 +18,7 @@ public class Egrants_Constants {
     public static final String FUNDING_SUBCATEGORY = "Transition Approval";
     public static final String ROUTE_BUTTON_ALERT_MESSAGE = "Are you sure that you want to route 10%  QC documents from D'Avella, Joseph to Quality, Associates?";
     public static final String DELETE_ALERT_MESSAGE = "Are you sure that you want to delete selected document(s)?";
-    public static final String TEST_FILE_PATH = System.getProperty("user.dir")+"/src/test/java/CustomBusiness/Egrants/Resources/TESTDOCUMENT.pdf";
+    public static final String TEST_FILE_PATH = System.getProperty("user.dir")+"/src/test/java/CUSTOM_BUSINESS/Egrants/Resources/TESTDOCUMENT.pdf";
     public static final String TEST_GRANT_SERIAL_NUMBER = "CA125123";
     public static final String CREATE_GRANT_YEAR = "CreateGrantYear";
     public static final String APPLICATION_TYPE = "3";
@@ -46,4 +46,7 @@ public class Egrants_Constants {
     public static final String ACTIVATION_NOTICE = "Activation Notice";
     public static final String APPLICATION_FILE = "Application File";
     public static final String YEAR_17 = "5P30CA125123-17";
+    public static final String SUPPLEMENT = "Supplement";
+    public static final String NOTIFICATION_VERIFICATION_MESSAGE = "New email notification has been created";
+    public static final String GRANTS_ARCHIVAL_PROCESS = "Grants Archival Process";
 }
