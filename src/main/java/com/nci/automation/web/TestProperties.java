@@ -3,7 +3,7 @@ package com.nci.automation.web;
 public class TestProperties {
 
     public static String ENV = "test";
-    public static String BROWSER = "Chrome";
+    public static String BROWSER = "msedge";
     public static boolean HEADLESS = false;
     public static int SET_SLOW_MO_TIME = 1000;
 
