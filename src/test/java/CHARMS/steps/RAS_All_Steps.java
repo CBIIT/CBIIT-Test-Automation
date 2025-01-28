@@ -310,6 +310,7 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentSignAndCompleteButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentSignAndCompleteButton);
         CommonUtils.sleep(2000);
+        CommonUtils.waitForVisibility(locateByXpath("//div[@class='outputmsg_text']"));
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(locateByCssSelector("button[aria-label='Back']"));
         locateByCssSelector("button[aria-label='Back']").click();
@@ -1203,8 +1204,8 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Then("clicks the Back button")
     public void clicks_the_back_button() {
-        CommonUtils.waitForClickability(locateByXpath("//button[@aria-label='Back']"));
-        locateByXpath("//button[@aria-label='Back']").click();
+        CommonUtils.waitForClickability(locateByCssSelector("button[aria-label='Back']"));
+        locateByCssSelector("button[aria-label='Back']").click();
     }
 
     /**

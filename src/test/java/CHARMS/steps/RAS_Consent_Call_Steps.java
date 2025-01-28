@@ -7,6 +7,8 @@ import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByCssSelector;
 import static Hooks.Hooks.softAssert;
 import static APPS_COMMON.PageInitializers.PageInitializer.*;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
@@ -451,13 +453,11 @@ public class RAS_Consent_Call_Steps {
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentSignAndCompleteButton);
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForVisibility(locateByXpath("//div[@class='outputmsg_text']"));
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentStatusTextBox, "Complete", "---- Consent Status value mismatch ----");
         softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateTextBox.getAttribute("value"), CommonUtils.getTodayDate(), "---- Consent Date value mismatch ----");
         softAssert.assertEquals(locateByXpath("//input[@id='sys_display.x_naci_family_coho_fcsms_consent.consent_by']").getAttribute("value"), "CBIIT Test Account", "---- Signed By value mismatch ----");
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
-        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
     }
 }
