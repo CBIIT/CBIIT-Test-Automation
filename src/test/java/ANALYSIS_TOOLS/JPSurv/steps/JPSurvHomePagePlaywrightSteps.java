@@ -14,7 +14,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.TestProperties.getJpSurvUrl;
 
@@ -517,6 +516,9 @@ public class JPSurvHomePagePlaywrightSteps extends PageInitializer {
         Assert.assertEquals(minYear, "2");
     }
 
+    /**
+     * User clicks on the model estimatess
+     */
     @Then("User clicks on the model estimates")
     public void user_clicks_on_the_model_estimates() {
         PlaywrightUtils.page.locator("//ul//li//button[contains(text(),'Model Estimates')]").click();
