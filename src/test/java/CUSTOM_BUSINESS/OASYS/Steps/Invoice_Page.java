@@ -209,10 +209,10 @@ public class Invoice_Page {
     }
 
     /**
-     * This method is used to click on the ADD ADDITIONAL FINAL REVIEWERS button
+     * This method is used to click on the ADD ADDITIONAL FINAL APPROVERS button
      */
-    @And("User clicks on ADD ADDITIONAL FINAL REVIEWERS")
-    public void user_clicks_on_add_additional_final_reviewers() {
+    @And("User clicks on ADD ADDITIONAL FINAL APPROVERS button")
+    public void user_clicks_on_add_additional_final_approvers_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Additional Final Approvers")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -233,8 +233,8 @@ public class Invoice_Page {
     /**
      * This method is used to click on the ADD ADDITIONAL REVIEWERS button
      */
-    @And("User clicks on ADD ADDITIONAL REVIEWERS")
-    public void user_clicks_on_add_additional_reviewers() {
+    @And("User clicks on ADD ADDITIONAL REVIEWERS button")
+    public void user_clicks_on_add_additional_reviewers_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Additional Reviewers")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }

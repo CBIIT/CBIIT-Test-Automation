@@ -23,14 +23,14 @@ Scenario: Submit an invoice
   And User clicks on SUBMIT INVOICE button
   Then User verifies the invoice is in submitted status
 
-@AssignAdditionalInvoiceReviewer @NESARH2 @Regression1 @playwright
+@AssignAdditionalInvoiceReviewer @NESARH2 @Regression @playwright
 Scenario: Assign Additional Reviewers for the submitted invoice
   When User clicks on Invoice
   And User clicks on a submitted Invoice
   And User expands the members
   And User clicks on EDIT button
-  And User clicks on ADD ADDITIONAL FINAL REVIEWERS
+  And User clicks on ADD ADDITIONAL FINAL APPROVERS button
   And User selects "Test Manager" as Final Approver for the invoice
-  And User clicks on ADD ADDITIONAL REVIEWERS
+  And User clicks on ADD ADDITIONAL REVIEWERS button
   And User selects "Test CS2" as Additional Reviewer for the invoice
   Then User clicks on Save button
