@@ -112,7 +112,7 @@ Feature: RAS Consent Scenarios
     And participant logs out of RAS portal
     Then Study Team member logs in to Native View and verifies that the field Assent signed is true "screenerScenarioAge11-13"
 
-  @muzipovay2 @RAS_STUDY @CP2-3703 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3703 @selenium @RAS_Regression  @RAS_Regression1
   Scenario Outline: Verifying that Adult/Minor participants can complete the Eligibility Questionnaire
     Given test automation account "<AccountResetScriptURL>" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
