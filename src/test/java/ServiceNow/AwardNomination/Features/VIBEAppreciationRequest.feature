@@ -35,7 +35,7 @@ Feature: VIBE Peer-to-Peer Appreciation Program
     Then User can verify that VIBE attachment is added
 
   @selenium @Alena @Regression @AWARDNOM-10 @AWARDNOM-78 @AWARDNOM-82
-  Scenario: Verify Optional Responses and Which value best reflects your appreciation options
+  Scenario: Verify Optional Responses
     Given Submitter User logged in to VIBE Peer-to-Peer Appreciation Program application via Portal
     And User navigates to VIBE Peer-to-Peer Appreciation Program via Services menu
     And Submitter User is on VIBE Peer-to-Peer Appreciation Program home page
@@ -51,7 +51,7 @@ Feature: VIBE Peer-to-Peer Appreciation Program
     And User can verify Optional Responses option "In My Own Words - A text box will appear below when checked." is displayed
 
   @selenium @Alena @Regression @AWARDNOM-78 @AWARDNOM-82
-  Scenario: Verify Optional Responses
+  Scenario: Verify Which value best reflects your appreciation options
     Given Submitter User logged in to VIBE Peer-to-Peer Appreciation Program application via Portal
     And User navigates to VIBE Peer-to-Peer Appreciation Program via Services menu
     And Submitter User is on VIBE Peer-to-Peer Appreciation Program home page
@@ -64,3 +64,9 @@ Feature: VIBE Peer-to-Peer Appreciation Program
     And User can see Which value best reflects your appreciation option "Promoting Transparency—They ensure that diversity, equity, and inclusion processes are clear and accessible."
     And User can see Which value best reflects your appreciation option "Being an Ally—They advocate for marginalized or excluded colleagues."
     And User can see Which value best reflects your appreciation option "In My Own Words - A text box will appear below when checked."
+
+  @selenium @Alena @Regression @AWARDNOM-12
+  Scenario: Verify Administrator Approvers group
+    Given Admin User logged in to view PEIC Appreciation Program - Administrator Approvers
+    And Admin User can see that Administrator Approvers Group Manager is "Nic Perez"
+    Then Admin User can see that listed Administrator Approvers are "Brandy Wimberly", "Nic Perez", and "Staci Tyler"
