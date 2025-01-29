@@ -3,6 +3,8 @@ package CUSTOM_BUSINESS.OASYS.Steps;
 import static CUSTOM_BUSINESS.OASYS.Utils.OASYS_CommonUtils.clickIfVisible;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
+
+import APPS_COMMON.PlaywrightUtils.Playwright_Common_Utils;
 import CUSTOM_BUSINESS.OASYS.Utils.OASYS_Constants;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.*;
@@ -190,6 +192,7 @@ public class Invoice_Page {
      */
     @And("User expands the members")
     public void user_expands_the_members() {
+        Playwright_Common_Utils.scrollIntoView("xpath=//span/mat-panel-title[contains(text(),'Members')]");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Members")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
