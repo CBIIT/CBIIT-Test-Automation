@@ -268,9 +268,32 @@ Feature: These are the scenarios for the Home page on the JPSurv Application
     Then Validates the model estimates contains mentioned texts
 
   @Smoke @satya @playwright @Regression @NCIATWP-6706 @NCIATWP-7764
-  Scenario: Verify result page contains plots after calculations
+  Scenario: Validate the title of all the columns of the model table after calculation
     Given User navigates to JPSurv home page
     And User add specifications with NHL and Relax proportionality checkboxes
     Then Validate Relax Proportionality text is visible
     Then User clicks on the submit button to calculate cohert and model specifications
     Then Validate the title of all the columns of the model table after calculation
+
+  @Smoke @satya @playwright @Regression @NCIATWP-2916
+  Scenario: Validate the location column value with given joinpoints value
+    Given User navigates to JPSurv home page
+    When User calculates cohert and model specifications with joinpoints
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then Validate location column is visible and final selected model has joinpoints location separated by commas
+    And User calculates again cohert and model specifications with "0" joinpoints
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then Validate location column is having text "None" as value
+
+  @Smoke @satya @playwright @Regression @NCIATWP-1722
+  Scenario: Validate the title for specification section and also check recalculate button is enabled on clicking the between join points checkbox after calculation
+    Given User navigates to JPSurv home page
+    When User uploads file in the homepage
+    Then validate the title for specification section
+    Then User selects start year of diagnosis
+    Then User selects end year of diagnosis
+    Then User selects interval of maximum years of diagnosis
+    Then User selects only CML checkbox only
+    Then User clicks on the submit button to calculate cohert and model specifications
+    And User clicks on the check box for between joinpoints
+    Then Validate that recalculate button is enabled

@@ -309,4 +309,35 @@ public class JPSurvHomePagePlaywrightStepImp extends PageInitializer {
         Assert.assertTrue(arr.contains("Log Likelihood"));
         Assert.assertTrue(arr.contains("Converged"));
     }
+
+    /**
+     * VALIDATING OF COLUMN TITLES OF THE MODEL TABLE
+     */
+    public static void calculateWithJoinPoints() {
+        uploadFile();
+        PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.startYear).selectOption("0");
+        PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.endYear).selectOption("40");
+        PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.nhlLocator).click();
+        PlaywrightUtils.page.locator("//select[@id='maxJp']").selectOption("2");
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     * VALIDATING LOCATION TEXT AND JOINPOINTS
+     */
+    public static void ValidateTextAndJoinPoints() {
+        CommonUtils.sleep(10000);
+        assertThat(PlaywrightUtils.page.locator("//th[normalize-space()='Location']")).isVisible();
+        assertThat(PlaywrightUtils.page.locator("//div[@class='col']//div[@class='container']//div//table//td[normalize-space()='1995, 2002']")).containsText("1995, 2002");
+    }
+
+    /**
+     * calculating cohert and model specifications with given joinpoints
+     *
+     * @param joinpoint     The joinpoint to be selected.
+     */
+    public static void calculateWithGivenJoinPoints(String joinpoint) {
+        PlaywrightUtils.page.locator("//*[name()='path' and contains(@d,'m3.86 8.75')]").click();
+        PlaywrightUtils.page.locator("//select[@id='maxJp']").selectOption(joinpoint);
+    }
 }
