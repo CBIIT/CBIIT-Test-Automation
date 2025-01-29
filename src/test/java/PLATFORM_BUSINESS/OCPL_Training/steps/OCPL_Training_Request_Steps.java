@@ -6,6 +6,7 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -72,7 +73,7 @@ public class OCPL_Training_Request_Steps {
 
         CucumberLogUtils.scenario.log("---- SELECTING THE 'Metro' for THE TRANSPORTATION BY FIELD ON THE OCPL TRAINING FORM ----");
         assertThat(page.locator("#transportation_by_metro_personal_vehicle")).containsText("Transportation By");
-        page.getByText("Metro").click();
+        page.getByText("NA", new Page.GetByTextOptions().setExact(true)).click();
 
         CucumberLogUtils.scenario.log("---- FILLING THE OTHER NOTES OR SPECIAL ARRANGEMENTS FIELD ON THE OCPL TRAINING FORM ----");
         assertThat(page.locator("#other_notes_or_special_arrangements")).containsText("Other Notes or Special Arrangements");
@@ -153,6 +154,7 @@ public class OCPL_Training_Request_Steps {
 
         CucumberLogUtils.scenario.log("---- SELECTS 'NO' FOR 'ARE YOU REQUESTING COMP TIME (CT) DURING THIS TRAINING?' FIELD ----");
         page.getByLabel("Required -Are you requesting Comp Time (CT) during this training?").getByText("No").click();
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -163,6 +165,7 @@ public class OCPL_Training_Request_Steps {
         page.locator("//button[@class='btn btn-primary ng-binding ng-scope']").scrollIntoViewIfNeeded();
         page.locator("//button[@class='btn btn-primary ng-binding ng-scope']").click();
         assertThat(page.getByText("How can we help, CBIIT? All")).isVisible();
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -185,13 +188,151 @@ public class OCPL_Training_Request_Steps {
         page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(ocplTrainingRequest);
         page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
         assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Emails.").locator("tbody")).containsText(ocplTrainingRequest);
+        CucumberLogUtils.playwrightScreenshot(page);
         page.frameLocator("iframe[name='gsft_main']").locator("(//a[@aria-label='Preview record: OCPL Training Request'])[1]").click();
         page.frameLocator("iframe[name='gsft_main']").locator("//a[normalize-space()='Open Record']").isVisible();
         page.frameLocator("iframe[name='gsft_main']").locator("//a[normalize-space()='Open Record']").click();
         page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Preview Email")).scrollIntoViewIfNeeded();
         assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Preview Email"))).isVisible();
+        CucumberLogUtils.playwrightScreenshot(page);
         page.frameLocator("iframe[name='gsft_main']").locator("(//a[normalize-space()='Preview Email'])").click();
         assertThat(page.frameLocator("iframe[name='gsft_main']").frameLocator("iframe[title=\"Preview Email\"]").getByRole(AriaRole.PARAGRAPH)).containsText("Are you requesting Compensatory Time for Travel (CTT) during this training? = Yes");
         assertThat(page.frameLocator("iframe[name='gsft_main']").frameLocator("iframe[title=\"Preview Email\"]").getByRole(AriaRole.PARAGRAPH)).containsText("Are you requesting Comp Time (CT) during this training? = No");
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Close", new FrameLocator.GetByLabelOptions().setExact(true))).containsText("Close");
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Close", new FrameLocator.GetByLabelOptions().setExact(true))).containsText("Close");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Close", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("#sysverb_delete")).containsText("Delete");
+        page.frameLocator("iframe[name=\"gsft_main\"]").locator("#sysverb_delete").click();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").locator("#ok_button")).containsText("Delete");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Confirmation Help").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Delete")).click();
+    }
+
+    /**
+     * Method to fills out the OCPL Training request form fields with specified values.
+     */
+    @Given("the user is filling the OCPL Training request form")
+    public void the_user_is_filling_the_ocpl_training_request_form() {
+        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
+        page.navigate(getNCISPUrl());
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.locator("#fresponsive")).containsText("Services");
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Services").setExact(true)).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Business Services")).first().click();
+        assertThat(page.locator("md-content")).containsText("OCPL");
+        assertThat(page.locator("md-content")).containsText("OCPL Training Request");
+        page.getByText("OCPL Training Request OCPL Training Request").click();
+        page.locator("#catItemTop").getByRole(AriaRole.HEADING, new Locator.GetByRoleOptions().setName("OCPL Training Request")).click();
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("CBIIT Test Account Clear")).click();
+        page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName("Requested For").setExact(true)).fill("Ben Foulkes");
+        page.getByText("Ben Foulkes").click();
+        assertThat(page.locator("#fee_tuition")).containsText("Fee/Tuition");
+        page.getByLabel("Fee/Tuition").fill("$22");
+        assertThat(page.locator("#course_name_num")).containsText("Course Name/Num");
+        page.getByLabel("Course Name/Num").click();
+        page.getByLabel("Course Name/Num").fill("23");
+        page.getByLabel("Course Name/Num").press("Enter");
+        assertThat(page.locator("#training_dates")).containsText("Training Dates");
+        page.getByLabel("Training Dates").click();
+        page.getByLabel("Training Dates").fill("21");
+        assertThat(page.locator("#training_location")).containsText("Training Location");
+        page.getByLabel("Training Location").click();
+        page.getByLabel("Training Location").fill("21");
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        CucumberLogUtils.scenario.log("---- FILLING THE REGISTRATION LINK FIELD ON THE OCPL TRAINING FORM ----");
+        assertThat(page.locator("#registration_link")).containsText("Registration Link");
+        page.getByLabel("Edit Registration Link").click();
+        page.getByLabel("Registration Link", new Page.GetByLabelOptions().setExact(true)).fill("https://service-test.nci.nih.gov/ncisp?id=nci_sc_cat_item&sys_id=68b210fbdb2a77004c89ff621f961942");
+        page.getByLabel("Registration Link", new Page.GetByLabelOptions().setExact(true)).press("Enter");
+        page.getByLabel("Lock Registration Link").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        CucumberLogUtils.scenario.log("---- FILLING THE JUSTIFICATION FIELD ON THE OCPL TRAINING FORM ----");
+        assertThat(page.locator("#justification")).containsText("Justification");
+        page.getByLabel("Justification").click();
+        page.getByLabel("Justification").fill("Test");
+
+        CucumberLogUtils.scenario.log("---- FILLING THE TRAINING PROVIDER FIELD ON THE OCPL TRAINING FORM ----");
+        assertThat(page.locator("#training_provider")).containsText("Training Provider");
+        page.getByLabel("Training Provider").click();
+        page.getByLabel("Training Provider").fill("Test");
+
+        CucumberLogUtils.scenario.log("---- FILLING THE PROVIDER PHONE FIELD ON THE OCPL TRAINING FORM ----");
+        assertThat(page.locator("#provider_phone")).containsText("Provider Phone");
+        page.getByLabel("Provider Phone").click();
+        page.getByLabel("Provider Phone").fill("12");
+    }
+
+    /**
+     * This method verifies the field "Transportation By"
+     *
+     * @param transportationBy the user selects for the required field "Transportation By"
+     */
+    @When("the user reaches the required field {string},")
+    public void the_user_reaches_the_required_field(String transportationBy) {
+        CucumberLogUtils.scenario.log("---- SELECTING THE 'NA' for THE TRANSPORTATION BY FIELD ON THE OCPL TRAINING FORM ----");
+        assertThat(page.locator("#transportation_by_metro_personal_vehicle")).containsText(transportationBy);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * The user selects "NA" the specified option for "Transportation By" field on the page.
+     *
+     * @param nA The option to be selected by the user
+     */
+    @Then("the user will have the ability to select the option {string},")
+    public void the_user_will_have_the_ability_to_select_the_option(String nA) {
+        assertThat(page.getByText(nA, new Page.GetByTextOptions().setExact(true))).isVisible();
+        assertThat(page.getByLabel("Required -Transportation By").getByRole(AriaRole.RADIOGROUP)).containsText(nA);
+        page.getByText(nA, new Page.GetByTextOptions().setExact(true)).click();
+
+        CucumberLogUtils.scenario.log("---- FILLING THE OTHER NOTES OR SPECIAL ARRANGEMENTS FIELD ON THE OCPL TRAINING FORM ----");
+        assertThat(page.locator("#other_notes_or_special_arrangements")).containsText("Other Notes or Special Arrangements");
+        page.getByLabel("Other Notes or Special").click();
+        page.getByLabel("Other Notes or Special").fill("test");
+        page.getByLabel("More information for Are you requesting Compensatory Time for Travel (CTT)").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        CucumberLogUtils.scenario.log("---- SELECTS 'YES' FOR 'ARE YOU REQUESTING COMPENSATORY TIME FOR TRAVEL (CTT) DURING THIS' FIELD ----");
+        page.getByLabel("Required -Are you requesting Compensatory Time for Travel (CTT) during this").getByText("Yes").click();
+        page.getByLabel("More information for Are you requesting Comp Time (CT) during this training?").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        CucumberLogUtils.scenario.log("---- SELECTS 'NO' FOR 'ARE YOU REQUESTING COMP TIME (CT) DURING THIS TRAINING?' FIELD ----");
+        page.getByLabel("Required -Are you requesting Comp Time (CT) during this training?").getByText("No").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Verify the response for a given field in the body of specified email in the System log emails.
+     *
+     * @param ocplTrainingRequest The email to verify the response in the body
+     */
+    @Then("verify the response for given field in the body of {string} email in the System log emails")
+    public void verify_the_response_for_given_field_in_the_body_of_email_in_the_system_log_emails(String ocplTrainingRequest) {
+        assertThat(page.getByLabel("Header menu").getByRole(AriaRole.LINK)).containsText("Native View");
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Native View")).click();
+        assertThat(page.getByPlaceholder("Filter")).isVisible();
+        page.getByPlaceholder("Filter").click();
+        page.getByPlaceholder("Filter").fill("System Logs");
+        page.getByPlaceholder("Filter").press("Enter");
+        assertThat(page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Emails"))).isVisible();
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Emails")).click();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search a specific field of").selectOption("subject");
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(ocplTrainingRequest);
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Emails.").locator("tbody")).containsText(ocplTrainingRequest);
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.frameLocator("iframe[name='gsft_main']").locator("(//a[@aria-label='Preview record: OCPL Training Request'])[1]").click();
+        page.frameLocator("iframe[name='gsft_main']").locator("//a[normalize-space()='Open Record']").isVisible();
+        page.frameLocator("iframe[name='gsft_main']").locator("//a[normalize-space()='Open Record']").click();
+        page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Preview Email")).scrollIntoViewIfNeeded();
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Preview Email"))).isVisible();
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.frameLocator("iframe[name='gsft_main']").locator("(//a[normalize-space()='Preview Email'])").click();
+        assertThat(page.frameLocator("iframe[name=\"gsft_main\"]").frameLocator("iframe[title=\"Preview Email\"]").getByRole(AriaRole.PARAGRAPH)).containsText("Transportation By = NA");
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 }

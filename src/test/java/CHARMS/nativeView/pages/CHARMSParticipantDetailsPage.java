@@ -16,6 +16,7 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	public static WebElement dynamicPreviewButtonLocator(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//a[normalize-space()='" + text + "'])[1]"));
 	}
+
 	public static WebElement dynamicPreviewButtonLocators(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record:’” +text+”'])[1]"));
 	}
@@ -24,6 +25,7 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	public CHARMSParticipantDetailsPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
+
 	/* **************************** */
 	/* VERIFIES NAVIGATION PANEL */
 	/* ***************************/
@@ -74,13 +76,47 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	}
 
 	/* Method to dynamically locate elements in Native View */
+	public WebElement dynamicLocatorUsingSpanNormalizeSpace(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//span[normalize-space()='" + text + "'])[1]"));
+	}
+
+	/* Method to dynamically locate text elements in Native View */
 	public WebElement dynamicLocatorUsingNormalizeSpaceInSpan(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//span[@class='label-text'][normalize-space()='" + text + "']"));
+	}
+
+	/* Method to dynamically locate Read Only Input Values in Participant Details page for Fanconi Native View */
+	public WebElement dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_readonly.x_naci_family_coho_family_history_details." + text + "'])[1]"));
+	}
+
+	/* Method to dynamically locate Display only Input Values in Participant Details page for Fanconi Native View */
+	public WebElement dynamicLocatorForInputElementsInParticipantDetailsPage(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_display.x_naci_family_coho_family_history_details." + text + "'])[1]"));
+	}
+
+	/* Method to dynamically locate Input Values added by the user in Participant Details page for Fanconi Native View */
+	public WebElement dynamicLocatorForInputElementInParticipantDetailsPage(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='x_naci_family_coho_family_history_details." + text + "'])[1]"));
+	}
+
+	/* Method to dynamically locate Read Only select Values by the user in Participant Details page for Fanconi Native View */
+	public WebElement dynamicLocatorForReadOnlySelectValuesInParticipantDetailsPage(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='sys_readonly.x_naci_family_coho_family_history_details." + text + "'])[1]"));
+	}
+
+	/* Method to dynamically locate editable select Values by the user in Participant Details page for Fanconi Native View */
+	public WebElement dynamicLocatorForSelectElementsInParticipantDetailsPage(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='x_naci_family_coho_family_history_details." + text + "'])[1]"));
 	}
 
 	/* Participant--> Subject ID TextBox */
 	@FindBy(xpath = "(//input[@aria-label='Subject ID'])[1]")
 	public WebElement nVParticipantSubjectID;
+
+	/* Participant--> Search column: name TextBox */
+	@FindBy(xpath = "(//input[@aria-label='Search column: name'])[1]")
+	public WebElement nVParticipantSearchColumnName;
 
 	/* Participant--> Name TextBox */
 	@FindBy(xpath = "(//input[@aria-label='Name'])[1]")
@@ -118,21 +154,9 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@id='x_naci_family_coho_family_history_details.studies_edit'] | //p[@id='x_naci_family_coho_family_history_details.studies_nonedit'])[2]")
 	public WebElement nVParticipantStudies;
 
-	/* Participant--> NIH MRN number */
-	@FindBy(xpath = "(//input[@id='x_naci_family_coho_family_history_details.nih_number'])[1]")
-	public WebElement nVParticipantNIHMRNnumber;
-
 	/* Participant--> NIH MRN number Info =NIH MRN number should include the dashes */
 	@FindBy(xpath = "(//div[@class='fieldmsg notification notification-info'])[1]")
 	public WebElement nVParticipantNIHMRNnumberInfo;
-
-	/* Participant--> Referral */
-	@FindBy(xpath = "(//input[@id='sys_display.x_naci_family_coho_family_history_details.proband_screener'])[1]")
-	public WebElement nVParticipantReferral;
-
-	/* Participant--> Assigned To */
-	@FindBy(xpath = "(//input[contains(@name,'sys_display.x_naci_family_coho_family_history_details.assigned_to')])[1]")
-	public WebElement nVParticipantAssignedTo;
 
 	/* *************************************************************** */
 	/* VERIFIES PERSONAL INFORMATION DATA */
@@ -202,9 +226,22 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_family_history_details.adopted'])[1]")
 	public WebElement nVParticipantDemographicsTabIsTheParticipantAdopted;
 
+	/* DEMOGRAPHICS tab-> Vital Status DropDown */
+	@FindBy(xpath = "(//select[@id='x_naci_family_coho_family_history_details.person_alive'])[1]")
+	public WebElement nVParticipantDemographicsTabVitalStatus;
+
+
 	/* DEMOGRAPHICS tab-> Date of Birth iFrame */
 	@FindBy(xpath = "(//input[@name='x_naci_family_coho_family_history_details.date_of_birth_month_day_year'])[1]")
 	public WebElement nVParticipantDemographicsTabDOB;
+
+	/* DEMOGRAPHICS tab-> Date of Death iFrame */
+	@FindBy(xpath = "(//input[@id='x_naci_family_coho_family_history_details.date_of_death'])[1]")
+	public WebElement nVParticipantDemographicsTabDOD;
+
+	/* DEMOGRAPHICS tab-> Age iFrame */
+	@FindBy(xpath = "(//span[@data-html='false'][normalize-space()='Age'])[1]")
+	public WebElement nVParticipantDemographicsTabAge;
 
 	/*
 	 * DEMOGRAPHICS tab-> If Date of Birth is unkown, is this person 18 years old or
@@ -231,8 +268,16 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	@FindBy(xpath = "(//select[contains(@name,'x_naci_family_coho_family_history_details.proxy_required')])[1]")
 	public WebElement nVParticipantContactInfoTabDoesParticipantNeedLegalRepresentation;
 
-	/* CONTACT INFO tab-> Are you the legal guardian of this person? DropDown */
-	@FindBy(xpath = "(//select[@name='x_naci_family_coho_family_history_details.legal_guardian'])[1]")
+	/* CONTACT INFO tab-> Person who filled the screener */
+	@FindBy(xpath = "(//input[@id='x_naci_family_coho_family_history_details.legal_representative_name'])[1]")
+	public WebElement nVParticipantContactInfoTabPersonWhoFilledTheScreener;
+
+	/* CONTACT INFO tab-> What is your relationship to the participant?*/
+	@FindBy(xpath = "(//select[@id='x_naci_family_coho_family_history_details.relationship'])[1]")
+	public WebElement nVParticipantContactInfoTabWhatIsYourRelationshipToTheParticipant;
+
+	/* CONTACT INFO tab->Are you the legal guardian of this person?*/
+	@FindBy(xpath = "(//select[@id='x_naci_family_coho_family_history_details.legal_guardian'])[1]")
 	public WebElement nVParticipantContactInfoTabAreYouTheLegalGuardianOfThisPerson;
 
 	/* CONTACT INFO tab-> Legal Representative Name TextBox */
@@ -273,6 +318,14 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	/* CONTACT INFO tab-> Contact Email TextBox */
 	@FindBy(xpath = "(//input[@id='x_naci_family_coho_family_history_details.email_address'])[1]")
 	public WebElement nVParticipantContactInfoTabEmail;
+
+	/* CONTACT INFO tab-> Contact Registration Email TextBox */
+	@FindBy(xpath = "(//input[@id='sys_readonly.x_naci_family_coho_family_history_details.user_record.email'])[1]")
+	public WebElement nVParticipantContactInfoTabRegistrationEmail;
+
+	/* CONTACT INFO tab-> Contact Proxy Email TextBox */
+	@FindBy(xpath = "(//input[@id='x_naci_family_coho_family_history_details.proxy_email_address'])[1]")
+	public WebElement nVParticipantContactInfoTabProxyEmail;
 
 	/* CONTACT INFO tab-> Contact Home Phone TextBox */
 	@FindBy(xpath = "(//input[@name='x_naci_family_coho_family_history_details.phone'])[1]")

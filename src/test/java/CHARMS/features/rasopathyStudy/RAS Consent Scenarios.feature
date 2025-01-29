@@ -316,3 +316,43 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And clicks on "Physical Activities Survey" to begin survey
     And submits the Physical Activities Survey
+
+  @muzipovay2 @RAS_STUDY @CP2-4000 @selenium @RAS_Regression
+  Scenario: Completing Physical Activities Survey survey
+    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
+    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
+    And clicks on "Eligibility Questionnaire" to begin survey
+    When the participant submits a screener from excel sheet "screenerScenarioAdult"
+    And Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
+    And Study Team member submits participant for review and marks them eligible
+    And navigates to participant Consent Record
+    And selects "CHARMS e-consent" as the Collection Method
+    And selects Today as the Consent Call Scheduled Time
+    And selects Today as the Consent Call Date
+    And selects "Yes" for Copy of ConsentAssent Provided Before Signing
+    And selects "Yes" for Protocol Discussed in Private Setting
+    And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
+    And selects "Yes" for Questions Addressed Before Signing
+    And verifies that Consent Assent category auto-populated to "Adult"
+    And presses the Call Complete button
+    Then Study Team member logs out of Native View
+    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
+    And participant clicks on Study Consent and completes form with "Charms123$"
+    And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAdult"
+    And verifies Consent Assent status is "Consented only"
+    And selects "Yes" for Consent Assent Obtained Before Study Procedures
+    And selects "Yes" for Copy of Signed Dated Consent Assent Given to Participant
+    Then Study Team member presses Sign and Complete
+    And clicks the Back button
+    And Study Team member navigates to Participant Studies
+    And adds "Patient Smoking History" from the Available Questionnaires
+    And Study Team member publishes questionnaires
+    Then Study Team member logs out of Native View
+    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
+    And clicks on "Smoking Survey" to begin survey
+    And submits the Smoking Survey Survey
+    And participant logs out of RAS portal
+    And Study Team members logs in to Native View and verifies "Patient Smoking History" QBank data

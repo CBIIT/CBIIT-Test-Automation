@@ -54,11 +54,6 @@ public class AwardNominationSteps extends PageInitializer {
         awardNominationStepsImplementation.verifySectionAppreciationValueDisplayed();
     }
 
-    @Given("Submitter User can verify that Add Attachment option is displayed")
-    public void submitter_user_can_verify_that_add_attachment_option_is_displayed() {
-        awardNominationStepsImplementation.verifySectionAddAttachmentDisplayed();
-    }
-
     @When("Submitter User submits VIBE Peer-to-Peer Appreciation Program request")
     public void submitter_user_submits_vibe_peer_to_peer_appreciation_program_request() {
         awardNominationStepsImplementation.clickSubmitButton();
@@ -66,7 +61,7 @@ public class AwardNominationSteps extends PageInitializer {
 
     @Then("Submitter User can verify they are redirected to general tickets view page")
     public void submitter_user_can_verify_they_are_redirected_to_general_tickets_view_page() {
-        awardNominationStepsImplementation.verifySectionTicketsDisplayed();
+        awardNominationStepsImplementation.verifyWeHaveReceivedRequest();
     }
 
     /**
@@ -163,5 +158,15 @@ public class AwardNominationSteps extends PageInitializer {
     @Then("User cancels the Cancel confirmation modal")
     public void user_cancels_the_cancel_confirmation_modal() {
         CommonUtils.clickOnElement(awardNominationPage.cancelButtonCancelModal);
+    }
+
+    @Given("User can verify Optional Responses option {string} is displayed")
+    public void user_can_verify_optional_responses_option_is_displayed(String option) {
+        awardNominationStepsImplementation.verifyOptionalResponsesOptions(option);
+    }
+
+    @Given("User can see Which value best reflects your appreciation option {string}")
+    public void user_can_see_which_value_best_reflects_your_appreciation_option(String option) {
+        awardNominationStepsImplementation.verifyWhichValueBestReflectsYourAppreciationsOptions(option);
     }
 }

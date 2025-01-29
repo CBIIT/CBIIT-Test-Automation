@@ -12,6 +12,7 @@ Feature: NCCR flow
     And User confirms that the text of "Confidentiality" section is correct
     When User clicks Go to the NCCR Platform hyperlink
     Then User can confirm that it redirects them to Data Platform page
+    And User can see pagination for All Data Requests tab
     And User can see Data Requests Awaiting My Review tab
     And User can see Data Requests Awaiting My Review tab search text field
     And User can see pagination for Data Requests Awaiting My Review tab
@@ -20,4 +21,3 @@ Feature: NCCR flow
     When User clicks Show Filter icon
     Then User can see Load Filter, Save Filter, Add Sort, and New Criteria buttons
     And User can close filter
-    And User can see pagination for All Data Requests tab

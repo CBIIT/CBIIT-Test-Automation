@@ -79,3 +79,9 @@ Feature: SNOWTRAVEL Portal Form Scenarios
     Given I am a CGH User "Ann Chao"
     When I navigate to field "Exceed Threshold?",
     Then I should see help text that states: "Select 'Yes' if total travel expenses are expected to exceed $5,000."
+
+  @SNOWTRAVEL-185 @Chaudhryma @Regression @playwright
+  Scenario:Test For CGH If destination type is Foreign, require In-Country Contact Information fields
+    Given I am a CGH User "Ann Chao"
+    When  I select the destination type, "Foreign" on a Travel Planning Request form
+    Then the following fields will become required, "Contact Name", "Contact Address", "Contact Phone"
