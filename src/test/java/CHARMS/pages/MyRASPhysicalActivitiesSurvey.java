@@ -32,7 +32,8 @@ public class MyRASPhysicalActivitiesSurvey {
      * @param dropdownOptionText the text of the option to be selected from the dropdown
      */
     public static void dropdownSelectorDuringPast12MonthsHowOften(String dropdownLabelText, String dropdownOptionText) {
-        CommonUtils.clickOnElement(locateByXpath("//span[normalize-space()='" + dropdownLabelText + "']/parent::label/parent::div/following-sibling::span"));
+        locateByXpath("//span[normalize-space()='" + dropdownLabelText + "']/parent::label/parent::div/following-sibling::span").click();
+        CommonUtils.sleep(500);
         CommonUtils.waitForClickability(locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[contains(text(), '" + dropdownOptionText + "')]"));
         locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[contains(text(), '" + dropdownOptionText + "')]").click();
     }
@@ -44,9 +45,11 @@ public class MyRASPhysicalActivitiesSurvey {
      * @param dropdownOptionText the text of the option to be selected from the dropdown
      */
     public static void dropdownSelectorHowMuchTimePerDay(String dropdownLabelText, String dropdownOptionText) {
-        CommonUtils.clickOnElement(locateByXpath("//span[normalize-space()='" + dropdownLabelText + "']/parent::label[contains(@for, 'time_spent')]/parent::div/following-sibling::span"));
+        CommonUtils.clickOnElement(locateByXpath("//div[@aria-labelledby='container_household_or_shopping_label']//span[normalize-space()='" + dropdownLabelText + "']/parent::label[@class='field-label field-label-question']/parent::div/following-sibling::span"));
         CommonUtils.waitForClickability(locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[contains(text(), '" + dropdownOptionText + "')]"));
-        locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[contains(text(), '" + dropdownOptionText + "')]").click();
+        CommonUtils.sleep(500);
+//        locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[contains(text(), '" + dropdownOptionText + "')]").click();
+        CommonUtils.clickOnElement(locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[contains(text(), '" + dropdownOptionText + "')]"));
     }
 
     public MyRASPhysicalActivitiesSurvey() {

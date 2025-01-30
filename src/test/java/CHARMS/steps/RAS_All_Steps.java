@@ -1247,12 +1247,9 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Given("submits the Physical Activities Survey")
     public void submits_the_physical_activities_survey() {
-        CommonUtils.waitForClickability(MyRASPhysicalActivitiesSurvey.dynamicCheckboxLocator("Walk or hike for exercise"));
-        MyRASPhysicalActivitiesSurvey.dynamicCheckboxLocator("Walk or hike for exercise").click();
-        CommonUtils.sleep(500);
-        CucumberLogUtils.logScreenshot();
-        JavascriptUtils.scrollIntoView(locateByXpath("//span[normalize-space()='In the past 12 months that you walked or hiked for exercise, about how often did you do this activity?']"));
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("In the past 12 months that you walked or hiked for exercise, about how often did you do this activity?", "Once a month or less");
+        CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='In the past 12 months how often did you walk or hike for exercise?']"));
+        JavascriptUtils.scrollIntoView(locateByXpath("//span[normalize-space()='In the past 12 months how often did you walk or hike for exercise?']"));
+        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("In the past 12 months how often did you walk or hike for exercise?", "Once a month or less");
         MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("On the days that you walked or hiked, about how much time per day did you spend doing this activity?", "1 hour");
         MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("Light household chores (such as cooking, tidying up, laundry, or dusting)", "Never");
         MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("Moderate to Vigorous household chores (such as vacuuming or sweeping)", "Once a month or less");
@@ -1269,27 +1266,30 @@ public class RAS_All_Steps extends PageInitializer {
         MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Walking while shopping or doing errands (do not count walking for exercise)", "1 hour");
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
-        JavascriptUtils.scrollIntoView(MyRASPhysicalActivitiesSurvey.dynamicCheckboxLocator("Moderate outdoor chores (such as weeding, raking or mowing the lawn)"));
-        MyRASPhysicalActivitiesSurvey.dynamicCheckboxLocator("Moderate outdoor chores (such as weeding, raking or mowing the lawn)").click();
-        MyRASPhysicalActivitiesSurvey.dynamicCheckboxLocator("Vigorous outdoor chores (such as digging, carrying lumber, or snow shoveling)").click();
-        MyRASPhysicalActivitiesSurvey.dynamicCheckboxLocator("Home repair (such as painting, plumbing, or replacing carpeting)").click();
-        CommonUtils.clickOnElement(locateByXpath("//div[@id='select_age_range']//span[@class='type-choice field-actual question-width']"));
-        CommonUtils.waitForClickability(locateByXpath("//body/div/ul[@aria-label='Select Age Group']/li[2]/div[1]"));
-        locateByXpath("//body/div/ul[@aria-label='Select Age Group']/li[2]/div[1]").click();
-        CommonUtils.clickOnElement(locateByXpath("//div[@id='frequency_stren_activities']//div[contains(@class,'form-group ng-scope ng-isolate-scope')]"));
-        CommonUtils.waitForClickability(locateByXpath("//body/div/ul[@aria-label='Average Hours per week']/li[3]/div[1]"));
-        locateByXpath("//body/div/ul[@aria-label='Average Hours per week']/li[3]/div[1]").click();
-        CommonUtils.clickOnElement(locateByXpath("//div[@id='select_age_group_2']//span[contains(@class,'type-choice field-actual question-width')]"));
-        CommonUtils.waitForClickability(locateByXpath("//body/div/ul[@aria-label='Select Age Group']/li[2]/div[1]"));
-        locateByXpath("//body/div/ul[@aria-label='Select Age Group']/li[2]/div[1]").click();
-        CommonUtils.clickOnElement(locateByXpath("//div[@id='average_hours_per_week_2']//div[contains(@class,'form-group ng-scope ng-isolate-scope')]"));
-        CommonUtils.waitForClickability(locateByXpath("//body/div/ul[@aria-label='Average Hours per week']/li[4]/div[1]"));
-        locateByXpath("//body/div/ul[@aria-label='Average Hours per week']/li[4]/div[1]").click();
-        CommonUtils.sleep(500);
-        CucumberLogUtils.logScreenshot();
-        myRASPhysicalActivitiesSurvey.submitButton.click();
-        CommonUtils.sleep(1000);
-        CucumberLogUtils.logScreenshot();
+        MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Moderate outdoor chores (such as weeding, raking or mowing the lawn)", "Yes");
+        MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Vigorous outdoor chores (such as digging, carrying lumber, or snow shoveling)", "Yes");
+        MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Home repair (such as painting, plumbing, or replacing carpeting)", "No");
+
+
+        locateByXpath("//label[@for='sp_formfield_frequency_stren_activities']//span[@class='sp-field-label-padding ng-binding'][normalize-space()='Average Hours per week']").click();
+
+        //        CommonUtils.clickOnElement(locateByXpath("//div[@id='select_age_range']//span[@class='type-choice field-actual question-width']"));
+//        CommonUtils.waitForClickability(locateByXpath("//body/div/ul[@aria-label='Select Age Group']/li[2]/div[1]"));
+//        locateByXpath("//body/div/ul[@aria-label='Select Age Group']/li[2]/div[1]").click();
+//        CommonUtils.clickOnElement(locateByXpath("//div[@id='frequency_stren_activities']//div[contains(@class,'form-group ng-scope ng-isolate-scope')]"));
+//        CommonUtils.waitForClickability(locateByXpath("//body/div/ul[@aria-label='Average Hours per week']/li[3]/div[1]"));
+//        locateByXpath("//body/div/ul[@aria-label='Average Hours per week']/li[3]/div[1]").click();
+//        CommonUtils.clickOnElement(locateByXpath("//div[@id='select_age_group_2']//span[contains(@class,'type-choice field-actual question-width')]"));
+//        CommonUtils.waitForClickability(locateByXpath("//body/div/ul[@aria-label='Select Age Group']/li[2]/div[1]"));
+//        locateByXpath("//body/div/ul[@aria-label='Select Age Group']/li[2]/div[1]").click();
+//        CommonUtils.clickOnElement(locateByXpath("//div[@id='average_hours_per_week_2']//div[contains(@class,'form-group ng-scope ng-isolate-scope')]"));
+//        CommonUtils.waitForClickability(locateByXpath("//body/div/ul[@aria-label='Average Hours per week']/li[4]/div[1]"));
+//        locateByXpath("//body/div/ul[@aria-label='Average Hours per week']/li[4]/div[1]").click();
+//        CommonUtils.sleep(500);
+//        CucumberLogUtils.logScreenshot();
+//        myRASPhysicalActivitiesSurvey.submitButton.click();
+//        CommonUtils.sleep(1000);
+//        CucumberLogUtils.logScreenshot();
     }
 
     /**
