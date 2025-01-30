@@ -9,8 +9,11 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.testng.Assert;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.TestProperties.getJpSurvUrl;
 
@@ -239,7 +242,7 @@ public class JPSurvHomePagePlaywrightSteps extends PageInitializer {
      *
      * @param cutpoint    The cutpoint to be selected.
      */
-    @Then("User checks the relax proportionality and selects the cutpoint {cutpoint}")
+    @Then("User checks the relax proportionality and selects the cutpoint {string}")
     public void user_checks_the_relax_proportionality_and_selects_the_cutpoint(String cutpoint) {
         JPSurvHomePagePlaywrightStepImp.checkRelaxProportionalityAndCutPoint(cutpoint);
     }
@@ -470,5 +473,155 @@ public class JPSurvHomePagePlaywrightSteps extends PageInitializer {
     @Then("Validate that cut point text is visible")
     public void validate_that_cut_point_text_is_visible() {
         JPSurvHomePagePlaywrightStepImp.validateSpecifiedText();
+    }
+
+    /**
+     * Checking if Add Annotation button is visible and clickable
+     */
+    @And("Verify add annotation button is visible and clickable")
+    public void verify_add_annotation_button_is_visible_and_clickable() {
+        JPSurvHomePagePlaywrightStepImp.checkAddAnnotationButton();
+    }
+
+    /**
+     * Click on the Add Annotation button
+     */
+    @Then("Click on the Add Annotation button")
+    public void click_on_the_add_annotation_button() {
+        PlaywrightUtils.page.locator("//*[@data-testid='MainPanel']//div[@role='tabpanel']//div//button[contains(text(),'+ Add Annotation')]").first().click();
+    }
+
+    /**
+     * Click on Advanced options and changes the minimum year value
+     *
+     * @param minYear     The minYear to be selected.
+     */
+    @And("User clicks on the Advanced options and changes the entry to {string}")
+    public void user_clicks_on_the_advanced_options_and_changes_the_entry_to(String minYear) {
+        PlaywrightUtils.page.locator("//button[normalize-space()='Advanced Options']").click();
+        PlaywrightUtils.page.locator("//input[@id='numbetwn']").fill("");
+        PlaywrightUtils.page.locator("//input[@id='numbetwn']").fill(minYear);
+    }
+
+    /**
+     * Reset the advanced option and validate the minimum year entry
+     *
+     * @param expectedMinYear     The expectedMinYear to be selected.
+     */
+    @Then("User clicks on the reset advanced options and validates entry is not {string}")
+    public void user_clicks_on_the_reset_advanced_options_and_validates_entry_is_not(String expectedMinYear) {
+        PlaywrightUtils.page.locator("//button[normalize-space()='Reset Advanced Options']").click();
+        String minYear = PlaywrightUtils.page.locator("//input[@id='numbetwn']").inputValue();
+        Assert.assertNotEquals(minYear, expectedMinYear);
+        Assert.assertEquals(minYear, "2");
+    }
+
+    /**
+     * User clicks on the model estimatess
+     */
+    @Then("User clicks on the model estimates")
+    public void user_clicks_on_the_model_estimates() {
+        PlaywrightUtils.page.locator("//ul//li//button[contains(text(),'Model Estimates')]").click();
+    }
+
+    /**
+     * Asserting the specified text in the model estimates after calculation
+     */
+    @Then("Validates the model estimates contains mentioned texts")
+    public void validates_the_model_estimates_contains_mentioned_texts() {
+        String[] str = {" EstimatesJoinpoint 0", "ParameterEstimate (%)Standard Error (%)"};
+        assertThat(PlaywrightUtils.page.getByRole(AriaRole.MAIN).locator("//table//thead//tr")).containsText(str);
+    }
+
+    /**
+     * Validating BIC text is displayed after calculations
+     */
+    @Then("Validate BIC text is been displayed after calculation")
+    public void validate_bic_text_is_been_displayed_after_calculation() {
+        assertThat(PlaywrightUtils.page.getByRole(AriaRole.MAIN).locator("//th[normalize-space()='Bayesian Information Criterion (BIC)']")).containsText("Bayesian Information Criterion (BIC)");
+    }
+
+    /**
+     * Selecting specification with NHL and relax proportionality checkboxes
+     */
+    @Given("User add specifications with NHL and Relax proportionality checkboxes")
+    public void user_add_specifications_with_nhl_and_relax_proportionality_checkboxes() {
+        JPSurvHomePagePlaywrightStepImp.addSpecificationWithNHLAndRelaxProportionality();
+    }
+
+    /**
+     * Validating whether Relax Proportionality text is visible or not
+     */
+    @Then("Validate Relax Proportionality text is visible")
+    public void validate_relax_proportionality_text_is_visible() {
+        assertThat(PlaywrightUtils.page.getByRole(AriaRole.MAIN).locator("//b[normalize-space()='Relax Proportionality']")).containsText("Relax Proportionality");
+    }
+
+    /**
+     * Validating the title of all the column headings of the model table
+     */
+    @Then("Validate the title of all the columns of the model table after calculation")
+    public void validate_the_title_of_all_the_columns_of_the_model_table_after_calculation() {
+        JPSurvHomePagePlaywrightStepImp.columnTitleOfModelTable();
+    }
+
+    /**
+     * Validating the title of all the column headings of the model table
+     */
+    @When("User calculates cohert and model specifications with joinpoints")
+    public void user_calculates_cohert_and_model_specifications_with_joinpoints() {
+        JPSurvHomePagePlaywrightStepImp.calculateWithJoinPoints();
+    }
+
+    /**
+     * Validating the location column availability and value text under the location column
+     */
+    @Then("Validate location column is visible and final selected model has joinpoints location separated by commas")
+    public void validate_location_column_is_visible_and_final_selected_model_has_joinpoints_location_separated_by_commas() {
+        JPSurvHomePagePlaywrightStepImp.ValidateTextAndJoinPoints();
+    }
+
+    /**
+     * calculating cohert and model specifications with given joinpoints
+     *
+     * @param joinpoint     The joinpoint to be selected.
+     */
+    @And("User calculates again cohert and model specifications with {string} joinpoints")
+    public void user_calculates_again_cohert_and_model_specifications_with_joinpoints(String joinpoint) {
+        JPSurvHomePagePlaywrightStepImp.calculateWithGivenJoinPoints(joinpoint);
+    }
+
+    /**
+     * Validating location column value as None if selected join points is 0 before calculation
+     *
+     * @param none     The none text to be visible.
+     */
+    @Then("Validate location column is having text {string} as value")
+    public void validate_location_column_is_having_text_as_value(String none) {
+        assertThat(PlaywrightUtils.page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("None"))).containsText(none);
+    }
+
+    /**
+     * Validating the title of specification section
+     */
+    @Then("validate the title for specification section")
+    public void validate_the_title_for_specification_section() {
+        assertThat(PlaywrightUtils.page.locator("//legend[@class='legend fw-bold legend-wrap']")).containsText("Cohort and Model Specifications");
+    }
+
+    /**
+     * User clicks on the checkbox labelled as between join points
+     */
+    @Then("User clicks on the check box for between joinpoints")
+    public void user_clicks_on_the_check_box_for_between_joinpoints() {
+        PlaywrightUtils.page.locator("//input[@id='jpTrend']").click();
+    }
+
+    /**
+     * Validating the recalculate button is enabled
+     */
+    @Then("Validate that recalculate button is enabled")
+    public void validate_that_recalculate_button_is_enabled() {
+        assertThat(PlaywrightUtils.page.locator("//form[@class='border rounded m-1']//div[@class='d-flex justify-content-center align-items-center col-sm-2']//button[@type='submit'][normalize-space()='Recalculate']")).isEnabled();
     }
 }
