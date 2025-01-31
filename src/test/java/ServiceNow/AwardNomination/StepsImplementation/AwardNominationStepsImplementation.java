@@ -9,16 +9,27 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
 import static Hooks.Hooks.softAssert;
-import static com.nci.automation.web.TestProperties.getAwardNominationUrl;
+import static com.nci.automation.web.TestProperties.*;
 
 public class AwardNominationStepsImplementation extends PageInitializer {
     /**
-     * Logs in as a Submitter User to NCCR Portal.
+     * Logs in as a Submitter User to VIBE Portal.
      */
     public void awardNominationSubmitterUserLogin() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonate_Any_User_Without_Landing_In_Native_View((AwardNominationConstants.SUBMITTER_AWARD_NOMINATION));
         WebDriverUtils.webDriver.get(getAwardNominationUrl());
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Logs in as User to view VIBE Administrator Approvers group
+     */
+    public void
+    awardNominationUserAdminGroupLogin() {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        ServiceNow_Common_Methods.impersonateAnyUser((AwardNominationConstants.SUBMITTER_AWARD_NOMINATION));
+        WebDriverUtils.webDriver.get(getAwardNominationAdminGroupUrl());
         CucumberLogUtils.logScreenshot();
     }
 
@@ -270,5 +281,20 @@ public class AwardNominationStepsImplementation extends PageInitializer {
                 softAssert.assertTrue(awardNominationPage.whichValueSectionInMyOwnWordsOption.isDisplayed());
                 break;
         }
+    }
+
+    /**
+     * verify Admin Approvers
+     *
+     * @param admApprover1
+     * @param admApprover2
+     * @param admApprover3
+     */
+    public void verifyAdminGroupMembers(String admApprover1, String admApprover2, String admApprover3) {
+        CommonUtils.clickOnElement(awardNominationPage.tabAdminGroupMembers);
+        CommonUtils.sleep(1000);
+        softAssert.assertTrue(awardNominationPage.adminGroupMemberOne.getText().equals(admApprover1));
+        softAssert.assertTrue(awardNominationPage.adminGroupMemberTwo.getText().equals(admApprover2));
+        softAssert.assertTrue(awardNominationPage.adminGroupMemberThree.getText().equals(admApprover3));
     }
 }

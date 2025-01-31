@@ -317,7 +317,7 @@ Feature: RAS Consent Scenarios
     And clicks on "Physical Activities Survey" to begin survey
     And submits the Physical Activities Survey
 
-  @muzipovay2 @RAS_STUDY @CP2-4000 @selenium @RAS_Regression @Progression
+  @muzipovay2 @RAS_STUDY @CP2-4000 @selenium @RAS_Regression
   Scenario: Completing Physical Activities Survey survey
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
