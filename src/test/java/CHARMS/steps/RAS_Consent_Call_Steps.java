@@ -7,8 +7,6 @@ import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByCssSelector;
 import static Hooks.Hooks.softAssert;
 import static APPS_COMMON.PageInitializers.PageInitializer.*;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
