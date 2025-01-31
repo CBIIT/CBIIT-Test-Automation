@@ -23,11 +23,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByCssSelector;
 import static Hooks.Hooks.softAssert;
 import static CHARMS.pages.MyRASHomePage.dynamicModuleLocator;
 import static CHARMS.steps.RAS_Common_Methods.*;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
+import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByCssSelector;
 
 public class RAS_All_Steps extends PageInitializer {
 
@@ -430,10 +430,6 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @When("Study Team member logs in to Native View and navigates to participant's record {string}")
     public void study_team_member_logs_in_to_native_view_and_navigates_to_participant_s_record(String sheetName) {
-        /**
-         * REMOVE THIS
-         */
-        ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         navigateToParticipantRecordInNativeView(sheetName);
     }
@@ -1266,30 +1262,26 @@ public class RAS_All_Steps extends PageInitializer {
         MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Walking while shopping or doing errands (do not count walking for exercise)", "1 hour");
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Moderate outdoor chores (such as weeding, raking or mowing the lawn)", "Yes");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Vigorous outdoor chores (such as digging, carrying lumber, or snow shoveling)", "Yes");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Home repair (such as painting, plumbing, or replacing carpeting)", "No");
-
-
-        locateByXpath("//label[@for='sp_formfield_frequency_stren_activities']//span[@class='sp-field-label-padding ng-binding'][normalize-space()='Average Hours per week']").click();
-
-        //        CommonUtils.clickOnElement(locateByXpath("//div[@id='select_age_range']//span[@class='type-choice field-actual question-width']"));
-//        CommonUtils.waitForClickability(locateByXpath("//body/div/ul[@aria-label='Select Age Group']/li[2]/div[1]"));
-//        locateByXpath("//body/div/ul[@aria-label='Select Age Group']/li[2]/div[1]").click();
-//        CommonUtils.clickOnElement(locateByXpath("//div[@id='frequency_stren_activities']//div[contains(@class,'form-group ng-scope ng-isolate-scope')]"));
-//        CommonUtils.waitForClickability(locateByXpath("//body/div/ul[@aria-label='Average Hours per week']/li[3]/div[1]"));
-//        locateByXpath("//body/div/ul[@aria-label='Average Hours per week']/li[3]/div[1]").click();
-//        CommonUtils.clickOnElement(locateByXpath("//div[@id='select_age_group_2']//span[contains(@class,'type-choice field-actual question-width')]"));
-//        CommonUtils.waitForClickability(locateByXpath("//body/div/ul[@aria-label='Select Age Group']/li[2]/div[1]"));
-//        locateByXpath("//body/div/ul[@aria-label='Select Age Group']/li[2]/div[1]").click();
-//        CommonUtils.clickOnElement(locateByXpath("//div[@id='average_hours_per_week_2']//div[contains(@class,'form-group ng-scope ng-isolate-scope')]"));
-//        CommonUtils.waitForClickability(locateByXpath("//body/div/ul[@aria-label='Average Hours per week']/li[4]/div[1]"));
-//        locateByXpath("//body/div/ul[@aria-label='Average Hours per week']/li[4]/div[1]").click();
-//        CommonUtils.sleep(500);
-//        CucumberLogUtils.logScreenshot();
-//        myRASPhysicalActivitiesSurvey.submitButton.click();
-//        CommonUtils.sleep(1000);
-//        CucumberLogUtils.logScreenshot();
+        MyRASPhysicalActivitiesSurvey.dropdownSelectorDidYouDoAnyOfTheseOutsideOfWork("Moderate outdoor chores (such as weeding, raking or mowing the lawn)", "Yes");
+        MyRASPhysicalActivitiesSurvey.dropdownSelectorDidYouDoAnyOfTheseOutsideOfWork("Vigorous outdoor chores (such as digging, carrying lumber, or snow shoveling)", "No");
+        MyRASPhysicalActivitiesSurvey.dropdownSelectorDidYouDoAnyOfTheseOutsideOfWork("Home repair (such as painting, plumbing, or replacing carpeting)", "Yes");
+        CommonUtils.clickOnElement(locateByXpath("//div[@id='select_age_range']//span[@class='type-choice field-actual question-width']"));
+        CommonUtils.waitForClickability(locateByXpath("//ul[@aria-label='Select Age Group']//div[contains(text(), '25-34')]"));
+        locateByXpath("//ul[@aria-label='Select Age Group']//div[contains(text(), '25-34')]").click();
+        CommonUtils.clickOnElement(locateByXpath("//div[@id='frequency_stren_activities']//div[contains(@class,'form-group ng-scope ng-isolate-scope')]"));
+        CommonUtils.waitForClickability(locateByXpath("//ul[@aria-label='Average Hours per week']//div[text()='1-3 hours']"));
+        locateByXpath("//ul[@aria-label='Average Hours per week']//div[text()='1-3 hours']").click();
+        CommonUtils.clickOnElement(locateByXpath("//div[@id='select_age_group_2']//span[contains(@class,'type-choice field-actual question-width')]"));
+        CommonUtils.waitForClickability(locateByXpath("//ul[@aria-label='Select Age Group']//div[text()='25-34']"));
+        locateByXpath("//ul[@aria-label='Select Age Group']//div[text()='25-34']").click();
+        CommonUtils.clickOnElement(locateByXpath("//div[@id='average_hours_per_week_2']//div[contains(@class,'form-group ng-scope ng-isolate-scope')]"));
+        CommonUtils.waitForClickability(locateByXpath("//ul[@aria-label='Average Hours per week']//div[text()='More than 3 hours']"));
+        locateByXpath("//ul[@aria-label='Average Hours per week']//div[text()='More than 3 hours']").click();
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+        myRASPhysicalActivitiesSurvey.submitButton.click();
+        CommonUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
     }
 
     /**
@@ -1318,6 +1310,12 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Given("Study Team members logs in to Native View and verifies {string} QBank data")
     public void study_team_members_logs_in_to_native_view_and_verifies_qbank_data(String surveyName) {
+
+        /**
+         * REMOVE THIS
+         */
+        ras_Screener_TestDataManager.dataInitializerRasScreener("screenerScenarioAdult");
+
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sleep(4000);
         CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
@@ -1350,12 +1348,21 @@ public class RAS_All_Steps extends PageInitializer {
             CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
             CommonUtils.sleep(500);
             verify_patient_smoking_history_in_native_view();
+        } else if (surveyName.equals("Physical Activities Survey")) {
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantStudyPage.physicalActivitiesSurveyText);
+            CommonUtils.waitForVisibility(nativeViewCHARMSParticipantStudyPage.questionBanksPreviewButton);
+            nativeViewCHARMSParticipantStudyPage.questionBanksPreviewButton.click();
+            CommonUtils.sleep(500);
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+            CommonUtils.sleep(500);
+            verify_physical_activities_survey_in_native_view();
         }
 
     }
 
     /**
-     * Method for verifying that Patient Smoking History in Native View matches the values provided by the RasSmokingSurvey Excel sheet.
+     * Method for verifying that Patient Smoking History in Native View matches the values provided by the QBankSurveys Excel sheet.
      */
     public void verify_patient_smoking_history_in_native_view() {
         softAssert.assertTrue(nativeViewCHARMSPatientSmokingHistoryPage.checkboxIsChecked(ras_Survey_Smoking_Survey_TestDataManager.HAVE_YOU_EVER_USED_ANY_OF_THESE_TOBACCO_PRODUCTS_EVEN_ONCE_SELECT_ALL_THAT_APPLY), "* * * * *  PATIENT SMOKING HISTORY -- CHECKBOX NOT CHECKED * * * * *");
@@ -1364,5 +1371,35 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.verifyingDropDownValueIsSelected(nativeViewCHARMSPatientSmokingHistoryPage.ageAtFirstCigarette, ras_Survey_Smoking_Survey_TestDataManager.HOW_OLD_WERE_YOU_WHEN_YOU_FIRST_SMOKED_A_CIGARETTE, "* * * * * PATIENT SMOKING HISTORY -- VALUE MISMATCH IN 'How old were you when you first smoked a cigarette?' DROPDOWN * * * * *");
         CommonUtils.verifyingDropDownValueIsSelected(nativeViewCHARMSPatientSmokingHistoryPage.ageAtRegularCigaretteUse, ras_Survey_Smoking_Survey_TestDataManager.HOW_OLD_WERE_YOU_WHEN_YOU_STARTED_SMOKING_CIGARETTES_ON_A_REGULAR_BASIS, "* * * * *  PATIENT SMOKING HISTORY -- VALUE MISMATCH IN 'How old were you when you started smoking cigarettes on a regular basis?' DROPDOWN * * * * *");
         softAssert.assertEquals(nativeViewCHARMSPatientSmokingHistoryPage.cigarettesPerDay.getDomAttribute("value"), ras_Survey_Smoking_Survey_TestDataManager.ON_DAYS_THAT_YOU_SMOKE_SMOKED_HOW_MANY_CIGARETTES_DO_DID_YOU_SMOKE_PER_DAY, "* * * * *  PATIENT SMOKING HISTORY -- VALUE MISMATCH IN 'On days that you [smoke/smoked] how many cigarettes [do/did] you smoke per day?' FIELD * * * * *");
+    }
+
+    /**
+     * Method for verifying that Physical Activities Survey in Native View matches the values provided by the QBankSurveys Excel sheet.
+     */
+    public void verify_physical_activities_survey_in_native_view() {
+        ras_Physical_Activities_Survey_TestDataManager.dataInitializerPhysicalActivitiesSurvey("RASPhysicalActivitiesSurvey");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.frequencyOfWalkingHikingLast12MonthsDropdown, ras_Physical_Activities_Survey_TestDataManager.IN_THE_PAST_12_MONTHS_HOW_OFTEN_DID_YOU_WALK_OR_HIKE_FOR_EXERCISE, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Frequency of walking or hiking in the last 12 months' DROPDOWN * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.timeSpentWalkingHikingLastPerDayDropdown, ras_Physical_Activities_Survey_TestDataManager.ON_THE_DAYS_THAT_YOU_WALKED_OR_HIKED_ABOUT_HOW_MUCH_TIME_PER_DAY_DID_YOU_SPEND_DOING_THIS_ACTIVITY, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Time per day spent walking or hiking per day' DROPDOWN * * * * *");
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.scrollIntoView(nativeViewCHARMSPhysicalActivitiesSurveyPage.frequencyOfLightHouseholdChoresLast12MonthsDropdown);
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.frequencyOfLightHouseholdChoresLast12MonthsDropdown, ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_DO_EACH_OF_THESE_HOUSEHOLD_OR_SHOPPING_ACTIVITIES_OUTSIDE_OF_WORK_LIGHT_HOUSEHOLD_CHORES_SUCH_AS_COOKING_TIDYING_UP_LAUNDRY_OR_DUSTING, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Frequency of light household chores in the past 12 months' DROPDOWN * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.frequencyOfModerateToVigorousHouseholdChoresLast12MonthsDropdown, ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_DO_EACH_OF_THESE_HOUSEHOLD_OR_SHOPPING_ACTIVITIES_OUTSIDE_OF_WORK_MODERATE_TO_VIGOROUS_HOUSEHOLD_CHORES_SUCH_AS_VACUUMING_OR_SWEEPING, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Frequency of moderate to vigorous household chores in the past 12 months' DROPDOWN * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.frequencyOfCaringForPetsDropdown, ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_DO_EACH_OF_THESE_HOUSEHOLD_OR_SHOPPING_ACTIVITIES_OUTSIDE_OF_WORK_CARING_FOR_PETS_WALKING_DOGS_FEEDING_PLAYING_GROOMING, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Frequency of caring for pets' DROPDOWN * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.frequencyOfCaringForChildrenOrAdultsDropdown, ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_DO_EACH_OF_THESE_HOUSEHOLD_OR_SHOPPING_ACTIVITIES_OUTSIDE_OF_WORK_CARING_FOR_CHILDREN_OR_ADULTS_PUSHING_STROLLER_OR_WHEELCHAIR_LIFTING_BATHING, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Frequency of caring for children or adults' DROPDOWN * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.frequencyOfWalkingWhileShoppingErrandsDropdown, ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_DO_EACH_OF_THESE_HOUSEHOLD_OR_SHOPPING_ACTIVITIES_OUTSIDE_OF_WORK_WALKING_WHILE_SHOPPING_OR_DOING_ERRANDS_DO_NOT_COUNT_WALKING_FOR_EXERCISE, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Frequency of walking while shopping or doing errands' DROPDOWN * * * * *");
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.scrollIntoView(nativeViewCHARMSPhysicalActivitiesSurveyPage.timeSpentDoingLightHouseholdChoresDropdown);
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.timeSpentDoingLightHouseholdChoresDropdown, ras_Physical_Activities_Survey_TestDataManager.HOW_MUCH_TIME_PER_DAY_DID_YOU_SPEND_DOING_EACH_ACTIVITY_LIGHT_HOUSEHOLD_CHORES_SUCH_AS_COOKING_CLEANING_UP_LAUNDRY_OR_DUSTING, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Time spent doing light household chores (cooking, cleaning up, laundry, dusting)' DROPDOWN * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.timeSpentDoingModerateToVigorousHouseholdChoresDropdown, ras_Physical_Activities_Survey_TestDataManager.HOW_MUCH_TIME_PER_DAY_DID_YOU_SPEND_DOING_EACH_ACTIVITY_MODERATE_TO_VIGOROUS_HOUSEHOLD_CHORES_SUCH_AS_VACUUMING_OR_SWEEPING, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Time spent doing moderate to vigorous household chores (vacuuming, sweeping, etc)' DROPDOWN * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.timeSpentCaringForPetsDropdown, ras_Physical_Activities_Survey_TestDataManager.HOW_MUCH_TIME_PER_DAY_DID_YOU_SPEND_DOING_EACH_ACTIVITY_CARING_FOR_PETS_WALKING_DOGS_FEEDING_PLAYING_GROOMING, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Time spent caring for pets (walking dogs, feeding, playing, grooming)' DROPDOWN * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.timeSpentCaringForChildrenOrAdultsDropdown, ras_Physical_Activities_Survey_TestDataManager.HOW_MUCH_TIME_PER_DAY_DID_YOU_SPEND_DOING_EACH_ACTIVITY_CARING_FOR_CHILDREN_OR_ADULTS_PUSHING_STROLLER_OR_WHEELCHAIR_LIFTING_BATHING, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Time spent caring for children or adults (pushing stroller or wheelchair)' DROPDOWN * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.timeSpentWalkingOtherThanExerciseDropdown, ras_Physical_Activities_Survey_TestDataManager.HOW_MUCH_TIME_PER_DAY_DID_YOU_SPEND_DOING_EACH_ACTIVITY_WALKING_WHILE_SHOPPING_OR_DOING_ERRANDS_DO_NOT_COUNT_WALKING_FOR_EXERCISE, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Time spent walking (other than exercise)' DROPDOWN * * * * *");
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.scrollIntoView(nativeViewCHARMSPhysicalActivitiesSurveyPage.frequencyOfStrenuousActivitiesDropdown);
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.frequencyOfStrenuousActivitiesDropdown, ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_PARTICIPATE_IN_STRENUOUS_ACTIVITIES_OR_SPORTS_AVERAGE_HOURS_PER_WEEK, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Frequency of strenuous activities (per week)' DROPDOWN * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.selectAgeGroupDropdown, ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_PARTICIPATE_IN_STRENUOUS_ACTIVITIES_OR_SPORTS_SELECT_AGE_GROUP, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Frequency of strenuous activities (per week) Select Age Group' DROPDOWN * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.frequencyOfModerateActivitiesDropdown, ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_PARTICIPATE_IN_MODERATE_ACTIVITIES_OR_SPORTS_AVERAGE_HOURS_PER_WEEK, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Frequency of moderate activities (per week)' DROPDOWN * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.selectAgeGroupDropdown2, ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_PARTICIPATE_IN_MODERATE_ACTIVITIES_OR_SPORTS_SELECT_AGE_GROUP, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Frequency of moderate activities (per week) Select Age Group' DROPDOWN * * * * *");
+        CucumberLogUtils.logScreenshot();
     }
 }

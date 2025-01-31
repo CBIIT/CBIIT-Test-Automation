@@ -39,17 +39,29 @@ public class MyRASPhysicalActivitiesSurvey {
     }
 
     /**
-     * Selects an option from a dropdown in the section "During the past 12 months, did you do any of these activities outside of work?" based on the provided label and option text.
+     * Selects an option from a dropdown in the section "When you did household tasks or shopping, how much time per day did you spend doing each activity?" based on the provided label and option text.
      *
      * @param dropdownLabelText  the label text of the dropdown element
      * @param dropdownOptionText the text of the option to be selected from the dropdown
      */
     public static void dropdownSelectorHowMuchTimePerDay(String dropdownLabelText, String dropdownOptionText) {
-        CommonUtils.clickOnElement(locateByXpath("//div[@aria-labelledby='container_household_or_shopping_label']//span[normalize-space()='" + dropdownLabelText + "']/parent::label[@class='field-label field-label-question']/parent::div/following-sibling::span"));
+        CommonUtils.clickOnElement(locateByXpath("//span[normalize-space()='" + dropdownLabelText + "']/parent::label[@class='field-label field-label-question' and contains(@for, 'time_spent')]/parent::div/following-sibling::span"));
         CommonUtils.waitForClickability(locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[contains(text(), '" + dropdownOptionText + "')]"));
         CommonUtils.sleep(500);
-//        locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[contains(text(), '" + dropdownOptionText + "')]").click();
         CommonUtils.clickOnElement(locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[contains(text(), '" + dropdownOptionText + "')]"));
+    }
+
+    /**
+     * Selects an option from a dropdown in the section "During the past 12 months, did you do any of these activities outside of work?" based on the provided label and option text.
+     *
+     * @param dropdownLabelText  the label text of the dropdown element
+     * @param dropdownOptionText the text of the option to be selected from the dropdown
+     */
+    public static void dropdownSelectorDidYouDoAnyOfTheseOutsideOfWork(String dropdownLabelText, String dropdownOptionText) {
+        locateByXpath("//span[normalize-space()='" + dropdownLabelText + "']/parent::label[@class='field-label field-label-question']/parent::div/following-sibling::span").click();
+        CommonUtils.waitForClickability(locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[text()='" + dropdownOptionText + "']"));
+        CommonUtils.sleep(500);
+        CommonUtils.clickOnElement(locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[text()='" + dropdownOptionText + "']"));
     }
 
     public MyRASPhysicalActivitiesSurvey() {
