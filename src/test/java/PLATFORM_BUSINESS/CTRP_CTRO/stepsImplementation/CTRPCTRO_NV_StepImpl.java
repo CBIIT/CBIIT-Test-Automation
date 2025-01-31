@@ -132,7 +132,9 @@ public class CTRPCTRO_NV_StepImpl extends PageInitializer {
      *
      */
     public static void deleteTheRecord() {
+        CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVCaseRecordDeleteButton);
+        CommonUtils.waitForClickability(CTRPCTRO_NV_Page.ctrpCTRONVCaseRecordDeleteButton);
         CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCaseRecordDeleteButton);
         CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVCaseRecordPopUpDeleteButton);
         CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCaseRecordPopUpDeleteButton);
