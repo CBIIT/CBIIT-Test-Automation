@@ -731,7 +731,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         webDriver.navigate().refresh();
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageHOMEButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton.click();
-        CommonUtils.sleep(7000);
+        CommonUtils.sleep(55000); //Required to load NERD records
         CommonUtils.waitForVisibility( nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsList);
         JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsList);
         CommonUtils.sleep(1000);
@@ -754,6 +754,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         webDriver.navigate().refresh();
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageHOMEButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton.click();
+        CommonUtils.sleep(55000); //Required to load NERD records
         CommonUtils.waitForVisibility( nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsList);
         JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsList);
         CommonUtils.sleep(2000);
