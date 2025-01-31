@@ -106,6 +106,7 @@ public class TestProperties {
      */
     public static final String AWARD_NOMINATION_TEST_URL = "https://service-test.nci.nih.gov/ncisp";
     public static String AWARD_NOMINATION_URL;
+    public static final String AWARD_NOMINATION_ADMIN_GROUP_URL = "https://service-test.nci.nih.gov/sys_user_group.do?sys_id=5c673fd31b45921089b9ece0f54bcb03";
 
     /**
      * E-GRANTS URLS
@@ -113,6 +114,13 @@ public class TestProperties {
     public static final String E_GRANTS_TEST_URL = "https://egrants-web-test.nci.nih.gov/";
     public static final String E_GRANTS_STAGE_URL = "https://egrants-web-stage.nci.nih.gov/";
     public static String E_GRANTS_URL;
+
+    /**
+     * OASYS URLS
+     */
+    public static final String OASYS_TEST_URL = "https://oasys-qa.cancer.gov/#/";
+    public static final String OASYS_STAGE_URL = "https://oasys-stage.cancer.gov/#/";
+    public static String OASYS_URL;
 
     /**
      * COMETS ANALYTICS URLS
@@ -455,6 +463,18 @@ public class TestProperties {
                 break;
         }
         return E_GRANTS_URL;
+    }
+
+    public static String getOasysUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                OASYS_URL = OASYS_STAGE_URL;
+                break;
+            case "test":
+                OASYS_URL = OASYS_TEST_URL;
+                break;
+        }
+        return OASYS_URL;
     }
 
     public static String getCometsAnalyticsUrl() {
@@ -862,5 +882,14 @@ public class TestProperties {
                 break;
         }
         return AWARD_NOMINATION_URL;
+    }
+
+    public static String getAwardNominationAdminGroupUrl() {
+        switch (ENV.toLowerCase()) {
+            case "test":
+                AWARD_NOMINATION_URL = AWARD_NOMINATION_ADMIN_GROUP_URL ;
+                break;
+        }
+        return AWARD_NOMINATION_ADMIN_GROUP_URL;
     }
 }

@@ -86,6 +86,7 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
         CommonUtils.clickOnElement(covid19ActivitiesSubmissionsPage.nihCovid19CategorySubmissionSaveButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(covid19ActivitiesSubmissionsPage.nihCovid19CategorySubmissionOkButton);
+        CommonUtils.sleep(55000); //This wait time is needed as per current situation
         CommonUtils.waitForVisibility(covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink);
@@ -134,6 +135,7 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
         CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(covid19ActivitiesSubmissionsPage.nihCovid19CategorySubmissionOkButton);
+        CommonUtils.sleep(55000); //This wait time is needed to load the NERD page as per current situation
         CommonUtils.waitForVisibility(nerdcrstOtherAccomplishmentsPage.nerdOtherAccomplishmentsAccordionButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nerdcrstOtherAccomplishmentsPage.nerdOtherAccomplishmentsAccordionButton);

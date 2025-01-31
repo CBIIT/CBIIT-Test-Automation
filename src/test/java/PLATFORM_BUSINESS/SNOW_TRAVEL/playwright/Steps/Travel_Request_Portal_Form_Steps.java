@@ -1,6 +1,7 @@
 package PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.Steps;
 
 import PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.constants.Travel_Request_Portal_Form_Constants;
+import PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.pages.OCPL_Training_Request_Page;
 import PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.stepsImpl.Travel_Request_Portal_Form_StepImpl;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.Locator;
@@ -426,6 +427,134 @@ public class Travel_Request_Portal_Form_Steps {
         String actualAttributeValue = page.locator("//label[@for='sp_formfield_url_of_registration_site']").getAttribute("ng-if");
         Assert.assertNotEquals(actualAttributeValue, "field.mandatory",
                 "-- VERIFY THAT 'URL of Registration Site' FIELD IS NOT REQUIRED WHEN 'No' IS SELECTED FOR REGISTRATION FEE FIELD --");
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     *
+     * Clicks the CBIIT Business Services menu item under the Services Tab.
+     *
+     * @param cbiitBusinessServices The name of the menu item under the category
+     * @param services The name of the category under which the menu item is located
+     */
+    @When("I click the {string} menu item under {string}")
+    public void i_click_the_menu_item_under(String cbiitBusinessServices, String services) {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(services).setExact(true)).waitFor();
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(services).setExact(true))).isVisible();
+        assertThat(page.locator("#fresponsive")).containsText(services);
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(services).setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(cbiitBusinessServices)).first()).isVisible();
+        assertThat(page.locator("#fresponsive")).containsText(cbiitBusinessServices);
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(cbiitBusinessServices)).first().click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Verifies if the "Travel Planning System" catalog item is available on the page.
+     *
+     * @param travelPlanningSystem The name of the catalog item to be verified for availability
+     */
+    @Then("the catalog item {string} should be available")
+    public void the_catalog_item_should_be_available(String travelPlanningSystem) {
+        page.getByRole(AriaRole.MAIN).locator("a").filter(new Locator.FilterOptions().setHasText(travelPlanningSystem)).waitFor();
+        assertThat(page.getByRole(AriaRole.MAIN).locator("a").filter(new Locator.FilterOptions().setHasText(travelPlanningSystem))).isVisible();
+        assertThat(page.getByRole(AriaRole.MAIN)).containsText(travelPlanningSystem);
+        page.getByRole(AriaRole.MAIN).locator("a").filter(new Locator.FilterOptions().setHasText(travelPlanningSystem)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        CucumberLogUtils.scenario.log("---- VERIFYING THE BREAD CRUMB ----");
+        page.locator("//a[@class='ng-binding ng-scope'][normalize-space()='CBIIT Business Services']").isVisible();
+        assertThat(page.locator("//a[@class='ng-binding ng-scope'][normalize-space()='CBIIT Business Services']")).containsText("CBIIT Business Services");
+        assertThat(page.getByLabel("Page breadcrumbs").getByText(travelPlanningSystem)).isVisible();
+        assertThat(page.getByLabel("Page breadcrumbs").getByRole(AriaRole.LIST)).containsText(travelPlanningSystem);
+        assertThat(page.locator("#catItemTop")).containsText(travelPlanningSystem);
+        page.locator("#catItemTop").getByRole(AriaRole.HEADING, new Locator.GetByRoleOptions().setName(travelPlanningSystem)).scrollIntoViewIfNeeded();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Navigates to a Exceed Threshold field on the Travel Request Portal Form Page.
+     *
+     * @param exceedThreshold the text to be checked in the field
+     */
+    @When("I navigate to field {string},")
+    public void i_navigate_to_field(String exceedThreshold) {
+        page.navigate(Travel_Request_Portal_Form_Constants.TRAVEL_PLANNING_SYSTEM_PORTAL_FORM_URL);
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.locator("span").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Exceed Threshold\\?$"))).scrollIntoViewIfNeeded();
+        assertThat(page.locator("span").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Exceed Threshold\\?$")))).isVisible();
+        assertThat(page.locator("#exceed_threshold")).containsText(exceedThreshold);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Asserts that the help text displayed on the page matches the expected help text.
+     *
+     * @param helpText The expected help text to be displayed on the page
+     */
+    @Then("I should see help text that states: {string}")
+    public void i_should_see_help_text_that_states(String helpText) {
+        page.locator("#exceed_threshold").scrollIntoViewIfNeeded();
+        assertThat(page.getByText("Select 'Yes' if total travel")).isVisible();
+        assertThat(page.locator("#exceed_threshold")).containsText(helpText);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Selects the Foreign option for destination type on a Travel Planning Request form.
+     *
+     * @param foreign the destination type to be selected (e.g. "Foreign")
+     */
+    @When("I select the destination type, {string} on a Travel Planning Request form")
+    public void i_select_the_destination_type_on_a_travel_planning_request_form(String foreign) {
+        page.navigate(Travel_Request_Portal_Form_Constants.TRAVEL_PLANNING_SYSTEM_PORTAL_FORM_URL);
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        CucumberLogUtils.scenario.log("----  TRAVELER ACCOMODATIONs -- A REQUIRED FIELD ----");
+        page.waitForSelector("#traveler_accomodations");
+        assertThat(page.locator("#traveler_accomodations")).containsText(Travel_Request_Portal_Form_Constants.TRAVELER_ACCOMODATIONS_FIELD_TEXT);
+        page.locator("#s2id_sp_formfield_traveler_accomodations a").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(Travel_Request_Portal_Form_Constants.REQUESTING_BUSINESS_CLASS_SELECTED_DROP_DOWN_OPTION)).click();
+
+        CucumberLogUtils.scenario.log("----  SELECTS FOREIGN OPTION FOR DESTINATION TYPE -- A REQUIRED FIELD ----");
+        assertThat(page.locator("//span[normalize-space()='Destination Type']")).containsText(Travel_Request_Portal_Form_Constants.DESTINATION_TYPE_FIELD_TEXT);
+        assertThat(page.locator("//span[@id='label_foreign']")).containsText(foreign);
+        assertThat(page.locator("#label_foreign")).containsText("Foreign");
+        page.getByText("Foreign", new Page.GetByTextOptions().setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Specifies that the following fields will become required when the Foreign option  is selected for Destination type:
+     * - Contact Name
+     * - Contact Address
+     * - Contact Phone
+     *
+     * @param contactName The name of the contact that will become required
+     * @param contactAddress The address of the contact that will become required
+     * @param contactPhone The phone number of the contact that will become required
+     */
+    @Then("the following fields will become required, {string}, {string}, {string}")
+    public void the_following_fields_will_become_required(String contactName, String contactAddress, String contactPhone) {
+        page.locator("//span[normalize-space()='Contact Name']").scrollIntoViewIfNeeded();
+        page.locator("//span[normalize-space()='Contact Name']").isVisible();
+        assertThat(page.locator("//span[normalize-space()='Contact Name']")).containsText(contactName);
+        String contactNameRequired = page.locator("//label[@for='sp_formfield_contact_name']//span[contains(@aria-label,'Required')]").getAttribute(OCPL_Training_Request_Page.oCPL_TRAINING_REQUEST_REQUIRED_FIELD_ATTRIBUTE);
+        Assert.assertEquals(contactNameRequired, OCPL_Training_Request_Page.MANDATORY_FIELD,
+                "---- VERIFY 'CONTACT NAME' IS REQUIRED WHEN THE 'DESTINATION TYPE' IS 'FOREIGN' ----");
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.locator("//label[@for='sp_formfield_contact_address']").isVisible();
+        assertThat(page.locator("//label[@for='sp_formfield_contact_address']")).containsText(contactAddress);
+        String contactAddressRequired = page.locator("//label[@for='sp_formfield_contact_address']//span[contains(@aria-label,'Required')]").getAttribute(OCPL_Training_Request_Page.oCPL_TRAINING_REQUEST_REQUIRED_FIELD_ATTRIBUTE);
+        Assert.assertEquals(contactAddressRequired, OCPL_Training_Request_Page.MANDATORY_FIELD,
+                "---- VERIFY 'CONTACT ADDRESS' IS REQUIRED WHEN THE 'DESTINATION TYPE' IS 'FOREIGN' ----");
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.locator("//label[@for='sp_formfield_contact_phone']").isVisible();
+        assertThat(page.locator("//label[@for='sp_formfield_contact_phone']")).containsText(contactPhone);
+        String contactPhoneRequired = page.locator("//label[@for='sp_formfield_contact_phone']//span[contains(@aria-label,'Required')]").getAttribute(OCPL_Training_Request_Page.oCPL_TRAINING_REQUEST_REQUIRED_FIELD_ATTRIBUTE);
+        Assert.assertEquals(contactPhoneRequired, OCPL_Training_Request_Page.MANDATORY_FIELD,
+                "---- VERIFY 'CONTACT PHONE' IS REQUIRED WHEN THE 'DESTINATION TYPE' IS 'FOREIGN' ----");
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }

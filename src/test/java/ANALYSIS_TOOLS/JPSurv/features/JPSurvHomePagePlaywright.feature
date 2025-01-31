@@ -132,3 +132,168 @@ Feature: These are the scenarios for the Home page on the JPSurv Application
     Then User changes cohort from NHL to CML
     Then User clicks on every presentation of nav item
     Then Verify user is able to hide the configuration panel
+
+  @Smoke @satya @playwright @Regression @NCIATWP-8065 @NCIATWP-1696 @NCIATWP-8152
+  Scenario: Verify user clicks on the submit button to calculate cohert and model specifications
+    Given User navigates to JPSurv home page
+    Then User uploads file in the homepage
+    Then User selects start year of diagnosis
+    Then User selects end year of diagnosis
+    Then User selects interval of maximum years of diagnosis
+    Then User clicks on the NHL checkbox
+    Then User checks the relax proportionality and selects the cutpoint "5"
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then User changes the Cutpoint to "6"
+    Then Validate that result page contains plots
+    Then User changes the Cutpoint to optimal
+    Then Validate that result page contains plots
+    Then Validate BIC text is been displayed after calculation
+
+  @Smoke @satya @playwright @Regression @NCIATWP-8065 @NCIATWP-1696
+  Scenario: Verify user clicks on the submit button to calculate cohert and model specifications
+    Given User navigates to JPSurv home page
+    Then User uploads file in the homepage
+    Then User selects start year of diagnosis
+    Then User selects end year of diagnosis
+    Then User selects interval of maximum years of diagnosis
+    Then User clicks on the NHL checkbox
+    Then User checks the relax proportionality and selects the cutpoint "5"
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then Verify Cutpoint is coming next to Cohort and Model table headings
+
+  @Smoke @satya @playwright @Regression @NCIATWP-6669
+  Scenario: Verify user is able to get the trend measures on recalculating between calendar year of diagnosis
+    Given User navigates to JPSurv home page
+    Then User uploads file in the homepage
+    Then User selects start year of diagnosis
+    Then User selects end year of diagnosis
+    Then User selects interval of maximum years of diagnosis
+    Then User selects only CML checkbox only
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then User clicks on recalculate after selecting calendar year from "1980" to "1990"
+    Then Verify the user is getting result after recalculating
+
+  @Smoke @satya @playwright @Regression @NCIATWP-8065
+  Scenario: Verify user is able to click on the footer links
+    Given User navigates to JPSurv home page
+    Then User clicks on the cancer control link and verify
+    Then User clicks on the NCI link and verify it under div tag
+
+  @Smoke @satya @playwright @Regression @NCIATWP-6669
+  Scenario: Verify user is able to click on the death vs year at diagnosis tab
+    Given User navigates to JPSurv home page
+    Then User uploads file in the homepage
+    Then User selects start year of diagnosis
+    Then User selects end year of diagnosis
+    Then User selects interval of maximum years of diagnosis
+    Then User selects only CML checkbox only
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then User clicks on death vs year at diagnosis
+
+  @Smoke @satya @playwright @Regression @NCIATWP-6611 @NCIATWP-6565
+  Scenario: Verify user is able to click on the death vs year at diagnosis tab
+    Given User navigates to JPSurv home page
+    Then User uploads file in the homepage
+    Then User selects start year of diagnosis
+    Then User selects end year of diagnosis
+    Then User selects interval of maximum years of diagnosis
+    Then User selects only CML checkbox only
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then Verify model is selected as "1 (final selected model)"
+    Then User adds and remove interval after clicking on the conditional survival calculation
+
+  @Smoke @satya @playwright @Regression @NCIATWP-8065
+  Scenario: Verify user is able to click on the footer links under more information
+    Given User navigates to JPSurv home page
+    Then User clicks on the HHS of US Department link and verify it
+    Then User clicks on the NIH link and verify it
+    Then User clicks on the NCI link and verify it
+    Then User clicks on the USA gov link and verify it
+
+  @Smoke @satya @playwright @Regression @NCIATWP-8065 @NCIATWP-4627
+  Scenario: Verify user is able to click on the footer links under policies
+    Given User navigates to JPSurv home page
+    Then User clicks on the accessibility link and verify it
+    Then User clicks on the Disclaimer link and verify it
+    Then User clicks on the FOIA link and verify it
+    Then User clicks on the HHS Vulnerability Disclosure link and verify it
+
+  @Smoke @satya @playwright @Regression @NCIATWP-7683
+  Scenario: Verify result page contains plots after calculations
+    Given User navigates to JPSurv home page
+    Then User uploads file in the homepage
+    Then User selects start year of diagnosis
+    Then User selects end year of diagnosis
+    Then User selects interval of maximum years of diagnosis
+    Then User selects only CML checkbox only
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then Validate that result page contains plots
+
+  @Smoke @satya @playwright @Regression @NCIATWP-7669
+  Scenario: Verify Conditional Survival Calculation button availability after calculation
+    Given User navigates to JPSurv home page
+    Then User calculates cohert and model specifications with Conditional Survival Model Using Truncated Data
+    Then Validate Conditional Survival Calculation button is not available after calculation.
+    Then User calculates cohert and model specifications with Relax proportionality
+    Then Validate Conditional Survival Calculation button is not available after calculation.
+    Then User calculates cohert and model specifications with No Options
+    Then Validate Conditional Survival Calculation button is available after calculation.
+
+  @Smoke @satya @playwright @Regression @NCIATWP-7668 @NCIATWP-7660 @NCIATWP-4322 @NCIATWP-7672
+  Scenario: Verify cut point is already selected and cut point text ia also visible
+    Given User navigates to JPSurv home page
+    Then User uploads files and adds other data with relax proportionality
+    Then Validate that cut point is already selected with optimum value
+    Then Validate that cut point text is visible
+    And User clicks on the Advanced options and changes the entry to "8"
+    Then User clicks on the reset advanced options and validates entry is not "8"
+
+  @Smoke @satya @playwright @Regression @NCIATWP-4376
+  Scenario: Verify whether add annotation is clickable or not
+    Given User navigates to JPSurv home page
+    Then User calculates cohert and model specifications with Conditional Survival Model Using Truncated Data
+    And Verify add annotation button is visible and clickable
+    Then Click on the Add Annotation button
+
+  @Smoke @satya @playwright @Regression @NCIATWP-1727
+  Scenario: Verify result page contains plots after calculations
+    Given User navigates to JPSurv home page
+    Then User uploads file in the homepage
+    Then User selects start year of diagnosis
+    Then User selects end year of diagnosis
+    Then User selects interval of maximum years of diagnosis
+    Then User selects only CML checkbox only
+    Then User clicks on the submit button to calculate cohert and model specifications
+    And User clicks on the model estimates
+    Then Validates the model estimates contains mentioned texts
+
+  @Smoke @satya @playwright @Regression @NCIATWP-6706 @NCIATWP-7764
+  Scenario: Validate the title of all the columns of the model table after calculation
+    Given User navigates to JPSurv home page
+    And User add specifications with NHL and Relax proportionality checkboxes
+    Then Validate Relax Proportionality text is visible
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then Validate the title of all the columns of the model table after calculation
+
+  @Smoke @satya @playwright @Regression @NCIATWP-2916
+  Scenario: Validate the location column value with given joinpoints value
+    Given User navigates to JPSurv home page
+    When User calculates cohert and model specifications with joinpoints
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then Validate location column is visible and final selected model has joinpoints location separated by commas
+    And User calculates again cohert and model specifications with "0" joinpoints
+    Then User clicks on the submit button to calculate cohert and model specifications
+    Then Validate location column is having text "None" as value
+
+  @Smoke @satya @playwright @Regression @NCIATWP-1722
+  Scenario: Validate the title for specification section and also check recalculate button is enabled on clicking the between join points checkbox after calculation
+    Given User navigates to JPSurv home page
+    When User uploads file in the homepage
+    Then validate the title for specification section
+    Then User selects start year of diagnosis
+    Then User selects end year of diagnosis
+    Then User selects interval of maximum years of diagnosis
+    Then User selects only CML checkbox only
+    Then User clicks on the submit button to calculate cohert and model specifications
+    And User clicks on the check box for between joinpoints
+    Then Validate that recalculate button is enabled

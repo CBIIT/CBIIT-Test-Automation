@@ -30,7 +30,7 @@ public class JPSurvHomePagePlaywright {
     /***
      * NON HODGKIN LYMPHOMA LOCATOR
      */
-    public static String nhlLocator = "//select[@name='yearEnd']";
+    public static String nhlLocator = "//input[@id='Non-Hodgkin Lymphoma']";
 
     /***
      * CONDITIONAL SURVIVAL CALCULATION LOCATOR
@@ -96,4 +96,79 @@ public class JPSurvHomePagePlaywright {
      * INPUT FILE LOCATOR
      */
     public static String inputFileLocator = "xpath=//input[@id='inputFile']";
+
+    /***
+     * CUTPOINT LOCATOR
+     */
+    public static String cutPointLocator = "//label[text()='Cutpoint']/parent::div//select";
+
+    /***
+     * TOOLTIP LOCATOR
+     */
+    public static String toolTipLocator = "//a[@rel='tooltip']";
+
+    /***
+     * CANCER CONTROL LINK LOCATOR
+     */
+    public static String cancerControl = "Division of Cancer Control and Population Sciences";
+
+    /***
+     * ACCESSIBILITY PAGE
+     */
+    public static String accessibilityPage = "Accessibility";
+
+    /***
+     * FOIA PAGE LINK
+     */
+    public static String FOIAPage = "FOIA";
+
+    /***
+     * DEATH VS YEAR DIAGNOSIS LINK
+     */
+    public static String deathVsYear = "//ul//li//button[contains(text(),'Death vs. Year at Diagnosis')]";
+
+    /***
+     * SELECTED MODEL LOCATOR
+     */
+    public static String modelLocator = "//td[normalize-space()='1 (final selected model)']";
+
+    /***
+     * REMOVE INTERVAL LOCATOR
+     */
+    public static String removeInterval = "//span[@title='Remove Interval']";
+
+    /***
+     * LOCATOR OF HHS LINK OF US DEPARTMENT
+     */
+    public static String hhsLink = "U.S. Department of Health and Human Services";
+
+    /***
+     * NIH LINK LOCATOR
+     */
+    public static String NIHPage = "National Institutes of Health";
+
+    /***
+     * NATIONAL CANCER INSTITUTE
+     */
+    public static String NCIPage = "National Cancer Institute";
+
+    /***
+     * USA GOV ELEMENT
+     */
+    public static String USAGov = "USA.gov";
+
+    /***
+     * DISCLAIMER ELEMENT
+     */
+    public static String Disclaimer = "Disclaimer";
+
+    /***
+     * HHS VULNERABILITY ELEMENT
+     */
+    public static String HHSVulnerability = "HHS Vulnerability Disclosure";
+
+    /***
+     * PLOT COUNT LOCATOR
+     */
+    public static String plotCount = "//*[@data-testid='MainPanel']//div[@role='tabpanel']//div[@class='w-100 js-plotly-plot']";
 }

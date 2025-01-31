@@ -51,4 +51,101 @@ public class ESRApprovalStepsImplementation {
     public static void confirmESRBoardIntakeApprovalsAreCompleted() {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Engineering Project Execution");
     }
+
+    /**
+     * This method completes the required Operational POC approval
+     */
+    public static void operationalPOCApproval() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (10)").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the Operational POC Approval is completed
+     */
+    public static void confirmOperationalPOCApprovalIsCompleted() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Federal Lead Closeout Approval");
+    }
+
+    /**
+     * This method completes the Federal Lead Closeout approval
+     */
+    public static void federalLeadCloseoutApproval() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (10)").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the Federal Lead Closeout Approval is completed
+     */
+    public static void confirmFederalLeadCloseoutApprovalIsCompleted() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("ESR Board Closeout Review");
+    }
+
+    /**
+     * This method completes the Federal Lead Closeout approval for ESR-I
+     */
+    public static void federalLeadESRIApproval() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (11)").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method completes the ESR Board Closeout Review approvals for ESR-Q tickets
+     */
+    public static void esrBoardCloseoutApprovalsForESRQ() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (18)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[16]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[18]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (18)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[20]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[22]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[24]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method completes the ESR Board Closeout Review approvals for ESR-I tickets
+     */
+    public static void esrBoardCloseoutApprovalsForESRI() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (19)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[16]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[18]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (19)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[20]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[22]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[24]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the ESR Board Closeout Review approvals are completed
+     */
+    public static void confirmESRBoardCloseoutReviewApprovalsAreCompleted() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Completed");
+    }
 }

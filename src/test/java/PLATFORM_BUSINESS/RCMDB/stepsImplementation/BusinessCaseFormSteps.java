@@ -20,9 +20,8 @@ public class BusinessCaseFormSteps {
 		this.loginStepsImpl = new LoginStepsImpl();
 	}
 
-
 	@When("Click on {string}")
-	public void navigateToQUickLin(String quickLinkOption) {
+	public void navigateToQuickLin(String quickLinkOption) {
 		try {
 			businessCaseFormPage.selectOptionFromQuickLink(quickLinkOption);
 		} catch (Exception e) {
@@ -31,7 +30,7 @@ public class BusinessCaseFormSteps {
 	}
 
 	@Then("State is updated to {string}")
-	public void verifystate(String expectedState) throws Exception {
+	public void verifyState(String expectedState) throws Exception {
 		Thread.sleep(7000);
 		String actualState = businessCaseFormPage.getState();
 		CucumberLogUtils.logScreenshot();
@@ -46,12 +45,8 @@ public class BusinessCaseFormSteps {
 		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 			loginStepsImpl.enterUsername("");
-			String decyptedPass = EncryptionUtils.decrypt("");
-			// loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
-			// decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
-			loginStepsImpl.enterPassword(decyptedPass);
-			// loginPage.enterUsername(ConfigFileReader.getConfigFileReader().getUserName());
-			// loginPage.enterPassword(ConfigFileReader.getConfigFileReader().getPassword());
+			String decryptedPass = EncryptionUtils.decrypt("");
+			loginStepsImpl.enterPassword(decryptedPass);
 			loginStepsImpl.clickOnSignInButton();
 		}
 	}
@@ -65,7 +60,7 @@ public class BusinessCaseFormSteps {
 	public void fillIdeaDetails() throws InterruptedException {
 		businessCaseFormPage.selectDocDirector("Justin Cam");
 		businessCaseFormPage.fillFITARATextBox();
-		businessCaseFormPage.fillIDeaBox("Test IDea Form");
+		businessCaseFormPage.fillIDeaBox("Test Idea Form");
 		businessCaseFormPage.programaticSUpportCheckBox();
 	}
 
@@ -117,10 +112,10 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.sortCreatedDateForIdeaCasesInDecendingOrder();
 		businessCaseFormPage.clickOnFirstIdeaCase();
 	}
-	
+
 	@Then("Update details on business form and submit")
 	public void FillBusinessForm() throws InterruptedException {
-		businessCaseFormPage.enterTextInBusinessNeedBox("TestingAutomtaionTesting");
+		businessCaseFormPage.enterTextInBusinessNeedBox("TestingAutomationTesting");
 	}
 
 	@Then("Go to native view")
@@ -128,7 +123,7 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.clickOnNativeView();
 	}
 
-	@Then("Click on Elevate permision")
+	@Then("Click on Elevate permission")
 	public void elevatePermission() {
 		businessCaseFormPage.elevateButton();
 	}
@@ -137,7 +132,6 @@ public class BusinessCaseFormSteps {
 	public void approve() {
 		businessCaseFormPage.approveRequestForm();
 	}
-
 
 	@Then("Open Request approval form and reject")
 	public void reject() {
@@ -148,7 +142,7 @@ public class BusinessCaseFormSteps {
 	public void askForMoreInfo() {
 		businessCaseFormPage.askForMoreInfoOnRequestForm();
 	}
-	
+
 	@Then("Verify Email notification with subject as {string}")
 	public void verifyEmail(String subject) throws InterruptedException {
 		boolean status = businessCaseFormPage.verifyEmail(subject);

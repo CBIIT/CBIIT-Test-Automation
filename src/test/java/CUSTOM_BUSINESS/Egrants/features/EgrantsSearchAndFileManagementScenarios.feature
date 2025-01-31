@@ -124,7 +124,7 @@ Given User is logged in the application and is on the landing page
     And selects the current date
     And clicks on Locate File and Upload tab
     And uploads a file
-    Then verifies the success message "Done! New document has been created"
+    Then verifies the success message "Done! Funding document has been uploaded"
 
   @MoveSupplementApplication @nesarh2 @selenium @In-Progress
   Scenario: Test moving a supplement application
