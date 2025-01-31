@@ -1310,12 +1310,6 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Given("Study Team members logs in to Native View and verifies {string} QBank data")
     public void study_team_members_logs_in_to_native_view_and_verifies_qbank_data(String surveyName) {
-
-        /**
-         * REMOVE THIS
-         */
-        ras_Screener_TestDataManager.dataInitializerRasScreener("screenerScenarioAdult");
-
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sleep(4000);
         CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
