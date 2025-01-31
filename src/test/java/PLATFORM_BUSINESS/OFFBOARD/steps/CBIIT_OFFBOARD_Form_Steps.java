@@ -245,9 +245,13 @@ public class CBIIT_OFFBOARD_Form_Steps {
         page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").click();
         assertThat(page.locator(OFFBOARD_Page.cbiit_ErrorLocator)).containsText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_REQUIRED_FIELDS_ARE_INCOMPLETE_TEXT);
         CucumberLogUtils.playwrightScreenshot(page);
-        assertThat(page.locator("#hardware_ticket_number")).containsText("Hardware Return Ticket Number(s)");
-        page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName("Required Hardware Return")).click();
-        page.getByText("NCI-RITM0472474").click();
+        assertThat(page.locator("//span[normalize-space()='Hardware Return Ticket Number(s)']").getByText(CBIIT_OFFBOARD_FORM_Constants.CBIIT_OFFBOARDING_HARDWARE_RETURN_TICKET_NUMBER_TEXT)).isVisible();
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.locator("//span[normalize-space()='Hardware Return Ticket Number(s)']")).containsText("Hardware Return Ticket Number(s)");
+        page.locator("//input[@id='s2id_autogen11']").click();
+        page.locator("//input[@id='s2id_autogen11']").fill("NCI-RITM0500032");
+        page.locator("//div[@class='select2-result-cell'][normalize-space()='NCI-RITM0500032']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
         assertThat(page.locator("#additional_info")).containsText("Additional Information");
         page.getByLabel("Additional Information", new Page.GetByLabelOptions().setExact(true)).fill("test");
         page.locator("//button[contains(@class,'btn btn-primary ng-binding ng-scope')]").scrollIntoViewIfNeeded();

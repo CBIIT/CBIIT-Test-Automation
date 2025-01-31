@@ -116,7 +116,7 @@ public class Top_Accomplishment_New_Submission_Steps {
     public void field_is_mandatory_drop_down_with_the_following_options(String rank, String one, String two, String three, String four, String five, String six, String seven, String eight, String nine, String ten, String notTopTen) {
 
         CucumberLogUtils.scenario.log("----  SELECTS EACH RANK OPTION AND VERIFY THE SELECTED OPTION ----");
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_rank']")).containsText("Rank");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_rank']")).containsText(rank);
         assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Rank")).isVisible();
         page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank").selectOption(one);
         assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).hasValue(one);
@@ -139,7 +139,7 @@ public class Top_Accomplishment_New_Submission_Steps {
         page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank").selectOption(ten);
         assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).hasValue(ten);
         page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank").selectOption(notTopTen);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).hasValue(notTopTen);
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).containsText(notTopTen);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -180,6 +180,8 @@ public class Top_Accomplishment_New_Submission_Steps {
     /**
      * Verifies that a DOC field is a mandatory drop down with the applicable DOCs.
      * The default selected option is "-- None --".
+     * This method selects each DOC option and verifies the selected option.
+     * Then, it selects the Rank option again since it resets after fiscal year and DOC selection and verifies the selected option.
      *
      * @param doc The value for the DOC field.
      * @param cbiit The value for the CBIIT option.
@@ -248,6 +250,17 @@ public class Top_Accomplishment_New_Submission_Steps {
         assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(sbir);
         page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(ttc);
         assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(ttc);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @Then("the rank field clears out and all the {string} options are reset to select again when the Fiscal Year and Doc field is changed")
+    public void the_rank_field_clears_out_and_all_the_options_are_reset_to_select_again_when_the_fiscal_year_and_doc_field_is_changed(String rank) {
+
+        CucumberLogUtils.scenario.log("----  SELECTS THE RANK OPTION AGAIN SINCE IT RESETS AFTER FISCAL YEAR AND DOC SELECTION AND VERIFY THE SELECTED OPTION ----");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_rank']")).containsText(rank);
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Rank")).isVisible();
+        page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank").selectOption("Not Top 10");
+        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).containsText("Not Top 10");
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -716,6 +729,15 @@ public class Top_Accomplishment_New_Submission_Steps {
         assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Point of Contact Email")).containsText("juan.fourie@nih.gov,margie.blochlinger@nih.gov");
         boolean emailPresent = page.frameLocator("iframe[name='gsft_main']").locator("//textarea[@id='sys_readonly.u_kb_template_top_accomplishments.x_26385_crs_kd_point_of_contact_email']").isVisible();
         Assert.assertTrue("Expected email is not present on the page", emailPresent);
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        CucumberLogUtils.scenario.log("----  DELETES THE RECORD SO RANK OPTION CAN BE AVAILABLE FOR NEXT RUN ----");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#sysverb_delete")).isVisible();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#sysverb_delete")).containsText("Delete");
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#sysverb_delete").click();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Confirmation Help").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Delete"))).isVisible();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#ok_button")).containsText("Delete");
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Confirmation Help").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Delete")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }
