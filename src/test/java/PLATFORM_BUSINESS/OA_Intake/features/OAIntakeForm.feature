@@ -180,13 +180,12 @@ Feature: Create OA Intake form
     When Submitter User clicks on New Request button
     Then Submitter User can verify that they are on an OA Intake Request page
     And Submitter User can verify "This form enables you to submit a request to OA that initiates the planning of new requirements for a negotiated contract." text is displayed
-    And Submitter User can see CO/CS text reference "Once OA receives your request, a Contract Specialist (CS)/Contracting Officer (CO) will be assigned to process it."
+    And Submitter User can see CO CS text reference "Once OA receives your request, a Contract Specialist (CS)/Contracting Officer (CO) will be assigned to process it."
     And Submitter User can verify clicking on hyperlink Requestor (Requested for) Queue redirects to Requestor tab within the same web page
     And Submitter User can navigate back to New Request page
-    And Submitter User can verify  Important section text as "This system is NOT intended for acquisitions submitted through POTS (or FCAS) – those will remain unaffected by this new system. If you are unsure how your requirement should be initiated, please navigate to the Office of Acquisitions site"
+    And Submitter User can verify  Important section text as "This system is NOT intended for acquisitions submitted through POTS (or FCAS) – those will remain unaffected by this new system. If you are unsure how your requirement should be initiated, please navigate to the Office of Acquisitions site here. "
     And Submitter User can navigate to Office of Acquisitions
     And Submitter User can navigate to User Guide page
-    When Submitter User clicks insructions question mark
+    When Submitter User clicks instructions question mark
     Then Submitter User is redirected to OA Intake Request Instructional Page
     And User logs out of OA Intake application
-
