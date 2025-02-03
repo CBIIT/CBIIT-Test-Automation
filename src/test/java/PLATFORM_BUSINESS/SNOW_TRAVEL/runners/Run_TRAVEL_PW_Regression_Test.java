@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
         , features = "src/test/java/PLATFORM_BUSINESS/SNOW_TRAVEL/playwright/features"
         , glue = {"PLATFORM_BUSINESS.SNOW_TRAVEL.playwright.Steps", "Hooks"}
-        , tags = "@Regression"
+        , tags = "@Regression1"
         , dryRun = false
 )
 

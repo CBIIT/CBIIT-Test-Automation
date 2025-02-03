@@ -1,4 +1,4 @@
-name: CHARMS - RAS Regression
+name: CHARMS - RAS Regression Part 2
 
 on:
   schedule:
@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="CHARMS.runners.Run_CHARMS_RAS_Regression_Test" test
+        run: mvn -B -q -Dtest="CHARMS.runners.Run_CHARMS_RAS_Regression_Test_2" test
         continue-on-error: true
 
       - name: Generate timestamp
