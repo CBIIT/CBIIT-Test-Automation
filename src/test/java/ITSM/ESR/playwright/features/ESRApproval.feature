@@ -22,7 +22,7 @@ Feature: ESR Approvals
     Then the user confirms the Federal Intake Approval is completed
 
   @ESR-569 @sarwarahmed1 @Progression @playwright
-  Scenario: Test "Need more info" from a Federal Lead in an ESR-Q ticket
+  Scenario: Test "Need more info" rejection from a Federal Lead in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
     And fills out all required information for ESR-Q and clicks submit
@@ -30,6 +30,18 @@ Feature: ESR Approvals
     And user fills out all required information for ESR-Q Intake Preparation
     And the user is rejected from a federal lead with a need more info
     And user fills out all required information for ESR-Q Intake Preparation
+    And the user is approved from a federal lead
+    Then the user confirms the Federal Intake Approval is completed
+
+  @ESR-570 @sarwarahmed1 @Prooogression @playwright
+  Scenario: Test "Need more info" rejection from a Federal Lead in an ESR-I ticket
+    Given a user logs into Native View on the NCI at your service page
+    And navigates to create ESR
+    And fills out all required information for ESR-I and clicks submit
+    And user clicks on Intake Preparation catalog task
+    And user fills out all required information for ESR-I Intake Preparation
+    And the user is rejected from a federal lead with a need more info
+    And user fills out all required information for ESR-I Intake Preparation
     And the user is approved from a federal lead
     Then the user confirms the Federal Intake Approval is completed
 
