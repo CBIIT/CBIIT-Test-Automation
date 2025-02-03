@@ -16,6 +16,11 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.confirmFederalIntakeApprovalIsCompleted();
     }
 
+    @And("the user is rejected from a federal lead with a need more info")
+    public void the_user_is_rejected_from_a_federal_lead_with_a_need_more_info() {
+        ESRApprovalStepsImplementation.federalLeadNeedMoreInfo();
+    }
+
     @And("the user is approved from the ESR Board approvers")
     public void the_user_is_approved_from_the_esr_board_approvers() {
         ESRApprovalStepsImplementation.esrBoardIntakeApprovals();

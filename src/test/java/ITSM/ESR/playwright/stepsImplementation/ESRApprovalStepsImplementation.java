@@ -16,6 +16,17 @@ public class ESRApprovalStepsImplementation {
     }
 
     /**
+     * This method rejects the intake approval from a Federal Lead with a need more info
+     */
+    public static void federalLeadNeedMoreInfo() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (1)").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("need more info"); //Requires check
+        // Add step to comment on work note for rejection
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
      * This method confirms that the Federal Intake Approval is completed
      */
     public static void confirmFederalIntakeApprovalIsCompleted() {
