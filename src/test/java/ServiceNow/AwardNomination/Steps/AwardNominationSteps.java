@@ -62,6 +62,7 @@ public class AwardNominationSteps extends PageInitializer {
     @Then("Submitter User can verify they are redirected to general tickets view page")
     public void submitter_user_can_verify_they_are_redirected_to_general_tickets_view_page() {
         awardNominationStepsImplementation.verifyWeHaveReceivedRequest();
+        CommonUtils.sleep(5000);
     }
 
     /**
@@ -168,5 +169,25 @@ public class AwardNominationSteps extends PageInitializer {
     @Given("User can see Which value best reflects your appreciation option {string}")
     public void user_can_see_which_value_best_reflects_your_appreciation_option(String option) {
         awardNominationStepsImplementation.verifyWhichValueBestReflectsYourAppreciationsOptions(option);
+    }
+
+    @Given("Admin User logged in to view PEIC Appreciation Program - Administrator Approvers")
+    public void admin_user_logged_in_to_view_peic_appreciation_program_administrator_approvers() {
+        awardNominationStepsImplementation.awardNominationUserAdminGroupLogin();
+    }
+
+    /**
+     * User verifies Group Manager
+     *  @param person
+     *
+     */
+    @Given("Admin User can see that Administrator Approvers Group Manager is {string}")
+    public void admin_user_can_see_that_administrator_approvers_group_manager_is(String person) {
+        softAssert.assertTrue(awardNominationPage.groupManagerTextField.getDomAttribute("value").equals(person));
+    }
+
+    @Then("Admin User can see that listed Administrator Approvers are {string}, {string}, and {string}")
+    public void admin_user_can_see_that_listed_administrator_approvers_are_and(String admApprover1, String admApprover2, String admApprover3) {
+       awardNominationStepsImplementation.verifyAdminGroupMembers(admApprover1,admApprover2, admApprover3);
     }
 }
