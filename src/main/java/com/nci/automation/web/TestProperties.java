@@ -147,7 +147,7 @@ public class TestProperties {
      * ICDGenie URLS
      */
     public static final String ICDGenie_TEST_URL = "https://icdgenie-qa.cancer.gov/";
-    public static final String ICDGenie_STAGE_URL = "https://icdgenie-qa.cancer.gov/";
+    public static final String ICDGenie_STAGE_URL = "https://icdgenie-stage.cancer.gov/";
     public static String ICDGenie_URL;
 
     /**
