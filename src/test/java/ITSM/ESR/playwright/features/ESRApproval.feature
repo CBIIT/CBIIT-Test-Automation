@@ -29,6 +29,7 @@ Feature: ESR Approvals
     And user clicks on Intake Preparation catalog task
     And user fills out all required information for ESR-Q Intake Preparation
     And the user is rejected from a federal lead with a need more info
+    And user clicks on Intake Preparation catalog task
     And user fills out all required information for ESR-Q Intake Preparation
     And the user is approved from a federal lead
     Then the user confirms the Federal Intake Approval is completed
@@ -41,6 +42,7 @@ Feature: ESR Approvals
     And user clicks on Intake Preparation catalog task
     And user fills out all required information for ESR-I Intake Preparation
     And the user is rejected from a federal lead with a need more info
+    And user clicks on Intake Preparation catalog task
     And user fills out all required information for ESR-I Intake Preparation
     And the user is approved from a federal lead
     Then the user confirms the Federal Intake Approval is completed

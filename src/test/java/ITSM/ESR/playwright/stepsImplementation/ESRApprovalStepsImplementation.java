@@ -21,9 +21,11 @@ public class ESRApprovalStepsImplementation {
     public static void federalLeadNeedMoreInfo() {
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (1)").click();
         Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
-        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("need more info"); //Requires check
-        // Add step to comment on work note for rejection
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("more"); //Requires check
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Need more information");
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (1)").click();
     }
 
     /**
