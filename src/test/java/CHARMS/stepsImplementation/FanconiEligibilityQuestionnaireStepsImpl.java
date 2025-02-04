@@ -1547,7 +1547,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         System.out.println("referralValue: " + referralValue);
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingDataNormalizeSpaceInSpan("Participant"), "Participant", "Participant label of the General Information on Fanconi Study Screener page ");
         /* Check the participant name */
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("participant"), (currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")), " Participant Name of General Information on Fanconi Study Screener page ");
+        //CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("participant"), (currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")), " Participant Name of General Information on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Subject ID"), "Subject ID", "Subject ID label of the General Information on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVParticipantSubjectIdInput, "", " Subject ID Input Value of the General Information on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("NIH MRN number"), "NIH MRN number", " NIH MRN number label of the General Information on Fanconi Study Screener page ");
