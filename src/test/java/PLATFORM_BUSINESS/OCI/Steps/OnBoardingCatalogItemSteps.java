@@ -116,7 +116,6 @@ public class OnBoardingCatalogItemSteps {
         page.locator("#s2id_sp_formfield_equipment_shipped a").click();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("No").setExact(true)).click();
         CucumberLogUtils.playwrightScreenshot(page);
-
         CucumberLogUtils.scenario.log("---- CBIIT ONBOARD FORM SUBMITS ----");
         page.locator("//button[@class='btn btn-primary ng-binding ng-scope']").isVisible();
         page.locator("//button[@class='btn btn-primary ng-binding ng-scope']").click();
@@ -255,6 +254,7 @@ public class OnBoardingCatalogItemSteps {
         CucumberLogUtils.scenario.log("---- VERIFYING THAT I AS A SUPERVISOR IS ABLE TO ACCESS THE ONBOARDING REQUEST IN NATIVE VIEW  ----");
         assertThat(onBoardingNVPage.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Umit Topaloglu: available"))).isVisible();
         assertThat(onBoardingNVPage.frameLocator("iframe[name='gsft_main']").getByLabel("Number", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(ticketNumber);
+        onBoardingNVPage.frameLocator("iframe[name='gsft_main']").locator("[id='sc_req_item\\.form_header']").isVisible();
         assertThat(onBoardingNVPage.frameLocator("iframe[name='gsft_main']").locator("[id='sc_req_item\\.form_header']")).containsText(ticketNumber);
         assertThat(onBoardingNVPage.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Read only - cannot be modifiedOpened by"))).hasValue("Umit Topaloglu");
         CucumberLogUtils.playwrightScreenshot(onBoardingNVPage);

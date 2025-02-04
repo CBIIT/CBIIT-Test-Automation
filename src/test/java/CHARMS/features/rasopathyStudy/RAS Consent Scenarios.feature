@@ -279,8 +279,8 @@ Feature: RAS Consent Scenarios
     And selects "Yes" for Copy of Signed Dated Consent Assent Given to Participant
     Then Study Team member presses Sign and Complete
 
-  @muzipovay2 @RAS_STUDY @CP2-4088 @selenium @RAS_Regression
-  Scenario: Completing Physical Activities Survey survey
+  @muzipovay2 @RAS_STUDY @CP2-4088 @CP2-4198 @selenium @RAS_Regression
+  Scenario: Completing Physical Activities Survey
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
@@ -316,9 +316,11 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And clicks on "Physical Activities Survey" to begin survey
     And submits the Physical Activities Survey
+    And participant logs out of RAS portal
+    And Study Team members logs in to Native View and verifies "Physical Activities Survey" QBank data
 
-  @muzipovay2 @RAS_STUDY @CP2-4000 @selenium @RAS_Regression @Progression
-  Scenario: Completing Physical Activities Survey survey
+  @muzipovay2 @RAS_STUDY @CP2-4000 @selenium @RAS_Regression
+  Scenario: Completing Patient Smoking History survey
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"

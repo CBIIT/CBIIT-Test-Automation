@@ -98,8 +98,6 @@ Feature: Create OA Intake form
     And User can see New Request button
     And User can see Contact Support button
     And User can verify Purchasing Online Tracking System (POTS) hyperlink is displayed
-    When User clicks Purchasing Online Tracking System (POTS) hyperlink
-    Then User is redirected to authentication page
     And User can verify FFRDC Contract Administration System (FCAS) hyperlink is displayed
     And User can verify that OA Intakes are pre-filtered for a logged in Leadership User
     And User can verify that Request ID column can be sorted in descending and ascending order
@@ -111,8 +109,8 @@ Feature: Create OA Intake form
     And User can verify that Status Date column can be sorted in descending and ascending order
     And User logs out of OA Intake application
 
-  @selenium @Alena @Regression @OAIntake-657 @OAIntake-640 @OAIntake-700 @OAIntake-708
-  Scenario: Contracting Officer/Contract Specialist Queue
+  @selenium @Alena @Regression @OAIntake-657  @OAIntake-700
+  Scenario: Contracting Officer/Contract Specialist Queue Assigned menu
     Given Leadership User logged in to OA Intake Portal
     And User clicks on CO CS Queue tab
     And User can verify page header is "Contracting Officer/Contract Specialist Queue"
@@ -123,6 +121,13 @@ Feature: Create OA Intake form
       | Export as PDF | Export as Excel | Export as CSV |
     And User can see OA Intakes - Assigned filter is preset with assigned requests
     And User can remove filters for OA Intakes - Assigned requests
+    And User logs out of OA Intake application
+
+  @selenium @Alena @Regression @OAIntake-708
+  Scenario: Contracting Officer/Contract Specialist Queue Accepted menu
+    Given Leadership User logged in to OA Intake Portal
+    And User clicks on CO CS Queue tab
+    And User can verify page header is "Contracting Officer/Contract Specialist Queue"
     And User can see OA Intakes - Accepted section
     When User clicks on OA Intakes - Accepted menu
     Then User can see the following options for OA Intakes - Accepted requests
@@ -130,6 +135,13 @@ Feature: Create OA Intake form
       | Export as PDF | Export as Excel | Export as CSV |
     And User can see OA Intakes - Accepted filter is preset with accepted requests
     And User can remove filters for OA Intakes - Accepted requests
+    And User logs out of OA Intake application
+
+  @selenium @Alena @Regression @OAIntake-640
+  Scenario: Contracting Officer/Contract Specialist Queue Cancelled menu
+    Given Leadership User logged in to OA Intake Portal
+    And User clicks on CO CS Queue tab
+    And User can verify page header is "Contracting Officer/Contract Specialist Queue"
     And User can see OA Intakes - Cancelled section
     When User clicks on OA Intakes - Cancelled menu
     Then User can see the following options for OA Intakes - Cancelled requests
@@ -160,4 +172,20 @@ Feature: Create OA Intake form
     And User can verify that Leadership Queue Submitter column can be sorted in descending and ascending order
     And User can verify that Leadership Queue Status Date column can be sorted in descending and ascending order
     And User can verify that Leadership Queue Created On column can be sorted in descending and ascending order
+    And User logs out of OA Intake application
+
+  @selenium @Alena @Regression @OAIntake-344 @OAIntake-670 @OAIntake-500
+  Scenario: Verification of  Create OA Intake form page
+    Given Submitter User logged in to OA Intake Portal
+    When Submitter User clicks on New Request button
+    Then Submitter User can verify that they are on an OA Intake Request page
+    And Submitter User can verify "This form enables you to submit a request to OA that initiates the planning of new requirements for a negotiated contract." text is displayed
+    And Submitter User can see CO CS text reference "Once OA receives your request, a Contract Specialist (CS)/Contracting Officer (CO) will be assigned to process it."
+    And Submitter User can verify clicking on hyperlink Requestor (Requested for) Queue redirects to Requestor tab within the same web page
+    And Submitter User can navigate back to New Request page
+    And Submitter User can verify  Important section text as "This system is NOT intended for acquisitions submitted through POTS (or FCAS) – those will remain unaffected by this new system. If you are unsure how your requirement should be initiated, please navigate to the Office of Acquisitions site here. "
+    And Submitter User can navigate to Office of Acquisitions
+    And Submitter User can navigate to User Guide page
+    When Submitter User clicks instructions question mark
+    Then Submitter User is redirected to OA Intake Request Instructional Page
     And User logs out of OA Intake application

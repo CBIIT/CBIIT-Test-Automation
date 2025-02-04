@@ -160,6 +160,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static RAS_NV_Consent_Record_TestDataManager ras_NV_Consent_Record_TestDataManager;
 	public static RAS_Survey_TestDataManager ras_Survey_TestDataManager;
 	public static RAS_Survey_Smoking_Survey_TestDataManager ras_Survey_Smoking_Survey_TestDataManager;
+	public static RAS_Physical_Activities_Survey_TestDataManager ras_Physical_Activities_Survey_TestDataManager;
 	public static IIQ_TestDataManager iiq_TestDataManager;
 	public static ParticipantDetailsPage participantDetailsPage;
 	public static ReferralTablePage referralTablePage;
@@ -373,6 +374,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
 	public static NativeViewCHARMSPatientSmokingHistoryPage nativeViewCHARMSPatientSmokingHistoryPage;
+	public static NativeViewCHARMSPhysicalActivitiesSurveyPage nativeViewCHARMSPhysicalActivitiesSurveyPage;
 	public static NativeViewCHARMSAddNewParticipantPage nativeViewCHARMSAddNewParticipantPage;
 	public static NativeViewCHARMSSubjectFlagsPage nativeViewCHARMSSubjectFlagsPage;
 	public static NativeViewCGBIIQPage nativeViewCGBIIQPage;
@@ -454,6 +456,7 @@ public class PageInitializer extends WebDriverUtils {
 		ras_NV_Consent_Record_TestDataManager = new RAS_NV_Consent_Record_TestDataManager();
 		ras_Survey_TestDataManager = new RAS_Survey_TestDataManager();
 		ras_Survey_Smoking_Survey_TestDataManager = new RAS_Survey_Smoking_Survey_TestDataManager();
+		ras_Physical_Activities_Survey_TestDataManager = new RAS_Physical_Activities_Survey_TestDataManager();
 		iiq_TestDataManager = new IIQ_TestDataManager();
 		cgbIIQPage = new CGBIIQPage();
 		cGBIIQPages = new CGBIIQPages();
@@ -659,6 +662,7 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSParticipantStudyPage = new NativeViewCHARMSParticipantStudyPage();
 		nativeViewCHARMSAddNewParticipantPage = new NativeViewCHARMSAddNewParticipantPage();
 		nativeViewCHARMSPatientSmokingHistoryPage = new NativeViewCHARMSPatientSmokingHistoryPage();
+		nativeViewCHARMSPhysicalActivitiesSurveyPage = new NativeViewCHARMSPhysicalActivitiesSurveyPage();
 		nativeViewSSJReportsPage = new NativeViewSSJReportsPage();
 		nativeViewCHARMSSubjectFlagsPage = new NativeViewCHARMSSubjectFlagsPage();
 		nativeViewCGBIIQPage = new NativeViewCGBIIQPage();

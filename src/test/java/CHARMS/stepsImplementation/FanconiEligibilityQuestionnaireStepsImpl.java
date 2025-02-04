@@ -188,7 +188,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void participantNameSelected() {
         if (currentRow.get("AreYouCompletingThisQuestionnaireForSomeoneElse").contentEquals("Yes, I am completing this form for someone else")) {
             CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.firstNameByProxyTextBox, currentRow.get("ProxyFirstName"));
-            CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.middleNameByProxyTextBox, currentRow.get("ProxyMiddleName"));
+            CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.middleNameByProxyTextBox, currentRow.get("ProxyMIddleName"));
             CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.lastNameByProxyTextBox, currentRow.get("ProxyLastName"));
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
             CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.proxyFirstNameTextBox, currentRow.get("WhatIsYourNameFirstName"));
@@ -569,7 +569,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         if (currentRow.get("DoYouHaveCopyOfGeneticTestResults").contentEquals("Yes")) {
             CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("HowWouldYouLikeToProvideGeneticTestResults"));
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-            CommonUtils.sleep(800);
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
             CommonUtils.sleep(800);
         }
@@ -996,9 +995,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * Method to assert the Contact Info on Participant Details page
      */
     public void contactInformationAssertionOnParticipantDetailPage(int rowNumForAssertion) {
-        if (currentRow == null) {
-            currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
-        }
+        Map<String, String> currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
         CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantContactInfoTab);
         cHARMSParticipantDetailsPage.nVParticipantContactInfoTab.click();
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Person who filled the screener"), "Person who filled the screener", " Person who filled the screener Label of the Contact Information on Participant Details page ");
@@ -1586,7 +1583,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements1("assent_signed"), false, "Ever Assented CheckBox Value of the General Information on Fanconi Study Screener page ");
         CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("assent_signed"), false, "Ever Assented CheckBox Value of the General Information on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("MRR Complete"), "MRR Complete", "MRR Complete label of the General Information on Fanconi Study Screener page ");
-        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements1("mrr_complete"), false, "MRR Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
         CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("mrr_complete"), false, "MRR Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
     }
 

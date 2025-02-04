@@ -6,8 +6,8 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(plugin= {"html:target/ctrp-progression-reports/ctrp-progression-report.html",
         "json:target/cucumber.json", "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
-        features = "src/test/java/PLATFORM_BUSINESS/CTRP_CTRO/selenium/features",
-        glue = {"PLATFORM_BUSINESS.CTRP_CTRO.selenium.steps", "Hooks"},
+        features = "src/test/java/PLATFORM_BUSINESS/CTRP_CTRO/features",
+        glue = {"PLATFORM_BUSINESS.CTRP_CTRO.steps", "Hooks"},
         tags="@Progression",
         dryRun = false
 )

@@ -6,8 +6,8 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(plugin = {"html:target/cct-progression-reports/cct-progression-report.html",
         "json:target/cucumber.json", "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
-        , features = "src/test/java/PLATFORM_BUSINESS/CCT_CHAT_BOT/playwright/features"
-        , glue = {"PLATFORM_BUSINESS.CCT_CHAT_BOT.playwright.steps", "Hooks"}
+        , features = "src/test/java/PLATFORM_BUSINESS/CCT_CHAT_BOT/features"
+        , glue = {"PLATFORM_BUSINESS.CCT_CHAT_BOT.steps", "Hooks"}
         , tags = "@Progression"
         , dryRun = false
 )

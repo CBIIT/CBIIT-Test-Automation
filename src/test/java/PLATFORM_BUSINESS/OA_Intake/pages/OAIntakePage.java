@@ -855,4 +855,46 @@ public class OAIntakePage {
      */
     @FindBy(xpath = "//span[@id='select2-chosen-1']")
     public WebElement statusTextField;
+
+    /**
+     * Text This form enables you to submit a request
+     */
+    @FindBy(xpath = "//p[.='This form enables you to submit a request to OA that initiates the planning of new requirements for a negotiated contract.']")
+    public WebElement textFormEnables;
+
+    /**
+     * Text Once OA receives
+     */
+    @FindBy(xpath = "//p[.='Once OA receives your request, a Contract Specialist (CS)/Contracting Officer (CO) will be assigned to process it.']")
+    public WebElement textOnceOAReceives;
+
+    /**
+     *  hyperlink Requestor Queue
+     */
+    @FindBy(xpath = "//a[@title='Requester Queue Link']")
+    public WebElement hyperlinkRequestorQueue;
+
+    /**
+     * Important section text
+     */
+    @FindBy(xpath = "(//strong)[3]")
+    public WebElement textImportant;
+
+    /**
+     * OA hyperlink
+     */
+    @FindBy(xpath = "//*[@id='xbd56f5e41b8af910344042e2b24bcb61']/div/div/div/div[2]/p[4]/strong[2]/a")
+    public WebElement hyperlinkOA;
+
+    /**
+     * question Mark Additional Instructions
+     */
+    @FindBy(xpath = "(//img[@class='pull-right oa_question_mark_icon_margin'])[1]")
+    public WebElement questionMarkAdInstructions;
+
+    /**
+     * Instructional page header
+     */
+    @FindBy(xpath = "//*[@id='xd66c16711bc1ca50d4c852c6624bcbf7']/div/div/h2")
+    public WebElement headerInstructionalPage;
 }

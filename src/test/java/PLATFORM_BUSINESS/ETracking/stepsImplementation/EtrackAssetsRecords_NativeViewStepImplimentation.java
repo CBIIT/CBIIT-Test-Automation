@@ -34,6 +34,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_EXPIRATION_DATE_TEXT_BOX);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformationTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_ASSET_INFORMATION_TEXT_BOX);
         CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_STATUS_DROP_DOWN);
+        CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordSubmitButton);
         etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordSubmitButton.click();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown);
         CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_NATIVE_VIEW_ASSETS_ALL_RECORD_SEARCH_DROP_DOWN);
@@ -128,7 +129,9 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
                 "--VERIFY THE ASSET INFORMATION TEXT BOX CHARACTERS COUNT--" );
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformationTextBox);
         CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDown);
         CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_STATUS_DROP_DOWN);
+        CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordSubmitButton);
         etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordSubmitButton.click();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown);
         CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_NATIVE_VIEW_ASSETS_ALL_RECORD_SEARCH_DROP_DOWN);

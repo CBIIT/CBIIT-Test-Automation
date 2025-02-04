@@ -10,6 +10,7 @@ import com.nci.automation.web.PlaywrightUtils;
 import org.testng.Assert;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static org.testng.Assert.assertFalse;
@@ -257,6 +258,9 @@ public class JPSurvHomePagePlaywrightStepImp extends PageInitializer {
         Assert.assertEquals("5", selectedValue, "The 'cutpoint' dropdown should have value '5' selected.");
     }
 
+    /**
+     * VALIDATE SPECIFIED TEXT ON THE CALCULATION PAGE
+     */
     public static void validateSpecifiedText() {
         String actualText =  PlaywrightUtils.page.locator("//label[normalize-space()='Cut Point']").innerText();
         String expectedString = "Cut Point";
@@ -264,5 +268,76 @@ public class JPSurvHomePagePlaywrightStepImp extends PageInitializer {
         String actualText1 =  PlaywrightUtils.page.locator("//small[@class='form-text']").innerText();
         String expectedString1 = "The cut-point is the time after diagnosis that splits data into two groups. Cluster 1 includes years 1 to the cut-point. Separate JPSurv models are applied to each cluster.";
         Assert.assertEquals(expectedString1, actualText1.trim());
+    }
+
+    /**
+     * CHECK ADD ANNOTATION BUTTON IS CLICKABLE AND VISIBLE
+     */
+    public static void checkAddAnnotationButton() {
+        assertThat(PlaywrightUtils.page.locator("//*[@data-testid='MainPanel']//div[@role='tabpanel']//div//button[contains(text(),'+ Add Annotation')]").first()).isVisible();
+        assertThat(PlaywrightUtils.page.locator("//*[@data-testid='MainPanel']//div[@role='tabpanel']//div//button[contains(text(),'+ Add Annotation')]").first()).isEnabled();
+    }
+
+    /**
+     * ADDS SPECIFICATIONS WITH NHL AND RELAX PROPORTIONALITY CHECKBOXES
+     */
+    public static void addSpecificationWithNHLAndRelaxProportionality(){
+        uploadFile();
+        PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.startYear).selectOption("5");
+        PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.endYear).selectOption("15");
+        PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.nhlLocator).click();
+        PlaywrightUtils.page.locator("//input[@id='useRelaxModel']").click();
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     * VALIDATING OF COLUMN TITLES OF THE MODEL TABLE
+     */
+    public static void columnTitleOfModelTable() {
+        ArrayList<String> arr = new ArrayList<>();
+        for (int i = 1; i <= 7; i++) {
+            String xpath = "//span[contains(text(),'Select Model')]//parent::th//following::th[" + i + "]";
+            Locator element = PlaywrightUtils.page.locator(xpath);
+            arr.add(element.textContent());
+        }
+        System.out.println(arr);
+        Assert.assertTrue(arr.contains("Model"));
+        Assert.assertTrue(arr.contains("Number of Joinpoints"));
+        Assert.assertTrue(arr.contains("Location"));
+        Assert.assertTrue(arr.contains("Bayesian Information Criterion (BIC)"));
+        Assert.assertTrue(arr.contains("Akaike Information Criterion (AIC)"));
+        Assert.assertTrue(arr.contains("Log Likelihood"));
+        Assert.assertTrue(arr.contains("Converged"));
+    }
+
+    /**
+     * VALIDATING OF COLUMN TITLES OF THE MODEL TABLE
+     */
+    public static void calculateWithJoinPoints() {
+        uploadFile();
+        PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.startYear).selectOption("0");
+        PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.endYear).selectOption("40");
+        PlaywrightUtils.page.locator(JPSurvHomePagePlaywright.nhlLocator).click();
+        PlaywrightUtils.page.locator("//select[@id='maxJp']").selectOption("2");
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     * VALIDATING LOCATION TEXT AND JOINPOINTS
+     */
+    public static void ValidateTextAndJoinPoints() {
+        CommonUtils.sleep(10000);
+        assertThat(PlaywrightUtils.page.locator("//th[normalize-space()='Location']")).isVisible();
+        assertThat(PlaywrightUtils.page.locator("//div[@class='col']//div[@class='container']//div//table//td[normalize-space()='1995, 2002']")).containsText("1995, 2002");
+    }
+
+    /**
+     * calculating cohert and model specifications with given joinpoints
+     *
+     * @param joinpoint     The joinpoint to be selected.
+     */
+    public static void calculateWithGivenJoinPoints(String joinpoint) {
+        PlaywrightUtils.page.locator("//*[name()='path' and contains(@d,'m3.86 8.75')]").click();
+        PlaywrightUtils.page.locator("//select[@id='maxJp']").selectOption(joinpoint);
     }
 }
