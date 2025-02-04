@@ -21,6 +21,11 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.federalLeadNeedMoreInfo();
     }
 
+    @And("user clicks on Intake Preparation catalog task and completes it again")
+    public void user_clicks_on_intake_preparation_catalog_task_and_completes_it_again() {
+        ESRApprovalStepsImplementation.completeIntakePreparation();
+    }
+
     @And("the user is approved from the ESR Board approvers")
     public void the_user_is_approved_from_the_esr_board_approvers() {
         ESRApprovalStepsImplementation.esrBoardIntakeApprovals();

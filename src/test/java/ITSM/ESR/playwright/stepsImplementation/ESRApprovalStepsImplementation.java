@@ -25,7 +25,16 @@ public class ESRApprovalStepsImplementation {
         Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
         Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Need more information");
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method completes the Intake Preparation task again after user receives a "Need More Info" from Federal Lead
+     */
+    public static void completeIntakePreparation() {
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (1)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//tbody/tr/td/a[1])[2]").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Catalog Task form section").getByLabel("State").selectOption("3");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
     }
 
     /**
