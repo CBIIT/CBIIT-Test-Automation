@@ -187,7 +187,7 @@ public class CharmsUtil {
 	public static boolean selectDropDownValue(WebElement webElement, String selectedValue) {
 		CharmsUtil.labelHighlight(webElement);
 		CharmsUtil.clickOnElement(webElement);
-		CommonUtils.sleep(500);
+		CommonUtils.sleep(600);
 		Select dropDown = new Select(webElement);
 		List<WebElement> e = dropDown.getOptions();
 		int itemCount = e.size();
