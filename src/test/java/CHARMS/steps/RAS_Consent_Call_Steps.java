@@ -1,6 +1,5 @@
 package CHARMS.steps;
 
-import CHARMS.constants.CHARMSRASScreenerConstants;
 import CHARMS.constants.CHARMS_Data_File_Path_Constants;
 import CHARMS.constants.Native_View_Constants;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -10,7 +9,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
-
 import static Hooks.Hooks.softAssert;
 import static APPS_COMMON.PageInitializers.PageInitializer.*;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;

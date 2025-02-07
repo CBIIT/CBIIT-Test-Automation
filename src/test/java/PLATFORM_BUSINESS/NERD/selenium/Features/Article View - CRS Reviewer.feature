@@ -14,8 +14,8 @@ Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
     Examples:
       | knowledgeBaseOne | knowledgeBaseTwo | knowledgeBaseThree  | knowledgeCategory     |
       | NERD             | ROCK             | Moonshot Evaluation | Top Accomplishments   |
-#      | NERD             | ROCK             | Moonshot Evaluation | Other Accomplishments |
-#      | NERD             | ROCK             | Moonshot Evaluation | Collaborations        |
+      | NERD             | ROCK             | Moonshot Evaluation | Other Accomplishments |
+      | NERD             | ROCK             | Moonshot Evaluation | Collaborations        |
 
   @NERDSNOW-209 @bucurgb @Regression @Smoke @selenium
   Scenario Outline: CRS Reviewer Sees Top Accomplishment Fields

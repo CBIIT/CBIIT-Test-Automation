@@ -1,7 +1,7 @@
 Feature: SNOWTRAVEL Native View Form Scenarios
   Description: This Feature file contains SNOWTRAVEL Travle Planning System Form Scenarios in Native View
 
-  @SNOWTRAVEL-124 @Chaudhryma @Smoke @Regression1 @playwright
+  @SNOWTRAVEL-124 @Chaudhryma @Smoke @Regression @playwright
   Scenario: Test Create Travel Request Application Module
     Given I am an authenticated DOC CGH Travel Request User "Dimetria Branch"
     When I search "Travel Planning System", in the filter navigator,

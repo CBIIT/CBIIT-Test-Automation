@@ -92,7 +92,7 @@ public class NativeViewCHARMSParticipantDetailsPage {
     public WebElement consentAddedMessageText;
 
     /**
-     *
+     * Assent signed checkbox
      */
     @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_study.assent_signed']")
     public WebElement assentSignedCheckBox;

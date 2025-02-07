@@ -886,24 +886,9 @@ public class RAS_All_Steps extends PageInitializer {
     @Then("Study Team member creates a new Subject Flags and verifies that the field IBMFS Affected Status displays if the {string} is Fanconi or Bone Marrow Failure Syndrome")
     public void study_team_member_creates_a_new_subject_flags_and_verifies_that_the_field_ibmfs_affected_status_displays_if_the_is_fanconi_or_bone_marrow_failure_syndrome(String study) {
         CommonUtils.sleep(800);
-        String participantName = locateByXpath("//input[@aria-labelledby='label.x_naci_family_coho_participant_study.participant']").getAttribute("value");
-//        JavascriptUtils.scrollIntoView(locateByXpath("//span[@class='tab_caption_text'][normalize-space()='Subject Flags']"));
-        JavascriptUtils.scrollIntoView(locateByXpath("//span[@class='tab_caption_text'][contains(text(), 'Subject Flags')]"));
-//        JavascriptUtils.clickByJS(locateByXpath("//span[@class='tab_caption_text'][normalize-space()='Subject Flags']"));
+        JavascriptUtils.scrollIntoView(locateByXpath("//span[@class='tab_caption_text'][normalize-space()='Subject Flags']"));
         JavascriptUtils.clickByJS(locateByXpath("//span[@class='tab_caption_text'][contains(text(), 'Subject Flags')]"));
-//        JavascriptUtils.clickByJS(locateByXpath("//div[@aria-label='Subject Flags, filtering toolbar']//button[@value='sysverb_new'][normalize-space()='New']"));
-//        locateByXpath("//button[@aria-label='Look up value for field: Participant']").click();
-//        CommonUtils.sleep(1000);
-//        CommonUtils.switchToAnotherTabWindow();
-//        locateByXpath("//input[@aria-label='Search']").sendKeys(participantName);
-//        CommonUtils.sleep(800);
-//        locateByXpath("//a[@role='button'][normalize-space()='" + participantName + "']").click();
-//        CommonUtils.switchToNextWindow();
-//        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(800);
-
-
-
         CommonUtils.hoverOverElement(locateByXpath("//*[@data-list_id='x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study']//child::tbody//child::tr//child::td[5]"));
         CommonUtils.sleep(500);
         CommonUtils.clickOnElement(locateByXpath("//*[@data-list_id='x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study']//child::tbody//child::tr//child::td[2]//child::a"));

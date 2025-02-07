@@ -31,7 +31,3 @@ Feature: FHQ Native View
     And selects "Yes" from the Future Identifiable Use by Collaborators dropdown
     Then Study Team member presses the Sign and Complete button
     Then Study Team member fills out new FHQ for participant in NV
-
-
-
-

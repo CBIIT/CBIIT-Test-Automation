@@ -2179,7 +2179,6 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
      * THIS METHOD VERIFIES RAS SCREENER SCENARIO 1 DATA IN NATIVE VIEW
      */
     public void verifying_RAS_Screener_Scenario_1_Data(String sheetName) {
-        ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sleep(3000);
         CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
@@ -2211,7 +2210,6 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.scenario.log("---- VERIFYING PARTICIPANT RECORD PREVIEW DATA ----");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.firstNameRecordPreviewField), ras_Screener_TestDataManager.FIRST_NAME, "-- VERIFYING PREVIEW RECORD FIRST NAME --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.lastNameRecordPreviewField), ras_Screener_TestDataManager.LAST_NAME, "-- VERIFYING PREVIEW RECORD LAST NAME --");
-//        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.middleNameRecordPreviewField), ras_Screener_TestDataManager.MIDDLE_INITIAL, "-- VERIFYING PREVIEW RECORD MIDDLE NAME --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactHomePhoneRecordPreviewField), ras_Screener_TestDataManager.HOME_PHONE_NUMBER, "-- VERIFYING PREVIEW RECORD CONTACT HOME PHONE NUMBER --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactEmailRecordPreviewField), ras_Screener_TestDataManager.EMAIL_ADDRESS, "-- VERIFYING PREVIEW RECORD CONTACT EMAIL ADDRESS --");
         CucumberLogUtils.logScreenshot();
@@ -2255,13 +2253,13 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         JavascriptUtils.scrollIntoView(participantDetailsPage.participantStudiesTab);
         CommonUtils.clickOnElement(participantDetailsPage.participantStudiesTab);
         CucumberLogUtils.logScreenshot();
-//        CommonUtils.waitForClickability(participantDetailsPage.dynamicRecordButtonLocator("Eligible"));
-//        CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator("Eligible"));
+        CommonUtils.waitForClickability(participantDetailsPage.dynamicRecordButtonLocator("Eligible"));
+        CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator("Eligible"));
         CommonUtils.waitForVisibility(locateByXpath("//tr[@record_class='x_naci_family_coho_participant_study']//td[normalize-space()='Field']"));
         CommonUtils.hoverOverElement(locateByXpath("//tr[@record_class='x_naci_family_coho_participant_study']//td[normalize-space()='Field']"));
         CommonUtils.sleep(500);
-//        CommonUtils.waitForVisibility(participantDetailsPage.participantStudiesInfoButton);
-//        CommonUtils.clickOnElement(participantDetailsPage.participantStudiesInfoButton);
+        CommonUtils.waitForVisibility(participantDetailsPage.participantStudiesInfoButton);
+        CommonUtils.clickOnElement(participantDetailsPage.participantStudiesInfoButton);
         CommonUtils.waitForVisibility(locateByXpath("//tr[@record_class='x_naci_family_coho_participant_study']//td[@class='list_decoration_cell col-small col-center ']//a"));
         CommonUtils.clickOnElement(locateByXpath("//tr[@record_class='x_naci_family_coho_participant_study']//td[@class='list_decoration_cell col-small col-center ']//a"));
 
