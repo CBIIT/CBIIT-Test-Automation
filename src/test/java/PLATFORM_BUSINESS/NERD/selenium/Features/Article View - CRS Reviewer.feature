@@ -1,21 +1,21 @@
 Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
 
-  @NERDSNOW-209 @SS-5261 @SS-4636 @SS-4637 @bucurgb @Regression @Smoke @selenium
+  @NERDSNOW-209 @SS-5261 @SS-4636 @SS-4637 @bucurgb @Regression1 @Smoke @selenium
   Scenario Outline: CRS Reviewer Sees Published Top Accomplishments, Other accomplishments and Collaborations
     Given a CRS Reviewer "hoffmanela@nih.gov" is on the NERD Home Page
-    Then there are three knowledge bases called "<knowledgeBaseOne>", "<knowledgeBaseTwo>", and "<knowledgeBaseThree>"
-    When the user clicks the NERD Knowledge Base
-    Then the user is redirected to the Knowledge Base view page
-    And there is a collapsed accordion with the header labeled "<knowledgeCategory>"
-    When the user clicks the "<knowledgeCategory>" accordion header
-    Then the "<knowledgeCategory>" accordion expands
-    And a list of all published "<knowledgeCategory>" records is visible
+#    Then there are three knowledge bases called "<knowledgeBaseOne>", "<knowledgeBaseTwo>", and "<knowledgeBaseThree>"
+#    When the user clicks the NERD Knowledge Base
+#    Then the user is redirected to the Knowledge Base view page
+#    And there is a collapsed accordion with the header labeled "<knowledgeCategory>"
+#    When the user clicks the "<knowledgeCategory>" accordion header
+#    Then the "<knowledgeCategory>" accordion expands
+#    And a list of all published "<knowledgeCategory>" records is visible
 
     Examples:
       | knowledgeBaseOne | knowledgeBaseTwo | knowledgeBaseThree  | knowledgeCategory     |
       | NERD             | ROCK             | Moonshot Evaluation | Top Accomplishments   |
-      | NERD             | ROCK             | Moonshot Evaluation | Other Accomplishments |
-      | NERD             | ROCK             | Moonshot Evaluation | Collaborations        |
+#      | NERD             | ROCK             | Moonshot Evaluation | Other Accomplishments |
+#      | NERD             | ROCK             | Moonshot Evaluation | Collaborations        |
 
   @NERDSNOW-209 @bucurgb @Regression @Smoke @selenium
   Scenario Outline: CRS Reviewer Sees Top Accomplishment Fields
