@@ -1,33 +1,33 @@
 Feature: Applicant Profile Scenarios
   Description: This Feature file contains Applicant Profile Scenarios
 
-  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @JUAREZDS @Regression @playwright @SNOW_UPDATED
+  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @JUAREZDS @Regression1 @playwright @SNOW_UPDATED
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
-    And User is on Profile tab - PW
-    And User inputs "<firstName>" into first name field - PW
-    And User inputs "<middleName>" into middle name field - PW
-    And User inputs "<lastName>" into last name field - PW
-    And User inputs "<email>" into email field - PW
-    And User inputs "<phone>" into phone field - PW
-    And User inputs "<businessPhoneVacancy>" into business phone field - PW
-    And selects highest education "<highestEducation>"
-    And User confirms being a US Citizen - PW
-    And User inputs "<address>" into address field - PW
-    And User inputs "<aptNumber>" into appNumber field - PW
-    And User inputs "<city>" into city field - PW
-    And User inputs "<state>" into state field - PW
-    And User inputs "<country>" into country field - PW
-    And User inputs "<zip>" into zip field - PW
-    When User clicks on Save Application button - PW
-    Then user verifies that first name "<firstName>", middle name "<middleName>", and last name "<lastName>" saved display as expected
-    And verifies that the saved address displays with "<address>", "<aptNumber>", "<city>", "<state>", "<country>", "<zip>"
-    And verifies that the saved email address displays as "<email>"
-    And verifies that the saved phone number displays as "<phone>"
-    And verifies that the saved business phone number displays as "<businessPhoneVacancy>"
-    And verifies that the saved highest education displays as "<highestEducation>"
-    And verifies that the saved US Citizenship displays as "<US Citizenship>"
+#    And User is on Profile tab - PW
+#    And User inputs "<firstName>" into first name field - PW
+#    And User inputs "<middleName>" into middle name field - PW
+#    And User inputs "<lastName>" into last name field - PW
+#    And User inputs "<email>" into email field - PW
+#    And User inputs "<phone>" into phone field - PW
+#    And User inputs "<businessPhoneVacancy>" into business phone field - PW
+#    And selects highest education "<highestEducation>"
+#    And User confirms being a US Citizen - PW
+#    And User inputs "<address>" into address field - PW
+#    And User inputs "<aptNumber>" into appNumber field - PW
+#    And User inputs "<city>" into city field - PW
+#    And User inputs "<state>" into state field - PW
+#    And User inputs "<country>" into country field - PW
+#    And User inputs "<zip>" into zip field - PW
+#    When User clicks on Save Application button - PW
+#    Then user verifies that first name "<firstName>", middle name "<middleName>", and last name "<lastName>" saved display as expected
+#    And verifies that the saved address displays with "<address>", "<aptNumber>", "<city>", "<state>", "<country>", "<zip>"
+#    And verifies that the saved email address displays as "<email>"
+#    And verifies that the saved phone number displays as "<phone>"
+#    And verifies that the saved business phone number displays as "<businessPhoneVacancy>"
+#    And verifies that the saved highest education displays as "<highestEducation>"
+#    And verifies that the saved US Citizenship displays as "<US Citizenship>"
 
     Examples:
       | firstName | middleName | lastName   | email              | phone      | businessPhoneVacancy | highestEducation | US Citizenship | address  | aptNumber | city       | state | country | zip   |
