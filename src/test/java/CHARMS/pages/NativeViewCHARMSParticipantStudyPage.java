@@ -60,6 +60,12 @@ public class NativeViewCHARMSParticipantStudyPage {
     public WebElement patientSmokingHistoryText;
 
     /**
+     * Survey Type Physical Activities Survey Text
+     */
+    @FindBy(xpath = "//tr[@record_class='x_naci_family_coho_question_bank']//td[normalize-space()='Physical Activities Survey']")
+    public WebElement physicalActivitiesSurveyText;
+
+    /**
      * Question Banks Preview Button
      */
     @FindBy(xpath = "//*[@data-list_id='x_naci_family_coho_participant_study.x_naci_family_coho_question_bank.participant_study']//child::tbody//child::tr//child::td[2]//child::a")

@@ -4,6 +4,7 @@ import APPS_COMMON.PageInitializers.PageInitializer;
 import PLATFORM_BUSINESS.OA_Intake.utilities.OAIntakeCommonUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -1015,5 +1016,99 @@ public class OAIntakeSteps extends PageInitializer {
     public void user_picks_recently_accepted_oa_intake_request() {
         CommonUtils.clickOnElement(oaIntakePage.lastAcceptedOAIntakeRequest);
         CommonUtils.sleep(1000);
+    }
+
+    /**
+     * Submitter can verify text
+     * @param expText
+     */
+    @Then("Submitter User can verify {string} text is displayed")
+    public void submitter_user_can_verify_text_is_displayed(String expText) {
+        String actualText = oaIntakePage.textFormEnables.getText();
+        softAssert.assertEquals(actualText, expText);
+    }
+
+    /**
+     *  User get redirected to Requestor tab within the same web page
+     */
+    @Then("Submitter User can verify clicking on hyperlink Requestor \\(Requested for) Queue redirects to Requestor tab within the same web page")
+    public void submitter_user_can_verify_clicking_on_hyperlink_requestor_requested_for_queue_redirects_to_requestor_tab_within_the_same_web_page() {
+        CommonUtils.clickOnElement(oaIntakePage.hyperlinkRequestorQueue);
+        softAssert.assertTrue(oaIntakePage.requestorPageHeader.isDisplayed());
+    }
+
+    /**
+     *  Submitter User can navigate back to New Request page
+     */
+    @Then("Submitter User can navigate back to New Request page")
+    public void submitter_user_can_navigate_back_to_new_request_page() {
+        WebDriverUtils.webDriver.navigate().back();
+        softAssert.assertTrue(oaIntakePage.newRequestPageHeader.isDisplayed());
+    }
+
+    /**
+     * Submitter can verify text
+     * @param expText
+     */
+    @Then("Submitter User can verify  Important section text as {string}")
+    public void submitter_user_can_verify_important_section_text_as(String expText) {
+        String actualText = oaIntakePage.textImportant.getText();
+        softAssert.assertEquals(actualText, expText);
+    }
+
+    /**
+     *  Submitter User can navigate to Office of Acquisitions
+     */
+    @Then("Submitter User can navigate to Office of Acquisitions")
+    public void submitter_user_can_navigate_to_office_of_acquisitions() {
+        CommonUtils.clickOnElement(oaIntakePage.hyperlinkOA);
+        CommonUtils.sleep(2000);
+        ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
+        webDriver.switchTo().window(tabs.get(1));;
+        webDriver.close();
+        webDriver.switchTo().window(tabs.get(0));
+        CommonUtils.sleep(2000);
+    }
+
+    /**
+     *  Submitter User can navigate to User Guide page
+     */
+    @Then("Submitter User can navigate to User Guide page")
+    public void submitter_user_can_navigate_to_user_guide_page() {
+        CommonUtils.clickOnElement(oaIntakePage.userGuideHyperlink);
+        ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
+        webDriver.switchTo().window(tabs.get(1));
+        Assert.assertTrue(oaIntakePage.userGuideLoginText.isDisplayed());
+        webDriver.close();
+        webDriver.switchTo().window(tabs.get(0));
+        CommonUtils.sleep(2000);
+    }
+
+    /**
+     *  Submitter User clicks instructions question mark
+     */
+    @When("Submitter User clicks instructions question mark")
+    public void submitter_user_clicks_instructions_question_mark() {
+       CommonUtils.clickOnElement(oaIntakePage.questionMarkAdInstructions);
+    }
+
+    @Then("Submitter User is redirected to OA Intake Request Instructional Page")
+    public void submitter_user_is_redirected_to_oa_intake_request_instructional_page() {
+        ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
+        webDriver.switchTo().window(tabs.get(1));
+        softAssert.assertTrue(oaIntakePage.headerInstructionalPage.isDisplayed());
+        webDriver.close();
+        webDriver.switchTo().window(tabs.get(0));
+        CommonUtils.sleep(2000);
+    }
+
+    /**
+     * Submitter can verify CO CS text
+     * @param expText
+     */
+    @Then("Submitter User can see CO CS text reference {string}")
+    public void submitter_user_can_see_co_cs_text_reference(String expText) {
+        String actualText = oaIntakePage.textOnceOAReceives.getText();
+        softAssert.assertEquals(actualText, expText);
     }
 }
