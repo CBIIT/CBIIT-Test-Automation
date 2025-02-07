@@ -172,17 +172,18 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         nativeViewAccessRequestPage.accessRequestNewButton.click();
         CommonUtils.assertTrue(nativeViewAccessRequestPage.accessRequestText.getText()
                 .contentEquals(SEERNativeView_Constants.NATIVE_VIEW_ACCESS_REQUEST_MENU_TEXT));
+        CommonUtils.waitForVisibility(nativeViewAccessRequestPage.nativeViewAccessRequestCustomerTextBox);
         nativeViewAccessRequestPage.nativeViewAccessRequestCustomerTextBox.sendKeys(SEERDataRejection_Constants.FIRST_NAME + " " + SEERDataRejection_Constants.LAST_NAME);
         CommonUtils.sleep(1000);
         nativeViewAccessRequestPage.nativeViewAccessRequestCustomerTextBox.sendKeys(Keys.ENTER);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessSaveButton);
         CommonUtils.sleep(1000);
-
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessRequestPreviewRecordButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessRequestOpenRecordButton);
         CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(1000);
         CommonUtils.assertTrue(nativeViewAccessRequestPage.accessRequestCustomerText.getText()
                 .contentEquals("Customer"));
         CucumberLogUtils.logScreenshot();
