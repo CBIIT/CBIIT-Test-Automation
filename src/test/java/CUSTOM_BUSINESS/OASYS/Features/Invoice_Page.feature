@@ -50,7 +50,7 @@ Scenario: Assign Additional Reviewers for the submitted invoice
     And User verifies the invoice status
     Then User tries to click on Void button
 
-@RestoreInvoice @NESARH2 @Regression1 @playwright
+@RestoreInvoice @NESARH2 @Regression @playwright
   Scenario: Restoring an invoice
     When User clicks on Invoice
     And User clicks on the voided invoice
