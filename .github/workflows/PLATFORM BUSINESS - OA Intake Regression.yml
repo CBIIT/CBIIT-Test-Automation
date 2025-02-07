@@ -17,7 +17,7 @@ jobs:
 
       - name: Run OA Intake Regression Tests
         shell: cmd
-        run: mvn -B -q -Dtest=PLATFORM_BUSINESS.OA_Intake.OAIntakeRunners.OAIntakeRegressionRunner test
+        run: mvn -B -q -Dtest=PLATFORM_BUSINESS.OA_Intake.runners.OAIntakeRegressionRunner test
         continue-on-error: true
 
       - name: Generate timestamp
