@@ -2,7 +2,7 @@ Feature: This Feature File contains Quick Link, logged in user verifications and
   Background: common steps
   Given User is logged in the application and is on the landing page
 
-  @QuickLinkVerification @nesarh2 @selenium @Regression1
+  @QuickLinkVerification @nesarh2 @selenium @Regression
   Scenario: Test Egrants Quick Links and logged in user
     And User expands Quick Links
     And User is able to navigate to "PMS" hyperlink

@@ -21,9 +21,9 @@ Feature: RAS Native View Verification Scenarios
     Then Study Team member creates a new Subject Flags and verifies that the field IBMFS Affected Status displays if the "<Study>" is Fanconi or Bone Marrow Failure Syndrome
     Examples:
       | Existing FSID | Study                        | Study Subcategory | Relationship to Proband | First Name                       | Last Name |
-#      |               | Fanconi                      | All               | Proband                 | FanconiProband                   | TestIBMFS |
+      |               | Fanconi                      | All               | Proband                 | FanconiProband                   | TestIBMFS |
       |               | RASopathy                    | All               | Proband                 | RASopathyProband                 | TestIBMFS |
-#      |               | Bone Marrow Failure Syndrome | All               | Proband                 | BoneMarrowFailureSyndromeProband | TestIBMFS |
+      |               | Bone Marrow Failure Syndrome | All               | Proband                 | BoneMarrowFailureSyndromeProband | TestIBMFS |
 
   @muzipovay2 @RAS_STUDY @CP2-3959 @CP2-3958 @CP2-3961 @CP2-3760 @CP2-3861 @selenium @In-Progress
   Scenario Outline: Verifying that that an empty Hold/Non-Participation Date field does not remove the date from other synced records.
@@ -61,8 +61,8 @@ Feature: RAS Native View Verification Scenarios
     Examples:
       | Existing FSID | Study     | Relationship to Proband | First Name   | Last Name            | Participation Status Row 1 | Hold/Non-Participation Date Row 1 | Participation Status Row 2 | Hold/Non-Participation Date Row 2 |
       |               | RASopathy | Proband                 | SubjectFlags | HoldTest             | Hold                       | Today                             | Participating              |                                   |
-#      |               | RASopathy | Proband                 | SubjectFlags | NotParticipatingTest | Participating              |                                   | Not Participating          | 1st of Next Month                 |
-#      |               | RASopathy | Proband                 | SubjectFlags | NotParticipatingTest | Hold                       | 1st of Next Month                 | Not Participating          | Today                             |
+      |               | RASopathy | Proband                 | SubjectFlags | NotParticipatingTest | Participating              |                                   | Not Participating          | 1st of Next Month                 |
+      |               | RASopathy | Proband                 | SubjectFlags | NotParticipatingTest | Hold                       | 1st of Next Month                 | Not Participating          | Today                             |
 
   @muzipovay2 @RAS_STUDY @CP2-3960 @selenium @RAS_Regression2
   Scenario: Verifying that audit trail history is visible to users.
