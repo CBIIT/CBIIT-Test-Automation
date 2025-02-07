@@ -8,14 +8,14 @@ Feature: This Feature File contains Quick Link, logged in user verifications and
     And User is able to navigate to "PMS" hyperlink
     And verifies that the logged in user "Logged in as:Diego Juarez" is shown
 
-  @QCAssignmentReport @nesarh2 @selenium @Regression1
+  @QCAssignmentReport @nesarh2 @selenium @Regression
   Scenario: Test QC Assignment Report
     Given User is on the Management menu
     When User selects Change as the QC Reason
     And User selects Quality Associates as QC Person
     Then User clicks on Assign button to confirm the assignment
 
-  @QCRouteReport @nesarh2 @selenium @Regression1
+  @QCRouteReport @nesarh2 @selenium @Regression
   Scenario: Test routing documents from one QC person to another (QC Route Report)
     Given User is on the Management menu
     And User clicks on FROM dropdown to select "D'Avella, Joseph"

@@ -137,7 +137,7 @@ Feature: Create OA Intake form
     And User can remove filters for OA Intakes - Accepted requests
     And User logs out of OA Intake application
 
-  @selenium @Alena @Regression @OAIntake-640
+  @selenium @Alena @Regression1 @OAIntake-640
   Scenario: Contracting Officer/Contract Specialist Queue Cancelled menu
     Given Leadership User logged in to OA Intake Portal
     And User clicks on CO CS Queue tab

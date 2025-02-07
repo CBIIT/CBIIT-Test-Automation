@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
         , features = "src/test/java/CUSTOM_BUSINESS/Egrants/features"
         , glue = {"CUSTOM_BUSINESS.Egrants.steps", "Hooks"}
-        , tags = "@Regression1"
+        , tags = "@Regression"
         , dryRun = false
 )
     public class RunEgrantsRegressionTest extends AbstractTestNGCucumberTests{

@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
             , features = "src/test/java/PLATFORM_BUSINESS/OA_Intake/features"
             , glue = {"PLATFORM_BUSINESS.OA_Intake.steps", "Hooks"}
-            , tags = "@Regression"
+            , tags = "@Regression1"
             , dryRun = false
     )
     public class OAIntakeRegressionRunner extends AbstractTestNGCucumberTests {
