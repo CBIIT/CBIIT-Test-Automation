@@ -250,10 +250,6 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Then("PI completes consent and verifies {string} {string} {string} {string} in Native View")
     public static void PI_completes_consent_and_verifies_in_Native_View(String sheetName, String consentStatus, String consentType, String responseType) {
-
-        ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-
-
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sleep(8000);
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");

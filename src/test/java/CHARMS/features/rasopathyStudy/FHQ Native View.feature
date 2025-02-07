@@ -11,11 +11,27 @@ Feature: FHQ Native View
     Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
-    And selects "Participant Upload to Portal" as the Collection Method
+    And selects "Participant upload to portal" as the Collection Method
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
     And selects "Yes" for Protocol Discussed in Private Setting
     And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
     And selects "Yes" for Questions Addressed Before Signing
-#    And presses the Call Complete button
+    And presses the Call Complete button
+    And attaches Family Cohort Study Consent pdf
+    And selects Today as the Consent Version
+    And presses the Hard Copy of Consent Received button
+    And selects Today as the Consent Date
+    And fills in "Rene Aguilar" for the Consent By field
+    And selects "Yes" for Consent Assent Obtained Before Study Procedures
+    And selects "Yes" for Copy of Signed Dated Consent Assent Given to Participant
+    And selects "Yes" from the Future Use of Specimens and Data by NIH dropdown
+    And selects "Yes" from the Future Use by Collaborators dropdown
+    And selects "Yes" from the Future Identifiable Use by Collaborators dropdown
+    Then Study Team member presses the Sign and Complete button
+    Then Study Team member fills out new FHQ for participant in NV
+
+
+
+
