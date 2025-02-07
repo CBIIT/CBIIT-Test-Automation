@@ -488,7 +488,7 @@ public class TestProperties {
                 break;
             case "test":
                 SCATLAS_URL = SCATLAS_TEST_URL;
-                break;
+            break;
         }
         return SCATLAS_URL;
     }
