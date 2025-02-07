@@ -250,6 +250,10 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Then("PI completes consent and verifies {string} {string} {string} {string} in Native View")
     public static void PI_completes_consent_and_verifies_in_Native_View(String sheetName, String consentStatus, String consentType, String responseType) {
+
+        ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+
+
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sleep(8000);
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
@@ -313,7 +317,7 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.waitForVisibility(locateByXpath("//div[@class='outputmsg_text']"));
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(locateByCssSelector("button[aria-label='Back']"));
-        locateByCssSelector("button[aria-label='Back']").click();
+        JavascriptUtils.clickByJS(locateByCssSelector("button[aria-label='Back']"));
         CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
@@ -397,14 +401,8 @@ public class RAS_All_Steps extends PageInitializer {
     public void study_team_member_logs_in_to_native_view_and_verifies_that_the_field_assent_signed_is_true(String sheetName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         navigateToParticipantRecordInNativeView(sheetName);
-        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsParticipantStudiesTab);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsParticipantStudiesTab);
-        CommonUtils.hoverOverElement(locateByXpath("(//td[@class='vt'][normalize-space()='Awaiting Consent'])[2]"));
-        CommonUtils.sleep(1000);
-        JavascriptUtils.clickByJS(locateByXpath("//tr[@record_class='x_naci_family_coho_participant_study']//a[@aria-label='Preview record: CHARMSRasMinor Test']"));
-        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-        CommonUtils.sleep(200);
-        CucumberLogUtils.logScreenshot();
+        study_team_member_navigates_to_participant_studies();
+        softAssert.assertEquals("true", nativeViewCHARMSParticipantDetailsPage.assentSignedCheckBox.getDomAttribute("value"));
     }
 
     /**
@@ -715,7 +713,8 @@ public class RAS_All_Steps extends PageInitializer {
             CommonUtils.waitForVisibility(nativeViewCHARMSAddNewParticipantPage.FSIDToUseTextBox);
             CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.FSIDToUseTextBox, existingFSID);
         }
-        CommonUtils.clickOnElement(nativeViewCHARMSAddNewParticipantPage.unlockStudiesButton);
+        CommonUtils.sleep(1000);
+        nativeViewCHARMSAddNewParticipantPage.unlockStudiesButton.click();
         CommonUtils.waitForClickability(nativeViewCHARMSAddNewParticipantPage.studiesTextBox);
         CommonUtils.sendKeys(nativeViewCHARMSAddNewParticipantPage.studiesTextBox, study);
         CommonUtils.sleep(500);
@@ -892,18 +891,31 @@ public class RAS_All_Steps extends PageInitializer {
     public void study_team_member_creates_a_new_subject_flags_and_verifies_that_the_field_ibmfs_affected_status_displays_if_the_is_fanconi_or_bone_marrow_failure_syndrome(String study) {
         CommonUtils.sleep(800);
         String participantName = locateByXpath("//input[@aria-labelledby='label.x_naci_family_coho_participant_study.participant']").getAttribute("value");
-        JavascriptUtils.scrollIntoView(locateByXpath("//span[@class='tab_caption_text'][normalize-space()='Subject Flags']"));
-        JavascriptUtils.clickByJS(locateByXpath("//span[@class='tab_caption_text'][normalize-space()='Subject Flags']"));
-        JavascriptUtils.clickByJS(locateByXpath("//div[@aria-label='Subject Flags, filtering toolbar']//button[@value='sysverb_new'][normalize-space()='New']"));
-        locateByXpath("//button[@aria-label='Look up value for field: Participant']").click();
-        CommonUtils.sleep(1000);
-        CommonUtils.switchToAnotherTabWindow();
-        locateByXpath("//input[@aria-label='Search']").sendKeys(participantName);
+//        JavascriptUtils.scrollIntoView(locateByXpath("//span[@class='tab_caption_text'][normalize-space()='Subject Flags']"));
+        JavascriptUtils.scrollIntoView(locateByXpath("//span[@class='tab_caption_text'][contains(text(), 'Subject Flags')]"));
+//        JavascriptUtils.clickByJS(locateByXpath("//span[@class='tab_caption_text'][normalize-space()='Subject Flags']"));
+        JavascriptUtils.clickByJS(locateByXpath("//span[@class='tab_caption_text'][contains(text(), 'Subject Flags')]"));
+//        JavascriptUtils.clickByJS(locateByXpath("//div[@aria-label='Subject Flags, filtering toolbar']//button[@value='sysverb_new'][normalize-space()='New']"));
+//        locateByXpath("//button[@aria-label='Look up value for field: Participant']").click();
+//        CommonUtils.sleep(1000);
+//        CommonUtils.switchToAnotherTabWindow();
+//        locateByXpath("//input[@aria-label='Search']").sendKeys(participantName);
+//        CommonUtils.sleep(800);
+//        locateByXpath("//a[@role='button'][normalize-space()='" + participantName + "']").click();
+//        CommonUtils.switchToNextWindow();
+//        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(800);
-        locateByXpath("//a[@role='button'][normalize-space()='" + participantName + "']").click();
-        CommonUtils.switchToNextWindow();
-        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-        CommonUtils.sleep(800);
+
+
+
+        CommonUtils.hoverOverElement(locateByXpath("//*[@data-list_id='x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study']//child::tbody//child::tr//child::td[5]"));
+        CommonUtils.sleep(500);
+        CommonUtils.clickOnElement(locateByXpath("//*[@data-list_id='x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study']//child::tbody//child::tr//child::td[2]//child::a"));
+        CommonUtils.sleep(500);
+        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
+        CommonUtils.sleep(200);
+        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
+
         if (study.equalsIgnoreCase("Fanconi") || study.equalsIgnoreCase("Bone Marrow Failure Syndrome")) {
             CommonUtils.waitForVisibility(nativeViewCHARMSSubjectFlagsPage.IBMFSAffectedStatusText);
             softAssert.assertEquals(nativeViewCHARMSSubjectFlagsPage.IBMFSAffectedStatusText.getText(), "IBMFS Affected Status");

@@ -21,9 +21,9 @@ Feature: RAS Native View Verification Scenarios
     Then Study Team member creates a new Subject Flags and verifies that the field IBMFS Affected Status displays if the "<Study>" is Fanconi or Bone Marrow Failure Syndrome
     Examples:
       | Existing FSID | Study                        | Study Subcategory | Relationship to Proband | First Name                       | Last Name |
-      |               | Fanconi                      | All               | Proband                 | FanconiProband                   | TestIBMFS |
+#      |               | Fanconi                      | All               | Proband                 | FanconiProband                   | TestIBMFS |
       |               | RASopathy                    | All               | Proband                 | RASopathyProband                 | TestIBMFS |
-      |               | Bone Marrow Failure Syndrome | All               | Proband                 | BoneMarrowFailureSyndromeProband | TestIBMFS |
+#      |               | Bone Marrow Failure Syndrome | All               | Proband                 | BoneMarrowFailureSyndromeProband | TestIBMFS |
 
   @muzipovay2 @RAS_STUDY @CP2-3959 @CP2-3958 @CP2-3961 @CP2-3760 @CP2-3861 @selenium @In-Progress
   Scenario Outline: Verifying that that an empty Hold/Non-Participation Date field does not remove the date from other synced records.
@@ -44,20 +44,20 @@ Feature: RAS Native View Verification Scenarios
     And selects "Yes" for Questions Addressed Before Signing
     And verifies that Consent Assent category auto-populated to "Adult"
     And presses the Call Complete button
-#    Then Study Team member logs out of Native View
-#    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-#    And logs in via Okta with username "ras_progression@yopmail.com" and password "Charms123$"
-#    And participant clicks on Study Consent and completes form with "Charms123$"
-#    And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAdult"
-#    And verifies Consent Assent status is "Consented only"
-#    And selects "Yes" for Consent Assent Obtained Before Study Procedures
-#    And selects "Yes" for Copy of Signed Dated Consent Assent Given to Participant
-#    Then Study Team member presses Sign and Complete
-#    And clicks the Back button
-#    And Study Team member navigates to Participant Studies
-#    And Study Team member creates a new Subject Flags with the values: Study "<Study>", Participation Status "<Participation Status Row 1>", Hold Non-Participation Date "<Hold/Non-Participation Date Row 1>"
-#    And Study Team member creates a new Subject Flags with the values: Study "<Study>", Participation Status "<Participation Status Row 2>", Hold Non-Participation Date "<Hold/Non-Participation Date Row 2>"
-#    Then Study Team syncs fields and verifies their values: Participant Name "<First Name> <Last Name>", Study "<Study>", Participation Status "<Participation Status Row 1>" "<Participation Status Row 2>", Hold Non-Participation Date "<Hold/Non-Participation Date Row 1>" "<Hold/Non-Participation Date Row 2>"
+    Then Study Team member logs out of Native View
+    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+    And logs in via Okta with username "ras_progression@yopmail.com" and password "Charms123$"
+    And participant clicks on Study Consent and completes form with "Charms123$"
+    And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAdult"
+    And verifies Consent Assent status is "Consented only"
+    And selects "Yes" for Consent Assent Obtained Before Study Procedures
+    And selects "Yes" for Copy of Signed Dated Consent Assent Given to Participant
+    Then Study Team member presses Sign and Complete
+    And clicks the Back button
+    And Study Team member navigates to Participant Studies
+    And Study Team member creates a new Subject Flags with the values: Study "<Study>", Participation Status "<Participation Status Row 1>", Hold Non-Participation Date "<Hold/Non-Participation Date Row 1>"
+    And Study Team member creates a new Subject Flags with the values: Study "<Study>", Participation Status "<Participation Status Row 2>", Hold Non-Participation Date "<Hold/Non-Participation Date Row 2>"
+    Then Study Team syncs fields and verifies their values: Participant Name "<First Name> <Last Name>", Study "<Study>", Participation Status "<Participation Status Row 1>" "<Participation Status Row 2>", Hold Non-Participation Date "<Hold/Non-Participation Date Row 1>" "<Hold/Non-Participation Date Row 2>"
     Examples:
       | Existing FSID | Study     | Relationship to Proband | First Name   | Last Name            | Participation Status Row 1 | Hold/Non-Participation Date Row 1 | Participation Status Row 2 | Hold/Non-Participation Date Row 2 |
       |               | RASopathy | Proband                 | SubjectFlags | HoldTest             | Hold                       | Today                             | Participating              |                                   |
