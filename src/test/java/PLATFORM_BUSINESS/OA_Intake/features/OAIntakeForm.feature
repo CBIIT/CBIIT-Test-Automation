@@ -145,11 +145,11 @@ Feature: Create OA Intake form
 #    And User can see OA Intakes - Cancelled section
 #    When User clicks on OA Intakes - Cancelled menu
 #    Then User can see the following options for OA Intakes - Cancelled requests
-      | option1       | option2         | option3       |
-      | Export as PDF | Export as Excel | Export as CSV |
-    And User can see OA Intakes - Cancelled filter is preset with cancelled requests
-    And User can remove filters for OA Intakes - Cancelled requests
-    And User logs out of OA Intake application
+#      | option1       | option2         | option3       |
+#      | Export as PDF | Export as Excel | Export as CSV |
+#    And User can see OA Intakes - Cancelled filter is preset with cancelled requests
+#    And User can remove filters for OA Intakes - Cancelled requests
+#    And User logs out of OA Intake application
 
   @selenium @Alena @Regression @OAIntake-650 @OAIntake-606
   Scenario: Leadership Queue (Pending Action)
