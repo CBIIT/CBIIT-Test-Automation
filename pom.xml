@@ -245,6 +245,7 @@
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <includes>
                         <include>
+                            Run_CHARMS_RAS_Regression_Test.java
                         </include>
                     </includes>
                     <testFailureIgnore>true</testFailureIgnore> <!-- to get report even when fails -->
@@ -274,8 +275,25 @@
                             <inputDirectory>${project.build.directory}</inputDirectory>
                             <jsonFiles>
                                 <!-- supports wildcard or name pattern -->
-                                <param>**/cucumber.json</param> <!-- it will take .json file -->
+                                <param>**/*Results.json</param> <!-- it will take .json file -->
                             </jsonFiles>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>com.nci.automation.utils.ExcelGenerationMain</mainClass>
                         </configuration>
                     </execution>
                 </executions>

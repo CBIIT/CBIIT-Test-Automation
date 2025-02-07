@@ -8,29 +8,32 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.testng.asserts.SoftAssert;
+
 import static com.nci.automation.web.PlaywrightUtils.page;
 import static com.nci.automation.web.WebDriverUtils.webDriver;
 
 public class Hooks {
 
-    private AssertionError assertionError;  // to hold any assertion error during the test
+    private AssertionError assertionError; // To hold any assertion error during the test
     public static SoftAssert softAssert;
 
     @Before("@selenium")
-    public void startSelenium(Scenario scenario){
+    public void startSelenium(Scenario scenario) {
+        System.out.println("Starting Selenium Scenario: " + scenario.getName());
         CucumberLogUtils.scenario = scenario;
-        WebDriverUtils.setUp(); // setUp for Selenium
+        WebDriverUtils.setUp(); // Set up Selenium
         PageInitializer.initializeAllPages();
         softAssert = new SoftAssert();
-        assertionError = null;  // reset the assertion error at the start of each test
+        assertionError = null; // Reset for each test
     }
 
     @Before("@playwright")
-    public void startPlaywright(Scenario scenario){
+    public void startPlaywright(Scenario scenario) {
+        System.out.println("Starting Playwright Scenario: " + scenario.getName());
         CucumberLogUtils.scenario = scenario;
-        PlaywrightUtils.setUp(); // setUp for Playwright
+        PlaywrightUtils.setUp(); // Set up Playwright
         softAssert = new SoftAssert();
-        assertionError = null;  // reset the assertion error at the start of each test
+        assertionError = null; // Reset for each test
     }
 
     @After("@selenium")
@@ -41,11 +44,11 @@ public class Hooks {
             assertionError = error;
         } finally {
             CucumberLogUtils.logScreenshot();
-            webDriver.quit(); // tearDown() for Selenium
+            webDriver.quit(); // Tear down Selenium
         }
 
         if (assertionError != null) {
-            throw assertionError;  // re-throw the assertion error after tearDown()
+            throw assertionError; // Re-throw assertions
         }
     }
 
@@ -57,11 +60,11 @@ public class Hooks {
             assertionError = error;
         } finally {
             CucumberLogUtils.playwrightScreenshot(page);
-            PlaywrightUtils.tearDown(); // tearDown() for Playwright
+            PlaywrightUtils.tearDown(); // Tear down Playwright
         }
 
         if (assertionError != null) {
-            throw assertionError;  // re-throw the assertion error after tearDown()
+            throw assertionError; // Re-throw assertions
         }
     }
 }
