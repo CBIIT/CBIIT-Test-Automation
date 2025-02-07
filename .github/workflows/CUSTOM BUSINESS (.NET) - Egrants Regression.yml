@@ -17,7 +17,7 @@ jobs:
 
       - name: Run Egrants Regression Tests
         shell: cmd
-        run: mvn -B -q -Dtest=CUSTOM_BUSINESS.Egrants.Runners.RunEgrantsRegressionTest test
+        run: mvn -B -q -Dtest=CUSTOM_BUSINESS.Egrants.runners.RunEgrantsRegressionTest test
         continue-on-error: true
 
       - name: Generate timestamp
