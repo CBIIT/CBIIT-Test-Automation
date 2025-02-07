@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
         , features = "src/test/java/PLATFORM_BUSINESS/OFFBOARD/features"
         , glue = {"PLATFORM_BUSINESS.OFFBOARD.steps", "Hooks"}
-        , tags = "@Regression1"
+        , tags = "@Regression"
         , dryRun = false
 )
 
