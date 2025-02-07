@@ -1,0 +1,57 @@
+name: CUSTOM BUSINESS (.NET) - OASYS Regression
+
+on:
+  schedule:
+    # This corresponds to 3:30 PM EST (8:30 PM UTC) from Monday to Friday
+    - cron: '30 15 * * MON-FRI'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: NCI-WINDOWS
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+
+      - name: Run OASYS Regression Tests
+        shell: cmd
+        run: mvn -B -q -Dtest=CUSTOM_BUSINESS.OASYS.runners.RunOASYSRegressionTest test
+        continue-on-error: true
+
+      - name: Generate timestamp
+        id: timestamp
+        shell: powershell
+        run: |
+          $timeZone = [System.TimeZoneInfo]::FindSystemTimeZoneById("Eastern Standard Time")
+          $dateTime = [System.TimeZoneInfo]::ConvertTime([System.DateTime]::UtcNow, $timeZone)
+          $timestamp = $dateTime.ToString("yyyy-MM-dd_hh-mm-ss_tt")
+          Add-Content -Path $env:GITHUB_ENV -Value "timestamp=$timestamp"
+
+      - name: Determine report path
+        id: reportpath
+        shell: cmd
+        run: echo "::set-output name=path::Oasys-regression-reports" >> $GITHUB_ENV
+
+      - name: Upload Cucumber Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: OASYS-regression-report-${{ env.timestamp }}
+          path: target/Oasys-regression-reports/*
+
+      - name: Upload to SharePoint
+        shell: powershell
+        run: |
+          $Env:PATH = "C:\Users\juarezds\AppData\Local\Programs\Python\Python312;$Env:PATH"
+          python $Env:GITHUB_WORKSPACE\.github\scripts\upload_to_sharepoint.py
+        env:
+          FILES_PATH: target/Egrants-regression-reports/*
+          SHAREPOINT_SITE_ID: ${{ secrets.SHAREPOINT_SITE_ID }}
+          SHAREPOINT_DRIVE_ID: ${{ secrets.SHAREPOINT_DRIVE_ID }}
+          tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
+          client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
+          client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}
+          timestamp: ${{ env.timestamp }}
+          UPLOAD_FOLDER: "Custom Business Applications - .NET/TEST AUTOMATION REPORTS/OASYS"
