@@ -139,6 +139,7 @@ public class ParticipantDetailsPage {
     @FindBy(xpath = "//span[normalize-space()='Participant Studies (1)']")
     public WebElement participantStudiesTab;
 
+    /* PARTICIPANT STUDIES INFO BUTTON */
     @FindBy(xpath = "//a[normalize-space()='RASopathy']//parent::td//parent::tr//child::td[2]//child::a")
     public WebElement participantStudiesInfoButton;
 
