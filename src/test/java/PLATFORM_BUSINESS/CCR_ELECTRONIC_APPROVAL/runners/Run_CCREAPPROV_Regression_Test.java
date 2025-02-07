@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
         , features = "src/test/java/PLATFORM_BUSINESS/CCR_ELECTRONIC_APPROVAL/features"
         , glue = {"PLATFORM_BUSINESS.CCR_ELECTRONIC_APPROVAL.steps", "Hooks"}
-        , tags = "@Regression"
+        , tags = "@Regression1"
         , dryRun = false
 )
 public class Run_CCREAPPROV_Regression_Test extends AbstractTestNGCucumberTests {
