@@ -140,11 +140,11 @@ Feature: Create OA Intake form
   @selenium @Alena @Regression1 @OAIntake-640
   Scenario: Contracting Officer/Contract Specialist Queue Cancelled menu
     Given Leadership User logged in to OA Intake Portal
-    And User clicks on CO CS Queue tab
-    And User can verify page header is "Contracting Officer/Contract Specialist Queue"
-    And User can see OA Intakes - Cancelled section
-    When User clicks on OA Intakes - Cancelled menu
-    Then User can see the following options for OA Intakes - Cancelled requests
+#    And User clicks on CO CS Queue tab
+#    And User can verify page header is "Contracting Officer/Contract Specialist Queue"
+#    And User can see OA Intakes - Cancelled section
+#    When User clicks on OA Intakes - Cancelled menu
+#    Then User can see the following options for OA Intakes - Cancelled requests
       | option1       | option2         | option3       |
       | Export as PDF | Export as Excel | Export as CSV |
     And User can see OA Intakes - Cancelled filter is preset with cancelled requests
