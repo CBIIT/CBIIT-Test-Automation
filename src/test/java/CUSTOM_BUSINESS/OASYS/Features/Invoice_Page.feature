@@ -34,3 +34,26 @@ Scenario: Assign Additional Reviewers for the submitted invoice
   And User clicks on ADD ADDITIONAL REVIEWERS button
   And User selects "Test CS2" as Additional Reviewer for the invoice
   Then User clicks on Save button
+
+@VoidInvoice @NESARH2 @Regression @playwright
+  Scenario: Voiding an invoice
+    When User clicks on Invoice
+    And User clicks on an invoice in Submitted status
+    And User clicks on VOID INVOICE button
+    And User selects Duplicate Invoice as the reason from the drop down
+    Then User clicks on Void button
+
+@VoidingReviewedInvoice @NESARH2 @Regression @playwright
+  Scenario: Verify the user can not void a reviewed invoice
+    When User clicks on Invoice
+    And User clicks on the reviewed Invoice
+    And User verifies the invoice status
+    Then User tries to click on Void button
+
+@RestoreInvoice @NESARH2 @Regression1 @playwright
+  Scenario: Restoring an invoice
+    When User clicks on Invoice
+    And User clicks on the voided invoice
+    And User clicks on RESTORE INVOICE button
+    And User clicks on Continue button to acknowledge the message
+    Then User verifies the invoice status is changed to "SUBMITTED"
