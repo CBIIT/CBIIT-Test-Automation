@@ -23,7 +23,7 @@ public class RAS_Survey_Smoking_Survey_TestDataManager extends PageInitializer {
      * @param sheetName the name of the Excel sheet containing the data
      */
     public void dataInitializerSmokingSurvey(String sheetName) {
-        TEST_DATA_FOR_RAS_SMOKING_SURVEY = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SMOKING_SURVEY, sheetName);
+        TEST_DATA_FOR_RAS_SMOKING_SURVEY = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.QBANK_SURVEYS, sheetName);
         HAVE_YOU_EVER_USED_ANY_OF_THESE_TOBACCO_PRODUCTS_EVEN_ONCE_SELECT_ALL_THAT_APPLY = TEST_DATA_FOR_RAS_SMOKING_SURVEY.get("Have you ever used any of these tobacco products, even once? Select all that apply.");
         HOW_MANY_CIGARETTES_HAVE_YOU_SMOKED_IN_YOUR_LIFE_PROVIDE_AN_ESTIMATE = TEST_DATA_FOR_RAS_SMOKING_SURVEY.get("How many cigarettes have you smoked in your life? Provide an estimate.");
         HOW_OLD_WERE_YOU_WHEN_YOU_FIRST_SMOKED_A_CIGARETTE = TEST_DATA_FOR_RAS_SMOKING_SURVEY.get("How old were you when you first smoked a cigarette?");

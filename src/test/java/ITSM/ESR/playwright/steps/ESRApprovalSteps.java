@@ -16,6 +16,16 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.confirmFederalIntakeApprovalIsCompleted();
     }
 
+    @And("the user is rejected from a federal lead with a need more info")
+    public void the_user_is_rejected_from_a_federal_lead_with_a_need_more_info() {
+        ESRApprovalStepsImplementation.federalLeadNeedMoreInfo();
+    }
+
+    @And("user clicks on Intake Preparation catalog task and completes it again")
+    public void user_clicks_on_intake_preparation_catalog_task_and_completes_it_again() {
+        ESRApprovalStepsImplementation.completeIntakePreparation();
+    }
+
     @And("the user is approved from the ESR Board approvers")
     public void the_user_is_approved_from_the_esr_board_approvers() {
         ESRApprovalStepsImplementation.esrBoardIntakeApprovals();

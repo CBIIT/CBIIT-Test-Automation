@@ -399,6 +399,12 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	public WebElement heartProblemsOtherText;
 
 	/*
+	 * Participant: Heart Problems such as: congenital heart disease, other
+	 */
+	@FindBy(xpath = "(//input[@id='QR~QID177~13~TEXT'])[1]")
+	public WebElement heartProblemsOtherProxyText;
+
+	/*
 	 * Participant: Have you been told that you have any of the following features
 	 */
 	@FindBy(xpath = "//td[@class='c5   ']")
@@ -676,25 +682,12 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	public WebElement fanconiAnemiaResearchFundTextBox;
 
 	/* Participant: Genetic counselor TextBox */
-	@FindBy(xpath = "(//input[contains(@title,'<span style=\"font-family:Arial,Helvetica,sans-serif;\">Genetic counselor</span>')])[1]")
+	@FindBy(xpath = "(//input[contains(@title,'<span style=\"font-family:Arial,Helvetica,sans-serif;\">Genetic Counselor</span>')])[1]")
 	public WebElement geneticCounselorTextBox;
 
 	/* Participant: Other TextBox */
 	@FindBy(xpath = "(//input[contains(@title,'Other')])[1]")
 	public WebElement otherProviderTextBox;
-
-	/* Participant: Health care provider Name TextBox */
-	@FindBy(xpath = "(//input[@name='QR~QID192~7~TEXT'])[1]")
-	public WebElement healthCareProviderName1TextBox;
-
-	/* Participant: Health care provider Address TextBox */
-	@FindBy(xpath = "(//input[@name='QR~QID192~3~TEXT'])[1]")
-	public WebElement healthCareProviderAddress1TextBox;
-
-	/* Participant: Health care provider Phone Number TextBox */
-	@FindBy(xpath = "(//input[@name='QR~QID192~1~TEXT'])[1]")
-	public WebElement healthCareProviderPhoneNumber1TextBox;
-
 	/*****************************************/
 
 	/* Participant: Health care provider Name TextBox */
@@ -724,12 +717,4 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	/* Participant: Other TextBox */
 	@FindBy(xpath = "(//input[@title='<span style=\"font-family:Arial,Helvetica,sans-serif;\">Other</span>'])[1]")
 	public WebElement otherTextBox;
-
-	/** Username field */
-	@FindBy(xpath = "//input[@id='USER']")
-	public WebElement nativeViewUserNameField;
-
-	/** Password field */
-	@FindBy(xpath = "//input[@id='PASSWORD']")
-	public WebElement nativeViewPasswordField;
 }

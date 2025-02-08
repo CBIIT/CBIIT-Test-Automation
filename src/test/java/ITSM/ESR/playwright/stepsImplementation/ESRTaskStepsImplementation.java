@@ -129,7 +129,7 @@ public class ESRTaskStepsImplementation {
      * Confirms that the ESR Board Intake Review catalog task is completed
      */
     public static void confirmESRBoardIntakeReviewCatalogTaskIsCompleted() {
-        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Approval']")).containsText("Requested");
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("ESR Board Intake Approval");
     }
 
     /**
@@ -228,6 +228,6 @@ public class ESRTaskStepsImplementation {
      * Confirms that the ESR Board Closeout Review catalog task is completed
      */
     public static void confirmESRBoardCloseoutReviewCatalogTaskIsCompleted() {
-        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Approval']")).containsText("Requested");
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("ESR Board Closeout Approval");
     }
 }
