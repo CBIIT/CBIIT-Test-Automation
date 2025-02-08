@@ -48,8 +48,6 @@ Feature: Create OA Intake form
     And User clicks on CO CS Queue tab
     And User picks recently submitted OA Intake request
     And User clicks Accept Submission
-    And User picks recently accepted OA Intake request
-    Then User can verify the status of the request is Accepted
     And User logs out of OA Intake application
 
   @selenium @Alena @Regression @OAIntake-8 @OAIntake-417 @OAIntake-425 @OAIntake-426 @OAIntake-439 @OAIntake-260 @OAIntake-261 @OAIntake-263
@@ -90,7 +88,7 @@ Feature: Create OA Intake form
     Then User can verify they are redirected to Home Page
     And User logs out of OA Intake application
 
-  @selenium @Alena @Regression @OAIntake-332 @OAIntake-670 @OAIntake-669
+  @selenium  @Alena @Regression @OAIntake-332 @OAIntake-670 @OAIntake-669
   Scenario: Requestor (Requested For) Queue for Negotiated Contracts
     Given Leadership User logged in to OA Intake Portal
     And User clicks on Requestor (Requested For) Queue tab

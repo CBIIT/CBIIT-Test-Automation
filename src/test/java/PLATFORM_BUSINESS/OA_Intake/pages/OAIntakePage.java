@@ -127,7 +127,7 @@ public class OAIntakePage {
     /**
      * Internal Call/Task Orders (TOs)(NITAAC, GSA)
      */
-    @FindBy(xpath = "(//li[@class='select2-results-dept-0 select2-result select2-result-selectable'])[3]")
+    @FindBy(xpath = "(//li[@class='select2-results-dept-0 select2-result select2-result-selectable'])[2]")
     public WebElement internalCallOption;
 
     /**

@@ -10,6 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.Map;
@@ -151,7 +152,7 @@ public class OAIntakeSteps extends PageInitializer {
     @When("Submitter User chooses option Internal NCI Call Task Order on a BPA IDIQ from Recommended Contract Mechanism dropdown")
     public void submitter_user_chooses_option_internal_nci_call_task_order_on_a_bpa_idiq_from_recommended_contract_mechanism_dropdown() {
         CommonUtils.clickOnElement(oaIntakePage.drpdownRecomContractMechanism);
-        CommonUtils.clickOnElement(oaIntakePage.externalCallOption);
+        CommonUtils.clickOnElement(oaIntakePage.internalCallOption);
     }
 
     /**
@@ -160,7 +161,7 @@ public class OAIntakeSteps extends PageInitializer {
     @When("Submitter User chooses option External Call Task Orders \\(TOs)\\(NITAAC, GSA) from Recommended Contract Mechanism dropdown")
     public void submitter_user_chooses_option_external_call_task_orders_t_os_nitaac_gsa_from_recommended_contract_mechanism_dropdown() {
         CommonUtils.clickOnElement(oaIntakePage.drpdownRecomContractMechanism);
-        CommonUtils.clickOnElement(oaIntakePage.internalCallOption);
+        CommonUtils.clickOnElement(oaIntakePage.externalCallOption);
     }
 
     /**
@@ -198,6 +199,7 @@ public class OAIntakeSteps extends PageInitializer {
     @When("Submitter User chooses PSC Code Status as known")
     public void submitter_user_chooses_psc_code_status_as_known() {
         CommonUtils.clickOnElement(oaIntakePage.dropdownPSCCodeStatus);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(oaIntakePage.yesPSCCodeStatus);
     }
 
