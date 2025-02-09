@@ -187,3 +187,24 @@ Feature: Create OA Intake form
     When Submitter User clicks instructions question mark
     Then Submitter User is redirected to OA Intake Request Instructional Page
     And User logs out of OA Intake application
+
+  @selenium @Alena @Regression @OAIntake-665 @OAIntake-669
+  Scenario: Verification of  Create OA Intake form page
+    Given Submitter User logged in to OA Intake Portal
+    And Submitter Users sees New Request tab
+    And Submitter User sees Requestor (Requested For) Queue tab
+    When Submitter User clicks on User Profile
+    Then Submitter User sees Profile option
+    And Submitter User sees Log Out option
+    When Submitter User clicks Profile option
+    Then Submitter User can confirm "User Profile" page header
+    And Submitter User can see Search field is displayed
+    And Submitter User can see Upload Picture button
+    And Submitter User can see About section
+    And Submitter User can see the following fields of About section
+    |Email |Phone|Mobile phone|
+    And Submitter User can see User preferences section
+    And Submitter User can see Accessibility enabled button
+    And Submitter User can see Time zone dropdown
+    Then Submitter User can see Refresh To See Changes button
+    And User logs out of OA Intake application
