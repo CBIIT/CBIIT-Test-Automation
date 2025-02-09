@@ -11,7 +11,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
-
 import static com.nci.automation.web.TestProperties.ENV;
 
 public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer {
@@ -48,7 +47,6 @@ public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer 
         CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.sleep(2000);
-//        WebDriverUtils.webDriver.get(GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_FILTER_NAVIGATION_ALL_UNDER_GDC_URL);
         WebDriverUtils.webDriver.get(GDC_TestProperties_StepImpl.getNativeViewFilterNavAllUrl());
         CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);

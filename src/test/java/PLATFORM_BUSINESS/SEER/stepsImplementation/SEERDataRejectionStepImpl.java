@@ -159,7 +159,7 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
      */
     public static void aSEERODSAdminNavigatesTo(String SEERText, String accessRequestsText) {
         CommonUtils.sleep(2000);
-        WebDriverUtils.webDriver.get(SEERDataRejection_Constants.SEER_ODS_NATIVE_VIEW_ACCESS_REQUEST_UNDER_SEER_URL);
+        WebDriverUtils.webDriver.get(SEER_TestProperties_StepImpl.getNativeViewFilterNavViewAccessRequestUnderSEERUrl());
         CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(2000);
@@ -203,7 +203,7 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
     public static void createsANewAccessRequestForSeerResearchDatabase(String registerForResearchData) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sleep(2000);
-        WebDriverUtils.webDriver.get(SEERDataRejection_Constants.SEER_ODS_NATIVE_VIEW_ACCESS_REQUEST_UNDER_SEER_URL);
+        WebDriverUtils.webDriver.get(SEER_TestProperties_StepImpl.getNativeViewFilterNavViewAccessRequestUnderSEERUrl());
         CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(2000);
@@ -231,7 +231,7 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
     public static void whenTheAdminRejectsTheAccessRequests() {
         ServiceNow_Common_Methods.filterNavigatorSearch("SEER");
         CommonUtils.sleep(2000);
-        WebDriverUtils.webDriver.get(SEERDataRejection_Constants.SEER_ODS_NATIVE_VIEW_ACCESS_REQUEST_UNDER_SEER_URL);
+        WebDriverUtils.webDriver.get(SEER_TestProperties_StepImpl.getNativeViewFilterNavViewAccessRequestUnderSEERUrl());
         CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(2000);
@@ -267,7 +267,7 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         CommonUtils.sleep(50000);
         ServiceNow_Common_Methods.filterNavigatorSearch("Emails");
         CommonUtils.sleep(2000);
-        WebDriverUtils.webDriver.get(SEERDataRejection_Constants.NATIVE_VIEW_EMAILS_UNDER_SYSTEM_LOGS_URL);
+        WebDriverUtils.webDriver.get(SEER_TestProperties_StepImpl.getNativeViewFilterNavEmailUnderSystemLogsUrl());
         CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(1000);
