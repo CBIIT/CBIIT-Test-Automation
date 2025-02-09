@@ -189,7 +189,7 @@ Feature: Create OA Intake form
     And User logs out of OA Intake application
 
   @selenium @Alena @Regression @OAIntake-665 @OAIntake-669
-  Scenario: Verification of  Create OA Intake form page
+  Scenario: Verification of User Profile
     Given Submitter User logged in to OA Intake Portal
     And Submitter Users sees New Request tab
     And Submitter User sees Requestor (Requested For) Queue tab
