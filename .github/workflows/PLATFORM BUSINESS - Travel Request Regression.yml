@@ -34,14 +34,14 @@ jobs:
 
       - name: Determine report path
         id: reportpath
-        run: echo "path=travel-regression-reports" >> $GITHUB_ENV
+        run: echo "path=Travel-Request-Regression-reports" >> $GITHUB_ENV
 
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: TRAVEL-REGRESSION-${{ env.timestamp }}
-          path: target/travel-regression-reports/*
+          path: target/Travel-Request-Regression-reports/*
 
       - name: Upload to SharePoint
         shell: powershell
@@ -49,7 +49,7 @@ jobs:
           $Env:PATH = "C:\Users\juarezds\AppData\Local\Programs\Python\Python312;$Env:PATH"
           python $Env:GITHUB_WORKSPACE\.github\scripts\upload_to_sharepoint.py
         env:
-          FILES_PATH: target/travel-regression-reports/*
+          FILES_PATH: target/Travel-Request-Regression-reports/*
           SHAREPOINT_SITE_ID: ${{ secrets.SHAREPOINT_SITE_ID }}
           SHAREPOINT_DRIVE_ID: ${{ secrets.SHAREPOINT_DRIVE_ID }}
           tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}

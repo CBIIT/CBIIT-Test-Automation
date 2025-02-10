@@ -19,6 +19,14 @@ public class IIQ_Constants {
             "This is a research study, and we don't currently know or understand all the risk factors involved with cancer. Therefore, some of the questions asked are for us to learn more about some of the risk factors that may potentially be related to cancer. By answering these questions, you are helping us to learn if there is a relationship between any of these risk factors and cancer.\n" +
             "\n" +
             "This questionnaire should take you approximately 15-20 minutes.";
+    public final String THIS_QUESTIONNAIRE_SHOULD_TAKE_YOU_APPROXIMATELY_30MIN_TO_COMPLETE = "This questionnaire should take you approximately 30 minutes to complete. It does not need to be completed all at once.\n" +
+            "\n" +
+            "We encourage you to take a break and return to complete the survey later, if needed.\n" +
+            "You can save your answers by clicking the \"Save and Next\" button in the survey and closing your browser window.\n" +
+            "When you return to the survey, you will be asked for a PIN code, provided during the log in process.\n" +
+            "This unique PIN code returns you to your previous spot in the questionnaire.\n" +
+            "\n" +
+            "The study team requests that you complete the questionnaire within two months from the date you start the questionnaire.";
     public  final String THIS_FIRST_QUESTION_OF_THE_QUESTIONNAIRE_TEXT = "This first section of the questionnaire\n" +
             "asks you to tell us some general \n" +
             "background information.";
@@ -29,7 +37,7 @@ public class IIQ_Constants {
     public final String WHAT_IS_YOUR_RACE_CHECK_BOX = "What is your race? Please select all that apply.";
     public final String ARE_YOU_OF_ASHKENAZY_JEWISH_DESCENT_RADIO_BUTTON = "Are you of Ashkenazi (Eastern European) Jewish descent?";
     public final String WERE_YOU_RAISED_PRIMARILY_RADIO_BUTTON = "Were you raised primarily by someone other than your biological (blood) parent?";
-    public final String WHAT_IS_YOUR_DATE_OF_BIRTH_CALENDAR = "11/10/2004";
+    public final String WHAT_IS_YOUR_DATE_OF_BIRTH_CALENDAR = "What is your date of birth?";
     public final String WHAT_IS_YOUR_DATE_OF_BIRTH_MONTH_DROP_DOWN = "What is your date of birth? Month";
     public final String WHAT_IS_YOUR_DATE_OF_BIRTH_DAY_DROP_DOWN = "What is your date of birth? Day";
     public final String WHAT_IS_YOUR_DATE_OF_BIRTH_YEAR_DROP_DOWN = "What is your date of birth? Year";
