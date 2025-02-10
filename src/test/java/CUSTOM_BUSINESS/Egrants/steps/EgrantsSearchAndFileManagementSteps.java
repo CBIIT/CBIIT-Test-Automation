@@ -99,7 +99,9 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
      */
     @When("selects grant year 18 from Years")
     public void selects_year_18() {
-        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.year18);
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.expandAllGrantYearsButton);
+        CommonUtils.sleep(500);
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.grantYear18);
         CommonUtils.sleep(2000);
     }
 
