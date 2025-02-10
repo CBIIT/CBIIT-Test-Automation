@@ -2,8 +2,8 @@ name: CUSTOM BUSINESS (.NET) - Egrants Regression
 
 on:
   schedule:
-    # This corresponds to 5:30 PM EST (10:30 PM UTC) from Monday to Friday
-    - cron: '30 22 * * MON-FRI'
+    # This corresponds to 11:15 AM EST (16:15 PM UTC) from Monday to Friday
+    - cron: '15 16 * * MON-FRI'
   workflow_dispatch:
 
 jobs:
