@@ -340,6 +340,12 @@ public class NativeViewCHARMSParticipantConsentPage {
     @FindBy(xpath = "//div[normalize-space()='Consent record completed and Family record is now active!']")
     public WebElement rasStudyConsentConsentRecordCompletedMessageMessage;
 
+    /**
+     * Native View Ras Study Complete Consent
+     */
+    @FindBy(xpath = "//button[@id='complete_consent']")
+    public WebElement rasStudyConsentCompleteConsentButton;
+
     public NativeViewCHARMSParticipantConsentPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

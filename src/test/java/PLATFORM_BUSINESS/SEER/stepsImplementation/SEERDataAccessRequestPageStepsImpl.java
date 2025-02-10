@@ -296,7 +296,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         /** Waiting for email to be sent and searchable */
         CommonUtils.sleep(50000);
         ServiceNow_Common_Methods.filterNavigatorSearch("mailbox");
-        WebDriverUtils.webDriver.get(SEERDataAccessRequest_Constants.SEER_INCIDENT_DATA_NATIVE_VIEW_FILTER_NAVIGATION_SENT_UNDER_MAILBOX_URL);
+        WebDriverUtils.webDriver.get(SEER_TestProperties_StepImpl.getNativeViewFilterNavSentUnderMailBoxUrl());
         CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(1000);
@@ -338,7 +338,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.sleep(2000);
-        WebDriverUtils.webDriver.get(Registration_Constants.SEER_ODS_NATIVE_VIEW_CUSTOMERS_UNDER_SEER_URL);
+        WebDriverUtils.webDriver.get(SEER_TestProperties_StepImpl.getNativeViewFilterNavCustomerUnderSEERUrl());
         CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(2000);
@@ -368,7 +368,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.sleep(2000);
-        WebDriverUtils.webDriver.get(SEERDataRejection_Constants.SEER_ODS_NATIVE_VIEW_ACCESS_REQUEST_UNDER_SEER_URL);
+        WebDriverUtils.webDriver.get(SEER_TestProperties_StepImpl.getNativeViewFilterNavViewAccessRequestUnderSEERUrl());
         CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(2000);
@@ -652,7 +652,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         /** Waiting for email to be sent and searchable */
         CommonUtils.sleep(70000);
         ServiceNow_Common_Methods.filterNavigatorSearch("mailbox");
-        WebDriverUtils.webDriver.get(SEERDataAccessRequest_Constants.SEER_INCIDENT_DATA_NATIVE_VIEW_FILTER_NAVIGATION_SENT_UNDER_MAILBOX_URL);
+        WebDriverUtils.webDriver.get(SEER_TestProperties_StepImpl.getNativeViewFilterNavSentUnderMailBoxUrl());
         CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(1000);
