@@ -263,4 +263,113 @@ public class Invoice_Page {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
+
+    /**
+     * This method is used to click on an invoice in Submitted status
+     */
+    @And("User clicks on an invoice in Submitted status")
+    public void user_clicks_on_an_invoice_in_submitted_status() {
+        page.getByText("PLEASE DO NOT DELETE").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the VOID INVOICE button
+     */
+    @And("User clicks on VOID INVOICE button")
+    public void user_clicks_on_void_invoice_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Void Invoice").setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select the reason for voiding the invoice
+     */
+    @And("User selects Duplicate Invoice as the reason from the drop down")
+    public void user_selects_duplicate_invoice_as_the_reason_from_the_drop_down() {
+        page.getByLabel("Select Void Reason").locator("span").click();
+        page.locator("xpath=//span[normalize-space()='Duplicate invoice']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the Void button
+     */
+    @Then("User clicks on Void button")
+    public void user_clicks_on_void_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Void")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the invoice in voided status
+     */
+    @And("User clicks on the reviewed Invoice")
+    public void user_clicks_on_the_reviewed_invoice() {
+        page.getByText("PLEASE DO NOT DELETE").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to verify the invoice status
+     */
+    @And("User verifies the invoice status")
+    public void user_verifies_the_invoice_status() {
+        String actualStatus = page.locator("dynamic-detail-header").innerText();
+        if (!actualStatus.contains("VOIDED")) {
+            System.out.println("*** ACTUAL STATUS: " + actualStatus + " ***");
+        }
+        assertThat(page.locator("dynamic-detail-header")).containsText("VOIDED");
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the VOID INVOICE button when the invoice is in voided status
+     */
+    @Then("User tries to click on Void button")
+    public void user_tries_to_click_on_void_button() {
+        boolean isVoidInvoiceButtonVisible = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Void Invoice").setExact(true)).isVisible();
+        if (isVoidInvoiceButtonVisible) {
+            System.out.println("*** THE INVOICE IS NOT IN VOIDED STATUS ***");
+        }
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Void Invoice").setExact(true))).isHidden();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click the voided invoice
+     */
+    @And("User clicks on the voided invoice")
+    public void user_clicks_on_the_voided_invoice() {
+        page.getByText("PLEASE DO NOT DELETE").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the RESTORE INVOICE button
+     */
+    @And("User clicks on RESTORE INVOICE button")
+    public void user_clicks_on_restore_invoice_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Restore Invoice").setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to acknowledge the message by clicking on the Continue button
+     */
+    @And("User clicks on Continue button to acknowledge the message")
+    public void user_clicks_on_continue_button_to_acknowledge_the_message() {
+        assertThat(page.locator("restore-invoice-dialog")).containsText("Are you sure you want to restore this invoice?");
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Continue")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to verify the invoice status is changed to Submitted
+     */
+    @Then("User verifies the invoice status is changed to {string}")
+    public void user_verifies_the_invoice_status_is_changed_to_submitted(String Status) {
+        assertThat(page.locator("dynamic-detail-header")).containsText(Status);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
 }
