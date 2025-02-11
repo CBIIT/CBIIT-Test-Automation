@@ -18,6 +18,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -1412,23 +1414,66 @@ public class RAS_All_Steps extends PageInitializer {
         navigateToParticipantRecordInNativeView("screenerScenarioAdult");
 //        // DELETE THIS
 
+        String subjectID = nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubjectID.getDomAttribute("value");
 
-        String currentWindowHandle = WebDriverUtils.webDriver.getWindowHandle();
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantDetailsPage.lookupFHQPatientButton);
-        nativeViewCHARMSParticipantDetailsPage.lookupFHQPatientButton.click();
-        CommonUtils.sleep(2000);
-        CommonUtils.switchToAnotherTabWindow();
-        CommonUtils.waitForClickability(locateByXpath("(//a[@role='button'][normalize-space()='CBIITTestAccount'])[1]"));
-        locateByXpath("(//a[@role='button'][normalize-space()='CBIITTestAccount'])[1]").click();
-        CommonUtils.sleep(2000);
-        WebDriverUtils.webDriver.switchTo().window(currentWindowHandle);
+
+
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(3000);
+
+        WebDriverUtils.webDriver.navigate().refresh();
+        CommonUtils.sleep(3000);
+
+
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("FHQ Patient");
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(3000);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.fhqPatientsLink);
+        CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-        nativeViewCHARMSParticipantDetailsPage.saveButton.click();
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantDetailsPage.viewFHQPatientButton);
-        JavascriptUtils.clickByJS(nativeViewCHARMSParticipantDetailsPage.viewFHQPatientButton);
-        CommonUtils.waitForClickability(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-        CommonUtils.sleep(1000);
-        nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton.click();
 
+
+
+
+        CommonUtils.sleep(2000);
+
+        locateByXpath("//button[@value='sysverb_new']").click();
+        CommonUtils.sleep(1000);
+
+
+        CommonUtils.sleep(2000);
+//        CommonUtils.switchToAnotherTabWindow();
+//        CommonUtils.sleep(1000);
+
+        CommonUtils.selectDropDownValue("I am the participant", nativeViewCHARMSFHQPatientPage.confirmIdentityRelationshipToParticipantDropdown);
+        nativeViewCHARMSFHQPatientPage.firstNameOfParticipantInputField.sendKeys(ras_Screener_TestDataManager.FIRST_NAME);
+        nativeViewCHARMSFHQPatientPage.firstInitialOfLastNameOfParticipantInputField.sendKeys(ras_Screener_TestDataManager.LAST_NAME.substring(0, 1));
+        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.SEX_ASSIGNED_AT_BIRTH_OPTION, nativeViewCHARMSFHQPatientPage.sexAssignedAtBirthDropdown);
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSFHQPatientPage.sexAssignedAtBirthDropdown);
+        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.SEX_ASSIGNED_AT_BIRTH_OPTION, nativeViewCHARMSFHQPatientPage.genderIdentityDropdown);
+        CommonUtils.selectDropDownValue("No", nativeViewCHARMSFHQPatientPage.hasParticipantHadAnyMiscarriageStillbirthDropdown);
+        nativeViewCHARMSFHQPatientPage.howManyTotalChildrenHasTheParticipantHadInputField.sendKeys("0");
+        nativeViewCHARMSFHQPatientPage.howManyTotalDifferentPartnersHasParticipantHadBiologicalChildrenWithInputField.sendKeys("0");
+        nativeViewCHARMSFHQPatientPage.howManySiblingsDoesTheParticipantHaveInputField.sendKeys("0");
+        CommonUtils.selectDropDownValue("RASopathies", nativeViewCHARMSFHQPatientPage.fhqStudyDropdown);
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSFHQPatientPage.participantInputField);
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        nativeViewCHARMSFHQPatientPage.participantInputField.sendKeys(subjectID);
+
+
+
+        nativeViewCHARMSFHQPatientPage.completeButton.click();
+
+
+        CommonUtils.sleep(5000);
+        CucumberLogUtils.logScreenshot();
+
+        CommonUtils.waitForClickability(nativeViewCHARMSFHQPatientPage.dynamicRelatedListsTabLocator("Parent(s)"));
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSFHQPatientPage.dynamicRelatedListsTabLocator("Parent(s)"));
+
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
     }
 }

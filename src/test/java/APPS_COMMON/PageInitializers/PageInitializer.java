@@ -370,6 +370,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewDashboardPage nativeViewDashPage;
 	public static NativeViewMembersOfCongressPage nativeViewMembersOfCongressPage;
 	public static NativeViewCHARMSDashboardPage nativeViewCHARMSDashboardPage;
+	public static NativeViewCHARMSFHQPatientPage nativeViewCHARMSFHQPatientPage;
 	public static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
@@ -657,6 +658,7 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewDashPage = new NativeViewDashboardPage();
 		nativeViewMembersOfCongressPage = new NativeViewMembersOfCongressPage();
 		nativeViewCHARMSDashboardPage = new NativeViewCHARMSDashboardPage();
+		nativeViewCHARMSFHQPatientPage = new NativeViewCHARMSFHQPatientPage();
 		nativeViewCHARMSParticipantDetailsPage = new NativeViewCHARMSParticipantDetailsPage();
 		nativeViewCHARMSParticipantConsentPage = new NativeViewCHARMSParticipantConsentPage();
 		nativeViewCHARMSParticipantStudyPage = new NativeViewCHARMSParticipantStudyPage();

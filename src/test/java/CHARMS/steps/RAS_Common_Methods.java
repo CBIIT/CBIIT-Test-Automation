@@ -10,6 +10,7 @@ import APPS_COMMON.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -17,6 +18,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 import static Hooks.Hooks.softAssert;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
@@ -330,5 +332,20 @@ public class RAS_Common_Methods extends PageInitializer {
         List<String> tableListText = new ArrayList<>();
         columns.forEach(column -> tableListText.add(column.getText()));
         return tableListText;
+    }
+
+    /**
+     *
+     */
+    public static void closeAllOtherWindows() {
+        String currentWindow = WebDriverUtils.webDriver.getWindowHandle();
+        Set<String> allWindows = WebDriverUtils.webDriver.getWindowHandles();
+        for (String window : allWindows) {
+            if (!window.equals(currentWindow)) {
+                WebDriverUtils.webDriver.switchTo().window(window);
+                WebDriverUtils.webDriver.close();
+            }
+        }
+        WebDriverUtils.webDriver.switchTo().window(currentWindow);
     }
 }

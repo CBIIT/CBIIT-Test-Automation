@@ -520,6 +520,7 @@ public class RAS_Consent_Call_Steps {
         CucumberLogUtils.scenario.log("* * * * * CONSENTED BY * * * * *");
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, consentByName);
+        CommonUtils.sleep(500);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
     }
 
