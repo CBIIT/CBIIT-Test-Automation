@@ -16,7 +16,7 @@ jobs:
 
       - name: Run specific runner class
         shell: cmd
-        run: mvn -B -q -Dtest=SSJ_Regression_Runners test
+        run: mvn -B -q -Dtest="PLATFORM_BUSINESS.SSJ.runners.SSJ_Regression_Runners" test
         continue-on-error: true
 
       - name: Generate timestamp
@@ -34,7 +34,7 @@ jobs:
         run: echo "::set-output name=path::ssj-regression-reports"
 
       - name: Upload Cucumber Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: cucumber-report-${{ env.timestamp }}

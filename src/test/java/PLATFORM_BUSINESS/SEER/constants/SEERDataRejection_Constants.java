@@ -68,10 +68,4 @@ public class SEERDataRejection_Constants {
 
     /* SEER RESEARCH PLUS AND NCCR DATA */
     public static final String SEER_RESEARCH_PLUS_AND_NCCR_DATA = "SEER Research Plus and NCCR Data";
-
-    /* SEER ODS NATIVE VIEW ACCESS REQUEST UNDER SEER URL */
-    public static final String SEER_ODS_NATIVE_VIEW_ACCESS_REQUEST_UNDER_SEER_URL = "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/x_g_nci_seer_data_access_list.do%3Fsysparm_userpref_module%3Daffbd4901b5418102701b913cc4bcbdc";
-
-    /* NATIVE VIEW EMAILS UNDER SYSTEM LOGS URL */
-    public static final String NATIVE_VIEW_EMAILS_UNDER_SYSTEM_LOGS_URL = "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_email_list.do%3Fsysparm_userpref_module%3D8d620b63c611227b008368697b0b8d7b%26sysparm_query%3Dsys_created_onONToday%2540javascript%253Ags.daysAgoStart%25280%2529%2540javascript%253Ags.daysAgoEnd%25280%2529%255EEQ";
 }

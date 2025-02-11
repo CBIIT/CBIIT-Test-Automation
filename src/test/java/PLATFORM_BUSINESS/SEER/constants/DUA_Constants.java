@@ -3,9 +3,7 @@ package PLATFORM_BUSINESS.SEER.constants;
 public class DUA_Constants {
 
     /** --------------- DUA CONSTANTS--------------- */
-    public static final String SEER_DATA_ACCESS_REQUEST_URL = "https://service-test.nci.nih.gov/seer-data-access?id=seer_data_access_request&sysparm_user=57a59d848758d610ad46326d3fbb3586";
 
-    public static final String SEER_DATA_ACCESS_REQUEST_INSTITUTION_URL = "https://service-test.nci.nih.gov/seer-data-access?id=seer_data_access_request&sysparm_user=bff1cdcc8794d610ad46326d3fbb352c";
     public static final String SEER_ACKNOWLEDGMENT_OF_TREATMENT_DATA_LIMITATIONS = "SEER Acknowledgment of Treatment Data Limitations\n" +
             "For the 1975-2021 Data (November 2023 Submission)\n" +
             "When requesting the SEER Research data, you must acknowledge the data limitations for the radiation therapy and chemotherapy information fields and time from diagnosis to treatment in days included in the data. You may review the language of the agreement below (this cannot be used to request access to the data).\n" +

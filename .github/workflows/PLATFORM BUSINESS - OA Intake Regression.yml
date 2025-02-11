@@ -17,7 +17,7 @@ jobs:
 
       - name: Run OA Intake Regression Tests
         shell: cmd
-        run: mvn -B -q -Dtest=ServiceNow.OA_Intake.OAIntakeRunners.OAIntakeRegressionRunner test
+        run: mvn -B -q -Dtest=PLATFORM_BUSINESS.OA_Intake.runners.OAIntakeRegressionRunner test
         continue-on-error: true
 
       - name: Generate timestamp
@@ -35,7 +35,7 @@ jobs:
         run: echo "::set-output name=path::OAIntake-regression-reports"
 
       - name: Upload Cucumber Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: OAIntake-regression-report-${{ env.timestamp }}
