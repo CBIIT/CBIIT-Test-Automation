@@ -106,7 +106,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Choose File - Replace Page
      */
-    @FindBy(xpath = "//input[@id='customFile']")
+    @FindBy(xpath = "//label[normalize-space()='Choose file...']")
     public WebElement replaceFile;
 
     /**

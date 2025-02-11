@@ -1,5 +1,6 @@
 package CHARMS.steps;
 
+import CHARMS.constants.CHARMS_Data_File_Path_Constants;
 import CHARMS.constants.Native_View_Constants;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
@@ -7,6 +8,7 @@ import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Keys;
 import static Hooks.Hooks.softAssert;
 import static APPS_COMMON.PageInitializers.PageInitializer.*;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
@@ -161,6 +163,8 @@ public class RAS_Consent_Call_Steps {
     @Given("selects {string} for Copy of Signed Dated Consent Assent Given to Participant")
     public void selects_for_copy_of_signed_dated_consent_assent_given_to_participant(String selectOption) {
         CucumberLogUtils.scenario.log("* * * * COPY OF SIGNED/DATED CONSENT/ASSENT GIVEN TO PARTICIPANT * * * *");
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfSignedDatedConsentAssentGivenToParticipantDropDown);
+        CommonUtils.sleep(500);
         CHARMS.steps.RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfSignedDatedConsentAssentGivenToParticipantDropDown, Native_View_Constants.consentRecordYesNoQuestionDropdownOptions, "---- VERIFYING COPY OF SIGNED/DATED CONSENT/ASSENT GIVEN TO PARTICIPANT DROPDOWN OPTIONS ----");
         CommonUtils.selectDropDownValue(selectOption, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfSignedDatedConsentAssentGivenToParticipantDropDown);
         CucumberLogUtils.logScreenshot();
@@ -455,6 +459,118 @@ public class RAS_Consent_Call_Steps {
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentStatusTextBox, "Complete", "---- Consent Status value mismatch ----");
         softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateTextBox.getAttribute("value"), CommonUtils.getTodayDate(), "---- Consent Date value mismatch ----");
         softAssert.assertEquals(locateByXpath("//input[@id='sys_display.x_naci_family_coho_fcsms_consent.consent_by']").getAttribute("value"), "CBIIT Test Account", "---- Signed By value mismatch ----");
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Attaches Family Cohort Study Consent pdf by clicking on the 'Add File' button, uploading the file, and closing the file selection modal.
+     */
+    @Given("attaches Family Cohort Study Consent pdf")
+    public void attaches_family_cohort_study_consent_pdf() {
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(5000);
+        JavascriptUtils.uploadFileToHiddenFieldWithInputTag(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileButton, CHARMS_Data_File_Path_Constants.FAMILY_COHORT_STUDY_PDF_PATH);
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileCloseButton);
+    }
+
+    /**
+     * This method is used to choose today's date as the consent version in the Consent form.
+     */
+    @Given("selects Today as the Consent Version")
+    public void selects_today_as_the_consent_version() {
+        CucumberLogUtils.scenario.log("* * * * * CONSENT CALL VERSION * * * * *");
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+    }
+
+    /**
+     * This method presses the "Hard Copy of Consent Received" button in the Consent form.
+     */
+    @Given("presses the Hard Copy of Consent Received button")
+    public void presses_the_hard_copy_of_consent_received_button() {
+        CucumberLogUtils.scenario.log("* * * * * HARD COPY OF CONSENT RECEIVED * * * * *");
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
+        CommonUtils.waitForVisibility(locateByXpath("//a[@class='attachment']"));
+        CommonUtils.sleep(2000);
+    }
+
+    @Given("selects Today as the Consent Date")
+    public void selects_today_as_the_consent_date() {
+        CucumberLogUtils.scenario.log("* * * * * CONSENT DATE * * * * *");
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+    }
+
+    /**
+     * Fills in the provided name for the Consent By field.
+     *
+     * @param consentByName The name to fill in the Consent By field
+     */
+    @Given("fills in {string} for the Consent By field")
+    public void fills_in_consent_by(String consentByName) {
+        CucumberLogUtils.scenario.log("* * * * * CONSENTED BY * * * * *");
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox);
+        CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, consentByName);
+        CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
+    }
+
+    /**
+     * Selects the specified option from the Future Use of Specimens and Data by NIH dropdown.
+     *
+     * @param dropdownOption the option to be selected from the dropdown
+     */
+    @Given("selects {string} from the Future Use of Specimens and Data by NIH dropdown")
+    public void selects_from_the_future_use_of_specimens_and_data_by_nih_dropdown(String dropdownOption) {
+        CucumberLogUtils.scenario.log("* * * * * FUTURE USE OF SPECIMENS AND DATA BY NIH * * * * *");
+        CommonUtils.scrollIntoView(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureSpecimensAndDataDropDown);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureSpecimensAndDataDropDown);
+        CommonUtils.sleep(500);
+        CommonUtils.selectDropDownValue(dropdownOption, nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureSpecimensAndDataDropDown);
+    }
+
+    /**
+     * Selects an option from the Future Use by Collaborators dropdown.
+     *
+     * @param dropdownOption the option to be selected from the dropdown
+     */
+    @Given("selects {string} from the Future Use by Collaborators dropdown")
+    public void selects_from_the_future_use_by_collaborators_dropdown(String dropdownOption) {
+        CucumberLogUtils.scenario.log("* * * * * FUTURE USE BY COLLABORATORS * * * * *");
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureUseCollaboratorsDropDown);
+        CommonUtils.sleep(500);
+        CommonUtils.selectDropDownValue(dropdownOption, nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureUseCollaboratorsDropDown);
+    }
+
+    /**
+     * Selects an option from the Future Identifiable Use by Collaborators dropdown.
+     *
+     * @param dropdownOption the option to select from the dropdown
+     */
+    @Given("selects {string} from the Future Identifiable Use by Collaborators dropdown")
+    public void selects_from_the_future_identifiable_use_by_collaborators_dropdown(String dropdownOption) {
+        CucumberLogUtils.scenario.log("* * * * * FUTURE IDENTIFIABLE USE BY COLLABORATORS * * * * *");
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown);
+        CommonUtils.sleep(500);
+        CommonUtils.selectDropDownValue(dropdownOption, nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method presses the Sign and Complete button in the Consent form.
+     */
+    @Then("Study Team member presses the Sign and Complete button")
+    public void study_team_member_presses_the_sign_and_complete_button() {
+        CucumberLogUtils.scenario.log("* * * * * COMPLETE CONSENT * * * * *");
+        nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompleteConsentButton.click();
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
     }

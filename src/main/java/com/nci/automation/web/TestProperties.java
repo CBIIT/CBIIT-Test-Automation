@@ -24,7 +24,7 @@ public class TestProperties {
      */
     public static final String NATIVE_VIEW_SIDE_DOOR_STAGE_URL = "https://service-stage.nci.nih.gov/side_door.do";
     public static final String NATIVE_VIEW_SIDE_DOOR_TEST_URL = "https://service-test.nci.nih.gov/side_door.do";
-    public static final String NATIVE_VIEW_SIDE_DOOR_SANDBOX_URL = "https://service-test.nci.nih.gov/side_door.do";
+    public static final String NATIVE_VIEW_SIDE_DOOR_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/side_door.do";
     public static String NATIVE_VIEW_SIDE_DOOR_URL;
 
     /**
