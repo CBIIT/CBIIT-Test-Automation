@@ -1,23 +1,23 @@
-name: PLATFORM BUSINESS - OCPL Training Regression
+name: CUSTOM BUSINESS (.NET) - OASYS Regression
 
 on:
   schedule:
-    # This corresponds to 12:45 PM EST (5:45 PM UTC) from Monday to Friday
-    - cron: '45 17 * * MON-FRI'
+    # This corresponds to 4:30 PM EST (9:30 PM UTC) from Monday to Friday
+    - cron: '30 21 * * MON-FRI'
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: NCI-WINDOWS
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
           fetch-depth: 0
 
-      - name: Run OCPL Training Regression Tests
+      - name: Run OASYS Regression Tests
         shell: cmd
-        run: mvn -B -q -Dtest=PLATFORM_BUSINESS.OCPL_Training.runners.Run_OCPL_PW_Regression_Test test
+        run: mvn -B -q -Dtest=CUSTOM_BUSINESS.OASYS.runners.RunOASYSRegressionTest test
         continue-on-error: true
 
       - name: Generate timestamp
@@ -32,14 +32,14 @@ jobs:
       - name: Determine report path
         id: reportpath
         shell: cmd
-        run: echo "::set-output name=path::OCPL-Training-Regression-reports"
+        run: echo "::set-output name=path::Oasys-regression-reports" >> $GITHUB_ENV
 
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: OCPL-Training-Regression-report-${{ env.timestamp }}
-          path: target/OCPL-Training-Regression-reports/*
+          name: OASYS-regression-report-${{ env.timestamp }}
+          path: target/Oasys-regression-reports/*
 
       - name: Upload to SharePoint
         shell: powershell
@@ -47,11 +47,11 @@ jobs:
           $Env:PATH = "C:\Users\juarezds\AppData\Local\Programs\Python\Python312;$Env:PATH"
           python $Env:GITHUB_WORKSPACE\.github\scripts\upload_to_sharepoint.py
         env:
-          FILES_PATH: target/OCPL-Training-Regression-reports/*
+          FILES_PATH: target/Egrants-regression-reports/*
           SHAREPOINT_SITE_ID: ${{ secrets.SHAREPOINT_SITE_ID }}
           SHAREPOINT_DRIVE_ID: ${{ secrets.SHAREPOINT_DRIVE_ID }}
           tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
           client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
           client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}
           timestamp: ${{ env.timestamp }}
-          UPLOAD_FOLDER: "Platform Business Applications/TEST AUTOMATION REPORTS/OCPL Training"
+          UPLOAD_FOLDER: "Custom Business Applications - .NET/TEST AUTOMATION REPORTS/OASYS"

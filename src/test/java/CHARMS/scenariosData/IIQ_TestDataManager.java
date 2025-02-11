@@ -16,6 +16,7 @@ public class IIQ_TestDataManager extends PageInitializer {
     public String areYouAdoptedRadioButton;
     public String thisIsACopyForLowerEnvironmentsText;
     public String someOfThisInformationText;
+    public String thisQuestionnaireShouldTakeYouApproximately30MinutesText;
     public String thisFirstSectionOfTheQuestionnaireText;
     public String areYouCompletingThisFormForYourselfRadioButton;
     public String whatIsYourBiologicalSexRadioButton;
@@ -237,6 +238,7 @@ public class IIQ_TestDataManager extends PageInitializer {
             areYouAdoptedRadioButton = testDataForIiqForm.get(iiq_Constants.ARE_YOU_ADOPTED_RADIO_BUTTON);
             thisIsACopyForLowerEnvironmentsText = testDataForIiqForm.get(iiq_Constants.THIS_IS_A_COPY_FOR_LOWER_ENVIRONMENTS_TEXT);
             someOfThisInformationText = testDataForIiqForm.get(iiq_Constants.SOME_OF_THIS_INFORMATION_TEXT);
+            thisQuestionnaireShouldTakeYouApproximately30MinutesText = testDataForIiqForm.get(iiq_Constants.THIS_QUESTIONNAIRE_SHOULD_TAKE_YOU_APPROXIMATELY_30MIN_TO_COMPLETE);
             thisFirstSectionOfTheQuestionnaireText = testDataForIiqForm.get(iiq_Constants.THIS_FIRST_QUESTION_OF_THE_QUESTIONNAIRE_TEXT);
             areYouCompletingThisFormForYourselfRadioButton = testDataForIiqForm.get(iiq_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_YOURSELF_RADIO_BUTTON);
             whatIsYourBiologicalSexRadioButton = testDataForIiqForm.get(iiq_Constants.WHAT_IS_YOUR_BIOLOGICAL_SEX_RADIO_BUTTON);

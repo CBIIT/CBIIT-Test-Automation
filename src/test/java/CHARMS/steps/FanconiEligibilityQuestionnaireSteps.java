@@ -98,8 +98,8 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
     @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page {string}")
     public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Fanconi_Study_Screener_page(String fanconiScenario) {
-      int i = Integer.parseInt(fanconiScenario);
-      fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyPageAssertions(i);
+        int i = Integer.parseInt(fanconiScenario);
+        fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyPageAssertions(i);
     }
 
     @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Screener page {string}")
@@ -116,11 +116,6 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
         fanconiScreenerNVPage.nVFScreenerBackButton.click();
     }
 
-    @Then("data submitted is verified in Fanconi Study page")
-    public void data_submitted_is_verified_in_fanconi_study_page() {
-        fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyCompleteAssertion(0);
-    }
-
     @Then("consent in Fanconi is verified")
     public void consent_in_Fanconi_is_verified() {
         int rowcount = 1;
@@ -128,9 +123,9 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
         fanconiEligibilityQuestionnaireStepsImpl.fanconiConsentAssertionOnFanconiStudyPage(rowcount);
     }
 
-    @Given("consent is submitted with collection method {string}")
-    public void consent_is_submitted_with_collection_method(String collectionMethod) {
-        fanconiEligibilityQuestionnaireStepsImpl.consent_is_submitted_with_collection_method(collectionMethod);
+    @Given("consent is submitted with collection method {string} on sheet {int}")
+    public void consent_is_submitted_with_collection_method_on_sheet(String collectionMethod, int rowCount) {
+        fanconiEligibilityQuestionnaireStepsImpl.consent_is_submitted_with_collection_method(collectionMethod, rowCount );
     }
 
     @Then("Study Team member logs in to Native View and verifies fields in participant's CGB IIQ record")

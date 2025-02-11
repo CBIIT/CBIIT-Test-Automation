@@ -213,12 +213,6 @@ public class SEERDataAccessRequest_Constants {
 
     /** --------------- MISC ACCESS REQUEST CONSTANTS--------------- */
 
-    /* SEER INCIDENT DATA NATIVE VIEW FILTER NAVIGATION SENT UNDER MAILBOX URL */
-    public static final String SEER_INCIDENT_DATA_NATIVE_VIEW_FILTER_NAVIGATION_SENT_UNDER_MAILBOX_URL  = "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_email_list.do%3Fsysparm_query%3D%26sysparm_first_row%3D1%26sysparm_view%3Doutbox";
-
-    /* SEER INCIDENT DATA NATIVE VIEW FILTER NAVIGATION SENT UNDER MAILBOX URL */
-    public static final String SEER_INCIDENT_DATA_NATIVE_VIEW_FILTER_NAVIGATION_SENT_UNDER_MAILBOX_URL_1  = "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_email_list.do%3Fsysparm_userpref_module%3D0271f5510a0a0b6100921bb97ead33ac%26sysparm_view%3Dsent%26sysparm_query%3Dmailbox%253Dsent%255Esys_created_onONToday%2540javascript%253Ags.daysAgoStart%25280%2529%2540javascript%253Ags.daysAgoEnd%25280%2529%255EEQ";
-
     /* SEER INCIDENT DATA VERIFY EMAIL ADDRESS TEXT */
     public static final String SEER_INCIDENT_DATA_VERIFY_EMAIL_ADDRESS_TEXT  = "SEER Incidence Data: Verify your email address";
 

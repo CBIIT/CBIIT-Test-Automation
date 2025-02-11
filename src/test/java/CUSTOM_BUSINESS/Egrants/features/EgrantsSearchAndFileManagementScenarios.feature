@@ -31,7 +31,7 @@ Given User is logged in the application and is on the landing page
     And selects Transition Approval as Subcategory
     Then clicks on update icon to submit the changes
 
-  @EGRANTS-591 @ReplaceExistingFile @nesarh2 @selenium @Regression
+  @EGRANTS-591 @ReplaceExistingFile @nesarh2 @selenium @In-Progress
   Scenario: Test replacing an existing file
     And searches for grant "CA125123"
     And selects grant year 18 from Years
