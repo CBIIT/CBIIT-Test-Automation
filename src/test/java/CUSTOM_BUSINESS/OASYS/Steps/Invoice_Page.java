@@ -182,7 +182,8 @@ public class Invoice_Page {
      */
     @And("User clicks on a submitted Invoice")
     public void user_clicks_on_a_submitted_invoice() {
-        page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("INV-TEST001")).click();
+        page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("INV-TEST001")).first().click();
+       // page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("INV-TEST001")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
