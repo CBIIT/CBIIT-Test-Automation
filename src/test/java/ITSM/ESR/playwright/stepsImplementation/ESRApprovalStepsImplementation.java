@@ -102,6 +102,28 @@ public class ESRApprovalStepsImplementation {
     }
 
     /**
+     * This method rejects the Federal Lead Closeout approval with a need more info
+     */
+    public static void federalLeadCloseoutNeedMoreInfo() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (10)").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("more"); //Requires check
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Need more information");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method completes the Closeout Preparation task again after user receives a "Need More Info" from Federal Lead
+     */
+    public static void completeCloseoutPreparation() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//tbody/tr/td/a[1])[2]").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Catalog Task form section").getByLabel("State").selectOption("3");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
      * This method confirms that the Federal Lead Closeout Approval is completed
      */
     public static void confirmFederalLeadCloseoutApprovalIsCompleted() {
