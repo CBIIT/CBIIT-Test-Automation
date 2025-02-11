@@ -10,12 +10,18 @@ import io.cucumber.java.en.When;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
+/*
+THIS STEP NAVIGATES TO THE BIOMARKER TOOLS HOME PAGE
+ */
 public class BioMarkerSteps extends PlaywrightUtils {
     @Given("the user is on the BioMarker home page")
     public void the_user_is_on_the_bio_marker_home_page() {
         PlaywrightUtils.page.navigate("https://analysistools-qa.cancer.gov/biomarkerTools/");
     }
 
+/*
+THIS STEP ASSERTS THAT ALL THE NAV BAR TEXTS ARE DISPLAYED AS EXPECTED
+ */
     @Then("the {string}, {string}, {string}, {string}, {string}, {string} tabs are displayed")
     public void the_tabs_are_displayed(String homeTab, String meansToRiskTab, String biomarkerComparisonTab, String riskStratificationAdvancedAnalysisTab, String meanRiskStratificationTab, String helpTab) {
         assertThat(page.getByRole(AriaRole.TABLIST)).containsText(homeTab);
@@ -26,11 +32,17 @@ public class BioMarkerSteps extends PlaywrightUtils {
         assertThat(page.getByRole(AriaRole.TABLIST)).containsText(helpTab);
     }
 
+    /*
+    THIS STEP IS NAVIGATING TO THE RISK STRATIFICATION ADVANCED ANALYSIS TAB
+     */
     @When("the user navigates to the {string} tab")
-    public void the_user_navigates_to_the_tab(String specifiedTab) {
-        page.getByRole(AriaRole.TAB, new Page.GetByRoleOptions().setName(specifiedTab)).getByRole(AriaRole.LINK).click();
+    public void the_user_navigates_to_the_tab(String riskStratificationAdvancedAnalysisTab) {
+        page.getByRole(AriaRole.TAB, new Page.GetByRoleOptions().setName(riskStratificationAdvancedAnalysisTab)).getByRole(AriaRole.LINK).click();
     }
 
+    /*
+    THIS STEP FILTERS VIA THE PARAMS SPECIFIED IN THE INPUT PANEL OF THE SEARCH PAGE
+     */
     @When("searches using {string} set to {string}, {string} set to {string}, and {string} set to {string}")
     public void searches_using_set_to_set_to_and_set_to(String specificity, String specificityInput, String prevalence, String prevelanceInput, String delta, String deltaInput) {
         page.getByLabel("Independent Variable", new Page.GetByLabelOptions().setExact(true)).selectOption(specificity);
@@ -49,6 +61,9 @@ public class BioMarkerSteps extends PlaywrightUtils {
         CommonUtils.sleep(10000);
     }
 
+    /*
+    THIS STEP VERIFIES THE RESULTS DISPLAYED AFTER CALCULATION ON THE SEARCH PAGE
+     */
     @Then("the {string} and the {string} are displayed")
     public void the_and_the_are_displayed(String positivePredictiveValueTable, String complementOfTheNegativePredictiveValueTable) {
         assertThat(page.locator("#table-PPV1").getByText(positivePredictiveValueTable)).isVisible();
@@ -63,18 +78,27 @@ public class BioMarkerSteps extends PlaywrightUtils {
         assertThat(page.locator("#example-PPV1_0_1")).isVisible();
     }
 
+    /*
+    THIS STEP CALCULATES/LOADS RESULTS USING THE EXAMPLE 1 SAMPLE FILE
+     */
     @When("the user calculates using {string} file")
     public void the_user_calculates_using_file(String exampleOneText) {
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(exampleOneText)).click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Calculate")).click();
     }
 
+    /*
+    THIS STEP ASSERTS THE CALCULATION BUTTON IS VISIBLE.  THIS BUTTON APPEARS VISIBLE AFTER CORRECT PARAMS ARE PROVIDED
+     */
     @Then("the {string} table displays")
     public void the_table_displays(String calculations) {
         assertThat(page.getByRole(AriaRole.COLUMNHEADER, new Page.GetByRoleOptions().setName(calculations))).isVisible();
         assertThat(page.locator("#paramTable")).containsText(calculations);
     }
 
+    /*
+    THIS STEP VERIFIES THE RESULTS RETURNED ARE THE ONES EXPECTED
+     */
     @Then("the {string}, {string}, and {string} links are displayed")
     public void the_and_links_are_displayed(String toolsHelp, String faq, String glossaryOfTerms) {
         assertThat(page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(toolsHelp))).isVisible();
