@@ -854,7 +854,7 @@ public class Contracts {
     public void a_user_with_test_cor_logs_in_the_application() {
         page.navigate(OASYS_Constants.OASYS_SIDE_LOGIN);
         page.getByLabel("UserName").click();
-        page.getByLabel("UserName").fill(OASYS_Constants.OASYS_TEST_USERNAME);
+        page.getByLabel("UserName").fill(OASYS_Constants.OASYS_TEST_COR);
         page.getByLabel("Password").click();
         page.getByLabel("Password").fill(OASYS_Constants.OASYS_TEST_PASSWORD);
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login")).click();

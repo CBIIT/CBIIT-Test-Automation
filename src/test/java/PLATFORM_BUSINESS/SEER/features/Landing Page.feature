@@ -12,20 +12,20 @@ Feature: SEER Data Access Landing Page Scenarios
       """
     And "← Back to SEER Database details" button is also displayed
 
-@ODS-318 @ODS-338 @ODS-321 @ODS-331 @ODS-322 @ODS-332 @ODS-323 @ODS-333 @ODS-324 @ODS-335 @ODS-325 @ODS-334 @bucurgb @Regression @Smoke @selenium
+@ODS-508 @ODS-318 @ODS-338 @ODS-321 @ODS-331 @ODS-322 @ODS-332 @ODS-323 @ODS-333 @ODS-324 @ODS-335 @ODS-325 @ODS-334 @bucurgb @Regression @Smoke @selenium
   Scenario: Test Data access request landing page updates
     Given a user is on the SEER Data Access landing page
     Then the SEER Data Access landing page has the following text displayed
       """
-There are two data products available: SEER Research and SEER Research Plus. Access to the Research Plus databases requires user authentication.  Refer to Comparison of Data Products for current information.
+There are two data products available: SEER Research and SEER Research Plus (which includes access to NCCR data). Access to the Research Plus databases requires user authentication.  Refer to Comparison of Data Products for current information.
 
-About Research Plus Data Access
-To request access to the Research Plus Data, you must login with an eRA Commons account that is associated with an institutional email address (.edu, .gov, .org, or work email address) for user authentication.
-Requestors associated with HHS agencies should login with their PIV cards to request the data.
-Information on how to obtain an eRA commons login can be found in the FAQ on the SEER webpage.
-Users who are approved for access to the SEER Research Plus Databases will be eligible to request specialized databases.
+About SEER Research Plus and NCCR Data Access
+To request access to the Research Plus and NCCR Data, you must log in with an eRA Commons account that is associated with an institutional email address (.edu, .gov, .org, or work email address) for user authentication.
+Requesters associated with HHS agencies should log in with their PIV cards to request the data.
+Information on how to obtain an eRA Commons login can be found in the FAQ on the SEER webpage.
+Users who are approved for access to the SEER Research Plus and NCCR Data will be eligible to request specialized databases.
 
 About Research Data Access
-If you cannot obtain an eRA Commons account or do not need access to the additional variables available in the Research Plus Data, you can register for the Research Data.
+If you cannot obtain an eRA Commons account or do not need access to the additional variables available in the Research Plus and NCCR Data, you can register for the Research Data.
 Users with access only to the Research Data are not eligible to request specialized databases and cannot upgrade to Research Plus without an eRA Commons account or an HHS PIV card.
       """
