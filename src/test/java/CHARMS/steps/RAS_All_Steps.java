@@ -1389,4 +1389,46 @@ public class RAS_All_Steps extends PageInitializer {
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.selectAgeGroupDropdown2, ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_PARTICIPATE_IN_MODERATE_ACTIVITIES_OR_SPORTS_SELECT_AGE_GROUP, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Frequency of moderate activities (per week) Select Age Group' DROPDOWN * * * * *");
         CucumberLogUtils.logScreenshot();
     }
+
+    /**
+     * Presses the back button in NV Form View.
+     */
+    @Then("presses the back button")
+    public void presses_the_back_button() {
+        CommonUtils.waitForClickability(locateByCssSelector("button[aria-label='Back']"));
+        JavascriptUtils.clickByJS(locateByCssSelector("button[aria-label='Back']"));
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     * The method for a Study Team member to fill out a new FHQ
+     */
+    @Then("Study Team member fills out new FHQ for participant in NV")
+    public void study_team_member_fills_out_new_fhq_for_participant_in_nv() {
+
+//        // DELETE THIS
+        ras_Screener_TestDataManager.dataInitializerRasScreener("screenerScenarioAdult");
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        navigateToParticipantRecordInNativeView("screenerScenarioAdult");
+//        // DELETE THIS
+
+
+        String currentWindowHandle = WebDriverUtils.webDriver.getWindowHandle();
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantDetailsPage.lookupFHQPatientButton);
+        nativeViewCHARMSParticipantDetailsPage.lookupFHQPatientButton.click();
+        CommonUtils.sleep(2000);
+        CommonUtils.switchToAnotherTabWindow();
+        CommonUtils.waitForClickability(locateByXpath("(//a[@role='button'][normalize-space()='CBIITTestAccount'])[1]"));
+        locateByXpath("(//a[@role='button'][normalize-space()='CBIITTestAccount'])[1]").click();
+        CommonUtils.sleep(2000);
+        WebDriverUtils.webDriver.switchTo().window(currentWindowHandle);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        nativeViewCHARMSParticipantDetailsPage.saveButton.click();
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantDetailsPage.viewFHQPatientButton);
+        JavascriptUtils.clickByJS(nativeViewCHARMSParticipantDetailsPage.viewFHQPatientButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(1000);
+        nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton.click();
+
+    }
 }
