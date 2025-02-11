@@ -32,11 +32,17 @@ public class ACT24ResearcherPortalPlaywrightSteps {
         ACT24ResearcherPlaywrightStepImpl.enterLoginDetails(email, password);
     }
 
+    /**
+     * Validating the title for the ACT24 homepage
+     */
     @Then("Verify the title of the ACT24 website home page is {string}")
     public void verify_the_title_of_the_act24_website_home_page_is(String ResearcherPageTitle) {
         assertThat(PlaywrightUtils.page).hasTitle(ResearcherPageTitle);
     }
 
+    /**
+     * Clicking on logout button to check logout functionality
+     */
     @Then("User logout from the ACT24 website")
     public void user_logout_from_the_act24_website() {
         PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.logoutLocator).click();
@@ -85,16 +91,25 @@ public class ACT24ResearcherPortalPlaywrightSteps {
         ACT24ResearcherPlaywrightStepImpl.checkColumnClickable();
     }
 
+    /**
+     * Entering text in the search box
+     */
     @Then("User enters text in the search box on the my studies page")
     public void user_enters_text_in_the_search_box_on_the_my_studies_page() {
         PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.searchBox).fill("KSA146");
     }
 
+    /**
+     * Verifying the searched text in abbreviation column of the table data
+     */
     @Then("Verify study abbreviation column contains searched text in the table data")
     public void verify_study_abbreviation_column_contains_searched_text_in_the_table_data() {
         assertThat(PlaywrightUtils.page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("KSA146"))).containsText("KS");
     }
 
+    /**
+     * Clicking on th Create New Study button
+     */
     @Then("User clicks on the create new study button on the researcher page")
     public void user_clicks_on_the_create_new_study_button_on_the_researcher_page() {
         PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.createNewStudy).click();
@@ -116,6 +131,9 @@ public class ACT24ResearcherPortalPlaywrightSteps {
         ACT24ResearcherPlaywrightStepImpl.enterMandatoryDetailsToCreateStudy();
     }
 
+    /**
+     * Clicking on the Submit button
+     */
     @Then("User clicks on the submit button to create the study")
     public void user_clicks_on_the_submit_button_to_create_the_study() {
         PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.submitButtonLocator).click();
@@ -139,16 +157,25 @@ public class ACT24ResearcherPortalPlaywrightSteps {
         ACT24ResearcherPlaywrightStepImpl.searchCreatedStudy();
     }
 
+    /**
+     * Clicking on the Study Staff button
+     */
     @Then("User clicks on the study staff button of the searched study")
     public void user_clicks_on_the_study_staff_button_of_the_searched_study() {
         PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.studyStaff).click();
     }
 
+    /**
+     * Validating that user is on the Study Staff manu tab
+     */
     @Then("Validate user is on the study staff menu tab in the researcher website")
     public void validate_user_is_on_the_study_staff_menu_tab_in_the_researcher_website() {
         assertThat(PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.studyStaffMenuTab)).containsText("Study Staff");
     }
 
+    /**
+     * User clicks on the my account menu tab
+     */
     @Given("User clicks on the my account menu tab in the act24 researcher website")
     public void user_clicks_on_the_my_account_menu_tab_in_the_act24_researcher_website() {
         PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.myAccount).click();
@@ -164,6 +191,9 @@ public class ACT24ResearcherPortalPlaywrightSteps {
         ACT24ResearcherPlaywrightStepImpl.verifyEmailAddress(emailInMyAccount);
     }
 
+    /**
+     * Clicking on the edit study button of the created study
+     */
     @Then("User clicks on the edit study button of the created study")
     public void user_clicks_on_the_edit_study_button_of_the_created_study() {
         PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.editStudy).click();
@@ -177,16 +207,25 @@ public class ACT24ResearcherPortalPlaywrightSteps {
         ACT24ResearcherPlaywrightStepImpl.updateCreatedStudyDetails();
     }
 
+    /**
+     * Clicking on the save changes button to edit the study details
+     */
     @Then("User clicks on the save changes button and details are getting edited")
     public void user_clicks_on_the_save_changes_button_and_details_are_getting_edited() {
         PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.submitCreatedStudy).click();
     }
 
+    /**
+     * Clicking on the analytics data for the created study
+     */
     @Then("User clicks on the analytics data for the created study")
     public void user_clicks_on_the_analytics_data_for_the_created_study() {
         PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.analyticsData).click();
     }
 
+    /**
+     * Clicking on the clear button
+     */
     @And("User clicks on the clear button")
     public void user_clicks_on_the_clear_button() {
         PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.clearButton).click();
@@ -200,6 +239,9 @@ public class ACT24ResearcherPortalPlaywrightSteps {
         ACT24ResearcherPlaywrightStepImpl.selectCreatedStudy();
     }
 
+    /**
+     * Clicking on the search button on the analytics data menu tab
+     */
     @Then("User clicks on the search button on the analytics data menu tab")
     public void user_clicks_on_the_search_button_on_the_analytics_data_menu_tab() {
         PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.searchAnalyticsButton).click();
