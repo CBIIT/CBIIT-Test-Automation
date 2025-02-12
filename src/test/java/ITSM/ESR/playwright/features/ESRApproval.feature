@@ -84,7 +84,7 @@ Feature: ESR Approvals
     And the user is approved from a federal lead for closeout approval
     Then the user confirms the Federal Lead Closeout Approval is completed
 
-  @ESR-??? @sarwarahmed1 @Progression @playwright
+  @ESR-706 @sarwarahmed1 @Regression @playwright
   Scenario: Test the "Need more Info" for Federal Lead Closeout Approval in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR

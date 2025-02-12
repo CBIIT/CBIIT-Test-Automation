@@ -21,7 +21,7 @@ public class ESRApprovalStepsImplementation {
     public static void federalLeadNeedMoreInfo() {
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (1)").click();
         Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
-        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("more"); //Requires check
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("more");
         Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
         Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Need more information");
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
@@ -107,7 +107,7 @@ public class ESRApprovalStepsImplementation {
     public static void federalLeadCloseoutNeedMoreInfo() {
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (10)").click();
         Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
-        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("more"); //Requires check
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("more");
         Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
         Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Need more information");
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
