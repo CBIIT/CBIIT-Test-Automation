@@ -5,7 +5,7 @@ Given User is logged in the application and navigated to Contract Administration
 
 @SubmitInvoice @NESARH2 @Regression @playwright
 Scenario: Submit an invoice
-  When User clicks on Invoice
+  When User clicks on Invoice Page
   And User clicks on Submit button and the Submit Invoice pop up is displayed
   And User enters the PIID-RefPIID "HHSN316201500067W" of the contract
   And User clicks on the contract
@@ -25,7 +25,7 @@ Scenario: Submit an invoice
 
 @AssignAdditionalInvoiceReviewer @NESARH2 @Regression @playwright
 Scenario: Assign Additional Reviewers for the submitted invoice
-  When User clicks on Invoice
+  When User clicks on Invoice Page
   And User clicks on a submitted Invoice
   And User expands the members
   And User clicks on EDIT button
@@ -37,7 +37,7 @@ Scenario: Assign Additional Reviewers for the submitted invoice
 
 @VoidInvoice @NESARH2 @Regression @playwright
   Scenario: Voiding an invoice
-    When User clicks on Invoice
+    When User clicks on Invoice Page
     And User clicks on an invoice in Submitted status
     And User clicks on VOID INVOICE button
     And User selects Duplicate Invoice as the reason from the drop down
@@ -45,15 +45,41 @@ Scenario: Assign Additional Reviewers for the submitted invoice
 
 @VoidingReviewedInvoice @NESARH2 @Regression @playwright
   Scenario: Verify the user can not void a reviewed invoice
-    When User clicks on Invoice
+    When User clicks on Invoice Page
     And User clicks on the reviewed Invoice
     And User verifies the invoice status
     Then User tries to click on Void button
 
 @RestoreInvoice @NESARH2 @Regression @playwright
   Scenario: Restoring an invoice
-    When User clicks on Invoice
+    When User clicks on Invoice Page
     And User clicks on the voided invoice
     And User clicks on RESTORE INVOICE button
     And User clicks on Continue button to acknowledge the message
     Then User verifies the invoice status is changed to "SUBMITTED"
+
+@AssignPLINS @NESARH2 @Regression @playwright
+Scenario: Assign PLINS for the invoice
+    When User logs in as Test CO on the side login page
+    And User clicks on Contract Administration
+    And User clicks on Invoice Page
+    And User clicks on a submitted Invoice
+    And User clicks on Assigned PLINS tab
+    And User clicks on Assign PLINS button
+    And User clicks on ADD PLIN
+    And User selects the PLIN Number
+    And User selects the CAN Number
+    And User enters the amount
+    Then User clicks on SAVE button
+
+@@ReviewInvoiceAsTestCOR @NESARH2 @Regression @playwright
+Scenario: Review the invoice as a reviewer (Test COR)
+    When User logs in as Test COR on the side login page
+    And User clicks on Contract Administration
+    And User clicks on Invoice Page
+    And User clicks on a submitted Invoice
+    And User clicks on APPROVE button in the upper right corner of the page
+    And User types "TEST APPROVAL" in Comments
+    And User clicks on CHOOSE FILE button on New Files page
+    And User checks the box for Confirm Approval
+    Then User clicks on APPROVE button
