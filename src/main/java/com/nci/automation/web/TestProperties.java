@@ -166,16 +166,6 @@ public class TestProperties {
     public static String NIFE_URL;
 
     /**
-     * ACT24 RESEARCHER PORTAL URLS
-     */
-    public static final String ACT_24_RESEARCHER_TEST_URL = "https://act24-test.cancer.gov/act24/researcher/login?";
-    public static final String ACT_24_RESEARCHER_STAGE_URL = "https://act24-stage.cancer.gov/act24/researcher/login?";
-    public static final String ACT_24_PARTICIPANT_TEST_URL = "https://act24-test.cancer.gov/act24/participant/id/252cff45-fc47-4a01-a85a-b51056db7315";
-    public static final String ACT_24_PARTICIPANT_STAGE_URL = "https://act24-stage.cancer.gov/act24/participant/id/252cff45-fc47-4a01-a85a-b51056db7315";
-    public static String ACT_24_RESEARCHER_URL;
-    public static String ACT_24_PARTICIPANT_URL;
-
-    /**
      * SEER ODS URLS
      */
     public static final String SEER_ODS_TEST_URL = "https://service-test.nci.nih.gov/seer-data-access";
@@ -549,29 +539,6 @@ public class TestProperties {
                 break;
         }
         return CERVICAL_CP_URL;
-    }
-
-    public static String getAct24ResearcherUrl() {
-        switch (ENV.toLowerCase()) {
-            case "stage":
-                ACT_24_RESEARCHER_URL = ACT_24_RESEARCHER_STAGE_URL;
-                break;
-            case "test":
-                ACT_24_RESEARCHER_URL = ACT_24_RESEARCHER_TEST_URL;
-                break;
-        }
-        return ACT_24_RESEARCHER_URL;
-    }
-    public static String getAct24ParticipantUrl() {
-        switch (ENV.toLowerCase()) {
-            case "stage":
-                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_STAGE_URL;
-                break;
-            case "test":
-                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_TEST_URL;
-                break;
-        }
-        return ACT_24_PARTICIPANT_URL;
     }
 
     public static String getSeerOdsUrl() {
