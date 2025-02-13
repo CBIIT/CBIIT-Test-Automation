@@ -315,9 +315,9 @@ public class TestProperties {
     /**
      * ACT24 URLS
      */
-    public static String ACT24_TEST_URL = "https://act24-test.cancer.gov/act24/researcher/login";
-    public static String ACT24_STAGE_URL = "https://act24-stage.cancer.gov/act24/researcher/login";
-    public static String ACT24_URL;
+    public static String ACT24_RESEARCHER_TEST_URL = "https://act24-test.cancer.gov/act24/researcher/login";
+    public static String ACT24_RESEARCHER_STAGE_URL = "https://act24-stage.cancer.gov/act24/researcher/login";
+    public static String ACT24_RESEARCHER_URL;
 
     public static String getNativeViewSideDoorUrl() {
         switch (ENV.toLowerCase()) {
@@ -844,15 +844,15 @@ public class TestProperties {
         return AWARD_NOMINATION_ADMIN_GROUP_URL;
     }
 
-    public static String getACT24Url() {
+    public static String getAct24ResearcherUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
-                ACT24_URL = ACT24_STAGE_URL;
+                ACT24_RESEARCHER_URL = ACT24_RESEARCHER_STAGE_URL;
                 break;
             case "test":
-                ACT24_URL = ACT24_TEST_URL;
+                ACT24_RESEARCHER_URL = ACT24_RESEARCHER_TEST_URL;
                 break;
         }
-        return ACT24_URL;
+        return ACT24_RESEARCHER_URL;
     }
 }
