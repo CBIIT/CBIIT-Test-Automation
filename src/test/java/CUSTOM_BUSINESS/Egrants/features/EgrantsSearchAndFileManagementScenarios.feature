@@ -151,7 +151,7 @@ Given User is logged in the application and is on the landing page
     And searches for grant "CA125123"
     And expands all grant years
     And selects grant year 17S1 from list of Years
-    And clicks on Edit Edit Request Name button
+    And clicks on Edit Request Name button
     And provides new "Edited LBL" as the label
     And clicks on Save Request Name button
     Then verifies the edited label
@@ -161,7 +161,7 @@ Given User is logged in the application and is on the landing page
     And searches for grant "CA125123"
     And expands all grant years
     And selects grant year 17S1 from list of Years
-    And clicks on Edit Edit Request Name button
+    And clicks on Edit Request Name button
     Then clicks on Delete button to delete the label
 
   @AssignPA @nesarh2 @selenium @Regression

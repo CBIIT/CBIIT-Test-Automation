@@ -2,8 +2,8 @@ name: CUSTOM BUSINESS (.NET) - OASYS Regression
 
 on:
   schedule:
-    # This corresponds to 4:30 PM EST (9:30 PM UTC) from Monday to Friday
-    - cron: '30 21 * * MON-FRI'
+    # This corresponds to 11:30 AM EST (16:30 PM UTC) from Monday to Friday
+    - cron: '30 16 * * MON-FRI'
   workflow_dispatch:
 
 jobs:
@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: OASYS-regression-report-${{ env.timestamp }}
+          name: Oasys-regression-report-${{ env.timestamp }}
           path: target/Oasys-regression-reports/*
 
       - name: Upload to SharePoint
@@ -47,7 +47,7 @@ jobs:
           $Env:PATH = "C:\Users\juarezds\AppData\Local\Programs\Python\Python312;$Env:PATH"
           python $Env:GITHUB_WORKSPACE\.github\scripts\upload_to_sharepoint.py
         env:
-          FILES_PATH: target/Egrants-regression-reports/*
+          FILES_PATH: target/Oasys-regression-reports/*
           SHAREPOINT_SITE_ID: ${{ secrets.SHAREPOINT_SITE_ID }}
           SHAREPOINT_DRIVE_ID: ${{ secrets.SHAREPOINT_DRIVE_ID }}
           tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
