@@ -322,6 +322,13 @@ public class TestProperties {
     public static String MRAT_STAGE_URL = "https://mrisktool-stage.cancer.gov/";
     public static String MRAT_URL;
 
+    /**
+     * ACT24 URLS
+     */
+    public static String ACT24_TEST_URL = "https://act24-test.cancer.gov/act24/researcher/login";
+    public static String ACT24_STAGE_URL = "https://act24-stage.cancer.gov/act24/researcher/login";
+    public static String ACT24_URL;
+
     public static String getNativeViewSideDoorUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
@@ -868,5 +875,17 @@ public class TestProperties {
                 break;
         }
         return AWARD_NOMINATION_ADMIN_GROUP_URL;
+    }
+
+    public static String getACT24Url() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                ACT24_URL = ACT24_STAGE_URL;
+                break;
+            case "test":
+                ACT24_URL = ACT24_TEST_URL;
+                break;
+        }
+        return ACT24_URL;
     }
 }
