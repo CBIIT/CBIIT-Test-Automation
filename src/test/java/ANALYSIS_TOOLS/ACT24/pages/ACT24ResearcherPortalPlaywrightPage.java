@@ -66,4 +66,29 @@ public class ACT24ResearcherPortalPlaywrightPage {
      * ANALYTICS DATA LOCATOR
      */
     public static String analyticsData = "//table[@id='myStudies']//tbody//tr//a[@title='Analytic Data']";
+
+    /***
+     * DISCLAIMER LOCATOR
+     */
+    public static String disclaimerLink = "Disclaimer";
+
+    /***
+     * FOIA LOCATOR
+     */
+    public static String foiaLink = "FOIA";
+
+    /***
+     * VULNERABILITY DISCLOSURE LOCATOR
+     */
+    public static String vulnerabilityDisclosure = "HHS Vulnerability Disclosure";
+
+    /***
+     * PRIVACY AND SECURITY LOCATOR
+     */
+    public static String privacyAndSecurity = "Privacy & Security";
+
+    /***
+     * ACCESSIBILITY LOCATOR
+     */
+    public static String accessibilityLink = "Accessibility";
 }
