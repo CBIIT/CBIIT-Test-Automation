@@ -19,6 +19,10 @@ public class PlaywrightUtils {
         boolean headless = TestProperties.HEADLESS;
         double setSlowMoTime = TestProperties.SET_SLOW_MO_TIME;
 
+        if (headless) {
+            arguments.add("--headless");
+        }
+
         if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_CHROME) && !headless) {
             arguments = new ArrayList<>();
             arguments.add(maximizeWindow);
