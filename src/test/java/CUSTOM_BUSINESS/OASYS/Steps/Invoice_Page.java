@@ -18,8 +18,8 @@ public class Invoice_Page {
     /**
      * This method is used to navigate to the Invoice page
      */
-    @When("User clicks on Invoice")
-    public void user_clicks_on_invoice() {
+    @When("User clicks on Invoice Page")
+    public void user_clicks_on_invoice_page() {
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Invoice")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -182,7 +182,7 @@ public class Invoice_Page {
      */
     @And("User clicks on a submitted Invoice")
     public void user_clicks_on_a_submitted_invoice() {
-        page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("INV-TEST001")).click();
+        page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("INV-TEST001")).first().click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -370,6 +370,143 @@ public class Invoice_Page {
     @Then("User verifies the invoice status is changed to {string}")
     public void user_verifies_the_invoice_status_is_changed_to_submitted(String Status) {
         assertThat(page.locator("dynamic-detail-header")).containsText(Status);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is signing in the application as TEST CO
+     */
+    @When("User logs in as Test CO on the side login page")
+    public void user_logs_in_as_test_co_on_the_side_login_page() {
+        page.navigate(OASYS_Constants.OASYS_SIDE_LOGIN);
+        page.getByLabel("UserName").click();
+        page.getByLabel("UserName").fill(OASYS_Constants.OASYS_TEST_CO);
+        page.getByLabel("Password").click();
+        page.getByLabel("Password").fill(OASYS_Constants.OASYS_TEST_PASSWORD);
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the Contract Administration
+     */
+    @When("User clicks on Contract Administration")
+    public void user_clicks_on_contract_administration() {
+        page.getByText("Contract Administrationkeyboard_arrow_down").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on Assigned PLINS tab
+     */
+    @When("User clicks on Assigned PLINS tab")
+    public void user_clicks_on_assigned_plins_tab() {
+        page.getByText("Assigned Plins").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on Assing PLINS button
+     */
+    @When("User clicks on Assign PLINS button")
+    public void user_clicks_on_assign_plins_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Assign PLINs")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on ADD PLIN button
+     */
+    @When("User clicks on ADD PLIN")
+    public void user_clicks_on_add_plin() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add PLIN")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select the PLIN Number, if there is already one, then select the next one
+     */
+    @When("User selects the PLIN Number")
+    public void user_selects_the_plin_number() {
+        page.getByLabel("PLIN # *").getByText("PLIN # *").click();
+        if (page.getByText("1PLIN # *").isVisible()) {
+            page.getByText("2", new Page.GetByTextOptions().setExact(true)).first().click();
+        } else {
+            page.getByText("1", new Page.GetByTextOptions().setExact(true)).first().click();
+        }
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select the CAN Number, if there is already one, then select the next one
+     */
+    @When("User selects the CAN Number")
+    public void user_selects_the_can_number() {
+        page.getByLabel("CAN # *").getByText("CAN # *").click();
+        if (page.getByText("8021461CAN # *").isVisible()) {
+            page.getByText("8019057").click();
+        } else {
+            page.getByText("8021461").click();
+        }
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to enter the Amount, if there is already one, then enter the next one
+     */
+    @When("User enters the amount")
+    public void user_enters_the_amount() {
+        Locator amountInputs = page.getByLabel("Amount *");
+        if (amountInputs.count() == 2) {
+            if (!amountInputs.nth(0).inputValue().isEmpty()) {
+                amountInputs.nth(1).clear();
+                amountInputs.nth(1).type("0");
+            } else {
+                amountInputs.nth(0).clear();
+                amountInputs.nth(0).type("200");
+            }
+        } else {
+            amountInputs.first().clear();
+            amountInputs.first().type("200");
+        }
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the APPROVE button in the upper right corner of the page
+     */
+    @When("User clicks on APPROVE button in the upper right corner of the page")
+    public void user_clicks_on_approve_button_in_the_upper_right_corner_of_the_page() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Approve")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to enter the Comments
+     * @param Comments
+     */
+    @When("User types {string} in Comments")
+    public void user_types_approved_in_comments(String Comments) {
+        page.getByLabel("Comments").click();
+        page.getByLabel("Comments").fill(Comments);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to check the box for Confirm Approval
+     */
+    @When("User checks the box for Confirm Approval")
+    public void user_will_check_the_box_for_confirm_approval() {
+        page.locator(".mat-checkbox-inner-container").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the APPROVE button
+     */
+    @Then("User clicks on APPROVE button")
+    public void user_will_click_on_approve_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Approve")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }
