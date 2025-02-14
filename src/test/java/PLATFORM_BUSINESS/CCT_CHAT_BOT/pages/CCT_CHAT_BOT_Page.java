@@ -100,7 +100,7 @@ public class CCT_CHAT_BOT_Page {
     /***
      * NATIVE VIEW POP UP CCT CHAT BOT WINDOW EXPECTED LINK SELECTED
      */
-    public static String nv_Pop_UP_CCT_Chat_Bot_Window_Expected_Link_Selected = "Career Development Award for Community Oncology and Prevention Research (K12)";
+    public static String nv_Pop_UP_CCT_Chat_Bot_Window_Expected_Link_Selected = "Career Development Award for Community Oncology and Prevention Research (K12) ";
 
     /***
      * NATIVE VIEW NEW TAB OPENED PAGE HEADER LOCATOR
