@@ -8,9 +8,6 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.testng.Assert;
-
-import java.util.ArrayList;
-
 import static Hooks.Hooks.softAssert;
 import static com.nci.automation.web.TestProperties.getOAntakeUrl;
 
