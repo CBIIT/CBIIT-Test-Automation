@@ -72,7 +72,7 @@ Scenario: Assign PLINS for the invoice
     And User enters the amount
     Then User clicks on SAVE button
 
-@@ReviewInvoiceAsTestCOR @NESARH2 @Regression @playwright
+@ReviewInvoiceAsTestCOR @NESARH2 @Regression @playwright
 Scenario: Review the invoice as a reviewer (Test COR)
     When User logs in as Test COR on the side login page
     And User clicks on Contract Administration
