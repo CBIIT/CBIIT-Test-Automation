@@ -63,7 +63,7 @@ Feature: Create OA Intake form
     And User can verify "Leadership Queue(Pending Action)" tab is displayed
     When User clicks on Menu dropdown
     Then Leadership User can verify the menu options displayed
-    When User clicks on Instructions
+    When User clicks on Instructions Page
     Then User can verify they are redirected to Instructions page
     When User clicks on their username
     Then User can see menu options as Profile and Log Out
@@ -79,7 +79,7 @@ Feature: Create OA Intake form
     And User can verify "Requestor(Requested For) Queue" tab is displayed
     When User clicks on Menu dropdown
     Then Submitter User can verify the menu options displayed
-    When User clicks on Instructions
+    When User clicks on Instructions Page
     Then User can verify they are redirected to Instructions page
     When User clicks on their username
     Then User can see menu options as Profile and Log Out
@@ -208,3 +208,27 @@ Feature: Create OA Intake form
     And Submitter User can see Time zone dropdown
     Then Submitter User can see Refresh To See Changes button
     And User logs out of OA Intake application
+
+  @selenium @Alena @Regression @OAIntake-638
+  Scenario: Create OA Intake form with FITARA/Business Case Clearances as "Yes", R&D Support as No, PSC Code Status as unknown
+    Given Submitter User logged in to OA Intake Portal
+    When Submitter User clicks on New Request button
+    And Submitter User fills in Request Title field as "OA Intake Request"
+    And Submitter User fills in Request Description field as "Request Description"
+    And Submitter User fills in Requested Award Date as "12/05/2025"
+    When Submitter User picks NAICS Code Status option as known
+    Then Submitter User can fill in a NAICS Code Number field as "12345"
+    When Submitter User chooses New or Re-compete Contract option as Re-compete
+    When Submitter User chooses option External Call Task Orders (TOs)(NITAAC, GSA) from Recommended Contract Mechanism dropdown
+    When Submitter User chooses option Internal NCI Call Task Order on a BPA IDIQ from Recommended Contract Mechanism dropdown
+    And Submitter User chooses R&D Support as No
+    When Submitter User chooses PSC Code Status as unknown
+    And Submitter User chooses FITARA Business Case Clearances as Yes
+    And User chooses Have you already submitted a Business Case as Yes
+    And User inputs Business ticket number as "ABC123"
+    And Submitter User chooses No for ISSO Clearance field
+    And User can enter additional comments
+    When Submitter User clicks Submit Request button
+    And Submitter User chooses to submit a request
+    And User logs out of OA Intake application
+

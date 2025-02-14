@@ -10,6 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.Map;
@@ -369,8 +370,8 @@ public class OAIntakeSteps extends PageInitializer {
     /**
      * User clicks on Instructions
      */
-    @When("User clicks on Instructions")
-    public void user_clicks_on_instructions() {
+    @When("User clicks on Instructions Page")
+    public void user_clicks_on_instructions_page() {
         CommonUtils.clickOnElement(oaIntakePage.hyperlinkInstructions);
     }
 
@@ -469,11 +470,6 @@ public class OAIntakeSteps extends PageInitializer {
     @Given("User can verify page header as {string}")
     public void user_can_verify_page_header_as(String string) {
         softAssert.assertTrue(oaIntakePage.pageHeaderRequestedFor.isDisplayed());
-    }
-
-    @Given("User can verify page header is {string}")
-    public void user_can_verify_page_header_is(String header) {
-       oaIntakeStepsImplementation.verifyHeadrDisplayed(header);
     }
 
     /**
@@ -1238,5 +1234,72 @@ public class OAIntakeSteps extends PageInitializer {
     @Then("Submitter User can see Refresh To See Changes button")
     public void submitter_user_can_see_refresh_to_see_changes_button() {
         softAssert.assertTrue(oaIntakePage.refreshChangesButton.isDisplayed());
+    }
+
+    /**
+     * Submitter User chooses R&D Support as No
+     */
+    @When("Submitter User chooses R&D Support as No")
+    public void submitter_user_chooses_r_d_support_as_no() {
+        CommonUtils.clickOnElement(oaIntakePage.drpdownRD);
+        CommonUtils.clickOnElement(oaIntakePage.RDNo);
+    }
+
+    /**
+     * Submitter User chooses PSC Code Status as unknown
+     */
+    @When("Submitter User chooses PSC Code Status as unknown")
+    public void submitter_user_chooses_psc_code_status_as_unknown() {
+    softAssert.assertTrue(oaIntakePage.unknownPSCCodeStatus.getText().equals("Unknown"));
+    }
+
+    /**
+     *Submitter User chooses FITARA Business Case Clearances as Yes
+     */
+    @When("Submitter User chooses FITARA Business Case Clearances as Yes")
+    public void submitter_user_chooses_fitara_business_case_clearances_as_yes() {
+        JavascriptUtils.scrollIntoView(oaIntakePage.dropdwnFITARA);
+        CommonUtils.clickOnElement(oaIntakePage.dropdwnFITARA);
+        CommonUtils.sleep(3000);
+      //  JavascriptUtils.clickByJS(oaIntakePage.yesFITARA);
+        CommonUtils.clickOnElement(oaIntakePage.yesFITARA);
+        Actions action = new Actions(webDriver);
+        action.moveByOffset(0, 0).click().build().perform();
+    }
+
+    /**
+     *User chooses Have you already submitted a Business Case as Yes
+     */
+    @When("User chooses Have you already submitted a Business Case as Yes")
+    public void user_chooses_have_you_already_submitted_a_business_case_as_yes() {
+        CommonUtils.clickOnElement(oaIntakePage.drpdnHaveYouSubmittedBusCase);
+        CommonUtils.clickOnElement(oaIntakePage.yesHaveYouSubmittedBusCase);
+    }
+
+    /**
+     *User chooses Have you already submitted a Business Case as Yes
+     * @param number
+     */
+    @When("User inputs Business ticket number as {string}")
+    public void user_inputs_business_ticket_number_as(String number) {
+       CommonUtils.sendKeys(oaIntakePage.fieldBusTicketNumber,number);
+    }
+
+    /**
+     *Submitter User chooses No for ISSO Clearance field
+     */
+    @When("Submitter User chooses No for ISSO Clearance field")
+    public void submitter_user_chooses_no_for_isso_clearance_field() {
+        JavascriptUtils.scrollIntoView(oaIntakePage.dropdownISSO);
+        CommonUtils.clickOnElement(oaIntakePage.dropdownISSO);
+        CommonUtils.clickOnElement(oaIntakePage.noISSO);
+    }
+
+    /**
+     *User can enter additional comments
+     */
+    @When("User can enter additional comments")
+    public void user_can_enter_additional_comments() {
+    CommonUtils.sendKeys(oaIntakePage.fieldAdComments,"Comments");
     }
 }
