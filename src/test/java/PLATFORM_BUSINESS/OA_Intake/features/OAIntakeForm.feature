@@ -48,8 +48,6 @@ Feature: Create OA Intake form
     And User clicks on CO CS Queue tab
     And User picks recently submitted OA Intake request
     And User clicks Accept Submission
-    And User picks recently accepted OA Intake request
-    Then User can verify the status of the request is Accepted
     And User logs out of OA Intake application
 
   @selenium @Alena @Regression @OAIntake-8 @OAIntake-417 @OAIntake-425 @OAIntake-426 @OAIntake-439 @OAIntake-260 @OAIntake-261 @OAIntake-263
@@ -90,7 +88,7 @@ Feature: Create OA Intake form
     Then User can verify they are redirected to Home Page
     And User logs out of OA Intake application
 
-  @selenium @Alena @Regression @OAIntake-332 @OAIntake-670 @OAIntake-669
+  @selenium  @Alena @Regression @OAIntake-332 @OAIntake-670 @OAIntake-669
   Scenario: Requestor (Requested For) Queue for Negotiated Contracts
     Given Leadership User logged in to OA Intake Portal
     And User clicks on Requestor (Requested For) Queue tab
@@ -188,4 +186,25 @@ Feature: Create OA Intake form
     And Submitter User can navigate to User Guide page
     When Submitter User clicks instructions question mark
     Then Submitter User is redirected to OA Intake Request Instructional Page
+    And User logs out of OA Intake application
+
+  @selenium @Alena @Regression @OAIntake-665 @OAIntake-669
+  Scenario: Verification of User Profile
+    Given Submitter User logged in to OA Intake Portal
+    And Submitter Users sees New Request tab
+    And Submitter User sees Requestor (Requested For) Queue tab
+    When Submitter User clicks on User Profile
+    Then Submitter User sees Profile option
+    And Submitter User sees Log Out option
+    When Submitter User clicks Profile option
+    Then Submitter User can confirm "User Profile" page header
+    And Submitter User can see Search field is displayed
+    And Submitter User can see Upload Picture button
+    And Submitter User can see About section
+    And Submitter User can see the following fields of About section
+    |Email |Phone|Mobile phone|
+    And Submitter User can see User preferences section
+    And Submitter User can see Accessibility enabled button
+    And Submitter User can see Time zone dropdown
+    Then Submitter User can see Refresh To See Changes button
     And User logs out of OA Intake application

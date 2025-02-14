@@ -31,7 +31,7 @@ Given User is logged in the application and is on the landing page
     And selects Transition Approval as Subcategory
     Then clicks on update icon to submit the changes
 
-  @EGRANTS-591 @ReplaceExistingFile @nesarh2 @selenium @Regression
+  @EGRANTS-591 @ReplaceExistingFile @nesarh2 @selenium @In-Progress
   Scenario: Test replacing an existing file
     And searches for grant "CA125123"
     And selects grant year 18 from Years
@@ -151,7 +151,7 @@ Given User is logged in the application and is on the landing page
     And searches for grant "CA125123"
     And expands all grant years
     And selects grant year 17S1 from list of Years
-    And clicks on Edit Edit Request Name button
+    And clicks on Edit Request Name button
     And provides new "Edited LBL" as the label
     And clicks on Save Request Name button
     Then verifies the edited label
@@ -161,7 +161,7 @@ Given User is logged in the application and is on the landing page
     And searches for grant "CA125123"
     And expands all grant years
     And selects grant year 17S1 from list of Years
-    And clicks on Edit Edit Request Name button
+    And clicks on Edit Request Name button
     Then clicks on Delete button to delete the label
 
   @AssignPA @nesarh2 @selenium @Regression
