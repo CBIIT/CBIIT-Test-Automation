@@ -75,4 +75,20 @@ public class OAIntakeStepsImplementation extends PageInitializer {
                 break;
         }
     }
+
+    /**
+     * verify header is displayed
+     *
+     * @param header
+     */
+    public void verifyHeadrDisplayed(String header) {
+        switch (header) {
+            case "Leadership Queue (Pending Action)":
+                softAssert.assertEquals(oaIntakePage.leadershipQueuePageHeader.getText(), header);
+                break;
+            case "Contracting Officer/Contract Specialist Queue":
+                softAssert.assertEquals(oaIntakePage.pageHeaderContractingOfficer.getText(), header);
+                break;
+        }
+    }
 }
