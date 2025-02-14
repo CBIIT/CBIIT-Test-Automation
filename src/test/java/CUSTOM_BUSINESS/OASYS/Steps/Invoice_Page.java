@@ -4,6 +4,7 @@ import static CUSTOM_BUSINESS.OASYS.Utils.OASYS_CommonUtils.clickIfVisible;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 import APPS_COMMON.PlaywrightUtils.Playwright_Common_Utils;
+import CUSTOM_BUSINESS.OASYS.Utils.OASYS_CommonUtils;
 import CUSTOM_BUSINESS.OASYS.Utils.OASYS_Constants;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.*;
@@ -171,6 +172,8 @@ public class Invoice_Page {
      */
     @Then("User verifies the invoice is in submitted status")
     public void user_verifies_the_invoice_is_in_submitted_status() {
+        OASYS_CommonUtils.waitForElementToBeVisible("text=Invoice Submitted");
+        assertThat(page.getByText("Invoice Submitted")).isVisible();
         page.waitForSelector("dynamic-detail-header");
         assertThat(page.locator("dynamic-detail-header")).containsText(OASYS_Constants.INVOICE_NUMBER);
         assertThat(page.locator("dynamic-detail-header")).containsText(OASYS_Constants.INVOICE_STATUS);
@@ -507,6 +510,61 @@ public class Invoice_Page {
     @Then("User clicks on APPROVE button")
     public void user_will_click_on_approve_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Approve")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to clikc on Approved radiobutton
+     */
+    @And("User clicks on Approved radiobutton")
+    public void user_clicks_on_approved_radiobutton() {
+        page.getByLabel("Approve Invoice").getByText("Approved").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to verify the invoice status is updated to Approved
+     */
+    @Then("User verifies the invoice status is updated to Approved")
+    public void user_verifies_the_invoice_status_is_updated_to_approved() {
+        OASYS_CommonUtils.waitForElementToBeVisible("text=Status Updated");
+        assertThat(page.getByText("Status Updated")).isVisible();
+        OASYS_CommonUtils.waitForElementToBeVisible("text=dynamic-detail-header");
+        assertThat(page.locator("dynamic-detail-header")).containsText("APPROVED");
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to verify an invoice in Approved status is present
+     */
+    @And("User verifies an invoice in Approved status is present")
+    public void user_verifies_an_invoice_in_approved_status_is_present() {
+        if (page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("Approved")).first().isVisible()) {
+            assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("Approved")).first()).isVisible();
+        } else if (page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("INV-TEST001")).nth(1).isVisible()) {
+            assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("Approved")).nth(1)).isVisible();
+        }
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the Delete button for an invoice in Approved status
+     */
+    @And("User clicks on DELETE button")
+    public void user_clicks_on_delete_button() {
+        page.locator("mat-cell:nth-child(12)").first().click();
+        assertThat(page.locator("ng-component")).containsText("Are you sure you would like to Delete?");
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Delete")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to verify the invoice is deleted successfully
+     */
+    @Then("User verifies the invoice is deleted successfully")
+    public void user_verifies_the_invoice_is_deleted_successfully() {
+        OASYS_CommonUtils.waitForElementToBeVisible("text=Invoice Deleted");
+        assertThat(page.getByText("Invoice Deleted")).isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }
