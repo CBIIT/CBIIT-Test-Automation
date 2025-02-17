@@ -16,7 +16,7 @@ public class OASYS_CommonUtils {
     }
 
     /**
-     * Waits for the element to be visible, checks for visibility every 500ms
+     * Waits dynamically for the element to be visible, checks for visibility every 500ms
      * @param selector the selector to wait for
      */
     public static void waitForElementToBeVisible(String selector) {
