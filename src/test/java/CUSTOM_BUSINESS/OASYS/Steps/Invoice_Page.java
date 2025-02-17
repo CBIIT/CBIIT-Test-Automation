@@ -514,7 +514,7 @@ public class Invoice_Page {
     }
 
     /**
-     * This method is used to clikc on Approved radiobutton
+     * This method is used to click on Approved radiobutton
      */
     @And("User clicks on Approved radiobutton")
     public void user_clicks_on_approved_radiobutton() {
@@ -535,7 +535,7 @@ public class Invoice_Page {
     }
 
     /**
-     * This method is used to verify an invoice in Approved status is present
+     * This method is used to verify an invoice in Approved status is present on the page
      */
     @And("User verifies an invoice in Approved status is present")
     public void user_verifies_an_invoice_in_approved_status_is_present() {

@@ -16,7 +16,7 @@ public class OASYS_CommonUtils {
     }
 
     /**
-     * Waits dynamically for the element to be visible, checks for visibility every 500ms
+     * Waits dynamically for the element to be visible, checks for visibility every 300ms
      * @param selector the selector to wait for
      */
     public static void waitForElementToBeVisible(String selector) {
@@ -25,7 +25,7 @@ public class OASYS_CommonUtils {
                 break;
             }
             try {
-                Thread.sleep(500);
+                Thread.sleep(300);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
