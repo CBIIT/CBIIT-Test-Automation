@@ -2,6 +2,8 @@ package ANALYSIS_TOOLS.ACT24.steps;
 
 import ANALYSIS_TOOLS.ACT24.pages.ACT24ResearcherPortalPlaywrightPage;
 import ANALYSIS_TOOLS.ACT24.stepsImpl.ACT24ResearcherPlaywrightStepImpl;
+import ANALYSIS_TOOLS.ACT24.utils.ACT24ResearcherPlaywright_Constants;
+import APPS_COMMON.PlaywrightUtils.Playwright_Common_Utils;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.web.CommonUtils;
@@ -11,15 +13,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-//import static com.nci.automation.web.TestProperties.getACT24Url;
+import static com.nci.automation.web.TestProperties.getAct24ResearcherUrl;
 
 public class ACT24ResearcherPortalPlaywrightSteps {
 
-//    @Given("User navigates to ACT24 website")
-//    public void user_navigates_to_act24_website() {
-//        PlaywrightUtils.page.navigate(getACT24Url());
-//        CommonUtils.sleep(2000);
-//    }
+    @Given("User navigates to ACT24 website")
+    public void user_navigates_to_act24_website() {
+        PlaywrightUtils.page.navigate(getAct24ResearcherUrl());
+        CommonUtils.sleep(2000);
+    }
 
     /**
      * Entering email and password to login
@@ -245,5 +247,45 @@ public class ACT24ResearcherPortalPlaywrightSteps {
     @Then("User clicks on the search button on the analytics data menu tab")
     public void user_clicks_on_the_search_button_on_the_analytics_data_menu_tab() {
         PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.searchAnalyticsButton).click();
+    }
+
+    /**
+     * Clicking accessibility link and validating it
+     */
+    @Then("User clicks on the accessibility link and verify it in ACT24 website")
+    public void user_clicks_on_the_accessibility_link_and_verify_it_in_act24_website() {
+        Playwright_Common_Utils.clickAndAssertNewPageTitle(ACT24ResearcherPortalPlaywrightPage.accessibilityLink, ACT24ResearcherPlaywright_Constants.ACCESSIBILITY_PAGE_TITLE);
+    }
+
+    /**
+     * Clicking disclaimer link and validating it
+     */
+    @Then("User clicks on the disclaimer link and verify it in ACT24 website")
+    public void user_clicks_on_the_disclaimer_link_and_verify_it_in_act24_website() {
+        Playwright_Common_Utils.clickAndAssertNewPageTitle(ACT24ResearcherPortalPlaywrightPage.disclaimerLink, ACT24ResearcherPlaywright_Constants.DISCLAIMER_PAGE_TITLE);
+    }
+
+    /**
+     * Clicking fios link and validating it
+     */
+    @Then("User clicks on the fios link and verify it in ACT24 website")
+    public void user_clicks_on_the_fios_link_and_verify_it_in_act24_website() {
+        Playwright_Common_Utils.clickAndAssertNewPageTitle(ACT24ResearcherPortalPlaywrightPage.foiaLink, ACT24ResearcherPlaywright_Constants.FOIA_PAGE_TITLE);
+    }
+
+    /**
+     * Clicking hhs vulnerability disclosure link and validating it
+     */
+    @Then("User clicks on the hhs vulnerability disclosure link and verify it in ACT24 website")
+    public void user_clicks_on_the_hhs_vulnerability_disclosure_link_and_verify_it_in_act24_website() {
+        Playwright_Common_Utils.clickAndAssertNewPage(ACT24ResearcherPortalPlaywrightPage.vulnerabilityDisclosure, ACT24ResearcherPlaywright_Constants.HHS_PAGE_TITLE);
+    }
+
+    /**
+     * Clicking privacy and security link and validating it
+     */
+    @Then("User clicks on the privacy and security link and verify it in ACT24 website")
+    public void user_clicks_on_the_privacy_and_security_link_and_verify_it_in_act24_website() {
+        Playwright_Common_Utils.clickAndAssertNewPageTitle(ACT24ResearcherPortalPlaywrightPage.privacyAndSecurity, ACT24ResearcherPlaywright_Constants.PRIVACY_PAGE_TITLE);
     }
 }

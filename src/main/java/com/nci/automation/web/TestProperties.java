@@ -144,6 +144,13 @@ public class TestProperties {
     public static String CERVICAL_CP_URL;
 
     /**
+     * ICDGenie URLS
+     */
+    public static final String ICDGenie_TEST_URL = "https://icdgenie-qa.cancer.gov/";
+    public static final String ICDGenie_STAGE_URL = "https://icdgenie-stage.cancer.gov/";
+    public static String ICDGenie_URL;
+
+    /**
      * EZ-QTL URLS
      */
     public static final String EZ_QTL_TEST_URL = "https://analysistools-qa.cancer.gov/ezqtl/#/home";
@@ -164,16 +171,6 @@ public class TestProperties {
     public static final String NIFE_TEST_URL = "https://nife-qa.cancer.gov/";
     public static final String NIFE_STAGE_URL = "https://nife-stage.cancer.gov/";
     public static String NIFE_URL;
-
-    /**
-     * ACT24 RESEARCHER PORTAL URLS
-     */
-    public static final String ACT_24_RESEARCHER_TEST_URL = "https://act24-test.cancer.gov/act24/researcher/login?";
-    public static final String ACT_24_RESEARCHER_STAGE_URL = "https://act24-stage.cancer.gov/act24/researcher/login?";
-    public static final String ACT_24_PARTICIPANT_TEST_URL = "https://act24-test.cancer.gov/act24/participant/id/252cff45-fc47-4a01-a85a-b51056db7315";
-    public static final String ACT_24_PARTICIPANT_STAGE_URL = "https://act24-stage.cancer.gov/act24/participant/id/252cff45-fc47-4a01-a85a-b51056db7315";
-    public static String ACT_24_RESEARCHER_URL;
-    public static String ACT_24_PARTICIPANT_URL;
 
     /**
      * SEER ODS URLS
@@ -290,6 +287,7 @@ public class TestProperties {
     /**
      * JP-SURV URLS
      */
+    public static String JP_SURV_DEV_URL = "https://analysistools-dev.cancer.gov/jpsurv/";
     public static String JP_SURV_TEST_URL = "https://analysistools-qa.cancer.gov/jpsurv/";
     public static String JP_SURV_STAGE_URL = "https://analysistools-stage.cancer.gov/jpsurv/";
     public static String JP_SURV_URL;
@@ -321,6 +319,13 @@ public class TestProperties {
     public static String MRAT_TEST_URL = "https://mrisktool-qa.cancer.gov/";
     public static String MRAT_STAGE_URL = "https://mrisktool-stage.cancer.gov/";
     public static String MRAT_URL;
+
+    /**
+     * ACT24 URLS
+     */
+    public static String ACT24_RESEARCHER_TEST_URL = "https://act24-test.cancer.gov/act24/researcher/login";
+    public static String ACT24_RESEARCHER_STAGE_URL = "https://act24-stage.cancer.gov/act24/researcher/login";
+    public static String ACT24_RESEARCHER_URL;
 
     public static String getNativeViewSideDoorUrl() {
         switch (ENV.toLowerCase()) {
@@ -544,27 +549,16 @@ public class TestProperties {
         return CERVICAL_CP_URL;
     }
 
-    public static String getAct24ResearcherUrl() {
+    public static String getICDGenieUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
-                ACT_24_RESEARCHER_URL = ACT_24_RESEARCHER_STAGE_URL;
+                ICDGenie_URL = ICDGenie_STAGE_URL;
                 break;
             case "test":
-                ACT_24_RESEARCHER_URL = ACT_24_RESEARCHER_TEST_URL;
+                ICDGenie_URL = ICDGenie_TEST_URL;
                 break;
         }
-        return ACT_24_RESEARCHER_URL;
-    }
-    public static String getAct24ParticipantUrl() {
-        switch (ENV.toLowerCase()) {
-            case "stage":
-                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_STAGE_URL;
-                break;
-            case "test":
-                ACT_24_PARTICIPANT_URL = ACT_24_PARTICIPANT_TEST_URL;
-                break;
-        }
-        return ACT_24_PARTICIPANT_URL;
+        return ICDGenie_URL;
     }
 
     public static String getSeerOdsUrl() {
@@ -776,6 +770,9 @@ public class TestProperties {
             case "test":
                 JP_SURV_URL = JP_SURV_TEST_URL;
                 break;
+            case "dev":
+                JP_SURV_URL = JP_SURV_DEV_URL;
+                break;
         }
         return JP_SURV_URL;
     }
@@ -868,5 +865,17 @@ public class TestProperties {
                 break;
         }
         return AWARD_NOMINATION_ADMIN_GROUP_URL;
+    }
+
+    public static String getAct24ResearcherUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                ACT24_RESEARCHER_URL = ACT24_RESEARCHER_STAGE_URL;
+                break;
+            case "test":
+                ACT24_RESEARCHER_URL = ACT24_RESEARCHER_TEST_URL;
+                break;
+        }
+        return ACT24_RESEARCHER_URL;
     }
 }

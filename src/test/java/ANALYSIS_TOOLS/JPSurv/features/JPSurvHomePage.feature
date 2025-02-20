@@ -1,6 +1,6 @@
 Feature: These are the scenarios for the Home page on the JPSurv Application
 
-    @Smoke @matakevin @selenium
+    @Smoke @Regression @matakevin @selenium
     Scenario: User Uploads example Dic and Txt File
         Given the user is on the JPSurv homepage
         When user selects Dic and Txt file
@@ -12,7 +12,7 @@ Feature: These are the scenarios for the Home page on the JPSurv Application
         And user click calculate button
         Then user verify survival vs year at diagnosis tab displayed
 
-    @Smoke @matakevin @selenium
+    @Smoke @Regression @matakevin @selenium
     Scenario: User Uploads example Dic and Txt File and selects Site recode NHL and CML
         Given the user is on the JPSurv homepage
         When user selects Dic and Txt file
@@ -25,7 +25,7 @@ Feature: These are the scenarios for the Home page on the JPSurv Application
         And user click calculate button
         Then user verify survival vs year at diagnosis tab displayed
 
-    @Smoke @matakevin @selenium
+    @Smoke @Regression @matakevin @selenium
     Scenario: User Uploads example Dic and Txt File  for email
         Given the user is on the JPSurv homepage
         When user selects Dic and Txt file
@@ -34,7 +34,7 @@ Feature: These are the scenarios for the Home page on the JPSurv Application
         And click submit
         Then verify email send
 
-    @Smoke @matakevin @selenium
+    @Smoke @Regression @matakevin @selenium
     Scenario: User Upload example CSV file
         Given the user is on the JPSurv homepage
         When user selects CSV Files
@@ -58,14 +58,14 @@ Feature: These are the scenarios for the Home page on the JPSurv Application
         And user click calculate button
         Then user verify survival vs year at diagnosis tab displayed
 
-    @Smoke @matakevin @selenium
+    @Smoke @Regression @matakevin @selenium
     Scenario: User Upload workspace file
         Given the user is on the JPSurv homepage
         When user selects workspace
         And user clicks import
         Then workspace results display
 
-    @Smoke @matakevin @selenium
+    @Smoke @Regression @matakevin @selenium
     Scenario: User Click Reset Button
         Given the user is on the JPSurv homepage
         When user selects Dic and Txt file
@@ -75,7 +75,7 @@ Feature: These are the scenarios for the Home page on the JPSurv Application
         And click Reset
         Then page is reset
 
-    @Smoke @matakevin @selenium
+    @Smoke @Regression @matakevin @selenium
     Scenario: User Click Download Full Dataset
         Given the user is on the JPSurv homepage
         When user selects Dic and Txt file
@@ -85,7 +85,7 @@ Feature: These are the scenarios for the Home page on the JPSurv Application
         And click download full dataset button
         Then verify dataset download "JPSurv-Tutorial_JPSURV.xlsx"
 
-    @Smoke @matakevin @selenium
+    @Smoke @Regression @matakevin @selenium
     Scenario: User Uploads non-example Dic and Txt File
         Given the user is on the JPSurv homepage
         When user selects non-example Dic and Txt file
@@ -93,7 +93,7 @@ Feature: These are the scenarios for the Home page on the JPSurv Application
         And select Calculate
         Then user verify survival vs year at diagnosis tab displayed
 
-    @Smoke @matakevin @selenium
+    @Smoke @Regression @matakevin @selenium
     Scenario: User Uploads non-example workspace
         Given the user is on the JPSurv homepage
         When user selects non-example workspace

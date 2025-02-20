@@ -1,8 +1,5 @@
 package APPS_COMMON.PageInitializers;
 
-import ANALYSIS_TOOLS.ACT24.pages.*;
-import ANALYSIS_TOOLS.ACT24.stepsImpl.ACT24ParticipantStepImpl;
-import ANALYSIS_TOOLS.ACT24.stepsImpl.ACT24ResearcherStepImpl;
 import ANALYSIS_TOOLS.CometsExplorer.pages.*;
 import ANALYSIS_TOOLS.CometsAnalytics.pages.*;
 import ANALYSIS_TOOLS.CometsAnalytics.stepsImplementation.*;
@@ -334,12 +331,6 @@ public class PageInitializer extends WebDriverUtils {
 	/** CProSite instances **/
 	public static CProSiteExplorePage cProSiteExplorePage;
 
-	/** ACT24 instances **/
-	public static ACT24ParticipantPortalPage act24ParticipantPortalPage;
-	public static ACT24ResearcherPortalPage act24ResearcherPortalPage;
-	public static ACT24ResearcherStepImpl act24ResearcherStepImpl;
-	public static ACT24ParticipantStepImpl act24ParticipantStepImpl;
-
 	/** GWAS Target instances **/
 	public static GWASTargetHomePages gwasTargetHomePages;
 	public static GWASTargetAnalysisPages gwasTargetAnalysisPages;
@@ -587,12 +578,6 @@ public class PageInitializer extends WebDriverUtils {
 		ezQTLAnalysesPage = new EZQTLAnalysesPage();
 		ezQTLDocumentationPage = new EZQTLDocumentationPage();
 		ezQTLPublicDataSourcePage = new EZQTLPublicDataSourcePage();
-
-		/** ACT24 Instance Variables **/
-		act24ParticipantPortalPage = new ACT24ParticipantPortalPage();
-		act24ResearcherPortalPage = new ACT24ResearcherPortalPage();
-		act24ResearcherStepImpl = new ACT24ResearcherStepImpl();
-		act24ParticipantStepImpl = new ACT24ParticipantStepImpl();
 
 		/** GWAS Explorer Instance Variables **/
 		exploreGWASPage = new ExploreGWASPage();
