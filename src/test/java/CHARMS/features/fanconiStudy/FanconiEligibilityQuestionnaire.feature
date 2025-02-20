@@ -22,7 +22,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
       | Email                         | Password  | ConsentCollectionMethod | FanconiScenario |
       | sj.fanconitester1@yopmail.com | Test123$$ | iMed                    | 0               |
 
-  @jains @FanconiSubmission @CP2-1949 @Fanconi_Regression1 @selenium @Smoke
+  @jains @FanconiSubmission @CP2-1949 @Fanconi_Regression @selenium @Smoke
   Scenario Outline: Participant fills the Fanconi screener by the Proband for scenario 2
     Given a Participant is on the Fanconi Study login page
     And logs in Fanconi page via Okta with username "<Email>" and password "<Password>"
