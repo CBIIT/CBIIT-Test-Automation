@@ -99,7 +99,9 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
      */
     @When("selects grant year 18 from Years")
     public void selects_year_18() {
-        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.year18);
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.expandAllGrantYearsButton);
+        CommonUtils.sleep(500);
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.grantYear18);
         CommonUtils.sleep(2000);
     }
 
@@ -525,6 +527,7 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
      */
     @And("provides {string} as the label")
     public void provides_as_the_label(String automated) {
+        CommonUtils.sleep(3000);
         CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.requestNameTextBox, automated);
         CucumberLogUtils.logScreenshot();
     }
@@ -543,16 +546,16 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
      */
     @Then("verifies the added label")
     public void verifies_the_added_label() {
+        CommonUtils.sleep(4000);
         String addedLabel = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.labelText);
         softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.labelText.getText().contains(addedLabel), "*** REQUEST NAME TEXT DOES NOT MATCH ***");
-        CucumberLogUtils.logScreenshot();
     }
 
     /**
      * This method is used to click on Edit Request Name button
      */
-    @And("clicks on Edit Edit Request Name button")
-    public void clicks_on_edit_edit_request_name_button() {
+    @And("clicks on Edit Request Name button")
+    public void clicks_on_edit_request_name_button() {
         CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.editRequestNameButton);
         CucumberLogUtils.logScreenshot();
     }
@@ -563,6 +566,7 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
      */
     @And("provides new {string} as the label")
     public void provides_new_as_the_label(String newLabel) {
+        CommonUtils.sleep(2000);
         CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.requestNameTextBox, newLabel);
         CucumberLogUtils.logScreenshot();
     }
@@ -574,7 +578,6 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     public void verifies_the_edited_label() {
         String editedLabel = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.labelText);
         softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.labelText.getText().contains(editedLabel), "*** REQUEST NAME TEXT DOES NOT MATCH ***");
-        CucumberLogUtils.logScreenshot();
     }
 
     /**

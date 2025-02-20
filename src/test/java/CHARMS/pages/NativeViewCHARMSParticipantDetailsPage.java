@@ -85,6 +85,18 @@ public class NativeViewCHARMSParticipantDetailsPage {
     @FindBy(xpath = "//*[@data-list_id='x_naci_family_coho_family_history_details.x_naci_family_coho_cgb_iiq.participant']//child::tbody//child::tr//child::td[2]//child::a")
     public WebElement cgbIiqPreviewButton;
 
+    /**
+     * Consent added! message text
+     */
+    @FindBy(xpath = "//div[@class='outputmsg_text']")
+    public WebElement consentAddedMessageText;
+
+    /**
+     * Assent signed checkbox
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_study.assent_signed']")
+    public WebElement assentSignedCheckBox;
+
     public NativeViewCHARMSParticipantDetailsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

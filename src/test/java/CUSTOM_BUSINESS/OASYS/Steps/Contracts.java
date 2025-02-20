@@ -850,11 +850,11 @@ public class Contracts {
     /**
      * This method is signing in the application as TEST COR
      */
-    @When("a user with Test COR logs in the application")
-    public void a_user_with_test_cor_logs_in_the_application() {
+    @When("User logs in as Test COR on the side login page")
+    public void user_logs_in_as_test_cor_on_the_side_login_page() {
         page.navigate(OASYS_Constants.OASYS_SIDE_LOGIN);
         page.getByLabel("UserName").click();
-        page.getByLabel("UserName").fill(OASYS_Constants.OASYS_TEST_USERNAME);
+        page.getByLabel("UserName").fill(OASYS_Constants.OASYS_TEST_COR);
         page.getByLabel("Password").click();
         page.getByLabel("Password").fill(OASYS_Constants.OASYS_TEST_PASSWORD);
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login")).click();

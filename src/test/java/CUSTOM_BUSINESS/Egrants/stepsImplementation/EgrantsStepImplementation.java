@@ -179,8 +179,9 @@ public class EgrantsStepImplementation extends PageInitializer {
 	public static void uploads_a_file() {
 		CommonUtils.sleep(7000);
 		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.chooseFile, Egrants_Constants.TEST_FILE_PATH);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addFileButton);
-		CommonUtils.sleep(5000);
+		CommonUtils.sleep(7000);
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -201,9 +202,9 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void verifies_the_success_message(String uploadSuccessMessage) {
 		String actualSuccessMessage = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.successMessage);
+		CommonUtils.sleep(7000);
 		Hooks.softAssert.assertEquals(actualSuccessMessage, uploadSuccessMessage);
 		System.out.println(uploadSuccessMessage);
-		CucumberLogUtils.logScreenshot();
 	}
 
 	/***
@@ -213,8 +214,8 @@ public class EgrantsStepImplementation extends PageInitializer {
 		String emWindowHandle = WebDriverUtils.webDriver.getWindowHandle();
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.checkDocumentButton);
 		CommonUtils.switchToNextWindow();
-		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
+		CommonUtils.sleep(3000);
 	}
 
 	/***

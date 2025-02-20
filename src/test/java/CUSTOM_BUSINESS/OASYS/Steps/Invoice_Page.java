@@ -18,8 +18,8 @@ public class Invoice_Page {
     /**
      * This method is used to navigate to the Invoice page
      */
-    @When("User clicks on Invoice")
-    public void user_clicks_on_invoice() {
+    @When("User clicks on Invoice Page")
+    public void user_clicks_on_invoice_page() {
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Invoice")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -182,7 +182,7 @@ public class Invoice_Page {
      */
     @And("User clicks on a submitted Invoice")
     public void user_clicks_on_a_submitted_invoice() {
-        page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("INV-TEST001")).click();
+        page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("INV-TEST001")).first().click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -261,6 +261,252 @@ public class Invoice_Page {
     @Then("User clicks on Save button")
     public void user_clicks_on_save_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on an invoice in Submitted status
+     */
+    @And("User clicks on an invoice in Submitted status")
+    public void user_clicks_on_an_invoice_in_submitted_status() {
+        page.getByText("PLEASE DO NOT DELETE").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the VOID INVOICE button
+     */
+    @And("User clicks on VOID INVOICE button")
+    public void user_clicks_on_void_invoice_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Void Invoice").setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select the reason for voiding the invoice
+     */
+    @And("User selects Duplicate Invoice as the reason from the drop down")
+    public void user_selects_duplicate_invoice_as_the_reason_from_the_drop_down() {
+        page.getByLabel("Select Void Reason").locator("span").click();
+        page.locator("xpath=//span[normalize-space()='Duplicate invoice']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the Void button
+     */
+    @Then("User clicks on Void button")
+    public void user_clicks_on_void_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Void")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the invoice in voided status
+     */
+    @And("User clicks on the reviewed Invoice")
+    public void user_clicks_on_the_reviewed_invoice() {
+        page.getByText("PLEASE DO NOT DELETE").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to verify the invoice status
+     */
+    @And("User verifies the invoice status")
+    public void user_verifies_the_invoice_status() {
+        String actualStatus = page.locator("dynamic-detail-header").innerText();
+        if (!actualStatus.contains("VOIDED")) {
+            System.out.println("*** ACTUAL STATUS: " + actualStatus + " ***");
+        }
+        assertThat(page.locator("dynamic-detail-header")).containsText("VOIDED");
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the VOID INVOICE button when the invoice is in voided status
+     */
+    @Then("User tries to click on Void button")
+    public void user_tries_to_click_on_void_button() {
+        boolean isVoidInvoiceButtonVisible = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Void Invoice").setExact(true)).isVisible();
+        if (isVoidInvoiceButtonVisible) {
+            System.out.println("*** THE INVOICE IS NOT IN VOIDED STATUS ***");
+        }
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Void Invoice").setExact(true))).isHidden();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click the voided invoice
+     */
+    @And("User clicks on the voided invoice")
+    public void user_clicks_on_the_voided_invoice() {
+        page.getByText("PLEASE DO NOT DELETE").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the RESTORE INVOICE button
+     */
+    @And("User clicks on RESTORE INVOICE button")
+    public void user_clicks_on_restore_invoice_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Restore Invoice").setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to acknowledge the message by clicking on the Continue button
+     */
+    @And("User clicks on Continue button to acknowledge the message")
+    public void user_clicks_on_continue_button_to_acknowledge_the_message() {
+        assertThat(page.locator("restore-invoice-dialog")).containsText("Are you sure you want to restore this invoice?");
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Continue")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to verify the invoice status is changed to Submitted
+     */
+    @Then("User verifies the invoice status is changed to {string}")
+    public void user_verifies_the_invoice_status_is_changed_to_submitted(String Status) {
+        assertThat(page.locator("dynamic-detail-header")).containsText(Status);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is signing in the application as TEST CO
+     */
+    @When("User logs in as Test CO on the side login page")
+    public void user_logs_in_as_test_co_on_the_side_login_page() {
+        page.navigate(OASYS_Constants.OASYS_SIDE_LOGIN);
+        page.getByLabel("UserName").click();
+        page.getByLabel("UserName").fill(OASYS_Constants.OASYS_TEST_CO);
+        page.getByLabel("Password").click();
+        page.getByLabel("Password").fill(OASYS_Constants.OASYS_TEST_PASSWORD);
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the Contract Administration
+     */
+    @When("User clicks on Contract Administration")
+    public void user_clicks_on_contract_administration() {
+        page.getByText("Contract Administrationkeyboard_arrow_down").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on Assigned PLINS tab
+     */
+    @When("User clicks on Assigned PLINS tab")
+    public void user_clicks_on_assigned_plins_tab() {
+        page.getByText("Assigned Plins").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on Assing PLINS button
+     */
+    @When("User clicks on Assign PLINS button")
+    public void user_clicks_on_assign_plins_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Assign PLINs")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on ADD PLIN button
+     */
+    @When("User clicks on ADD PLIN")
+    public void user_clicks_on_add_plin() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add PLIN")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select the PLIN Number, if there is already one, then select the next one
+     */
+    @When("User selects the PLIN Number")
+    public void user_selects_the_plin_number() {
+        page.getByLabel("PLIN # *").getByText("PLIN # *").click();
+        if (page.getByText("1PLIN # *").isVisible()) {
+            page.getByText("2", new Page.GetByTextOptions().setExact(true)).first().click();
+        } else {
+            page.getByText("1", new Page.GetByTextOptions().setExact(true)).first().click();
+        }
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select the CAN Number, if there is already one, then select the next one
+     */
+    @When("User selects the CAN Number")
+    public void user_selects_the_can_number() {
+        page.getByLabel("CAN # *").getByText("CAN # *").click();
+        if (page.getByText("8021461CAN # *").isVisible()) {
+            page.getByText("8019057").click();
+        } else {
+            page.getByText("8021461").click();
+        }
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to enter the Amount, if there is already one, then enter the next one
+     */
+    @When("User enters the amount")
+    public void user_enters_the_amount() {
+        Locator amountInputs = page.getByLabel("Amount *");
+        if (amountInputs.count() == 2) {
+            if (!amountInputs.nth(0).inputValue().isEmpty()) {
+                amountInputs.nth(1).clear();
+                amountInputs.nth(1).type("0");
+            } else {
+                amountInputs.nth(0).clear();
+                amountInputs.nth(0).type("200");
+            }
+        } else {
+            amountInputs.first().clear();
+            amountInputs.first().type("200");
+        }
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the APPROVE button in the upper right corner of the page
+     */
+    @When("User clicks on APPROVE button in the upper right corner of the page")
+    public void user_clicks_on_approve_button_in_the_upper_right_corner_of_the_page() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Approve")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to enter the Comments
+     * @param Comments
+     */
+    @When("User types {string} in Comments")
+    public void user_types_approved_in_comments(String Comments) {
+        page.getByLabel("Comments").click();
+        page.getByLabel("Comments").fill(Comments);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to check the box for Confirm Approval
+     */
+    @When("User checks the box for Confirm Approval")
+    public void user_will_check_the_box_for_confirm_approval() {
+        page.locator(".mat-checkbox-inner-container").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the APPROVE button
+     */
+    @Then("User clicks on APPROVE button")
+    public void user_will_click_on_approve_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Approve")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }

@@ -1,7 +1,7 @@
 Feature: RAS Consent Scenarios
   Description: This feature file contains scenarios which verify data in myRas portal and Native View Participant Details/Consent Record.
 
-  @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3637 @CP2-3680 @CP2-3825 @CP2-3640 @CP2-3805 @CP2-3935 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3637 @CP2-3680 @CP2-3825 @CP2-3640 @CP2-3805 @CP2-3935 @selenium @RAS_Regression1
   Scenario Outline: Verifying e-consent workflow, and then verifying that a Download Study Consent widget shows on portal and when clicked downloads the most recent Consent Record
     Given test automation account "<AccountResetScriptURL>" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -20,7 +20,7 @@ Feature: RAS Consent Scenarios
       | Email                           | Password   | ScreenerScenario      | ConsentStatus | ConsentType | ResponseType     | AccountResetScriptURL                                                                                    |
       | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | Complete      | Adult       | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
-  @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3680 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3680 @selenium @RAS_Regression1
   Scenario Outline: Verifying consent workflows for an adult participant, and then verifying that a Download Study Consent widget shows on portal and when clicked downloads the most recent Consent Record
     Given test automation account "<AccountResetScriptURL>" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -37,7 +37,7 @@ Feature: RAS Consent Scenarios
       | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | Complete      | Adult       | iMed                         | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
       | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | Complete      | Adult       | Mail/Fax/Email/Other         | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
-  @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3637 @CP2-3738 @CP2-3751 @CP2-3738 @CP2-3808 @CP2-3758 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3637 @CP2-3738 @CP2-3751 @CP2-3738 @CP2-3808 @CP2-3758 @selenium @RAS_Regression1
   Scenario Outline: Verifying e-consent workflow for minors aged 11-13, and then verifying that Download Study Consent/Assent widgets show on portal and when clicked download the most recent Consent/Assent Record
     Given test automation account "<AccountResetScriptURL>" has been reset
     And a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -76,7 +76,7 @@ Feature: RAS Consent Scenarios
       | Email                           | Password   | ScreenerScenario         | ConsentStatus | ConsentType                          | ResponseType     | AccountResetScriptURL                                                                                    |
       | consent_participant@yopmail.com | Charms123$ | screenerScenarioAge11-13 | Complete      | Aged 11 - 13, signed assent required | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
-  @muzipovay2 @RAS_STUDY @CP2-3730 @CP2-3746 @CP2-3747 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3730 @CP2-3746 @CP2-3747 @selenium @RAS_Regression1
   Scenario: Verifying that when a minor aged 11-13 has completed Assent, the field Assent signed is true in their Native View Consent Record
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     And a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -102,12 +102,11 @@ Feature: RAS Consent Scenarios
     And a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And participant clicks on Study Assent and completes form with "Charms123$"
-    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-    And logs in via Okta with username "ras_progression@yopmail.com" and password "Charms123$"
     And participant logs out of RAS portal
     Then Study Team member logs in to Native View and verifies that the field Assent signed is true "screenerScenarioAge11-13"
+    Then Study Team member logs out of Native View
 
-  @muzipovay2 @RAS_STUDY @CP2-3703 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3703 @selenium @RAS_Regression1
   Scenario Outline: Verifying that Adult/Minor participants can complete the Eligibility Questionnaire
     Given test automation account "<AccountResetScriptURL>" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -124,7 +123,7 @@ Feature: RAS Consent Scenarios
       | consent_participant@yopmail.com | Charms123$ | screenerScenarioAge11-13       | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
       | consent_participant@yopmail.com | Charms123$ | screenerScenarioAge14-17       | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
-  @muzipovay2 @RAS_STUDY @CP2-3737 @CP2-3908 @CP2-3909 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3737 @CP2-3908 @CP2-3909 @selenium @RAS_Regression1
   Scenario: Verifying that sign consent dialog adds a checkbox if the consent type is Aged 14 - 17 in SN portal
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     And a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -151,7 +150,7 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And proxy clicks on Study Consent and completes form with "Charms123$" "screenerScenarioAge14-17"
 
-  @muzipovay2 @RAS_STUDY @CP2-3725 @CP2-993 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3725 @CP2-993 @selenium @RAS_Regression1
   Scenario: Verifying that two new fields display below the Interpreter Used? selection in the Participant's Consent Record in SN when the Response Type is not iMed
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -176,7 +175,7 @@ Feature: RAS Consent Scenarios
     And verifies that Consent Assent category auto-populated to "Adult"
     And presses the Call Complete button
 
-  @muzipovay2 @RAS_STUDY @CP2-3794 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3794 @selenium @RAS_Regression1
   Scenario: Verifying that Parent/Guardian 1 Signed, Parent/Guardian 2 Signed fields for Adult consent type are disabled.
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -191,7 +190,7 @@ Feature: RAS Consent Scenarios
     And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAdult"
     Then Study Team member verifies that Consent Status equals "Awaiting PI Signature", Consent Type equals "Adult", and that Parent Guardian fields are disabled
 
-  @muzipovay2 @RAS_STUDY @CP2-3949 @CP2-3950 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3949 @CP2-3950 @selenium @RAS_Regression1
   Scenario: Verifying that "Consent/Assent Obtained Before Study Procedures" and "Copy of Signed/Dated Consent/Assent Given to Participant" dropdowns are mandatory when Sign and Complete (for E-Consent) is clicked.
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -206,7 +205,7 @@ Feature: RAS Consent Scenarios
     And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAdult"
     And PI verifies that the fields ConsentAssent Obtained Before Study Procedures and Copy of SignedDated ConsentAssent Given to Participant must be answered before clicking Sign and Complete
 
-  @muzipovay2 @RAS_STUDY @CP2-3982 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3982 @selenium @RAS_Regression1
   Scenario: Verifying that when Consent/Assent category is "Aged 7 - 10, verbal assent required", then a new field "Was verbal assent obtained?" displays on the Consent Form in Native View.
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     And a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -243,7 +242,7 @@ Feature: RAS Consent Scenarios
     And selects "Yes" for Age-appropriate assent obtained
     Then Study Team member presses Sign and Complete
 
-  @muzipovay2 @RAS_STUDY @CP2-3794 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-3794 @selenium @RAS_Regression1
   Scenario: Verifying consent workflow for Consent/Assent Category "Adult-Needs LAR".
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -279,7 +278,7 @@ Feature: RAS Consent Scenarios
     And selects "Yes" for Copy of Signed Dated Consent Assent Given to Participant
     Then Study Team member presses Sign and Complete
 
-  @muzipovay2 @RAS_STUDY @CP2-4088 @CP2-4198 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-4088 @CP2-4198 @selenium @RAS_Regression1
   Scenario: Completing Physical Activities Survey
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -319,7 +318,7 @@ Feature: RAS Consent Scenarios
     And participant logs out of RAS portal
     And Study Team members logs in to Native View and verifies "Physical Activities Survey" QBank data
 
-  @muzipovay2 @RAS_STUDY @CP2-4000 @selenium @RAS_Regression
+  @muzipovay2 @RAS_STUDY @CP2-4000 @selenium @RAS_Regression1
   Scenario: Completing Patient Smoking History survey
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"

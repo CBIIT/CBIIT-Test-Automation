@@ -24,7 +24,7 @@ public class TestProperties {
      */
     public static final String NATIVE_VIEW_SIDE_DOOR_STAGE_URL = "https://service-stage.nci.nih.gov/side_door.do";
     public static final String NATIVE_VIEW_SIDE_DOOR_TEST_URL = "https://service-test.nci.nih.gov/side_door.do";
-    public static final String NATIVE_VIEW_SIDE_DOOR_SANDBOX_URL = "https://service-test.nci.nih.gov/side_door.do";
+    public static final String NATIVE_VIEW_SIDE_DOOR_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/side_door.do";
     public static String NATIVE_VIEW_SIDE_DOOR_URL;
 
     /**
@@ -142,6 +142,13 @@ public class TestProperties {
     public static final String CERVICAL_CP_TEST_URL = "https://globalcxca-qa.cancer.gov/";
     public static final String CERVICAL_CP_STAGE_URL = "https://globalcxca-stage.cancer.gov/";
     public static String CERVICAL_CP_URL;
+
+    /**
+     * ICDGenie URLS
+     */
+    public static final String ICDGenie_TEST_URL = "https://icdgenie-qa.cancer.gov/";
+    public static final String ICDGenie_STAGE_URL = "https://icdgenie-stage.cancer.gov/";
+    public static String ICDGenie_URL;
 
     /**
      * EZ-QTL URLS
@@ -290,6 +297,7 @@ public class TestProperties {
     /**
      * JP-SURV URLS
      */
+    public static String JP_SURV_DEV_URL = "https://analysistools-dev.cancer.gov/jpsurv/";
     public static String JP_SURV_TEST_URL = "https://analysistools-qa.cancer.gov/jpsurv/";
     public static String JP_SURV_STAGE_URL = "https://analysistools-stage.cancer.gov/jpsurv/";
     public static String JP_SURV_URL;
@@ -544,6 +552,18 @@ public class TestProperties {
         return CERVICAL_CP_URL;
     }
 
+    public static String getICDGenieUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                ICDGenie_URL = ICDGenie_STAGE_URL;
+                break;
+            case "test":
+                ICDGenie_URL = ICDGenie_TEST_URL;
+                break;
+        }
+        return ICDGenie_URL;
+    }
+
     public static String getAct24ResearcherUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
@@ -775,6 +795,9 @@ public class TestProperties {
                 break;
             case "test":
                 JP_SURV_URL = JP_SURV_TEST_URL;
+                break;
+            case "dev":
+                JP_SURV_URL = JP_SURV_DEV_URL;
                 break;
         }
         return JP_SURV_URL;
