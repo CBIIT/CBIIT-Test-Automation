@@ -8,7 +8,7 @@ Feature: RAS Native View Verification Scenarios
     And Study Team member deletes record so that the test can be run again
     Examples:
       | Existing FSID | Study     | Study Subcategory | Relationship to Proband | First Name         | Last Name      |
-#      |               | RASopathy | All               | Proband                 | ParticipantProband | NoExistingFSID |
+      |               | RASopathy | All               | Proband                 | ParticipantProband | NoExistingFSID |
       |               | Metformin | All               | Other                   | ParticipantOther   | NoExistingFSID |
       |               | Fanconi   | All               | Unknown                 | ParticipantUnknown | NoExistingFSID |
       | 09949-01-001  | RASopathy | All               | Other                   | ParticipantOther   | ExistingFSID   |
