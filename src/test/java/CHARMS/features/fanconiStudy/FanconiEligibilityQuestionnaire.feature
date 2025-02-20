@@ -3,7 +3,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
   Description:This feature file has different submissions and assertion scenarios for the Fanconi Eligibility Questionnaire by the proband and the legal guardian (Proxy)
 
   @jains @FanconiSubmission @CP2-1949 @Fanconi_Regression @selenium @Smoke
-  Scenario: Participant fills the Fanconi screener by the Proband for scenario 1
+  Scenario: Reset the test accounts
     Given run the Fanconi reset script to reset the accounts
 
   @jains @FanconiSubmission @CP2-1949 @Fanconi_Regression @selenium @Smoke
