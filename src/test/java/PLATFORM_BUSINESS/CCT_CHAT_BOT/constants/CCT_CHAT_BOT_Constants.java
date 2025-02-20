@@ -29,9 +29,6 @@ public class CCT_CHAT_BOT_Constants {
     /* NATIVE VIEW CCT CHAT WINDOW QUESTION ONE TEXT  */
     public static final String NV_CCT_CHAT_WINDOW_Q_ONE_TEXT = "NCI offers fellowships, research career development awards and education and training grants in all areas of cancer research. Each opportunity has certain eligibility criteria. May I help you find funding opportunities you could apply for?";
 
-    /* NATIVE VIEW CCT CHAT WINDOW QUESTION OPTION YES TEXT  */
-    public static final String NV_CCT_CHAT_WINDOW_Q_OPTION_YES_TEXT = "Yes";
-
     /* NATIVE VIEW CCT CHAT WINDOW QUESTION TWO TEXT  */
     public static final String NV_CCT_CHAT_WINDOW_Q_TWO_TEXT = "Select the career stage most applicable to you.";
 
