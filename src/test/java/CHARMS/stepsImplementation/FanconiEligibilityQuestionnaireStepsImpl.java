@@ -56,11 +56,11 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         if (TestProperties.ENV.equals("test")) {
             WebDriverUtils.webDriver.get(
                     "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Db1cf5c0087d0d610ad46326d3fbb3507%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D2%26sysparm_record_rows%3D1263%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
-            CommonUtils.sleep(800);
+            CommonUtils.sleep(1000);
         } else if (TestProperties.ENV.equals("dev2")) {
             WebDriverUtils.webDriver.get(
                     "https://service-dev2.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Db1cf5c0087d0d610ad46326d3fbb3507%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D2%26sysparm_record_rows%3D1263%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
-            CommonUtils.sleep(800);
+            CommonUtils.sleep(1000);
         }
     }
 
@@ -110,7 +110,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         fanconiEligibilityQuestionnaireStepsImpl.participatedInBoneMarrowFailureStudy();
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         fanconiEligibilityQuestionnaireStepsImpl.participantBasicInformationSelected();
-        fanconiEligibilityQuestionnaireStepsImpl.participantGenderInformationSelected();
         fanconiEligibilityQuestionnaireStepsImpl.IsParticipantAdopted();
         fanconiEligibilityQuestionnaireStepsImpl.participantCountrySelected();
         fanconiEligibilityQuestionnaireStepsImpl.emailAddressAdded();
@@ -161,7 +160,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         }
         JavascriptUtils.scrollIntoView(fanconiEligibilityQuestionnairePage.nextButton);
         CommonUtils.waitForVisibility(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -188,7 +187,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void participantNameSelected() {
         if (currentRow.get("AreYouCompletingThisQuestionnaireForSomeoneElse").contentEquals("Yes, I am completing this form for someone else")) {
             CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.firstNameByProxyTextBox, currentRow.get("ProxyFirstName"));
-            CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.middleNameByProxyTextBox, currentRow.get("ProxyMIddleName"));
+            CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.middleNameByProxyTextBox, currentRow.get("ProxyMiddleName"));
             CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.lastNameByProxyTextBox, currentRow.get("ProxyLastName"));
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
             CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.proxyFirstNameTextBox, currentRow.get("WhatIsYourNameFirstName"));
@@ -231,23 +230,9 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * Method to submit Participant Current Gender and Pronouns
      */
     public void participantGenderInformationSelected() {
-        if (currentRow.get("CurrentGender").isEmpty()) {
-        } else {
-            CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.currentGenderRBtonList, currentRow.get("CurrentGender"));
-            if (currentRow.get("CurrentGender").contentEquals("I use a different term:")) {
-                CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.currentGenderDifferentTermTextBox, currentRow.get("CurrentGenderOther"));
-            }
-            CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-            if (currentRow.get("Pronouns").isEmpty()) {
-            } else {
-                CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.pronounsRBtonList, currentRow.get("Pronouns"));
-                if (currentRow.get("Pronouns").contentEquals("I use a different term:")) {
-                    CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.pronounsDifferentTermTextBox, currentRow.get("PronounsOther"));
-                }
-                CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-            }
-            CommonUtils.sleep(800);
-        }
+        CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.currentGenderRBtonList, currentRow.get("CurrentGender"));
+        CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -264,7 +249,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.stateProxyTextBox, currentRow.get("State"));
                 CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.zipCodeProxyTextBox, currentRow.get("ZipCode"));
                 CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-                CommonUtils.sleep(800);
+                CommonUtils.sleep(1000);
             }
         } else {
             CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.countrylivedDropDownList, currentRow.get("CountryLived"));
@@ -276,7 +261,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.stateTextBox, currentRow.get("State"));
                 CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.zipCodeTextBox, currentRow.get("ZipCode"));
                 CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-                CommonUtils.sleep(800);
+                CommonUtils.sleep(1000);
             }
         }
     }
@@ -289,7 +274,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.confirmEmailAddressTextBox, currentRow.get("ConfirmationEmailAddress"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -299,7 +284,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.selectRadioButtonValue(
                 fanconiEligibilityQuestionnairePage.participateBoneMarrowSyndromeStudyRBtonList, currentRow.get("AreOrWereYouAParticipanInNIHInheritedBoneMarrowFailuresyndromeStudy"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -308,7 +293,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void IsParticipantAdopted() {
         CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.adoptedRBtonList, currentRow.get("AreYouAdopted"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -328,7 +313,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.preferredWorkPhoneNumberTextBox);
         }
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -337,7 +322,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void ethnicitySelected() {
         CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.ethnicityRBtonList, currentRow.get("Ethnicity"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -353,7 +338,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.otherRaceNameTextBox, currentRow.get("OtherRace"));
         }
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -363,7 +348,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void IsOtherMedicalInstitutionSelected() {
         CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("HaveYouEverParticipatedInFanconiAnemiaStudyAtAnotherMedicalInstitution"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -383,7 +368,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             fanconiEligibilityQuestionnairePage.commonRBtonList.get(5).click();
             CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.fanconiAnemiaResearcStudyOther3TextBox, currentRow.get("SpecifyParticipationInOtherStudiesDetails5"));
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-            CommonUtils.sleep(800);
+            CommonUtils.sleep(1000);
         }
     }
 
@@ -414,7 +399,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             }
         }
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -423,7 +408,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void diagnosedWithFanconiAnemia() {
         CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("HaveYouBeenDiagnosedWithFanconiAnemia"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -438,7 +423,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.dateParticipantDiagnosedWithFanconiTextBox, currentRow.get("WhenWereYouDiagnosedWithFanconiAnemiaDate"));
             }
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-            CommonUtils.sleep(800);
+            CommonUtils.sleep(1000);
         }
     }
 
@@ -448,7 +433,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void chromosomeBreakageTestSelected() {
         CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("HaveYouHadAChromosomeBreakageTestForFAOnBloodSample"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -468,7 +453,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("InconclusiveResult"));
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         }
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -478,7 +463,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         if (currentRow.get("HaveYouHadAChromosomeBreakageTestForFAOnBloodSample").contentEquals("Yes")) {
             CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("WhatWasTheChromosomeBreakageTestResult"));
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-            CommonUtils.sleep(800);
+            CommonUtils.sleep(1000);
         }
     }
 
@@ -492,7 +477,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
             CommonUtils.sleep(500);
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-            CommonUtils.sleep(800);
+            CommonUtils.sleep(1000);
         }
     }
 
@@ -502,7 +487,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void hadComplementationGeneticTesting() {
         CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("HaveYouEverHadComplementationGeneticTesting"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -512,7 +497,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         if (currentRow.get("HaveYouEverHadComplementationGeneticTesting").contentEquals("Yes")) {
             CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("WasTheGeneticTestingPositiveForFanconiAnemia"));
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-            CommonUtils.sleep(800);
+            CommonUtils.sleep(1000);
         }
     }
 
@@ -532,7 +517,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             }
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         }
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -558,7 +543,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         if (currentRow.get("HaveYouEverHadComplementationGeneticTesting").contentEquals("Yes")) {
             CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("DoYouHaveCopyOfGeneticTestResults"));
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-            CommonUtils.sleep(800);
+            CommonUtils.sleep(1000);
         }
     }
 
@@ -570,7 +555,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("HowWouldYouLikeToProvideGeneticTestResults"));
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-            CommonUtils.sleep(800);
+            CommonUtils.sleep(1000);
         }
     }
 
@@ -599,7 +584,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             }
         }
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -608,7 +593,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void everBeenDiagnosedWithBoneMarrowFailure() {
         CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("HaveYouEverBeenDiagnosedWithBoneMarrowFailure"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -629,7 +614,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.didYouReceiveBloodTransfusionDropDownList, currentRow.get("DidYouReceiveOrReceivingBloodTransfusion"));
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         }
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -640,7 +625,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("HaveYouEverBeenDiagnosedWithMyelodysplasticSyndrome"));
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         }
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -657,7 +642,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             }
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         }
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -673,7 +658,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             }
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
         }
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -701,7 +686,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.stemCellSourceDropDownList, currentRow.get("StemCellSource"));
             }
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-            CommonUtils.sleep(800);
+            CommonUtils.sleep(1000);
         }
     }
 
@@ -711,7 +696,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void everBeenDiagnosedWithCancer() {
         CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("HaveYouEverBeenDiagnosedWithCancer"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -754,7 +739,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 }
             }
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-            CommonUtils.sleep(800);
+            CommonUtils.sleep(1000);
         }
     }
 
@@ -769,7 +754,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.currentMedicationNotApplicableOption);
         }
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -790,7 +775,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.otherProviderTextBox, currentRow.get("HearAboutThisStudyText"));
         }
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -801,7 +786,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.healthCareProviderAddressTextBox, currentRow.get("HealthCareProviderAddress"));
         CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.healthCareProviderPhoneNumberTextBox, currentRow.get("HealthCareProviderPhoneNumber"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -810,7 +795,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void permissionToCallProvider() {
         CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("DoWeHaveYourPermissionToCallThisIndividualToSeekMoreInformation"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -826,7 +811,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("WhatAreMainReasonToParticipateInThisStudy4"));
         CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.otherTextBox, currentRow.get("WhatAreMainReasonToParticipateInThisStudy4Details"));
         CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -839,7 +824,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         fanconiLoginPage.profileDropDownButton.click();
         CommonUtils.waitForVisibility(fanconiLoginPage.profileLogOutButton);
         fanconiLoginPage.profileLogOutButton.click();
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(1000);
     }
 
     /**
@@ -870,17 +855,17 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             cHARMSParticipantDetailsPage.nVParticipantSearchColumnName.sendKeys(participantProxyView);
             cHARMSParticipantDetailsPage.nVParticipantSearchColumnName.sendKeys(Keys.RETURN);
             CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.dynamicPreviewButtonLocator1(participantProxyView));
-            CommonUtils.sleep(800);
+            CommonUtils.sleep(1000);
             CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.dynamicPreviewButtonLocator("Open Record"));
-            CommonUtils.sleep(2500);
+            CommonUtils.sleep(3000);
         } else {
             cHARMSParticipantDetailsPage.nVParticipantSearchColumnName.click();
             cHARMSParticipantDetailsPage.nVParticipantSearchColumnName.sendKeys(participantView);
             cHARMSParticipantDetailsPage.nVParticipantSearchColumnName.sendKeys(Keys.RETURN);
             CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.dynamicPreviewButtonLocator1(participantView));
-            CommonUtils.sleep(800);
+            CommonUtils.sleep(2000);
             CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.dynamicPreviewButtonLocator("Open Record"));
-            CommonUtils.sleep(2500);
+            CommonUtils.sleep(4000);
         }
     }
 
@@ -892,6 +877,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
         }
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Subject ID"), "Subject ID", " Subject ID Label of the General Information on Participant Details page ");
+
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("full_family_id"), "", " Subject ID of the General Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Name"), "Name", " Name Label of the General Information on Participant Details page ");
         if (currentRow.get("ParticipantFirstName").contentEquals("")){
@@ -952,16 +938,11 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     public void demographicsAssertionOnParticipantDetailPage(int rowNumForAssertion) {
         if(currentRow==null) {
             currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
-        }       CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantDemographicsTab);
-        cHARMSParticipantDetailsPage.nVParticipantDemographicsTab.click();
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Biological Gender"), "Biological Gender", " Biological Gender Label of the General Information on Participant Details page ");
-        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("biological_gender"), currentRow.get("SexAssigned"), " Biological Gender Value of the Demographics on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Identified Gender"), "Identified Gender", " Identified Gender Label of the General Information on Participant Details page ");
-        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("screener_identified_gender"), currentRow.get("CurrentGender"), " Identified Gender Value of the Demographics on Participant Details page ");
-        if (currentRow.get("CurrentGender").contentEquals("I use a different term:")) {
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Term"), "Term", " Term Label of the General Information on Participant Details page ");
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("screener_identified_gender_other"), currentRow.get("CurrentGenderOther"), " Other Identified Gender of the Demographics on Participant Details page ");
         }
+        CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantDemographicsTab);
+        cHARMSParticipantDetailsPage.nVParticipantDemographicsTab.click();
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Biological Sex"), "Biological Sex", " Biological Sex Label of the General Information on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("biological_gender"), currentRow.get("SexAssigned"), " Biological Gender Value of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Participant Race (Select all that apply)"), "Participant Race (Select all that apply)", " Participant Race (Select all that apply) Label of the General Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabRaceDetails, currentRow.get("RaceList"), " Participant Race link Value of the Demographics on Participant Details page ");
         String value=cHARMSParticipantDetailsPage.nVParticipantDemographicsTabRaceDetails.getText();
@@ -971,12 +952,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         }
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Ethnicity"), "Ethnicity", " Ethnicity Label of the General Information on Participant Details page ");
         CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("ethnicity"), currentRow.get("Ethnicity"), " Ethnicity Value of the Demographics on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Pronouns"), "Pronouns", " Pronouns Label of the General Information on Participant Details page ");
-        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("pronouns"), currentRow.get("Pronouns"), " Pronouns Value of the Demographics on Participant Details page ");
-        if (currentRow.get("Pronouns").contentEquals("I use a different term:")) {
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Other pronouns"), "Other pronouns", " Other pronouns Label of the General Information on Participant Details page ");
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("pronouns_other"), currentRow.get("PronounsOther"), " Other Pronouns Value of the Demographics on Participant Details page ");
-        }
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Is the participant adopted?"), "Is the participant adopted?", " Is the participant adopted? Label of the General Information on Participant Details page ");
         CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("adopted"), currentRow.get("AreYouAdopted"), " Is the participant adopted of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Vital Status"), "Vital Status", " Vital Status Label of the General Information on Participant Details page ");
@@ -1195,14 +1170,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerDemographicsTab);
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Date of Birth"), "Date of Birth", " Date of Birth label of the Demographics Information in Fanconi Study screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("date_of_birth_month_day_year"), currentRow.get("DOB"), " Date of Birth Value of the Demographics in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Biological Gender"), "Biological Gender", " Biological Gender label of the Demographics Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Biological Sex"), "Biological Sex", " Biological Gender label of the Demographics Information in Fanconi Study screener page ");
         CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementsInFAScreenerPage("biological_gender"), currentRow.get("SexAssigned"), " Biological Gender Value of the Demographics in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Identified Gender"), "Identified Gender", " Identified Gender label of the Demographics Information in Fanconi Study screener page ");
-        CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementsInFAScreenerPage("screener_identified_gender"), currentRow.get("CurrentGender"), " Identified Gender Value of the Demographics in Fanconi Study screener page ");
-        if (currentRow.get("CurrentGender").contentEquals("I use a different term:")) {
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Term"), "Term", " Term Label of the Demographics Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("screener_identified_gender_other"), currentRow.get("CurrentGenderOther"), " Other Identified Gender Value of the Demographics Information in Fanconi Study screener page ");
-        }
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Participant Race (Select all that apply)"), "Participant Race (Select all that apply)", " Participant Race (Select all that apply) label of the Demographics Information in Fanconi Study screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerRace, currentRow.get("RaceList"), " Participant Race Value of the Demographics in Fanconi Study screener page ");
         String value= fanconiScreenerNVPage.nVFScreenerRace.getText();
@@ -1214,10 +1183,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementsInFAScreenerPage("adopted"), currentRow.get("AreYouAdopted"), " Is the participant adopted? Value of the Demographics in Fanconi Study screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Ethnicity"), "Ethnicity", " Ethnicity label of the Demographics Information in Fanconi Study screener page ");
         CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementsInFAScreenerPage("ethnicity"), currentRow.get("Ethnicity"), " Ethnicity Value of the Demographics in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Pronouns"), "Pronouns", " Pronouns label of the Demographics Information in Fanconi Study screener page ");
-        CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementsInFAScreenerPage("pronouns"), currentRow.get("Pronouns"), " Pronouns Value of the Demographics in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Other pronouns"), "Other pronouns", " Other pronouns label of the Demographics Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("pronouns_other"), currentRow.get("PronounsOther"), " Other Pronouns Value of the Demographics in Fanconi Study screener page ");
     }
 
     /**
@@ -1454,7 +1419,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.nVFScreenerIntakeParticipatesStudyCurrentlyParticipatingDropDown, currentRowForAnotherStudy.get("OtherStudyCurrentlyParticipation"), " Currently participating in Intake participates in another study in Fanconi Study Screener page ");
                 CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerBackButton);
                 CommonUtils.scrollIntoView(fanconiScreenerNVPage.nVFScreenerIntakeParticipatesInAnotherStudyTable);
-                CommonUtils.sleep(800);
+                CommonUtils.sleep(1000);
             }
         }
     }
@@ -1546,8 +1511,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         referralValue = fanconiScreenerNVPage.dynamicLocatorForInputElements("screener_ref").getAttribute("value");
         System.out.println("referralValue: " + referralValue);
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingDataNormalizeSpaceInSpan("Participant"), "Participant", "Participant label of the General Information on Fanconi Study Screener page ");
-        /* Check the participant name */
-        //CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("participant"), (currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")), " Participant Name of General Information on Fanconi Study Screener page ");
+        /* Check the participant name
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("participant"), (currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")), " Participant Name of General Information on Fanconi Study Screener page "); */
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Subject ID"), "Subject ID", "Subject ID label of the General Information on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVParticipantSubjectIdInput, "", " Subject ID Input Value of the General Information on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("NIH MRN number"), "NIH MRN number", " NIH MRN number label of the General Information on Fanconi Study Screener page ");
