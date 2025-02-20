@@ -51,6 +51,16 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.federalLeadCloseoutApproval();
     }
 
+    @And("the user is rejected from a federal lead for closeout approval with a need more info")
+    public void the_user_is_rejected_from_a_federal_lead_for_closeout_approval_with_a_need_more_info() {
+        ESRApprovalStepsImplementation.federalLeadCloseoutNeedMoreInfo();
+    }
+
+    @And("user clicks on Closeout Preparation catalog task and completes it again")
+    public void user_clicks_on_closeout_preparation_catalog_task_and_completes_it_again() {
+        ESRApprovalStepsImplementation.completeCloseoutPreparation();
+    }
+
     @Then("the user confirms the Federal Lead Closeout Approval is completed")
     public void the_user_confirms_the_federal_lead_closeout_approval_is_completed() {
         ESRApprovalStepsImplementation.confirmFederalLeadCloseoutApprovalIsCompleted();
@@ -59,6 +69,16 @@ public class ESRApprovalSteps {
     @And("the user is approved from a federal lead for ESR-I closeout approval")
     public void the_user_is_approved_from_a_federal_lead_for_esr_i_closeout_approval() {
         ESRApprovalStepsImplementation.federalLeadESRIApproval();
+    }
+
+    @And("the user is rejected from a federal lead for closeout approval with a need more info for ESR-I")
+    public void the_user_is_rejected_from_a_federal_lead_for_closeout_approval_with_a_need_more_info_for_esr_i() {
+        ESRApprovalStepsImplementation.federalLeadCloseoutNeedMoreInfoForESRI();
+    }
+
+    @And("user clicks on Closeout Preparation catalog task and completes it again for ESR-I")
+    public void user_clicks_on_closeout_preparation_catalog_task_and_completes_it_again_for_esr_i() {
+        ESRApprovalStepsImplementation.completeCloseoutPreparationForESRI();
     }
 
     @And("the user is approved for ESR Board Closeout Review for ESR-Q")

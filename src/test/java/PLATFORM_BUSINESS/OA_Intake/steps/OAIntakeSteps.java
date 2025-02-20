@@ -10,6 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.Map;
@@ -151,7 +152,7 @@ public class OAIntakeSteps extends PageInitializer {
     @When("Submitter User chooses option Internal NCI Call Task Order on a BPA IDIQ from Recommended Contract Mechanism dropdown")
     public void submitter_user_chooses_option_internal_nci_call_task_order_on_a_bpa_idiq_from_recommended_contract_mechanism_dropdown() {
         CommonUtils.clickOnElement(oaIntakePage.drpdownRecomContractMechanism);
-        CommonUtils.clickOnElement(oaIntakePage.externalCallOption);
+        CommonUtils.clickOnElement(oaIntakePage.internalCallOption);
     }
 
     /**
@@ -160,7 +161,7 @@ public class OAIntakeSteps extends PageInitializer {
     @When("Submitter User chooses option External Call Task Orders \\(TOs)\\(NITAAC, GSA) from Recommended Contract Mechanism dropdown")
     public void submitter_user_chooses_option_external_call_task_orders_t_os_nitaac_gsa_from_recommended_contract_mechanism_dropdown() {
         CommonUtils.clickOnElement(oaIntakePage.drpdownRecomContractMechanism);
-        CommonUtils.clickOnElement(oaIntakePage.internalCallOption);
+        CommonUtils.clickOnElement(oaIntakePage.externalCallOption);
     }
 
     /**
@@ -198,6 +199,7 @@ public class OAIntakeSteps extends PageInitializer {
     @When("Submitter User chooses PSC Code Status as known")
     public void submitter_user_chooses_psc_code_status_as_known() {
         CommonUtils.clickOnElement(oaIntakePage.dropdownPSCCodeStatus);
+        CommonUtils.sleep(2000);
         CommonUtils.clickOnElement(oaIntakePage.yesPSCCodeStatus);
     }
 
@@ -368,8 +370,8 @@ public class OAIntakeSteps extends PageInitializer {
     /**
      * User clicks on Instructions
      */
-    @When("User clicks on Instructions")
-    public void user_clicks_on_instructions() {
+    @When("User clicks on Instructions Page")
+    public void user_clicks_on_instructions_page() {
         CommonUtils.clickOnElement(oaIntakePage.hyperlinkInstructions);
     }
 
@@ -468,11 +470,6 @@ public class OAIntakeSteps extends PageInitializer {
     @Given("User can verify page header as {string}")
     public void user_can_verify_page_header_as(String string) {
         softAssert.assertTrue(oaIntakePage.pageHeaderRequestedFor.isDisplayed());
-    }
-
-    @Given("User can verify page header is {string}")
-    public void user_can_verify_page_header_is(String header) {
-       oaIntakeStepsImplementation.verifyHeadrDisplayed(header);
     }
 
     /**
@@ -1092,6 +1089,9 @@ public class OAIntakeSteps extends PageInitializer {
        CommonUtils.clickOnElement(oaIntakePage.questionMarkAdInstructions);
     }
 
+    /**
+     *  Submitter User is redirected to OA Intake Request Instructional Page
+     */
     @Then("Submitter User is redirected to OA Intake Request Instructional Page")
     public void submitter_user_is_redirected_to_oa_intake_request_instructional_page() {
         ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
@@ -1104,11 +1104,202 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter can verify CO CS text
-     * @param expText
+
      */
     @Then("Submitter User can see CO CS text reference {string}")
     public void submitter_user_can_see_co_cs_text_reference(String expText) {
         String actualText = oaIntakePage.textOnceOAReceives.getText();
         softAssert.assertEquals(actualText, expText);
+    }
+
+    /**
+     * Submitter Users sees New Request tab
+     */
+    @Given("Submitter Users sees New Request tab")
+    public void submitter_users_sees_new_request_tab() {
+        softAssert.assertTrue(oaIntakePage.tabNewRequest.isDisplayed());
+    }
+
+    /**
+     * Submitter Users sees (Requested For) Queue tab
+     */
+    @Given("Submitter User sees Requestor \\(Requested For) Queue tab")
+    public void submitter_user_sees_requestor_requested_for_queue_tab() {
+        softAssert.assertTrue(oaIntakePage.tabRequestorQueue.isDisplayed());
+    }
+
+    /**
+     * Submitter Users clicks on User Profile
+     */
+    @When("Submitter User clicks on User Profile")
+    public void submitter_user_clicks_on_user_profile() {
+       CommonUtils.clickOnElement(oaIntakePage.userProfileModule);
+    }
+
+    /**
+     * User sees Profile option
+     */
+    @Then("Submitter User sees Profile option")
+    public void submitter_user_sees_profile_option() {
+        softAssert.assertTrue(oaIntakePage.optionProfile.isDisplayed());
+    }
+
+    /**
+     * User sees Log Out option
+     */
+    @Then("Submitter User sees Log Out option")
+    public void submitter_user_sees_log_out_option() {
+        softAssert.assertTrue(oaIntakePage.optionLogOut.isDisplayed());
+    }
+
+    /**
+     *  User clicks Profile option
+     */
+    @When("Submitter User clicks Profile option")
+    public void submitter_user_clicks_profile_option() {
+      CommonUtils.clickOnElement(oaIntakePage.optionProfile);
+    }
+
+    /**
+     *  User clicks Profile option
+     *  @param text
+     */
+    @Then("Submitter User can confirm {string} page header")
+    public void submitter_user_can_confirm_page_header(String text) {
+       softAssert.assertTrue(oaIntakePage.pageHeaderUserProfile.getText().equals(text));
+    }
+
+    /**
+     *  User can see Search field is displayed
+     */
+    @Then("Submitter User can see Search field is displayed")
+    public void submitter_user_can_see_search_field_is_displayed() {
+        softAssert.assertTrue(oaIntakePage.searchField.isDisplayed());
+    }
+
+    /**
+     *  User can see Upload Picture button
+     */
+    @Then("Submitter User can see Upload Picture button")
+    public void submitter_user_can_see_upload_picture_button() {
+      softAssert.assertTrue(oaIntakePage.uploadPictureButton.isDisplayed());
+    }
+
+    /**
+     *  User can see About section
+     */
+    @Then("Submitter User can see About section")
+    public void submitter_user_can_see_about_section() {
+        softAssert.assertTrue(oaIntakePage.aboutSection.isDisplayed());;
+    }
+
+    /**
+     *  User can see the fields of About section
+     */
+    @Then("Submitter User can see the following fields of About section")
+    public void submitter_user_can_see_the_following_fields_of_about_section(io.cucumber.datatable.DataTable dataTable) {
+        Map<String, String> options = OAIntakeCommonUtils.getMapFromDataTable(dataTable);
+        softAssert.assertTrue(oaIntakePage.aboutSectionEmail.isDisplayed(), options.get("option1"));
+        softAssert.assertTrue(oaIntakePage.aboutSectionPhone.isDisplayed(), options.get("option2"));
+        softAssert.assertTrue(oaIntakePage.aboutSectionMobilePhone.isDisplayed(), options.get("option3"));
+    }
+
+    /**
+     *  User can see User preferences section
+     */
+    @Then("Submitter User can see User preferences section")
+    public void submitter_user_can_see_user_preferences_section() {
+       softAssert.assertTrue(oaIntakePage.userPreferencesSection.isDisplayed());
+    }
+
+    /**
+     *  Submitter User can see Accessibility enabled button
+     */
+    @Then("Submitter User can see Accessibility enabled button")
+    public void submitter_user_can_see_accessibility_enabled_button() {
+        softAssert.assertTrue(oaIntakePage.accessibilityEnabledButton.isDisplayed());
+    }
+
+    /**
+     *  Submitter User can see Time zone dropdown
+     */
+    @Then("Submitter User can see Time zone dropdown")
+    public void submitter_user_can_see_time_zone_dropdown() {
+        softAssert.assertTrue(oaIntakePage.timezoneDropdn.isDisplayed());
+    }
+
+    /**
+     *  Submitter User can see Refresh To See Changes button
+     */
+    @Then("Submitter User can see Refresh To See Changes button")
+    public void submitter_user_can_see_refresh_to_see_changes_button() {
+        softAssert.assertTrue(oaIntakePage.refreshChangesButton.isDisplayed());
+    }
+
+    /**
+     * Submitter User chooses R&D Support as No
+     */
+    @When("Submitter User chooses R&D Support as No")
+    public void submitter_user_chooses_r_d_support_as_no() {
+        CommonUtils.clickOnElement(oaIntakePage.drpdownRD);
+        CommonUtils.clickOnElement(oaIntakePage.RDNo);
+    }
+
+    /**
+     * Submitter User chooses PSC Code Status as unknown
+     */
+    @When("Submitter User chooses PSC Code Status as unknown")
+    public void submitter_user_chooses_psc_code_status_as_unknown() {
+    softAssert.assertTrue(oaIntakePage.unknownPSCCodeStatus.getText().equals("Unknown"));
+    }
+
+    /**
+     *Submitter User chooses FITARA Business Case Clearances as Yes
+     */
+    @When("Submitter User chooses FITARA Business Case Clearances as Yes")
+    public void submitter_user_chooses_fitara_business_case_clearances_as_yes() {
+        JavascriptUtils.scrollIntoView(oaIntakePage.dropdwnFITARA);
+        CommonUtils.clickOnElement(oaIntakePage.dropdwnFITARA);
+        CommonUtils.sleep(3000);
+      //  JavascriptUtils.clickByJS(oaIntakePage.yesFITARA);
+        CommonUtils.clickOnElement(oaIntakePage.yesFITARA);
+        Actions action = new Actions(webDriver);
+        action.moveByOffset(0, 0).click().build().perform();
+    }
+
+    /**
+     *User chooses Have you already submitted a Business Case as Yes
+     */
+    @When("User chooses Have you already submitted a Business Case as Yes")
+    public void user_chooses_have_you_already_submitted_a_business_case_as_yes() {
+        CommonUtils.clickOnElement(oaIntakePage.drpdnHaveYouSubmittedBusCase);
+        CommonUtils.clickOnElement(oaIntakePage.yesHaveYouSubmittedBusCase);
+    }
+
+    /**
+     *User chooses Have you already submitted a Business Case as Yes
+     * @param number
+     */
+    @When("User inputs Business ticket number as {string}")
+    public void user_inputs_business_ticket_number_as(String number) {
+       CommonUtils.sendKeys(oaIntakePage.fieldBusTicketNumber,number);
+    }
+
+    /**
+     *Submitter User chooses No for ISSO Clearance field
+     */
+    @When("Submitter User chooses No for ISSO Clearance field")
+    public void submitter_user_chooses_no_for_isso_clearance_field() {
+        JavascriptUtils.scrollIntoView(oaIntakePage.dropdownISSO);
+        CommonUtils.clickOnElement(oaIntakePage.dropdownISSO);
+        CommonUtils.clickOnElement(oaIntakePage.noISSO);
+    }
+
+    /**
+     *User can enter additional comments
+     */
+    @When("User can enter additional comments")
+    public void user_can_enter_additional_comments() {
+    CommonUtils.sendKeys(oaIntakePage.fieldAdComments,"Comments");
     }
 }
