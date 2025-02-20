@@ -2,8 +2,8 @@ name: CUSTOM BUSINESS (.NET) - OASYS Regression
 
 on:
   schedule:
-    # This corresponds to 11:30 AM EST (16:30 PM UTC) from Monday to Friday
-    - cron: '30 16 * * MON-FRI'
+    # This corresponds to 11:40 AM EST (16:40 PM UTC) from Monday to Friday
+    - cron: '40 16 * * MON-FRI'
   workflow_dispatch:
 
 jobs:

@@ -36,50 +36,71 @@ Scenario: Assign Additional Reviewers for the submitted invoice
   Then User clicks on Save button
 
 @VoidInvoice @NESARH2 @Regression @playwright
-  Scenario: Voiding an invoice
-    When User clicks on Invoice Page
-    And User clicks on an invoice in Submitted status
-    And User clicks on VOID INVOICE button
-    And User selects Duplicate Invoice as the reason from the drop down
-    Then User clicks on Void button
+Scenario: Voiding an invoice
+  When User clicks on Invoice Page
+  And User clicks on an invoice in Submitted status
+  And User clicks on VOID INVOICE button
+  And User selects Duplicate Invoice as the reason from the drop down
+  Then User clicks on Void button
 
 @VoidingReviewedInvoice @NESARH2 @Regression @playwright
-  Scenario: Verify the user can not void a reviewed invoice
-    When User clicks on Invoice Page
-    And User clicks on the reviewed Invoice
-    And User verifies the invoice status
-    Then User tries to click on Void button
+Scenario: Verify the user can not void a reviewed invoice
+  When User clicks on Invoice Page
+  And User clicks on the reviewed Invoice
+  And User verifies the invoice status
+  Then User tries to click on Void button
 
 @RestoreInvoice @NESARH2 @Regression @playwright
-  Scenario: Restoring an invoice
-    When User clicks on Invoice Page
-    And User clicks on the voided invoice
-    And User clicks on RESTORE INVOICE button
-    And User clicks on Continue button to acknowledge the message
-    Then User verifies the invoice status is changed to "SUBMITTED"
+Scenario: Restoring an invoice
+  When User clicks on Invoice Page
+  And User clicks on the voided invoice
+  And User clicks on RESTORE INVOICE button
+  And User clicks on Continue button to acknowledge the message
+  Then User verifies the invoice status is changed to "SUBMITTED"
 
 @AssignPLINS @NESARH2 @Regression @playwright
 Scenario: Assign PLINS for the invoice
-    When User logs in as Test CO on the side login page
-    And User clicks on Contract Administration
-    And User clicks on Invoice Page
-    And User clicks on a submitted Invoice
-    And User clicks on Assigned PLINS tab
-    And User clicks on Assign PLINS button
-    And User clicks on ADD PLIN
-    And User selects the PLIN Number
-    And User selects the CAN Number
-    And User enters the amount
-    Then User clicks on SAVE button
+  When User logs in as Test CO on the side login page
+  And User clicks on Contract Administration
+  And User clicks on Invoice Page
+  And User clicks on a submitted Invoice
+  And User clicks on Assigned PLINS tab
+  And User clicks on Assign PLINS button
+  And User clicks on ADD PLIN
+  And User selects the PLIN Number
+  And User selects the CAN Number
+  And User enters the amount
+  Then User clicks on SAVE button
 
-@@ReviewInvoiceAsTestCOR @NESARH2 @Regression @playwright
+@ReviewInvoiceAsTestCOR @NESARH2 @Regression @playwright
 Scenario: Review the invoice as a reviewer (Test COR)
-    When User logs in as Test COR on the side login page
-    And User clicks on Contract Administration
-    And User clicks on Invoice Page
-    And User clicks on a submitted Invoice
-    And User clicks on APPROVE button in the upper right corner of the page
-    And User types "TEST APPROVAL" in Comments
-    And User clicks on CHOOSE FILE button on New Files page
-    And User checks the box for Confirm Approval
-    Then User clicks on APPROVE button
+  When User logs in as Test COR on the side login page
+  And User clicks on Contract Administration
+  And User clicks on Invoice Page
+  And User clicks on a submitted Invoice
+  And User clicks on APPROVE button in the upper right corner of the page
+  And User types "TEST APPROVAL" in Comments
+  And User clicks on CHOOSE FILE button on New Files page
+  And User checks the box for Confirm Approval
+  Then User clicks on APPROVE button
+
+@ReviewInoviceAsFinalReviewer @NESARH2 @Regression @playwright
+Scenario: Review the invoice as a Final reviewer (Test CO)
+  When User logs in as Test CO on the side login page
+  And User clicks on Contract Administration
+  And User clicks on Invoice Page
+  And User clicks on a submitted Invoice
+  And User clicks on APPROVE button in the upper right corner of the page
+  And User clicks on Approved radiobutton
+  And User types "TEST CO APPROVED" in Comments
+  And User clicks on CHOOSE FILE button on New Files page
+  And User checks the box for Confirm Approval
+  And User clicks on APPROVE button
+  Then User verifies the invoice status is updated to Approved
+
+@DeleteInvoice @NESARH2 @Regression @playwright
+Scenario: Delete an invoice as a System Admin
+  When User clicks on Invoice Page
+  And User verifies an invoice in Approved status is present
+  And User clicks on DELETE button
+  Then User verifies the invoice is deleted successfully
