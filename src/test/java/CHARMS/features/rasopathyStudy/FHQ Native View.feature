@@ -1,7 +1,7 @@
 Feature: FHQ Native View
   Description: This feature file contains scenarios where a Study Team member completes/verifies FHQ from Native View.
 
-  @muzipovay2 @RAS_STUDY @CP2-4298 @selenium @Regression
+  @muzipovay2 @RAS_STUDY @CP2-4298 @selenium @Regression2
   Scenario: Study team member fills in FHQ on participant's behalf
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
