@@ -1,5 +1,6 @@
 package CHARMS.stepsImplementation;
 
+import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
 import CHARMS.constants.CHARMSRASScreenerConstants;
 import CHARMS.constants.CHARMS_Data_File_Path_Constants;
@@ -86,14 +87,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * LogOut of the account profile in NativeView
      */
     public void nativeViewProfilelogOut() {
-        WebDriverUtils.webDriver.get(getFanconiUrl());
-        CommonUtils.waitForVisibility(oktaLoginPage.agreeBtn);
-        oktaLoginPage.agreeBtn.click();
-        CommonUtils.waitForVisibility(fanconiLoginPage.profileDropDownButton);
-        fanconiLoginPage.profileDropDownButton.click();
-        CommonUtils.waitForVisibility(fanconiLoginPage.profileLogOutButton);
-        fanconiLoginPage.profileLogOutButton.click();
-        CommonUtils.sleep(400);
+        ServiceNow_Common_Methods.logOutOfNativeView();
+        CommonUtils.sleep(800);
     }
 
     /**
