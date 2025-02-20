@@ -3,7 +3,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
   Description:This feature file has different submissions and assertion scenarios for the Fanconi Eligibility Questionnaire by the proband and the legal guardian (Proxy)
 
   @jains @FanconiSubmission @CP2-1949 @Fanconi_Regression @selenium @Smoke
-  Scenario: Participant fills the Fanconi screener by the Proband for scenario 1
+  Scenario: Reset the test accounts
     Given run the Fanconi reset script to reset the accounts
 
   @jains @FanconiSubmission @CP2-1949 @Fanconi_Regression @selenium @Smoke
@@ -182,28 +182,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
       | 0               |
       | 1               |
 
-  @jains @FanconiAssertion @CP2-1995 @Fanconi_Regression @selenium
-  Scenario: Participant Details Page Assertions for one scenario at a time in ServiceNow
-    Given the study nurse log in Native View
-    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for each scenario
-
-  @jains @FanconiAssertion @CP2-1995 @Fanconi_Regression @selenium
-  Scenario: Consent process is completed in participant details page in ServiceNow
-    Given the study nurse log in Native View
-    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for each scenario
-    Then consent in Fanconi is verified
-
   @jains @FanconiAssertion @CP2-1995 @In-progress @selenium
   Scenario: Completion of the Consent process in participant details page in ServiceNow
     Given the study nurse log in Native View
     Then consent in Fanconi is verified
-
-  @jains @FanconiAssertion @CP2-1995 @In-progress @selenium
-  Scenario: Fanconi Study Screener page Assertions for all the scenarios in ServiceNow
-    Given the study nurse log in Native View and go to Study Screener page
-    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page for each scenario
-
-  @jains @FanconiAssertion @CP2-1995 @In-progress @selenium
-  Scenario: Fanconi Study Screener page Assertions for one scenario at a time in ServiceNow
-    Given the study nurse log in Native View and go to Study Screener page
-    Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page for each scenario

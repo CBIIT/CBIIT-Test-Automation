@@ -128,6 +128,11 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
         fanconiEligibilityQuestionnaireStepsImpl.consent_is_submitted_with_collection_method(collectionMethod, rowCount );
     }
 
+    @Given("consent is submitted with collection method {string}")
+    public void consent_is_submitted_with_collection_method(String collectionMethod) {
+        fanconiEligibilityQuestionnaireStepsImpl.consent_is_submitted_with_collection_method(collectionMethod);
+    }
+
     @Then("Study Team member logs in to Native View and verifies fields in participant's CGB IIQ record")
     public void study_team_member_logs_in_to_native_view_and_verifies_fields_in_participant_s_cgb_iiq_record() {
         fanconiEligibilityQuestionnaireStepsImpl.study_team_navigate_to_participant_s_cgb_iiq_record();
