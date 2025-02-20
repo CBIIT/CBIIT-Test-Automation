@@ -149,6 +149,12 @@ public class OAIntakePage {
     public WebElement RDYes;
 
     /**
+     * R&D/R&D Support yes
+     */
+    @FindBy(xpath = "(//div[@class='select2-result-label'])[2]")
+    public WebElement RDNo;
+
+    /**
      * Date Concept Peer Review Completed field
      */
     @FindBy(xpath = "//input[@id='sp_formfield_date_review_completed']")
@@ -165,6 +171,12 @@ public class OAIntakePage {
      */
     @FindBy(xpath = "(//li[@class='select2-results-dept-0 select2-result select2-result-selectable'])[1]")
     public WebElement yesPSCCodeStatus;
+
+    /**
+     *Unknown PSC Code Status
+     */
+    @FindBy(xpath = "//span[@id='select2-chosen-12']")
+    public WebElement unknownPSCCodeStatus;
 
     /**
      * PSC Code Field
@@ -185,6 +197,24 @@ public class OAIntakePage {
     public WebElement noFITARA;
 
     /**
+     * FITARA yes
+     */
+    @FindBy(xpath = "(//ul[@class='select2-results']//li[@class='select2-results-dept-0 select2-result select2-result-selectable'])[1]")
+    public WebElement yesFITARA;
+
+    /**
+     * FITARA field search selected yes
+     */
+    @FindBy(xpath = " //ul[@id='select2-results-13']")
+    public WebElement fieldSearchFITARAselectedYes;
+
+    /**
+     * FITARA field search
+     */
+    @FindBy(xpath = "//*[@id='s2id_autogen13_search']")
+    public WebElement fieldSearchFITARA;
+
+    /**
      * estimated value of IT field
      */
     @FindBy(xpath = "//input[@name='estimated_value_it_bio_comp']")
@@ -201,6 +231,12 @@ public class OAIntakePage {
      */
     @FindBy(xpath = "(//li[@class='select2-results-dept-0 select2-result select2-result-selectable'])[1]")
     public WebElement yesISSO;
+
+    /**
+     * ISSO Clearance n o
+     */
+    @FindBy(xpath = "(//li[@class='select2-results-dept-0 select2-result select2-result-selectable'])[2]")
+    public WebElement noISSO;
 
     /**
      * SSO Clearance Ticket field
@@ -337,7 +373,7 @@ public class OAIntakePage {
     /**
      * Instructions page header
      */
-    @FindBy(xpath = "//div//h2[contains(text(),'Instructional Page')]")
+    @FindBy(xpath = "//h2[contains(text(),'Instructional Page')]")
     public WebElement pageHeaderInstructions;
 
     /**
@@ -981,4 +1017,28 @@ public class OAIntakePage {
      */
     @FindBy(xpath = "//a[@id='refresh-to-see-changes']")
     public WebElement refreshChangesButton;
+
+    /**
+     * Have you already submitted a Business Case? dropdown
+     */
+    @FindBy(xpath = "//span[@id='select2-chosen-14']")
+    public WebElement drpdnHaveYouSubmittedBusCase;
+
+    /**
+     * Have you already submitted a Business Case? yes
+     */
+    @FindBy(xpath = "(//li[@class='select2-results-dept-0 select2-result select2-result-selectable'])[1]")
+    public WebElement yesHaveYouSubmittedBusCase;
+
+    /**
+     * Business Ticket Number field
+     */
+    @FindBy(xpath = "//*[@id='sp_formfield_business_case_ticket']")
+    public WebElement fieldBusTicketNumber;
+
+    /**
+     * Additional comments field
+     */
+    @FindBy(xpath = "//*[@id='sp_formfield_comments']")
+    public WebElement fieldAdComments;
 }
