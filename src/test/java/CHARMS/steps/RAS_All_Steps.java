@@ -18,8 +18,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -307,6 +305,7 @@ public class RAS_All_Steps extends PageInitializer {
         CucumberLogUtils.scenario.log("* * * * CONSENT/ASSENT OBTAINED BEFORE STUDY PROCEDURES * * * *");
         CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentObtainedBeforeStudyProceduresDropDown);
         CucumberLogUtils.scenario.log("* * * * COPY OF SIGNED/DATED CONSENT/ASSENT GIVEN TO PARTICIPANT * * * *");
+        CommonUtils.sleep(300);
         CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfSignedDatedConsentAssentGivenToParticipantDropDown);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentSignAndCompleteButton);
@@ -1407,18 +1406,9 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Then("Study Team member fills out new FHQ for participant in NV")
     public void study_team_member_fills_out_new_fhq_for_participant_in_nv() {
-
-//        // DELETE THIS
-        ras_Screener_TestDataManager.dataInitializerRasScreener("screenerScenarioAdult");
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        navigateToParticipantRecordInNativeView("screenerScenarioAdult");
-//        // DELETE THIS
-
         String subjectID = nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubjectID.getDomAttribute("value").trim();
         CucumberLogUtils.logScreenshot();
-//        CommonUtils.sleep(3000);
         WebDriverUtils.webDriver.navigate().refresh();
-//        CommonUtils.sleep(3000);
         CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("FHQ Patient");
         CucumberLogUtils.logScreenshot();
@@ -1435,20 +1425,19 @@ public class RAS_All_Steps extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.SEX_ASSIGNED_AT_BIRTH_OPTION, nativeViewCHARMSFHQPatientPage.sexAssignedAtBirthDropdown);
         JavascriptUtils.scrollIntoView(nativeViewCHARMSFHQPatientPage.sexAssignedAtBirthDropdown);
-        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.SEX_ASSIGNED_AT_BIRTH_OPTION, nativeViewCHARMSFHQPatientPage.genderIdentityDropdown);
         CommonUtils.selectDropDownValue("No", nativeViewCHARMSFHQPatientPage.hasParticipantHadAnyMiscarriageStillbirthDropdown);
-        nativeViewCHARMSFHQPatientPage.howManyTotalChildrenHasTheParticipantHadInputField.sendKeys("0");
-        nativeViewCHARMSFHQPatientPage.howManyTotalDifferentPartnersHasParticipantHadBiologicalChildrenWithInputField.sendKeys("0");
-        nativeViewCHARMSFHQPatientPage.howManySiblingsDoesTheParticipantHaveInputField.sendKeys("0");
+        nativeViewCHARMSFHQPatientPage.howManyTotalChildrenHasTheParticipantHadInputField.sendKeys("1");
+        nativeViewCHARMSFHQPatientPage.howManyTotalDifferentPartnersHasParticipantHadBiologicalChildrenWithInputField.sendKeys("1");
+        nativeViewCHARMSFHQPatientPage.howManySiblingsDoesTheParticipantHaveInputField.sendKeys("1");
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.scrollIntoView(nativeViewCHARMSFHQPatientPage.fhqStudyDropdown);
-        CommonUtils.selectDropDownValue("RASopathies", nativeViewCHARMSFHQPatientPage.fhqStudyDropdown);
         nativeViewCHARMSFHQPatientPage.participantInputField.clear();
         nativeViewCHARMSFHQPatientPage.participantInputField.sendKeys(subjectID);
         CommonUtils.sleep(500);
+        nativeViewCHARMSFHQPatientPage.saveButton.click();
+        CommonUtils.sleep(800);
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSFHQPatientPage.fhqStudyDropdown);
         CucumberLogUtils.logScreenshot();
-        nativeViewCHARMSFHQPatientPage.completeButton.click();
-        CommonUtils.sleep(500);
         CommonUtils.waitForClickability(nativeViewCHARMSFHQPatientPage.dynamicRelatedListsTabLocator("Parent(s)"));
         JavascriptUtils.scrollIntoView(nativeViewCHARMSFHQPatientPage.dynamicRelatedListsTabLocator("Parent(s)"));
         CucumberLogUtils.logScreenshot();

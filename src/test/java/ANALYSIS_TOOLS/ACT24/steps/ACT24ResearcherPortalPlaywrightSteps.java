@@ -11,15 +11,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-import static com.nci.automation.web.TestProperties.getACT24Url;
+//import static com.nci.automation.web.TestProperties.getACT24Url;
 
 public class ACT24ResearcherPortalPlaywrightSteps {
 
-    @Given("User navigates to ACT24 website")
-    public void user_navigates_to_act24_website() {
-        PlaywrightUtils.page.navigate(getACT24Url());
-        CommonUtils.sleep(2000);
-    }
+//    @Given("User navigates to ACT24 website")
+//    public void user_navigates_to_act24_website() {
+//        PlaywrightUtils.page.navigate(getACT24Url());
+//        CommonUtils.sleep(2000);
+//    }
 
     /**
      * Entering email and password to login

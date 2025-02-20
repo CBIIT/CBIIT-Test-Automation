@@ -4,7 +4,6 @@ import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 
 public class NativeViewCHARMSFHQPatientPage {
@@ -80,6 +79,12 @@ public class NativeViewCHARMSFHQPatientPage {
      */
     @FindBy(xpath = "//span[@class='navbar_ui_actions']//button[@name='not_important'][normalize-space()='Complete']")
     public WebElement completeButton;
+
+    /**
+     * Save button
+     */
+    @FindBy(xpath = "//button[@id='sysverb_insert_and_stay']")
+    public WebElement saveButton;
 
     /**
      * Locates a WebElement in the FHQ Patient page that corresponds to a specific related lists tab with the given tab text.
