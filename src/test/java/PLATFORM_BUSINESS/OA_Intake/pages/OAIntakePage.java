@@ -107,10 +107,22 @@ public class OAIntakePage {
     public WebElement previousContractNumberField;
 
     /**
+     * Contract Number 263201500284B/75N91019F90001
+     */
+    @FindBy(xpath = "//div[.='263201500284B/75N91019F90001']")
+    public WebElement contractNumber263201500284B75N91019F90001;
+
+    /**
      * Previous Number field
      */
     @FindBy(xpath = "(//a[@class='select2-choice select2-default form-control'])[2]")
     public WebElement previousBuyerField;
+
+    /**
+     * Previous Number Aanika Warner
+     */
+    @FindBy(xpath = "//div[.='Aanika Warner']")
+    public WebElement previousBuyeraanikaWarner;
 
     /**
      * Recommended Contract Mechanism dropdown
@@ -123,6 +135,12 @@ public class OAIntakePage {
      */
     @FindBy(xpath = "(//li[@class='select2-results-dept-0 select2-result select2-result-selectable'])[2]")
     public WebElement externalCallOption;
+
+    /**
+     * multiple Award IDIQ
+     */
+    @FindBy(xpath = "(//li[@class='select2-results-dept-0 select2-result select2-result-selectable'])[3]")
+    public WebElement multipleAwardIDIQOption;
 
     /**
      * Internal Call/Task Orders (TOs)(NITAAC, GSA)
@@ -1041,4 +1059,46 @@ public class OAIntakePage {
      */
     @FindBy(xpath = "//*[@id='sp_formfield_comments']")
     public WebElement fieldAdComments;
+
+    /**
+     *  text OA Intake New Record
+     */
+    @FindBy(xpath = "//span[.='OA Intake - new record']")
+    public WebElement textOAIntakeNewRecord;
+
+    /**
+     *  checkbox Requestor (Requested For) is same as Submitter
+     */
+    @FindBy(xpath = "//label[@data-placement='right']")
+    public WebElement checkboxRequestorSameAsSubmitter;
+
+    /**
+     *  dropdown Requestor (Requested For)
+     */
+    @FindBy(xpath = "//div[@class='reference']")
+    public WebElement dropdownRequestor;
+
+    /**
+     *  dropdown Requestor Aad Tibben
+     */
+    @FindBy(xpath = "//div[.='Aadit Kapoor']")
+    public WebElement dropdownRequestorAadTibben;
+
+    /**
+     *  Unknown option NAICS
+     */
+    @FindBy(xpath = "//span[@id='select2-chosen-11']")
+    public WebElement unknownOptionNAICS;
+
+    /**
+     *  Estimated Amount dropdown
+     */
+    @FindBy(xpath = "//span[@id='select2-chosen-24']")
+    public WebElement estimatedAmountDropdown;
+
+    /**
+     *  $250k-$750K
+     */
+    @FindBy(xpath = "//div[.='4 - $250,000 - $750,000']")
+    public WebElement twoFiftySevenFifty;
 }
