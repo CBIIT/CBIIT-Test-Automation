@@ -34,7 +34,7 @@ jobs:
           $dateTime = [System.TimeZoneInfo]::ConvertTime([System.DateTime]::UtcNow, $timeZone)
           $timestamp = $dateTime.ToString("yyyy-MM-dd_hh-mm-ss_tt")
           Add-Content -Path $env:GITHUB_ENV -Value "timestamp=$timestamp"
-
+          
       # Step 4: Determine report path
       - name: Determine report path
         id: reportpath
@@ -43,9 +43,9 @@ jobs:
       # Step 5: Generate Excel Report after the tests
       - name: Generate Excel File
         run: >
-        mvn clean test \
-        -DjsonFile="target/CHARMS-RAS-Regression-Test-Results.json" \
-        -DexcelFile="target/CHARMS-Regression-Test-Results.xlsx"
+          mvn clean test \
+          -DjsonFile="target/CHARMS-RAS-Regression-Test-Results.json" \
+          -DexcelFile="target/CHARMS-Regression-Test-Results.xlsx"
 
       # Step 6: Upload Cucumber Report (HTML & others)
       - name: Upload Cucumber Report
