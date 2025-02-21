@@ -12,8 +12,10 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+
 import java.util.ArrayList;
 import java.util.Map;
+
 import static Hooks.Hooks.softAssert;
 
 public class OAIntakeSteps extends PageInitializer {
@@ -572,7 +574,6 @@ public class OAIntakeSteps extends PageInitializer {
         CommonUtils.clickOnElement(oaIntakePage.sortAscendingCreatedOn);
         CommonUtils.sleep(1000);
         CommonUtils.clickOnElement(oaIntakePage.sortDescendingCreatedOn);
-        System.out.println("click");
     }
 
     /**
@@ -1003,7 +1004,7 @@ public class OAIntakeSteps extends PageInitializer {
     public void user_can_verify_the_status_of_the_request_is_accepted() {
         String actualStatus = oaIntakePage.statusTextField.getText();
         System.out.println(actualStatus);
-        softAssert.assertEquals(actualStatus,"Accepted");
+        softAssert.assertEquals(actualStatus, "Accepted");
     }
 
     /**
@@ -1017,6 +1018,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter can verify text
+     *
      * @param expText
      */
     @Then("Submitter User can verify {string} text is displayed")
@@ -1026,7 +1028,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *  User get redirected to Requestor tab within the same web page
+     * User get redirected to Requestor tab within the same web page
      */
     @Then("Submitter User can verify clicking on hyperlink Requestor \\(Requested for) Queue redirects to Requestor tab within the same web page")
     public void submitter_user_can_verify_clicking_on_hyperlink_requestor_requested_for_queue_redirects_to_requestor_tab_within_the_same_web_page() {
@@ -1035,7 +1037,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *  Submitter User can navigate back to New Request page
+     * Submitter User can navigate back to New Request page
      */
     @Then("Submitter User can navigate back to New Request page")
     public void submitter_user_can_navigate_back_to_new_request_page() {
@@ -1045,6 +1047,7 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter can verify text
+     *
      * @param expText
      */
     @Then("Submitter User can verify  Important section text as {string}")
@@ -1054,21 +1057,22 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *  Submitter User can navigate to Office of Acquisitions
+     * Submitter User can navigate to Office of Acquisitions
      */
     @Then("Submitter User can navigate to Office of Acquisitions")
     public void submitter_user_can_navigate_to_office_of_acquisitions() {
         CommonUtils.clickOnElement(oaIntakePage.hyperlinkOA);
         CommonUtils.sleep(2000);
         ArrayList<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
-        webDriver.switchTo().window(tabs.get(1));;
+        webDriver.switchTo().window(tabs.get(1));
+        ;
         webDriver.close();
         webDriver.switchTo().window(tabs.get(0));
         CommonUtils.sleep(2000);
     }
 
     /**
-     *  Submitter User can navigate to User Guide page
+     * Submitter User can navigate to User Guide page
      */
     @Then("Submitter User can navigate to User Guide page")
     public void submitter_user_can_navigate_to_user_guide_page() {
@@ -1082,15 +1086,15 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *  Submitter User clicks instructions question mark
+     * Submitter User clicks instructions question mark
      */
     @When("Submitter User clicks instructions question mark")
     public void submitter_user_clicks_instructions_question_mark() {
-       CommonUtils.clickOnElement(oaIntakePage.questionMarkAdInstructions);
+        CommonUtils.clickOnElement(oaIntakePage.questionMarkAdInstructions);
     }
 
     /**
-     *  Submitter User is redirected to OA Intake Request Instructional Page
+     * Submitter User is redirected to OA Intake Request Instructional Page
      */
     @Then("Submitter User is redirected to OA Intake Request Instructional Page")
     public void submitter_user_is_redirected_to_oa_intake_request_instructional_page() {
@@ -1104,7 +1108,6 @@ public class OAIntakeSteps extends PageInitializer {
 
     /**
      * Submitter can verify CO CS text
-
      */
     @Then("Submitter User can see CO CS text reference {string}")
     public void submitter_user_can_see_co_cs_text_reference(String expText) {
@@ -1133,7 +1136,7 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @When("Submitter User clicks on User Profile")
     public void submitter_user_clicks_on_user_profile() {
-       CommonUtils.clickOnElement(oaIntakePage.userProfileModule);
+        CommonUtils.clickOnElement(oaIntakePage.userProfileModule);
     }
 
     /**
@@ -1153,24 +1156,25 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *  User clicks Profile option
+     * User clicks Profile option
      */
     @When("Submitter User clicks Profile option")
     public void submitter_user_clicks_profile_option() {
-      CommonUtils.clickOnElement(oaIntakePage.optionProfile);
+        CommonUtils.clickOnElement(oaIntakePage.optionProfile);
     }
 
     /**
-     *  User clicks Profile option
-     *  @param text
+     * User clicks Profile option
+     *
+     * @param text
      */
     @Then("Submitter User can confirm {string} page header")
     public void submitter_user_can_confirm_page_header(String text) {
-       softAssert.assertTrue(oaIntakePage.pageHeaderUserProfile.getText().equals(text));
+        softAssert.assertTrue(oaIntakePage.pageHeaderUserProfile.getText().equals(text));
     }
 
     /**
-     *  User can see Search field is displayed
+     * User can see Search field is displayed
      */
     @Then("Submitter User can see Search field is displayed")
     public void submitter_user_can_see_search_field_is_displayed() {
@@ -1178,23 +1182,24 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *  User can see Upload Picture button
+     * User can see Upload Picture button
      */
     @Then("Submitter User can see Upload Picture button")
     public void submitter_user_can_see_upload_picture_button() {
-      softAssert.assertTrue(oaIntakePage.uploadPictureButton.isDisplayed());
+        softAssert.assertTrue(oaIntakePage.uploadPictureButton.isDisplayed());
     }
 
     /**
-     *  User can see About section
+     * User can see About section
      */
     @Then("Submitter User can see About section")
     public void submitter_user_can_see_about_section() {
-        softAssert.assertTrue(oaIntakePage.aboutSection.isDisplayed());;
+        softAssert.assertTrue(oaIntakePage.aboutSection.isDisplayed());
+        ;
     }
 
     /**
-     *  User can see the fields of About section
+     * User can see the fields of About section
      */
     @Then("Submitter User can see the following fields of About section")
     public void submitter_user_can_see_the_following_fields_of_about_section(io.cucumber.datatable.DataTable dataTable) {
@@ -1205,15 +1210,15 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *  User can see User preferences section
+     * User can see User preferences section
      */
     @Then("Submitter User can see User preferences section")
     public void submitter_user_can_see_user_preferences_section() {
-       softAssert.assertTrue(oaIntakePage.userPreferencesSection.isDisplayed());
+        softAssert.assertTrue(oaIntakePage.userPreferencesSection.isDisplayed());
     }
 
     /**
-     *  Submitter User can see Accessibility enabled button
+     * Submitter User can see Accessibility enabled button
      */
     @Then("Submitter User can see Accessibility enabled button")
     public void submitter_user_can_see_accessibility_enabled_button() {
@@ -1221,7 +1226,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *  Submitter User can see Time zone dropdown
+     * Submitter User can see Time zone dropdown
      */
     @Then("Submitter User can see Time zone dropdown")
     public void submitter_user_can_see_time_zone_dropdown() {
@@ -1229,7 +1234,7 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *  Submitter User can see Refresh To See Changes button
+     * Submitter User can see Refresh To See Changes button
      */
     @Then("Submitter User can see Refresh To See Changes button")
     public void submitter_user_can_see_refresh_to_see_changes_button() {
@@ -1250,43 +1255,44 @@ public class OAIntakeSteps extends PageInitializer {
      */
     @When("Submitter User chooses PSC Code Status as unknown")
     public void submitter_user_chooses_psc_code_status_as_unknown() {
-    softAssert.assertTrue(oaIntakePage.unknownPSCCodeStatus.getText().equals("Unknown"));
+        softAssert.assertTrue(oaIntakePage.unknownPSCCodeStatus.getText().equals("Unknown"));
     }
 
     /**
-     *Submitter User chooses FITARA Business Case Clearances as Yes
+     * Submitter User chooses FITARA Business Case Clearances as Yes
      */
     @When("Submitter User chooses FITARA Business Case Clearances as Yes")
     public void submitter_user_chooses_fitara_business_case_clearances_as_yes() {
         JavascriptUtils.scrollIntoView(oaIntakePage.dropdwnFITARA);
         CommonUtils.clickOnElement(oaIntakePage.dropdwnFITARA);
         CommonUtils.sleep(3000);
-      //  JavascriptUtils.clickByJS(oaIntakePage.yesFITARA);
+        //  JavascriptUtils.clickByJS(oaIntakePage.yesFITARA);
         CommonUtils.clickOnElement(oaIntakePage.yesFITARA);
         Actions action = new Actions(webDriver);
         action.moveByOffset(0, 0).click().build().perform();
     }
 
     /**
-     *User chooses Have you already submitted a Business Case as Yes
+     * User chooses Have you already submitted a Business Case as Yes
      */
-    @When("User chooses Have you already submitted a Business Case as Yes")
-    public void user_chooses_have_you_already_submitted_a_business_case_as_yes() {
+    @When("Submitter User chooses Have you already submitted a Business Case as Yes")
+    public void submitter_user_chooses_have_you_already_submitted_a_business_case_as_yes() {
         CommonUtils.clickOnElement(oaIntakePage.drpdnHaveYouSubmittedBusCase);
         CommonUtils.clickOnElement(oaIntakePage.yesHaveYouSubmittedBusCase);
     }
 
     /**
-     *User chooses Have you already submitted a Business Case as Yes
+     * User chooses Have you already submitted a Business Case as Yes
+     *
      * @param number
      */
-    @When("User inputs Business ticket number as {string}")
-    public void user_inputs_business_ticket_number_as(String number) {
-       CommonUtils.sendKeys(oaIntakePage.fieldBusTicketNumber,number);
+    @When("Submitter User inputs Business ticket number as {string}")
+    public void submitter_user_inputs_business_ticket_number_as(String number) {
+        CommonUtils.sendKeys(oaIntakePage.fieldBusTicketNumber, number);
     }
 
     /**
-     *Submitter User chooses No for ISSO Clearance field
+     * Submitter User chooses No for ISSO Clearance field
      */
     @When("Submitter User chooses No for ISSO Clearance field")
     public void submitter_user_chooses_no_for_isso_clearance_field() {
@@ -1296,10 +1302,76 @@ public class OAIntakeSteps extends PageInitializer {
     }
 
     /**
-     *User can enter additional comments
+     * User can enter additional comments
      */
     @When("User can enter additional comments")
     public void user_can_enter_additional_comments() {
-    CommonUtils.sendKeys(oaIntakePage.fieldAdComments,"Comments");
+        CommonUtils.sendKeys(oaIntakePage.fieldAdComments, "Comments");
+    }
+
+    /**
+     * User can verify section text is displayed
+     */
+    @When("Submitter User can verify that section text is displayed")
+    public void submitter_user_can_verify_that_section_text_is_displaye() {
+        softAssert.assertTrue(oaIntakePage.textOAIntakeNewRecord.isDisplayed());
+    }
+
+    /**
+     * User unchecks Requestor is same as Submitter option
+     */
+    @When("Submitter User unchecks Requestor \\(Requested For) is same as Submitter option")
+    public void submitter_user_unchecks_requestor_requested_for_is_same_as_submitter_option() {
+        CommonUtils.clickOnElement(oaIntakePage.checkboxRequestorSameAsSubmitter);
+    }
+
+    /**
+     * User fills in Requestor field
+     */
+    @Then("Submitter User can fill in Requestor \\(Requested For) field as Aad Tibben")
+    public void submitter_user_can_fill_in_requestor_requested_for_field_as_aad_tibben() {
+        CommonUtils.clickOnElement(oaIntakePage.dropdownRequestor);
+        CommonUtils.sleep(1000);
+        CommonUtils.clickOnElement(oaIntakePage.dropdownRequestorAadTibben);
+    }
+
+    /**
+     * User picks NAICS Code Status option as unknown
+     */
+    @When("Submitter User picks NAICS Code Status option as unknown")
+    public void submitter_user_picks_naics_code_status_option_as_unknown() {
+        softAssert.assertTrue(oaIntakePage.unknownOptionNAICS.isDisplayed());
+    }
+
+    /**
+     * User fills in Previous Contract Number
+     */
+    @When("User can fill in Previous Contract Number as 263201500284B\\/75N91019F90001")
+    public void user_can_fill_in_previous_contract_number_as_263201500284b_75n91019f90001() {
+        CommonUtils.clickOnElement(oaIntakePage.previousContractNumberField);
+        CommonUtils.sleep(2000);
+        CommonUtils.clickOnElement(oaIntakePage.contractNumber263201500284B75N91019F90001);
+        CommonUtils.sleep(5000);
+    }
+
+    /**
+     * User chooses option Blanket Purchase Agreement from Recommended Contract Mechanism dropdown
+     */
+    @When("Submitter User chooses option Multiple Award IDIQ from Recommended Contract Mechanism dropdown")
+    public void submitter_user_chooses_option_blanket_purchase_agreement_bpa_from_recommended_contract_mechanism_dropdown() {
+        CommonUtils.clickOnElement(oaIntakePage.drpdownRecomContractMechanism);
+        CommonUtils.sleep(2000);
+        CommonUtils.clickOnElement(oaIntakePage.multipleAwardIDIQOption);
+        ;
+    }
+
+    /**
+     * User chooses Estimated Amount as two hundred fifty to seven hunderd fifty thousand
+     */
+    @When("User chooses Estimated Amount as two hundred fifty to seven hunderd fifty thousand")
+    public void user_chooses_estimated_amount_as_two_hundred_fifty_to_seven_hunderd_fifty_thousand() {
+        CommonUtils.clickOnElement(oaIntakePage.estimatedAmountDropdown);
+        CommonUtils.sleep(2000);
+        CommonUtils.clickOnElement(oaIntakePage.twoFiftySevenFifty);
     }
 }

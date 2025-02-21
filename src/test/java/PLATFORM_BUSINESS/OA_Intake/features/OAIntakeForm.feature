@@ -232,3 +232,29 @@ Feature: Create OA Intake form
     And Submitter User chooses to submit a request
     And User logs out of OA Intake application
 
+
+  @selenium @Alena @Regression @OAIntake-5
+  Scenario: Create OA Intake form with New or Re-compete Contract as yes, NAICS Code Status option as unknown, Blanket Purchase Agreement (BPA) as Recommended Contract Mechanism
+    Given Submitter User logged in to OA Intake Portal
+    When Submitter User clicks on New Request button
+    And Submitter User can verify that section text is displayed
+    And Submitter User unchecks Requestor (Requested For) is same as Submitter option
+    Then Submitter User can fill in Requestor (Requested For) field as Aad Tibben
+    And Submitter User fills in Request Title field as "OA Intake Request"
+    And Submitter User fills in Request Description field as "Request Description"
+    And Submitter User fills in Requested Award Date as "12/05/2025"
+    When Submitter User picks NAICS Code Status option as unknown
+    When Submitter User chooses New or Re-compete Contract option as Re-compete
+    And User can fill in Previous Contract Number as 263201500284B/75N91019F90001
+    When Submitter User chooses option Multiple Award IDIQ from Recommended Contract Mechanism dropdown
+    And  User chooses Estimated Amount as two hundred fifty to seven hunderd fifty thousand
+    And Submitter User chooses R&D Support as No
+    When Submitter User chooses PSC Code Status as known
+    And Submitter User chooses FITARA Business Case Clearances as Yes
+    And Submitter User chooses Have you already submitted a Business Case as Yes
+    And Submitter User inputs Business ticket number as "ABC123"
+    And Submitter User chooses No for ISSO Clearance field
+    When Submitter User clicks Submit Request button
+    And Submitter User chooses to submit a request
+    And User logs out of OA Intake application
+
