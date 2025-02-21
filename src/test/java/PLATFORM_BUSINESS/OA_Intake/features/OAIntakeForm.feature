@@ -232,9 +232,8 @@ Feature: Create OA Intake form
     And Submitter User chooses to submit a request
     And User logs out of OA Intake application
 
-
   @selenium @Alena @Regression @OAIntake-5
-  Scenario: Create OA Intake form with New or Re-compete Contract as yes, NAICS Code Status option as unknown, Blanket Purchase Agreement (BPA) as Recommended Contract Mechanism
+  Scenario: Create OA Intake form with New or Re-compete Contract as yes, NAICS Code Status option as unknown, Multiple Award IDIQ as Recommended Contract Mechanism
     Given Submitter User logged in to OA Intake Portal
     When Submitter User clicks on New Request button
     And Submitter User can verify that section text is displayed
@@ -257,4 +256,3 @@ Feature: Create OA Intake form
     When Submitter User clicks Submit Request button
     And Submitter User chooses to submit a request
     And User logs out of OA Intake application
-
