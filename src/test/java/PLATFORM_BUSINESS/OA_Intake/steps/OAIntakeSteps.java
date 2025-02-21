@@ -17,7 +17,6 @@ import java.util.Map;
 import static Hooks.Hooks.softAssert;
 
 public class OAIntakeSteps extends PageInitializer {
-
     /**
      * Logs in as a Submitter to OA Intake Portal.
      */
