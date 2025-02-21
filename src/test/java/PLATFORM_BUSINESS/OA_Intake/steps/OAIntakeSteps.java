@@ -12,10 +12,8 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-
 import java.util.ArrayList;
 import java.util.Map;
-
 import static Hooks.Hooks.softAssert;
 
 public class OAIntakeSteps extends PageInitializer {
