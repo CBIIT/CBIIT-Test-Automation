@@ -10,14 +10,14 @@ jobs:
   build:
     runs-on: NCI-WINDOWS
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
           fetch-depth: 0
 
       - name: Run CCR Regression Tests
         shell: cmd
-        run: mvn -B -q -Dtest=CustomBusiness.CCR.Runners.RunCCRRegressionTest test
+        run: mvn -B -q -Dtest=CUSTOM_BUSINESS.CCR.runners.RunCCRRegressionTest test
         continue-on-error: true
 
       - name: Generate timestamp
@@ -35,7 +35,7 @@ jobs:
         run: echo "::set-output name=path::CCR-regression-reports"
 
       - name: Upload Cucumber Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: CCR-regression-report-${{ env.timestamp }}

@@ -520,6 +520,7 @@ public class RAS_Consent_Call_Steps {
         CucumberLogUtils.scenario.log("* * * * * CONSENTED BY * * * * *");
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, consentByName);
+        CommonUtils.sleep(500);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
     }
 
@@ -571,7 +572,8 @@ public class RAS_Consent_Call_Steps {
     public void study_team_member_presses_the_sign_and_complete_button() {
         CucumberLogUtils.scenario.log("* * * * * COMPLETE CONSENT * * * * *");
         nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompleteConsentButton.click();
-        CommonUtils.sleep(500);
+        CommonUtils.sleep(2000);
+        CommonUtils.waitForVisibility(locateByXpath("//div[@class='outputmsg_text']"));
         CucumberLogUtils.logScreenshot();
     }
 }
