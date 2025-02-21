@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    runs-on: NCI-WINDOWS # Custom runner
+    runs-on: NCI-WINDOWS  # Custom runner
 
     steps:
       # Step 1: Checkout the repository
@@ -42,13 +42,13 @@ jobs:
 
       # Step 5: Generate Excel Report after the tests
       - name: Generate Excel File
-        run: |
-          mvn clean test \
-          -DjsonFile="target/CHARMS-RAS-Regression-Test-Results.json" \
-          -DexcelFile="target/CHARMS-Regression-Test-Results.xlsx"
+        run: >
+        mvn clean test \
+        -DjsonFile="target/CHARMS-RAS-Regression-Test-Results.json" \
+        -DexcelFile="target/CHARMS-Regression-Test-Results.xlsx"
 
-      # Step 6: Upload Cucumber Report
-      - name: Upload Cucumber Report (HTML & others)
+      # Step 6: Upload Cucumber Report (HTML & others)
+      - name: Upload Cucumber Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -77,4 +77,4 @@ jobs:
           client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
           client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}
           timestamp: ${{ env.timestamp }}
-          UPLOAD_FOLDER: "Platform Scientific - CHARMS/TEST AUTOMATION REPORTS/Rasopathy"
+          UPLOAD_FOLDER: 'Platform Scientific - CHARMS/TEST AUTOMATION REPORTS/Rasopathy'
