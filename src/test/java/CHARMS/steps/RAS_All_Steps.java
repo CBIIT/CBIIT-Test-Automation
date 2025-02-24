@@ -1423,7 +1423,7 @@ public class RAS_All_Steps extends PageInitializer {
         nativeViewCHARMSFHQPatientPage.firstNameOfParticipantInputField.sendKeys(ras_Screener_TestDataManager.FIRST_NAME);
         nativeViewCHARMSFHQPatientPage.firstInitialOfLastNameOfParticipantInputField.sendKeys(ras_Screener_TestDataManager.LAST_NAME.substring(0, 1));
         CucumberLogUtils.logScreenshot();
-        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.SEX_ASSIGNED_AT_BIRTH_OPTION, nativeViewCHARMSFHQPatientPage.sexAssignedAtBirthDropdown);
+        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.WHAT_IS_YOUR_SEX, nativeViewCHARMSFHQPatientPage.sexAssignedAtBirthDropdown);
         JavascriptUtils.scrollIntoView(nativeViewCHARMSFHQPatientPage.sexAssignedAtBirthDropdown);
         CommonUtils.selectDropDownValue("No", nativeViewCHARMSFHQPatientPage.hasParticipantHadAnyMiscarriageStillbirthDropdown);
         nativeViewCHARMSFHQPatientPage.howManyTotalChildrenHasTheParticipantHadInputField.sendKeys("1");
