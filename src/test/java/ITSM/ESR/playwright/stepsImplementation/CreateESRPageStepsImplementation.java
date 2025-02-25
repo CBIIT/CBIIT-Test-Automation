@@ -8,6 +8,8 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.PlaywrightUtils;
+
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
@@ -218,10 +220,11 @@ public class CreateESRPageStepsImplementation {
     public static void navigateToGeneratedESRITicket() {
 
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//tbody/tr[6]/td[1]/div[1]/div[1]/div[1]/div[2]/select[1]")).containsText("Proceed to Implementation");
-        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        Playwright_Common_Locators.iframeLocator().locator("//nav[@role='navigation']//div//div//span//span//span//button[@value='sysverb_update_and_stay']").click();
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_section").getByText("Notes").click();
-        assertThat(Playwright_Common_Locators.iframeLocator().locator("#sn_form_inline_stream_entries")).containsText("was generated from this request");
-        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        CommonUtils.sleep(3000);
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("#sn_form_inline_stream_entries")).containsText("System");
+        Playwright_Common_Locators.iframeLocator().locator("//nav[@role='navigation']//div//div//span//span//span//button[@value='sysverb_update_and_stay']").click();
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Requested Items").click();
         Playwright_Common_Locators.iframeLocator().getByLabel("ESR-I").click();
 //        page.locator(CreateESRPage.iframeSelector).contentFrame().locator("#tabs2_section").getByText("Notes").click();
