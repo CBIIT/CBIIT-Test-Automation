@@ -77,4 +77,14 @@ public class CreateESRPageSteps {
     public void user_sees_an_esr_i_ticket_was_created_in_portal_view() {
         CreateESRPageStepsImplementation.verifyESRIPortalCreation();
     }
+
+    @And("the user navigates to the generated ESR-I ticket")
+    public void the_user_navifates_to_the_generated_esr_i_ticket() {
+        CreateESRPageStepsImplementation.navigateToGeneratedESRITicket();
+    }
+
+    @Then("user validates an ESR-I ticket was created from an ESR-Q ticket")
+    public void user_validates_an_esr_i_ticket_was_created_from_an_esr_q_ticket() {
+        CreateESRPageStepsImplementation.verifyESRITicketCreationFromESRQ();
+    }
 }

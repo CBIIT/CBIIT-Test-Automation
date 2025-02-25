@@ -1,5 +1,6 @@
 package ITSM.ESR.playwright.stepsImplementation;
 
+import APPS_COMMON.Pages.Playwright_Common_Locators;
 import ITSM.ESR.playwright.pages.CreateESRPage;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
@@ -209,5 +210,29 @@ public class CreateESRPageStepsImplementation {
         });
         CommonUtils.sleep(2000);
         assertThat(page1.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]")).containsText("Implementation");
+    }
+
+    /**
+     * Navigates to the newly created ESR-I ticket from ESR-Q ticket
+     */
+    public static void navigateToGeneratedESRITicket() {
+
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//tbody/tr[6]/td[1]/div[1]/div[1]/div[1]/div[2]/select[1]")).containsText("Proceed to Implementation");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_section").getByText("Notes").click();
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("#sn_form_inline_stream_entries")).containsText("was generated from this request");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Requested Items").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("ESR-I").click();
+//        page.locator(CreateESRPage.iframeSelector).contentFrame().locator("#tabs2_section").getByText("Notes").click();
+//        page.locator(CreateESRPage.iframeSelector).contentFrame().getByRole(AriaRole.LINK, new FrameLocator.GetByRoleOptions().setName("NCI-RITM0550494")).click();
+    }
+
+    /**
+     * Validates that an ESR-I ticket was created from an ESR-Q ticket
+     */
+    public static void verifyESRITicketCreationFromESRQ() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Notes").click();
+        assertThat(page.locator(CreateESRPage.iframeSelector).contentFrame().locator("#sn_form_inline_stream_entries")).containsText("This request was generated from");
     }
 }

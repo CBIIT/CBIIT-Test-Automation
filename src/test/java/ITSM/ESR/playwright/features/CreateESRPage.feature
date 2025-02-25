@@ -40,3 +40,21 @@ Feature: Create ESR Page
     And navigates to Engineering Support Requests
     And fills out all required information for ESR-I in portal view and clicks submit
     Then user sees an ESR-I ticket was created in portal view
+
+  @ESR-??? @sarwarahmed1 @Progression @playwright
+  Scenario: Validate creation of ESR-I ticket from ESR-Q ticket
+    Given a user logs into Native View on the NCI at your service page
+    And navigates to create ESR
+    And fills out all required information for ESR-Q and clicks submit
+    And user clicks on Intake Preparation catalog task
+    And user fills out all required information for ESR-Q Intake Preparation
+    And the user is approved from a federal lead
+    And ESR Board Intake Review catalog task is completed
+    And the user is approved from the ESR Board approvers
+    And the Engineering Project Execution catalog task is completed
+    And the Closeout Preparation catalog task for ESR-Q is completed
+    And the user is approved from a federal lead for closeout approval
+    And the ESR Board Closeout Review catalog task is completed
+    And the user is approved for ESR Board Closeout Review for ESR-Q
+    And the user navigates to the generated ESR-I ticket
+    Then user validates an ESR-I ticket was created from an ESR-Q ticket
