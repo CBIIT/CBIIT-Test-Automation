@@ -502,6 +502,9 @@ public class RAS_Consent_Call_Steps {
         CommonUtils.sleep(2000);
     }
 
+    /**
+     * Selects Today as the consent date for the participant's consent form.
+     */
     @Given("selects Today as the Consent Date")
     public void selects_today_as_the_consent_date() {
         CucumberLogUtils.scenario.log("* * * * * CONSENT DATE * * * * *");
@@ -519,7 +522,9 @@ public class RAS_Consent_Call_Steps {
     public void fills_in_consent_by(String consentByName) {
         CucumberLogUtils.scenario.log("* * * * * CONSENTED BY * * * * *");
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox);
+        CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.CLEAR);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, consentByName);
+        CommonUtils.sleep(500);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
     }
 
@@ -571,7 +576,8 @@ public class RAS_Consent_Call_Steps {
     public void study_team_member_presses_the_sign_and_complete_button() {
         CucumberLogUtils.scenario.log("* * * * * COMPLETE CONSENT * * * * *");
         nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompleteConsentButton.click();
-        CommonUtils.sleep(500);
+        CommonUtils.sleep(2000);
+        CommonUtils.waitForVisibility(locateByXpath("//div[@class='outputmsg_text']"));
         CucumberLogUtils.logScreenshot();
     }
 }

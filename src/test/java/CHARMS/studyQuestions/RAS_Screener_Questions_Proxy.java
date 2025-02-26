@@ -10,6 +10,7 @@ public class RAS_Screener_Questions_Proxy {
     public static final String ARE_YOUR_THE_LEGAL_GUARDIAN_OF = "Are you the legal guardian of %s?";
     public static final String THE_NEXT_SET_OF_QUESTIONS_WILL_COLLECT_BASIC_INFORMATION_ABOUT = "The next set of questions will collect basic information about %s.";
     public static final String DATE_OF_BIRTH_OF = "Date of birth of %s";
+    public static final String WHAT_IS_THE_PARTICIPANTS_SEX = "What is %s's sex?";
     public static final String SEX_OF_ASSIGNED_AT_BIRTH = "Sex of %s assigned at birth";
     public static final String IS_ADOPTED = "Is %s adopted?";
     public static final String IS_ALIVE = "Is %s alive?";

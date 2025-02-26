@@ -10,6 +10,7 @@ public class RAS_Screener_Questions_Proband {
     public static final String THE_NEXT_SET_OF_QUESTIONS_WILL_COLLECT_BASIC_INFORMATION_ABOUT_YOU = "The next set of questions will collect basic information about you.";
     public static final String WHAT_IS_YOUR_DATE_OF_BIRTH = "What is your date of birth?";
     public static final String WHAT_WAS_YOUR_SEX_ASSIGNED_AT_BIRTH = "What was your sex assigned at birth?";
+    public static final String WHAT_IS_YOUR_SEX = "What is your sex?";
     public static final String ARE_YOU_ADOPTED = "Are you adopted?";
     public static final String IN_WHICH_COUNTRY_DO_YOU_CURRENTLY_LIVE = "In which country do you currently live?";
     public static final String PLEASE_PROVIDE_THE_MAILING_ADDRESS_WHERE_STUDY_MATERIALS_CAN_BE_SENT_AS_NEEDED = "Please provide the mailing address where study materials can be sent, as needed.";
