@@ -83,3 +83,12 @@ Feature: These are the scenarios for the Home page on the ACT24 Application
     When User enters "satya.gugulothu@nih.gov" in email and "Satyakotya123@" in password and clicks Login
     And User clicks on the my account menu tab in the act24 researcher website
     Then Validate the email field value matches with "satya.gugulothu@nih.gov"
+
+  @Smoke @satya @Regression @playwright @NCIATWP-8546
+  Scenario: Validate the links available in the footer
+    Given User navigates to ACT24 website
+    Then User clicks on the accessibility link and verify it in ACT24 website
+    Then User clicks on the disclaimer link and verify it in ACT24 website
+    Then User clicks on the fios link and verify it in ACT24 website
+    Then User clicks on the hhs vulnerability disclosure link and verify it in ACT24 website
+    Then User clicks on the privacy and security link and verify it in ACT24 website

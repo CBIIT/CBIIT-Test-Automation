@@ -144,6 +144,6 @@ Scenario: Export search results
 
 @TestCORUserAccessLevel @NESARH2 @Regression @playwright
 Scenario: Verify that Test COR can not access All Contracts
-  When a user with Test COR logs in the application
+  When User logs in as Test COR on the side login page
   And User navigates to Contracts
   Then User will verify that Test COR can not access All Contracts
