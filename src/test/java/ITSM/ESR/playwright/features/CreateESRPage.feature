@@ -41,7 +41,7 @@ Feature: Create ESR Page
     And fills out all required information for ESR-I in portal view and clicks submit
     Then user sees an ESR-I ticket was created in portal view
 
-  @ESR-??? @sarwarahmed1 @Progression @playwright
+  @ESR-719 @sarwarahmed1 @Regression @playwright
   Scenario: Validate creation of ESR-I ticket from ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
