@@ -222,13 +222,11 @@ public class CreateESRPageStepsImplementation {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//tbody/tr[6]/td[1]/div[1]/div[1]/div[1]/div[2]/select[1]")).containsText("Proceed to Implementation");
         Playwright_Common_Locators.iframeLocator().locator("//nav[@role='navigation']//div//div//span//span//span//button[@value='sysverb_update_and_stay']").click();
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_section").getByText("Notes").click();
-        CommonUtils.sleep(3000);
+        CommonUtils.sleep(6000); // System takes a bit of time to generate new ticket
         assertThat(Playwright_Common_Locators.iframeLocator().locator("#sn_form_inline_stream_entries")).containsText("System");
         Playwright_Common_Locators.iframeLocator().locator("//nav[@role='navigation']//div//div//span//span//span//button[@value='sysverb_update_and_stay']").click();
-        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Requested Items").click();
-        Playwright_Common_Locators.iframeLocator().getByLabel("ESR-I").click();
-//        page.locator(CreateESRPage.iframeSelector).contentFrame().locator("#tabs2_section").getByText("Notes").click();
-//        page.locator(CreateESRPage.iframeSelector).contentFrame().getByRole(AriaRole.LINK, new FrameLocator.GetByRoleOptions().setName("NCI-RITM0550494")).click();
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Requested Items (1)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[52]").click();
     }
 
     /**
@@ -236,6 +234,6 @@ public class CreateESRPageStepsImplementation {
      */
     public static void verifyESRITicketCreationFromESRQ() {
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Notes").click();
-        assertThat(page.locator(CreateESRPage.iframeSelector).contentFrame().locator("#sn_form_inline_stream_entries")).containsText("This request was generated from");
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("#sn_form_inline_stream_entries")).containsText("This request was generated from");
     }
 }
