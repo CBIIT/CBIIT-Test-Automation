@@ -79,7 +79,7 @@ public class CreateESRPageSteps {
     }
 
     @And("the user navigates to the generated ESR-I ticket")
-    public void the_user_navifates_to_the_generated_esr_i_ticket() {
+    public void the_user_navigates_to_the_generated_esr_i_ticket() {
         CreateESRPageStepsImplementation.navigateToGeneratedESRITicket();
     }
 

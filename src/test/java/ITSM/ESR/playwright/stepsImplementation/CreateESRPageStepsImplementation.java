@@ -233,7 +233,7 @@ public class CreateESRPageStepsImplementation {
      * Validates that an ESR-I ticket was created from an ESR-Q ticket
      */
     public static void verifyESRITicketCreationFromESRQ() {
-        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Notes").click();
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_section").getByText("Notes").click();
         assertThat(Playwright_Common_Locators.iframeLocator().locator("#sn_form_inline_stream_entries")).containsText("This request was generated from");
     }
 }
