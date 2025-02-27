@@ -216,7 +216,6 @@ public class CreateESRPageStepsImplementation {
      * Navigates to the newly created ESR-I ticket from ESR-Q ticket
      */
     public static void navigateToGeneratedESRITicket() {
-
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//tbody/tr[6]/td[1]/div[1]/div[1]/div[1]/div[2]/select[1]")).containsText("Proceed to Implementation");
         Playwright_Common_Locators.iframeLocator().locator("//nav[@role='navigation']//div//div//span//span//span//button[@value='sysverb_update_and_stay']").click();
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_section").getByText("Notes").click();
