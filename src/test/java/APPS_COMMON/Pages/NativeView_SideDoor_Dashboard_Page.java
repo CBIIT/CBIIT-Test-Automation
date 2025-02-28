@@ -63,6 +63,10 @@ public class NativeView_SideDoor_Dashboard_Page {
     @FindElementBy(xpath = "//*[text()='All Participant Details'][1]")
     public static WebElement allParticipantDetailsLink;
 
+    /* FHQ PATIENTS */
+    @FindElementBy(xpath = "//*[text()='FHQ Patients'][1]")
+    public static WebElement fhqPatientsLink;
+
 	/* NV: FHQ Patients Menu Link In NV Navigator */
 	@FindBy(css = "a[class='nested-item item-label keyboard-navigatable highlighted-item']")
 	public static WebElement nVFHQFilterMatchLink;

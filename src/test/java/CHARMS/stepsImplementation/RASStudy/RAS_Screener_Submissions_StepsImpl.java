@@ -215,6 +215,24 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
                 /**
+                 * * * * * WHAT IS YOUR SEX? * * * *
+                 */
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && (rasopathyQuestionnairePage.question.getText().contentEquals(WHAT_IS_YOUR_SEX))) {
+                    CucumberLogUtils.scenario.log("* * * * * WHAT IS YOUR SEX? * * * * *");
+                    CommonUtils.clickOnElement(dynamicLocator(ras_Screener_TestDataManager.WHAT_IS_YOUR_SEX));
+                    CucumberLogUtils.logScreenshot();
+                    ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
+                }
+                /**
+                 * * * * * WHAT IS THE PARTICIPANT'S SEX? * * * *
+                 */
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && (rasopathyQuestionnairePage.question.getText().trim().contentEquals(formatRASQuestionForProxy(WHAT_IS_THE_PARTICIPANTS_SEX)))) {
+                    CucumberLogUtils.scenario.log("* * * * * WHAT IS THE PARTICIPANT'S SEX? * * * * *");
+                    CommonUtils.clickOnElement(dynamicLocator(ras_Screener_TestDataManager.WHAT_IS_THE_PARTICIPANTS_SEX));
+                    CucumberLogUtils.logScreenshot();
+                    ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
+                }
+                /**
                  * * * * * IS THE PARTICIPANT ALIVE? * * * *
                  */
                 else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(formatRASQuestionForProxy(IS_ALIVE))) {
