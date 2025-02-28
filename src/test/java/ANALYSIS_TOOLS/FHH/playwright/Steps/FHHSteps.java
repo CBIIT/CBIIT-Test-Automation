@@ -10,11 +10,17 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 
 public class FHHSteps extends PlaywrightUtils {
 
+    /*
+    THIS STEP NAVIGATES TO THE FHH HOME PAGE -- CURRENTLY ONLY A DEV SITE
+     */
     @Given("the user is on the FHH home page")
     public void the_user_is_on_the_fhh_home_page() {
         PlaywrightUtils.page.navigate("https://familyhistory-dev.cancer.gov/html/index.html");
     }
 
+    /*
+    THIS STEP CLICKS ON THE BUTTON TO CREATE AN FHH SUBMISSION AND START A RECORD
+     */
     @When("the user click {string}")
     public void the_user_click(String createFHH) {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(createFHH)).click();
