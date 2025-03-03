@@ -1,8 +1,5 @@
 package ANALYSIS_TOOLS.ACT24.utils;
 
-import com.microsoft.playwright.Page;
-import com.nci.automation.web.PlaywrightUtils;
-
 public class ACT24ResearcherPlaywright_Constants {
 
     /***
@@ -49,9 +46,4 @@ public class ACT24ResearcherPlaywright_Constants {
      * USA GOV PAGE LINK
      */
     public static String USA_GOV_PAGE = "https://www.usa.gov/";
-
-    /***
-     * NEW PAGE CONTEXT
-     */
-    public static Page newPage1 = PlaywrightUtils.context.newPage();
 }

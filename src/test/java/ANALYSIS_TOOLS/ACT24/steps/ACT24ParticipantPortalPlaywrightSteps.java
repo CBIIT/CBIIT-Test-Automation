@@ -42,6 +42,14 @@ public class ACT24ParticipantPortalPlaywrightSteps {
     }
 
     /**
+     * Navigating to participant url from researcher website and validating the title
+     */
+    @Then("User navigates to the participant url of the selected study in the new other tab")
+    public void user_navigates_to_the_participant_url_of_the_selected_study_in_the_new_other_tab() {
+        ACT24ParticipantPlaywrightStepsImpl.navigateToNewTabAndOpenUrl1();
+    }
+
+    /**
      * Clicking on the fourth tab
      */
     @Then("User clicks on fourth tab and then click on next")

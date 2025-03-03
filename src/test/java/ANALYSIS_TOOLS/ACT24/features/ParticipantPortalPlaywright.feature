@@ -24,7 +24,7 @@ Feature: These are the scenarios for the Participant Portal of the ACT24 Applica
     And User logins into the ACT24 website with valid credentials
     Then User navigates to the participants account menu tab and click on the clear button
     Then User selects the created study and clicks on the search button under the participants account menu tab
-    Then User navigates to the participant url of the selected study in the new tab
+    Then User navigates to the participant url of the selected study in the new other tab
     Then User clicks on fourth tab and then click on next
 
   @Smoke @satya @Regression @playwright @NCIATWP-7100 @NCIATWP-7321

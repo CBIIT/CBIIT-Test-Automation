@@ -1,7 +1,7 @@
 package ANALYSIS_TOOLS.ACT24.stepsImpl;
 
 import ANALYSIS_TOOLS.ACT24.pages.ACT24ResearcherPortalPlaywrightPage;
-import ANALYSIS_TOOLS.ACT24.utils.ACT24ResearcherPlaywright_Constants;
+import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.nci.automation.web.CommonUtils;
@@ -13,6 +13,7 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 
 public class ACT24ParticipantPlaywrightStepsImpl {
     public static String participantUrl;
+    public static Page newPage3;
 
     /**
      * Login with the valid credentials in the participant portal
@@ -24,32 +25,48 @@ public class ACT24ParticipantPlaywrightStepsImpl {
     }
 
     /**
-     * Navigating to participant url from researcher website
-     *
-     * @param expectedTitle     The expectedTitle to be verified.
-     */
-    public static void navigateAndVerifyTitle(String expectedTitle) {
-        ACT24ResearcherPlaywright_Constants.newPage1.navigate(participantUrl);
-        assertThat(ACT24ResearcherPlaywright_Constants.newPage1).hasTitle(expectedTitle);
-        CommonUtils.sleep(2000);
-    }
-
-    /**
      * Navigating to participant url from researcher website and validating the title
      */
     public static void navigateToNewTabAndOpenUrl() {
         participantUrl = PlaywrightUtils.page.locator("//table[@id='participantsTable']//tbody//tr//td[3]").first().innerText();
         System.out.println(participantUrl);
-        navigateAndVerifyTitle("ACT24");
+        navigateToNewTabWithUrl(participantUrl, PlaywrightUtils.context);
+        newPage3.bringToFront();
+        assertThat(newPage3).hasTitle("ACT24");
+    }
+
+    /**
+     * Navigating to participant url from researcher website and validating the title
+     */
+    public static void navigateToNewTabAndOpenUrl1() {
+        participantUrl = PlaywrightUtils.page.locator("//table[@id='participantsTable']//tbody//tr//td[3]").first().innerText();
+        System.out.println(participantUrl);
+        navigateToNewTabWithUrl(participantUrl, PlaywrightUtils.context);
+    }
+
+    /**
+     * Navigating to new tab with the url
+     */
+    public static void navigateToNewTabWithUrl(String url, BrowserContext context) {
+        try {
+            newPage3 = context.newPage();
+            newPage3.navigate(url);
+            newPage3.waitForLoadState();
+            newPage3.bringToFront();
+            assertThat(newPage3).hasTitle("ACT24");
+            CommonUtils.sleep(2000);
+        } catch (Exception e) {
+            System.err.println("Error navigating to new tab: " + e.getMessage());
+        }
     }
 
     /**
      * Clicking on the fourth tab
      */
     public static void clickFourthTab() {
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//div[@id='overlayDesktopStartInfo']//button[4]").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//button[@class='btn btn-lg btn-success rounded']").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.close();
+        newPage3.locator("//div[@id='overlayDesktopStartInfo']//button[4]").click();
+        newPage3.locator("//button[@class='btn btn-lg btn-success rounded']").click();
+        newPage3.close();
         PlaywrightUtils.page.bringToFront();
     }
 
@@ -123,59 +140,59 @@ public class ACT24ParticipantPlaywrightStepsImpl {
      * Opening the first recall in the new tab
      */
     public static void openFirstRecall() {
-        ACT24ResearcherPlaywright_Constants.newPage1.navigate(firstParticipantUrl);
+        navigateToNewTabWithUrl(firstParticipantUrl, PlaywrightUtils.context);
     }
 
     /**
      * Selecting all the activities
      */
     public static void selectsAllActivities() {
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//div[@id='overlayDesktopStartInfo']//button[4]").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//button[@class='btn btn-lg btn-success rounded']").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//input[@id='submitBtn']").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//span[contains(text(),'Sleeping or Napping')]").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//span[@id='activityTitle_1']").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//input[@id='ActivityQuestionId23_RADIOGROUP_IS_SLEEP']").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//select[@id='ActivityQuestionId4000_STARTTIME']").selectOption("6:00am");
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//select[@id='ActivityQuestionId4001_ENDTIME']").selectOption("6:20am(20min)");
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//select[@id='QuestionId33_DROPDOWN']").selectOption("10min");
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//select[@id='QuestionId34_DROPDOWN']").selectOption("2");
+        newPage3.locator("//div[@id='overlayDesktopStartInfo']//button[4]").click();
+        newPage3.locator("//button[@class='btn btn-lg btn-success rounded']").click();
+        newPage3.locator("//input[@id='submitBtn']").click();
+        newPage3.locator("//span[contains(text(),'Sleeping or Napping')]").click();
+        newPage3.locator("//span[@id='activityTitle_1']").click();
+        newPage3.locator("//input[@id='ActivityQuestionId23_RADIOGROUP_IS_SLEEP']").click();
+        newPage3.locator("//select[@id='ActivityQuestionId4000_STARTTIME']").selectOption("6:00am");
+        newPage3.locator("//select[@id='ActivityQuestionId4001_ENDTIME']").selectOption("6:20am(20min)");
+        newPage3.locator("//select[@id='QuestionId33_DROPDOWN']").selectOption("10min");
+        newPage3.locator("//select[@id='QuestionId34_DROPDOWN']").selectOption("2");
         CommonUtils.sleep(2000);
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//select[@id='QuestionId35_DROPDOWN']").selectOption("10min");
+        newPage3.locator("//select[@id='QuestionId35_DROPDOWN']").selectOption("10min");
         CommonUtils.sleep(2000);
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//div[@class='select-selected2']").click();
+        newPage3.locator("//div[@class='select-selected2']").click();
         CommonUtils.sleep(2000);
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//div[@id='container']//div[102]").click();
+        newPage3.locator("//div[@id='container']//div[102]").click();
         CommonUtils.sleep(5000);
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//select[@id='QuestionId37_DROPDOWN']").selectOption("3:05pm(20min)");
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//select[@id='QuestionId38_DROPDOWN']").selectOption("10min");
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//input[@id='ActivityQuestionId4011_RADIOGROUP_Very_good']").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//input[@id='ActivityQuestionId4021_RADIOGROUP_Refreshed']").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//input[@id='ActivityQuestionId4023_RADIOGROUP_IS_NOT']").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//input[@id='ActivityQuestionId4024_RADIOGROUP_IS_SLEEP']").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//input[@id='ActivityQuestionId4026_CHECKGROUP_Work']").click();
+        newPage3.locator("//select[@id='QuestionId37_DROPDOWN']").selectOption("3:05pm(20min)");
+        newPage3.locator("//select[@id='QuestionId38_DROPDOWN']").selectOption("10min");
+        newPage3.locator("//input[@id='ActivityQuestionId4011_RADIOGROUP_Very_good']").click();
+        newPage3.locator("//input[@id='ActivityQuestionId4021_RADIOGROUP_Refreshed']").click();
+        newPage3.locator("//input[@id='ActivityQuestionId4023_RADIOGROUP_IS_NOT']").click();
+        newPage3.locator("//input[@id='ActivityQuestionId4024_RADIOGROUP_IS_SLEEP']").click();
+        newPage3.locator("//input[@id='ActivityQuestionId4026_CHECKGROUP_Work']").click();
     }
 
     /**
      * Clicking on the next button
      */
     public static void clickNextButton() {
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//button[@id='buttonNextSD']").click();
+        newPage3.locator("//button[@id='buttonNextSD']").click();
     }
 
     /**
      * Clicking on the submit recall now button
      */
     public static void clickSubmitRecallButton() {
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//b[normalize-space()='Submit Recall Now']").click();
+        newPage3.locator("//b[normalize-space()='Submit Recall Now']").click();
     }
 
     /**
      * Verifying that recall is submitted
      */
     public static void validateSubmittedRecallText() {
-        assertThat(ACT24ResearcherPlaywright_Constants.newPage1.locator("//h1[@class='submitHeadline']")).containsText("You have successfully submitted your recall. ");
-        ACT24ResearcherPlaywright_Constants.newPage1.close();
+        assertThat(newPage3.locator("//h1[@class='submitHeadline']")).containsText("You have successfully submitted your recall. ");
+        newPage3.close();
         PlaywrightUtils.page.bringToFront();
     }
 
@@ -183,16 +200,16 @@ public class ACT24ParticipantPlaywrightStepsImpl {
      * Opening the second recall of the created study in new tab
      */
     public static void openSecondRecall() {
-        ACT24ResearcherPlaywright_Constants.newPage1.navigate(secondParticipantUrl);
+        navigateToNewTabWithUrl(secondParticipantUrl, PlaywrightUtils.context);
     }
 
     /**
      * Doing Actions on Activity Page
      */
     public static void activityPage(){
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//div[@id='overlayDesktopStartInfo']//button[4]").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//button[@class='btn btn-lg btn-success rounded']").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//input[@id='submitBtn']").click();
+        newPage3.locator("//div[@id='overlayDesktopStartInfo']//button[4]").click();
+        newPage3.locator("//button[@class='btn btn-lg btn-success rounded']").click();
+        newPage3.locator("//input[@id='submitBtn']").click();
 
     }
 
@@ -207,11 +224,11 @@ public class ACT24ParticipantPlaywrightStepsImpl {
      * Changing language from French to English
      */
     public static void changesLanguages() {
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//span[@id='activeLanguage']").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//a[@id='frenchItem']").click();
+        newPage3.locator("//span[@id='activeLanguage']").click();
+        newPage3.locator("//a[@id='frenchItem']").click();
         activityPage();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//span[@id='activeLanguage']").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//a[@id='englishItem']").click();
+        newPage3.locator("//span[@id='activeLanguage']").click();
+        newPage3.locator("//a[@id='englishItem']").click();
         activityPage();
     }
 
@@ -220,7 +237,7 @@ public class ACT24ParticipantPlaywrightStepsImpl {
      */
     public static void clickOnHelpAndVerify() {
         Page newPage11 = PlaywrightUtils.context.waitForPage(() -> {
-            ACT24ResearcherPlaywright_Constants.newPage1.locator("//a[normalize-space()='Help']").click();});
+            newPage3.locator("//a[normalize-space()='Help']").click();});
         CommonUtils.sleep(2000);
         assertThat(newPage11).hasTitle("ACT24 Frequently Asked Questions");
         newPage11.close();
@@ -231,10 +248,10 @@ public class ACT24ParticipantPlaywrightStepsImpl {
      * Clicking on logout button
      */
     public static void clickLogout() {
-        ACT24ResearcherPlaywright_Constants.newPage1.bringToFront();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//a[@id='logout']").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.locator("//input[@aria-label='Log Out']").click();
-        ACT24ResearcherPlaywright_Constants.newPage1.close();
+        newPage3.bringToFront();
+        newPage3.locator("//a[@id='logout']").click();
+        newPage3.locator("//input[@aria-label='Log Out']").click();
+        newPage3.close();
         CommonUtils.sleep(2000);
         PlaywrightUtils.page.bringToFront();
     }
@@ -243,7 +260,7 @@ public class ACT24ParticipantPlaywrightStepsImpl {
      * Selecting newly created study and clicking on the search button
      */
     public static void searchesNewlyCreatedStudy() {
-        PlaywrightUtils.page.locator("//select[@id='studyId']").selectOption("QYV154"+" - "+"QYV154");
+        PlaywrightUtils.page.locator("//select[@id='studyId']").selectOption(newStudyName+" - "+newStudyName);
         System.out.println(newStudyName+" - "+newStudyName);
         PlaywrightUtils.page.locator("//input[@name='searchParticipants']").click();
     }
@@ -268,6 +285,6 @@ public class ACT24ParticipantPlaywrightStepsImpl {
      * Opening the third recall of the created study in new tab
      */
     public static void openThirdRecall() {
-        ACT24ResearcherPlaywright_Constants.newPage1.navigate(thirdParticipantUrl);
+        navigateToNewTabWithUrl(thirdParticipantUrl, PlaywrightUtils.context);
     }
 }

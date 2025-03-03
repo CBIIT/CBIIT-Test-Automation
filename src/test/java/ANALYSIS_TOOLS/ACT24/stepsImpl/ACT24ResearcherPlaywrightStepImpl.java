@@ -166,7 +166,7 @@ public class ACT24ResearcherPlaywrightStepImpl {
     public static void loginACT24Website() {
         PlaywrightUtils.page.locator("//input[@id='email']").fill("satya.gugulothu@nih.gov");
         CommonUtils.sleep(2000);
-        PlaywrightUtils.page.locator("//input[@id='password']").fill("Satya@1234");
+        PlaywrightUtils.page.locator("//input[@id='password']").fill("Satyakotya123@");
         CommonUtils.sleep(2000);
         PlaywrightUtils.page.locator("//button[@id='login']").click();
         CommonUtils.sleep(2000);
