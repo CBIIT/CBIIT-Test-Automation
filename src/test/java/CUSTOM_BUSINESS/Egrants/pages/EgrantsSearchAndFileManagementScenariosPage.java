@@ -608,6 +608,30 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement deleteExceptionButton;
 
     /**
+     * Drag and Drop Button
+     */
+    @FindBy(xpath = "//*[@id='li_ddrop']")
+    public WebElement dragAndDropButton;
+
+    /**
+     * Upload via Email Button
+     */
+    @FindBy(xpath = "//*[@id='content']/table/tbody/tr/td[2]/div[1]/button[3]")
+    public WebElement uploadViaEmailButton;
+
+    /**
+     * Convert to pdf and Add button
+     */
+    @FindBy(xpath = "//*[@id='btnFilePdfUpload']")
+    public WebElement convertToPdfAndAddButton;
+
+    /**
+     * Add Document button
+     */
+    @FindBy(xpath = "//*[@id='btnFilePdfUpload']")
+    public WebElement addDocButton;
+
+    /**
      * Constructor
      */
     public EgrantsSearchAndFileManagementScenariosPage() {

@@ -213,3 +213,21 @@ Given User is logged in the application and is on the landing page
     And User selects Grants Archival Process from the dropdown
     And the user clicks on New Exception Code tab
     Then the user clicks on Delete Exception button to delete Test Exception Code
+
+  @EGRANTS-661 @FileUpload @alenaminsk @selenium @Regression
+  Scenario: Test document upload
+    And clicks on Add Document button
+    And searches for "125123" on Add New Document page
+    And selects grant year 18
+    And selects category as Application File
+    And passes "Test File" as subcategory
+    And clicks on Locate File and Upload tab
+    And User can see Drag and Drop button displayed
+    And User can see Locate File And Upload button displayed
+    And User can see Upload via Email button displayed
+    And User can see Add button
+    And User can see Convert to PDF and Add button
+    And uploads a file
+    And User clicks Convert to PDF and Add button
+    Then verifies the success message "Done! New document has been created"
+    And clicks on uploaded document
