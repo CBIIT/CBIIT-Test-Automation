@@ -41,7 +41,6 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.esrBoardNeedMoreInfoForESRQ();
     }
 
-
     @Then("the user confirms more information is needed for the ESR-Q ticket")
     public void the_user_confirms_more_information_is_needed_for_the_esr_q_ticket() {
         ESRApprovalStepsImplementation.confirmMoreInfoNeededForESRQ();
