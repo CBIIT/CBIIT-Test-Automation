@@ -18,7 +18,6 @@ public class PlaywrightUtils {
         String maximizeWindow = "--start-maximized";
         boolean headless = TestProperties.HEADLESS;
         double setSlowMoTime = TestProperties.SET_SLOW_MO_TIME;
-
         if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_CHROME) && !headless) {
             arguments = new ArrayList<>();
             arguments.add(maximizeWindow);

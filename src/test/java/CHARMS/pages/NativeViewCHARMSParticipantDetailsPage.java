@@ -97,6 +97,24 @@ public class NativeViewCHARMSParticipantDetailsPage {
     @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_study.assent_signed']")
     public WebElement assentSignedCheckBox;
 
+    /**
+     * FHQ Patient lookup button
+     */
+    @FindBy(xpath = "//button[@name='lookup.x_naci_family_coho_family_history_details.fhq_patient']")
+    public WebElement lookupFHQPatientButton;
+
+    /**
+     * View FHQ Patient button
+     */
+    @FindBy(xpath = "//button[@name='viewr.x_naci_family_coho_family_history_details.fhq_patient']")
+    public WebElement viewFHQPatientButton;
+
+    /**
+     * Save button
+     */
+    @FindBy(xpath = "//span[contains(@class,'navbar_ui_actions')]//button[contains(@name,'not_important')][normalize-space()='Save']")
+    public WebElement saveButton;
+
     public NativeViewCHARMSParticipantDetailsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
