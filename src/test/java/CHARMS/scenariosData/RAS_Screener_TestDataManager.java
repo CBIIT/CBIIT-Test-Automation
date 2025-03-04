@@ -22,10 +22,12 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
     public String DATE_OF_BIRTH_MONTH;
     public String DATE_OF_BIRTH_YEAR;
     public String DATE_OF_BIRTH_OF_THE_PARTICIPANT;
+    public String WHAT_IS_THE_PARTICIPANTS_SEX;
     public String WHAT_IS_YOUR_RELATIONSHIP_TO_THE_PARTICIPANT;
     public String ARE_YOU_THE_LEGAL_GUARDIAN_OF_THE_PARTICIPANT;
     public String THE_NEXT_SET_OF_QUESTIONS_WILL_COLLECT_BASIC_INFORMATION_ABOUT_THE_PARTICIPANT;
     public String SEX_ASSIGNED_AT_BIRTH_OPTION;
+    public String WHAT_IS_YOUR_SEX;
     public String ARE_YOU_ADOPTED_OPTION;
     public String IS_THE_PARTICIPANT_ALIVE;
     public String COUNTRY_OPTION;
@@ -175,11 +177,13 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
             WHAT_IS_YOUR_RELATIONSHIP_TO_THE_PARTICIPANT = TEST_DATA_FOR_RAS_SCREENER.get("What is your relationship to the participant?");
             ARE_YOU_THE_LEGAL_GUARDIAN_OF_THE_PARTICIPANT = TEST_DATA_FOR_RAS_SCREENER.get("Are you the legal guardian of the participant?");
             DATE_OF_BIRTH_OF_THE_PARTICIPANT = TEST_DATA_FOR_RAS_SCREENER.get("Date of birth of the participant.");
+            WHAT_IS_THE_PARTICIPANTS_SEX = TEST_DATA_FOR_RAS_SCREENER.get("What is the participant's sex?");
             IS_THE_PARTICIPANT_ALIVE = TEST_DATA_FOR_RAS_SCREENER.get("Is the participant alive?");
             WHAT_IS_YOUR_DATE_OF_BIRTH = TEST_DATA_FOR_RAS_SCREENER.get("What is your date of birth?");
             DATE_OF_BIRTH_MONTH = TEST_DATA_FOR_RAS_SCREENER.get("Date of birth month");
             DATE_OF_BIRTH_YEAR = TEST_DATA_FOR_RAS_SCREENER.get("Date of birth year");
             SEX_ASSIGNED_AT_BIRTH_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("What was your sex assigned at birth?");
+            WHAT_IS_YOUR_SEX = TEST_DATA_FOR_RAS_SCREENER.get("What is your sex?");
             ARE_YOU_ADOPTED_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Are you adopted?");
             COUNTRY_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("In which country do you currently live?");
             STREET = TEST_DATA_FOR_RAS_SCREENER.get("Street");

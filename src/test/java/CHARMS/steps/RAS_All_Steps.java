@@ -305,6 +305,7 @@ public class RAS_All_Steps extends PageInitializer {
         CucumberLogUtils.scenario.log("* * * * CONSENT/ASSENT OBTAINED BEFORE STUDY PROCEDURES * * * *");
         CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentObtainedBeforeStudyProceduresDropDown);
         CucumberLogUtils.scenario.log("* * * * COPY OF SIGNED/DATED CONSENT/ASSENT GIVEN TO PARTICIPANT * * * *");
+        CommonUtils.sleep(300);
         CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfSignedDatedConsentAssentGivenToParticipantDropDown);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentSignAndCompleteButton);
@@ -1387,6 +1388,58 @@ public class RAS_All_Steps extends PageInitializer {
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.selectAgeGroupDropdown, ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_PARTICIPATE_IN_STRENUOUS_ACTIVITIES_OR_SPORTS_SELECT_AGE_GROUP, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Frequency of strenuous activities (per week) Select Age Group' DROPDOWN * * * * *");
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.frequencyOfModerateActivitiesDropdown, ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_PARTICIPATE_IN_MODERATE_ACTIVITIES_OR_SPORTS_AVERAGE_HOURS_PER_WEEK, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Frequency of moderate activities (per week)' DROPDOWN * * * * *");
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSPhysicalActivitiesSurveyPage.selectAgeGroupDropdown2, ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_PARTICIPATE_IN_MODERATE_ACTIVITIES_OR_SPORTS_SELECT_AGE_GROUP, "* * * * * PHYSICAL ACTIVITIES SURVEY -- VALUE MISMATCH IN 'Frequency of moderate activities (per week) Select Age Group' DROPDOWN * * * * *");
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Presses the back button in NV Form View.
+     */
+    @Then("presses the back button")
+    public void presses_the_back_button() {
+        CommonUtils.waitForClickability(locateByCssSelector("button[aria-label='Back']"));
+        JavascriptUtils.clickByJS(locateByCssSelector("button[aria-label='Back']"));
+        CommonUtils.sleep(1000);
+    }
+
+    /**
+     * The method for a Study Team member to fill out a new FHQ
+     */
+    @Then("Study Team member fills out new FHQ for participant in NV")
+    public void study_team_member_fills_out_new_fhq_for_participant_in_nv() {
+        String subjectID = nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubjectID.getDomAttribute("value").trim();
+        CucumberLogUtils.logScreenshot();
+        WebDriverUtils.webDriver.navigate().refresh();
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("FHQ Patient");
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(3000);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.fhqPatientsLink);
+        CommonUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(2000);
+        locateByXpath("//button[@value='sysverb_new']").click();
+        CommonUtils.sleep(1000);
+        CommonUtils.selectDropDownValue("I am the participant", nativeViewCHARMSFHQPatientPage.confirmIdentityRelationshipToParticipantDropdown);
+        nativeViewCHARMSFHQPatientPage.firstNameOfParticipantInputField.sendKeys(ras_Screener_TestDataManager.FIRST_NAME);
+        nativeViewCHARMSFHQPatientPage.firstInitialOfLastNameOfParticipantInputField.sendKeys(ras_Screener_TestDataManager.LAST_NAME.substring(0, 1));
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.WHAT_IS_YOUR_SEX, nativeViewCHARMSFHQPatientPage.sexAssignedAtBirthDropdown);
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSFHQPatientPage.sexAssignedAtBirthDropdown);
+        CommonUtils.selectDropDownValue("No", nativeViewCHARMSFHQPatientPage.hasParticipantHadAnyMiscarriageStillbirthDropdown);
+        nativeViewCHARMSFHQPatientPage.howManyTotalChildrenHasTheParticipantHadInputField.sendKeys("1");
+        nativeViewCHARMSFHQPatientPage.howManyTotalDifferentPartnersHasParticipantHadBiologicalChildrenWithInputField.sendKeys("1");
+        nativeViewCHARMSFHQPatientPage.howManySiblingsDoesTheParticipantHaveInputField.sendKeys("1");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSFHQPatientPage.fhqStudyDropdown);
+        nativeViewCHARMSFHQPatientPage.participantInputField.clear();
+        nativeViewCHARMSFHQPatientPage.participantInputField.sendKeys(subjectID);
+        CommonUtils.sleep(500);
+        nativeViewCHARMSFHQPatientPage.saveButton.click();
+        CommonUtils.sleep(800);
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSFHQPatientPage.fhqStudyDropdown);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForClickability(nativeViewCHARMSFHQPatientPage.dynamicRelatedListsTabLocator("Parent(s)"));
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSFHQPatientPage.dynamicRelatedListsTabLocator("Parent(s)"));
         CucumberLogUtils.logScreenshot();
     }
 }

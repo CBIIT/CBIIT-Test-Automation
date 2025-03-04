@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="ANALYSIS_TOOLS.ICDGenie.ICDGenieRunners.RunICDGenieRegressionTest" test
+        run: mvn -B -q -Dtest="ANALYSIS_TOOLS.ICDGenie.runners.RunICDGenieRegressionTest" test
         continue-on-error: true
 
       - name: Generate timestamp
