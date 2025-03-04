@@ -90,7 +90,7 @@ public class ESRApprovalStepsImplementation {
      * This method confirms that more information is needed for the ESR-Q ticket
      */
     public static void confirmMoreInfoNeededForESRQ() {
-        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("More Information Needed");
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Information Required for Intake");
     }
 
     /**
