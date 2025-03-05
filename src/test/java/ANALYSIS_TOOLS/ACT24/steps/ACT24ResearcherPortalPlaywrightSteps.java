@@ -512,6 +512,9 @@ public class ACT24ResearcherPortalPlaywrightSteps {
         ACT24ResearcherPlaywrightStepImpl.validateEntriesInTrackRecall(entryText);
     }
 
+    /**
+     * Clicking on the search button on the track recalls menu tab
+     */
     @Then("User clicks on the search button on the track recalls menu tab")
     public void user_clicks_on_the_search_button_on_the_track_recalls_menu_tab() {
         PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.searchTrackRecalls).click();

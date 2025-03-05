@@ -14,6 +14,14 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 public class ACT24ParticipantPlaywrightStepsImpl {
     public static String participantUrl;
     public static Page newPage3;
+    public static int uniqueId = ThreadLocalRandom.current().nextInt(100, 1000);
+    public static String randomWord = String.valueOf((char) ('A' + ThreadLocalRandom.current().nextInt(26)))
+            + String.valueOf((char) ('A' + ThreadLocalRandom.current().nextInt(26)))
+            + String.valueOf((char) ('A' + ThreadLocalRandom.current().nextInt(26)));
+    public static String newStudyName = randomWord + uniqueId;
+    public static String firstParticipantUrl;
+    public static String secondParticipantUrl;
+    public static String thirdParticipantUrl;
 
     /**
      * Login with the valid credentials in the participant portal
@@ -69,15 +77,6 @@ public class ACT24ParticipantPlaywrightStepsImpl {
         newPage3.close();
         PlaywrightUtils.page.bringToFront();
     }
-
-    public static int uniqueId = ThreadLocalRandom.current().nextInt(100, 1000);
-    public static String randomWord = String.valueOf((char) ('A' + ThreadLocalRandom.current().nextInt(26)))
-            + String.valueOf((char) ('A' + ThreadLocalRandom.current().nextInt(26)))
-            + String.valueOf((char) ('A' + ThreadLocalRandom.current().nextInt(26)));
-    public static String newStudyName = randomWord + uniqueId;
-    public static String firstParticipantUrl;
-    public static String secondParticipantUrl;
-    public static String thirdParticipantUrl;
 
     /**
      * Creating a new study for submitting the recalls
@@ -210,7 +209,6 @@ public class ACT24ParticipantPlaywrightStepsImpl {
         newPage3.locator("//div[@id='overlayDesktopStartInfo']//button[4]").click();
         newPage3.locator("//button[@class='btn btn-lg btn-success rounded']").click();
         newPage3.locator("//input[@id='submitBtn']").click();
-
     }
 
     /**
