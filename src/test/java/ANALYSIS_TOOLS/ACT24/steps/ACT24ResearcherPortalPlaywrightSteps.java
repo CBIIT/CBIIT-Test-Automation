@@ -2,7 +2,7 @@ package ANALYSIS_TOOLS.ACT24.steps;
 
 import ANALYSIS_TOOLS.ACT24.pages.ACT24ResearcherPortalPlaywrightPage;
 import ANALYSIS_TOOLS.ACT24.stepsImpl.ACT24ResearcherPlaywrightStepImpl;
-import ANALYSIS_TOOLS.ACT24.utils.ACT24ResearcherPlaywright_Constants;;
+import ANALYSIS_TOOLS.ACT24.utils.ACT24ResearcherPlaywright_Constants;
 import APPS_COMMON.PlaywrightUtils.Playwright_Common_Utils;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
