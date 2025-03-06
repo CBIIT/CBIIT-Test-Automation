@@ -1493,7 +1493,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         }
         fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyPreviewRecordClicked(rowNumForAssertion);
         fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyPageGeneralInformationAssertions(rowNumForAssertion);
-     //   softAssert.assertAll();
+        softAssert.assertAll();
     }
 
     /**
@@ -1678,7 +1678,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         fanconiEligibilityQuestionnaireStepsImpl.personalInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
         fanconiEligibilityQuestionnaireStepsImpl.demographicsAssertionOnParticipantDetailPage(rowNumForAssertion);
         fanconiEligibilityQuestionnaireStepsImpl.contactInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
-     //   softAssert.assertAll();
+        softAssert.assertAll();
     }
 
     /**
