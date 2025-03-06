@@ -2,8 +2,8 @@ name: ANALYSIS TOOLS - MRAT Regression
 
 on:
   schedule:
-    # This corresponds to 8:15 AM EDT (1:15 AM UTC) from Monday to Friday
-    - cron: '15 13 * * MON-FRI'
+    # This corresponds to 11:00 AM EDT (16:00 PM UTC) from Monday to Friday
+    - cron: '00 16 * * MON-FRI'
   workflow_dispatch:
     inputs:
       testBrowser:

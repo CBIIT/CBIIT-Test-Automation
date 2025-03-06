@@ -3,7 +3,7 @@ name: ANALYSIS TOOLS - ACT24 Regression
 on:
   schedule:
     # This corresponds to 9:15 AM EST (2:15 PM UTC) from Monday to Friday
-    - cron: '16 13 * * MON-FRI'
+    - cron: '15 14 * * MON-FRI'
   workflow_dispatch:
     inputs:
       testBrowser:
