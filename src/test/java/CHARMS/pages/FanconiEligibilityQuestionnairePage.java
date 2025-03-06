@@ -678,7 +678,7 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	public WebElement physicianNameTextBox;
 
 	/* Participant: Fanconi Anemia Research Fund TextBox */
-	@FindBy(xpath = "(//input[contains(@title,'<span style=\"font-family:Arial,Helvetica,sans-serif;\">Fanconi Anemia Research Fund</span>')])[1]")
+	@FindBy(xpath = "(//input[contains(@title,'<span style=\"font-family:Arial,Helvetica,sans-serif;\">Fanconi Cancer Foundation (formerly Fanconi Anemia Research Fund)</span>')])[1]")
 	public WebElement fanconiAnemiaResearchFundTextBox;
 
 	/* Participant: Genetic counselor TextBox */
