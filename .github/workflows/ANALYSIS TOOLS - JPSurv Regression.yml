@@ -2,7 +2,7 @@ name: ANALYSIS TOOLS - JPSurv Regression
 
 on:
   schedule:
-    # his corresponds to 9:15 AM EST (2:15 PM UTC) from Monday to Friday
+    # his corresponds to 11:15 AM EST (2:15 PM UTC) from Monday to Friday
     - cron: '18 13 * * MON-FRI'
   workflow_dispatch:
     inputs:
