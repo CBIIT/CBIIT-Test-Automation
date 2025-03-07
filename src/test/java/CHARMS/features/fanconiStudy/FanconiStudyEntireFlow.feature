@@ -1,7 +1,7 @@
 Feature: Fanconi end-to-end flow on the Fanconi Longitudinal Cohort Study Portal
   Description: This feature file contains scenarios which submit Fanconi Screeners, Consent Flows, and IIQ Forms. Then, data is verified in Native View.
 
-  @FanconiSubmission @selenium @Fanconi_Regression
+  @FanconiSubmission @selenium @Fanconi_Regressionv @Progression
   Scenario Outline: This scenario submits the IIQ form and verifies the data in Native View.
     Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page

@@ -374,7 +374,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         int k = 0;
         int j = 1;
         if (currentRow.get("HaveYouEverParticipatedInFanconiAnemiaStudyAtAnotherMedicalInstitution").contentEquals("Yes")) {
-            for (int i = 0; i < 5; ++i) {
+            for (int i = 0; i <= 5; ++i) {
                 Map<String, String> currentRowForAnotherStudy = CharmsUtil.testManagerData(excelSheet, "OtherStudies", i);
                 String otherStudyName = (currentRowForAnotherStudy.get("OtherStudyName"));
                 String otherStudyContactPerson = (currentRowForAnotherStudy.get("OtherStudyContactPerson"));
@@ -1682,9 +1682,10 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     }
 
     /**
-     * Submits consent with the provided collection method for a participant.
+     * Submits consent with the specified collection method for the provided row of data.
      *
-     * @param collectionMethod The method used for collecting consent
+     * @param collectionMethod The collection method to be used for submitting consent.
+     * @param rowCount The row number from which the data will be retrieved for submitting consent.
      */
     public void consent_is_submitted_with_collection_method(String collectionMethod, int rowCount) {
         currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowCount);
@@ -1721,8 +1722,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
          */
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-//        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
-        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='true']"));
+        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(500);

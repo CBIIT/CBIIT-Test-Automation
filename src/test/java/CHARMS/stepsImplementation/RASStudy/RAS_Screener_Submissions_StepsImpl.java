@@ -999,17 +999,17 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
             CucumberLogUtils.logScreenshot();
         }
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
-//        try {
-//            CommonUtils.waitForClickability(myRASIIQFormPage.screenerIiqFormForWhichSexYouIdentifyRadioButton);
-//            myRASIIQFormPage.screenerIiqFormForWhichSexYouIdentifyRadioButton.click();
-//            CucumberLogUtils.logScreenshot();
-//        } catch (NoSuchElementException e) {
-//            e.printStackTrace();
-//            ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
-//            myRASIIQFormPage.screenerIiqFormForWhichSexYouIdentifyRadioButton.click();
-//            CucumberLogUtils.logScreenshot();
-//        }
-//        ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForClickability(myRASIIQFormPage.screenerIiqFormForWhichSexYouIdentifyRadioButton);
+            myRASIIQFormPage.screenerIiqFormForWhichSexYouIdentifyRadioButton.click();
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
+            myRASIIQFormPage.screenerIiqFormForWhichSexYouIdentifyRadioButton.click();
+            CucumberLogUtils.logScreenshot();
+        }
+        ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         try {
             CommonUtils.waitForClickability(dynamicLocator(iiq_TestDataManager.doYouConsiderYourselfToBeRadioButton));
             JavascriptUtils.clickByJS(dynamicLocator(iiq_TestDataManager.doYouConsiderYourselfToBeRadioButton));
