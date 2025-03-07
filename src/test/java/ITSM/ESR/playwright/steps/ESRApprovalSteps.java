@@ -36,6 +36,16 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.confirmESRBoardIntakeApprovalsAreCompleted();
     }
 
+    @And("the user is rejected from the ESR Board approvers with a need more info for ESR-Q")
+    public void the_user_is_rejected_from_the_esr_board_approvers_with_a_need_more_info_for_esr_q() {
+        ESRApprovalStepsImplementation.esrBoardNeedMoreInfoForESRQ();
+    }
+
+    @Then("the user confirms more information is needed for the ESR-Q ticket")
+    public void the_user_confirms_more_information_is_needed_for_the_esr_q_ticket() {
+        ESRApprovalStepsImplementation.confirmMoreInfoNeededForESRQ();
+    }
+
     @And("the user is approved from the Operational POC")
     public void the_user_is_approved_from_the_operational_poc() {
         ESRApprovalStepsImplementation.operationalPOCApproval();

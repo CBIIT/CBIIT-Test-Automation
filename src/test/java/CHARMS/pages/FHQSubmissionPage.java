@@ -12,6 +12,13 @@ public class FHQSubmissionPage extends CommonUtils {
 	public FHQSubmissionPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
+
+	@FindBy(xpath = "//i[@class='fa fa-chevron-down user-profile-dropdown']")
+	public WebElement profileDropDownButton;
+
+	@FindBy(xpath = "//a[@id='logout']")
+	public WebElement profileLogOutButton;
+
 	/* Method to dynamically locate Relative tabs element in FHQ participant page in Native View */
 	public WebElement dynamicLocatorForRelativeTab(int i) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//span["+i +"]//span[1]//span[2]"));			

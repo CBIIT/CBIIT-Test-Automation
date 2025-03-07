@@ -97,10 +97,11 @@ public class CCT_CHAT_BOT_StepImpl {
      * @param yes
      */
     public static void the_user_selects_for_q4_indicating_they_belong_to_an_underrepresented_group(String yes) {
-        assertThat(cctChatBotWindow.locator("iframe[title=\"Conversation Preview Pane\"]").contentFrame().locator("now-chat-window")).containsText("Do you consider yourself to belong to an underrepresented group in the biomedical research workforce?");
-        assertThat(cctChatBotWindow.locator("iframe[title=\"Conversation Preview Pane\"]").contentFrame().locator("now-chat-window")).containsText(yes);
-        assertThat(cctChatBotWindow.locator("iframe[title=\"Conversation Preview Pane\"]").contentFrame().getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(yes))).isVisible();
-        cctChatBotWindow.locator("iframe[title=\"Conversation Preview Pane\"]").contentFrame().getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(yes)).click();
+
+        CucumberLogUtils.scenario.log("----- THIS QUESTION AND TEXT IS REMOVED AS PER NEW ENHANCEMENT - VERIFYING THAT IS HAS BEEN REMOVED-----");
+        String chatWindowText = cctChatBotWindow.locator("iframe[title=\"Conversation Preview Pane\"]").contentFrame().locator("now-chat-window").textContent().toString();
+        boolean textPresent = chatWindowText.contains("Do you consider yourself to belong to an underrepresented group in the biomedical research workforce?");
+        Assert.assertFalse(textPresent, "---- VERIFY THAT THE TEXT IS NOT PRESENT IN THE CHAT WINDOW.----");
         CucumberLogUtils.playwrightScreenshot(cctChatBotWindow);
     }
 
@@ -149,9 +150,11 @@ public class CCT_CHAT_BOT_StepImpl {
      * @param no The selected option for question four
      */
     public static void the_user_selects_for_question4_indicating_they_belong_to_an_underrepresented_group(String no) {
-        assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(CCT_CHAT_BOT_Constants.NV_CCT_CHAT_WINDOW_Q_FOUR_TEXT);
-        cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Q_Option_No_Selected)).click();
-        assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(no);
+
+        CucumberLogUtils.scenario.log("----- THIS QUESTION AND TEXT IS REMOVED AS PER NEW ENHANCEMENT - VERIFYING THAT IS HAS BEEN REMOVED-----");
+        String chatWindowText = cctChatBotWindow.locator("iframe[title=\"Conversation Preview Pane\"]").contentFrame().locator("now-chat-window").textContent();
+        boolean textPresent = chatWindowText.contains("Do you consider yourself to belong to an underrepresented group in the biomedical research workforce?");
+        Assert.assertFalse(textPresent, "---- VERIFIES THAT THE TEXT IS NOT PRESENT IN THE CHAT WINDOW. ----");
         CucumberLogUtils.playwrightScreenshot(cctChatBotWindow);
     }
 
@@ -161,9 +164,9 @@ public class CCT_CHAT_BOT_StepImpl {
      * @param postDoctoral The career stage option selected by the user for question two
      */
     public static void user_selects_for_q2_regarding_career_stage(String postDoctoral) {
-        assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(CCT_CHAT_BOT_Constants.NV_CCT_CHAT_WINDOW_Q_TWO_TEXT);
-        assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(postDoctoral);
-        cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(postDoctoral)).click();
+        assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText("Select the career stage most applicable to you.");
+        assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").getByLabel("Option 2 of")).containsText(postDoctoral);
+        cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").getByLabel("Option 2 of").click();
         CucumberLogUtils.playwrightScreenshot(cctChatBotWindow);
     }
 
@@ -175,8 +178,8 @@ public class CCT_CHAT_BOT_StepImpl {
      */
     public static void selects_for_q4(String yes, String areYouACitizenOfTheUSA) {
         assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText(yes);
-        assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(areYouACitizenOfTheUSA);
-        cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(yes)).click();
+        assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText(areYouACitizenOfTheUSA);
+        cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Option 1 of")).click();
         CucumberLogUtils.playwrightScreenshot(cctChatBotWindow);
     }
 
@@ -187,9 +190,11 @@ public class CCT_CHAT_BOT_StepImpl {
      * @param doYouConsiderYourselfToBelongToAnUnderrepresentedGroup The selected option for the second choice
      */
     public static void the_user_selects_for_q5(String yes, String doYouConsiderYourselfToBelongToAnUnderrepresentedGroup) {
-        assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText(doYouConsiderYourselfToBelongToAnUnderrepresentedGroup);
-        assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText(yes);
-        cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(yes)).click();
+
+        CucumberLogUtils.scenario.log("----- THIS QUESTION AND TEXT IS REMOVED AS PER NEW ENHANCEMENT - VERIFYING THAT IS HAS BEEN REMOVED-----");
+        String chatWindowText = cctChatBotWindow.locator("iframe[title=\"Conversation Preview Pane\"]").contentFrame().locator("now-chat-window").textContent();
+        boolean textPresent = chatWindowText.contains(doYouConsiderYourselfToBelongToAnUnderrepresentedGroup);
+        Assert.assertFalse(textPresent, "---- VERIFIES THAT THE TEXT IS NOT PRESENT IN THE CHAT WINDOW. ----");
         CucumberLogUtils.playwrightScreenshot(cctChatBotWindow);
     }
 
@@ -202,7 +207,7 @@ public class CCT_CHAT_BOT_StepImpl {
         cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window").scrollIntoViewIfNeeded();
         assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText(nciMentoredResearchScientistDevelopmentAwardK01Link);
 
-        //This assertion verifies that this link is the first/top of the links
+        CucumberLogUtils.scenario.log("----- THIS ASSERTION VERIFIES THAT THIS LINK IS THE FIRST/TOP OF THE LINKS -----");
         assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText("You may be eligible for the following programs:NCI Mentored Research Scientist Development Award (K01)");
         CucumberLogUtils.playwrightScreenshot(cctChatBotWindow);
     }
@@ -216,8 +221,9 @@ public class CCT_CHAT_BOT_StepImpl {
     public static void the_link_to_as_should_be_clickable(String nciMentoredResearchScientistDevelopmentAwardK01Label, String expectedURL) {
         CommonUtils.sleep(5000); //wait for the link to open in new tab
         assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText(nciMentoredResearchScientistDevelopmentAwardK01Label);
+        cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window").scrollIntoViewIfNeeded();
         nciMentoredResearchScientistDevelopmentAwardPage = cctChatBotWindow.waitForPopup(() -> {
-            cctChatBotWindow.locator("iframe[title=\"Conversation Preview Pane\"]").contentFrame().locator("now-chat-window").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Career Development Award for Community Oncology and Prevention Research (K12)")).click();
+            cctChatBotWindow.locator("iframe[title=\"Conversation Preview Pane\"]").contentFrame().locator("now-chat-window").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("NCI Mentored Research")).click();
         });
         assertThat(nciMentoredResearchScientistDevelopmentAwardPage.locator("ol")).containsText(nciMentoredResearchScientistDevelopmentAwardK01Label);
         assertThat(nciMentoredResearchScientistDevelopmentAwardPage.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName("NCI Mentored Research"))).isVisible();
@@ -247,9 +253,9 @@ public class CCT_CHAT_BOT_StepImpl {
      * @param clinicalFellow The career stage option selected by the user for question two
      */
     public static void user_selects_for_question2_regarding_career_stage(String clinicalFellow) {
-        assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(CCT_CHAT_BOT_Constants.NV_CCT_CHAT_WINDOW_Q_TWO_TEXT);
-        assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText(clinicalFellow);
-        cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(clinicalFellow)).click();
+        assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText("Select the career stage most applicable to you.");
+        assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").getByLabel("Option 3 of")).containsText(clinicalFellow);
+        cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").getByLabel("Option 3 of").click();
         CucumberLogUtils.playwrightScreenshot(cctChatBotWindow);
     }
 
@@ -260,10 +266,9 @@ public class CCT_CHAT_BOT_StepImpl {
      * @param letsStartWithWhereDOYouPlanToConductYourCancerResearchTraining The initial chatbot question text
      */
     public static void selects_for(String outsideTheUSA, String letsStartWithWhereDOYouPlanToConductYourCancerResearchTraining) {
-        cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("span").filter(new Locator.FilterOptions().setHasText("Let's start with where do you")).click();
         assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText(letsStartWithWhereDOYouPlanToConductYourCancerResearchTraining);
-        assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText(outsideTheUSA);
-        cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(outsideTheUSA)).click();
+        assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").getByLabel("Option 2 of 2")).containsText(outsideTheUSA);
+        cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").getByLabel("Option 2 of 2").click();
         assertThat(cctChatBotWindow.frameLocator("iframe[title=\"Conversation Preview Pane\"]").locator("now-chat-window")).containsText(outsideTheUSA);
         CucumberLogUtils.playwrightScreenshot(cctChatBotWindow);
     }

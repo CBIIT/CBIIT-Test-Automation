@@ -856,4 +856,58 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
         Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
         CucumberLogUtils.logScreenshot();
     }
+
+    /**
+     * User can see Drag and Drop button displayed
+     */
+    @Given("User can see Drag and Drop button displayed")
+    public void user_can_see_drag_and_drop_button_displayed() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.dragAndDropButton.isDisplayed());
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * User can see Locate File And Upload button displayed
+     */
+    @Given("User can see Locate File And Upload button displayed")
+    public void user_can_see_locate_file_and_upload_button_displayed() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.locateFileAndUploadTab.isDisplayed());
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * User can see Upload via Email button displayed
+     */
+    @Given("User can see Upload via Email button displayed")
+    public void user_can_see_upload_via_email_button_displayed() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.uploadViaEmailButton.isDisplayed());
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * User can see Add button displayed
+     */
+    @Given("User can see Add button")
+    public void user_can_see_add_button() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.addDocButton.isDisplayed());
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * User can see Convert to PDF and Add button displayed
+     */
+    @Given("User can see Convert to PDF and Add button")
+    public void user_can_see_convert_to_pdf_and_add_button() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.convertToPdfAndAddButton.isDisplayed());
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * User can see Convert to PDF and Add button displayed
+     */
+    @Given("User clicks Convert to PDF and Add button")
+    public void user_clicks_convert_to_pdf_and_add_button() {
+       CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.convertToPdfAndAddButton);
+       CucumberLogUtils.logScreenshot();
+    }
 }
