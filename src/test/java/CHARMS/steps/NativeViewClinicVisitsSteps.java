@@ -10,7 +10,7 @@ import static APPS_COMMON.PageInitializers.PageInitializer.nativeViewCHARMSParti
 public class NativeViewClinicVisitsSteps {
 
     /**
-     *
+     * Study Team member opens PD record, navigates to the Clinic Visits related list, and creates a new Clinic Visit.
      */
     @Then("Study Team member navigates to the Clinic Visits related list and creates new Clinic Visit")
     public void study_team_member_navigates_to_the_clinic_visits_related_list_and_creates_new_clinic_visit() {
