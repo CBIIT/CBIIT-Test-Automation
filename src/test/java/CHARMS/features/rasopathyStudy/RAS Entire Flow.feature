@@ -22,8 +22,8 @@ Feature: RAS Screener Scenarios
     And a participant enters username "<Email>" and pin
     When the participant submits a RAS Survey from excel sheet "<SurveyScenario>"
     Examples:
-      | Email                | Password   | ScreenerScenario  | IIQScenario  | SurveyScenario     |
-      | charmsras1@yahoo.com | RASTest2022$$ | screenerScenario1 | IIQScenario1 | RASSurveyScenario1 |
-      | charmsras1@yahoo.com | RASTest2022$$ | screenerScenario2 | IIQScenario2 | RASSurveyScenario2 |
-#      | charmsras3@yahoo.com | RASTest2023$$ | screenerScenario3 | IIQScenario3 | RASSurveyScenario3 |
-#      | charmsras5@yahoo.com | RASTest2023$$ | screenerScenario4 | IIQScenario4 | RASSurveyScenario4 |
+      | Email                | Password          | ScreenerScenario  | IIQScenario  | SurveyScenario     |
+      | charmsras1@yahoo.com | CharmsStudies123$ | screenerScenario1 | IIQScenario1 | RASSurveyScenario1 |
+      | charmsras1@yahoo.com | CharmsStudies123$ | screenerScenario2 | IIQScenario2 | RASSurveyScenario2 |
+#      | charmsras3@yahoo.com | RASTest2023$$     | screenerScenario3 | IIQScenario3 | RASSurveyScenario3 |
+#      | charmsras5@yahoo.com | RASTest2023$$     | screenerScenario4 | IIQScenario4 | RASSurveyScenario4 |

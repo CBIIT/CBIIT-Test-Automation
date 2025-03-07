@@ -9,7 +9,7 @@ Feature: Fanconi end-to-end flow on the Fanconi Longitudinal Cohort Study Portal
     And clicks the Fanconi Eligibility Questionnaire widget
     Then fills the Fanconi Eligibility Questionnaire form for scenario1
     Then clicks the submit button
-    And consent is submitted with collection method "<ConsentCollectionMethod>"
+    And consent is submitted with collection method "<ConsentCollectionMethod>" on sheet 0
     Given a Participant is on the Fanconi Study login page
     And logs in via Okta with username "<Email>" and password "<Password>"
     And clicks on the IIQ Form

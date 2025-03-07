@@ -364,6 +364,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSFHQPatientPage nativeViewCHARMSFHQPatientPage;
 	public static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
+	public static NativeViewCHARMSClinicVisitsPage nativeViewCHARMSClinicVisitsPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
 	public static NativeViewCHARMSPatientSmokingHistoryPage nativeViewCHARMSPatientSmokingHistoryPage;
 	public static NativeViewCHARMSPhysicalActivitiesSurveyPage nativeViewCHARMSPhysicalActivitiesSurveyPage;
@@ -646,6 +647,7 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSFHQPatientPage = new NativeViewCHARMSFHQPatientPage();
 		nativeViewCHARMSParticipantDetailsPage = new NativeViewCHARMSParticipantDetailsPage();
 		nativeViewCHARMSParticipantConsentPage = new NativeViewCHARMSParticipantConsentPage();
+		nativeViewCHARMSClinicVisitsPage = new NativeViewCHARMSClinicVisitsPage();
 		nativeViewCHARMSParticipantStudyPage = new NativeViewCHARMSParticipantStudyPage();
 		nativeViewCHARMSAddNewParticipantPage = new NativeViewCHARMSAddNewParticipantPage();
 		nativeViewCHARMSPatientSmokingHistoryPage = new NativeViewCHARMSPatientSmokingHistoryPage();
