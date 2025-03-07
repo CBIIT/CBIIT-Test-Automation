@@ -104,3 +104,29 @@ Scenario: Delete an invoice as a System Admin
   And User verifies an invoice in Approved status is present
   And User clicks on DELETE button
   Then User verifies the invoice is deleted successfully
+
+@InvoiceSearchFilters @NESARH2 @Regression @playwright
+Scenario: Using search filters to narrow down invoice search results
+  When User clicks on Invoice Page
+  And User selects All Invoices from the dropdown
+  And User types "INV" in Invoice number field
+  And User selects "WILKISON" from the Staff Assignment dropdown
+  And User selects "Submitted" from review status
+  And User selects "NBB" as OA Branch
+  And User types $1 in From Amount
+  And User types $100000 in To Amount
+  And User selects "01/01/2024" from Date Uploaded (From)
+  And User selects "11/29/2024" from Date Uploaded (To)
+  And User clicks on SEARCH button
+  And User will verify if search results are within the search criteria
+  Then User clicks on CLEAR FILTERS button
+
+@ExportInvoiceSearchResults @NESARH2 @Regression @playwright
+Scenario: Export invoice search results
+  When User clicks on Invoice Page
+  And User selects All Invoices from the dropdown
+  And User types $50 in From Amount
+  And User types $100 in To Amount
+  And User clicks on SEARCH button
+  And User will verify if search results are within the specified amount range
+  Then User clicks on EXPORT SEARCH RESULT button
