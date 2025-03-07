@@ -91,4 +91,54 @@ public class ACT24ResearcherPortalPlaywrightPage {
      * ACCESSIBILITY LOCATOR
      */
     public static String accessibilityLink = "Accessibility";
+
+    /***
+     * HHS LOCATOR
+     */
+    public static String hhsLink = "U.S. Department of Health and Human Services";
+
+    /***
+     * NIH LOCATOR
+     */
+    public static String nihLink = "National Institutes of Health";
+
+    /***
+     * NCI LOCATOR
+     */
+    public static String nciLink = "National Cancer Institute";
+
+    /***
+     * USA GOV LOCATOR
+     */
+    public static String USAGovLink = "USA.gov";
+
+    /***
+     * TRACK RECALLS LOCATOR
+     */
+    public static String trackRecalls = "//table[@id='myStudies']//tbody//tr//a[@title='Track Recalls']";
+
+    /***
+     * LOCK BUTTON LOCATOR
+     */
+    public static String lockButton = "//tbody/tr[1]/td[5]/button[1]/i[1]";
+
+    /***
+     * NEW LOCK BUTTON LOCATOR
+     */
+    public static String newLockButton = "//i[@class='fa fa-lock fa-1x']";
+
+    /***
+     * UPLOAD LOCATOR
+     */
+    public static String uploadLocator = "//input[@id='upload']";
+
+    /***
+     * CANCEL BUTTON LOCATOR
+     */
+    public static String cancelButtonLocator = "//div[@class='modal-body']//button[@type='button'][normalize-space()='Cancel']";
+
+    /***
+     * SEARCH TRACK RECALLS LOCATOR
+     */
+    public static String searchTrackRecalls = "//input[@id='searchRecalls']";
 }

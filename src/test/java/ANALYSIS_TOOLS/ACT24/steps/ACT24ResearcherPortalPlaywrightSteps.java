@@ -12,6 +12,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import static ANALYSIS_TOOLS.ACT24.stepsImpl.ACT24ResearcherPlaywrightStepImpl.studyName;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.TestProperties.getAct24ResearcherUrl;
 
@@ -98,7 +99,7 @@ public class ACT24ResearcherPortalPlaywrightSteps {
      */
     @Then("User enters text in the search box on the my studies page")
     public void user_enters_text_in_the_search_box_on_the_my_studies_page() {
-        PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.searchBox).fill("KSA146");
+        PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.searchBox).fill(studyName);
     }
 
     /**
@@ -106,7 +107,7 @@ public class ACT24ResearcherPortalPlaywrightSteps {
      */
     @Then("Verify study abbreviation column contains searched text in the table data")
     public void verify_study_abbreviation_column_contains_searched_text_in_the_table_data() {
-        assertThat(PlaywrightUtils.page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("KSA146"))).containsText("KS");
+        assertThat(PlaywrightUtils.page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(studyName)).first()).containsText(studyName);
     }
 
     /**
@@ -278,7 +279,7 @@ public class ACT24ResearcherPortalPlaywrightSteps {
      */
     @Then("User clicks on the hhs vulnerability disclosure link and verify it in ACT24 website")
     public void user_clicks_on_the_hhs_vulnerability_disclosure_link_and_verify_it_in_act24_website() {
-        Playwright_Common_Utils.clickAndAssertNewPage(ACT24ResearcherPortalPlaywrightPage.vulnerabilityDisclosure, ACT24ResearcherPlaywright_Constants.HHS_PAGE_TITLE);
+        Playwright_Common_Utils.clickAndAssertNewPage(ACT24ResearcherPortalPlaywrightPage.vulnerabilityDisclosure, ACT24ResearcherPlaywright_Constants.HHS_POLICY_PAGE_LINK);
     }
 
     /**
@@ -287,5 +288,235 @@ public class ACT24ResearcherPortalPlaywrightSteps {
     @Then("User clicks on the privacy and security link and verify it in ACT24 website")
     public void user_clicks_on_the_privacy_and_security_link_and_verify_it_in_act24_website() {
         Playwright_Common_Utils.clickAndAssertNewPageTitle(ACT24ResearcherPortalPlaywrightPage.privacyAndSecurity, ACT24ResearcherPlaywright_Constants.PRIVACY_PAGE_TITLE);
+    }
+
+    /**
+     * Clicking hhs link and validating it
+     */
+    @Then("User clicks on the hhs link and verify it in ACT24 website")
+    public void user_clicks_on_the_hhs_link_and_verify_it_in_act24_website() {
+        Playwright_Common_Utils.clickAndAssertNewPage(ACT24ResearcherPortalPlaywrightPage.hhsLink, ACT24ResearcherPlaywright_Constants.HHS_PAGE_LINK);
+    }
+
+    /**
+     * Clicking nih link and validating it
+     */
+    @Then("User clicks on the nih link and verify it in ACT24 website")
+    public void user_clicks_on_the_nih_link_and_verify_it_in_act24_website() {
+        Playwright_Common_Utils.clickAndAssertNewPageTitle(ACT24ResearcherPortalPlaywrightPage.nihLink, ACT24ResearcherPlaywright_Constants.NIH_PAGE_TITLE);
+    }
+
+    /**
+     * Clicking nci link and validating it
+     */
+    @Then("User clicks on the nci link and verify it in ACT24 website")
+    public void user_clicks_on_the_nci_link_and_verify_it_in_act24_website() {
+        Playwright_Common_Utils.clickAndAssertNewPageTitle(ACT24ResearcherPortalPlaywrightPage.nciLink, ACT24ResearcherPlaywright_Constants.NCI_PAGE_TITLE);
+    }
+
+    /**
+     * Clicking USA gov link and validating it
+     */
+    @Then("User clicks on the USA gov link and verify it in ACT24 website")
+    public void user_clicks_on_the_usa_gov_link_and_verify_it_in_act24_website() {
+        Playwright_Common_Utils.clickAndAssertNewPage(ACT24ResearcherPortalPlaywrightPage.USAGovLink, ACT24ResearcherPlaywright_Constants.USA_GOV_PAGE);
+    }
+
+    /**
+     * Clicking on the track recalls for the created study
+     */
+    @Then("User clicks on the track recalls for the created study")
+    public void user_clicks_on_the_track_recalls_for_the_created_study() {
+        PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.trackRecalls).click();
+    }
+
+    /**
+     * User adds login credentials and do login
+     */
+    @Given("User logins into the ACT24 website with valid credentials")
+    public void user_logins_into_the_act24_website_with_valid_credentials() {
+        ACT24ResearcherPlaywrightStepImpl.loginACT24Website();
+    }
+
+    /**
+     * Creating a new study after entering all the mandatory details
+     */
+    @Then("User creates a new study")
+    public void user_creates_a_new_study() {
+        ACT24ResearcherPlaywrightStepImpl.createNewStudy();
+    }
+
+    /**
+     * Navigating to the study staff menu tab and click on the clear button
+     */
+    @Then("User navigates to the study staff menu tab and click on the clear button")
+    public void user_navigates_to_the_study_staff_menu_tab_and_click_on_the_clear_button() {
+        ACT24ResearcherPlaywrightStepImpl.navigateStudyStaff();
+    }
+
+    /**
+     * Selecting created study and then clicking on search button
+     */
+    @When("User selects the created study and clicks on the search button")
+    public void user_selects_the_created_study_and_clicks_on_the_search_button() {
+        ACT24ResearcherPlaywrightStepImpl.selectAndSearchCreatedStudyUnderStudyStaff();
+    }
+
+    /**
+     * Checking if Add study staff button is visible or not
+     */
+    @Then("Validate Add Study Staff button is visible")
+    public void validate_add_study_staff_button_is_visible() {
+        ACT24ResearcherPlaywrightStepImpl.validateAddStudyStaffButton();
+    }
+
+    /**
+     * Clicking on Add study staff and enters email in text box
+     */
+    @Then("User clicks on the Add Study Staff button and enters the user logged in email")
+    public void user_clicks_on_the_add_study_staff_button_and_enters_the_user_logged_in_email() {
+        ACT24ResearcherPlaywrightStepImpl.enterEmailOnAddStudyStaffClick();
+    }
+
+    /**
+     * Validating text on click of the search button
+     */
+    @Then("Validate the text {string} on click of Search button")
+    public void validate_the_text_on_click_of_search_button(String validateEmailText) {
+        ACT24ResearcherPlaywrightStepImpl.validateSearchedText(validateEmailText);
+    }
+
+    /**
+     * Clicking on the cancel button
+     */
+    @Then("user clicks on the Cancel button")
+    public void user_clicks_on_the_cancel_button() {
+        PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.cancelButtonLocator).click();
+    }
+
+    /**
+     * Navigating to the participants account menu tab and click on the clear button
+     */
+    @Then("User navigates to the participants account menu tab and click on the clear button")
+    public void user_navigates_to_the_participants_account_menu_tab_and_click_on_the_clear_button() {
+        ACT24ResearcherPlaywrightStepImpl.navigateParticipantsAccount();
+    }
+
+    /**
+     * Selecting the created study and clicking on the search button
+     */
+    @Then("User selects the created study and clicks on the search button under the participants account menu tab")
+    public void user_selects_the_created_study_and_clicks_on_the_search_button_under_the_participants_account_menu_tab() {
+        ACT24ResearcherPlaywrightStepImpl.searchCreatedStudyUnderParticipantAccount();
+    }
+
+    /**
+     * User uploads required xlsx file
+     */
+    @Then("User uploads the required xlsx file")
+    public void user_uploads_the_required_xlsx_file() {
+        ACT24ResearcherPlaywrightStepImpl.uploadXLSXFile();
+    }
+
+    /**
+     * Clicking on the load button
+     */
+    @When("User clicks on the load button")
+    public void user_clicks_on_the_load_button() {
+        PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.uploadLocator).click();
+    }
+
+    /**
+     * Validating the specified entry text
+     */
+    @Then("Validate the entries which is not equal to {string}")
+    public void validate_the_entries_which_is_not_equal_to(String entryText) {
+        ACT24ResearcherPlaywrightStepImpl.validateEntries(entryText);
+    }
+
+    /**
+     * Clicking on the delete button
+     */
+    @Then("user clicks on the delete button")
+    public void user_clicks_on_the_delete_button() {
+        ACT24ResearcherPlaywrightStepImpl.deleteEntry();
+    }
+
+    /**
+     * Validating whether entry is deleted or not
+     */
+    @Then("Validate entry has been deleted from the selected study")
+    public void validate_entry_has_been_deleted_from_the_selected_study() {
+        ACT24ResearcherPlaywrightStepImpl.validateTextAfterDeleting();
+    }
+
+    /**
+     * Clicking on the lock button
+     */
+    @When("User clicks on the lock button on a subject")
+    public void user_clicks_on_the_lock_button_on_a_subject() {
+        PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.lockButton).click();
+    }
+
+    /**
+     * Validating the text once subject is locked
+     *
+     * @param validateLockedText     The validateLockedText to be verified.
+     */
+    @Then("Validate the text {string} once subject is locked")
+    public void validate_the_text_once_subject_is_locked(String validateLockedText) {
+        ACT24ResearcherPlaywrightStepImpl.validateTextOnceSubjectLocked(validateLockedText);
+    }
+
+    /**
+     * Clicking again on lock button on a subject
+     */
+    @When("User again clicks on the lock button on a subject")
+    public void user_again_clicks_on_the_lock_button_on_a_subject() {
+        PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.newLockButton).click();
+    }
+
+    /**
+     * Validating the text once subject is unlocked
+     *
+     * @param validateUnlockedText     The validateUnlockedText to be verified.
+     */
+    @Then("Validate the text {string} once subject is unlocked")
+    public void validate_the_text_once_subject_is_unlocked(String validateUnlockedText) {
+        ACT24ResearcherPlaywrightStepImpl.validateTextOnceSubjectUnLocked(validateUnlockedText);
+    }
+
+    /**
+     * Navigating to track recalls menu tab and click on cleat button
+     */
+    @When("User navigates to the track recalls menu tab and click on the clear button")
+    public void user_navigates_to_the_track_recalls_menu_tab_and_click_on_the_clear_button() {
+        ACT24ResearcherPlaywrightStepImpl.navigateTrackRecallsTab();
+    }
+
+    /**
+     * Selecting study in which study are already added
+     */
+    @Then("user selects the study in which subjects are already added and clicks on the search button")
+    public void user_selects_the_study_in_which_subjects_are_already_added_and_clicks_on_the_search_button() {
+        ACT24ResearcherPlaywrightStepImpl.selectStudyHavingSubjects();
+    }
+
+    /**
+     * Validating the entry text under the track recall page
+     *
+     * @param entryText     The entryText to be verified.
+     */
+    @Then("Validate the entries which is equal to {string} under the track recall page")
+    public void validate_the_entries_which_is_equal_to_under_the_track_recall_page(String entryText) {
+        ACT24ResearcherPlaywrightStepImpl.validateEntriesInTrackRecall(entryText);
+    }
+
+    /**
+     * Clicking on the search button on the track recalls menu tab
+     */
+    @Then("User clicks on the search button on the track recalls menu tab")
+    public void user_clicks_on_the_search_button_on_the_track_recalls_menu_tab() {
+        PlaywrightUtils.page.locator(ACT24ResearcherPortalPlaywrightPage.searchTrackRecalls).click();
     }
 }
