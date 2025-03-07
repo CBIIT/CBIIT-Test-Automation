@@ -712,7 +712,7 @@ public class Invoice_Page {
     /**
      * This method is used to verify if search results are within the specified amount range
      */
-    @When("User will verify if search results are within the specified amount range")
+    @And("User will verify if search results are within the specified amount range")
     public void user_will_verify_if_search_results_are_within_the_specified_amount_range() {
         assertThat(page.getByRole(AriaRole.TABLE)).containsText("$100.00");
         CucumberLogUtils.playwrightScreenshot(page);
