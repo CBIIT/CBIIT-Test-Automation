@@ -1,17 +1,11 @@
 Feature: Native View Clinic Visits and Appointments
   Description: This feature file contains scenarios where a Study Team member creates a new Clinic Visit followed by a new Appointment.
 
-  @muzipovay2 @RAS_STUDY @CP2-4298 @selenium @Regression2 @Progression
+  @muzipovay2 @RAS_STUDY @CP2-4298 @selenium @Regression2
   Scenario: Study team member fills in FHQ on participant's behalf
-#    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
-#    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-#    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
-
-    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=0e9497c587161ad0ad46326d3fbb35c7" has been reset
+    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-    And logs in via Okta with username "ras_progression@yopmail.com" and password "Charms123$"
-
-
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "screenerScenarioAdult"
     Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
@@ -38,5 +32,3 @@ Feature: Native View Clinic Visits and Appointments
     Then Study Team member presses the Sign and Complete button
     Then presses the back button
     Then Study Team member navigates to the Clinic Visits related list and creates new Clinic Visit
-
-
