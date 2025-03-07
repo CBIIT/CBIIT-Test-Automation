@@ -19,3 +19,12 @@ Feature: CCT CHAT BOT Scenarios
     And second of the link is "Individual Predoctoral Fellows (F31)"
     And third of the link is "Predoctoral to Postdoctoral Fellow Transition Award (F99/K00)"
     And fourth of the link is "Institutional Research Training Grant (T32) trainee"
+
+  @SNOWPROJ-254 @Chaudhryma @Regression @playwright
+  Scenario: Test 2: CCT Chatbot: Remove DEI statement and question (Pre-Doctoral)
+    Given I am a user who is using the Find Funding Chat Bot,
+    When I click the career stage option: "Pre-Doctoral"
+    Then I select option "USA" to the question "Let's start with where do you plan to conduct your cancer research training?"
+    And I select the option "No, I am a foreign national with a visa" to the question "Are you a citizen of the USA, a noncitizen national, or a permanent resident?"
+    And I should see the text on top of the following links: "You may be eligible for the following programs:"
+    And the link for second flow is "Predoctoral to Postdoctoral Fellow Transition Award (F99/K00)"
