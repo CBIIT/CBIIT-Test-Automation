@@ -394,7 +394,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         int k = 0;
         int j = 1;
         if (currentRow.get("HaveYouEverParticipatedInFanconiAnemiaStudyAtAnotherMedicalInstitution").contentEquals("Yes")) {
-            for (int i = 0; i <= 5; ++i) {
+            for (int i = 0; i < 5; ++i) {
                 Map<String, String> currentRowForAnotherStudy = CharmsUtil.testManagerData(excelSheet, "OtherStudies", i);
                 String otherStudyName = (currentRowForAnotherStudy.get("OtherStudyName"));
                 String otherStudyContactPerson = (currentRowForAnotherStudy.get("OtherStudyContactPerson"));
@@ -1757,7 +1757,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
          */
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
+//        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
+        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='true']"));
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(500);
