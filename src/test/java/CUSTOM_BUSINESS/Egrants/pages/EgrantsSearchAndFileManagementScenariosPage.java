@@ -673,8 +673,6 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     @FindBy(xpath = "//button[@id='btnDragdrop']")
     public WebElement dragAndDropUploadButton;
 
-
-
     /**
      * Constructor
      */
