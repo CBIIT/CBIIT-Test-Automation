@@ -279,7 +279,6 @@ public class Find_Funding_DEI_Removed_Steps {
     @Then("the link for second flow is {string}")
     public void the_link_for_second_flow_is(String predoctoral_to_Postdoctoral_Fellow_Transition_Award_F99_K00_Link) {
         assertThat(cctChatBotWindow.locator("iframe[title='Conversation Preview Pane']").contentFrame().locator("now-chat-window").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Predoctoral to Postdoctoral"))).isVisible();
-        assertThat(cctChatBotWindow.locator("iframe[title='Conversation Preview Pane']").contentFrame().locator("now-chat-window")).containsText("Predoctoral to Postdoctoral Fellow Transition Award (F99/K00)");
-
+        assertThat(cctChatBotWindow.locator("iframe[title='Conversation Preview Pane']").contentFrame().locator("now-chat-window")).containsText(predoctoral_to_Postdoctoral_Fellow_Transition_Award_F99_K00_Link);
     }
 }
