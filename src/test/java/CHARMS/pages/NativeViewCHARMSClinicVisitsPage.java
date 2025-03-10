@@ -83,7 +83,13 @@ public class NativeViewCHARMSClinicVisitsPage {
      * After Hours Emergency Contact Name input field
      */
     @FindBy(xpath = "//input[@id='x_naci_family_coho_clinic_visit.after_hours_emergency_contact_name']")
-    public WebElement afterHoursEmergencyContactNameDropdown;
+    public WebElement afterHoursEmergencyContactNameInputField;
+
+    /**
+     * After Hours Emergency Contact Number input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_clinic_visit.after_hours_emergency_contact_number']")
+    public WebElement afterHoursEmergencyContactNumberInputField;
 
     public NativeViewCHARMSClinicVisitsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);

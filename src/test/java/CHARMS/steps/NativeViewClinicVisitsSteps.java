@@ -42,8 +42,8 @@ public class NativeViewClinicVisitsSteps {
         nativeViewCHARMSClinicVisitsPage.specifyNihProtocolInputField.sendKeys("Testing");
         CommonUtils.selectDropDownValue("In Progress", nativeViewCHARMSClinicVisitsPage.crisOrderStatusDropdown);
         CommonUtils.selectDropDownValue("In Progress", nativeViewCHARMSClinicVisitsPage.scheduleStatusDropdown);
-        nativeViewCHARMSClinicVisitsPage.afterHoursEmergencyContactNameDropdown.sendKeys("Test Contact");
-        nativeViewCHARMSClinicVisitsPage.afterHoursEmergencyContactNumberDropdown.sendKeys("703-687-5816");
+        nativeViewCHARMSClinicVisitsPage.afterHoursEmergencyContactNameInputField.sendKeys("Test Contact");
+        nativeViewCHARMSClinicVisitsPage.afterHoursEmergencyContactNumberInputField.sendKeys("703-687-5816");
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
     }
