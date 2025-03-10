@@ -543,4 +543,16 @@ public class EgrantsStepImplementation extends PageInitializer {
 		Hooks.softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.downloadSuccessMessage.isDisplayed());
 		CucumberLogUtils.logScreenshot();
 	}
+
+	/***
+	 * THIS METHOD UPLOADS A FILE BY CLICKING ON UPLOAD DOCUMENT LOCATE FILE AND UPLOAD
+	 */
+	public static void upload_a_file_locate_and_upload() {
+		CommonUtils.sleep(7000);
+		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.chooseFile, Egrants_Constants.TEST_FILE_PATH);
+		CucumberLogUtils.logScreenshot();
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.dragAndDropUploadButton);
+		CommonUtils.sleep(7000);
+		CucumberLogUtils.logScreenshot();
+	}
 }
