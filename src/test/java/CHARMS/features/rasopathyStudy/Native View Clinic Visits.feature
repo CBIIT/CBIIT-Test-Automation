@@ -1,8 +1,8 @@
-Feature: FHQ Native View
-  Description: This feature file contains scenarios where a Study Team member completes/verifies FHQ from Native View.
+Feature: Native View Clinic Visits and Appointments
+  Description: This feature file contains scenarios where a Study Team member creates a new Clinic Visit followed by a new Appointment.
 
-  @muzipovay2 @RAS_STUDY @CP2-4298 @selenium @RAS_Regression2
-  Scenario: Study team member fills in FHQ on participant's behalf
+  @muzipovay2 @RAS_STUDY @CP2-3871 @CP2-4392 @selenium @RAS_Regression2
+  Scenario: Study Team member opens PD record, navigates to the Clinic Visits related list, and creates a new Clinic Visit.
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
@@ -31,4 +31,4 @@ Feature: FHQ Native View
     And selects "Yes" from the Future Identifiable Use by Collaborators dropdown
     Then Study Team member presses the Sign and Complete button
     Then presses the back button
-    Then Study Team member fills out new FHQ for participant in NV
+    Then Study Team member navigates to the Clinic Visits related list and creates new Clinic Visit
