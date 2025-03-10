@@ -233,7 +233,7 @@ Given User is logged in the application and is on the landing page
     And clicks on uploaded document
 
   @EGRANTS-685 @FileUpload @alenaminsk @selenium @Regression
-  Scenario: Test document upload
+  Scenario: Replace Document page
     And clicks on Add Document button
     And searches for "125123" on Add New Document page
     And selects grant year 17S1 from list of Years
@@ -248,7 +248,3 @@ Given User is logged in the application and is on the landing page
     And User can see Upload Document and Convert to PDF and Upload options
     And uploads a file by clicking Upload Document under Locate File and Upload button
     Then verifies the success message "Done! New document has been created"
-
-
-
-
