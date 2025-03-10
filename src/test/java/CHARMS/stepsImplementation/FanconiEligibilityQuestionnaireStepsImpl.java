@@ -1682,9 +1682,10 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     }
 
     /**
-     * Submits consent with the provided collection method for a participant.
+     * Submits consent with the specified collection method for the provided row of data.
      *
-     * @param collectionMethod The method used for collecting consent
+     * @param collectionMethod The collection method to be used for submitting consent.
+     * @param rowCount The row number from which the data will be retrieved for submitting consent.
      */
     public void consent_is_submitted_with_collection_method(String collectionMethod, int rowCount) {
         currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowCount);

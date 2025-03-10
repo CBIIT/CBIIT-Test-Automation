@@ -115,6 +115,18 @@ public class NativeViewCHARMSParticipantDetailsPage {
     @FindBy(xpath = "//span[contains(@class,'navbar_ui_actions')]//button[contains(@name,'not_important')][normalize-space()='Save']")
     public WebElement saveButton;
 
+    /**
+     * Clinic Visits Tab
+     */
+    @FindBy(xpath = "//span[@class='tab_header']/span//span[contains(text(), 'Clinic Visits')]")
+    public WebElement clinicVisitsTab;
+
+    /**
+     * Create new Clinic Visit button
+     */
+    @FindBy(xpath = "//div[@id='list_nav_x_naci_family_coho_family_history_details.x_naci_family_coho_clinic_visit.participant']//button[@id='sysverb_new']")
+    public WebElement newClinicVisitButton;
+
     public NativeViewCHARMSParticipantDetailsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
