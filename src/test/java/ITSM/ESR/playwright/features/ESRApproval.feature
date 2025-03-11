@@ -81,7 +81,7 @@ Feature: ESR Approvals
     And the user is approved from the ESR Board approvers
     Then the user confirms the ESR Board Intake Approvals are completed
 
-  @ESR-717 @sarwarahmed1 @Progression @playwright
+  @ESR-717 @sarwarahmed1 @Regression @playwright
   Scenario: Test the "Need More Info" from ESR Board Intake Review approvals in an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
