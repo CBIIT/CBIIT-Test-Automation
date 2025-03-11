@@ -81,6 +81,18 @@ Feature: ESR Approvals
     And the user is approved from the ESR Board approvers
     Then the user confirms the ESR Board Intake Approvals are completed
 
+  @ESR-717 @sarwarahmed1 @Regression @playwright
+  Scenario: Test the "Need More Info" from ESR Board Intake Review approvals in an ESR-I ticket
+    Given a user logs into Native View on the NCI at your service page
+    And navigates to create ESR
+    And fills out all required information for ESR-I and clicks submit
+    And user clicks on Intake Preparation catalog task
+    And user fills out all required information for ESR-I Intake Preparation
+    And the user is approved from a federal lead
+    And ESR Board Intake Review catalog task is completed
+    And the user is rejected from the ESR Board approvers with a need more info for ESR-I
+    Then the user confirms more information is needed for the ESR-I ticket
+
   @ESR-702 @sarwarahmed1 @Regression @playwright
   Scenario: Test the Federal Lead Closeout Approval in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
