@@ -9,6 +9,7 @@ import CUSTOM_BUSINESS.OASYS.Utils.OASYS_Constants;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.*;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -369,6 +370,8 @@ public class Invoice_Page {
 
     /**
      * This method is used to verify the invoice status is changed to Submitted
+     *
+     * @param Status
      */
     @Then("User verifies the invoice status is changed to {string}")
     public void user_verifies_the_invoice_status_is_changed_to_submitted(String Status) {
@@ -565,6 +568,163 @@ public class Invoice_Page {
     public void user_verifies_the_invoice_is_deleted_successfully() {
         OASYS_CommonUtils.waitForElementToBeVisible("text=Invoice Deleted");
         assertThat(page.getByText("Invoice Deleted")).isVisible();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to provide Invoice Number in the Invoice number field
+     *
+     * @param InvoiceNumber
+     */
+    @And("User types {string} in Invoice number field")
+    public void user_types_in_invoice_number_field(String InvoiceNumber) {
+        page.getByLabel("Invoice #").click();
+        page.getByLabel("Invoice #").fill(InvoiceNumber);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select Staff Assignment from the dropdown
+     *
+     * @param StaffAssignment
+     */
+    @And("User selects {string} from the Staff Assignment dropdown")
+    public void user_selects_from_the_staff_assignment_dropdown(String StaffAssignment) {
+        page.getByLabel("Staff Assignment").click();
+        page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName("Staff Assignment")).fill(StaffAssignment);
+        page.getByText("(I) WILKISON Paula (paula.").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select Review Status from the dropdown
+     *
+     * @param ReviewStatus
+     */
+    @And("User selects {string} from review status")
+    public void user_selects_from_review_status(String ReviewStatus) {
+        page.getByLabel("Review Status").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(ReviewStatus)).locator("span").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select OA Branch from the dropdown
+     *
+     * @param Branch
+     */
+    @And("User selects {string} as OA Branch")
+    public void user_selects_as_oa_branch(String Branch) {
+        page.getByLabel("OA Branch").click();
+        page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName("OA Branch")).fill(Branch);
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(Branch)).locator("span").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to provide the invoice amount - From
+     *
+     * @param FromAmount
+     */
+    @And("User types ${int} in From Amount")
+    public void user_types_in_from_amount(Integer FromAmount) {
+        page.getByLabel("From ($ Amount)").click();
+        page.getByLabel("From ($ Amount)").fill(String.valueOf(FromAmount));
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to provide the invoice amount - To
+     *
+     * @param ToAmount
+     */
+    @And("User types ${int} in To Amount")
+    public void user_types_in_to_amount(Integer ToAmount) {
+        page.getByLabel("To ($ Amount)").click();
+        page.getByLabel("To ($ Amount)").fill(String.valueOf(ToAmount));
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select From Date
+     *
+     * @param FromDate
+     */
+    @And("User selects {string} from Date Uploaded \\(From)")
+    public void user_selects_a_date_from_date_uploaded_from(String FromDate) {
+        page.getByLabel("Date Uploaded (From)").click();
+        page.locator(".cdk-overlay-backdrop").click();
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Date Uploaded (From)")).fill(FromDate);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select To Date
+     *
+     * @param ToDate
+     */
+    @And("User selects {string} from Date Uploaded \\(To)")
+    public void user_selects_a_date_from_date_uploaded_to(String ToDate) {
+        page.locator("div").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Date Uploaded \\(To\\)$"))).nth(2).click();
+        page.locator(".cdk-overlay-backdrop").click();
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Date Uploaded (To)")).fill(ToDate);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the SEARCH button
+     */
+    @And("User clicks on SEARCH button")
+    public void user_clicks_on_search_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Search").setExact(true)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to verify if search results are within the search criteria
+     */
+    @And("User will verify if search results are within the search criteria")
+    public void user_will_verify_if_search_results_are_within_the_search_criteria() {
+        assertThat(page.getByRole(AriaRole.TABLE)).containsText("Submitted");
+        assertThat(page.getByRole(AriaRole.TABLE)).containsText("NBB");
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the CLEAR FILTERS button
+     */
+    @Then("User clicks on CLEAR FILTERS button")
+    public void user_clicks_on_clear_filters_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Clear Filters")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to selects All Invoices from the dropdown
+     */
+    @And("User selects All Invoices from the dropdown")
+    public void user_selects_all_invoices_from_the_dropdown() {
+        page.getByText("All Invoices").click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("All Invoices")).locator("span").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to verify if search results are within the specified amount range
+     */
+    @And("User will verify if search results are within the specified amount range")
+    public void user_will_verify_if_search_results_are_within_the_specified_amount_range() {
+        assertThat(page.getByRole(AriaRole.TABLE)).containsText("$100.00");
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the EXPORT SEARCH RESULT button
+     */
+    @Then("User clicks on EXPORT SEARCH RESULT button")
+    public void user_clicks_on_export_search_result_button() {
+        page.locator("xpath=//span[normalize-space()='Export Search Result']").click();
+        CommonUtils.sleep(3000);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }

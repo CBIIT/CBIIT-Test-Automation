@@ -632,6 +632,48 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement addDocButton;
 
     /**
+     * upload button for document Activation Notice
+     */
+    @FindBy(xpath = "//*[@id='loadgrid_10831223']/tbody/tr[1]/td[5]")
+    public WebElement uploadButtonActivationNoticeDoc;
+
+    /**
+     * Replace Document Page Title
+     */
+    @FindBy(xpath = "//*[@id='page_title']")
+    public WebElement replaceDocumentPageTitle;
+
+    /**
+     * Grant field
+     */
+    @FindBy(xpath = "//b[contains(text(),'Grant')]")
+    public WebElement grantField;
+
+    /**
+     * Category field
+     */
+    @FindBy(xpath = "//b[contains(text(),'Category')]")
+    public WebElement categoryField;
+
+    /**
+     * Date field
+     */
+    @FindBy(xpath = "//b[contains(text(),'Date')]")
+    public WebElement dateField;
+
+    /**
+     * Drag and Drop Covert to PDF and Upload button
+     */
+    @FindBy(xpath = "//button[@id='btnPdfDragdrop']")
+    public WebElement convertToPdfAndUploadButton;
+
+    /**
+     * Drag and Drop Upload button
+     */
+    @FindBy(xpath = "//button[@id='btnDragdrop']")
+    public WebElement dragAndDropUploadButton;
+
+    /**
      * Constructor
      */
     public EgrantsSearchAndFileManagementScenariosPage() {
