@@ -32,7 +32,7 @@ public class FHQConstants {
 	public static final String FIRST_NAME_OF_THE_PARTICIPANT = "First Name of the participant";
 	public static final String PARTICIPANT_FIRST_NAME = "Participant First Name";
 	public static final String FIRST_INITIAL_OF_LAST_NAME_OF_THE_PARTICIPANT = "First Initial of LAST Name of the participant";
-	public static final String PARTICIPANT_SEX_ASSIGNED_AT_BIRTH = "Sex assigned at birth";
+	public static final String PARTICIPANT_SEX_ASSIGNED_AT_BIRTH = "Sex";
 	public static final String PARTICIPANT_GENDER_IDENTITY = "Gender Identity";
 	public static final String PARTICIPANT_TYPE_OF_BIRTH = "Type of birth";
 	public static final String HAS_THE_PARTICIPANT_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS = "Has the participant ever had any miscarriages or stillbirths?";

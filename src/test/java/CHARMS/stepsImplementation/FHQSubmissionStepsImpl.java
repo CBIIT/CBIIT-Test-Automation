@@ -1,5 +1,8 @@
 package CHARMS.stepsImplementation;
 
+import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
+import APPS_COMMON.Utils.ServiceNow_Login_Methods;
+import com.nci.automation.web.TestProperties;
 import org.testng.asserts.SoftAssert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
@@ -13,7 +16,41 @@ import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import static com.nci.automation.web.TestProperties.getNativeViewSideDoorUrl;
 
 public class FHQSubmissionStepsImpl extends PageInitializer {
-	static SoftAssert softAssert = new SoftAssert();	
+	static SoftAssert softAssert = new SoftAssert();
+
+	/**
+	 * Run Reset Script for FHQ in NativeView
+	 */
+	public static void runResetScripts() {
+		/** Login to NativeView side door accounts */
+		ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+		/* Login to NativeView to sign in the reset accounts script for the Fanconi screener accounts */
+		if (TestProperties.ENV.equals("test")) {
+			WebDriverUtils.webDriver.get(
+					"https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3D9e54020987309250ad46326d3fbb35f4%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D6%26sysparm_record_rows%3D1317%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
+			CommonUtils.sleep(1000);
+		} else if (TestProperties.ENV.equals("dev2")) {
+			WebDriverUtils.webDriver.get(
+					"https://service-dev2.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3D9e54020987309250ad46326d3fbb35f4%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D6%26sysparm_record_rows%3D1317%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
+			CommonUtils.sleep(1000);
+		}
+ 		/** Login to the NativeView and run the reset accounts script for the FHQ account */
+		if (TestProperties.ENV.equals("test")) {
+			CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+			CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
+			testAccountResetPage.nativeViewRunFixScriptButton.click();
+			CommonUtils.sleep(800);
+			CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
+			testAccountResetPage.nativeViewProceedInBackgroundButton.click();
+			CommonUtils.sleep(800);
+			CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCloseButton);
+				testAccountResetPage.nativeViewCloseButton.click();
+			CommonUtils.sleep(800);
+			/**	LogOut of the account profile in NativeView */
+			ServiceNow_Common_Methods.logOutOfNativeView();
+			CommonUtils.sleep(800);
+		}
+	}
 
 	/** Method to submit a FHQ scenario */
 	public static void scenarioSelectorForFHQRelativesList(String excelName ) {	
@@ -204,12 +241,12 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace("Biological Mother"));
 		assertFamilyFormBanners();  
 		parentBasicInformationSubmissionsAndAssertions(" in Mother Form "); 	
-		twinOrMultipleBirthQuestionsSubmissionsAndAssertions(12," in Mother Form ");
-		miscarriagesOrStillbirthsQuestionsSubmissionsAndAssertions(14," in Mother Form ");
-		rASopathyQuestionsSubmissionsAndAssertions(17," in Mother Form ");
-		cancerQuestionsSubmissionsAndAssertions(18," in Mother Form ");
-		benignTumorQuestionsSubmissionsAndAssertions(19," in Mother Form ");
-		medicalConditionQuestionsSubmissionsAndAssertions(20," in Mother Form ");
+		twinOrMultipleBirthQuestionsSubmissionsAndAssertions(11," in Mother Form ");
+		miscarriagesOrStillbirthsQuestionsSubmissionsAndAssertions(13," in Mother Form ");
+		rASopathyQuestionsSubmissionsAndAssertions(16," in Mother Form ");
+		cancerQuestionsSubmissionsAndAssertions(17," in Mother Form ");
+		benignTumorQuestionsSubmissionsAndAssertions(18," in Mother Form ");
+		medicalConditionQuestionsSubmissionsAndAssertions(19," in Mother Form ");
 		siblingzSubmissionsAndAssertionsForParent(" in Mother Form ");
 		otherInformation();
 		finalSubmissionSteps();				
@@ -683,6 +720,17 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	/******************************************************************/
 			/** COMMON METHODS FOR ALL RELATIVE FORMS */
 	/******************************************************************/
+
+	/** Method to Login to MyRasLandingPage */
+	public static void loginToRASStudyPortal(String username, String password) {
+		CharmsUtil.clickOnElement(myRASLoginPage.loginToMyRASButton);
+		CharmsUtil.sendKeysToElement(oktaLoginPage.passwordTxtBox, password);
+		CharmsUtil.clickOnElement(oktaLoginPage.verifyBtn);
+		CucumberLogUtils.logScreenshot();
+		CommonUtils.waitForVisibility(oktaLoginPage.agreeBtn);
+		CharmsUtil.clickOnElement(oktaLoginPage.agreeBtn);
+	}
+
 	/** Method to Login to MyRasLandingPage */
 	public static void loginToRASStudyPage(String username, String password) {
 		CommonUtils.waitForVisibility(myRASLoginPage.loginToMyRASButton);
@@ -1094,11 +1142,8 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown,FHQConstants.RELATIONSHIP_TO_PARTICIPANT,fHQ_TestDataManager.pleaseIndicateYourRelationshipToTheParticipant);
 		CucumberLogUtils.logScreenshot();
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.THE_FOLLOWING_QUESTIONS_ARE_ABOUT_THE_STUDY_PARTICIPANT),fHQ_TestDataManager.theFollowingQuestionsAreAboutTheStudyParticipant, " The following questions are about the study participant.Label ");
-		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPANT_SEX_ASSIGNED_AT_BIRTH),"Sex assigned at birth"," Sex assigned at birth Label for Participant ");
+		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPANT_SEX_ASSIGNED_AT_BIRTH),"Sex"," Sex Label for Participant ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown1,FHQConstants.SEX_ASSIGNED_AT_BIRTH,fHQ_TestDataManager.sexAssignedAtBirth);
-		CucumberLogUtils.logScreenshot();
-		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPANT_GENDER_IDENTITY),"Gender Identity"," Gender Identity Label for Participant ");
-		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown1,FHQConstants.GENDER_IDENTITY,fHQ_TestDataManager.genderIdentity);	
 		CucumberLogUtils.logScreenshot();
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.HAS_THE_PARTICIPANT_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS),"Has the participant ever had any miscarriages or stillbirths?"," Has the participant ever had any miscarriages or stillbirths? Label ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown1,FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.hasTheParticipantEverHadAnyMiscarriagesOrStillbirths);
@@ -1348,10 +1393,9 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown,FHQConstants.yearOfBirthOrDeathAfter1900(),fHQ_TestDataManager.partnerYearOfBirthValue);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.VITAL_STATUS),fHQ_TestDataManager.vitalStatus, " Vital Status Label of Partner in Partner Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForSelectedDropDownValue(4),fHQ_TestDataManager.partnerVitalStatus, " First Initial of LAST Name Value of Partner in Partner Form ");
-		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPANT_SEX_ASSIGNED_AT_BIRTH),"Sex assigned at birth"," Sex assigned at birth Label of Partner in Partner Form ");
+		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPANT_SEX_ASSIGNED_AT_BIRTH),"Sex"," Sex Label of Partner in Partner Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocatorForDropDown(4),FHQConstants.SEX_ASSIGNED_AT_BIRTH,fHQ_TestDataManager.partnerSexAssignedAtBirth);
-		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPANT_GENDER_IDENTITY),"Gender Identity"," Gender Identity Label of Partner in Partner Form ");
-		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocatorForDropDown(4),FHQConstants.GENDER_IDENTITY,fHQ_TestDataManager.partnerGenderIdentity);
+		CucumberLogUtils.logScreenshot();
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.IS_THE_PARTICIPANT_BLOOD_RELATED_TO_THIS_PERSON),fHQ_TestDataManager.isTheParticipantBloodRelatedToThisPerson," Is the participant blood-related to this person? Label of Partner in Partner Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingTitle(FHQConstants.IF_YOU_ARE_FILLING_OUT_THIS_FORM_FOR_YOURSELF),fHQ_TestDataManager.ifYouAreFillingOutThisFormForYourself," If you are filling out this form for yourself Label of Partner in Partner Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocatorForDropDown(4),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.isTheParticipantBloodRelated);	
@@ -1436,15 +1480,15 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator2ForDropDown(6),FHQConstants.VITAL_STATUS_LIST,fHQ_TestDataManager.vitalStatusValueAdded);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPANT_SEX_ASSIGNED_AT_BIRTH),fHQ_TestDataManager.sexAssignedAtBirth," Sex assigned at birth Label" + string);
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator2ForDropDown(10),FHQConstants.SEX_ASSIGNED_AT_BIRTH,fHQ_TestDataManager.sexAssignedAtBirthValueAdded);
-		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPANT_GENDER_IDENTITY), fHQ_TestDataManager.genderIdentity, " Gender Identity Label" + string);
-		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator2ForDropDown(11),FHQConstants.GENDER_IDENTITY,fHQ_TestDataManager.genderIdentityValueAdded);	
+	//	CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPANT_GENDER_IDENTITY), fHQ_TestDataManager.genderIdentity, " Gender Identity Label" + string);
+	//	CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator2ForDropDown(11),FHQConstants.GENDER_IDENTITY,fHQ_TestDataManager.genderIdentityValueAdded);
 	}
 
 	/** Siblings Information added For Parent */
 	public static void siblingzSubmissionsAndAssertionsForParent(String string) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HOW_MANY_SIBLINGS_DOES_THIS_RELATIVE_HAVE), fHQ_TestDataManager.howManySiblingsDoesThisRelativeHave, " How many siblings does this relative have? Label"+ string);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.siblingBanner, fHQ_TestDataManager.howManySiblingsDoesThisRelativeHaveBanner, " Sibling Banner Label" + string);
-		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator2ForDropDown(21),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.howManySiblingsDoesThisRelativeHaveValue);	
+		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator2ForDropDown(20),FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.howManySiblingsDoesThisRelativeHaveValue);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.siblingAddButtonInfo,fHQ_TestDataManager.pleaseSelectTheAddButtonBelowToAddEachSiblingThisRelativeHas, " Please select the 'Add' button below to add each sibling this relative has. Label"+ string);			
 		FHQSubmissionStepsImpl.assertSiblingBannerInMRVSTable(4, "in Parent Form ");	
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForButton("Add a row for Siblings"));
