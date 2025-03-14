@@ -190,7 +190,7 @@ public class Contract_Deliverables {
      */
     @And("User selects {string} for Every How Many months?")
     public void user_selects_for_every_how_many_months(String FrequencyInOneMonth) {
-        page.locator("div").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Every \\(How many Months\\?\\) \\*$"))).nth(3).click();
+        page.getByLabel("Every (How many Months?) *").click();
         page.getByLabel("Every (How many Months?) *").fill(FrequencyInOneMonth);
         CucumberLogUtils.playwrightScreenshot(page);
     }
