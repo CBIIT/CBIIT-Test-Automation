@@ -1442,4 +1442,22 @@ public class RAS_All_Steps extends PageInitializer {
         JavascriptUtils.scrollIntoView(nativeViewCHARMSFHQPatientPage.dynamicRelatedListsTabLocator("Parent(s)"));
         CucumberLogUtils.logScreenshot();
     }
+
+    /**
+     * Method for navigating to participant study and then opening the RASopathy Survey
+     */
+    @When("Study Team member navigates to RASopathy Survey")
+    public void study_team_member_navigates_to_rasopathy_survey() {
+        study_team_member_navigates_to_participant_studies();
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantStudyPage.cgbIIQTab);
+        nativeViewCHARMSParticipantStudyPage.cgbIIQTab.click();
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantStudyPage.cgbIIQTab);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantStudyPage.rasopathySurveyText);
+        CommonUtils.hoverOverElement(nativeViewCHARMSParticipantStudyPage.rasopathySurveyText);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantStudyPage.rasopathySurveyPreviewButton);
+        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+    }
 }
