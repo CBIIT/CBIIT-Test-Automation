@@ -21,7 +21,6 @@ Feature: RAS Screener Scenarios
     And clicks on the Ras Survey Form
     And a participant enters username "<Email>" and pin
     When the participant submits a RAS Survey from excel sheet "<SurveyScenario>"
-
     Examples:
       | Email                | Password          | ScreenerScenario  | IIQScenario  | SurveyScenario     |
       | charmsras1@yahoo.com | CharmsStudies123$ | screenerScenario1 | IIQScenario1 | RASSurveyScenario1 |

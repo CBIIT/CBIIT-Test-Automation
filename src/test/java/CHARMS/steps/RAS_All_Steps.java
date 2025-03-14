@@ -425,11 +425,6 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @When("Study Team member logs in to Native View and navigates to participant's record {string}")
     public void study_team_member_logs_in_to_native_view_and_navigates_to_participant_s_record(String sheetName) {
-
-        // REMOVE THIS
-        ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-
-
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         navigateToParticipantRecordInNativeView(sheetName);
     }
@@ -782,8 +777,6 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Given("Study Team member logs in to Native View and navigates to Participant Consent record {string}")
     public void study_team_member_logs_in_to_native_view_and_navigates_to_participant_consent_record(String sheetName) {
-
-
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         navigateToParticipantRecordInNativeView(sheetName);
         CommonUtils.sleep(2000);
