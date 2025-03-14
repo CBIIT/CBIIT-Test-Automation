@@ -9,11 +9,11 @@ Feature: RAS Screener Scenarios
     And a participant enters username "<Email>" and pin
     And the participant submits a Individual Information Questionnaire for excel sheet "<IIQScenario>"
     Examples:
-      | Email                          | Password      | IIQScenario  |
-      | charmsras1@yahoo.com           | RASTest2022$$ | IIQScenario1 |
-      | charmsras2@yahoo.com           | RASTest2023$$ | IIQScenario2 |
-      | charmsras3@yahoo.com           | RASTest2023$$ | IIQScenario3 |
-      | charmsras5@yahoo.com           | RASTest2023$$ | IIQScenario4 |
+      | Email                | Password      | IIQScenario  |
+      | charmsras1@yahoo.com | RASTest2022$$ | IIQScenario1 |
+      | charmsras2@yahoo.com | RASTest2023$$ | IIQScenario2 |
+      | charmsras3@yahoo.com | RASTest2023$$ | IIQScenario3 |
+      | charmsras5@yahoo.com | RASTest2023$$ | IIQScenario4 |
 
   @bucurgb @myRasStudy @SampleIiqForm
   Scenario: This scenario outline is completing the IIQ Folm - SAMPLE

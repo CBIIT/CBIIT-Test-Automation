@@ -99,7 +99,7 @@ public class CCT_CHAT_BOT_StepImpl {
     public static void the_user_selects_for_q4_indicating_they_belong_to_an_underrepresented_group(String yes) {
 
         CucumberLogUtils.scenario.log("----- THIS QUESTION AND TEXT IS REMOVED AS PER NEW ENHANCEMENT - VERIFYING THAT IS HAS BEEN REMOVED-----");
-        String chatWindowText = cctChatBotWindow.locator("iframe[title=\"Conversation Preview Pane\"]").contentFrame().locator("now-chat-window").textContent().toString();
+        String chatWindowText = cctChatBotWindow.locator("iframe[title=\"Conversation Preview Pane\"]").contentFrame().locator("now-chat-window").textContent();
         boolean textPresent = chatWindowText.contains("Do you consider yourself to belong to an underrepresented group in the biomedical research workforce?");
         Assert.assertFalse(textPresent, "---- VERIFY THAT THE TEXT IS NOT PRESENT IN THE CHAT WINDOW.----");
         CucumberLogUtils.playwrightScreenshot(cctChatBotWindow);
