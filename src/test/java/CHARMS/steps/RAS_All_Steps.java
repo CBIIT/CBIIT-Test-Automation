@@ -425,6 +425,11 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @When("Study Team member logs in to Native View and navigates to participant's record {string}")
     public void study_team_member_logs_in_to_native_view_and_navigates_to_participant_s_record(String sheetName) {
+
+        // REMOVE THIS
+        ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+
+
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         navigateToParticipantRecordInNativeView(sheetName);
     }
@@ -777,6 +782,8 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Given("Study Team member logs in to Native View and navigates to Participant Consent record {string}")
     public void study_team_member_logs_in_to_native_view_and_navigates_to_participant_consent_record(String sheetName) {
+
+
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         navigateToParticipantRecordInNativeView(sheetName);
         CommonUtils.sleep(2000);
@@ -1441,5 +1448,23 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.waitForClickability(nativeViewCHARMSFHQPatientPage.dynamicRelatedListsTabLocator("Parent(s)"));
         JavascriptUtils.scrollIntoView(nativeViewCHARMSFHQPatientPage.dynamicRelatedListsTabLocator("Parent(s)"));
         CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Method for navigating to participant study and then opening the RASopathy Survey
+     */
+    @When("Study Team member navigates to RASopathy Survey")
+    public void study_team_member_navigates_to_rasopathy_survey() {
+        study_team_member_navigates_to_participant_studies();
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantStudyPage.cgbIIQTab);
+        nativeViewCHARMSParticipantStudyPage.cgbIIQTab.click();
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantStudyPage.cgbIIQTab);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantStudyPage.rasopathySurveyText);
+        CommonUtils.hoverOverElement(nativeViewCHARMSParticipantStudyPage.rasopathySurveyText);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantStudyPage.rasopathySurveyPreviewButton);
+        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
     }
 }
