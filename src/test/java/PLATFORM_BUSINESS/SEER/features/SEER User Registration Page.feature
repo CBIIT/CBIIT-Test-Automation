@@ -9,7 +9,7 @@ Feature: SEER User Registration Scenarios
     And submits the registration form
     Then the user is not able to submit the registration form because the State and Zip Code fields are required
 
-  @ODS-284 @bucurgb @Regression @Smoke @selenium
+  @ODS-284 @ODS-489 @bucurgb @Regression @Smoke @selenium
   Scenario: Verifying "Thank you - your registration is complete." page contents
     Given a user is on the SEER Data Access landing page
     When the user enters email address for a Non-Institutional Account

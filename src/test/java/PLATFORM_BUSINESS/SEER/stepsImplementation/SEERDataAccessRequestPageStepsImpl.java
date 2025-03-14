@@ -41,11 +41,6 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         CommonUtils.assertEquals(actualDataUseAgreementCertificationText, DUA_Constants.DATA_USE_AGREEMENT_CERTIFICATION);
         JavascriptUtils.drawBlueBorder(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.scrollIntoView(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText);
-        String actualDataAccessBestPracticeAssuranceText = seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText.getText();
-        CommonUtils.assertEquals(actualDataAccessBestPracticeAssuranceText, DUA_Constants.BEST_PRACTICE_ASSURANCE);
-        JavascriptUtils.drawBlueBorder(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText);
-        CucumberLogUtils.logScreenshot();
     }
 
     /**
@@ -68,23 +63,12 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         String actualFontWeightSeerResearchDataUseAgreementBody = seerDataAccessRequestPage.seerResearchDataUseAgreementBody.getCssValue("font-weight");
         CommonUtils.assertTrue(!actualFontWeightSeerResearchDataUseAgreementHeading.equals(actualFontWeightSeerResearchDataUseAgreementBody));
         CommonUtils.assertTrue(actualFontSizeSeerAcknowledgmentOfTreatmentDataLimitationsHeading.equals(actualFontSizeSeerResearchDataUseAgreementHeading));
-        CommonUtils.scrollIntoView(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText);
-        String actualDataAccessBestPracticeAssuranceText = seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText.getText();
-        CommonUtils.assertEquals(actualDataAccessBestPracticeAssuranceText, DUA_Constants.BEST_PRACTICE_ASSURANCE);
-        CucumberLogUtils.logScreenshot();
-        String actualFontSizeSeerBestPracticesAssuranceForSecuringNCISupportedRegistryDataHeading = seerDataAccessRequestPage.seerBestPracticesAssuranceForSecuringNCISupportedRegistryDataHeading.getCssValue("font-size");
-        String actualFontWeightSeerBestPracticesAssuranceForSecuringNCISupportedRegistryDataHeading = seerDataAccessRequestPage.seerBestPracticesAssuranceForSecuringNCISupportedRegistryDataHeading.getCssValue("font-weight");
-        String actualFontWeightSeerBestPracticesAssuranceForSecuringNCISupportedRegistryDataBody = seerDataAccessRequestPage.seerBestPracticesAssuranceForSecuringNCISupportedRegistryDataBody.getCssValue("font-weight");
-        CommonUtils.assertTrue(!actualFontWeightSeerBestPracticesAssuranceForSecuringNCISupportedRegistryDataHeading.equals(actualFontWeightSeerBestPracticesAssuranceForSecuringNCISupportedRegistryDataBody));
         CommonUtils.scrollIntoView(seerDataAccessRequestPage.seerDataAccessNCCRReasearchDataUseAgreementText);
         String actualSeerDataAccessNCCRReasearchDataUseAgreementText = seerDataAccessRequestPage.seerDataAccessNCCRReasearchDataUseAgreementText.getText();
         CommonUtils.assertEquals(actualSeerDataAccessNCCRReasearchDataUseAgreementText, DUA_Constants.NCCR_REASEARCH_DATA_USER_AGREEMENT);
-        String actualFontSizeSeerNationalChildhoodCancerRegistryNCCRResearchDataUseAgreementHeading = seerDataAccessRequestPage.seerNationalChildhoodCancerRegistryNCCRResearchDataUseAgreementHeading.getCssValue("font-size");
         String actualFontWeightSeerNationalChildhoodCancerRegistryNCCRResearchDataUseAgreementHeading = seerDataAccessRequestPage.seerNationalChildhoodCancerRegistryNCCRResearchDataUseAgreementHeading.getCssValue("font-weight");
         String actualFontWeightSeerNationalChildhoodCancerRegistryNCCRResearchDataUseAgreementBody = seerDataAccessRequestPage.seerNationalChildhoodCancerRegistryNCCRResearchDataUseAgreementBody.getCssValue("font-weight");
         CommonUtils.assertTrue(!actualFontWeightSeerNationalChildhoodCancerRegistryNCCRResearchDataUseAgreementHeading.equals(actualFontWeightSeerNationalChildhoodCancerRegistryNCCRResearchDataUseAgreementBody));
-        CommonUtils.assertTrue(actualFontSizeSeerBestPracticesAssuranceForSecuringNCISupportedRegistryDataHeading.equals(actualFontSizeSeerResearchDataUseAgreementHeading));
-        CommonUtils.assertTrue(actualFontSizeSeerBestPracticesAssuranceForSecuringNCISupportedRegistryDataHeading.equals(actualFontSizeSeerNationalChildhoodCancerRegistryNCCRResearchDataUseAgreementHeading));
         CucumberLogUtils.logScreenshot();
     }
 
