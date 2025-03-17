@@ -104,6 +104,12 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement chooseFile;
 
     /**
+     * Choose File Locate and Upload tab
+     */
+    @FindBy(xpath = "//input[@id='customFile']")
+    public WebElement locateUploadTabChooseFile;
+
+    /**
      * Choose File - Replace Page
      */
     @FindBy(xpath = "//label[normalize-space()='Choose file...']")
@@ -672,6 +678,12 @@ public class EgrantsSearchAndFileManagementScenariosPage {
      */
     @FindBy(xpath = "//button[@id='btnDragdrop']")
     public WebElement dragAndDropUploadButton;
+
+    /**
+     * Drag and Drop Upload button
+     */
+    @FindBy(xpath = "//button[@id='btnDragdrop']")
+    public WebElement firstWarningUploadEmail;
 
     /**
      * Constructor

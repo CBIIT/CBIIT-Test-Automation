@@ -974,6 +974,67 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
      */
     @When("uploads a file by clicking Upload Document under Locate File and Upload button")
     public void uploads_a_file_by_clicking_upload_document_under_locate_file_and_upload_button() {
+        EgrantsStepImplementation.upload_a_file_locate_and_upload();
+    }
 
+    /**
+     * User uploads a single file with doc extension
+     */
+    @Given("User uploads a single file with doc extension")
+    public void user_uploads_a_single_file_with_doc_extension() {
+        EgrantsStepImplementation.upload_a_doc_file();
+    }
+
+    /**
+     * User clicks on Upload via Email tab
+     */
+    @Given("User clicks on Upload via Email tab")
+    public void user_clicks_on_upload_via_email_tab() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.uploadViaEmailButton);
+    }
+
+    /**
+     * User can verify second warning
+     */
+    @Given("User can verify that second warning is displayed as {string}")
+    public void user_can_verify_that_second_warning_is_displayed_as(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    /**
+     * User verifies Upload Via Email button is enabled
+     */
+    @Given("User verifies Upload Via Email button is enabled")
+    public void user_verifies_upload_via_email_button_is_enabled() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    /**
+     * User clicks on Return To eGrants File
+     */
+    @When("User clicks on Return To eGrants File")
+    public void user_clicks_on_return_to_e_grants_file() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    /**
+     * User returns to eGrants File
+     */
+    @Then("User returns to eGrants File")
+    public void user_returns_to_e_grants_file() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    /**
+     * User can verify that first warning is displayed
+     */
+    @Given("User can verify that first warning is displayed")
+    public void user_can_verify_that_first_warning_is_displayed() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
 }
