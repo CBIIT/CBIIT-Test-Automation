@@ -260,7 +260,7 @@ Given User is logged in the application and is on the landing page
     And clicks on uploaded document
 
   @EGRANTS-615 @FileUpload @alenaminsk @selenium @Regression
-  Scenario: Add New Document Upload via Email
+  Scenario: UI verification for Document Upload via Email
     And clicks on Add Document button
     And searches for "125123" on Add New Document page
     And selects category as Application File
