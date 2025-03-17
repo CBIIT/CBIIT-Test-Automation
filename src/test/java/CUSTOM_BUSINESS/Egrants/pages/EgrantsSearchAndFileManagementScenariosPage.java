@@ -680,10 +680,28 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement dragAndDropUploadButton;
 
     /**
-     * Drag and Drop Upload button
+     * warning Upload Email
      */
-    @FindBy(xpath = "//button[@id='btnDragdrop']")
-    public WebElement firstWarningUploadEmail;
+    @FindBy(xpath = "//*[@id='by_email']")
+    public WebElement warningUploadEmail;
+
+    /**
+     * Upload via Email button
+     */
+    @FindBy(xpath = "//button[@id='btnEmail']")
+    public WebElement uploadViaEmailBtn;
+
+    /**
+     * Return to eGrants File button
+     */
+    @FindBy(xpath = "//button[@class='btn btn-primary eGrantsReturnBtn']")
+    public WebElement returnToeGrantsFileBtn;
+
+    /**
+     * header Grant Years
+     */
+    @FindBy(xpath = "//b[@id='toggle_title']")
+    public WebElement headerGrantYears;
 
     /**
      * Constructor

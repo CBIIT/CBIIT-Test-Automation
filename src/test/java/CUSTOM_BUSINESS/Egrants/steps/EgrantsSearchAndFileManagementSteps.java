@@ -994,21 +994,19 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     }
 
     /**
-     * User can verify second warning
+     * User can verify the warning is displayed
      */
-    @Given("User can verify that second warning is displayed as {string}")
-    public void user_can_verify_that_second_warning_is_displayed_as(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Given("User can verify the warning is displayed")
+    public void user_can_verify_the_warning_is_displayed() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.warningUploadEmail.isDisplayed());
     }
 
     /**
-     * User verifies Upload Via Email button is enabled
+     * User verifies Upload Via Email button is displaye
      */
-    @Given("User verifies Upload Via Email button is enabled")
-    public void user_verifies_upload_via_email_button_is_enabled() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Given("User verifies Upload Via Email button is displayed")
+    public void user_verifies_upload_via_email_button_is_displayed() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.uploadViaEmailBtn.isDisplayed());
     }
 
     /**
@@ -1016,8 +1014,7 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
      */
     @When("User clicks on Return To eGrants File")
     public void user_clicks_on_return_to_e_grants_file() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.returnToeGrantsFileBtn);
     }
 
     /**
@@ -1025,16 +1022,7 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
      */
     @Then("User returns to eGrants File")
     public void user_returns_to_e_grants_file() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
-    /**
-     * User can verify that first warning is displayed
-     */
-    @Given("User can verify that first warning is displayed")
-    public void user_can_verify_that_first_warning_is_displayed() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        CommonUtils.sleep(3000);
+       softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.headerGrantYears.isDisplayed());
     }
 }

@@ -259,15 +259,13 @@ Given User is logged in the application and is on the landing page
     Then verifies the success message "Done! New document has been created"
     And clicks on uploaded document
 
-  @EGRANTS-615 @FileUpload @alenaminsk @selenium @Regression @Progression
+  @EGRANTS-615 @FileUpload @alenaminsk @selenium @Regression
   Scenario: Add New Document Upload via Email
     And clicks on Add Document button
     And searches for "125123" on Add New Document page
     And selects category as Application File
     And User clicks on Upload via Email tab
-    And User can verify that first warning is displayed
-    And User can verify that second warning is displayed as "Attach the document (do not change the subject) and click send."
-    And User verifies Upload Via Email button is enabled
+    And User can verify the warning is displayed
+    And User verifies Upload Via Email button is displayed
     When User clicks on Return To eGrants File
     Then User returns to eGrants File
-
