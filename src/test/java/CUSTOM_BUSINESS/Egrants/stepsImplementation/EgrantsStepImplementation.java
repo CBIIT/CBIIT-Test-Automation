@@ -561,7 +561,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void upload_a_doc_file() {
 		CommonUtils.sleep(7000);
-		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.locateUploadTabChooseFile, Egrants_Constants.TEST_DOC_FILE_PATH);
+		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.chooseFile, Egrants_Constants.TEST_DOC_FILE_PATH);
 		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.convertToPdfAndAddButton);
 		CommonUtils.sleep(7000);

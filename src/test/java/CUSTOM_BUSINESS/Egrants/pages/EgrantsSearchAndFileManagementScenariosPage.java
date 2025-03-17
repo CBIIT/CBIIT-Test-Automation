@@ -104,12 +104,6 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement chooseFile;
 
     /**
-     * Choose File Locate and Upload tab
-     */
-    @FindBy(xpath = "//input[@id='customFile']")
-    public WebElement locateUploadTabChooseFile;
-
-    /**
      * Choose File - Replace Page
      */
     @FindBy(xpath = "//label[normalize-space()='Choose file...']")
