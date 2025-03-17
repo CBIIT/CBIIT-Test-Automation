@@ -112,7 +112,6 @@ public class FanconiScreenerNVPage extends PageInitializer {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='ni.x_naci_family_coho_participant_study." + text + "'])[1]"));
     }
 
-
     /* Method to dynamically locate CheckBox elements in Fanconi study page in Native View */
     public WebElement dynamicLocatorForCheckBoxElements(int i) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//span[@class='input-group-checkbox'])["+ i +"]"));

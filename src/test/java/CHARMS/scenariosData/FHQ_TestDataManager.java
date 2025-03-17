@@ -564,7 +564,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			additionalInformationAddedForCancer = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_CANCER);		
 			/* Benign Tumor Form */
 			hasThisRelativeEverBeenDiagnosedWithABenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR);
-			hasThisRelativeEverBeenDiagnosedWithBenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_BENIGN_TUMOR);
+		//	hasThisRelativeEverBeenDiagnosedWithBenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_BENIGN_TUMOR);
 			hasThisRelativeEverBeenDiagnosedWithABenignTumorValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR_VALUE);
 			pleaseSelectTheAddButtonBelowToAddEachBenignTumorThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_BENIGN_TUMOR_THIS_RELATIVE_HAS_HAD);
 			benignTumor = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR);

@@ -15,7 +15,7 @@ Feature: FHQ Form Submission Scenarios
       | Email                  | Password   | ScreenerScenario      |  ConsentStatus | ConsentType | ResponseType                 | AccountResetScriptURL                                                                                    |
       | Rasopathy1@yopmail.com | Charms123$ | screenerScenarioAdult |  Complete      | Adult       | Participant upload to portal | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
-  @jains @FHQSubmissionInPortal @CP2-562 @FHQ_Regression @selenium
+  @jains @FHQSubmissionInPortal @CP2-562 @FHQ_Regression1 @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
     Given participant open RASopathies Longitudinal Cohort Study login page
     Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
@@ -25,7 +25,7 @@ Feature: FHQ Form Submission Scenarios
       | Email                  | Password      | FHQScenario  | FHQRelative |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Participant |
 
-  @jains @FHQSubmissionInPortal @CP2-930 @FHQ_Regression @selenium
+  @jains @FHQSubmissionInPortal @CP2-930 @FHQ_Regression1 @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
     Given participant open RASopathies Longitudinal Cohort Study login page
     Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
@@ -36,7 +36,7 @@ Feature: FHQ Form Submission Scenarios
       | Email                  | Password      | FHQScenario  | FHQRelative |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Partner     |
 
-  @jains @FHQSubmissionInPortal @CP2-559 @FHQ_Regression @selenium
+  @jains @FHQSubmissionInPortal @CP2-559 @FHQ_Regression1 @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
     Given participant open RASopathies Longitudinal Cohort Study login page
     Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
@@ -47,7 +47,7 @@ Feature: FHQ Form Submission Scenarios
       | Email                  | Password      | FHQScenario  | FHQRelative |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Mother      |
 
-  @jains @FHQSubmissionInPortal @CP2-559 @FHQ_Regression @selenium
+  @jains @FHQSubmissionInPortal @CP2-559 @FHQ_Regression1 @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
     Given participant open RASopathies Longitudinal Cohort Study login page
     Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
@@ -56,10 +56,9 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Father      |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Father      |
 
-  @jains @FHQSubmissionInPortal @CP2-563 @FHQ_Regression @selenium
+  @jains @FHQSubmissionInPortal @CP2-563 @FHQ_Regression1 @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
     Given participant open RASopathies Longitudinal Cohort Study login page
     Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
@@ -68,10 +67,9 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Children    |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Children    |
 
-  @jains @FHQSubmissionInPortal @CP2-603 @CP2-1020 @FHQ_Regression @selenium
+  @jains @FHQSubmissionInPortal @CP2-603 @CP2-1020 @FHQ_Regression1 @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
     Given participant open RASopathies Longitudinal Cohort Study login page
     Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
@@ -80,7 +78,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Sibling     |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Sibling     |
 
   @jains @FHQSubmissionInPortal @CP2-550 @FHQ_Regression @selenium
@@ -92,7 +89,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Aunt        |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Aunt        |
 
   @jains @FHQSubmissionInPortal @CP2-550 @FHQ_Regression @selenium
