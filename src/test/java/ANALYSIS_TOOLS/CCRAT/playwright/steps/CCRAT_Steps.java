@@ -16,12 +16,18 @@ import static com.nci.automation.web.TestProperties.getCCRATUrl;
 
 public class CCRAT_Steps extends PageInitializer {
 
+    /**
+     * Navigating to the CCRAT website
+     */
     @Given("User navigates to the CCRAT Website")
     public void user_navigates_to_the_ccrat_website() {
         PlaywrightUtils.page.navigate(getCCRATUrl());
         CommonUtils.sleep(2000);
     }
 
+    /**
+     * Clicking on the CCRAT link
+     */
     @Then("User clicks on the CCRAT link")
     public void user_clicks_on_the_bcrat_link() {
         PlaywrightUtils.page.locator(CCRATPage.ccratPageLink).click();

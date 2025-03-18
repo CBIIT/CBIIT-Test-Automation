@@ -1,5 +1,6 @@
 package ANALYSIS_TOOLS.ACT24.stepsImpl;
 
+import ANALYSIS_TOOLS.ACT24.utils.ACT24ApiRequests_Constants;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -7,16 +8,12 @@ import org.json.JSONArray;
 import org.testng.Assert;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import static Hooks.Hooks.softAssert;
 
 public class ACT24ApiRequestsStepImpl {
 
-    public static String baseUrl = "https://act24-test.cancer.gov/act24/";
-    public static String studyListEndpoint = "studyList/";
     public static String studyListBaseUrl;
-    public static String username = "satyagugulothu";
-    public static String password = "Satyakotya123@";
     public static int firstStudyId;
-    public static String participantListEndpoint = "participantList/";
     public static String participantListBaseUrl;
     public static Response response;
     public static int statusCode = 200;
@@ -33,14 +30,14 @@ public class ACT24ApiRequestsStepImpl {
      * Setting up base url for study list api
      */
     public static void setBaseurlForStudyList() {
-        studyListBaseUrl = baseUrl + studyListEndpoint;
+        studyListBaseUrl = ACT24ApiRequests_Constants.BASE_URL + ACT24ApiRequests_Constants.STUDY_LIST_ENDPOINT;
     }
 
     /**
      * Sending request and retrieving the study list
      */
     public static void sendGetRequestForStudyList() {
-        response = getRequestWithBodyAndHeader(username, password, studyListBaseUrl);
+        response = getRequestWithBodyAndHeader(ACT24ApiRequests_Constants.ACT24_USERNAME, ACT24ApiRequests_Constants.ACT24_PASSWORD, studyListBaseUrl);
         response.prettyPrint();
         String jsonString = response.asString();
         JSONArray jsonArray = new JSONArray(jsonString);
@@ -53,7 +50,7 @@ public class ACT24ApiRequestsStepImpl {
         studyEndDate = jsonArray.getJSONObject(0).getString("studyEndDate");
         LocalDate date1 = LocalDate.parse(studyEndDate, originalDate);
         formattedEndDate = date1.format(desiredDate);
-        Assert.assertEquals(response.getStatusCode(), statusCode);
+        softAssert.assertEquals(response.getStatusCode(), statusCode);
     }
 
     /**
@@ -72,7 +69,7 @@ public class ACT24ApiRequestsStepImpl {
      * Setting up base url for participant list
      */
     public static void setBaseurlForParticipantList() {
-        participantListBaseUrl = baseUrl + participantListEndpoint + firstStudyId + "/";
+        participantListBaseUrl = ACT24ApiRequests_Constants.BASE_URL + ACT24ApiRequests_Constants.PARTICIPANT_LIST_ENDPOINT + firstStudyId + "/";
         System.out.println(participantListBaseUrl);
     }
 
@@ -80,20 +77,20 @@ public class ACT24ApiRequestsStepImpl {
      * Sending request and retrieving the participant list
      */
     public static void sendGetRequestForParticipantList() {
-        response = getRequestWithBodyAndHeader(username, password, participantListBaseUrl);
+        response = getRequestWithBodyAndHeader(ACT24ApiRequests_Constants.ACT24_USERNAME, ACT24ApiRequests_Constants.ACT24_PASSWORD, participantListBaseUrl);
         response.prettyPrint();
         String jsonString = response.asString();
         JSONArray jsonArray = new JSONArray(jsonString);
         firstSubjectId = jsonArray.getJSONObject(0).getString("subjectId");
         System.out.println(firstSubjectId);
-        Assert.assertEquals(response.getStatusCode(), statusCode);
+        softAssert.assertEquals(response.getStatusCode(), statusCode);
     }
 
     /**
      * Setting up base url for QC summary report
      */
     public static void setBaseurlForQCSummaryReport() {
-        summaryReportBaseUrl = baseUrl + "summaryReportQC/" + firstStudyId + "/" + formattedStartDate + "/" + formattedEndDate;
+        summaryReportBaseUrl = ACT24ApiRequests_Constants.BASE_URL + "summaryReportQC/" + firstStudyId + "/" + formattedStartDate + "/" + formattedEndDate;
         System.out.println(summaryReportBaseUrl);
     }
 
@@ -101,16 +98,16 @@ public class ACT24ApiRequestsStepImpl {
      * Setting up base url for QC summary report
      */
     public static void sendGetRequestForQCSummaryReport() {
-        response = getRequestWithBodyAndHeader(username, password, summaryReportBaseUrl);
+        response = getRequestWithBodyAndHeader(ACT24ApiRequests_Constants.ACT24_USERNAME, ACT24ApiRequests_Constants.ACT24_PASSWORD, summaryReportBaseUrl);
         response.prettyPrint();
-        Assert.assertEquals(response.getStatusCode(), statusCode);
+        softAssert.assertEquals(response.getStatusCode(), statusCode);
     }
 
     /**
      * Setting up base url for QC detail report
      */
     public static void setBaseurlForQCDetailReport() {
-        detailReportQCBaseUrl = baseUrl + "detailReportQC/" + firstStudyId + "/" + formattedStartDate + "/" + formattedEndDate;
+        detailReportQCBaseUrl = ACT24ApiRequests_Constants.BASE_URL + "detailReportQC/" + firstStudyId + "/" + formattedStartDate + "/" + formattedEndDate;
         System.out.println(detailReportQCBaseUrl);
     }
 
@@ -118,16 +115,16 @@ public class ACT24ApiRequestsStepImpl {
      * Setting up base url for QC detail report
      */
     public static void sendGetRequestForQCDetailReport() {
-        response = getRequestWithBodyAndHeader(username, password, detailReportQCBaseUrl);
+        response = getRequestWithBodyAndHeader(ACT24ApiRequests_Constants.ACT24_USERNAME, ACT24ApiRequests_Constants.ACT24_PASSWORD, detailReportQCBaseUrl);
         response.prettyPrint();
-        Assert.assertEquals(response.getStatusCode(), statusCode);
+        softAssert.assertEquals(response.getStatusCode(), statusCode);
     }
 
     /**
      * Setting up base url for detail report
      */
     public static void setBaseurlForDetailReport() {
-        detailReportBaseUrl = baseUrl + "detailReport/" + firstStudyId + "/" + formattedStartDate + "/" + formattedEndDate;
+        detailReportBaseUrl = ACT24ApiRequests_Constants.BASE_URL + "detailReport/" + firstStudyId + "/" + formattedStartDate + "/" + formattedEndDate;
         System.out.println(detailReportBaseUrl);
     }
 
@@ -135,8 +132,8 @@ public class ACT24ApiRequestsStepImpl {
      * Setting up base url for detail report
      */
     public static void sendGetRequestForDetailReport() {
-        response = getRequestWithBodyAndHeader(username, password, detailReportBaseUrl);
+        response = getRequestWithBodyAndHeader(ACT24ApiRequests_Constants.ACT24_USERNAME, ACT24ApiRequests_Constants.ACT24_PASSWORD, detailReportBaseUrl);
         response.prettyPrint();
-        Assert.assertEquals(response.getStatusCode(), statusCode);
+        softAssert.assertEquals(response.getStatusCode(), statusCode);
     }
 }
