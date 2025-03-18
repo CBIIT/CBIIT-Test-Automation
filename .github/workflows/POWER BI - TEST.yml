@@ -21,9 +21,11 @@ jobs:
           ref: ${{ github.ref }}
           fetch-depth: 0
 
-      # Step 2: Run specific runner class
-      - name: Run CHARMS Regression Test
-        run: mvn -B -q -Dtest="CHARMS.runners.Run_CHARMS_RAS_Regression_Test" test
+      # Step 2: Run tests and generate Excel report in one go
+      - name: Run CHARMS Regression Test and Generate Excel Report
+        run: mvn -B -q -Dtest="CHARMS.runners.Run_CHARMS_RAS_Regression_Test" verify \
+          -DjsonFile="target/CHARMS-RAS-Regression-Test-Results.json" \
+          -DexcelFile="target/CHARMS-Regression-Test-Results.xlsx"
         continue-on-error: true
 
       # Step 3: Generate timestamp
@@ -40,11 +42,7 @@ jobs:
         id: reportpath
         run: echo "path=CHARMS-rasopathy-regression-reports" >> $GITHUB_ENV
 
-      # Step 5: Generate Excel Report after the tests
-      - name: Generate Excel File
-        run: mvn -B -q verify -DjsonFile="target/CHARMS-RAS-Regression-Test-Results.json" -DexcelFile="target/CHARMS-Regression-Test-Results.xlsx"
-
-      # Step 6: Upload Cucumber Report (HTML & others)
+      # Step 5: Upload Cucumber Report (HTML & others)
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v4
         if: always()
@@ -60,7 +58,7 @@ jobs:
           name: CHARMS-RAS-REGRESSION-EXCEL-${{ env.timestamp }}
           path: target/CHARMS-Regression-Test-Results.xlsx
 
-      # Step 7: Upload Reports and Excel to SharePoint
+      # Step 6: Upload Reports and Excel to SharePoint
       - name: Upload to SharePoint
         shell: powershell
         run: |
