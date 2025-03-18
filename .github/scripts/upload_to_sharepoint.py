@@ -22,7 +22,6 @@ UPLOAD_FOLDER = os.getenv('UPLOAD_FOLDER')
 SCOPE = ["https://graph.microsoft.com/.default"]
 GRAPH_API_ENDPOINT = 'https://graph.microsoft.com/v1.0'
 
-
 def authenticate():
     # Forming the authority
     authority = f"https://login.microsoftonline.com/{TENANT_ID}"
@@ -47,27 +46,19 @@ def authenticate():
         logging.error(f"Authentication failed: {result.get('error')}, {result.get('error_description')}")
         raise Exception(f"Authentication failed: {result.get('error')}, {result.get('error_description')}")
 
-
 def upload_files_to_sharepoint(access_token):
-    # Get list of files to upload
+    # Get list of all files in the directory
     files = glob.glob(FILES_PATH)
     logging.info(f"Files to upload: {files}")
 
     for file_path in files:
         try:
-            # Generate file name with timestamp
+            # Include timestamp in the file name
             file_name = os.path.basename(file_path)
-
-            # Replace extensions with timestamped names
-            if file_name.endswith('.html'):
-                file_name = file_name.replace('.html', f'-{TIMESTAMP}.html')
-            elif file_name.endswith('.xlsx'):
-                file_name = file_name.replace('.xlsx', f'-{TIMESTAMP}.xlsx')
-
-            # Define upload URL
+            file_name_html = file_name.replace('.html', f'-{TIMESTAMP}.html')
             upload_url = (
                 f"{GRAPH_API_ENDPOINT}/sites/{SHAREPOINT_SITE_ID}/drives/{SHAREPOINT_DRIVE_ID}"
-                f"/root:/{UPLOAD_FOLDER}/{file_name}:/content"
+                f"/root:/{UPLOAD_FOLDER}/{file_name_html}:/content"
             )
 
             # Read file content
@@ -80,22 +71,20 @@ def upload_files_to_sharepoint(access_token):
                 "Content-Type": "application/octet-stream",
             }
 
-            # Upload the file
-            logging.info(f"Uploading {file_name} to SharePoint...")
+            # Measure upload time
             start_time = time.time()
             response = requests.put(upload_url, headers=headers, data=file_content)
             end_time = time.time()
 
-            # Check response
+            # Check the response
             if response.status_code in [200, 201]:
-                logging.info(f"File {file_name} uploaded successfully in {end_time - start_time:.2f} seconds.")
+                logging.info(f"File uploaded successfully to {SHAREPOINT_DRIVE_ID}/{file_name_html} in {end_time - start_time:.2f} seconds")
+                logging.info(f"Response: {response.json()}")
             else:
-                logging.error(f"Failed to upload {file_name}: {response.status_code} - {response.text}")
+                logging.error(f"Failed to upload file: {response.status_code}, {response.text}")
 
         except Exception as e:
-            logging.error(f"Error while uploading {file_path}: {e}")
-
+            logging.error(f"Error: {e}")
 
 if __name__ == "__main__":
-    access_token = authenticate()
-    upload_files_to_sharepoint(access_token)
+    upload_files_to_sharepoint(authenticate())

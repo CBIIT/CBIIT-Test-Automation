@@ -52,18 +52,26 @@ jobs:
           name: CHARMS-RAS-REGRESSION-${{ env.timestamp }}
           path: target/CHARMS-rasopathy-regression-reports/*
 
+      # New Step: Upload Excel File as Artifact
+      - name: Upload Excel Artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: CHARMS-RAS-REGRESSION-EXCEL-${{ env.timestamp }}
+          path: target/CHARMS-Regression-Test-Results.xlsx
+
       # Step 7: Upload Reports and Excel to SharePoint
-      - name: Upload Reports and Excel to SharePoint
+      - name: Upload to SharePoint
         shell: powershell
         run: |
           $Env:PATH = "C:\Users\juarezds\AppData\Local\Programs\Python\Python312;$Env:PATH"
           python $Env:GITHUB_WORKSPACE\.github\scripts\upload_to_sharepoint.py
         env:
-          FILES_PATH: target/CHARMS-rasopathy-regression-reports/* target/CHARMS-Regression-Test-Results.xlsx
+          FILES_PATH: target/CHARMS-rasopathy-regression-reports/*
           SHAREPOINT_SITE_ID: ${{ secrets.SHAREPOINT_SITE_ID }}
           SHAREPOINT_DRIVE_ID: ${{ secrets.SHAREPOINT_DRIVE_ID }}
           tenant_id: ${{ secrets.SHAREPOINT_TENANT_ID }}
-          client_id: ${{ secrets.CLIENT_ID }}
-          client_secret: ${{ secrets.CLIENT_SECRET }}
+          client_id: ${{ secrets.SHAREPOINT_CLIENT_ID }}
+          client_secret: ${{ secrets.SHAREPOINT_CLIENT_SECRET }}
           timestamp: ${{ env.timestamp }}
           UPLOAD_FOLDER: 'Platform Scientific - CHARMS/TEST AUTOMATION REPORTS/Rasopathy'
