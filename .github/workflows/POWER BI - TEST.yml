@@ -23,9 +23,7 @@ jobs:
 
       # Step 2: Run tests and generate Excel report in one go
       - name: Run CHARMS Regression Test and Generate Excel Report
-        run: mvn -B -q -Dtest="CHARMS.runners.Run_CHARMS_RAS_Regression_Test" verify \
-          -DjsonFile="target/CHARMS-RAS-Regression-Test-Results.json" \
-          -DexcelFile="target/CHARMS-Regression-Test-Results.xlsx"
+        run: mvn -B -q -Dtest="CHARMS.runners.Run_CHARMS_RAS_Regression_Test" verify -DjsonFile="target/CHARMS-RAS-Regression-Test-Results.json" -DexcelFile="target/CHARMS-Regression-Test-Results.xlsx"
         continue-on-error: true
 
       # Step 3: Generate timestamp
