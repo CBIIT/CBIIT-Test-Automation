@@ -136,7 +136,7 @@ public class ESRTaskStepsImplementation {
      * Completes the Engineering Project Execution catalog task
      */
     public static void completeEngineeringProjectExecutionCatalogTask() {
-        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (3)").click();
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks").click();
         Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[1]").click();
         Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").click();
         Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").fill("CBIIT Test Account");
