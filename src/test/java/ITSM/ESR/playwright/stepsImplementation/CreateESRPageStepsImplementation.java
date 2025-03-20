@@ -43,7 +43,7 @@ public class CreateESRPageStepsImplementation {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
         page.getByPlaceholder(CreateESRPage.filterBoxNativeView).click();
         page.getByPlaceholder(CreateESRPage.filterBoxNativeView).fill(CreateESRPage.NCIAtYourServiceText);
-        page.getByLabel(CreateESRPage.NCIAtYourServiceText, new Page.GetByLabelOptions().setExact(true)).click();
+        page.getByLabel(CreateESRPage.NCIAtYourServiceIcon).click();
     }
 
     /**
