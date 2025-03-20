@@ -13,7 +13,7 @@ public class CometsAnalyticsPage extends CommonUtils {
 	}
 
 	/** ANALYSIS BUTTON **/
-	@FindBy(xpath = "//a[text()='Analysis']")
+	@FindBy(xpath = "//a[@href='/analysis']")
 	public WebElement analysisButton;
 
 	/** CHECK INTEGRITY BUTTON **/
@@ -25,7 +25,7 @@ public class CometsAnalyticsPage extends CommonUtils {
 	public WebElement tutorialsButton;
 
 	/* ABOUT COMETS BUTTON */
-	@FindBy(xpath = "/html/body/footer/div/div[1]/div[3]/ul/li[1]/a")
+	@FindBy(xpath = "//body//footer//div//ul//li//a[@href='https://epi.grants.cancer.gov/comets/']")
 	public WebElement aboutCometsButton;
 
 	/* VIGNETTES BUTTON */
@@ -33,7 +33,7 @@ public class CometsAnalyticsPage extends CommonUtils {
 	public WebElement vignettesButton;
 
 	/** ABOUT BUTTON **/
-	@FindBy(xpath = "//a[text()='About']")
+	@FindBy(xpath = "//a[@href='/about']")
 	public WebElement aboutButton;
 
 	/** ACCESSIBILITY TEXT **/

@@ -80,6 +80,8 @@ public class CometsAnalyticsStepImp extends PageInitializer {
         CommonUtils.sleep(4000);
         CommonUtils.waitForVisibility(cometsAnalyticsPage.aboutCometsButton);
         String parent = WebDriverUtils.webDriver.getWindowHandle();
+        JavascriptUtils.scrollDown(1000);
+        CommonUtils.sleep(2000);
         cometsAnalyticsPage.aboutCometsButton.click();
         assertMoreThanOneWindowIsPresent();
         CommonUtils.switchToAnotherTabWindow();
@@ -163,6 +165,8 @@ public class CometsAnalyticsStepImp extends PageInitializer {
     public void clickAllModelsAndRun(String emailId) {
         CommonUtils.waitForClickability(cometsAnalyticsPage.emailId);
         cometsAnalyticsPage.emailId.sendKeys(emailId);
+        JavascriptUtils.scrollDown(400);
+        CommonUtils.sleep(2000);
         cometsAnalyticsPage.runModel.click();
     }
 
@@ -245,6 +249,8 @@ public class CometsAnalyticsStepImp extends PageInitializer {
      */
     public void prespecifiedModelCLick() {
         cometsAnalyticsPage.selectedModel.click();
+        JavascriptUtils.scrollDown(400);
+        CommonUtils.sleep(2000);
         cometsAnalyticsPage.showPredefinedModelTypes.click();
     }
 
@@ -253,6 +259,8 @@ public class CometsAnalyticsStepImp extends PageInitializer {
      */
     public void clickCustomModelAndCLickUseModelType() {
         cometsAnalyticsPage.customModelRadio.click();
+        JavascriptUtils.scrollDown(400);
+        CommonUtils.sleep(2000);
         cometsAnalyticsPage.showCustomModelTypes.click();
     }
 
@@ -261,6 +269,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
      */
     public void uploadFileAndCheckIntegrity() {
         uploadFileCheckIntegrity();
+        CommonUtils.sleep(2000);
         clickOnCheckIntegrity();
     }
 
