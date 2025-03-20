@@ -555,4 +555,16 @@ public class EgrantsStepImplementation extends PageInitializer {
 		CommonUtils.sleep(7000);
 		CucumberLogUtils.logScreenshot();
 	}
+
+	/***
+	 * THIS METHOD UPLOADS A DOC FILE
+	 */
+	public static void upload_a_doc_file() {
+		CommonUtils.sleep(7000);
+		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.chooseFile, Egrants_Constants.TEST_DOC_FILE_PATH);
+		CucumberLogUtils.logScreenshot();
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.convertToPdfAndAddButton);
+		CommonUtils.sleep(7000);
+		CucumberLogUtils.logScreenshot();
+	}
 }

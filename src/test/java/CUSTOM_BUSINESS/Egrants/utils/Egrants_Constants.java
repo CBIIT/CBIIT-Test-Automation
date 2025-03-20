@@ -19,6 +19,7 @@ public class Egrants_Constants {
     public static final String ROUTE_BUTTON_ALERT_MESSAGE = "Are you sure that you want to route 10%  QC documents from D'Avella, Joseph to Quality, Associates?";
     public static final String DELETE_ALERT_MESSAGE = "Are you sure that you want to delete selected document(s)?";
     public static final String TEST_FILE_PATH = System.getProperty("user.dir")+"/src/test/java/CUSTOM_BUSINESS/Egrants/Resources/TESTDOCUMENT.pdf";
+    public static final String TEST_DOC_FILE_PATH = System.getProperty("user.dir")+"/src/test/java/CUSTOM_BUSINESS/Egrants/Resources/SAMPLEDOC.doc";
     public static final String TEST_GRANT_SERIAL_NUMBER = "CA125123";
     public static final String CREATE_GRANT_YEAR = "CreateGrantYear";
     public static final String APPLICATION_TYPE = "3";

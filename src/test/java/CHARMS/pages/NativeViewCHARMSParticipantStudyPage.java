@@ -7,7 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class NativeViewCHARMSParticipantStudyPage {
 
-    /** Native View Participant Study Screener Info Button */
+    /**
+     * Native View Participant Study Screener Info Button
+     */
     @FindBy(xpath = "//span[normalize-space()='Screener']//parent::label//parent::div//parent::div//child::div[3]//child::span//child::button")
     public WebElement participantStudyScreenerInfoButton;
 
@@ -70,6 +72,24 @@ public class NativeViewCHARMSParticipantStudyPage {
      */
     @FindBy(xpath = "//*[@data-list_id='x_naci_family_coho_participant_study.x_naci_family_coho_question_bank.participant_study']//child::tbody//child::tr//child::td[2]//child::a")
     public WebElement questionBanksPreviewButton;
+
+    /**
+     * CGB IIQ Tab
+     */
+    @FindBy(xpath = "//span[@class = 'tab_header']//span[contains(text(), 'CGB IIQ')]")
+    public WebElement cgbIIQTab;
+
+    /**
+     * RASopathy Survey text
+     */
+    @FindBy(xpath = "//td[normalize-space()='RASopathy Survey']")
+    public WebElement rasopathySurveyText;
+
+    /**
+     * RASopathy Survey preview button
+     */
+    @FindBy(xpath = "//tr[@record_class='x_naci_family_coho_rasopathy_iiq']//a[@class='btn btn-icon table-btn-lg icon-info list_popup']")
+    public WebElement rasopathySurveyPreviewButton;
 
     public NativeViewCHARMSParticipantStudyPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
