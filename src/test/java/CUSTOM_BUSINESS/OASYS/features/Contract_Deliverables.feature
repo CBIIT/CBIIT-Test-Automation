@@ -17,7 +17,7 @@ Given User is logged in the application and navigated to Contract Administration
     
 @UpdateDeliverableType @NESARH2 @Regression @playwright
  Scenario: Update an existing Deliverable Type
-  When User clicks on Contract
+  When User clicks on Contracts
   And user selects "IT Commodities and Solutions" from the list of contracts
   And User clicks on DELIVERABLE tab
   And User clicks on a deliverable type from the list
