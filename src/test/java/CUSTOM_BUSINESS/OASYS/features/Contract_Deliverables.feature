@@ -92,7 +92,7 @@ Given User is logged in the application and navigated to Contract Administration
   And User will check the box for Confirm Approval
   And User will click on APPROVE button
 
-@ResetDeliverableStatus @NESARH2 @Regression1 @playwright
+@ResetDeliverableStatus @NESARH2 @Regression @playwright
  Scenario: Reset a deliverable status
   When User clicks on Contracts
   And user selects "IT Commodities and Solutions" from the list of contracts
