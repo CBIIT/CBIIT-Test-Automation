@@ -8,6 +8,7 @@ import CUSTOM_BUSINESS.OASYS.Utils.OASYS_Constants;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.*;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -22,6 +23,7 @@ public class Contracts {
     */
     @Given("User is logged in the application and navigated to Contract Administration")
     public void user_is_logged_in_the_application_and_navigated_to_contract_administration() {
+        CommonUtils.sleep(9000);
         OASYS_Steps_Implementation.user_is_logged_in_oasys();
         page.getByText("Contract Administrationkeyboard_arrow_down").click();
         CucumberLogUtils.playwrightScreenshot(page);
