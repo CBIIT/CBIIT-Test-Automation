@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 		, "rerun:target/failed.txt"
 		, "pretty"}
         , features ={"src/test/java/ANALYSIS_TOOLS/CometsAnalytics/features"}
-		, glue = {"ANALYSIS_TOOLS.CometsAnalystics.steps", "Hooks"}
+		, glue = {"ANALYSIS_TOOLS.CometsAnalytics.steps", "Hooks"}
         , tags = "@Regression"
         , dryRun = false      
 )

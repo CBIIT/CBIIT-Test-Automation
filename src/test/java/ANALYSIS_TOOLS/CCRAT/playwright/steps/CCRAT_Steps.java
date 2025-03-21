@@ -192,4 +192,28 @@ public class CCRAT_Steps extends PageInitializer {
     public void user_edits_the_family_history_details_in_the_risk_calculator_page() {
         PlaywrightUtils.page.locator(CCRATPage.editFamilyDetails).click();
     }
+
+    /**
+     * Entering wrong height details
+     */
+    @Then("User enters wrong height data and validates the error message")
+    public void user_enters_wrong_height_data_and_validates_the_error_message() {
+        CCRATStepsImpl.enterWrongHeightData();
+    }
+
+    /**
+     * Clicking on the home link
+     */
+    @Then("User clicks on home link in the footer and validates it")
+    public void user_clicks_on_home_link_in_the_footer_and_validates_it() {
+        CCRATStepsImpl.clickHomeLink();
+    }
+
+    /**
+     * Clicking on the contact link
+     */
+    @Then("User clicks on contact link in the footer and validates it")
+    public void user_clicks_on_contact_link_in_the_footer_and_validates_it() {
+        CCRATStepsImpl.clickContactLink();
+    }
 }
