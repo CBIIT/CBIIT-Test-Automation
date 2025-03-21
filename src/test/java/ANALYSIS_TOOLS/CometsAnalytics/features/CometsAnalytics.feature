@@ -127,7 +127,7 @@ Feature: This feature files is for Comets Analytics features
     And User should select option from Model type dropdown and Model Dropdown and click run model
     Then User changes the model result visibility from the dropdown
 
-  @satya @Smoke1 @Regression @selenium @NCIATWP-8703
+  @satya @Smoke @Regression @selenium @NCIATWP-8703
   Scenario: Verify that user is able to download report
     Given User navigates to comets analytics home page
     When User clicks on Analysis button

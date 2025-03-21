@@ -340,7 +340,6 @@ public class CometsAnalyticsStepImp extends PageInitializer {
      * CLICK LAST BUTTON
      */
     public void clickLastButton() {
-        //JavascriptUtils.scrollDownByPage();
         JavascriptUtils.scrollDown(1200);
         cometsAnalyticsPage.lastButton.click();
         CommonUtils.sleep(40000);
