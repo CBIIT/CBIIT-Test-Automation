@@ -166,11 +166,6 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
       | Email                          | Password  | ConsentCollectionMethod | FanconiScenario |
       | sj.fanconitester10@yopmail.com | Test123$$ | iMed                    | 9               |
 
-  @jains @FanconiSubmission @Fanconi_Regression @selenium
-  Scenario: Participant fills the Fanconi screener for all different scenarios
-    Given run the Fanconi reset script to reset the accounts
-    Given All scenarios are submitted
-
   @jains @FanconiAssertion @CP2-1995 @Fanconi_Regression @selenium @Smoke
   Scenario Outline:: Participant Details Page Assertions for all the scenarios in ServiceNow
     Given the study nurse log in Native View
@@ -181,6 +176,19 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
       | FanconiScenario |
       | 0               |
       | 1               |
+      | 2               |
+      | 3               |
+      | 4               |
+      | 5               |
+      | 6               |
+      | 7               |
+      | 8               |
+      | 9               |
+
+  @jains @FanconiSubmission @Fanconi_Regression @selenium
+  Scenario: Participant fills the Fanconi screener for all different scenarios
+    Given run the Fanconi reset script to reset the accounts
+    Given All scenarios are submitted
 
   @jains @FanconiAssertion @CP2-1995 @In-progress @selenium
   Scenario: Completion of the Consent process in participant details page in ServiceNow
