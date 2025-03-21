@@ -25,32 +25,24 @@ public class SEER_Research_Plus_Approval_StepImpl extends PageInitializer {
         ServiceNow_Common_Methods.impersonateAnyUser("learas@nih.gov");
         WebDriverUtils.webDriver.get(getSeerOdsUrl());
         CucumberLogUtils.logScreenshot();
-        CommonUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(seerUserRegistrationPage.seerPlusUserRegistrationSubmitButton);
         CommonUtils.waitForClickability(seerUserRegistrationPage.seerPlusUserRegistrationSubmitButton);
         seerUserRegistrationPage.seerPlusUserRegistrationSubmitButton.click();
-        CommonUtils.sleep(5000);
         CommonUtils.assertTrue(seerDataAccessRequestPage.requestedForText.getText().contentEquals("Requested for"));
         System.out.println("Requested For Text: " + seerDataAccessRequestPage.requestedForText.getText());
         CommonUtils.assertEquals(Registration_Constants.PLUS_USER_NAME, seerDataAccessRequestPage.seerDataAccessRequestedForReadOnlyTextBox.getAttribute("value"));
         CommonUtils.assertTrue(seerDataAccessRequestPage.seerDataAccessRequestedForReadOnlyTextBox.getAttribute("disabled").equals("true"));
         CommonUtils.assertTrue(seerDataAccessRequestPage.seerDataAccessDatabaseTypeText.getText().contentEquals("Database type"));
         CommonUtils.assertTrue(seerDataAccessRequestPage.seerDataAccessDatabaseTypeReadOnlyTextBox.getText().contains("SEER Research Plus and NCCR Data"));
-        CommonUtils.assertTrue(seerDataAccessRequestPage.seerDataAccessDatabaseTypeReadOnlyTextBox.getAttribute("disabled").equals("true"));
-        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.assertTrue(seerDataAccessRequestPage.seerDataAccessRequestWhatIsYourGeneralPurposeUsingTheDataText.getText().contentEquals(SEERDataAccessRequest_Constants.WHAT_IS_THE_GENERAL_PURPOSE_TEXT));
         CommonUtils.selectDropDownValue("Administrative", seerDataAccessRequestPage.seerDataAccessRequestWhatIsYourGeneralPurposeForUsingTheDataDD);
-        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.sendKeysToElement(seerDataAccessRequestPage.seerDataAccessSigningOfficialFirstNameTextBox, "Alex");
-        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.sendKeysToElement(seerDataAccessRequestPage.seerDataAccessSigningOfficialLastNameTextBox, "Lear");
-        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.sendKeysToElement(seerDataAccessRequestPage.seerDataAccessSigningOfficialEmailAddressTextBox, "Learas@nih.gov");
-        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.scrollIntoView(seerDataAccessRequestPage.seerDataAccessRequestWhatIsYourGeneralPurposeForUsingTheDataDD);
         CommonUtils.assertTrue(seerDataAccessRequestPage.iUnderstandTheLimitationOfTreatmentDataInitialsfieldHeader.getText().contentEquals("I understand the limitation of treatment data."));
@@ -58,33 +50,26 @@ public class SEER_Research_Plus_Approval_StepImpl extends PageInitializer {
         CommonUtils.assertTrue(seerDataAccessRequestPage.iUnderstandTheLimitationOfTreatmentDataInitialsfield.getAttribute("disabled").equals("true"));
         CommonUtils.waitForVisibility(seerDataAccessRequestPage.iUnderstandTheLimitationOfTreatmentDataContentTextLastParagraph);
         CommonUtils.assertEquals(SEERDataAccessRequest_Constants.I_UNDERSTAND_THE_LIMITATIONS_OF_TREATEMENT_DATA,seerDataAccessRequestPage.iUnderstandTheLimitationOfTreatmentDataContentTextLastParagraph.getText());
-        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.scrollIntoView(seerDataAccessRequestPage.seerDataAccessRequestWhatIsYourGeneralPurposeForUsingTheDataDD);
         CommonUtils.assertTrue(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationHeaderText.getText()
                 .contentEquals("Data Use Agreement Certification"));
         CommonUtils.assertTrue(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationInitials.getAttribute("disabled")
                 .equals("true"));
-        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.scrollIntoView(seerDataAccessRequestPage.seerDataAccessRequestWhatIsYourGeneralPurposeForUsingTheDataDD);
         CommonUtils.assertTrue(seerDataAccessRequestPage.seerDataAccessNCCRResearchDataUseAgreementCertificationHeaderText.getText()
                 .contentEquals("NCCR Research Data Use Agreement"));
         CommonUtils.assertTrue(seerDataAccessRequestPage.seerDataAccessNCCRResearchDataUseAgreementCertificationInitials.getAttribute("disabled")
                 .equals("true"));
-        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText);
         CommonUtils.assertEquals(SEERDataAccessRequest_Constants.DATA_USE_AGREE_EMT_CERTIFFICATION,seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText.getText());
-        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.scrollUpWithinElement(seerDataAccessRequestPage.iUnderstandTheLimitationOfTreatmentDataContentTextLastParagraph, 8000);
-        CommonUtils.sleep(2000);
         JavascriptUtils.scrollUpWithinElement(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText, 8000);
-        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.scrollUpWithinElement(seerDataAccessRequestPage.seerDataAccessNCCRResearchDataUseAgreementCertificationText, 8000);
-        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.scrollIntoView(seerDataAccessRequestPage.iUnderstandTheLimitationOfTreatmentDataInitialsfield);
         seerDataAccessRequestPage.iUnderstandTheLimitationOfTreatmentDataInitialsfield.sendKeys(Registration_Constants.PLUS_USER_FIRST_NAME.charAt(0) + "" + Registration_Constants.PLUS_USER_LAST_NAME.charAt(0));
@@ -93,44 +78,34 @@ public class SEER_Research_Plus_Approval_StepImpl extends PageInitializer {
         JavascriptUtils.drawBlueBorder(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationInitials);
         seerDataAccessRequestPage.seerDataAccessNCCRResearchDataUseAgreementCertificationInitials.sendKeys(Registration_Constants.PLUS_USER_FIRST_NAME.charAt(0) + "" + Registration_Constants.PLUS_USER_LAST_NAME.charAt(0));
         JavascriptUtils.drawBlueBorder(seerDataAccessRequestPage.seerDataAccessNCCRResearchDataUseAgreementCertificationInitials);
-        CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         CommonUtils.assertTrue(seerDataAccessRequestPage.seerDataAccessSEERIsSupportedByTheBottomText.getText()
                 .contentEquals("SEER is supported by the Surveillance Research Program (SRP) in NCI's Division of Cancer Control and Population Sciences (DCCPS). SRP provides national leadership in the science of cancer surveillance as well as analytical tools and methodological expertise in collecting, analyzing, interpreting, and disseminating reliable population-based statistics."));
-        CommonUtils.sleep(1000);
         CommonUtils.waitForVisibility(seerDataAccessRequestPage.seerDataAccessSubmitButton);
         seerDataAccessRequestPage.seerDataAccessSubmitButton.click();
-        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         String seerRegistrationIsCompletePage = WebDriverUtils.webDriver.getTitle();
         CommonUtils.assertEquals(Registration_Constants.SEER_DATA_REQUEST_CONFIRMATION_ODS_DATA_ACCESS_REQUEST, seerRegistrationIsCompletePage);
         CommonUtils.assertEquals(Registration_Constants.THANK_YOU_DATA_ACCESS_REQUEST_IS_COMPLETE_MESSAGE, seerDataAccessRequestPage.seerDataAccessYourDataAccessRequestIsCompleteHeader.getText());
         JavascriptUtils.drawBlueBorder(seerDataAccessRequestPage.seerDataAccessYourDataAccessRequestIsCompleteHeader);
-        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CucumberLogUtils.logScreenshot();
-        CommonUtils.sleep(2000);
         WebDriverUtils.webDriver.get(SEER_TestProperties_StepImpl.getNativeViewFilterNavViewAccessRequestUnderSEERUrl());
-        CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-        CommonUtils.sleep(2000);
         nativeViewAccessRequestPage.accessRequestNewButton.click();
         CommonUtils.assertTrue(nativeViewAccessRequestPage.accessRequestText.getText()
                 .contentEquals(SEERNativeView_Constants.NATIVE_VIEW_ACCESS_REQUEST_MENU_TEXT));
         CommonUtils.waitForVisibility(nativeViewAccessRequestPage.nativeViewAccessRequestCustomerTextBox);
-        nativeViewAccessRequestPage.nativeViewAccessRequestCustomerTextBox.sendKeys(Registration_Constants.PLUS_USER_FIRST_NAME + " " + Registration_Constants.PLUS_USER_LAST_NAME);
-        CommonUtils.sleep(1000);
+        nativeViewAccessRequestPage.nativeViewAccessRequestCustomerTextBox.sendKeys(Registration_Constants.PLUS_USER_FIRST_NAME + " " + Registration_Constants.PLUS_USER_LAST_NAME);;
         nativeViewAccessRequestPage.nativeViewAccessRequestCustomerTextBox.sendKeys(Keys.ENTER);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessSaveButton);
-        CommonUtils.sleep(1000);
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessRequestPreviewRecordButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessRequestOpenRecordButton);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.sleep(1000);
         CommonUtils.assertTrue(nativeViewAccessRequestPage.accessRequestCustomerText.getText()
                 .contentEquals("Customer"));
         CucumberLogUtils.logScreenshot();
@@ -139,30 +114,20 @@ public class SEER_Research_Plus_Approval_StepImpl extends PageInitializer {
                 nativeViewAccessRequestPage.nativeViewAccessRequestAccountTypeDropdown);
         CucumberLogUtils.logScreenshot();
         nativeViewAccessRequestPage.nativeViewAccessSaveClientButton.click();
-        CommonUtils.sleep(1000);
         CommonUtils.switchToDefaultContent();
         ServiceNow_Common_Methods.filterNavigatorSearch("SEER");
-        CommonUtils.sleep(2000);
         WebDriverUtils.webDriver.get(SEER_TestProperties_StepImpl.getNativeViewFilterNavViewAccessRequestUnderSEERUrl());
-        CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-        CommonUtils.sleep(2000);
         nativeViewAccessRequestPage.accessRequestNewButton.click();
-        CommonUtils.sleep(1000);
         nativeViewAccessRequestPage.nativeViewAccessRequestCustomerTextBox.sendKeys(Registration_Constants.PLUS_USER_FIRST_NAME + " " + Registration_Constants.PLUS_USER_LAST_NAME);
-        CommonUtils.sleep(1000);
         nativeViewAccessRequestPage.nativeViewAccessRequestCustomerTextBox.sendKeys(Keys.ENTER);
         nativeViewAccessRequestPage.nativeViewAccessRequestDatasetTextBox.sendKeys(SEERDataRejection_Constants.SEER_RESEARCH_PLUS_AND_NCCR_DATA);
-        CommonUtils.sleep(1000);
         nativeViewAccessRequestPage.nativeViewAccessRequestDatasetTextBox.sendKeys(Keys.ENTER);
-        CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessSaveClientButtonBottom);
-        CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessRequest);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.sleep(1000);
         CommonUtils.selectDropDownValue("Approved", nativeViewAccessRequestPage.nativeViewAccessRequestStatusDropdown);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessSaveRejectedClientButtonBottom);
@@ -170,26 +135,22 @@ public class SEER_Research_Plus_Approval_StepImpl extends PageInitializer {
         CommonUtils.switchToDefaultContent();
     }
 
-
+    /**
+     * This method simulates the process of receiving the approval email notification.
+     * It waits for the email to be sent and searchable, filters through the emails to find the approved email,
+     * verifies the content of the email, and performs various checks on the email content.
+     */
     public static void they_receive_the_approval_email_notification() {
-
-        /** Waiting for email to be sent and searchable */
         CommonUtils.sleep(60000); //needed more time to wait for the rejection email to be received
         ServiceNow_Common_Methods.filterNavigatorSearch("Emails");
-        CommonUtils.sleep(2000);
         WebDriverUtils.webDriver.get(SEER_TestProperties_StepImpl.getNativeViewFilterNavEmailUnderSystemLogsUrl());
-        CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-        CommonUtils.sleep(1000);
         CommonUtils.assertTrue(nativeViewEmailsPage.emailsMenu.getText()
                 .contentEquals("Emails"));
         CucumberLogUtils.logScreenshot();
-        CommonUtils.sleep(2000);
-
         //search email using the filter button
         CommonUtils.waitForVisibility(nativeViewEmailsPage.nativeViewEmailPageFilterButton);
         CommonUtils.clickOnElement(nativeViewEmailsPage.nativeViewEmailPageFilterButton);
-        CommonUtils.sleep(1000);
         CommonUtils.waitForVisibility(nativeViewEmailsPage.nativeViewEmailPageFilterOptionRow1Field1ToSearch);
         CommonUtils.clickOnElement(nativeViewEmailsPage.nativeViewEmailPageFilterOptionRow1Field1ToSearch);
         CommonUtils.sendKeys(nativeViewEmailsPage.nativeViewEmailPageFilterOptionRow1Field1ToSearch, Keys.ENTER);
@@ -197,40 +158,30 @@ public class SEER_Research_Plus_Approval_StepImpl extends PageInitializer {
         CommonUtils.sendKeys(nativeViewEmailsPage.nativeViewEmailPageFilterOptionRow1Field1InputToSearch, Keys.ENTER);
         CommonUtils.waitForVisibility(nativeViewEmailsPage.nativeViewEmailPageFilterSearchConditionRow1ToSearchForRecipientsOnly);
         CommonUtils.clickOnElement(nativeViewEmailsPage.nativeViewEmailPageFilterSearchConditionRow1ToSearchForRecipientsOnly);
-        CommonUtils.sleep(3000);
         CommonUtils.clickOnElement(nativeViewEmailsPage.nativeViewEmailPageFilterSearchConditionRow1ToSelectIsForRecipientsOnly);
-        CommonUtils.sleep(1000);
         CommonUtils.waitForVisibility(nativeViewEmailsPage.nativeViewEmailPageFilterSearchINPUTRow1ToSearchForRecipientsOnly);
         CommonUtils.sendKeysToElement(nativeViewEmailsPage.nativeViewEmailPageFilterSearchINPUTRow1ToSearchForRecipientsOnly, "alex.lear@nih.gov");
-        CommonUtils.sleep(1000);
         CommonUtils.waitForVisibility(nativeViewEmailsPage.nativeViewEmailPageFilterRow1AndButton);
         CommonUtils.clickOnElement(nativeViewEmailsPage.nativeViewEmailPageFilterRow1AndButton);
-        CommonUtils.sleep(1000);
         CommonUtils.waitForClickability(nativeViewEmailsPage.nativeViewEmailPageFilterOptionRow2Field1ToSearchSubject);
         CommonUtils.clickOnElement(nativeViewEmailsPage.nativeViewEmailPageFilterOptionRow2Field1ToSearchSubject);
         CommonUtils.sendKeys(nativeViewEmailsPage.nativeViewEmailPageFilterOptionRow2Field1ToSearchSubject,"ENTER");
         CommonUtils.sendKeys(nativeViewEmailsPage.nativeViewEmailPageFilterOptionRow2Field1SelectSubjectToSearch, "Subject");
         CommonUtils.sendKeys(nativeViewEmailsPage.nativeViewEmailPageFilterOptionRow2Field1SelectSubjectToSearch, Keys.ENTER);
-        CommonUtils.sleep(1000);
         CommonUtils.waitForVisibility(nativeViewEmailsPage.nativeViewEmailPageFilterSearchConditionRow2ToSelectContains);
         CommonUtils.clickOnElement(nativeViewEmailsPage.nativeViewEmailPageFilterSearchConditionRow2ToSelectContains);
-        CommonUtils.sleep(3000);
         CommonUtils.clickOnElement(nativeViewEmailsPage.nativeViewEmailPageFilterSearchConditionRow2ToSelectContainsForSubject);
         CommonUtils.waitForVisibility(nativeViewEmailsPage.nativeViewEmailPageFilterSearchINPUTRow2ToSearchForApprovedEmailSubject);
         CommonUtils.sendKeys(nativeViewEmailsPage.nativeViewEmailPageFilterSearchINPUTRow2ToSearchForApprovedEmailSubject, "Your SEER Data Access Request has been approved");
-        CommonUtils.sleep(1000);
         CommonUtils.waitForVisibility(nativeViewEmailsPage.nativeViewEmailPageFilterRunButton);
         CommonUtils.clickOnElement(nativeViewEmailsPage.nativeViewEmailPageFilterRunButton);
         CommonUtils.waitForVisibility(nativeViewEmailsPage.nativeViewEmailsPreviewVerifyEmailIconForApprovedEmail);
         CommonUtils.clickOnElement(nativeViewEmailsPage.nativeViewEmailsPreviewVerifyEmailIconForApprovedEmail);
-        CommonUtils.sleep(9000);
         CommonUtils.clickOnElement(nativeViewSentViewPage.NativeViewPreviewVerifyEmailOpenRecordButton);
-        CommonUtils.sleep(1000);
         JavascriptUtils.scrollIntoView(nativeViewSentViewPage.nativeViewPreviewVerifyEmailPreviewHTMLBodyLink);
         CommonUtils.clickOnElement(nativeViewSentViewPage.nativeViewPreviewVerifyEmailPreviewHTMLBodyLink);
         CucumberLogUtils.logScreenshot();
         CommonUtils.switchToFrame(nativeViewSentViewPage.nativeViewPreviewEmailIFRAME);
-        CommonUtils.sleep(1000);
         JavascriptUtils.drawRedBorder(nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataHeader);
         CommonUtils.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataHeader.getText().contentEquals(SEERDataRejection_Constants.REJECTED_EMAIL_HEADER));
         CommonUtils.assertTrue((nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedThankYouForSubmitting.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedRequestsRorSeerResearchPlusText.getText()
@@ -249,7 +200,6 @@ public class SEER_Research_Plus_Approval_StepImpl extends PageInitializer {
         CommonUtils.assertTrue(( nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedNoteText.getText()).contentEquals(SEERDataRejection_Constants.NOTE));
         CommonUtils.assertTrue((  nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedYouCannotEditYourEmailText.getText()).contentEquals(SEERDataRejection_Constants.IF_YOUR_REQUEST_WAS_REJECTED));
         JavascriptUtils.drawRedBorder(nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedEmailText);
-        CommonUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
     }
 }
