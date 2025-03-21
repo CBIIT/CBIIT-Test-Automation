@@ -99,7 +99,7 @@ Feature: This feature files is for Comets Analytics features
     Then User should able to click HeatMap
     Then User should verify sort starte By, Sort outcome, P-value functionality are working
 
-  @satya @Smoke @Regression @selenium
+  @satya @Smoke @Regression @selenium @NCIATWP-8700
   Scenario: Verify that user is able to reset under Method of Analyses
     Given User navigates to comets analytics home page
     When User clicks on Analysis button
@@ -108,7 +108,7 @@ Feature: This feature files is for Comets Analytics features
     Then User clicks on the reset button under Method of Analyses
     Then user should verify that its reseted and  cohort dropdown value is "Other/Undefined"
 
-  @satya @Smoke @Regression @selenium
+  @satya @Smoke @Regression @selenium @NCIATWP-8691
   Scenario: Verify that user is able to remove the integrity success message
     Given User navigates to comets analytics home page
     When User clicks on Analysis button
@@ -117,7 +117,7 @@ Feature: This feature files is for Comets Analytics features
     Then user clicks on the cross available in the integrity success message
     Then User should not be able to view the Success message "Integrity Check Successful"
 
-  @satya @Smoke @Regression @selenium
+  @satya @Smoke @Regression @selenium @NCIATWP-8701
   Scenario: Verify that user is able to change data visibility under model results run from method of analyses
     Given User navigates to comets analytics home page
     When User clicks on Analysis button
@@ -127,7 +127,7 @@ Feature: This feature files is for Comets Analytics features
     And User should select option from Model type dropdown and Model Dropdown and click run model
     Then User changes the model result visibility from the dropdown
 
-  @satya @Smoke1 @Regression @selenium
+  @satya @Smoke1 @Regression @selenium @NCIATWP-8703
   Scenario: Verify that user is able to download report
     Given User navigates to comets analytics home page
     When User clicks on Analysis button
