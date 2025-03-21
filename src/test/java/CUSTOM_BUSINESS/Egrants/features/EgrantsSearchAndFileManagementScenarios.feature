@@ -269,3 +269,23 @@ Given User is logged in the application and is on the landing page
     And User verifies Upload Via Email button is displayed
     When User clicks on Return To eGrants File
     Then User returns to eGrants File
+
+  @EGRANTS-616 @FileUpload @alenaminsk @selenium @Regressio @Progression
+  Scenario: Grant page verification
+    And searches for grant "CA125123"
+    And expands all grant years
+    And selects grant year 17S1 from list of Years
+    And User clicks Add Document Grant button
+    And selects category as Application File
+    And User clicks on Locate File and Upload tab
+    And User uploads a single file with doc extension
+    And User clicks Convert to PDF and Add button
+    Then verifies the success message "Done! New document has been created"
+    When User clicks on Return To eGrants File
+    And User can see Add Document button
+    And User can see Add Funding Document button
+    And User can see Document name column header
+    And User can see Date column header
+    And User can see Pages column header
+    And User can see Upload column header
+    And User can see Update column header
