@@ -698,6 +698,60 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement headerGrantYears;
 
     /**
+     * Add Document button Grant
+     */
+    @FindBy(xpath = "//*[@id='create new buttons']/button[1]")
+    public WebElement addDocumentButtonGrant;
+
+    /**
+     * Add  Funding Document button Grant
+     */
+    @FindBy(xpath = "//*[@id='create new buttons']/button[2]")
+    public WebElement addFundingDocumentButtonGrant;
+
+    /**
+     * Document name header
+     */
+    @FindBy(xpath = "//th[contains(text(),'Document Name')]")
+    public WebElement columnHeaderDocName;
+
+    /**
+     * Date header
+     */
+    @FindBy(xpath = "//th[contains(text(),'Date')]")
+    public WebElement columnHeaderDate;
+
+    /**
+     * Pages header
+     */
+    @FindBy(xpath = "//th[contains(text(),'Pages')]")
+    public WebElement columnHeaderPages;
+
+    /**
+     * Upload header
+     */
+    @FindBy(xpath = "//span[contains(text(),'Upload')]")
+    public WebElement columnHeaderUpload;
+
+    /**
+     * Update header
+     */
+    @FindBy(xpath = "//span[contains(text(),'Update')]")
+    public WebElement columnHeaderUpdate;
+
+    /**
+     * Update last document button
+     */
+    @FindBy(xpath = "//*[@id='loadgrid_10877115']/tbody/tr[1]/td[6]/a/img")
+    public WebElement updateLastDocButton;
+
+    /**
+     * Update Document page header
+     */
+    @FindBy(xpath = "//b[@id='page_title']")
+    public WebElement updateDocPageHeader;
+
+    /**
      * Constructor
      */
     public EgrantsSearchAndFileManagementScenariosPage() {
