@@ -278,7 +278,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
     public static void userVerifiesEmailAddressByClickingOnTheEmailVerificationLinkThatIsSentToTheUserAfterSubmittingASEERUserRegistrationForm() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         /** Waiting for email to be sent and searchable */
-        CommonUtils.sleep(50000);
+        CommonUtils.sleep(60000);
         ServiceNow_Common_Methods.filterNavigatorSearch("mailbox");
         WebDriverUtils.webDriver.get(SEER_TestProperties_StepImpl.getNativeViewFilterNavSentUnderMailBoxUrl());
         CommonUtils.sleep(3000);
