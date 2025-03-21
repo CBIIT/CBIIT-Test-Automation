@@ -131,7 +131,7 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
                 add(ras_Survey_TestDataManager.pleaseIndicateIfYouHaveBeenDiagnosedWithRASopathiesOption9);
             }
         };
-        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.diagnosedRasopathiesTextList), expectedDiagnosedRasopathies), "* * * * * RAS SURVEY MISMATCH IN 'Diagnosed RASopathies' TEXT * * * * *");
+        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.diagnosedRasopathiesTextList), expectedDiagnosedRasopathies), "* * * * * RAS SURVEY MISMATCH IN 'Diagnosed RASopathies' TEXT LIST * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.dropdownDiagnosedWithRasopathyByPhysician, ras_Survey_TestDataManager.haveYouBeenDiagnosedWithARASopathy, "* * * * * RAS SURVEY MISMATCH IN 'Diagnosed with a RASopathy by a physician through testing' INPUT FIELD * * * * *");
         verifyInputField(ras_survey_native_view.specifyOtherRasopathyInputField, ras_Survey_TestDataManager.pleaseIndicateIfYouHaveBeenDiagnosedWithRASopathiesOption9Other, "* * * * * Please specify other RASopathy' INPUT FIELD * * * * *");
         CucumberLogUtils.logScreenshot();
@@ -142,7 +142,6 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         /**
          * ----- BEGINNING Birth & Gestation SECTION VALIDATION -----
          */
-        ras_Survey_TestDataManager.dataInitializerRasSurvey("RASSurveyScenario2");
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Birth & Gestation"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Birth & Gestation"));
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Birth & Gestation"));
@@ -160,7 +159,7 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
 
             }
         };
-        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.issuesPriorToBirthTextList), expectedIssuesPriorToBirth), "* * * * * RAS SURVEY MISMATCH IN 'Issues identified in the participant prior to birth' TEXT * * * * *");
+        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.issuesPriorToBirthTextList), expectedIssuesPriorToBirth), "* * * * * RAS SURVEY MISMATCH IN 'Issues identified in the participant prior to birth' TEXT LIST * * * * *");
         List<String> expectedVapingProductsUsedWhilePregnant = new ArrayList<>() {
             {
                 add(ras_Survey_TestDataManager.whichVapingProductsDidYourMotherUseOption1);
@@ -175,7 +174,7 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
                 add(ras_Survey_TestDataManager.whichVapingProductsDidYourMotherUseOption10);
             }
         };
-        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.vapingProductsTextList), expectedVapingProductsUsedWhilePregnant), "* * * * * RAS SURVEY MISMATCH IN 'Vape products used' TEXT * * * * *");
+        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.vapingProductsTextList), expectedVapingProductsUsedWhilePregnant), "* * * * * RAS SURVEY MISMATCH IN 'Vape products used' TEXT LIST * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.dropdownWereMedicationsTakenWhileMotherWasPregnant, ras_Survey_TestDataManager.duringHerPregnancyWithYouSupplements, "* * * * * RAS SURVEY MISMATCH IN 'Were medications taken while biological mother was pregnant with the participant' DROPDOWN * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.dropdownWereVapingProductsUsedDuringPregnancy, ras_Survey_TestDataManager.didYourBiologicalMotherUseAnyVaping, "* * * * * RAS SURVEY MISMATCH IN 'Were vaping products use by participants bio mom during pregnancy' DROPDOWN * * * * *");
         verifyInputField(ras_survey_native_view.specifyVapeProductsInputField, ras_Survey_TestDataManager.whichVapingProductsDidYourMotherUseOption10PleaseSpecify, "* * * * * RAS SURVEY MISMATCH IN 'Please specify (vape products used)' * * * * *");
@@ -195,7 +194,7 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
                 add(ras_Survey_TestDataManager.whatRecreationalDrugOption11);
             }
         };
-        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.recreationalDrugsUsedWhilePregnantTextList), expectedDrugsUsedByBiologicalMotherWhilePregnant), "* * * * * RAS SURVEY MISMATCH IN 'Drugs used by biological mother during pregnancy' TEXT * * * * *");
+        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.recreationalDrugsUsedWhilePregnantTextList), expectedDrugsUsedByBiologicalMotherWhilePregnant), "* * * * * RAS SURVEY MISMATCH IN 'Drugs used by biological mother during pregnancy' TEXT LIST * * * * *");
         verifyInputField(ras_survey_native_view.specifyRecreationalDrugsUsedByMotherDuringPregnancyInputField, ras_Survey_TestDataManager.whatRecreationalDrugOption11Other, "* * * * * RAS SURVEY MISMATCH IN 'Please specify (Drugs used by biological mother during pregnancy)' INPUT FIELD * * * * *");
         verifyInputField(ras_survey_native_view.biologicalMothersOccupationWhilePregnantTextArea, ras_Survey_TestDataManager.biologicalMotherOccupationDuringPregnancy, "* * * * * RAS SURVEY MISMATCH IN 'Biological mothers occupation while pregnant with the participant' INPUT FIELD * * * * *");
         verifyCheckbox("true", ras_survey_native_view.checkboxBiologicalMothersOccupationUnknown, "* * * * * RAS SURVEY MISMATCH IN 'Biological mother occupation unknown' CHECKBOX * * * * *");
@@ -214,7 +213,7 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
                 add(ras_Survey_TestDataManager.wasYourBiologicalMotherDiagnosedOption10);
             }
         };
-        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.participantMotherBirthComplicationsTextList), expectedMotherBirthComplicationsTextList), "* * * * * RAS SURVEY MISMATCH IN 'Participant mother's birth complications' TEXT * * * * *");
+        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.participantMotherBirthComplicationsTextList), expectedMotherBirthComplicationsTextList), "* * * * * RAS SURVEY MISMATCH IN 'Participant mother's birth complications' TEXT LIST * * * * *");
         verifyInputField(ras_survey_native_view.infectionPregnancyConditionInputField, ras_Survey_TestDataManager.wasYourBiologicalMotherDiagnosedOption8PleaseSpecify, "* * * * * RAS SURVEY MISMATCH IN 'Infection (please specify)' INPUT FIELD * * * * *");
         verifyInputField(ras_survey_native_view.rashPregnancyConditionInputField, ras_Survey_TestDataManager.wasYourBiologicalMotherDiagnosedOption9PleaseSpecify, "* * * * * RAS SURVEY MISMATCH IN 'Rash (please specify)' INPUT FIELD * * * * *");
         verifyInputField(ras_survey_native_view.otherComplicationInputField, ras_Survey_TestDataManager.wasYourBiologicalMotherDiagnosedOption10PleaseSpecify, "* * * * * RAS SURVEY MISMATCH IN 'Other complication' INPUT FIELD * * * * *");
@@ -229,7 +228,7 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
                 add(ras_Survey_TestDataManager.whatTobaccoProductsDidYourBiologicalMotherOption6);
             }
         };
-        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.tobaccoProductsUsedByMotherWhilePregnantTextList), expectedTobaccoProductsUsedByMotherDuringPregnancyTextList), "* * * * * RAS SURVEY MISMATCH IN 'Tobacco products used by mother during pregnancy' TEXT * * * * *");
+        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.tobaccoProductsUsedByMotherWhilePregnantTextList), expectedTobaccoProductsUsedByMotherDuringPregnancyTextList), "* * * * * RAS SURVEY MISMATCH IN 'Tobacco products used by mother during pregnancy' TEXT LIST * * * * *");
         verifyInputField(ras_survey_native_view.specifyTobaccoUsedByMotherDuringPregnancyInputField, ras_Survey_TestDataManager.whatTobaccoProductsDidYourBiologicalMotherOption6PleaseSpecify, "* * * * * RAS SURVEY MISMATCH IN 'Please specify (Tobacco products used by mother during pregnancy)' INPUT FIELD * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.dropdownDidBioMotherUseAlcohol, ras_Survey_TestDataManager.didYourBiologicalMotherDrink, "* * * * * RAS SURVEY MISMATCH IN 'Did participants biological mother drink alcohol while pregnant with participant' DROPDOWN * * * * *");
         List<String> expectedAlcoholUsedByMotherDuringPregnancyTextList = new ArrayList<>() {
@@ -241,7 +240,7 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
                 add(ras_Survey_TestDataManager.WhatAlcoholicBeveragesDidYourMotherDrinkOption5);
             }
         };
-        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.alcoholUsedByMotherWhilePregnantTextList), expectedAlcoholUsedByMotherDuringPregnancyTextList), "* * * * * RAS SURVEY MISMATCH IN 'Alcohol used by mom during pregnancy' TEXT * * * * *");
+        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.alcoholUsedByMotherWhilePregnantTextList), expectedAlcoholUsedByMotherDuringPregnancyTextList), "* * * * * RAS SURVEY MISMATCH IN 'Alcohol used by mom during pregnancy' TEXT LIST * * * * *");
         verifyInputField(ras_survey_native_view.specifyAlcoholUsedByMotherDuringPregnancyInputField, ras_Survey_TestDataManager.WhatAlcoholicBeveragesDidYourMotherDrinkOption5Other, "* * * * * RAS SURVEY MISMATCH IN 'Please specify (Alcohol used by mom during pregnancy)' INPUT FIELD * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.dropdownDidBioMotherEverLiveWorkWhereOtherUseTobacco, ras_Survey_TestDataManager.didYourBiologicalMotherEverLiveWhereSmokedCigarettes, "* * * * * RAS SURVEY MISMATCH IN 'Did the participants mother ever live/work in a place where others use tobacco' DROPDOWN * * * * *");
         List<String> expectedTobaccoProductsUsedAroundMotherWhilePregnantTextList = new ArrayList<>() {
@@ -252,10 +251,83 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
                 add(ras_Survey_TestDataManager.whatProductsWereUsedAroundOption4);
             }
         };
-        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.tobaccoProductsUsedAroundMotherWhilePregnantTextList), expectedTobaccoProductsUsedAroundMotherWhilePregnantTextList), "* * * * * RAS SURVEY MISMATCH IN 'Tobacco products used around mother during pregnancy' TEXT * * * * *");
+        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.tobaccoProductsUsedAroundMotherWhilePregnantTextList), expectedTobaccoProductsUsedAroundMotherWhilePregnantTextList), "* * * * * RAS SURVEY MISMATCH IN 'Tobacco products used around mother during pregnancy' TEXT LIST * * * * *");
         verifyInputField(ras_survey_native_view.specifyTobaccoUsedAroundMotherDuringPregnancyInputField, ras_Survey_TestDataManager.whatProductsWereUsedAroundOption4Other, "* * * * * RAS SURVEY MISMATCH IN 'Please specify (Tobacco products used around mother during pregnancy)' INPUT FIELD * * * * *");
         verifyInputField(ras_survey_native_view.fieldBioFatherOccupationWhileMotherWasPregnant, ras_Survey_TestDataManager.biologicalMotherOccupationDuringPregnancyFather, "* * * * * RAS SURVEY MISMATCH IN 'Biological fathers occupation while mother was pregnant with the participant' INPUT FIELD * * * * *");
         verifyCheckbox("true", ras_survey_native_view.biologicalFatherOccupationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN 'Biological father occupation unknown' CHECKBOX * * * * *");
         CucumberLogUtils.logScreenshot();
+        /**
+         * ----- END OF Birth & Gestation SECTION VALIDATION -----
+         */
+
+        /**
+         * ----- BEGINNING Growth SECTION VALIDATION -----
+         */
+        CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Growth"));
+        JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Growth"));
+        CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Growth"));
+        CommonUtils.waitForVisibility(ras_survey_native_view.hasTheParticipantHadGrowthHormoneTestingDropdown);
+        List<String> expectedGrowthHormoneTestResultsTextList = new ArrayList<>() {
+            {
+                add(ras_Survey_TestDataManager.whatWereTheResultsOfYourGrowthHormoneOption1);
+                add(ras_Survey_TestDataManager.whatWereTheResultsOfYourGrowthHormoneOption2);
+                add(ras_Survey_TestDataManager.whatWereTheResultsOfYourGrowthHormoneOption3);
+                add(ras_Survey_TestDataManager.whatWereTheResultsOfYourGrowthHormoneOption4);
+            }
+        };
+        softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantHadGrowthHormoneTestingDropdown, ras_Survey_TestDataManager.haveYouEverHadGrowthHormoneTesting, "* * * * * RAS SURVEY MISMATCH IN 'Has the participant had growth hormone testing?' DROPDOWN * * * * *");
+        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.growthHormoneTestResultsTextList), expectedGrowthHormoneTestResultsTextList), "* * * * * RAS SURVEY MISMATCH IN 'Growth Hormone test results' TEXT LIST * * * * *");
+        verifyInputField(ras_survey_native_view.pleaseSpecifyGrowthHormoneTestResultsInputField, ras_Survey_TestDataManager.whatWereTheResultsOfYourGrowthHormoneOption4Other, "* * * * * RAS SURVEY MISMATCH IN 'Please specify (Growth Hormone test results)' INPUT FIELD * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantReceivedGrowthHormoneTreatmentDropdown, ras_Survey_TestDataManager.haveYouEverReceivedGrowthHormoneTreatment, "* * * * * RAS SURVEY MISMATCH IN 'Has the participant received growth hormone treatment?' DROPDOWN * * * * *");
+        verifyInputField(ras_survey_native_view.heightBeforeStartingGrowthHormoneInputField, ras_Survey_TestDataManager.whatWasYourHeightBeforeStartingGrowthHormoneHeight, "* * * * * RAS SURVEY MISMATCH IN 'Height before starting growth hormone' INPUT FIELD * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.howManyTimesHasTheParticipantReceivedGrowthHormoneTreatmentDropdown, ras_Survey_TestDataManager.howManyTimesHaveYouReceivedGrowthHormoneTreatment, "* * * * * RAS SURVEY MISMATCH IN 'How many times has the participant received growth hormone treatment' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantEverBeenEvaluatedByAnEndocrinologistForAnyReasonDropdown, ras_Survey_TestDataManager.haveYouEverBeenEvaluatedByAnEndocrinologist, "* * * * * RAS SURVEY MISMATCH IN 'Has the participant ever been evaluated by an endocrinologist for any reason? ' DROPDOWN * * * * *");
+        verifyInputField(ras_survey_native_view.doctorMedicalProviderNameInputField, ras_Survey_TestDataManager.whatIsTheNameOfTheEndocrinologistDoctor, "* * * * * RAS SURVEY MISMATCH IN 'Doctor/medical provider name' INPUT FIELD * * * * *");
+        verifyInputField(ras_survey_native_view.locationCityStateCountryInputField, ras_Survey_TestDataManager.whatIsTheNameOfTheEndocrinologistLocation, "* * * * * RAS SURVEY MISMATCH IN 'Location (City, State, Country)' INPUT FIELD * * * * *");
+        verifyInputField(ras_survey_native_view.hospitalOrHealthSystemAffiliationInputField, ras_Survey_TestDataManager.whatIsTheNameOfTheEndocrinologistHospital, "* * * * * RAS SURVEY MISMATCH IN 'Hospital or Health System Affiliation' INPUT FIELD * * * * *");
+        /**
+         * ---------------------END OF Growth SECTION VALIDATION---------------------
+         */
+
+        /**
+         * ---------------------BEGINNING OF Development SECTION VALIDATION---------------------
+         */
+        CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Development"));
+        JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Development"));
+        CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Development"));
+        CommonUtils.waitForVisibility(ras_survey_native_view.wasTheParticipantDiagnosedWithHypotoniaAsAnInfantOrChildDropdown);
+        softAssertDropDownValueIsSelected(ras_survey_native_view.wasTheParticipantDiagnosedWithHypotoniaAsAnInfantOrChildDropdown, ras_Survey_TestDataManager.wereYouEverDiagnosedWithHypotoniaAsAnInfantOrChild, "* * * * * RAS SURVEY MISMATCH IN 'Was the participant diagnosed with hypotonia as an infant or child?' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantEverReceivedPhysicalTherapyDropdown, ras_Survey_TestDataManager.haveYouEverReceivedPhysicalTherapy, "* * * * * RAS SURVEY MISMATCH IN 'Has the participant ever received physical therapy' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.howWouldYouDescribeTheParticipantCurrentSpeechCapabilitiesDropdown, ras_Survey_TestDataManager.howWouldYouDescribeYourCurrentSpeechCapabilities, "* * * * * RAS SURVEY MISMATCH IN 'How would you describe the participant's current speech capabilities?' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantEverReceivedSpeechTherapyDropdown, ras_Survey_TestDataManager.haveYouEverReceivedSpeechTherapy, "* * * * * RAS SURVEY MISMATCH IN 'Has the participant ever received speech therapy?' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.didTheParticipantReceiveOccupationTherapyBetweenTheAgesOf3And6Dropdown, ras_Survey_TestDataManager.didYouReceiveOccupationalTherapyBetween3And6YearsOfAge, "* * * * * RAS SURVEY MISMATCH IN 'Did the participant receive occupation therapy between the ages of 3 & 6' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.currentEmploymentStatusDropdown, ras_Survey_TestDataManager.whatIsYourCurrentEmploymentStatus, "* * * * * RAS SURVEY MISMATCH IN 'Current employment status' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.participantsHighestLevelOfSchoolingDropdown, ras_Survey_TestDataManager.pleaseIndicateTheHighestDegree, "* * * * * RAS SURVEY MISMATCH IN 'Participants highest level of schooling' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.atWhatAgeWasTheParticipantAbleToSitWithoutSupportDropdown, ras_Survey_TestDataManager.atWhatAgeWereYouAbleToSitWithoutSupport, "* * * * * RAS SURVEY MISMATCH IN 'At what age was the participant able to sit without support' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.atWhatAgeWasTheParticipantAbleToWalkWithoutSupportDropdown, ras_Survey_TestDataManager.atWhatAgeWereYouAbleToWalkWithoutSupport, "* * * * * RAS SURVEY MISMATCH IN 'At what age was the participant able to walk without support?' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.atWhatAgeWasTheParticipantAbleToUseSimpleTwoWordPhrasesDropdown, ras_Survey_TestDataManager.atWhatAgeWereYouAbleToUseSimpleTwoWordPhrases, "* * * * * RAS SURVEY MISMATCH IN 'At what age was the participant able to use simple two-word phrases?' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.diagnosedWithCognitiveDevelopmentIssuesBetweenAges3And6Dropdown, ras_Survey_TestDataManager.betweenTheAgesOf3And6YearsOld, "* * * * * RAS SURVEY MISMATCH IN 'Diagnosed with cognitive development issues between ages 3 & 6' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.schoolingBetweenTheAgesOf6And10Dropdown, ras_Survey_TestDataManager.betweenTheAgesOf6And10, "* * * * * RAS SURVEY MISMATCH IN 'Schooling between the ages of 6 and 10' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.schoolingAge10To17Dropdown, ras_Survey_TestDataManager.betweenTheAgesOf10And17, "* * * * * RAS SURVEY MISMATCH IN 'Schooling age 10 to 17' DROPDOWN * * * * *");
+        List<String> expectedParticipantsDiagnosedLearningDifferencesTextList = new ArrayList<>() {
+            {
+                add(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithLearningDifferencesOption1);
+                add(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithLearningDifferencesOption2);
+                add(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithLearningDifferencesOption3);
+                add(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithLearningDifferencesOption4);
+            }
+        };
+        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToListHyphenated(ras_survey_native_view.participantsDiagnosedLearningDifferencesTextList), expectedParticipantsDiagnosedLearningDifferencesTextList), "* * * * * RAS SURVEY MISMATCH IN 'Participants diagnosed learning differences' TEXT LIST * * * * *");
+        verifyInputField(ras_survey_native_view.pleaseSpecifyParticipantsDiagnosedLearningDifferencesInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithLearningDifferencesOption4Other, "* * * * * RAS SURVEY MISMATCH IN 'Please specify(Participants diagnosed learning differences)' INPUT FIELD * * * * *");
+        /**
+         * ---------------------END OF Development SECTION VALIDATION---------------------
+         */
+
+        /**
+         * ---------------------BEGINNING OF Heart SECTION VALIDATION---------------------
+         */
+        /**
+         * ---------------------END OF Heart SECTION VALIDATION---------------------
+         */
     }
 }
