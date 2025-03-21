@@ -6,11 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import static Hooks.Hooks.softAssert;
 
 public class RAS_Survey_Native_View_Page {
@@ -946,17 +944,8 @@ public class RAS_Survey_Native_View_Page {
         while (matcher.find()) {
             output.add(matcher.group(1).trim());
         }
-
-
-        // remove before pushing
-        for (String s : output) {
-            System.out.println(s);
-        }
-
-
         return output;
     }
-
 
     public RAS_Survey_Native_View_Page() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);

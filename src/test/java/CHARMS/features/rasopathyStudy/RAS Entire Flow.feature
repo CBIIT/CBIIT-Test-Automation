@@ -41,10 +41,10 @@ Feature: RAS Screener Scenarios
     And logs in via Okta with username "ras_progression@yopmail.com" and password "Charms123$"
     And clicks on the Ras Survey Form
     And a participant enters username "ras_progression@yopmail.com" and pin
-#    When the participant submits a RAS Survey from excel sheet "<SurveyScenario>"
-#    And Study Team member logs in to Native View and navigates to participant's record "screenerScenario2"
-#    And Study Team member navigates to RASopathy Survey
-#    And RAS Survey Data for Scenario Two is verified
+    When the participant submits a RAS Survey from excel sheet "<SurveyScenario>"
+    And Study Team member logs in to Native View and navigates to participant's record "screenerScenario2"
+    And Study Team member navigates to RASopathy Survey
+    And RAS Survey Data for Scenario Two is verified
     Examples:
       | Email                | Password          | ScreenerScenario  | IIQScenario  | SurveyScenario     |
       | charmsras1@yahoo.com | CharmsStudies123$ | screenerScenario2 | IIQScenario2 | RASSurveyScenario2 |
