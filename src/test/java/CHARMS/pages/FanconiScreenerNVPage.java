@@ -37,9 +37,14 @@ public class FanconiScreenerNVPage extends PageInitializer {
         return WebDriverUtils.webDriver.findElement(By.xpath("//span[@class='label-text'][normalize-space()='" + text + "']"));
     }
 
+    /* Method to dynamically locate Input Value elements in Native View */
+    public WebElement dynamicLocatorForPreviewButtonLocator(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record: " + text + "'])[3]"));
+    }
+
     /* Use This Method To Dynamically Preview Record Buttons On */
-    public WebElement dynamicPreviewButtonLocator1(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record: '])[2]"));
+    public WebElement dynamicPreviewButtonLocator2(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record: '])[3]"));
     }
 
     /* Method to dynamically locate elements in Native View */
@@ -127,6 +132,10 @@ public class FanconiScreenerNVPage extends PageInitializer {
     /* NV Fanconi Screener: All referaal button in Navigator */
     @FindBy(xpath = "(//div[@class='sn-widget-list-title'][normalize-space()='All Referrals'])[1]")
     public WebElement nVAllReferralsButton;
+
+    /* NV Fanconi Screener: All referaal button in Navigator */
+    @FindBy(xpath = "(//td[@class='vt'])[3]")
+    public WebElement nVConsentDate;
 
     /* CHARMS Referrals List view-> iFrame */
     @FindBy(xpath = "//iframe[@id='gsft_main']")
