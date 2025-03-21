@@ -121,9 +121,9 @@ public class SEER_TestProperties_StepImpl {
     /**
      * SSEER ODS NATIVE VIEW ACCESS REQUEST UNDER SEER URL
      */
-    public static final String SEER_ODS_NATIVE_VIEW_ACCESS_REQUEST_UNDER_SEER_STAGE_URL = "https://service-stage.nci.nih.gov/now/nav/ui/classic/params/target/x_g_nci_seer_data_customer_list.do%3Fsysparm_userpref_module%3D1a5b18501b5418102701b913cc4bcbc5";
-    public static final String SEER_ODS_NATIVE_VIEW_ACCESS_REQUEST_UNDER_SEER_TEST_URL = "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/x_g_nci_seer_data_customer_list.do%3Fsysparm_userpref_module%3D1a5b18501b5418102701b913cc4bcbc5";
-    public static final String SEER_ODS_NATIVE_VIEW_ACCESS_REQUEST_UNDER_SEER_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/now/nav/ui/classic/params/target/x_g_nci_seer_data_customer_list.do%3Fsysparm_userpref_module%3D1a5b18501b5418102701b913cc4bcbc5";
+    public static final String SEER_ODS_NATIVE_VIEW_ACCESS_REQUEST_UNDER_SEER_STAGE_URL = "https://service-stage.nci.nih.gov/now/nav/ui/classic/params/target/x_g_nci_seer_data_access_list.do%3Fsysparm_userpref_module%3Daffbd4901b5418102701b913cc4bcbdc%26sysparm_clear_stack%3Dtrue%26sysparm_clear_stack%3Dtrue";
+    public static final String SEER_ODS_NATIVE_VIEW_ACCESS_REQUEST_UNDER_SEER_TEST_URL = "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/x_g_nci_seer_data_access_list.do%3Fsysparm_userpref_module%3Daffbd4901b5418102701b913cc4bcbdc%26sysparm_clear_stack%3Dtrue";
+    public static final String SEER_ODS_NATIVE_VIEW_ACCESS_REQUEST_UNDER_SEER_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/now/nav/ui/classic/params/target/x_g_nci_seer_data_access_list.do%3Fsysparm_userpref_module%3Daffbd4901b5418102701b913cc4bcbdc%26sysparm_clear_stack%3Dtrue";
     public static String SEER_ODS_NATIVE_VIEW_ACCESS_REQUEST_UNDER_SEER_URL;
 
     /**
@@ -149,9 +149,9 @@ public class SEER_TestProperties_StepImpl {
     /**
      * NATIVE VIEW EMAILS UNDER SYSTEM LOGS URL
      */
-    public static final String NATIVE_VIEW_EMAILS_UNDER_SYSTEM_LOGS_STAGE_URL = "https://service-stage.nci.nih.gov/now/nav/ui/classic/params/target/x_g_nci_seer_data_customer_list.do%3Fsysparm_userpref_module%3D1a5b18501b5418102701b913cc4bcbc5";
-    public static final String NATIVE_VIEW_EMAILS_UNDER_SYSTEM_LOGS_TEST_URL = "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/x_g_nci_seer_data_customer_list.do%3Fsysparm_userpref_module%3D1a5b18501b5418102701b913cc4bcbc5";
-    public static final String NATIVE_VIEW_EMAILS_UNDER_SYSTEM_LOGS_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/now/nav/ui/classic/params/target/x_g_nci_seer_data_customer_list.do%3Fsysparm_userpref_module%3D1a5b18501b5418102701b913cc4bcbc5";
+    public static final String NATIVE_VIEW_EMAILS_UNDER_SYSTEM_LOGS_STAGE_URL = "https://service-stage.nci.nih.gov/now/nav/ui/classic/params/target/sys_email_list.do%3Fsysparm_userpref_module%3D8d620b63c611227b008368697b0b8d7b%26sysparm_query%3Dsys_created_onONToday%2540javascript%253Ags.daysAgoStart%25280%2529%2540javascript%253Ags.daysAgoEnd%25280%2529%255EEQ%26sysparm_clear_stack%3Dtrue";
+    public static final String NATIVE_VIEW_EMAILS_UNDER_SYSTEM_LOGS_TEST_URL = "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_email_list.do%3Fsysparm_userpref_module%3D8d620b63c611227b008368697b0b8d7b%26sysparm_query%3Dsys_created_onONToday%2540javascript%253Ags.daysAgoStart%25280%2529%2540javascript%253Ags.daysAgoEnd%25280%2529%255EEQ%26sysparm_clear_stack%3Dtrue";
+    public static final String NATIVE_VIEW_EMAILS_UNDER_SYSTEM_LOGS_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/now/nav/ui/classic/params/target/sys_email_list.do%3Fsysparm_userpref_module%3D8d620b63c611227b008368697b0b8d7b%26sysparm_query%3Dsys_created_onONToday%2540javascript%253Ags.daysAgoStart%25280%2529%2540javascript%253Ags.daysAgoEnd%25280%2529%255EEQ%26sysparm_clear_stack%3Dtrue";
     public static String NATIVE_VIEW_EMAILS_UNDER_SYSTEM_LOGS_URL;
 
     /**

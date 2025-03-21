@@ -264,7 +264,7 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
      */
     public static void theUserShallReceiveARejectionEmail() {
         /** Waiting for email to be sent and searchable */
-        CommonUtils.sleep(50000);
+        CommonUtils.sleep(60000); //needed more time to wait for the rejection email to be received
         ServiceNow_Common_Methods.filterNavigatorSearch("Emails");
         CommonUtils.sleep(2000);
         WebDriverUtils.webDriver.get(SEER_TestProperties_StepImpl.getNativeViewFilterNavEmailUnderSystemLogsUrl());

@@ -103,4 +103,15 @@ public class Registration_Constants {
 
     /* SEER BACK TO SEER DATABASE DETAILS BUTTON TEXT */
     public static final String BACK_TO_SEER_DATABASE_DETAILS_BUTTON_TEXT  = "← Back to SEER Database details";
+
+    /** --------------- SEER RESEARCH PLUS (INSTITUTIONAL) USER REGISTRATION FORM CONSTANTS--------------- */
+
+    /* RESEARCH PLUS INSTITUTIONAL FULL NAME */
+    public static final String PLUS_USER_NAME = "Alex Lear";
+
+    /* RESEARCH PLUS INSTITUTIONAL FIRST NAME */
+    public static final String PLUS_USER_FIRST_NAME = "Alex";
+
+    /* RESEARCH PLUS INSTITUTIONAL LAST NAME */
+    public static final String PLUS_USER_LAST_NAME = "Lear";
 }
