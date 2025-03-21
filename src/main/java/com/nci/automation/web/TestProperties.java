@@ -4,7 +4,7 @@ public class TestProperties {
 
     public static String ENV = "test";
     public static String BROWSER = "chrome";
-    public static boolean HEADLESS = true;
+    public static boolean HEADLESS = false;
     public static int SET_SLOW_MO_TIME = 1000;
 
     /**
@@ -312,6 +312,13 @@ public class TestProperties {
     public static String BCRAT_TEST_URL = "https://bcrisktool-qa.cancer.gov/";
     public static String BCRAT_STAGE_URL = "https://bcrisktool-stage.cancer.gov/";
     public static String BCRAT_URL;
+
+    /**
+     * CCRAT URLS
+     */
+    public static String CCRAT_TEST_URL = "https://ccrisktool-qa.cancer.gov/";
+    public static String CCRAT_STAGE_URL = "https://ccrisktool-stage.cancer.gov/";
+    public static String CCRAT_URL;
 
     /**
      * MRAT URLS
@@ -818,6 +825,18 @@ public class TestProperties {
                 break;
         }
         return BCRAT_URL;
+    }
+
+    public static String getCCRATUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                CCRAT_URL = CCRAT_STAGE_URL;
+                break;
+            case "test":
+                CCRAT_URL = CCRAT_TEST_URL;
+                break;
+        }
+        return CCRAT_URL;
     }
 
     public static String getOAntakeUrl() {
