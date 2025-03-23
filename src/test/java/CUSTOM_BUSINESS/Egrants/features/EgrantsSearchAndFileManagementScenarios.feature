@@ -270,7 +270,7 @@ Given User is logged in the application and is on the landing page
     When User clicks on Return To eGrants File
     Then User returns to eGrants File
 
-  @EGRANTS-616 @FileUpload @alenaminsk @selenium @Regressio @Progression
+  @EGRANTS-616 @FileUpload @alenaminsk @selenium @Regression
   Scenario: Grant page verification
     And searches for grant "CA125123"
     And expands all grant years
