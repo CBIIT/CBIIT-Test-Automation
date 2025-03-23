@@ -1040,7 +1040,7 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
      */
     @Given("User clicks Add Document Grant button")
     public void user_clicks_add_document_grant_button() {
-     CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addFundingDocumentButtonGrant);
+     CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addButtonGrantPage);
     }
 
     /**
@@ -1048,7 +1048,7 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
      */
     @Then("User can see Add Funding Document button")
     public void user_can_see_add_funding_document_button() {
-        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.addFundingDocumentButtonGrant.isDisplayed());
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.addButtonGrantPage.isDisplayed());
     }
 
     /**
