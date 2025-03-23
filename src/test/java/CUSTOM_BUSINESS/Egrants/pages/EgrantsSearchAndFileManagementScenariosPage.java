@@ -46,7 +46,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Add Document button
      */
-    @FindBy(xpath = "//button[@title='Add New Document [shift + alt + O]']")
+    @FindBy(xpath ="//button[@title='Click here to add new document [shift + alt + O]']")
     public WebElement addDocumentButton;
 
     /**
@@ -707,7 +707,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
      * Add  Funding Document button Grant
      */
     @FindBy(xpath = "//*[@id='create new buttons']/button[2]")
-    public WebElement addFundingDocumentButtonGrant;
+    public WebElement addButtonGrantPage;
 
     /**
      * Document name header
