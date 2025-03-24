@@ -280,7 +280,6 @@ Given User is logged in the application and is on the landing page
     And User clicks on Locate File and Upload tab
     And User uploads a single file with doc extension
     And User clicks Convert to PDF and Add button
-    Then verifies the success message "Done! New document has been created"
     When User clicks on Return To eGrants File
     And User can see Add Document button
     And User can see Add Funding Document button

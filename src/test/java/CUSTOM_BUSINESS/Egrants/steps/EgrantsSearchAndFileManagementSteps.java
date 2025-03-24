@@ -1032,7 +1032,7 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
     @Then("User can see Add Document button")
     public void user_can_see_add_document_button() {
         CommonUtils.sleep(3000);
-        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.addDocumentButtonGrant.isDisplayed());
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.addDocumentButton.isDisplayed());
     }
 
     /**
@@ -1040,7 +1040,7 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
      */
     @Given("User clicks Add Document Grant button")
     public void user_clicks_add_document_grant_button() {
-     CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addButtonGrantPage);
+     CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addDocumentButton);
     }
 
     /**

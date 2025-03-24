@@ -698,12 +698,6 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     public WebElement headerGrantYears;
 
     /**
-     * Add Document button Grant
-     */
-    @FindBy(xpath = "//*[@id='create new buttons']/button[1]")
-    public WebElement addDocumentButtonGrant;
-
-    /**
      * Add  Funding Document button Grant
      */
     @FindBy(xpath = "//*[@id='create new buttons']/button[2]")
