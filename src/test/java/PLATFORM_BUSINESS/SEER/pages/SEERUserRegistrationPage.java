@@ -104,6 +104,10 @@ public class SEERUserRegistrationPage extends CommonUtils {
 	/**SEER User Registration  Submit button*/
 	@FindBy(xpath = "//button[contains(text(),'Submit')]")
 	public WebElement seerUserRegistrationSubmitButton;
+
+	/**SEER PLUS User Registration  Submit button*/
+	@FindBy(xpath = "//button[normalize-space()='Submit']")
+	public WebElement seerPlusUserRegistrationSubmitButton;
 	
 	/** --------------- SEER USER REGISTRATION SUBMISSION CONFIRMATION SECTION --------------- */
 	
