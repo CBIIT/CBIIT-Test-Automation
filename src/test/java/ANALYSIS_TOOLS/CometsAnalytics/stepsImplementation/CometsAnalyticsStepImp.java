@@ -80,6 +80,8 @@ public class CometsAnalyticsStepImp extends PageInitializer {
         CommonUtils.sleep(4000);
         CommonUtils.waitForVisibility(cometsAnalyticsPage.aboutCometsButton);
         String parent = WebDriverUtils.webDriver.getWindowHandle();
+        JavascriptUtils.scrollDown(1000);
+        CommonUtils.sleep(2000);
         cometsAnalyticsPage.aboutCometsButton.click();
         assertMoreThanOneWindowIsPresent();
         CommonUtils.switchToAnotherTabWindow();
@@ -163,6 +165,8 @@ public class CometsAnalyticsStepImp extends PageInitializer {
     public void clickAllModelsAndRun(String emailId) {
         CommonUtils.waitForClickability(cometsAnalyticsPage.emailId);
         cometsAnalyticsPage.emailId.sendKeys(emailId);
+        JavascriptUtils.scrollDown(400);
+        CommonUtils.sleep(2000);
         cometsAnalyticsPage.runModel.click();
     }
 
@@ -245,6 +249,8 @@ public class CometsAnalyticsStepImp extends PageInitializer {
      */
     public void prespecifiedModelCLick() {
         cometsAnalyticsPage.selectedModel.click();
+        JavascriptUtils.scrollDown(400);
+        CommonUtils.sleep(2000);
         cometsAnalyticsPage.showPredefinedModelTypes.click();
     }
 
@@ -253,6 +259,8 @@ public class CometsAnalyticsStepImp extends PageInitializer {
      */
     public void clickCustomModelAndCLickUseModelType() {
         cometsAnalyticsPage.customModelRadio.click();
+        JavascriptUtils.scrollDown(400);
+        CommonUtils.sleep(2000);
         cometsAnalyticsPage.showCustomModelTypes.click();
     }
 
@@ -261,6 +269,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
      */
     public void uploadFileAndCheckIntegrity() {
         uploadFileCheckIntegrity();
+        CommonUtils.sleep(2000);
         clickOnCheckIntegrity();
     }
 
@@ -281,5 +290,56 @@ public class CometsAnalyticsStepImp extends PageInitializer {
         CommonUtils.sendKeys(cometsAnalyticsPage.modelDropdown2, "C");
         JavascriptUtils.clickByJS(cometsAnalyticsPage.modelDropDownOption);
         JavascriptUtils.clickByJS(cometsAnalyticsPage.runModelButton);
+    }
+
+    /**
+     * CLICK ON RESET BUTTON UNDER METHOD OF ANALYSES
+     */
+    public void clickOnResetButtonUnderMethodOfAnalyses() {
+        JavascriptUtils.scrollDown(400);
+        CommonUtils.sleep(2000);
+        cometsAnalyticsPage.resetButtonUnderMethodOfAnalyses.click();
+    }
+
+    /**
+     * CLICK ON CROSS ICON
+     */
+    public void clickOnCrossIcon() {
+        cometsAnalyticsPage.crossButton.click();
+    }
+
+    /**
+     * VALIDATE SUCCESS MESSAGE UNAVAILABILITY
+     *
+     * @param successMessage
+     */
+    public void validateSuccessMessageAvailability(String successMessage) {
+        Assert.assertTrue(cometsAnalyticsPage.SuccessMessageElement.isEmpty(), successMessage);
+    }
+
+    /**
+     * CHANGING RESULT VISIBILITY
+     */
+    public void changeResultVisibility() {
+        JavascriptUtils.scrollDown(400);
+        CommonUtils.selectDropDownValue(cometsAnalyticsPage.selectPageSize, "25");
+        CommonUtils.sleep(2000);
+        CommonUtils.selectDropDownValue(cometsAnalyticsPage.selectPageSize, "10");
+    }
+
+    /**
+     * CLICK DOWNLOAD BUTTON
+     */
+    public void clickDownloadButton() {
+        JavascriptUtils.scrollUp(600);
+        cometsAnalyticsPage.downloadButtonModelResult.click();
+    }
+
+    /**
+     * CLICK LAST BUTTON
+     */
+    public void clickLastButton() {
+        JavascriptUtils.scrollDown(1200);
+        cometsAnalyticsPage.lastButton.click();
     }
 }
