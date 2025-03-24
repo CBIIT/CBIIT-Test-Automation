@@ -333,7 +333,6 @@ public class CometsAnalyticsStepImp extends PageInitializer {
     public void clickDownloadButton() {
         JavascriptUtils.scrollUp(600);
         cometsAnalyticsPage.downloadButtonModelResult.click();
-        CommonUtils.sleep(2000);
     }
 
     /**
@@ -342,6 +341,5 @@ public class CometsAnalyticsStepImp extends PageInitializer {
     public void clickLastButton() {
         JavascriptUtils.scrollDown(1200);
         cometsAnalyticsPage.lastButton.click();
-        CommonUtils.sleep(40000);
     }
 }

@@ -9,7 +9,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import org.testng.Assert;
 import static Hooks.Hooks.softAssert;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class CCRATStepsImpl extends PageInitializer {

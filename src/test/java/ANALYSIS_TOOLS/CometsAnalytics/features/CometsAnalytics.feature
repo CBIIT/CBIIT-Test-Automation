@@ -1,7 +1,7 @@
 @cometsanalystics
 Feature: This feature files is for Comets Analytics features
 
-  @satya @Smoke @Regression  @selenium @NCIATWP-4391 @NCIATWP-6290
+  @satya @Smoke @Regression @selenium @NCIATWP-4391 @NCIATWP-6290
   Scenario: Verify user is able to open home page and got to analysis page
     Given User navigates to comets analytics home page
     Then Click on perform analysis button
