@@ -86,6 +86,7 @@ public class CCRATStepsImpl extends PageInitializer {
     public static void clickHomeLink() {
         Playwright_Common_Utils.clickAndAssertNewPageTitle("Home", "Colorectal Risk Assessment Tool: Online Calculator - NCI");
     }
+
     /**
      * Clicking on the contact link
      */
