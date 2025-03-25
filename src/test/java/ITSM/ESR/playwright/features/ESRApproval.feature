@@ -105,7 +105,7 @@ Feature: ESR Approvals
     And the user is rejected from the ESR Board approvers with a need more info for ESR-I
     Then the user confirms more information is needed for the ESR-I ticket
 
-  @ESR-720 @sarwarahmed1 @Progression @playwright
+  @ESR-720 @sarwarahmed1 @Regression @playwright
   Scenario: Test the "Rejected" from ESR Board Intake Review approvals in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
