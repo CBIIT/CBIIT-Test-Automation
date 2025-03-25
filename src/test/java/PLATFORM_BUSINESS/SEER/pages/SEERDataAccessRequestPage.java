@@ -142,9 +142,21 @@ public class SEERDataAccessRequestPage extends CommonUtils {
 	@FindBy (xpath = "//input[@ng-model = 'data.access.cuba_initials']")
 	public WebElement seerDataAccessBestPracticeAssuranceInitials;
 
+	/** SEER Data Access Request: NCCR Research Data Use Agreement Certification Header text */
+	@FindBy(xpath = "//label[text()='NCCR Research Data Use Agreement']")
+	public WebElement seerDataAccessNCCRResearchDataUseAgreementCertificationHeaderText;
+
+	/** SEER Data Access Request: NCCR Research Data Use Agreement Certification Initials */
+	@FindBy (xpath = "//input[@ng-model = 'data.access.nccr_initials']")
+	public WebElement seerDataAccessNCCRResearchDataUseAgreementCertificationInitials;
+
 	/** SEER Data Access Request: NCCR Research Data Use Agreement Text */
 	@FindBy (xpath = "//*[@id=\'nccr_data_use_agreement\']")
 	public WebElement seerDataAccessNCCRReasearchDataUseAgreementText;
+
+	/** SEER Data Access Request: NCCR Research Data Use Agreement Certification Text */
+	@FindBy (xpath = "//div[@id='nccr_data_use_agreement']")
+	public WebElement seerDataAccessNCCRResearchDataUseAgreementCertificationText;
 	
 	/** SEER Data Access Request: Submit Button */
 	@FindBy (xpath = "//button[text() = 'Submit']")
