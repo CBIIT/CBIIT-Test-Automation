@@ -67,3 +67,16 @@ Feature:These are the scenarios for the CCRAT application
     Then User clicks on the edit response button
     Then user edits the family history details in the risk calculator page
     Then User calculates the risk based on the entered details
+
+  @satya @Smoke @Regression @playwright @NCIATWP-8662
+  Scenario: Verify User is on the CCRAT online calculator page
+    Given User navigates to the CCRAT Website
+    Then User clicks on the CCRAT link
+    When User clicks on the Calculate Patient Risk button in CCRAT
+    Then User enters wrong height data and validates the error message
+
+  @satya @Smoke @Regression @playwright @NCIATWP-8663
+  Scenario: Verify User is on the CCRAT online calculator page
+    Given User navigates to the CCRAT Website
+    Then User clicks on home link in the footer and validates it
+    Then User clicks on contact link in the footer and validates it

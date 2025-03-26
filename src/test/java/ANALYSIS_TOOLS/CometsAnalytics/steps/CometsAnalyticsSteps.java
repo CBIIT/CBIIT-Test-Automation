@@ -128,4 +128,33 @@ public class CometsAnalyticsSteps extends PageInitializer {
 	public void user_should_be_able_to_view_help_accessibility_current_version_functionality_acknowledgements_citation_is_getting_displayed() {
 		cometsAnalyticsStepImp.viewHeloAndOtherOptionsIsDisplayed();
 	}
+
+	@Then("User clicks on the reset button under Method of Analyses")
+	public void user_clicks_on_the_reset_button_under_method_of_analyses() {
+		cometsAnalyticsStepImp.clickOnResetButtonUnderMethodOfAnalyses();
+	}
+
+	@Then("user clicks on the cross available in the integrity success message")
+	public void user_clicks_on_the_cross_available_in_the_integrity_success_message() {
+		cometsAnalyticsStepImp.clickOnCrossIcon();
+	}
+
+	@Then("User should not be able to view the Success message {string}")
+	public void user_should_not_be_able_to_view_the_success_message(String successMessage) {cometsAnalyticsStepImp.validateSuccessMessageAvailability(successMessage);
+	}
+
+	@Then("User changes the model result visibility from the dropdown")
+	public void user_changes_the_model_result_visibility_from_the_dropdown() {
+		cometsAnalyticsStepImp.changeResultVisibility();
+	}
+
+	@Then("User clicks on the download results button")
+	public void user_clicks_on_the_download_results_button() {
+		cometsAnalyticsStepImp.clickDownloadButton();
+	}
+
+	@Then("User clicks on the Last button in the model result page")
+	public void user_clicks_on_the_last_button_in_the_model_result_page() {
+		cometsAnalyticsStepImp.clickLastButton();
+	}
 }
