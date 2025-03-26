@@ -66,6 +66,16 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.confirmMoreInfoNeededForESRI();
     }
 
+    @And("the user is rejected from the ESR Board approvers with a rejection approval for ESR-I")
+    public void the_user_is_rejected_from_the_esr_board_approvers_with_a_rejection_approval_for_esr_i() {
+        ESRApprovalStepsImplementation.esrBoardRejectionForESRI();
+    }
+
+    @Then("the user confirms the ESR Board Intake Approval was rejected for the ESR-I ticket")
+    public void the_user_confirms_the_esr_board_intake_approval_was_rejected_for_the_esr_i_ticket() {
+        ESRApprovalStepsImplementation.confirmESRBoardIntakeApprovalWasRejectedForESRI();
+    }
+
     @And("the user is approved from the Operational POC")
     public void the_user_is_approved_from_the_operational_poc() {
         ESRApprovalStepsImplementation.operationalPOCApproval();
