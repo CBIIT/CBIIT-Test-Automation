@@ -178,7 +178,6 @@ public class Invoice_Page {
         page.waitForSelector("dynamic-detail-header");
         assertThat(page.locator("dynamic-detail-header")).containsText(OASYS_Constants.INVOICE_NUMBER);
         assertThat(page.locator("dynamic-detail-header")).containsText(OASYS_Constants.INVOICE_STATUS);
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -265,7 +264,6 @@ public class Invoice_Page {
     @Then("User clicks on Save button")
     public void user_clicks_on_save_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -302,7 +300,6 @@ public class Invoice_Page {
     @Then("User clicks on Void button")
     public void user_clicks_on_void_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Void")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -337,7 +334,6 @@ public class Invoice_Page {
             System.out.println("*** THE INVOICE IS NOT IN VOIDED STATUS ***");
         }
         assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Void Invoice").setExact(true))).isHidden();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -376,7 +372,6 @@ public class Invoice_Page {
     @Then("User verifies the invoice status is changed to {string}")
     public void user_verifies_the_invoice_status_is_changed_to_submitted(String Status) {
         assertThat(page.locator("dynamic-detail-header")).containsText(Status);
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -390,7 +385,6 @@ public class Invoice_Page {
         page.getByLabel("Password").click();
         page.getByLabel("Password").fill(OASYS_Constants.OASYS_TEST_PASSWORD);
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -513,7 +507,6 @@ public class Invoice_Page {
     @Then("User clicks on APPROVE button")
     public void user_will_click_on_approve_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Approve")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -534,7 +527,6 @@ public class Invoice_Page {
         assertThat(page.getByText("Status Updated")).isVisible();
         page.waitForSelector("span.status.done:has-text('APPROVED')", new Page.WaitForSelectorOptions().setState(WaitForSelectorState.VISIBLE));
         assertThat(page.locator("dynamic-detail-header")).containsText("APPROVED");
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -568,7 +560,6 @@ public class Invoice_Page {
     public void user_verifies_the_invoice_is_deleted_successfully() {
         OASYS_CommonUtils.waitForElementToBeVisible("text=Invoice Deleted");
         assertThat(page.getByText("Invoice Deleted")).isVisible();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -696,7 +687,6 @@ public class Invoice_Page {
     @Then("User clicks on CLEAR FILTERS button")
     public void user_clicks_on_clear_filters_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Clear Filters")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -725,6 +715,5 @@ public class Invoice_Page {
     public void user_clicks_on_export_search_result_button() {
         page.locator("xpath=//span[normalize-space()='Export Search Result']").click();
         CommonUtils.sleep(3000);
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 }

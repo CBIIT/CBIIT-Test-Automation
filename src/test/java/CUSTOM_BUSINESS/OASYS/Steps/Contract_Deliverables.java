@@ -84,7 +84,6 @@ public class Contract_Deliverables {
     @Then("User will click on Save button")
     public void user_will_click_on_save_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -222,7 +221,6 @@ public class Contract_Deliverables {
     @Then("User clicks on DELETE button to remove the Deliverable Type")
     public void user_clicks_on_delete_button_to_remove_the_deliverable_type() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Delete")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -281,7 +279,6 @@ public class Contract_Deliverables {
     @Then("User will click on SUBMIT DELIVERABLE button")
     public void user_will_click_on_submit_deliverable_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit Deliverable")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -337,7 +334,6 @@ public class Contract_Deliverables {
     @Then("User will click on APPROVE button")
     public void user_will_click_on_approve_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Approve")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -357,6 +353,5 @@ public class Contract_Deliverables {
         page.getByText("arrow_backIT Commodities and").click();
         page.locator("mat-cell").filter(new Locator.FilterOptions().setHasText("delete")).click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Delete")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 }
