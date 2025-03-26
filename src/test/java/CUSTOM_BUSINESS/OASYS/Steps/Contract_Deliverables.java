@@ -350,16 +350,6 @@ public class Contract_Deliverables {
     }
 
     /**
-     * This method clicks on Undo Review button for COR
-     */
-    @And("User clicks on Undo Review for COR")
-    public void user_clicks_on_undo_review_for_cor() {
-        CommonUtils.sleep(7000);
-        page.locator("(//button[@class='mat-focus-indicator undo mat-button mat-button-base mat-primary'])[1]").click();
-        CucumberLogUtils.playwrightScreenshot(page);
-    }
-
-    /**
      * This method navigates back the Deliverable list and removes the review deliverable from the list
      */
     @Then("And User navigates back the Deliverable list")

@@ -100,5 +100,4 @@ Given User is logged in the application and navigated to Contract Administration
   And User clicks on a Deliverable from the Schedule list
   And User expands the members
   And User clicks on Undo Review for CO
-  And User clicks on Undo Review for COR
   Then And User navigates back the Deliverable list
