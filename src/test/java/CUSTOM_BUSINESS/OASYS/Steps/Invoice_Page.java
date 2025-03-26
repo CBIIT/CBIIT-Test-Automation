@@ -532,7 +532,7 @@ public class Invoice_Page {
     public void user_verifies_the_invoice_status_is_updated_to_approved() {
         OASYS_CommonUtils.waitForElementToBeVisible("text=Status Updated");
         assertThat(page.getByText("Status Updated")).isVisible();
-        OASYS_CommonUtils.waitForElementToBeVisible("text=dynamic-detail-header");
+        page.waitForSelector("span.status.done:has-text('APPROVED')", new Page.WaitForSelectorOptions().setState(WaitForSelectorState.VISIBLE));
         assertThat(page.locator("dynamic-detail-header")).containsText("APPROVED");
         CucumberLogUtils.playwrightScreenshot(page);
     }
