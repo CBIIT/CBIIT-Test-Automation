@@ -45,7 +45,7 @@ Given User is logged in the application and navigated to Contract Administration
   Then User will click on Save button
 
 @DeleteDeliverableType @NESARH2 @Regression @playwright
- Scenario: Versioning a Deliverable Type
+ Scenario: Delete a Deliverable Type version
   When User clicks on Contracts
   And user selects "IT Commodities and Solutions" from the list of contracts
   And User clicks on DELIVERABLE tab

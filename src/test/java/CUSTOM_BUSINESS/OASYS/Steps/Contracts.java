@@ -9,6 +9,7 @@ import CUSTOM_BUSINESS.OASYS.Utils.OASYS_Constants;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.*;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -26,6 +27,7 @@ public class Contracts {
         OASYS_Steps_Implementation.user_is_logged_in_oasys();
         OASYS_CommonUtils.waitForElementToBeVisible("text=Contract Administrationkeyboard_arrow_down");
         page.getByText("Contract Administrationkeyboard_arrow_down").click();
+        CommonUtils.sleep(3000);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
