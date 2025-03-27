@@ -31,7 +31,7 @@ public class FanconiSurveyVerificationSteps {
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("All Participant Details 1 of 1").setExact(true)).click();
         CommonUtils.sleep(300);
         page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search column: name").click();
-        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search column: name").fill("Participant First Name PM");
+        page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search column: name").fill(FanconiSurveyPage.PARTICIPANT_FIRST_NAME + " " + FanconiSurveyPage.PARTICIPANT_LAST_NAME);
         page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Search column: name").press("Enter");
         CommonUtils.sleep(300);
         page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Preview record:").click();
@@ -47,8 +47,6 @@ public class FanconiSurveyVerificationSteps {
         assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("First Name")).hasValue(FanconiSurveyPage.PARTICIPANT_FIRST_NAME);
         assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Middle Name")).hasValue(FanconiSurveyPage.PARTICIPANT_MIDDLE_INITIAL);
         assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Last Name")).hasValue(FanconiSurveyPage.PARTICIPANT_LAST_NAME);
-
-
         assertFASurveyBackgroundInformationTab();
         assertFASurveyDemographicsTab();
         assertFASurveyMedicalHistoryTab();
