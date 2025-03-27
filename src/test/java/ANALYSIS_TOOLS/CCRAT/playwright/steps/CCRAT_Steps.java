@@ -217,4 +217,3 @@ public class CCRAT_Steps extends PageInitializer {
         CCRATStepsImpl.clickContactLink();
     }
 }
->>>>>>> e4e744e4561d23e8e36ffa7cf15ddad669e2d492
