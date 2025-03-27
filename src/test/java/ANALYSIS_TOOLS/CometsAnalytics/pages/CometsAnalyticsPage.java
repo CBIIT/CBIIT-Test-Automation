@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
+import java.util.List;
 
 public class CometsAnalyticsPage extends CommonUtils {
 
@@ -13,7 +14,7 @@ public class CometsAnalyticsPage extends CommonUtils {
 	}
 
 	/** ANALYSIS BUTTON **/
-	@FindBy(xpath = "//a[text()='Analysis']")
+	@FindBy(xpath = "//a[@href='/analysis']")
 	public WebElement analysisButton;
 
 	/** CHECK INTEGRITY BUTTON **/
@@ -25,7 +26,7 @@ public class CometsAnalyticsPage extends CommonUtils {
 	public WebElement tutorialsButton;
 
 	/* ABOUT COMETS BUTTON */
-	@FindBy(xpath = "/html/body/footer/div/div[1]/div[3]/ul/li[1]/a")
+	@FindBy(xpath = "//body//footer//div//ul//li//a[@href='https://epi.grants.cancer.gov/comets/']")
 	public WebElement aboutCometsButton;
 
 	/* VIGNETTES BUTTON */
@@ -33,7 +34,7 @@ public class CometsAnalyticsPage extends CommonUtils {
 	public WebElement vignettesButton;
 
 	/** ABOUT BUTTON **/
-	@FindBy(xpath = "//a[text()='About']")
+	@FindBy(xpath = "//a[@href='/about']")
 	public WebElement aboutButton;
 
 	/** ACCESSIBILITY TEXT **/
@@ -151,4 +152,28 @@ public class CometsAnalyticsPage extends CommonUtils {
 	/** PVALUE RANGE **/
 	@FindBy(id = "pValueRange")
 	public WebElement pValueRange;
+
+	/** RESET BUTTON UNDER METHOD OF ANALYSES **/
+	@FindBy(xpath = "//div[2]//div[1]//form[1]//div[3]//button[1]")
+	public WebElement resetButtonUnderMethodOfAnalyses;
+
+	/** CROSS BUTTON **/
+	@FindBy(xpath = "//div[@class='fade alert alert-primary alert-dismissible show']//button[@aria-label='Close alert']")
+	public WebElement crossButton;
+
+	/** CHECK ELEMENT CONTAINS SUCCESS MESSAGE **/
+	@FindBy(xpath = "//div[@class='fade alert alert-primary alert-dismissible show']")
+	public List<WebElement> SuccessMessageElement;
+
+	/** SELECT PAGE SIZE **/
+	@FindBy(xpath = "//select[@name='select-page-size']")
+	public WebElement selectPageSize;
+
+	/** DOWNLOAD BUTTON IN MODEL RESULT **/
+	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h2[1]/button[1]")
+	public WebElement downloadButtonModelResult;
+
+	/** LAST BUTTON IN THE MODEL RESULT PAGE **/
+	@FindBy(xpath = "//span[@aria-hidden='true'][normalize-space()='Last']")
+	public WebElement lastButton;
 }

@@ -314,6 +314,13 @@ public class TestProperties {
     public static String BCRAT_URL;
 
     /**
+     * CCRAT URLS
+     */
+    public static String CCRAT_TEST_URL = "https://ccrisktool-qa.cancer.gov/";
+    public static String CCRAT_STAGE_URL = "https://ccrisktool-stage.cancer.gov/";
+    public static String CCRAT_URL;
+
+    /**
      * MRAT URLS
      */
     public static String MRAT_TEST_URL = "https://mrisktool-qa.cancer.gov/";
@@ -818,6 +825,18 @@ public class TestProperties {
                 break;
         }
         return BCRAT_URL;
+    }
+
+    public static String getCCRATUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                CCRAT_URL = CCRAT_STAGE_URL;
+                break;
+            case "test":
+                CCRAT_URL = CCRAT_TEST_URL;
+                break;
+        }
+        return CCRAT_URL;
     }
 
     public static String getOAntakeUrl() {
