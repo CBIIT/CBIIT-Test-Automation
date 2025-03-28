@@ -2,6 +2,8 @@ package CUSTOM_BUSINESS.OASYS.Steps;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
+import APPS_COMMON.PlaywrightUtils.Playwright_Common_Utils;
+import CUSTOM_BUSINESS.OASYS.Utils.OASYS_CommonUtils;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.*;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -84,7 +86,6 @@ public class Contract_Deliverables {
     @Then("User will click on Save button")
     public void user_will_click_on_save_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -222,7 +223,6 @@ public class Contract_Deliverables {
     @Then("User clicks on DELETE button to remove the Deliverable Type")
     public void user_clicks_on_delete_button_to_remove_the_deliverable_type() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Delete")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -281,7 +281,6 @@ public class Contract_Deliverables {
     @Then("User will click on SUBMIT DELIVERABLE button")
     public void user_will_click_on_submit_deliverable_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit Deliverable")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -337,36 +336,110 @@ public class Contract_Deliverables {
     @Then("User will click on APPROVE button")
     public void user_will_click_on_approve_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Approve")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
      * This method clicks on Undo Review button for CO
      */
-    @And("User clicks on Undo Review for CO")
+    @Then("User clicks on Undo Review for CO to reset the deliverable status")
     public void user_clicks_on_undo_review_for_co() {
         page.getByRole(AriaRole.ROW, new Page.GetByRoleOptions().setName("Test CO CO - Final Reviewer")).getByRole(AriaRole.BUTTON).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
-     * This method clicks on Undo Review button for COR
+     * This method resets the deliverable status to prepare it for deletion
      */
-    @And("User clicks on Undo Review for COR")
-    public void user_clicks_on_undo_review_for_cor() {
-        CommonUtils.sleep(7000);
-        page.locator("(//button[@class='mat-focus-indicator undo mat-button mat-button-base mat-primary'])[1]").click();
-        CucumberLogUtils.playwrightScreenshot(page);
-    }
-
-    /**
-     * This method navigates back the Deliverable list and removes the review deliverable from the list
-     */
-    @Then("And User navigates back the Deliverable list")
+    @And("User updates a Deliverable status from the list to prepare it for deletion")
     public void and_user_navigates_back_the_deliverable_list() {
+        page.locator("(//mat-cell/div[contains(text(),'Deliverable for Automated Test')])[1]").click();
+        Playwright_Common_Utils.scrollIntoView("xpath=//span/mat-panel-title[contains(text(),'Members')]");
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Members")).click();
+        page.getByRole(AriaRole.ROW, new Page.GetByRoleOptions().setName("Test CO CO - Final Reviewer")).getByRole(AriaRole.BUTTON).click();
         page.getByText("arrow_backIT Commodities and").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method clicks on RESET TO DEFAULT REVIEWERS button
+     */
+    @And("User clicks on RESET TO DEFAULT REVIEWERS")
+    public void user_clicks_on_reset_to_default_reviewers() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Reset To Default Reviewers")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method clicks on the Version dropdown to select a version
+     */
+    @And("User clicks on Version dropdown to select a version")
+    public void user_clicks_on_version_dropdown_to_select_a_version() {
+        page.getByLabel("2").locator("div").nth(2).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("2").setExact(true)).locator("span").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method unchecks the Version Active checkbox
+     */
+    @And("User unchecks the Version Active box")
+    public void user_unchecks_the_version_active_box() {
+        page.getByText("Version Active").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method clicks on the Deliverable from To Do list in Submitted status
+     */
+    @And("User clicks on the Deliverable from To Do list in Submitted status")
+    public void user_clicks_on_the_deliverable_from_to_do_list_in_submitted_status() {
+        page.locator("(//mat-cell/div[contains(text(),'Deliverable for Automated Test')])[1]").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method clicks on the REJECT button on upper right corner of the page
+     */
+    @And("User clicks on REJECT button on the upper right corner of the page")
+    public void user_clicks_on_reject_button_on_the_upper_right_corner_of_the_page() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Reject")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method checks the box for Confirm Reject
+     */
+    @And("User checks the box for Confirm Reject")
+    public void user_checks_the_box_for_confirm_reject() {
+        page.locator(".mat-checkbox-inner-container").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method clicks on the REJECT button
+     */
+    @And("User will click on Reject button")
+    public void user_will_click_on_reject_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Reject")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method verifies the status is updated to Rejected
+     */
+    @Then("User verifies the status is updated to Rejected")
+    public void user_verifies_the_rejected_status() {
+        OASYS_CommonUtils.waitForElementToBeVisible("text=Status Updated");
+        assertThat(page.getByText("Status Updated")).isVisible();
+        page.waitForSelector("span.status.clear:has-text('REJECTED')", new Page.WaitForSelectorOptions().setState(WaitForSelectorState.VISIBLE));
+        assertThat(page.locator("dynamic-detail-header")).containsText("REJECTED");
+    }
+
+    /**
+     * This method deletes a deliverable in Submitted status
+     */
+    @Then("User deletes the submitted deliverable")
+    public void user_deletes_the_submitted_deliverable() {
         page.locator("mat-cell").filter(new Locator.FilterOptions().setHasText("delete")).click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Delete")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 }
