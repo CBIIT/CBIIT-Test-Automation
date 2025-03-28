@@ -1,6 +1,6 @@
 Feature: Applicant Flow Scenarios
 
-  @Regression @Nekrashevich @SSJ-948 @selenium @Smoke @SNOW_UPDATED
+  @Regression @Nekrashevich @SSJ-948 @selenium @Smoke @SNOW_UPDATED @XAN_UPDATED
   Scenario: Applicant view of SSJ Landing page
     Given User is on SSJ Landing page and user is "Okta Verified Applicant"
     And User can see SSJ landing page title "Specialized Scientific Jobs"
@@ -11,7 +11,7 @@ Feature: Applicant Flow Scenarios
       | column1       | column2   | column3            |
       | Vacancy Title | Institute | Application Period |
 
-  @Regression @Nekrashevich @selenium @Smoke @SNOW_UPDATED
+  @Regression @Nekrashevich @selenium @Smoke @SNOW_UPDATED @XAN_UPDATED
   Scenario: Vacancy Details View for an Applicant
     Given User is on SSJ Landing page and user is "Okta Verified Applicant"
     And User is on SSJ landing page
@@ -28,7 +28,7 @@ Feature: Applicant Flow Scenarios
     And User can verify the description of "FOREIGN EDUCATION" statement
     Then User can verify the description of "REASONABLE ACCOMODATION" statement
 
-  @Regression @Nekrashevich @selenium @Smoke @SNOW_UPDATED
+  @Regression @Nekrashevich @selenium @Smoke @SNOW_UPDATED @XAN_UPDATED
   Scenario: Your Applications tab
     Given User is on SSJ Landing page and user is "Okta Verified Applicant"
     When User is on Your Applications tab

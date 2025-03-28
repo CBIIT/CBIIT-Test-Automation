@@ -36,7 +36,7 @@ public class Playwright_ServiceNow_Common_Methods {
         page.waitForLoadState();
         page.reload();
         CommonUtils.sleep(2000);
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CBIIT Test Account: available")).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Available")).click();
         page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName(Playwright_NativeView_Dashboard_Page.impersonateUserOption)).click();
         CommonUtils.sleep(3000);
         page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName(Playwright_NativeView_Dashboard_Page.impersonateUserDropDown)).click();
@@ -71,7 +71,7 @@ public class Playwright_ServiceNow_Common_Methods {
      */
     public static void logOutOfNativeView(){
         page.navigate(getNCISPUrl());
-        page.locator(Playwright_ServiceNow_NCISP_Page.profileAccountButton).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Available")).click();
         page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName(Playwright_ServiceNow_NCISP_Page.logOutLink)).click();
     }
 }
