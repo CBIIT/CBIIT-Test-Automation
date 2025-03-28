@@ -3,7 +3,6 @@ package PLATFORM_BUSINESS.SSJ.playwright.utils;
 import com.microsoft.playwright.ElementHandle;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
-
 import java.time.LocalDate;
 import java.util.List;
 
