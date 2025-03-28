@@ -5,8 +5,7 @@ public class FanconiSurveyPage {
     /**
      * Fanconi Survey URL Link
      */
-//    public static final String PASSWORD_VALUE = "RASTest2023$$";
-    public static final String PASSWORD_VALUE = "Charms123$";
+    public static final String PASSWORD_VALUE = "RASTest2023$$";
 
     /**
      * NCI Family Studies Hub: Fanconi Cancer Heading text
@@ -406,14 +405,12 @@ public class FanconiSurveyPage {
     /**
      * Email text field
      */
-//    public static final String EMAIL = "charmsras3@yahoo.com";
-    public static final String EMAIL = "fanconi_participant@yopmail.com";
+    public static final String EMAIL = "charmsras3@yahoo.com";
 
     /**
      * Password text field
      */
-//    public static final String USER_PASSWORD = "RASTest2023$$";
-    public static final String USER_PASSWORD = "Charms123$";
+    public static final String USER_PASSWORD = "RASTest2023$$";
 
     /**
      * next label
