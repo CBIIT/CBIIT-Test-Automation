@@ -16,6 +16,8 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.TestProperties;
 import org.testng.Assert;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -151,11 +153,29 @@ public class OWM_Vacancy_Manager_StepsImpl{
         Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
         page.locator(Vacancy_Dashboard_Page.closeDateCalendar).click();
         page.locator(Vacancy_Dashboard_Page.closeDateCalendar).fill(CommonUtils.getOneMonthFromTodayDate_In_DD_MM_YYY_format());
-        page.locator("(//span[@class='ant-picker-next-icon'])[2]").click();
         List<ElementHandle> list = page.querySelectorAll(Vacancy_Dashboard_Page.closeDateCalendarOptions);
         for (ElementHandle day : list) {
             if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format().trim())) {
-                page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format() + "'])[2]").click();
+                page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format() + "'])[1]").click();
+                break;
+            }
+        }
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Sets a close date for live vacancies one month from the open date on the calendar.
+     *
+     * @param text The text displayed on the calendar for the close date entry
+     */
+    public static void user_sets_a_entry_a_month_from_the_open_date_for_live_vacancies(String text) {
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
+        page.locator(Vacancy_Dashboard_Page.closeDateCalendar).click();
+        page.locator(Vacancy_Dashboard_Page.closeDateCalendar).fill(CommonUtils.getOneMonthFromTodayDate_In_DD_MM_YYY_format());
+        List<ElementHandle> list = page.querySelectorAll(Vacancy_Dashboard_Page.closeDateCalendarOptions);
+        for (ElementHandle day : list) {
+            if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format().trim())) {
+                page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format() + "'])[1]").click();
                 break;
             }
         }
@@ -170,11 +190,10 @@ public class OWM_Vacancy_Manager_StepsImpl{
     public static void user_sets_entry(String text) {
         page.getByLabel(text).click();
         page.locator(Vacancy_Dashboard_Page.scoringDueByDateCalendar).fill(CommonUtils.getOneMonthFromTodayDate_In_DD_MM_YYY_format());
-        page.locator("(//span[@class='ant-picker-next-icon'])[3]").click();
         List<ElementHandle> list = page.querySelectorAll(Vacancy_Dashboard_Page.calendarOptions);
         for (ElementHandle day : list) {
             if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format().trim())) {
-                page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format() + "'])[3]").click();
+                page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format() + "'])[2]").click();
                 break;
             }
         }
@@ -359,11 +378,7 @@ public class OWM_Vacancy_Manager_StepsImpl{
         page.getByTitle("Research Fellow", new Page.GetByTitleOptions().setExact(true)).locator("div").click();
         page.locator(Vacancy_Dashboard_Page.organizationCodeDropDown).click();
         page.locator(Vacancy_Dashboard_Page.organizationCodeDropDown).focus();
-        for (int i = 0; i < 346; i++) {
-            page.keyboard().press("ArrowUp");
-            page.waitForTimeout(200);
-        }
-        page.getByTitle("HNC", new Page.GetByTitleOptions().setExact(true)).locator("div").click();
+        page.getByTitle("HNC1", new Page.GetByTitleOptions().setExact(true)).locator("div").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -520,7 +535,7 @@ public class OWM_Vacancy_Manager_StepsImpl{
      * @param expectedText the text expected to be displayed on the button
      */
     public static void user_confirms_button_is_displayed(String expectedText) {
-        String actualText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedText)).innerText();
+        String actualText = page.locator("(//span[normalize-space()='Add Member'])[1]").innerText();
         Assert.assertEquals(actualText, expectedText);
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -626,8 +641,8 @@ public class OWM_Vacancy_Manager_StepsImpl{
         }
         if (page.isVisible(Vacancy_Committee_Page.vacancyCommitteeChairRoleDropDown)){
             page.locator(Vacancy_Committee_Page.vacancyCommitteeChairRoleDropDown).click();
-        }else if(page.isVisible(Vacancy_Committee_Page.vacancyCommitteeMemberDropDown)){
-            page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberDropDown).click();
+        }else if(page.isVisible(Vacancy_Committee_Page.vacancyCommitteeMemberRoleDropDown)){
+            page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberRoleDropDown).click();
         }
         page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator("Executive Secretary (non-voting)")).click();
     }
@@ -675,7 +690,7 @@ public class OWM_Vacancy_Manager_StepsImpl{
         List<ElementHandle> pagination = page.querySelectorAll("//a[@rel='nofollow']");
         for (ElementHandle itemPage : pagination) {
             if (page.querySelector("//a[normalize-space()='" + vacancyTitle + " " + applicantProfileStepsImpl.timestamp + "']") != null) {
-                String actualVacancy = page.locator("//a[normalize-space()='" + vacancyTitle + ' ' + applicantProfileStepsImpl.timestamp).innerText();
+                String actualVacancy = page.locator("(//a[normalize-space()='" + vacancyTitle + ' ' + applicantProfileStepsImpl.timestamp + "'])[1]").innerText();
                 CommonUtils.sleep(2000);
                 System.out.println("Timestamp before assertion: " + applicantProfileStepsImpl.timestamp);
                 String expectedVacancy = vacancyTitle + " " + applicantProfileStepsImpl.timestamp;
@@ -685,5 +700,103 @@ public class OWM_Vacancy_Manager_StepsImpl{
                 itemPage.click();
             }
         }
+    }
+
+    /**
+     * Method to verify if the table columns are displayed as expected.
+     *
+     * @param vacancyTitle Expected title of the vacancy column
+     * @param applicants Expected title of the applicants column
+     * @param openDate Expected title of the open date column
+     * @param closeDate Expected title of the close date column
+     * @param actions Expected title of the actions column
+     */
+    public static void user_can_verify_the_table_columns_are_displayed_as(String vacancyTitle, String applicants, String openDate, String closeDate, String actions) {
+        ElementHandle tableHeader = page.querySelector(".ant-table-thead");
+        List<ElementHandle> allHeaders = page.querySelectorAll(".ant-table-thead");
+        if(allHeaders.size() >= 2) {
+            tableHeader = allHeaders.get(1);
+        }
+        List<ElementHandle> headerElements = tableHeader.querySelectorAll("th");
+        List<String> columnHeaders = new ArrayList<>();
+        int headerPosition = 0;
+        for (ElementHandle header : headerElements) {
+            String headerText = header.innerText();
+            if(headerText != null && !headerText.isEmpty()) { // Check if not empty
+                columnHeaders.add(headerText);
+                switch(headerPosition) {
+                    case 0: Assert.assertEquals(vacancyTitle, headerText); break;
+                    case 1: Assert.assertEquals(applicants, headerText); break;
+                    case 2: Assert.assertEquals(openDate, headerText); break;
+                    case 3: Assert.assertEquals(closeDate, headerText); break;
+                    case 4: Assert.assertEquals(actions, headerText); break;
+                }
+                headerPosition++;
+            }
+        }
+    }
+
+    /**
+     * This method verifies that the live subfilter displays vacancies in the open state.
+     * It clicks on the 'Open Date' column to sort the vacancies based on their opening dates.
+     * Then it checks each vacancy's close date cell to ensure that the date is in the future,
+     * indicating that the vacancy is still open.
+     */
+    public static void user_can_verify_that_live_subfilter_displays_vacancies_in_the_open_state() {
+        page.locator("(//span[@class='ant-table-column-title'][normalize-space()='Open Date'])[2]").click();
+        page.waitForSelector("(//thead[@class='ant-table-thead'])[2]");
+        List<ElementHandle> rows = page.querySelectorAll("tr");
+        for (ElementHandle row : rows) {
+            ElementHandle closeDateCell = row.querySelector("td:nth-child(5)");
+            if (closeDateCell != null) {
+                String closeDateString = closeDateCell.innerText().trim();
+                if (!closeDateString.isEmpty() && closeDateString.matches("\\d{2}/\\d{2}/\\d{4}")) {
+                    System.out.println(closeDateString);
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+                    LocalDate closeDate = LocalDate.parse(closeDateString, formatter);
+                    Assert.assertTrue(closeDate.isAfter(LocalDate.now().minusDays(1)));
+                }
+            }
+        }
+    }
+
+    /**
+     * This method allows the user to verify that all subfilters display vacancies in the open state.
+     * It clicks on the Open Date column header to sort the vacancies, waits for the table to load,
+     * then iterates through each row checking the close date of the vacancy in the 5th column.
+     * If the close date is a valid date format (MM/dd/yyyy) and is after the current date minus 1 day,
+     * it considers the vacancy as still open.
+     * This method outputs the close date of each vacancy that is considered open and asserts that
+     * the close date is after the current date minus 1 day.
+     */
+    public static void user_can_verify_that_all_subfilter_displays_vacancies_in_the_open_state() {
+        page.locator("(//span[@class='ant-table-column-title'][normalize-space()='Open Date'])[2]").click();
+        page.waitForSelector("(//thead[@class='ant-table-thead'])[2]");
+        List<ElementHandle> rows = page.querySelectorAll("tr");
+        for (ElementHandle row : rows) {
+            ElementHandle closeDateCell = row.querySelector("td:nth-child(5)");
+            if (closeDateCell != null) {
+                String closeDateString = closeDateCell.innerText().trim();
+                if (!closeDateString.isEmpty() && closeDateString.matches("\\d{2}/\\d{2}/\\d{4}")) {
+                    System.out.println(closeDateString);
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+                    LocalDate closeDate = LocalDate.parse(closeDateString, formatter);
+                    Assert.assertTrue(closeDate.isAfter(LocalDate.now().minusDays(1)));
+                }
+            }
+        }
+    }
+
+    /**
+     * Sets an entry for tomorrow's date.
+     *
+     * @param text The text to be set for tomorrow's date entry
+     */
+    public static void user_sets_an_entry_for_tomorrows_date(String text){
+        page.waitForLoadState();
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
+        page.locator(Vacancy_Dashboard_Page.openDateCalendar).click();
+        SSJ_Common_Utils.selectingTomorrowsCalendarOption(Vacancy_Dashboard_Page.openDateCalendarOptions);
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 }

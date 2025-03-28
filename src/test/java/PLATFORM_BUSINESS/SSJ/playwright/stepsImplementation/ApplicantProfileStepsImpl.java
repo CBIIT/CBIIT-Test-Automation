@@ -306,6 +306,28 @@ public class ApplicantProfileStepsImpl {
     }
 
     /**
+     * Selects a reference collection date ten days from today for live vacancies.
+     * This method waits for the page to load, clicks on the "Reference Collection Date" field,
+     * fills the input with the date ten days from today in the format MM/DD/YYYY,
+     * iterates through the calendar options to find and click on the specific date matching the calculated date,
+     * and takes a screenshot using Playwright.
+     */
+    public static void selects_a_reference_collection_date_ten_days_from_today_for_live_vacancies() {
+        page.waitForLoadState();
+        page.getByLabel("Reference Collection Date").click();
+        page.locator("//div[@class='ant-picker ant-picker-focused']//input[@placeholder='Select date']").fill(CommonUtils.getDateAfterTenDaysIn_MM_DD_YYYY_format());
+        List<ElementHandle> list = page.querySelectorAll(Vacancy_Dashboard_Page.closeDateCalendarOptions);
+        for (ElementHandle day : list) {
+            if (day.getAttribute("title").trim().equals(CommonUtils.getDateAfterTenDaysIn_YYYY_MM_DD_format().trim())) {
+                page.locator("(//*[@title='" + CommonUtils.getDateAfterTenDaysIn_YYYY_MM_DD_format() + "'])[2]").click();
+                break;
+            }
+        }
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+
+    /**
      * Selects the option for full contact details for references.
      *
      * @param text The text value of the option to be selected.
@@ -1684,13 +1706,13 @@ public class ApplicantProfileStepsImpl {
         page.locator("//span[normalize-space()='"+logInButton+"']").click();
         CommonUtils.sleep(4000);
         List<Page> pages = page.context().pages();
+        CommonUtils.sleep(5000);
         newPage = pages.get(pages.size() - 1);
         if (TestProperties.ENV.equals("test")){
             Hooks.softAssert.assertEquals(newPage.url(), "https://iam-stage.cancer.gov/app/servicenow_ud/exk13dplx1oy5d1pZ0h8/sso/saml?RelayState=https://specializedscientificjobs-test.nih.gov/nih-ssj.do#/");
         } else if (TestProperties.ENV.equals("sandbox")) {
-            Hooks.softAssert.assertEquals(newPage.url(), "https://iam-stage.cancer.gov/app/servicenow_ud/exk13dplx1oy5d1pZ0h8/sso/saml?RelayState=https://specializedscientificjobs-sandbox.nih.gov/nih-ssj.do#/");
+            Hooks.softAssert.assertEquals(newPage.url(), "https://iam-stage.cancer.gov/app/servicenow_ud/exk277y1yxnWVB2JM0h8/sso/saml?RelayState=https://ezapps-test.nih.gov/nih-ssj.do#/");
         }
-
     }
 
     /**

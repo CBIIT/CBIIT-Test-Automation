@@ -1,7 +1,7 @@
 Feature: Applicant Profile Scenarios
   Description: This Feature file contains Applicant Profile Scenarios
 
-  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @JUAREZDS @Regression @playwright @SNOW_UPDATED
+  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @JUAREZDS @Regression @playwright @XAN_UPDATED @EZ_UPDATED
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
@@ -42,7 +42,7 @@ Feature: Applicant Profile Scenarios
       | SSJTest   | Marianna   | Mollick    | mollickja@nih.gov  | 7018211343 | 2123323454           | Masters          | Yes            | 11 Kolls | 6         | Sausalito  | CA    | USA     | 97712 |
       | SSJTest   | Elena      | Andrew     | andrewkl@nih.gov   | 8233212333 | 2202122234           | Bachelors        | Yes            | 11 Bells | 39        | Sacramento | CA    | USA     | 95512 |
 
-  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @SSJ-712 @JUAREZDS @Regression @playwright @SNOW_UPDATED
+  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @SSJ-712 @JUAREZDS @Regression @playwright @XAN_UPDATED @EZ_UPDATED
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
@@ -84,7 +84,7 @@ Feature: Applicant Profile Scenarios
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | US Citizenship | address | aptNumber | city   | state | country | zip   |
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
 
-  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright @SNOW_UPDATED
+  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright @XAN_UPDATED @EZ_UPDATED
   Scenario Outline: Verifying applicant is able to see "Your Applications" tab and page content after applying to a Vacancy
 #    Given an Okta user "" is on the SSJ home page and logs in - PLEASE LEAVE THIS HERE! NEED TO CONNECT WITH OKTA TEAM
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
@@ -102,8 +102,8 @@ Feature: Applicant Profile Scenarios
     And selects "HNC" for Organizational Code drop down
     And clicks "Save"
     And clicks Save for Mandatory Statements
-    And selects "David Rampulla" for Committee Member with chair role
-    And selects "Jason Levine" for Committee Member with Executive Secretary role
+    And selects "David Rice" for Committee Member with chair role
+    And selects "William Klein" for Committee Member with Executive Secretary role
     And clicks "Save"
     And clicks Save for Email Templates
     Then user is able to see the Review and Finalize section with the vacancy information submitted
@@ -192,12 +192,12 @@ Feature: Applicant Profile Scenarios
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 | Fred                  | Trout                  | Laste                | referenceOne@test.com | 7036875816              | Supervisor/Manager       | PROJECT MANAGER           | TESTING ORGANIZATION FIELD FOR REFERENCE ONE | John                  | Steven                 | Vakhutko             | referenceTwo@test.com | 7036875816              | Co-worker                | TEST AUTOMATION LEAD      | TESTING ORGANIZATION FIELD FOR REFERENCE TWO |
 
 
-  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright @SNOW_UPDATED @ActionsTest
+  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright @XAN_UPDATED @EZ_UPDATED
   Scenario: Verifying applicant does not see "Your Applications" tab if applicant has not applied to a Vacancy
     Given a user who has not applied to a Vacancy before is on the SSJ home page
     Then Your Applications tab should NOT be displayed
 
-  @TC_APPTRACK-145 @JUAREZDS @Regression @playwright @SNOW_UPDATED
+  @TC_APPTRACK-145 @JUAREZDS @Regression @playwright @XAN_UPDATED @EZ_UPDATED
   Scenario: Verifying Vacancy details
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And clicks on "Vacancy Dashboard" - PW
@@ -214,8 +214,8 @@ Feature: Applicant Profile Scenarios
     And selects "HNC" for Organizational Code drop down
     And clicks "Save"
     And clicks Save for Mandatory Statements
-    And selects "David Rampulla" for Committee Member with chair role
-    And selects "Jason Levine" for Committee Member with Executive Secretary role
+    And selects "David Rice" for Committee Member with chair role
+    And selects "William Klein" for Committee Member with Executive Secretary role
     And clicks "Save"
     And clicks Save for Email Templates
     Then user is able to see the Review and Finalize section with the vacancy information submitted
@@ -233,7 +233,7 @@ Feature: Applicant Profile Scenarios
     And verifies Application Documents text "APPLICATION DOCUMENTS"
     And verifies required documents with required references needed to apply to this test Vacancy
 
-  @TC_APPTRACK-144 @JUAREZDS @Regression @playwright
+  @TC_APPTRACK-144 @JUAREZDS @Regression @playwright @XAN_UPDATED @EZ_UPDATED
   Scenario: Applying for vacancy as unauthenticated applicant
     Given an unauthenticated applicant is on the SSJ homepage "SSJPortalView"
     And verifies that the drop drown text is "Login"
@@ -249,7 +249,7 @@ Would you like to log in now or go back to the home page?
     And verifies that the text on the buttons is "Create an account" "Log in" "Go Back"
     And clicks "Log in" and is redirected to the Okta Login Portal
 
-  @TC_APPTRACK-128 @JUAREZDS @Regression @playwright @SNOW_UPDATED
+  @TC_APPTRACK-128 @JUAREZDS @Regression @playwright @EZ_UPDATED
   Scenario Outline: Verification of the Save application functionality
     Given a test account "SSJTest" is reset before executing a test
     And a test vacancy "DIEGO TEST" is reset before creating a vacancy
@@ -268,8 +268,8 @@ Would you like to log in now or go back to the home page?
     And selects "HNC" for Organizational Code drop down
     And clicks "Save"
     And clicks Save for Mandatory Statements
-    And selects "David Rampulla" for Committee Member with chair role
-    And selects "Jason Levine" for Committee Member with Executive Secretary role
+    And selects "David Rice" for Committee Member with chair role
+    And selects "William Klein" for Committee Member with Executive Secretary role
     And clicks "Save"
     And clicks Save for Email Templates
     And user is able to see the Review and Finalize section with the vacancy information submitted
@@ -317,7 +317,7 @@ Would you like to log in now or go back to the home page?
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | address | aptNumber | city   | state | country | zip   |
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
 
-  @TC_APPTRACK-360 @JUAREZDS @Regression @playwright @SNOW_UPDATED
+  @TC_APPTRACK-360 @JUAREZDS @Regression @playwright @EZ_UPDATED
   Scenario Outline: Verification of the Save application functionality
     Given a test account "SSJTest" is reset before executing a test
     And User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
@@ -335,8 +335,8 @@ Would you like to log in now or go back to the home page?
     And selects "HNC" for Organizational Code drop down
     And clicks "Save"
     And clicks Save for Mandatory Statements
-    And selects "David Rampulla" for Committee Member with chair role
-    And selects "Jason Levine" for Committee Member with Executive Secretary role
+    And selects "David Rice" for Committee Member with chair role
+    And selects "William Klein" for Committee Member with Executive Secretary role
     And clicks "Save"
     And clicks Save for Email Templates
     And user is able to see the Review and Finalize section with the vacancy information submitted
@@ -477,14 +477,14 @@ Would you like to log in now or go back to the home page?
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | address | aptNumber | city   | state | country | zip   | referenceOneFirstName | referenceOneMiddleName | referenceOneLastName | referenceOneEmail     | referenceOnePhoneNumber | referenceOneRelationship | referenceOnePositionTitle | referenceOneOrganizationName                 | referenceTwoFirstName | referenceTwoMiddleName | referenceTwoLastName | referenceTwoEmail     | referenceTwoPhoneNumber | referenceTwoPositionTitle | referenceTwoOrganizationName                 | updatedReferenceOneFirstName | updatedReferenceOneMiddleName | updatedReferenceOneLastName | updatedReferenceOneEmail     | updatedReferenceOnePhoneNumber | updatedReferenceOneRelationship | updatedReferenceOnePositionTitle | updatedReferenceOneOrganizationName                  | updatedReferenceTwoFirstName | updatedReferenceTwoMiddleName | updatedReferenceTwoLastName | updatedReferenceTwoEmail     | updatedReferenceTwoPhoneNumber | updatedReferenceTwoPositionTitle | updatedReferenceTwoOrganizationName                  |
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | 7 Mills | 12378     | Reston | VA    | USA     | 20453 | Fred                  | Trout                  | Laste                | referenceOne@test.com | 7036875816              | Supervisor/Manager       | PROJECT MANAGER           | TESTING ORGANIZATION FIELD FOR REFERENCE ONE | John                  | Steven                 | Vakhutko             | referenceTwo@test.com | 7036875816              | TEST AUTOMATION LEAD      | TESTING ORGANIZATION FIELD FOR REFERENCE TWO | Elizabeth                    | Mary                          | Smith                       | updatedReferenceOne@test.com | 7036875817                     | Colleague                       | BUSINESS ANALYST                 | UPDATED TESTING ORGANIZATION FIELD FOR REFERENCE ONE | Adam                         | Elliot                        | Washington                  | updatedReferenceTwo@test.com | 7036875817                     | PRODUCT OWNER                    | UPDATED TESTING ORGANIZATION FIELD FOR REFERENCE TWO |
 
-  @TC_APPTRACK-827 @cabreralf @Regression @playwright
+  @TC_APPTRACK-827 @cabreralf @Regression @playwright @XAN_UPDATED @EZ_UPDATED
   Scenario: Banner Notifying an Applicant While They are Editing a Submitted Application That Their Changes Will Not Save
     Given User is on SSJ Landing page and user is "OKTA_APPLICANT" - PW
     When user navigates to Your Applications tab
     And edits an application for a vacancy that status is "Submitted"
     Then user sees a banner "You are editing a submitted application. Changes are not saved until the application is submitted again."
 
-  @TC_APPTRACK-127 @playwright @cabreralf @Regression @BUG_OPEN
+  @TC_APPTRACK-127 @playwright @cabreralf @Regression @BUG_OPEN @XAN_UPDATED @EZ_UPDATED
   Scenario Outline: Verify the edit application functionality from review application page
     Given User is on SSJ Landing page and user is "OKTA_APPLICANT" - PW
     When user navigates to Your Applications tab
@@ -496,6 +496,18 @@ Would you like to log in now or go back to the home page?
     And uploads a Vision Statement if Vision Statement option is displayed
     And clicks "Next"
     And user verifies is on the "References" section of the vacancy application
+    Then if reference one is required then user enters Reference One first name "referenceOneFirstName"
+    And enters Reference One middle name "referenceOneMiddleName"
+    And enters Reference One last name "referenceOneLastName"
+    And enters Reference One email address "referenceOneEmail@test.com"
+    And enters Reference One phone number "7778889999"
+    And enters Reference One organization name "referenceOneOrganizationName"
+    Then if reference two is required then user enters Reference Two first name "referenceTwoFirstName"
+    And enters Reference Two middle name "referenceTwoMiddleName"
+    And enters Reference Two last name "referenceTwoLastName"
+    And enters Reference Two email address "referenceTwoEmail@test.com"
+    And enters Reference Two phone number "5554447777"
+    And enters Reference Two organization name "referenceTwoOrganizationName"
     And clicks "Next"
     And user verifies is on the "Demographic Information" section of the vacancy application
     And clicks "Next"
@@ -524,14 +536,14 @@ Would you like to log in now or go back to the home page?
       | Female | Hispanic or Latino       | Black or African-American                 | None of the conditions listed above apply to me.                                   |
       | Female | Not Hispanic or Latino   | Asian                                     | I do not wish to answer questions regarding my disability/health conditions.       |
 
-  @TC_APPTRACK-928 @playwright @Regression @cabreralf
+  @TC_APPTRACK-928 @playwright @Regression @cabreralf @XAN_UPDATED @EZ_UPDATED
   Scenario: Profile Edit button is blue
     Given User is on SSJ Landing page and user is "OKTA_APPLICANT" - PW
     And User is on Profile tab - PW
     When user inspects the color of the Edit button
     Then verifies it is the correct blue color
 
-  @TC_APPTRACK-928 @playwright @Regression @cabreralf
+  @TC_APPTRACK-928 @playwright @Regression @cabreralf @XAN_UPDATED @EZ_UPDATED
   Scenario: Tool Tip for "Phone" and "Business Phone" field in the Profile
     Given User is on SSJ Landing page and user is "OKTA_APPLICANT" - PW
     And User is on Profile tab - PW

@@ -24,7 +24,8 @@ public class TestProperties {
      */
     public static final String NATIVE_VIEW_SIDE_DOOR_STAGE_URL = "https://service-stage.nci.nih.gov/side_door.do";
     public static final String NATIVE_VIEW_SIDE_DOOR_TEST_URL = "https://service-test.nci.nih.gov/side_door.do";
-    public static final String NATIVE_VIEW_SIDE_DOOR_SANDBOX_URL = "https://service-test.nci.nih.gov/side_door.do";
+    public static final String NATIVE_VIEW_SIDE_DOOR_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/side_door.do";
+    public static final String NATIVE_VIEW_SIDE_DOOR_EZAPPS_TEST_URL = "https://ezapps-test.nih.gov/login.do";
     public static String NATIVE_VIEW_SIDE_DOOR_URL;
 
     /**
@@ -33,6 +34,7 @@ public class TestProperties {
     public static final String SSJ_STAGE_URL = "https://service-stage.nci.nih.gov/nih-ssj.do";
     public static final String SSJ_TEST_URL = "https://service-test.nci.nih.gov/nih-ssj.do";
     public static final String SSJ_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/nih-ssj.do";
+    public static final String SSJ_EZAPPS_TEST_URL = "https://ezapps-test.nih.gov/nih-ssj.do#/";
     public static String SSJ_URL;
 
     /**
@@ -41,6 +43,7 @@ public class TestProperties {
     public static final String SERVICENOW_NCISP_TEST_URL = "https://service-test.nci.nih.gov/ncisp";
     public static final String SERVICENOW_NCISP_STAGE_URL = "https://service-stage.nci.nih.gov/ncisp";
     public static final String SERVICENOW_NCISP_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/ncisp";
+    public static final String SERVICENOW_NCISP_EZAPPS_TEST_URL = "https://ezapps-test.nih.gov/now/nav/ui/home";
     public static String SERVICENOW_NCISP_URL;
 
     /**
@@ -332,6 +335,8 @@ public class TestProperties {
             case "sandbox":
                 NATIVE_VIEW_SIDE_DOOR_URL = NATIVE_VIEW_SIDE_DOOR_SANDBOX_URL;
                 break;
+            case "ezapps":
+                NATIVE_VIEW_SIDE_DOOR_URL = NATIVE_VIEW_SIDE_DOOR_EZAPPS_TEST_URL;
         }
         return NATIVE_VIEW_SIDE_DOOR_URL;
     }
@@ -347,6 +352,9 @@ public class TestProperties {
             case "sandbox":
                 SSJ_URL = SSJ_SANDBOX_URL;
                 break;
+            case "ezapps":
+                SSJ_URL = SSJ_EZAPPS_TEST_URL;
+                break;
         }
         return SSJ_URL;
     }
@@ -361,6 +369,9 @@ public class TestProperties {
                 break;
             case "sandbox":
                 SERVICENOW_NCISP_URL = SERVICENOW_NCISP_SANDBOX_URL;
+                break;
+            case "ezapps":
+                SERVICENOW_NCISP_URL = SERVICENOW_NCISP_EZAPPS_TEST_URL;
                 break;
         }
         return SERVICENOW_NCISP_URL;

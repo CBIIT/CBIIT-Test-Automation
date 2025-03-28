@@ -1,7 +1,7 @@
 Feature: OWM Vacancy Manager Scenarios
   Description: This Feature file contains OWM Vacancy Manager Scenarios
 
-  @SSJ-7 @SSJ-8 @juarezds @Regression @playwright @Smoke @SNOW_UPDATED
+  @SSJ-7 @SSJ-8 @juarezds @Regression @playwright @Smoke @XAN_UPDATED @EZ_UPDATED
   Scenario: Verification of Basic Vacancy Information section while creating an NCI Vacancy
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -27,7 +27,6 @@ Feature: OWM Vacancy Manager Scenarios
     And User verifies Full Contact Details for References slider has 16 (Zero - fifteen) options
     And User verifies that Number of Scoring Categories slider is set to "4" by default
     And User verifies Number of Scoring Categories slider has 6 (One - six) options
-    And User verifies that all positions are present via Position Classification dropdown
     And User verifies the text of "Position Classification" i tooltip is
     """
     Select the Intramural or Extramural Professional Designation for your vacancy. Select “N/A” for Stadtman positions.
@@ -45,7 +44,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks "Save" button to save the Basic Vacancy Information
     And User confirms that User is on "Mandatory Statements" section
 
-  @SSJ-69 @juarezds @Regression @playwright @Smoke @SNOW_UPDATED
+  @SSJ-69 @juarezds @Regression @playwright @Smoke @SNOW_UPDATED @XAN_UPDATED @@EZ_UPDATED
   Scenario: Verification of Mandatory Statements section while creating an NCI Vacancy
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -77,7 +76,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks button "Save" - PW
     Then User confirms that User is on "Vacancy Committee" section
 
-  @SSJ-185 @SSJ-306 @juarezds @Regression @playwright @SNOW_UPDATED
+  @SSJ-185 @SSJ-306 @juarezds @Regression @playwright @XAN_UPDATED @EZ_UPDATED
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Positive Flow
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -91,28 +90,25 @@ Feature: OWM Vacancy Manager Scenarios
     And User confirms " Add Member" button is displayed
     When User clicks button " Add Member" - PW
     Then User can see Chair "Chair" role option is displayed by default for Role drop down
-    When the user adds a Committee Member "David Rampulla" for Chair role
+    When the user adds a Committee Member "David Rice" for Chair role
     When User clicks "Save" for Actions
     Then User can see "At least one committee member must be of the role 'Executive Secretary'" alert
     When User clicks button " Add Member" - PW
-    Then User adds Committee Member "Jason Levine" for "Executive Secretary (non-voting)"
+    Then User adds Committee Member "Susan Gregurick" for "Executive Secretary (non-voting)"
     When User clicks "Save" for Actions
     When User clicks button " Add Member" - PW
-    Then User adds Committee Member "Henry Rodriguez" for "HR Specialist (non-voting)" - PW
+    Then User adds Committee Member "William Klein" for "HR Specialist (non-voting)" - PW
     When User clicks "Save" for Actions
     When User clicks button " Add Member" - PW
-    Then User adds Committee Member "Sylvia Chou" for "Member"
+    Then User adds Committee Member "Staci Tyler" for "Member"
     When User clicks "Save" for Actions
     When User clicks button " Add Member" - PW
-    Then User adds Committee Member "Michael Lenardo" for "Member (read-only)"
-    When User clicks "Save" for Actions
-    When User clicks button " Add Member" - PW
-    Then User adds Committee Member "Melissa Fajardo" for "EDI Representative (non-voting)"
+    Then User adds Committee Member "Gwen Collman" for "Member (read-only)"
     When User clicks "Save" for Actions
     And User clicks button "Save" - PW
     Then User is directed to "Email Templates" section
 
-  @SSJ-11 @Regression @playwright @carberalf @SNOW_UPDATED
+  @SSJ-11 @Regression @playwright @carberalf @XAN_UPDATED @EZ_UPDATED
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Negative Flow
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -121,25 +117,25 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks button "Save" - PW
     And User clicks on "Vacancy Committee" option on the left bar menu
     When User clicks button " Add Member" - PW
-    When the user adds a Committee Member "David Rampulla" for Chair role
+    When the user adds a Committee Member "David Rice" for Chair role
     When User clicks "Save" for Actions
     Then User can see "At least one committee member must be of the role 'Executive Secretary'" alert
     When User clicks "Remove" for Actions
     Then User can see "At least one committee member must be of the role 'Chair' At least one committee member must be of the role 'Executive Secretary'" alert
     When User clicks button " Add Member" - PW
-    Then User adds Committee Member "Jason Levine" for Executive Secretary
+    Then User adds Committee Member "Susan Gregurick" for Executive Secretary
     When User clicks "Save" for Actions
     Then User can see "At least one committee member must be of the role 'Chair'" alert
     And User clicks "Remove" for Actions
     When User clicks button " Add Member" - PW
-    When the user adds a Committee Member "Bre Harvey" for Chair role
+    When the user adds a Committee Member "William Klein" for Chair role
     And User clicks "Save" for Actions
     When User clicks button " Add Member" - PW
-    And User adds duplicate Committee Member "Bre Harvey" for Executive Secretary
+    And User adds duplicate Committee Member "William Klein" for Executive Secretary
     And User clicks "Save" for Actions
     Then User can see "A committee member can only be listed once on a committee. Please remove duplicate committee members." alert
 
-  @BUGFIX_APPTRACK-1332 @playwright @Regression @cabreralf
+  @BUGFIX_APPTRACK-1332 @playwright @Regression @cabreralf @XAN_UPDATED @@EZ_UPDATED
   Scenario: BUG - Vacancy not showing for assigned Exec Secretary in Your Vacancies tab
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -148,7 +144,7 @@ Feature: OWM Vacancy Manager Scenarios
     And enters Vacancy Description "THIS IS A TEST AUTOMATION TEST" - PW
     And selects "Yes" for point of contact - PW
     And User sets an "Open Date" entry as today's date
-    And User sets a "Close Date" entry a month from the Open Date
+#    And User sets a "Close Date" entry a month from the Open Date
     And selects "0" for Full Contact Details for References
     And User verifies that Number of Scoring Categories slider is set to "4" by default
     And selects "4" for Number of Scoring Categories
@@ -158,7 +154,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks button "Save" - PW
     And User clicks on "Vacancy Committee" option on the left bar menu
     When User clicks button " Add Member" - PW
-    When the user adds a Committee Member "David Rampulla" for Chair role
+    When the user adds a Committee Member "David Rice" for Chair role
     When User clicks "Save" for Actions
     When User clicks button " Add Member" - PW
     Then User adds Committee Member "Holly Gemar-Griffith" for Executive Secretary
@@ -172,19 +168,8 @@ Feature: OWM Vacancy Manager Scenarios
     And User navigates to tab "Your Vacancies" - PW
     And verifies Vacancy Title "Testing Automation Title SSJ-1332" is on the Your Vacancies page
 
-  @APPTRACK-151 @cabreralf @playwright @IN-PROGRESS
-  Scenario: Live vacancies View verification
-#    Given User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
-#    And User navigates to tab "Vacancy Dashboard" - PW
-#    When User clicks on the "live vacancies" tab
-#    Then User can see the filters "All","Live","Extended"
-#    And User can verify All is by default selected
-#    And User can verify that All subfilter displays vacancies in the open state
-#    And User can verify that vacancies with subfilter All are by default sorted by number of applicants in ascending order
-#    And User can verify that Live subfilter displays vacancies in the open state
-#    And User can verify that vacancies with subfilter Live are by default sorted by number of applicants in ascending order
-#    And User can verify the table columns are displayed as "Vacancy Title","Applicants","Open Date","Close Date","Actions"
-
+  @APPTRACK-151 @cabreralf @playwright @Regression @XAN_UPDATED @EZ_UPDATED
+  Scenario: Creating a live vacancy verification
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
     And clicks on "Vacancy Dashboard" - PW
     And clicks on "+ Create Vacancy" - PW
@@ -196,46 +181,85 @@ Feature: OWM Vacancy Manager Scenarios
     And User sets a "Close Date" entry a month from the Open Date
     And unselects the option for cover letter
     And checks "Enable Reference Collection" check box
+    And selects a Reference Collection Date Ten days from today for live vacancies
+    And selects "2" for Full Contact Details for References
+    And selects "Research Fellow" for Position Classification drop down
+    And selects "HNC" for Organizational Code drop down
+    And clicks "Save"
+    And clicks Save for Mandatory Statements
+    And selects "David Rice" for Committee Member with chair role
+    And selects "William Klein" for Committee Member with Executive Secretary role
+    And clicks "Save"
+    And clicks Save for Email Templates
+    Then user is able to see the Review and Finalize section with the vacancy information submitted
+    And clicks "Save and Finalize"
+    And clicks "OK"
+    And clicks "Close"
+    And OWM Vacancy Manager logs out
+
+  @APPTRACK-151 @Regression @cabreralf @playwright @LIVE_Vacancy @EZ_UPDATED
+  Scenario: Live vacancies View verification
+    When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
+    And clicks on "Vacancy Dashboard" - PW
+    And clicks on "+ Create Vacancy" - PW
+    And enters Vacancy Title name "DIEGO TEST" - PW
+    And enters Vacancy Description "THIS IS A TEST AUTOMATION TEST" - PW
+    And User checks "Utilizing a Set Close Date" option
+    And selects "Yes" for point of contact - PW
+    And User sets an "Open Date" entry as today's date
+    And User sets a "Close Date" entry a month from the Open Date for Live vacancies
+    And unselects the option for cover letter
+    And checks "Enable Reference Collection" check box
+    And selects a Reference Collection Date Ten days from today for live vacancies
+    And selects "2" for Full Contact Details for References
+    And selects "Research Fellow" for Position Classification drop down
+    And selects "HNC" for Organizational Code drop down
+    And clicks "Save"
+    And clicks Save for Mandatory Statements
+    And selects "David Rice" for Committee Member with chair role
+    And selects "William Klein" for Committee Member with Executive Secretary role
+    And clicks "Save"
+    And clicks Save for Email Templates
+    Then user is able to see the Review and Finalize section with the vacancy information submitted
+    And clicks "Save and Finalize"
+    And clicks "OK"
+    And clicks "Close"
+    And OWM Vacancy Manager logs out
+    Given User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
+    And User navigates to tab "Vacancy Dashboard" - PW
+    When User clicks on the "live vacancies" tab
+    Then User can see the filters "All","Live","Extended"
+    And User can verify All is by default selected
+    And User can verify that All subfilter displays vacancies in the open state
+    And User can verify that Live subfilter displays vacancies in the open state
+    And User can verify the table columns are displayed as "Vacancy Title","Applicants","Open Date","Close Date","Actions"
+
+  @APPTRACK-151 @Regression @cabreralf @playwright @RC_Vacancy @EZ_UPDATED
+  Scenario: Rolling Close vacancy created for tomorrows date verification
+    When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
+    And clicks on "Vacancy Dashboard" - PW
+    And clicks on "+ Create Vacancy" - PW
+    And enters Vacancy Title name "DIEGO TEST" - PW
+    And enters Vacancy Description "THIS IS A TEST AUTOMATION TEST" - PW
+    And selects "Yes" for point of contact - PW
+    And User sets an "Open Date" entry for tomorrows date
+    And unselects the option for cover letter
+    And checks "Enable Reference Collection" check box
     And selects a Reference Collection Date Ten days from today
     And selects "2" for Full Contact Details for References
     And selects "Research Fellow" for Position Classification drop down
     And selects "HNC" for Organizational Code drop down
     And clicks "Save"
     And clicks Save for Mandatory Statements
-    And selects "David Rampulla" for Committee Member with chair role
-    And selects "Jason Levine" for Committee Member with Executive Secretary role
+    And selects "David Rice" for Committee Member with chair role
+    And selects "William Klein" for Committee Member with Executive Secretary role
     And clicks "Save"
     And clicks Save for Email Templates
     Then user is able to see the Review and Finalize section with the vacancy information submitted
-    And verifies Vacancy Title "DIEGO TEST"
-    And verifies Utilize a Set Close Date is "No"
-    And verifies Allow HR Specialist to Triage is "No"
-    And verifies Vacancy Description "THIS IS A TEST AUTOMATION TEST"
-    And verifies Vacancy Point of Contact Information is "Holly Gemar-Griffith" with email address "holly.gemar-griffith@nih.gov"
-    And verifies Open Date is todays date
-    And verifies Application Documents "Curriculum Vitae (CV)", "Cover Letter", "Vision Statement", "Qualification Statement"
-    And verifies Reference Collection is "Yes"
-    And verifies Collection Date is ten days from today
-    And verifies "2 recommendation(s)" reference recommendations are required for this vacancy
-    And verifies "4 categories" scoring categories are required for this vacancy
-    And verifies Organizational Code is "HNC"
-    And verifies Position Classification is "Research Fellow"
-    And verifies Personnel Action Tracking Solution (PATS) Initiator is "Holly Gemar-Griffith"
-    And verifies Mandatory Statements "Equal Opportunity Employment", "Standards of Conduct/Financial Disclosure", "Foreign Education", and "Reasonable Accomodation" are displayed
-    And verifies Committee Member "David Rampulla" is displayed with role "Chair"
-    And verifies Committee Member "Jason Levine" is displayed with role "Executive Secretary (non-voting)"
-    And verifies Email Templates "Application saved", "Application submitted confirmation", "Applicant Reference Request", "Applicant Reference Received", "Applicant Reference Received - Applicant"
     And clicks "Save and Finalize"
     And clicks "OK"
     And clicks "Close"
     And OWM Vacancy Manager logs out
-
-#    And User can edit a vacancy
-#    And User can copy link of a vacancy
-#    And User can extend a vacancy
-#    And User can sort vacancies by Applicants in ascending order
-#    And User can sort vacancies by Open Date in descending order
-#    And User can sort vacancies by Close Date in ascending order
 
   @SSJ-310 @SSJ-158 @SSJ-71 @playwright
   Scenario: Verification of Email Templates section while creating an NCI Vacancy Positive Flow

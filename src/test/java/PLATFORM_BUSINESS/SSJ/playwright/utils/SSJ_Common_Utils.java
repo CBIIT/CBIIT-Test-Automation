@@ -3,6 +3,8 @@ package PLATFORM_BUSINESS.SSJ.playwright.utils;
 import com.microsoft.playwright.ElementHandle;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
+
+import java.time.LocalDate;
 import java.util.List;
 
 public class SSJ_Common_Utils {
@@ -21,6 +23,17 @@ public class SSJ_Common_Utils {
             }
         }
     }
+
+    public static void selectingTomorrowsCalendarOption(String locator){
+        List<ElementHandle> days = PlaywrightUtils.page.querySelectorAll(locator);
+        String tomorrow = LocalDate.now().plusDays(1).toString(); // Fetches tomorrow's date in 'YYYY-MM-DD' format
+        for (ElementHandle day : days) {
+            if (day.getAttribute("title").equals(tomorrow)) {
+                day.click();
+                break;
+            }
+        }
+        }
 
     /**
      * Selects the calendar option for ten days from now based on the provided locator.

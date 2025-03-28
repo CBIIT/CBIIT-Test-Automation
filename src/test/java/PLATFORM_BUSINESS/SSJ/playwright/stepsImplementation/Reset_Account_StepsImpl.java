@@ -44,10 +44,14 @@ public class Reset_Account_StepsImpl {
             Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(SSJ_Constants.SSJ_STAGE_TESTER);
         } else if ("test".equals(TestProperties.ENV)) {
             Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(SSJ_Constants.SSJ_TESTER);
+        } else if ("sandbox".equals(TestProperties.ENV)) {
+            Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(SSJ_Constants.SSJ_TESTER);
+        } else if ("ezapps".equals(TestProperties.ENV)) {
+            Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(SSJ_Constants.SSJ_TESTER);
         } else {
             throw new IllegalStateException("Environment not recognized: " + TestProperties.ENV);
         }
-        PlaywrightUtils.page.locator(Playwright_ServiceNow_NCISP_Page.nativeViewLink).click();
+        PlaywrightUtils.page.navigate(getNCISPUrl());
         Playwright_ServiceNow_Common_Methods.searchFilterNavigatorAndClickOption("SCSS", "Users");
         Playwright_ServiceNow_Common_Methods.selectDropDownOptionInsideIframe(User_Table_Page.usersDropDown, "First Name");
         CommonUtils.sleep(3000);

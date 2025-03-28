@@ -1,6 +1,11 @@
 Feature: Committee Member Scenarios
   Description: This Feature file contains Committee Member Scenarios
 
+  @playwright @IN_PROGRESS
+  Scenario: Committee members score applicant
+  Given an Applicant applies to vacancy, Committee members score applicant, Applicant is chosen
+
+
 #APPTRACK-264
 #APPTRACK-1028
 #APPTRACK-263
