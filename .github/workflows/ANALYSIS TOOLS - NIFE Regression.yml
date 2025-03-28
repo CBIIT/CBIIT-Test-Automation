@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="AnalysisTools.NIFESubmit.NIFESubmit_Runners.RunNIFESubmitRegressionTest" test
+        run: mvn -B -q -Dtest="ANALYSIS_TOOLS.NIFESubmit.runners.RunNIFESubmitRegressionTest" test
         continue-on-error: true
 
       - name: Generate timestamp

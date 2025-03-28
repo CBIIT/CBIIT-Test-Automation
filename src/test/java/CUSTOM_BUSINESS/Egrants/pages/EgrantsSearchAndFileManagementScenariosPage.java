@@ -46,7 +46,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Add Document button
      */
-    @FindBy(xpath = "//button[@title='Add New Document [shift + alt + O]']")
+    @FindBy(xpath ="//button[@title='Click here to add new document [shift + alt + O]']")
     public WebElement addDocumentButton;
 
     /**
@@ -106,7 +106,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Choose File - Replace Page
      */
-    @FindBy(xpath = "//input[@id='customFile']")
+    @FindBy(xpath = "//label[normalize-space()='Choose file...']")
     public WebElement replaceFile;
 
     /**
@@ -606,6 +606,138 @@ public class EgrantsSearchAndFileManagementScenariosPage {
      */
     @FindBy(xpath = "//tr[td[text()='Test Exception Code'] and td[text()='Test Exception Description']]//button[@id='btnDelete']")
     public WebElement deleteExceptionButton;
+
+    /**
+     * Drag and Drop Button
+     */
+    @FindBy(xpath = "//*[@id='li_ddrop']")
+    public WebElement dragAndDropButton;
+
+    /**
+     * Upload via Email Button
+     */
+    @FindBy(xpath = "//*[@id='content']/table/tbody/tr/td[2]/div[1]/button[3]")
+    public WebElement uploadViaEmailButton;
+
+    /**
+     * Convert to pdf and Add button
+     */
+    @FindBy(xpath = "//*[@id='btnFilePdfUpload']")
+    public WebElement convertToPdfAndAddButton;
+
+    /**
+     * Add Document button
+     */
+    @FindBy(xpath = "//*[@id='btnFilePdfUpload']")
+    public WebElement addDocButton;
+
+    /**
+     * upload button for document Activation Notice
+     */
+    @FindBy(xpath = "//*[@id='loadgrid_10831223']/tbody/tr[1]/td[5]")
+    public WebElement uploadButtonActivationNoticeDoc;
+
+    /**
+     * Replace Document Page Title
+     */
+    @FindBy(xpath = "//*[@id='page_title']")
+    public WebElement replaceDocumentPageTitle;
+
+    /**
+     * Grant field
+     */
+    @FindBy(xpath = "//b[contains(text(),'Grant')]")
+    public WebElement grantField;
+
+    /**
+     * Category field
+     */
+    @FindBy(xpath = "//b[contains(text(),'Category')]")
+    public WebElement categoryField;
+
+    /**
+     * Date field
+     */
+    @FindBy(xpath = "//b[contains(text(),'Date')]")
+    public WebElement dateField;
+
+    /**
+     * Drag and Drop Covert to PDF and Upload button
+     */
+    @FindBy(xpath = "//button[@id='btnPdfDragdrop']")
+    public WebElement convertToPdfAndUploadButton;
+
+    /**
+     * Drag and Drop Upload button
+     */
+    @FindBy(xpath = "//button[@id='btnDragdrop']")
+    public WebElement dragAndDropUploadButton;
+
+    /**
+     * warning Upload Email
+     */
+    @FindBy(xpath = "//*[@id='by_email']")
+    public WebElement warningUploadEmail;
+
+    /**
+     * Upload via Email button
+     */
+    @FindBy(xpath = "//button[@id='btnEmail']")
+    public WebElement uploadViaEmailBtn;
+
+    /**
+     * Return to eGrants File button
+     */
+    @FindBy(xpath = "//button[@class='btn btn-primary eGrantsReturnBtn']")
+    public WebElement returnToeGrantsFileBtn;
+
+    /**
+     * header Grant Years
+     */
+    @FindBy(xpath = "//b[@id='toggle_title']")
+    public WebElement headerGrantYears;
+
+    /**
+     * Document name header
+     */
+    @FindBy(xpath = "//th[contains(text(),'Document Name')]")
+    public WebElement columnHeaderDocName;
+
+    /**
+     * Date header
+     */
+    @FindBy(xpath = "//th[contains(text(),'Date')]")
+    public WebElement columnHeaderDate;
+
+    /**
+     * Pages header
+     */
+    @FindBy(xpath = "//th[contains(text(),'Pages')]")
+    public WebElement columnHeaderPages;
+
+    /**
+     * Upload header
+     */
+    @FindBy(xpath = "//span[contains(text(),'Upload')]")
+    public WebElement columnHeaderUpload;
+
+    /**
+     * Update header
+     */
+    @FindBy(xpath = "//span[contains(text(),'Update')]")
+    public WebElement columnHeaderUpdate;
+
+    /**
+     * Update last document button
+     */
+    @FindBy(xpath = "//*[@id='loadgrid_10877115']/tbody/tr[1]/td[6]/a/img")
+    public WebElement updateLastDocButton;
+
+    /**
+     * Update Document page header
+     */
+    @FindBy(xpath = "//b[@id='page_title']")
+    public WebElement updateDocPageHeader;
 
     /**
      * Constructor

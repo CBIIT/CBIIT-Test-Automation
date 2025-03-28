@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run NCCR Regression Tests
-        run: mvn -B -q -Dtest="ServiceNow.PlatformBusinessApps.NCCR.NCCRRunners.NCCRRegressionRunner" test
+        run: mvn -B -q -Dtest="PLATFORM_BUSINESS.NCCR.runners.NCCRRegressionRunner" test
         continue-on-error: true
 
       - name: Generate timestamp

@@ -85,6 +85,48 @@ public class NativeViewCHARMSParticipantDetailsPage {
     @FindBy(xpath = "//*[@data-list_id='x_naci_family_coho_family_history_details.x_naci_family_coho_cgb_iiq.participant']//child::tbody//child::tr//child::td[2]//child::a")
     public WebElement cgbIiqPreviewButton;
 
+    /**
+     * Consent added! message text
+     */
+    @FindBy(xpath = "//div[@class='outputmsg_text']")
+    public WebElement consentAddedMessageText;
+
+    /**
+     * Assent signed checkbox
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_study.assent_signed']")
+    public WebElement assentSignedCheckBox;
+
+    /**
+     * FHQ Patient lookup button
+     */
+    @FindBy(xpath = "//button[@name='lookup.x_naci_family_coho_family_history_details.fhq_patient']")
+    public WebElement lookupFHQPatientButton;
+
+    /**
+     * View FHQ Patient button
+     */
+    @FindBy(xpath = "//button[@name='viewr.x_naci_family_coho_family_history_details.fhq_patient']")
+    public WebElement viewFHQPatientButton;
+
+    /**
+     * Save button
+     */
+    @FindBy(xpath = "//span[contains(@class,'navbar_ui_actions')]//button[contains(@name,'not_important')][normalize-space()='Save']")
+    public WebElement saveButton;
+
+    /**
+     * Clinic Visits Tab
+     */
+    @FindBy(xpath = "//span[@class='tab_header']/span//span[contains(text(), 'Clinic Visits')]")
+    public WebElement clinicVisitsTab;
+
+    /**
+     * Create new Clinic Visit button
+     */
+    @FindBy(xpath = "//div[@id='list_nav_x_naci_family_coho_family_history_details.x_naci_family_coho_clinic_visit.participant']//button[@id='sysverb_new']")
+    public WebElement newClinicVisitButton;
+
     public NativeViewCHARMSParticipantDetailsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

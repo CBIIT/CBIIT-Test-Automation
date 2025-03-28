@@ -6,11 +6,10 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(plugin = {"html:target/html-reports/cucumber-default-report.html", "json:target/cucumber.json",
         "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
-        features = "src/test/java/ANALYSIS_TOOLS/ACT24/Features",
-        glue = {"ANALYSIS_TOOLS.ACT24.Steps", "Hooks"},
+        features = "src/test/java/ANALYSIS_TOOLS/ACT24/features",
+        glue = {"ANALYSIS_TOOLS.ACT24.steps", "Hooks"},
         tags = "@Smoke",
         dryRun = false
 )
-
 public class RunACT24SmokeTest extends AbstractTestNGCucumberTests{
 }

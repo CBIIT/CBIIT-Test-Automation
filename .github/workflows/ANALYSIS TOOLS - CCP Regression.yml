@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="AnalysisTools.CervicalCP.CervicalCPRunners.RunCervicalCPRegressionTest" test
+        run: mvn -B -q -Dtest="ANALYSIS_TOOLS.CervicalCP.runners.RunCervicalCPRegressionTest" test
         continue-on-error: true
 
       - name: Generate timestamp

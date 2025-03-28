@@ -23,6 +23,9 @@ public class CreateESRPage {
     /* LOCATES NCI AT YOUR SERVICE PORTAL WHICH NAVIGATES TO PORTAL VIEW */
     public static String NCIAtYourServiceText = "NCI at Your Service Portal";
 
+    /* LOCATES NCI AT YOUR SERVICE PORTAL ICON WHICH NAVIGATES TO PORTAL VIEW */
+    public static String NCIAtYourServiceIcon = "NCI at Your Service Portal 1 of";
+
     /* MAIN SEARCH BOX IN PORTAL VIEW */
     public static String searchBoxPortalView = "Start here! Search for";
 

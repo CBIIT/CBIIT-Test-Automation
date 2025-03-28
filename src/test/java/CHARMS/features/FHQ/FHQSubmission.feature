@@ -4,14 +4,16 @@ Feature: FHQ Form Submission Scenarios
 
   @jains @FHQSubmissionInPortal @CP2-562 @CP2-930 @CP2-559 @FHQ_Regression @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for all the Relatives
-    Given participant open RASopathies Longitudinal Cohort Study login page
-    Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
-    And participant submits FHQ Relatives Form from excel name "<FHQScenario>"
+    Given test automation account "<AccountResetScriptURL>" has been reset
+    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+    And logs in via Okta with username "<Email>" and password "<Password>"
+    And clicks on "Eligibility Questionnaire" to begin survey
+    When the participant submits a screener from excel sheet "<ScreenerScenario>"
+    And the consent is submitted for "<ScreenerScenario>" and "<ConsentStatus>" "<ConsentType>" "<ResponseType>" is verified in Native View
 
     Examples:
-      | Email                  | Password      | FHQScenario  |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 |
-      | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 |
+      | Email                  | Password   | ScreenerScenario      |  ConsentStatus | ConsentType | ResponseType                 | AccountResetScriptURL                                                                                    |
+      | Rasopathy1@yopmail.com | Charms123$ | screenerScenarioAdult |  Complete      | Adult       | Participant upload to portal | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
   @jains @FHQSubmissionInPortal @CP2-562 @FHQ_Regression @selenium
   Scenario Outline: This scenario outline the completion of the FHQ Form for one Relative Type
@@ -21,7 +23,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Participant |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Participant |
 
   @jains @FHQSubmissionInPortal @CP2-930 @FHQ_Regression @selenium
@@ -33,7 +34,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Partner     |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Partner     |
 
   @jains @FHQSubmissionInPortal @CP2-559 @FHQ_Regression @selenium
@@ -45,7 +45,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Mother      |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Mother      |
 
   @jains @FHQSubmissionInPortal @CP2-559 @FHQ_Regression @selenium
@@ -57,7 +56,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Father      |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Father      |
 
   @jains @FHQSubmissionInPortal @CP2-563 @FHQ_Regression @selenium
@@ -69,7 +67,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Children    |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Children    |
 
   @jains @FHQSubmissionInPortal @CP2-603 @CP2-1020 @FHQ_Regression @selenium
@@ -81,7 +78,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Sibling     |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Sibling     |
 
   @jains @FHQSubmissionInPortal @CP2-550 @FHQ_Regression @selenium
@@ -93,7 +89,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Aunt        |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Aunt        |
 
   @jains @FHQSubmissionInPortal @CP2-550 @FHQ_Regression @selenium

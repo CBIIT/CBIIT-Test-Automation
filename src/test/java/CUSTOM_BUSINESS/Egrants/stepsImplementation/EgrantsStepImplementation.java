@@ -179,8 +179,9 @@ public class EgrantsStepImplementation extends PageInitializer {
 	public static void uploads_a_file() {
 		CommonUtils.sleep(7000);
 		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.chooseFile, Egrants_Constants.TEST_FILE_PATH);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addFileButton);
-		CommonUtils.sleep(5000);
+		CommonUtils.sleep(7000);
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -201,9 +202,9 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void verifies_the_success_message(String uploadSuccessMessage) {
 		String actualSuccessMessage = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.successMessage);
+		CommonUtils.sleep(7000);
 		Hooks.softAssert.assertEquals(actualSuccessMessage, uploadSuccessMessage);
 		System.out.println(uploadSuccessMessage);
-		CucumberLogUtils.logScreenshot();
 	}
 
 	/***
@@ -213,8 +214,8 @@ public class EgrantsStepImplementation extends PageInitializer {
 		String emWindowHandle = WebDriverUtils.webDriver.getWindowHandle();
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.checkDocumentButton);
 		CommonUtils.switchToNextWindow();
-		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
+		CommonUtils.sleep(3000);
 	}
 
 	/***
@@ -540,6 +541,30 @@ public class EgrantsStepImplementation extends PageInitializer {
 	public static void verifies_the_success_message_for_downloaded_files() {
 		CommonUtils.waitForVisibility(egrantsSearchandFileManagementScenariosPage.downloadSuccessMessage);
 		Hooks.softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.downloadSuccessMessage.isDisplayed());
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/***
+	 * THIS METHOD UPLOADS A FILE BY CLICKING ON UPLOAD DOCUMENT LOCATE FILE AND UPLOAD
+	 */
+	public static void upload_a_file_locate_and_upload() {
+		CommonUtils.sleep(7000);
+		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.chooseFile, Egrants_Constants.TEST_FILE_PATH);
+		CucumberLogUtils.logScreenshot();
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.dragAndDropUploadButton);
+		CommonUtils.sleep(7000);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/***
+	 * THIS METHOD UPLOADS A DOC FILE
+	 */
+	public static void upload_a_doc_file() {
+		CommonUtils.sleep(7000);
+		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.chooseFile, Egrants_Constants.TEST_DOC_FILE_PATH);
+		CucumberLogUtils.logScreenshot();
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.convertToPdfAndAddButton);
+		CommonUtils.sleep(7000);
 		CucumberLogUtils.logScreenshot();
 	}
 }

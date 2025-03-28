@@ -11,6 +11,12 @@ public class OASYS_Constants {
     public static final String ASSIGNED_CS = "CS: CS1, Test";
     public static final String ASSIGNED_COR = "COR: COR, Test";
     public static final String OASYS_SIDE_LOGIN = "https://oasys-qa.cancer.gov/#/login";
-    public static final String OASYS_TEST_USERNAME = "COR";
+    public static final String OASYS_TEST_COR = "COR";
+    public static final String OASYS_TEST_CO = "CO";
     public static final String OASYS_TEST_PASSWORD = "a";
+    public static final String INVOICE_NUMBER = "INV-TEST001";
+    public static final String INVOICE_STATUS = "SUBMITTED";
+    public static final String INVOICE_DATE = "08/01/2025";
+    public static final String INVOICE_START_DATE = "07/21/2025";
+    public static final String INVOICE_END_DATE = "07/31/2025";
 }

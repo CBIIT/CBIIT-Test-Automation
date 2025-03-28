@@ -1,16 +1,17 @@
 Feature: Top Accomplishments Submission
 
-  @NERDSNOW-759 @chaudhryma @Regression @playwright
+  @NERDSNOW-759 @NERDSNOW-801 @chaudhryma @Regression @playwright
   Scenario: Test Create a 'Top Accomplishments' Record
     Given any user is on NERD
     When they access the 'NERD' Catalog
     Then they can create a record called "Top Accomplishments"
     And add attachments via the record itself
-    And 'Category' Field Auto Populated with the following value "Top Accomplishment"
+    And 'Category' Field Auto Populated with the following value "Top Accomplishments"
     And 'Rank' field is mandatory drop-down with the following options "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Not Top 10"
     And 'Fiscal Year' field is mandatory dropdown with the following options for Previous year "2023", and Current year "2024"
     And 'Title' field is mandatory short text field
     And 'DOC' field is mandatory drop down with the applicable DOCs, None (selected by default), "CBIIT", "CCCT", "CCG", "CCR", "CCT", "CGH", "CRCHD", "CRS", "CSSI", "DCB", "DCCPS", "DCEG", "DCP", "DCTD", "Frederick", "OCC", "OHAM","SBIR", "TTC"
+    And the rank field clears out and all the 'Rank' options are reset to select again when the Fiscal Year and Doc field is changed
     And 'Description' field is mandatory open HTML text field with subtext of "(3 - 4 sentences max) – please define acronyms." when hover over the Description field
     And 'Research Type/Other Programs' field is mandatory drop-down, None (selected by default), "Basic", "Cancer Control", "Epidemiological", "Health Communication Programs", "Population Science", "Research Workforce Recruitment, Training, and Retention Program", "Science Education and Literacy Programs", "Translational-Post Clinical", "Translational-Pre Clinical", "Other"
     And subtext of "Please select the most applicable" when hover over the "Research Type/Other Programs" field

@@ -129,14 +129,14 @@ public class ESRTaskStepsImplementation {
      * Confirms that the ESR Board Intake Review catalog task is completed
      */
     public static void confirmESRBoardIntakeReviewCatalogTaskIsCompleted() {
-        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Approval']")).containsText("Requested");
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("ESR Board Intake Approval");
     }
 
     /**
      * Completes the Engineering Project Execution catalog task
      */
     public static void completeEngineeringProjectExecutionCatalogTask() {
-        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (3)").click();
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks").click();
         Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[1]").click();
         Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").click();
         Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").fill("CBIIT Test Account");
@@ -155,7 +155,7 @@ public class ESRTaskStepsImplementation {
      * Completes the Closeout Preparation catalog task for ESR-Q
      */
     public static void completeCloseoutPreparationCatalogTaskForESRQ() {
-        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (4)").click();
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks").click();
         Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[1]").click();
         Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").click();
         Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").fill("CBIIT Test Account");
@@ -228,6 +228,6 @@ public class ESRTaskStepsImplementation {
      * Confirms that the ESR Board Closeout Review catalog task is completed
      */
     public static void confirmESRBoardCloseoutReviewCatalogTaskIsCompleted() {
-        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Approval']")).containsText("Requested");
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("ESR Board Closeout Approval");
     }
 }

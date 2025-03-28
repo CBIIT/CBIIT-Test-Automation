@@ -12,6 +12,13 @@ public class FHQSubmissionPage extends CommonUtils {
 	public FHQSubmissionPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
+
+	@FindBy(xpath = "//i[@class='fa fa-chevron-down user-profile-dropdown']")
+	public WebElement profileDropDownButton;
+
+	@FindBy(xpath = "//a[@id='logout']")
+	public WebElement profileLogOutButton;
+
 	/* Method to dynamically locate Relative tabs element in FHQ participant page in Native View */
 	public WebElement dynamicLocatorForRelativeTab(int i) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//span["+i +"]//span[1]//span[2]"));			
@@ -103,6 +110,10 @@ public class FHQSubmissionPage extends CommonUtils {
 	/* Method to dynamically locate elements in FHQ */
 	public WebElement dynamicLocatorUsingNormalizeSpace(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//*[normalize-space()='" + text + "']"));
+	}
+	/* Method to dynamically locate elements in FHQ */
+	public WebElement dynamicLocatorUsingNormalizeSpace1(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//*[normalize-space()='" + text + "'])[1]"));
 	}
 	/* Method to dynamically locate elements in FHQ */
 	public WebElement dynamicLocatorClassNormalizeSpace(String text) {
@@ -200,7 +211,7 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement biologicalParentOfThisChildDropdownSearch;
 
 	/* Which of the following individuals is a biological parent of this child? Selected Dropdown Value */
-	@FindBy(xpath = "(//ul[@id='select2-results-24'])[1]/li[1]")
+	@FindBy(xpath = "(//ul[@id='select2-results-23'])[1]/li[1]")
 	public WebElement biologicalParentOfThisChildDropdownValue;
 
 	@FindBy(xpath ="(//h2[@class='h2 m-t-none m-b-sm font-thin ng-binding ng-scope'])[1]")

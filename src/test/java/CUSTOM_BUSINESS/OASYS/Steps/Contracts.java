@@ -4,6 +4,7 @@ import APPS_COMMON.PlaywrightUtils.Playwright_Common_Utils;
 import CUSTOM_BUSINESS.OASYS.StepsImplementation.OASYS_Steps_Implementation;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
+import CUSTOM_BUSINESS.OASYS.Utils.OASYS_CommonUtils;
 import CUSTOM_BUSINESS.OASYS.Utils.OASYS_Constants;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.*;
@@ -23,6 +24,7 @@ public class Contracts {
     @Given("User is logged in the application and navigated to Contract Administration")
     public void user_is_logged_in_the_application_and_navigated_to_contract_administration() {
         OASYS_Steps_Implementation.user_is_logged_in_oasys();
+        OASYS_CommonUtils.waitForElementToBeVisible("text=Contract Administrationkeyboard_arrow_down");
         page.getByText("Contract Administrationkeyboard_arrow_down").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -850,11 +852,11 @@ public class Contracts {
     /**
      * This method is signing in the application as TEST COR
      */
-    @When("a user with Test COR logs in the application")
-    public void a_user_with_test_cor_logs_in_the_application() {
+    @When("User logs in as Test COR on the side login page")
+    public void user_logs_in_as_test_cor_on_the_side_login_page() {
         page.navigate(OASYS_Constants.OASYS_SIDE_LOGIN);
         page.getByLabel("UserName").click();
-        page.getByLabel("UserName").fill(OASYS_Constants.OASYS_TEST_USERNAME);
+        page.getByLabel("UserName").fill(OASYS_Constants.OASYS_TEST_COR);
         page.getByLabel("Password").click();
         page.getByLabel("Password").fill(OASYS_Constants.OASYS_TEST_PASSWORD);
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login")).click();

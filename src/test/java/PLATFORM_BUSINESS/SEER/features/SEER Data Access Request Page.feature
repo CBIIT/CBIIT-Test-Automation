@@ -12,8 +12,6 @@ Feature: SEER Data Access Request Scenarios
     And the I Understand the limitations of treatment data text agreement displayed
     And before entering initials for 'Data Use Agreement Certification' the Initials text box displays with the users initials in read-only mode
     And the Data Use Agreement Certification text agreement displayed
-    And before entering initials for 'Best Practice Assurance', the users initials display in read only format
-    And the Best Practice Assurance text displayed
     And when the user scrolls down each agreement
     Then the user is able to enter intials
     And SEER information is displayed on the bottom of the page as follows:

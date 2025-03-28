@@ -1,25 +1,26 @@
 Feature: These are API requests that are made on the ACT24 application
 
-  @matakevin @Smoke @Regression @selenium
-  Scenario: User retrieves participant list on researcher site
-    Then the GET call to retrieve participant list is requested and the 200 status code is returned
+  @Smoke @satya @Regression @playwright @NCIATWP-8639
+  Scenario: User retrieves the study list
+    Given User sets the baseUrl and endpoint for the request
+    Then User sends the request and retrieves the study list
 
-  @matakevin @Smoke @Regression @selenium
-  Scenario: Retrieve Study and Recall data from the given resource in JSON format from study 7685
-    Then the Study and Recall Data and 200 status code is returned
+  @Smoke @satya @Regression @playwright @NCIATWP-8640
+  Scenario: User retrieves the participant list of a studyid
+    Given User sets the baseUrl and endpoint for the request of participant list
+    Then User sends the request and retrieves the participant list
 
-  @matakevin @Smoke @Regression @selenium
-  Scenario: Retrieve Study and Recall data from the given resource in JSON format from study 7693 with no participants
-    Then the Study 7694 Recall Data and 200 status code is returned
+  @Smoke @satya @Regression @playwright @NCIATWP-8646
+  Scenario: User retrieves the QC summary report of the study
+    Given User sets the baseUrl and endpoint for the request of QC summary report
+    Then User sends the request and retrieves the QC summary report
 
-  @matakevin @Smoke @Regression @selenium
-  Scenario: Retrieve Study and Recall data from the given resource in JSON format from study 7692 with no participants
-    Then the Studys 7692 Recall Data and 200 status code is returned
+  @Smoke @satya @Regression @playwright @NCIATWP-8647
+  Scenario: User retrieves the QC detail report of the study
+    Given User sets the baseUrl and endpoint for the request of QC detail report
+    Then User sends the request and retrieves the QC detail report
 
-  @matakevin @Smoke @Regression @selenium
-  Scenario: Retrieve Study and Recall statistics (Detailed Report, with Overlap Resolution [QC]) from the given resource in JSON format
-    Then the selected participants with specified StudyID "7692" detailed reports are returned with status code 200
-
-  @matakevin @Smoke @Regression @selenium
-  Scenario: Retrieve Study and Recall data (Summary Report, with Overlap Resolution [QC]) from the given resource in JSON format
-    Then the selected participants "7685" with specified StudyIDs are returned with status code 200
+  @Smoke @satya @Regression @playwright @NCIATWP-8647
+  Scenario: User retrieves the detail report of the study
+    Given User sets the baseUrl and endpoint for the request of detail report
+    Then User sends the request and retrieves the detail report

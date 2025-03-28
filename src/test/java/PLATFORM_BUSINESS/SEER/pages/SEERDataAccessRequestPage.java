@@ -83,11 +83,11 @@ public class SEERDataAccessRequestPage extends CommonUtils {
 	public WebElement seerBestPracticesAssuranceForSecuringNCISupportedRegistryDataBody;
 
 	/** SEER Data Access Request: National Childhood Cancer Registry (NCCR) Research Data Use Agreement Heading */
-	@FindBy (xpath = "//strong[contains(text(),'National Childhood Cancer Registry (NCCR) Research')]")
+	@FindBy (xpath = "//h1//span[contains(text(),'National Childhood Cancer Registry (NCCR) Research')]")
 	public WebElement seerNationalChildhoodCancerRegistryNCCRResearchDataUseAgreementHeading;
 
 	/** SEER Data Access Request: National Childhood Cancer Registry (NCCR) Research Data Use Agreement Body */
-	@FindBy (xpath = "//*[@id=\'nccr_data_use_agreement\']/p[2]")
+	@FindBy (xpath = "//div[@id='nccr_data_use_agreement']")
 	public WebElement seerNationalChildhoodCancerRegistryNCCRResearchDataUseAgreementBody;
 
 	/** SEER Data Access Request: Treatment Usage Explanation Text Box */
@@ -142,9 +142,21 @@ public class SEERDataAccessRequestPage extends CommonUtils {
 	@FindBy (xpath = "//input[@ng-model = 'data.access.cuba_initials']")
 	public WebElement seerDataAccessBestPracticeAssuranceInitials;
 
+	/** SEER Data Access Request: NCCR Research Data Use Agreement Certification Header text */
+	@FindBy(xpath = "//label[text()='NCCR Research Data Use Agreement']")
+	public WebElement seerDataAccessNCCRResearchDataUseAgreementCertificationHeaderText;
+
+	/** SEER Data Access Request: NCCR Research Data Use Agreement Certification Initials */
+	@FindBy (xpath = "//input[@ng-model = 'data.access.nccr_initials']")
+	public WebElement seerDataAccessNCCRResearchDataUseAgreementCertificationInitials;
+
 	/** SEER Data Access Request: NCCR Research Data Use Agreement Text */
 	@FindBy (xpath = "//*[@id=\'nccr_data_use_agreement\']")
 	public WebElement seerDataAccessNCCRReasearchDataUseAgreementText;
+
+	/** SEER Data Access Request: NCCR Research Data Use Agreement Certification Text */
+	@FindBy (xpath = "//div[@id='nccr_data_use_agreement']")
+	public WebElement seerDataAccessNCCRResearchDataUseAgreementCertificationText;
 	
 	/** SEER Data Access Request: Submit Button */
 	@FindBy (xpath = "//button[text() = 'Submit']")

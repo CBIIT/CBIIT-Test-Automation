@@ -1,8 +1,5 @@
 package APPS_COMMON.PageInitializers;
 
-import ANALYSIS_TOOLS.ACT24.pages.*;
-import ANALYSIS_TOOLS.ACT24.stepsImpl.ACT24ParticipantStepImpl;
-import ANALYSIS_TOOLS.ACT24.stepsImpl.ACT24ResearcherStepImpl;
 import ANALYSIS_TOOLS.CometsExplorer.pages.*;
 import ANALYSIS_TOOLS.CometsAnalytics.pages.*;
 import ANALYSIS_TOOLS.CometsAnalytics.stepsImplementation.*;
@@ -160,6 +157,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static RAS_NV_Consent_Record_TestDataManager ras_NV_Consent_Record_TestDataManager;
 	public static RAS_Survey_TestDataManager ras_Survey_TestDataManager;
 	public static RAS_Survey_Smoking_Survey_TestDataManager ras_Survey_Smoking_Survey_TestDataManager;
+	public static RAS_Physical_Activities_Survey_TestDataManager ras_Physical_Activities_Survey_TestDataManager;
 	public static IIQ_TestDataManager iiq_TestDataManager;
 	public static ParticipantDetailsPage participantDetailsPage;
 	public static ReferralTablePage referralTablePage;
@@ -333,12 +331,6 @@ public class PageInitializer extends WebDriverUtils {
 	/** CProSite instances **/
 	public static CProSiteExplorePage cProSiteExplorePage;
 
-	/** ACT24 instances **/
-	public static ACT24ParticipantPortalPage act24ParticipantPortalPage;
-	public static ACT24ResearcherPortalPage act24ResearcherPortalPage;
-	public static ACT24ResearcherStepImpl act24ResearcherStepImpl;
-	public static ACT24ParticipantStepImpl act24ParticipantStepImpl;
-
 	/** GWAS Target instances **/
 	public static GWASTargetHomePages gwasTargetHomePages;
 	public static GWASTargetAnalysisPages gwasTargetAnalysisPages;
@@ -369,10 +361,13 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewDashboardPage nativeViewDashPage;
 	public static NativeViewMembersOfCongressPage nativeViewMembersOfCongressPage;
 	public static NativeViewCHARMSDashboardPage nativeViewCHARMSDashboardPage;
+	public static NativeViewCHARMSFHQPatientPage nativeViewCHARMSFHQPatientPage;
 	public static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
+	public static NativeViewCHARMSClinicVisitsPage nativeViewCHARMSClinicVisitsPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
 	public static NativeViewCHARMSPatientSmokingHistoryPage nativeViewCHARMSPatientSmokingHistoryPage;
+	public static NativeViewCHARMSPhysicalActivitiesSurveyPage nativeViewCHARMSPhysicalActivitiesSurveyPage;
 	public static NativeViewCHARMSAddNewParticipantPage nativeViewCHARMSAddNewParticipantPage;
 	public static NativeViewCHARMSSubjectFlagsPage nativeViewCHARMSSubjectFlagsPage;
 	public static NativeViewCGBIIQPage nativeViewCGBIIQPage;
@@ -454,6 +449,7 @@ public class PageInitializer extends WebDriverUtils {
 		ras_NV_Consent_Record_TestDataManager = new RAS_NV_Consent_Record_TestDataManager();
 		ras_Survey_TestDataManager = new RAS_Survey_TestDataManager();
 		ras_Survey_Smoking_Survey_TestDataManager = new RAS_Survey_Smoking_Survey_TestDataManager();
+		ras_Physical_Activities_Survey_TestDataManager = new RAS_Physical_Activities_Survey_TestDataManager();
 		iiq_TestDataManager = new IIQ_TestDataManager();
 		cgbIIQPage = new CGBIIQPage();
 		cGBIIQPages = new CGBIIQPages();
@@ -584,12 +580,6 @@ public class PageInitializer extends WebDriverUtils {
 		ezQTLDocumentationPage = new EZQTLDocumentationPage();
 		ezQTLPublicDataSourcePage = new EZQTLPublicDataSourcePage();
 
-		/** ACT24 Instance Variables **/
-		act24ParticipantPortalPage = new ACT24ParticipantPortalPage();
-		act24ResearcherPortalPage = new ACT24ResearcherPortalPage();
-		act24ResearcherStepImpl = new ACT24ResearcherStepImpl();
-		act24ParticipantStepImpl = new ACT24ParticipantStepImpl();
-
 		/** GWAS Explorer Instance Variables **/
 		exploreGWASPage = new ExploreGWASPage();
 		browsePhenotypesPage = new BrowsePhenotypesPage();
@@ -654,11 +644,14 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewDashPage = new NativeViewDashboardPage();
 		nativeViewMembersOfCongressPage = new NativeViewMembersOfCongressPage();
 		nativeViewCHARMSDashboardPage = new NativeViewCHARMSDashboardPage();
+		nativeViewCHARMSFHQPatientPage = new NativeViewCHARMSFHQPatientPage();
 		nativeViewCHARMSParticipantDetailsPage = new NativeViewCHARMSParticipantDetailsPage();
 		nativeViewCHARMSParticipantConsentPage = new NativeViewCHARMSParticipantConsentPage();
+		nativeViewCHARMSClinicVisitsPage = new NativeViewCHARMSClinicVisitsPage();
 		nativeViewCHARMSParticipantStudyPage = new NativeViewCHARMSParticipantStudyPage();
 		nativeViewCHARMSAddNewParticipantPage = new NativeViewCHARMSAddNewParticipantPage();
 		nativeViewCHARMSPatientSmokingHistoryPage = new NativeViewCHARMSPatientSmokingHistoryPage();
+		nativeViewCHARMSPhysicalActivitiesSurveyPage = new NativeViewCHARMSPhysicalActivitiesSurveyPage();
 		nativeViewSSJReportsPage = new NativeViewSSJReportsPage();
 		nativeViewCHARMSSubjectFlagsPage = new NativeViewCHARMSSubjectFlagsPage();
 		nativeViewCGBIIQPage = new NativeViewCGBIIQPage();

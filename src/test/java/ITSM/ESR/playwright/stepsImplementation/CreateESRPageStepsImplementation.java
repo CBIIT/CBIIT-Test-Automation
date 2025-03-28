@@ -1,5 +1,6 @@
 package ITSM.ESR.playwright.stepsImplementation;
 
+import APPS_COMMON.Pages.Playwright_Common_Locators;
 import ITSM.ESR.playwright.pages.CreateESRPage;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
@@ -42,7 +43,7 @@ public class CreateESRPageStepsImplementation {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
         page.getByPlaceholder(CreateESRPage.filterBoxNativeView).click();
         page.getByPlaceholder(CreateESRPage.filterBoxNativeView).fill(CreateESRPage.NCIAtYourServiceText);
-        page.getByLabel(CreateESRPage.NCIAtYourServiceText, new Page.GetByLabelOptions().setExact(true)).click();
+        page.getByLabel(CreateESRPage.NCIAtYourServiceIcon).click();
     }
 
     /**
@@ -209,5 +210,27 @@ public class CreateESRPageStepsImplementation {
         });
         CommonUtils.sleep(2000);
         assertThat(page1.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]")).containsText("Implementation");
+    }
+
+    /**
+     * Navigates to the newly created ESR-I ticket from ESR-Q ticket
+     */
+    public static void navigateToGeneratedESRITicket() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//tbody/tr[6]/td[1]/div[1]/div[1]/div[1]/div[2]/select[1]")).containsText("Proceed to Implementation");
+        Playwright_Common_Locators.iframeLocator().locator("//nav[@role='navigation']//div//div//span//span//span//button[@value='sysverb_update_and_stay']").click();
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_section").getByText("Notes").click();
+        CommonUtils.sleep(6000); // System takes a bit of time to generate new ticket
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("#sn_form_inline_stream_entries")).containsText("System");
+        Playwright_Common_Locators.iframeLocator().locator("//nav[@role='navigation']//div//div//span//span//span//button[@value='sysverb_update_and_stay']").click();
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Requested Items (1)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[52]").click();
+    }
+
+    /**
+     * Validates that an ESR-I ticket was created from an ESR-Q ticket
+     */
+    public static void verifyESRITicketCreationFromESRQ() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_section").getByText("Notes").click();
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("#sn_form_inline_stream_entries")).containsText("This request was generated from");
     }
 }

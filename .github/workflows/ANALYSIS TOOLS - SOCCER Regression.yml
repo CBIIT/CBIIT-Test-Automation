@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest="AnalysisTools.Soccer.Soccer_Runners.RunSoccerRegressionTest" test
+        run: mvn -B -q -Dtest="ANALYSIS_TOOLS.Soccer.runners.RunSoccerRegressionTest" test
         continue-on-error: true
 
       - name: Generate timestamp
