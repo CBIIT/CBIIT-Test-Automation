@@ -46,7 +46,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Add Document button
      */
-    @FindBy(xpath = "//button[@title='Add New Document [shift + alt + O]']")
+    @FindBy(xpath ="//button[@title='Click here to add new document [shift + alt + O]']")
     public WebElement addDocumentButton;
 
     /**
@@ -696,6 +696,48 @@ public class EgrantsSearchAndFileManagementScenariosPage {
      */
     @FindBy(xpath = "//b[@id='toggle_title']")
     public WebElement headerGrantYears;
+
+    /**
+     * Document name header
+     */
+    @FindBy(xpath = "//th[contains(text(),'Document Name')]")
+    public WebElement columnHeaderDocName;
+
+    /**
+     * Date header
+     */
+    @FindBy(xpath = "//th[contains(text(),'Date')]")
+    public WebElement columnHeaderDate;
+
+    /**
+     * Pages header
+     */
+    @FindBy(xpath = "//th[contains(text(),'Pages')]")
+    public WebElement columnHeaderPages;
+
+    /**
+     * Upload header
+     */
+    @FindBy(xpath = "//span[contains(text(),'Upload')]")
+    public WebElement columnHeaderUpload;
+
+    /**
+     * Update header
+     */
+    @FindBy(xpath = "//span[contains(text(),'Update')]")
+    public WebElement columnHeaderUpdate;
+
+    /**
+     * Update last document button
+     */
+    @FindBy(xpath = "//*[@id='loadgrid_10877115']/tbody/tr[1]/td[6]/a/img")
+    public WebElement updateLastDocButton;
+
+    /**
+     * Update Document page header
+     */
+    @FindBy(xpath = "//b[@id='page_title']")
+    public WebElement updateDocPageHeader;
 
     /**
      * Constructor
