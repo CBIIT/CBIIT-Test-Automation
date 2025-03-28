@@ -768,7 +768,7 @@ public class Contracts {
      */
     @Then("User will verify if {string} is listed in the search results")
     public void user_will_verify_if_is_listed_in_the_search_results(String ExpectedContractTile) {
-        assertThat(page.locator("mat-row")).containsText(ExpectedContractTile);
+        assertThat(page.locator("div.link:has-text('Dell EMC Isilon Hardware and Software Support and Maintenance')")).containsText(ExpectedContractTile);
     }
 
     /**
