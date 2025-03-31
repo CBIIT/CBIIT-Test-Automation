@@ -14,6 +14,9 @@ import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class FanconiSurveyVerificationSteps {
 
+    /**
+     * Verifies FA Survey data in Native View
+     */
     @Then("Study Team member verifies FA Survey data in Native View")
     public void study_team_member_verifies_fa_survey_data_in_native_view() {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
