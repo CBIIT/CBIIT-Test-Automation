@@ -17,3 +17,6 @@ Feature: All sections of the Fanconi Survey on the Fanconi Longitudinal Cohort S
     And fills the Sexual History section for scenario 1
     And submit the Fanconi Survey
 
+  @muzipovay @playwright @InProgress
+  Scenario: Participant fills Fanconi Screener consent and then Survey for scenario 1
+    And Study Team member verifies FA Survey data in Native View

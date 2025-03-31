@@ -974,6 +974,136 @@ public class EgrantsSearchAndFileManagementSteps extends PageInitializer {
      */
     @When("uploads a file by clicking Upload Document under Locate File and Upload button")
     public void uploads_a_file_by_clicking_upload_document_under_locate_file_and_upload_button() {
+        EgrantsStepImplementation.upload_a_file_locate_and_upload();
+    }
 
+    /**
+     * User uploads a single file with doc extension
+     */
+    @Given("User uploads a single file with doc extension")
+    public void user_uploads_a_single_file_with_doc_extension() {
+        EgrantsStepImplementation.upload_a_doc_file();
+    }
+
+    /**
+     * User clicks on Upload via Email tab
+     */
+    @Given("User clicks on Upload via Email tab")
+    public void user_clicks_on_upload_via_email_tab() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.uploadViaEmailButton);
+    }
+
+    /**
+     * User can verify the warning is displayed
+     */
+    @Given("User can verify the warning is displayed")
+    public void user_can_verify_the_warning_is_displayed() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.warningUploadEmail.isDisplayed());
+    }
+
+    /**
+     * User verifies Upload Via Email button is displaye
+     */
+    @Given("User verifies Upload Via Email button is displayed")
+    public void user_verifies_upload_via_email_button_is_displayed() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.uploadViaEmailBtn.isDisplayed());
+    }
+
+    /**
+     * User clicks on Return To eGrants File
+     */
+    @When("User clicks on Return To eGrants File")
+    public void user_clicks_on_return_to_e_grants_file() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.returnToeGrantsFileBtn);
+    }
+
+    /**
+     * User returns to eGrants File
+     */
+    @Then("User returns to eGrants File")
+    public void user_returns_to_e_grants_file() {
+        CommonUtils.sleep(3000);
+       softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.headerGrantYears.isDisplayed());
+    }
+
+    /**
+     * User can see Add Document button
+     */
+    @Then("User can see Add Document button")
+    public void user_can_see_add_document_button() {
+        CommonUtils.sleep(3000);
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.addDocumentButton.isDisplayed());
+    }
+
+    /**
+     * User clicks Add Document Grant button
+     */
+    @Given("User clicks Add Document Grant button")
+    public void user_clicks_add_document_grant_button() {
+     CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addDocumentButton);
+    }
+
+    /**
+     * User can see Add Funding Document button
+     */
+    @Then("User can see Add Funding Document button")
+    public void user_can_see_add_funding_document_button() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.addFundingDocumentButton.isDisplayed());
+    }
+
+    /**
+     * User can see Document name column header
+     */
+    @Then("User can see Document name column header")
+    public void user_can_see_document_name_column_header() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.columnHeaderDocName.isDisplayed());
+    }
+
+    /**
+     * User can see Date column header
+     */
+    @Then("User can see Date column header")
+    public void user_can_see_date_column_header() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.columnHeaderDate.isDisplayed());
+    }
+
+    /**
+     * User can see Pages column header
+     */
+    @Then("User can see Pages column header")
+    public void user_can_see_pages_column_header() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.columnHeaderPages.isDisplayed());
+    }
+
+    /**
+     * User can see Upload column header
+     */
+    @Then("User can see Upload column header")
+    public void user_can_see_upload_column_header() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.columnHeaderUpload.isDisplayed());
+    }
+
+    /**
+     * User can see Update column header
+     */
+    @Then("User can see Update column header")
+    public void user_can_see_update_column_header() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.columnHeaderUpdate.isDisplayed());
+    }
+
+    /**
+     * User clicks to update a document they just uploaded
+     */
+    @When("User clicks to update a document they just uploaded")
+    public void user_clicks_to_update_a_document_they_just_uploaded() {
+        CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.updateLastDocButton);
+    }
+
+    /**
+     * User is navigated to Update Document page
+     */
+    @Then("User is navigated to Update Document page")
+    public void user_is_navigated_to_update_document_page() {
+        softAssert.assertTrue(egrantsSearchandFileManagementScenariosPage.updateDocPageHeader.isDisplayed());
     }
 }

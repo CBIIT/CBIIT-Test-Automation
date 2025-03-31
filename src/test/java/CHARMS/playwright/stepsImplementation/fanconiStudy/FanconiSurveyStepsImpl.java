@@ -295,7 +295,7 @@ public class FanconiSurveyStepsImpl {
         page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Interpreter Language").fill("Spanish");
         page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Interpreter Witness?").selectOption("1");
         page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Interpreter Signed").selectOption("1");
-      //  page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"x_naci_family_coho_fcsms_consent\\.form_header\"]").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Save")).click();
+        //  page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"x_naci_family_coho_fcsms_consent\\.form_header\"]").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Save")).click();
         CommonUtils.sleep(300);
         page.frameLocator("iframe[name=\"gsft_main\"]").locator("#call_complete").click();
         CommonUtils.sleep(400);
@@ -345,8 +345,8 @@ public class FanconiSurveyStepsImpl {
         page.navigate(TestProperties.FANCONI_TEST_URL);
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(FanconiSurveyPage.LOGIN_BUTTON_LINK)).click();
         CommonUtils.sleep(2000);
-      //  page.getByLabel(FanconiSurveyPage.USERNAME).fill(FanconiSurveyPage.EMAIL);
-     //   page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.NEXT)).click();
+        //  page.getByLabel(FanconiSurveyPage.USERNAME).fill(FanconiSurveyPage.EMAIL);
+        //   page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.NEXT)).click();
         page.getByLabel(FanconiSurveyPage.PASSWORD).fill(FanconiSurveyPage.USER_PASSWORD);
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.VERIFY)).click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.AGREE)).click();

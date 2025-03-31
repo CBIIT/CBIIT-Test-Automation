@@ -94,6 +94,44 @@ public class ESRApprovalStepsImplementation {
     }
 
     /**
+     * This method rejects the ESR Board Intake approvals with a rejection approval for ESR-Q tickets
+     */
+    public static void esrBoardRejectionForESRQ() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (9)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[9]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("rejected");
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Approval was rejected");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the ESR Board Intake approvals were rejected for ESR-Q tickets
+     */
+    public static void confirmESRBoardIntakeApprovalWasRejectedForESRQ() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Information Required for Intake");
+    }
+
+    /**
+     * This method rejects the ESR Board Intake approvals with a need more info for ESR-I tickets
+     */
+    public static void esrBoardNeedMoreInfoForESRI() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (9)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[11]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("more");
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Need more information");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that more information is needed for the ESR-I ticket
+     */
+    public static void confirmMoreInfoNeededForESRI() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Information Required for Intake");
+    }
+
+    /**
      * This method completes the required Operational POC approval
      */
     public static void operationalPOCApproval() {

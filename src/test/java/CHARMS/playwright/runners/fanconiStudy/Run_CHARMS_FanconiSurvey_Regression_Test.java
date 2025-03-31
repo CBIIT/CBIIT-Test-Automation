@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
         "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/java/CHARMS/playwright/features/fanconiStudy",
-        glue = {"CHARMS.playwright.steps","Hooks"},
+        glue = {"CHARMS.playwright.steps", "Hooks"},
         tags = "@Fanconi_Regression1",
         dryRun = false
 )
