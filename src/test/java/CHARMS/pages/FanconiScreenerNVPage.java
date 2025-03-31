@@ -42,10 +42,15 @@ public class FanconiScreenerNVPage extends PageInitializer {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record: " + text + "'])[3]"));
     }
 
-    /* Use This Method To Dynamically Preview Record Buttons On */
-    public WebElement dynamicPreviewButtonLocator2(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record: '])[3]"));
-    }
+//    /* Use This Method To Dynamically Preview Record Buttons On */
+//    public WebElement dynamicPreviewButtonLocator2(String text) {
+//        return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@title='Preview record'])[2]"));
+//    }
+
+    /* NV Fanconi Screener: NIH MRN number Input value  */
+    @FindBy(xpath = "(//a[@title='Preview record'])[2]")
+    public WebElement nVPreviewButtonLocator;
+
 
     /* Method to dynamically locate elements in Native View */
     public WebElement dynamicLocatorUsingDataNormalizeSpaceInSpan(String text) {
@@ -124,6 +129,10 @@ public class FanconiScreenerNVPage extends PageInitializer {
     /* NV Fanconi Screener: Subject Id Input value  */
     @FindBy(xpath = "(//input[@id='sys_readonly.x_naci_family_coho_participant_study.participant.full_family_id'])[1]")
     public WebElement nVParticipantSubjectIdInput;
+
+    /* NV Fanconi Screener: Subject Id Input value  */
+    @FindBy(xpath = "(//input[@id='sys_readonly.x_naci_family_coho_participant_study.participant.name'])[1]")
+    public WebElement nVParticipantNameValue;
 
     /* NV Fanconi Screener: Participant Studies tab in Navigator */
     @FindBy(xpath = "(//span[normalize-space()='Participant Studies (1)'])[1]")
