@@ -244,7 +244,6 @@ Given User is logged in the application and is on the landing page
     And User can see Date field displayed
     And User can see Drag and Drop button displayed
 
-
   @EGRANTS-677 @FileUpload @alenaminsk @selenium @Regression
   Scenario: Upload Doc file
     And clicks on Add Document button
