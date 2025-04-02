@@ -563,7 +563,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	}
 
 	/***
-	 * THIS METHOD UPLOADS A DOC FILE BY Convert and Add
+	 * THIS METHOD UPLOADS A DOC FILE BY CONVERT AND ADD
 	 */
 	public static void upload_a_doc_file() {
 		CommonUtils.sleep(7000);
@@ -575,7 +575,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	}
 
 	/***
-	 * THIS METHOD UPLOADS A DOC FILE BY Add
+	 * THIS METHOD UPLOADS A DOC FILE BY ADD
 	 */
 	public static void upload_a_doc_file_add() {
 		CommonUtils.sleep(7000);
