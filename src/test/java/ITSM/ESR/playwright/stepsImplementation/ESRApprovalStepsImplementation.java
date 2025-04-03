@@ -28,6 +28,25 @@ public class ESRApprovalStepsImplementation {
     }
 
     /**
+     * This method confirms that the Federal Lead Intake Approval was rejected
+     */
+    public static void federalLeadIntakeRejectionForESRQ() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (1)").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("rejected");
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Approval was rejected");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the Federal Intake Approval was rejected and ESR-Q is cancelled
+     */
+    public static void confirmFederalIntakeApprovalWasRejectedForESRQ() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Request Cancelled");
+    }
+
+    /**
      * This method completes the Intake Preparation task again after user receives a "Need More Info" from Federal Lead
      */
     public static void completeIntakePreparation() {
