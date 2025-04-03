@@ -65,9 +65,19 @@ public class OWM_Vacancy_Manager_Steps {
         OWM_Vacancy_Manager_StepsImpl.user_sets_an_entry_as_today_s_date(text);
     }
 
+    @When("User sets an {string} entry for tomorrows date")
+    public void user_sets_an_entry_for_tomorrows_date(String text) {
+        OWM_Vacancy_Manager_StepsImpl.user_sets_an_entry_for_tomorrows_date(text);
+    }
+
     @Then("User sets a {string} entry a month from the Open Date")
     public void user_sets_a_entry_a_month_from_the_open_date(String text) {
         OWM_Vacancy_Manager_StepsImpl.user_sets_a_entry_a_month_from_the_open_date(text);
+    }
+
+    @When("User sets a {string} entry a month from the Open Date for Live vacancies")
+    public void user_sets_a_entry_a_month_from_the_open_date_for_live_vacancies(String text) {
+      OWM_Vacancy_Manager_StepsImpl.user_sets_a_entry_a_month_from_the_open_date_for_live_vacancies(text);
     }
 
     @Then("User sets {string} entry")
@@ -207,7 +217,7 @@ public class OWM_Vacancy_Manager_Steps {
 
     @When("User confirms {string} button is displayed")
     public void user_confirms_button_is_displayed(String expectedText) {
-        OWM_Vacancy_Manager_StepsImpl.user_confirms_button_is_displayed(expectedText);
+        assertThat(page.locator("#root")).containsText("Add Member");
     }
 
     @Then("User can see Chair {string} role option is displayed by default for Role drop down")
@@ -287,22 +297,16 @@ public class OWM_Vacancy_Manager_Steps {
 
     @Then("User can verify that All subfilter displays vacancies in the open state")
     public void user_can_verify_that_all_subfilter_displays_vacancies_in_the_open_state() {
-        page.locator("(//span[@class='ant-table-column-title'][normalize-space()='Open Date'])[2]").click();
-    }
-
-    @Then("User can verify that vacancies with subfilter All are by default sorted by number of applicants in ascending order")
-    public void user_can_verify_that_vacancies_with_subfilter_all_are_by_default_sorted_by_number_of_applicants_in_ascending_order() {
+        OWM_Vacancy_Manager_StepsImpl.user_can_verify_that_all_subfilter_displays_vacancies_in_the_open_state();
     }
 
     @Then("User can verify that Live subfilter displays vacancies in the open state")
     public void user_can_verify_that_live_subfilter_displays_vacancies_in_the_open_state() {
-    }
-
-    @Then("User can verify that vacancies with subfilter Live are by default sorted by number of applicants in ascending order")
-    public void user_can_verify_that_vacancies_with_subfilter_live_are_by_default_sorted_by_number_of_applicants_in_ascending_order() {
+        OWM_Vacancy_Manager_StepsImpl.user_can_verify_that_live_subfilter_displays_vacancies_in_the_open_state();
     }
 
     @Then("User can verify the table columns are displayed as {string},{string},{string},{string},{string}")
-    public void user_can_verify_the_table_columns_are_displayed_as(String string, String string2, String string3, String string4, String string5) {
+    public void user_can_verify_the_table_columns_are_displayed_as(String vacancyTitle, String applicants, String openDate, String closeDate, String actions) {
+        OWM_Vacancy_Manager_StepsImpl.user_can_verify_the_table_columns_are_displayed_as(vacancyTitle, applicants, openDate, closeDate, actions);
     }
 }

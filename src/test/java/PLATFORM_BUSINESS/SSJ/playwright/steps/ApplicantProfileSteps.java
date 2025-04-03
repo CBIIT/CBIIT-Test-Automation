@@ -412,6 +412,11 @@ public class ApplicantProfileSteps {
         ApplicantProfileStepsImpl.selects_a_reference_collection_date_ten_days_from_today();
     }
 
+    @When("selects a Reference Collection Date Ten days from today for live vacancies")
+    public void selects_a_reference_collection_date_ten_days_from_today_for_live_vacancies() {
+        ApplicantProfileStepsImpl.selects_a_reference_collection_date_ten_days_from_today_for_live_vacancies();
+    }
+
     @When("selects {string} for Full Contact Details for References")
     public void selects_for_full_contact_details_for_references(String text) {
         ApplicantProfileStepsImpl.selects_for_full_contact_details_for_references(text);
