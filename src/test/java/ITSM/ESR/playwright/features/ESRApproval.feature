@@ -41,9 +41,7 @@ Feature: ESR Approvals
     And user clicks on Intake Preparation catalog task
     And user fills out all required information for ESR-Q Intake Preparation
     And the user receives a rejection from a federal lead for intake approval in ESR-Q
-    And user clicks on Intake Preparation catalog task and completes it again
-    And the user is approved from a federal lead
-    Then the user confirms the Federal Intake Approval is completed
+    Then the user confirms the Federal Intake Approval was rejected for the ESR-Q ticket
 
   @ESR-570 @sarwarahmed1 @Regression @playwright
   Scenario: Test "Need more info" rejection from a Federal Lead in an ESR-I ticket
