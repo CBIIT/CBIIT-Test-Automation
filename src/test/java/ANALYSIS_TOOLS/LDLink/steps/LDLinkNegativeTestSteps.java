@@ -138,6 +138,7 @@ public class LDLinkNegativeTestSteps extends PageInitializer {
 
     /*
     This will enter RSNumber to the first input panel on the LDPair and then calculates
+    @params rsNum will be the first rsNumber on the LDpair module
      */
     @When("calculating after entering LDPair rs number {string} in first field")
     public void calculating_after_entering_ld_pair_rs_number_in_first_field(String rsNum) {
@@ -148,6 +149,7 @@ public class LDLinkNegativeTestSteps extends PageInitializer {
 
     /*
     This will enter RSNumber to the second input panel on the LDPair and then calculates
+    @params rsNum will enter the rs number in the second field for the LDPair module
      */
     @When("calculating after entering LDPair rs number {string} in second field")
     public void calculating_after_entering_ld_pair_rs_number_in_second_field(String rsNum) {
@@ -158,6 +160,7 @@ public class LDLinkNegativeTestSteps extends PageInitializer {
 
     /*
     This will enter RSNumber to the first input panel on the LDPop and then calculates
+    @params rsNum is the RS Number that gets added in the first field on the LDPop module
      */
     @When("calculating after entering LDPop rs number {string} in first field")
     public void calculating_after_entering_ld_pop_rs_number_in_first_field(String rsNum) {
@@ -168,6 +171,7 @@ public class LDLinkNegativeTestSteps extends PageInitializer {
 
     /*
     This will enter RSNumber to the second input panel on the LDPop and then calculates
+    @params rsNum is the RS Number that gets added in the second field on the LDPop module
      */
     @When("calculating after entering LDPop rs number {string} in second field")
     public void calculating_after_entering_ld_pop_rs_number_in_second_field(String rsNum) {
@@ -263,10 +267,11 @@ public class LDLinkNegativeTestSteps extends PageInitializer {
 
     /*
     THIS IS THE ERROR MESSAGE ON THE GENETIC CORRELATION PAGE AFTER POPULATION IS FILLED OUT
+    @params genCorErrorMessage is for the error message that will be added when the error handling is developed
     THERE IS NO ERROR YET BUT THERE SHOULD BE
      */
     @Then("the Genetic Correlation {string} text is displayed")
-    public void the_genetic_correlation_text_is_displayed(String string) {
+    public void the_genetic_correlation_text_is_displayed(String genCorErrorMessage) {
         assertThat(page.getByRole(AriaRole.IMG, new Page.GetByRoleOptions().setName("loading icon"))).isVisible();
     }
 

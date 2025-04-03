@@ -10,7 +10,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <extentreports.cucumber6.adapter.version>2.13.0</extentreports.cucumber6.adapter.version>
-        <testng.version>7.8.0</testng.version>
+        <testng.version>7.11.0</testng.version>
         <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
         <maven.compiler.source.version>11</maven.compiler.source.version>
         <maven.compiler.target.version>11</maven.compiler.target.version>
@@ -31,7 +31,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.27.0</version>
+            <version>4.30.0</version>
         </dependency>
 
         <!-- cucumber libraries -->
@@ -39,7 +39,7 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>7.15.0</version>
+            <version>7.21.1</version>
         </dependency>
 
         <dependency>
@@ -212,7 +212,7 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
-            <version>7.15.0</version>
+            <version>7.21.1</version>
         </dependency>
 
         <dependency>
@@ -226,7 +226,7 @@
         <dependency>
             <groupId>com.microsoft.playwright</groupId>
             <artifactId>playwright</artifactId>
-            <version>1.49.0</version>
+            <version>1.51.0</version>
         </dependency>
     </dependencies>
     <build>
