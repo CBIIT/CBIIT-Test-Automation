@@ -44,8 +44,27 @@ Given User is logged in the application and navigated to Contract Administration
   And User selects "Test CS2" as Additional Reviewer
   Then User will click on Save button
 
+@ResetDeliverableStatus @NESARH2 @Regression @playwright
+ Scenario: Reset to Default Reviewers of a Deliverable
+  When User clicks on Contracts
+  And user selects "IT Commodities and Solutions" from the list of contracts
+  And User clicks on DELIVERABLE tab
+  And User clicks on "Automated Testing - Deliverable Type V1" from the deliverable type list
+  And User clicks on RESET TO DEFAULT REVIEWERS
+  Then User will click on Save button
+
+@DeactivatingDeliverableVersion @NESARH2 @Regression @playwright
+ Scenario: Deactivating a version of a Deliverable
+  When User clicks on Contracts
+  And user selects "IT Commodities and Solutions" from the list of contracts
+  And User clicks on DELIVERABLE tab
+  And User clicks on "Automated Testing - Deliverable Type V1" from the deliverable type list
+  And User clicks on Version dropdown to select a version
+  And User unchecks the Version Active box
+  Then User will click on Save button
+
 @DeleteDeliverableType @NESARH2 @Regression @playwright
- Scenario: Versioning a Deliverable Type
+ Scenario: Delete a Deliverable Type version
   When User clicks on Contracts
   And user selects "IT Commodities and Solutions" from the list of contracts
   And User clicks on DELIVERABLE tab
@@ -81,7 +100,7 @@ Given User is logged in the application and navigated to Contract Administration
   Then User will click on APPROVE button
 
 @DeliverableReviewCO @NESARH2 @Regression @playwright
- Scenario: Review the deliverable as a Final reviewer (Test CO)
+ Scenario: Approve a deliverable as a Final reviewer (Test CO)
   When User logs in as Test CO on the side login page
   And User clicks on Contract Administration
   And User clicks on Deliverable module
@@ -99,6 +118,25 @@ Given User is logged in the application and navigated to Contract Administration
   And User clicks on DELIVERABLE tab
   And User clicks on a Deliverable from the Schedule list
   And User expands the members
-  And User clicks on Undo Review for CO
-  And User clicks on Undo Review for COR
-  Then And User navigates back the Deliverable list
+  Then User clicks on Undo Review for CO to reset the deliverable status
+
+@RejectDeliverable @NESARH2 @Regression @playwright
+ Scenario: Reject a deliverable as a Final reviewer (Test CO)
+  When User logs in as Test CO on the side login page
+  And User clicks on Contract Administration
+  And User clicks on Deliverable module
+  And User clicks on the Deliverable from To Do list in Submitted status
+  And User clicks on REJECT button on the upper right corner of the page
+  And User types "CO Rejected - Test" in the Comments
+  And User clicks on CHOOSE FILE button on New Files page
+  And User checks the box for Confirm Reject
+  And User will click on Reject button
+  Then User verifies the status is updated to Rejected
+
+@ResetDeliverableStatus @NESARH2 @Regression @playwright
+ Scenario: Delete a submitted deliverable
+  When User clicks on Contracts
+  And user selects "IT Commodities and Solutions" from the list of contracts
+  And User clicks on DELIVERABLE tab
+  And User updates a Deliverable status from the list to prepare it for deletion
+  Then User deletes the submitted deliverable
