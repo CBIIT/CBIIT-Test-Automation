@@ -9,11 +9,14 @@ import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import java.util.regex.Pattern;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class FanconiSurveyVerificationSteps {
+
+    private static String surveyNumber;
 
     /**
      * Verifies FA Survey data in Native View
@@ -41,6 +44,7 @@ public class FanconiSurveyVerificationSteps {
         CommonUtils.sleep(300);
         page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel(Pattern.compile("^Open record: STU000.*")).click();
         CommonUtils.sleep(800);
+        surveyNumber = page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("input[id='x_naci_family_coho_fa_survey.number']").getAttribute("value").trim();
         assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Study", new FrameLocator.GetByLabelOptions().setExact(true))).isVisible();
         assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Study", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("Fanconi");
         assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("First Name")).hasValue(FanconiSurveyPage.PARTICIPANT_FIRST_NAME);
@@ -59,6 +63,26 @@ public class FanconiSurveyVerificationSteps {
         assertFASurveyMothersPregnancyMedicationsRelatedList();
         assertFASurveyGrowthAndDevelopmentMilestonesRelatedList();
         assertFASurveyIllnessesRelatedList();
+        assertFASurveyImmunizationsRelatedList();
+        assertFASurveyAllergiesRelatedList();
+        assertFASurveyFanconiAnemiaSignsRelatedList();
+        assertFASurveyBloodOrBoneMarrowConditionsRelatedList();
+        assertFASurveyAntibioticsRelatedList();
+        assertFASurveyTransfusionsRelatedList();
+        assertFASurveyTransplantsRelatedList();
+        assertFASurveyBoneMarrowFailureMedicationsRelatedList();
+        assertFASurveyGeneTherapyDetailsRelatedList();
+        assertFASurveyDentalVisitDetailsRelatedList();
+        assertFASurveyOralLesionHistoriesRelatedList();
+        assertFASurveyGISymptomsRelatedList();
+        assertFASurveyGIProceduresRelatedList();
+        assertFASurveyEndocrineDisordersRelatedList();
+        assertFASurveyColposcopyDetailsRelatedList();
+        assertFASurveyPregnanciesRelatedList();
+        assertFASurveyBiopsyAndOperationDetailsRelatedList();
+        assertFASurveyHospitalizationHistoriesRelatedList();
+        assertFASurveyParticipantCancerHistoriesRelatedList();
+        assertFASurveyMedicationsSupplementsRelatedList();
     }
 
     /**
@@ -392,7 +416,6 @@ public class FanconiSurveyVerificationSteps {
      * This method performs various validations by checking the values and text contents of specific elements on the page.
      */
     public void assertFASurveyAffectedFamilyMembersRelatedList() {
-        String surveyNumber = page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("input[id='x_naci_family_coho_fa_survey.number']").getAttribute("value").trim();
         page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Affected Family Members (1)").click();
         page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Open record: Other relative (").click();
         CommonUtils.sleep(300);
@@ -416,7 +439,6 @@ public class FanconiSurveyVerificationSteps {
      * This method performs various validations by checking the values and text contents of specific elements on the page.
      */
     public void assertFASurveyPhysiciansRelatedList() {
-        String surveyNumber = page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("input[id='x_naci_family_coho_fa_survey.number']").getAttribute("value").trim();
         page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Physicians (1)").click();
         page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Open record: Physician Long").click();
         CommonUtils.sleep(300);
@@ -435,7 +457,6 @@ public class FanconiSurveyVerificationSteps {
      * This method performs various validations by checking the values and text contents of specific elements on the page.
      */
     public void assertFASurveyMothersPregnancyMedicationsRelatedList() {
-        String surveyNumber = page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("input[id='x_naci_family_coho_fa_survey.number']").getAttribute("value").trim();
         page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Mother's Pregnancy").click();
         page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Open record: Antibiotics").click();
         CommonUtils.sleep(300);
@@ -456,7 +477,6 @@ public class FanconiSurveyVerificationSteps {
      * This method performs various validations by checking the values and text contents of specific elements on the page.
      */
     public void assertFASurveyGrowthAndDevelopmentMilestonesRelatedList() {
-        String surveyNumber = page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("input[id='x_naci_family_coho_fa_survey.number']").getAttribute("value").trim();
         page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Growth and Development").click();
         page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Open record: First walked").click();
         CommonUtils.sleep(300);
@@ -491,7 +511,6 @@ public class FanconiSurveyVerificationSteps {
      * This method performs various validations by checking the values and text contents of specific elements on the page.
      */
     public void assertFASurveyIllnessesRelatedList() {
-        String surveyNumber = page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("input[id='x_naci_family_coho_fa_survey.number']").getAttribute("value").trim();
         page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Illnesses (1)").click();
         page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Open record: Chicken pox", new FrameLocator.GetByLabelOptions().setExact(true)).click();
         CommonUtils.sleep(300);
@@ -504,5 +523,432 @@ public class FanconiSurveyVerificationSteps {
         assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Age In")).hasValue("months");
         assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Complications")).hasValue("Test Complications that the participant had from this illness");
         page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Immunizations" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyImmunizationsRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Immunizations (1)").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Open record: Chicken Pox (").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Name")).hasValue("Chicken Pox (Varicella)");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Other vaccine")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Age", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("1");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Age In")).containsText("-- None --MonthsYears");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Completed Full Series?")).containsText("-- None --YesNoUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Completed Full Series?")).hasValue("yes");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Allergies" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyAllergiesRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Allergies (1)").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Food - Open record: Test Food").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Trigger Item Type")).containsText("-- None --FoodMedicationOther");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Trigger Item", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("Test Food Item");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Reaction")).hasValue("Reaction to Test food item");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Fanconi Anemia Signs" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyFanconiAnemiaSignsRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Fanconi Anemia Signs (1)").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Open record: Birth defects").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("[id=\"x_naci_family_coho_fanconi_amenia_sign_mrvs\\.name_nonedit\"]")).containsText("Birth defects");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Other fanconi anemia sign")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).containsText("-- None --DateAgeUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Age when signs first appeared")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Month signs first appeared")).hasValue("April");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Year signs first appeared")).hasValue("1900");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Blood or Bone Marrow Conditions" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyBloodOrBoneMarrowConditionsRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Blood or Bone Marrow").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Abnormal chromosome clone(s) in bone mar... - Open record: Abnormal chromosome").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("[id=\"x_naci_family_coho_blood_or_bone_marrow_condition_mrvs\\.condition_name_nonedit\"]")).containsText("Abnormal chromosome clone(s) in bone marrow. Describe clone");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Anemia type if applicable")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Describe clone if applicable")).hasValue("Test Clone");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Low red cell count")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Age", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("106");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Age In")).containsText("-- None --MonthsYears");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Age In")).hasValue("years");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Antibiotics" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyAntibioticsRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Antibiotics (1)").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Open record: Test Antibiotics").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Name")).hasValue("Test Antibiotics");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Length of Time Taken")).hasValue("100");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Length of Time In")).containsText("-- None --DaysWeeksMonths");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Length of Time In")).hasValue("days");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Transfusions" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyTransfusionsRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Transfusions (1)").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Open record: Red Cells (PRBCs)").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Name")).containsText("-- None --Red Cells (PRBCs)Platelets");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Name")).hasValue("1");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report on Date or Age?")).containsText("-- None --DateAgeUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report on Date or Age?")).hasValue("date");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Age", new FrameLocator.GetByLabelOptions().setExact(true))).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Month", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("December");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Year")).hasValue("1996");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Number of Times?")).hasValue("104");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Received in the past 3 months?")).containsText("-- None --YesNoUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Received in the past 3 months?")).hasValue("");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Transplants" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyTransplantsRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Transplants (1)").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Bone Marrow Transplant - Open").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Transplant Types")).containsText("-- None --Bone Marrow TransplantCord Blood TransplantPeripheral Blood Stem Cell Transplant");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Transplant Types")).hasValue("1");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).containsText("-- None --DateAgeUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Age", new FrameLocator.GetByLabelOptions().setExact(true))).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Month")).hasValue("November");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Year")).hasValue("2019");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("[id=\"x_naci_family_coho_transplant_mrvs\\.donor_nonedit\"]")).containsText("Brother");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Other donor")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Transplant Center")).hasValue("Test Center");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("HLA match type")).containsText("-- None --Full MatchPartial MatchHaploUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("HLA match type")).hasValue("1");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Bone Marrow Failure Medications" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyBoneMarrowFailureMedicationsRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Bone Marrow Failure").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Androgen (Specify name or names if more ... - Open record: Androgen (Specify").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Medication name")).hasValue("Androgen (Specify name or names if more than one androgen)");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Other Medication Specified")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).containsText("-- None --DateAgeUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).hasValue("date");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Start Age")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Start Month")).hasValue("January ");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Start Year")).hasValue("1922");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Blood Count Improved?")).containsText("-- None --YesNo");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Blood Count Improved?")).hasValue("yes");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Length of time medication")).hasValue("100");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Length of time in")).containsText("-- None --DaysWeeksMonthsYears");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Length of time in")).hasValue("days");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Reason for stopping")).hasValue("Test is the Reason for stopping");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Gene Therapy Details" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyGeneTherapyDetailsRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Gene Therapy Details (1)").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Date - Open record: Gene").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Type")).containsText("-- None --Gene TherapyDentalTransplantcolposcopyGIBlood countOperationBiopsy");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Name")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).containsText("-- None --DateAgeUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Age")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Date", new FrameLocator.GetByLabelOptions().setExact(true))).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Month")).hasValue("July");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Year")).hasValue("1954");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Location of facility where")).hasValue("Test Center location Address");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Reason", new FrameLocator.GetByLabelOptions().setExact(true))).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Other Reason")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Findings of procedure")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Dental Visit Details" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyDentalVisitDetailsRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Dental Visit Details (1)").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Open record: Dental").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Type")).containsText("-- None --Gene TherapyDentalTransplantcolposcopyGIBlood countOperationBiopsy");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Name")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).containsText("-- None --DateAgeUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).hasValue("date");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Age")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Date", new FrameLocator.GetByLabelOptions().setExact(true))).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Month")).hasValue("April");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Year")).hasValue("1985");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Location of facility where")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Reason", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("Cleaning");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Other Reason")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Findings of procedure")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Oral Lesion Histories" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyOralLesionHistoriesRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Oral Lesion Histories (1)").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Open record: Oral lesion").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Condition name")).hasValue("Oral lesion");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Comment", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("Most recent apperance");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).containsText("-- None --AgeDateUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).hasValue("age");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Age", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("90");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Month")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Year")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "GI Symptoms" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyGISymptomsRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("GI Symptoms (1)").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Choking, gagging - Open").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Symptom Name")).hasValue("Choking, gagging");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Currently experiencing it?")).containsText("-- None --YesNoUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Experience length of time in")).containsText("-- None --DaysWeeksMonthsYears");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Experience length of time in")).hasValue("dates");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "GI Procedures" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyGIProceduresRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("GI Procedures (1)").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Upper endoscopy - Open record").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Type")).containsText("-- None --Gene TherapyDentalTransplantcolposcopyGIBlood countOperationBiopsy");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Name")).hasValue("Upper endoscopy");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).containsText("-- None --DateAgeUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).hasValue("age");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Age")).hasValue("76");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Date", new FrameLocator.GetByLabelOptions().setExact(true))).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Month")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Year")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Location of facility where")).hasValue("Test Location");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Reason", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("Test reason");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Other Reason")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Findings of procedure")).hasValue("Test finding");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Endocrine Disorders" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyEndocrineDisordersRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Endocrine Disorders (1)").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Open record: Hypothyroidism (").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Condition name", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("Hypothyroidism (underactive thyroid)");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Specified condition name")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Treatment received?")).containsText("-- None --YesNo");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Treatment received?")).hasValue("yes");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Treatment", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("Test treatment received");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Treatment stop age or date")).hasValue("still_receiving_treatment");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Treatment stop age", new FrameLocator.GetByLabelOptions().setExact(true))).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Treatment stop month")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Treatment stop year")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Colposcopy Details" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyColposcopyDetailsRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Colposcopy Details (1)").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Open record: colposcopy").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Type")).containsText("-- None --Gene TherapyDentalTransplantcolposcopyGIBlood countOperationBiopsy");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Type")).hasValue("5");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Name")).hasValue("Colposcopy");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).containsText("-- None --DateAgeUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).hasValue("age");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Age")).hasValue("102");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Date", new FrameLocator.GetByLabelOptions().setExact(true))).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Month")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Year")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Location of facility where")).hasValue("Address of the Facility is TEST");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Reason", new FrameLocator.GetByLabelOptions().setExact(true))).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Other Reason")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Findings of procedure")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Pregnancies" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyPregnanciesRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Pregnancies (1)").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Live birth - Open record:").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Pregnancy outcome")).containsText("-- None --Live birthStill birthMiscarriageCurrently pregnant");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Pregnancy outcome")).hasValue("1");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).containsText("-- None --AgeDateUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).hasValue("age");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Age", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("103");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Month")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Year")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Pregnancy length", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("40");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Pregnancy length in")).containsText("-- None --WeeksMonths");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Pregnancy length in")).hasValue("weeks");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("IVF required")).containsText("-- None --YesNoUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("IVF required")).hasValue("yes");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Delivery type")).containsText("-- None --Vaginal with forceps or suctionCesarean sectionNo deliveryUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Delivery type")).hasValue("1");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Biopsy and Operation Details" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyBiopsyAndOperationDetailsRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Biopsy and Operation Details").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Open record: Biopsy").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Type")).containsText("-- None --Gene TherapyDentalTransplantcolposcopyGIBlood countOperationBiopsy");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Name")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).containsText("-- None --DateAgeUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report Date or Age?")).hasValue("age");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Age")).hasValue("100");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Date", new FrameLocator.GetByLabelOptions().setExact(true))).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Month")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Procedure Year")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Location of facility where")).hasValue("Procedure performed at facility TEST");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Reason", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("Reason for the procedure is TEST");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Other Reason")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Findings of procedure")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Hospitalization Histories" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyHospitalizationHistoriesRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Hospitalization Histories (1)").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Age - Open record: Reason for").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report date or age?")).containsText("-- None --AgeDateUnknown/Unsure");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Report date or age?")).hasValue("1");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Age of hospitalization")).hasValue("100");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Month of hospitalization")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Year of hospitalization")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Where was the participant")).hasValue("Participant was hospitalized in TEST facility");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Reason for hospitalization")).hasValue("Reason for the Hospitalization is TEST");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Survey", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(surveyNumber);
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Participant Cancer Histories" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyParticipantCancerHistoriesRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Participant Cancer Histories").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Abdominal cancer - Open").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Cancer or Site", new FrameLocator.GetByLabelOptions().setExact(true))).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Name and address of the facility where diagnosis was made")).hasValue("Cancer diagnosed at TEST facility");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Name and address of the facility where treatment was received")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Age", new FrameLocator.GetByLabelOptions().setExact(true))).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Diagnosis date")).hasValue("November, 1953");
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+    }
+
+    /**
+     * Verifies the "Medications & Supplements" related list on the FA Survey page within participant record in Native View.
+     * This method performs various validations by checking the values and text contents of specific elements on the page.
+     */
+    public void assertFASurveyMedicationsSupplementsRelatedList() {
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#tabs2_list").getByText("Medications & Supplements (2)").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Supplement - Open record:").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Type of Supplement")).containsText("-- None --MultivitaminOther vitaminFolic acidCalciumHerbal preparationsOther");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Type of Supplement")).hasValue("");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Dose (For example, 50mg)")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Name")).hasValue("SUpplement TEST");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Used over past 12 months?")).containsText("-- None --YesNo");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Used over past 12 months?")).hasValue("");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Reason for taking this")).isEmpty();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Back").click();
+        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Medication - Open record:").click();
+        CommonUtils.sleep(300);
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Type of Supplement")).containsText("-- None --MultivitaminOther vitaminFolic acidCalciumHerbal preparationsOther");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Type of Supplement")).hasValue("");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Dose (For example, 50mg)")).isEmpty();
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Name")).hasValue("Generic Brand TEST");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Used over past 12 months?")).containsText("-- None --YesNo");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Used over past 12 months?")).hasValue("");
+        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Reason for taking this")).isEmpty();
+    }
+
+    @When("logs out of Fanconi Study portal")
+    public void logs_out_of_fanconi_study_portal() {
+        page.locator("#user-info-dropdown").click();
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Sign Out")).click();
+        CommonUtils.sleep(800);
     }
 }
