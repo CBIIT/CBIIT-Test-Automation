@@ -945,6 +945,9 @@ public class FanconiSurveyVerificationSteps {
         assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Reason for taking this")).isEmpty();
     }
 
+    /**
+     * Logs out of the Fanconi Study portal by clicking on the user info dropdown and selecting the "Sign Out" option.
+     */
     @When("logs out of Fanconi Study portal")
     public void logs_out_of_fanconi_study_portal() {
         page.locator("#user-info-dropdown").click();
