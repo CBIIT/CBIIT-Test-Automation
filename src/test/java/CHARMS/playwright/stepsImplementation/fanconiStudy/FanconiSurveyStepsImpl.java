@@ -345,8 +345,8 @@ public class FanconiSurveyStepsImpl {
         page.navigate(TestProperties.FANCONI_TEST_URL);
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(FanconiSurveyPage.LOGIN_BUTTON_LINK)).click();
         CommonUtils.sleep(2000);
-        //  page.getByLabel(FanconiSurveyPage.USERNAME).fill(FanconiSurveyPage.EMAIL);
-        //   page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.NEXT)).click();
+          page.getByLabel(FanconiSurveyPage.USERNAME).fill(FanconiSurveyPage.EMAIL);
+           page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.NEXT)).click();
         page.getByLabel(FanconiSurveyPage.PASSWORD).fill(FanconiSurveyPage.USER_PASSWORD);
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.VERIFY)).click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyPage.AGREE)).click();
