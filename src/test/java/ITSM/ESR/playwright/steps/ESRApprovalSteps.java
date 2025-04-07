@@ -21,9 +21,19 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.federalLeadNeedMoreInfo();
     }
 
+    @And("the user receives a rejection from a federal lead for intake approval in ESR-Q")
+    public void the_user_receives_a_rejection_from_a_federal_lead_for_intake_approval_in_esr_q() {
+        ESRApprovalStepsImplementation.federalLeadIntakeRejectionForESRQ();
+    }
+
     @And("user clicks on Intake Preparation catalog task and completes it again")
     public void user_clicks_on_intake_preparation_catalog_task_and_completes_it_again() {
         ESRApprovalStepsImplementation.completeIntakePreparation();
+    }
+
+    @Then("the user confirms the Federal Intake Approval was rejected for the ESR-Q ticket")
+    public void the_user_confirms_the_federal_intake_approval_was_rejected_for_the_esr_q_ticket() {
+        ESRApprovalStepsImplementation.confirmFederalIntakeApprovalWasRejectedForESRQ();
     }
 
     @And("the user is approved from the ESR Board approvers")

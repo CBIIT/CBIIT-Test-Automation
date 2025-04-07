@@ -175,7 +175,7 @@ public class ESRTaskStepsImplementation {
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("   Project Assignment Group")).click();
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("   Project Assignment Group")).fill("CHARMS Technical Support");
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Project Lead to implement Q-")).click();
-        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Project Lead to implement Q-")).fill("Larry Brem");
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Project Lead to implement Q-")).fill("Lawrence Brem");
         Playwright_Common_Locators.iframeLocator().getByLabel("Add a row for Technology").click();
         Playwright_Common_Locators.iframeLocator().frameLocator("iframe[name=\"dialog_frame\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Name")).click();
         Playwright_Common_Locators.iframeLocator().frameLocator("iframe[name=\"dialog_frame\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Name")).fill("Test Technology");
