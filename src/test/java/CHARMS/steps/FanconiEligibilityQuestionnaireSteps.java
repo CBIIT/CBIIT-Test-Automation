@@ -5,7 +5,6 @@ import APPS_COMMON.Utils.ServiceNow_Login_Methods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
-
 public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
     @Given("run the Fanconi reset script to reset the accounts")

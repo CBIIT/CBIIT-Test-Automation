@@ -23,6 +23,11 @@ public class FanconiScreenerNVPage extends PageInitializer {
     }
 
     /* Method to dynamically locate elements in Native View */
+    public WebElement dynamicLocatorContainsText1(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//span[@class='label-text'][normalize-space()='Screener'])[1]"));
+    }
+
+    /* Method to dynamically locate elements in Native View */
     public WebElement dynamicLocatorUsingNormalizeSpace(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//*[normalize-space()='" + text + "']"));
     }
@@ -41,16 +46,6 @@ public class FanconiScreenerNVPage extends PageInitializer {
     public WebElement dynamicLocatorForPreviewButtonLocator(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record: " + text + "'])[3]"));
     }
-
-//    /* Use This Method To Dynamically Preview Record Buttons On */
-//    public WebElement dynamicPreviewButtonLocator2(String text) {
-//        return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@title='Preview record'])[2]"));
-//    }
-
-    /* NV Fanconi Screener: NIH MRN number Input value  */
-    @FindBy(xpath = "(//a[@title='Preview record'])[2]")
-    public WebElement nVPreviewButtonLocator;
-
 
     /* Method to dynamically locate elements in Native View */
     public WebElement dynamicLocatorUsingDataNormalizeSpaceInSpan(String text) {
@@ -121,6 +116,14 @@ public class FanconiScreenerNVPage extends PageInitializer {
     public WebElement dynamicLocatorForCheckBoxElements(int i) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//span[@class='input-group-checkbox'])["+ i +"]"));
     }
+
+    /* NV Fanconi Screener: Preview Button value  */
+    @FindBy(xpath = "(//a[@aria-label='Preview record: '])[2]")
+    public WebElement nVPreviewButtonLocator;
+
+    /* NV Fanconi Screener: Preview Button value  */
+    @FindBy(xpath = "(//a[@title='Preview record'])[3]")
+    public WebElement nVPreviewButtonLocator1;
 
     /* NV Fanconi Screener: NIH MRN number Input value  */
     @FindBy(xpath = "(//input[@id='x_naci_family_coho_participant_study.participant.nih_number'])[1]")
