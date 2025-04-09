@@ -1,4 +1,4 @@
-Feature: These scenarios verifiy LDLink Homepage and Landing Page Validation
+Feature: These scenarios verify LDLink Homepage and Landing Page Validation
 
     @Smoke @Regression @matakevin @selenium
     Scenario: Analysis Tools Page - Validate LDlink
