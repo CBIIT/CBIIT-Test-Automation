@@ -592,7 +592,7 @@ public class FHQConstants {
 	public static final ArrayList<String> BENIGN_TUMOR_TYPE = new ArrayList<String>() {
 		{
 			add("-- None --");
-			add("Atypical Spitz Tumor");
+			add("Atypical Spitz tumor");
 			add("Colon Polyps (Benign)");
 			add("Cystic nephroma");
 			add("Giant congenital nevus");

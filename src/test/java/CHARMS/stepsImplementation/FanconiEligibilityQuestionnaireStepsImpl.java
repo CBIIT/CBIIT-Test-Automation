@@ -1102,7 +1102,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     }
 
     /**
-     * Method to assert the Contact Info on Participant Details page
+     * Method to assert the Contact Info on Participant Details page using @param rowNumForAssertion
      */
     public void proxyContactInformationAssertionOnParticipantDetailPage(int rowNumForAssertion) {
         Map<String, String> currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
@@ -1781,7 +1781,7 @@ public void fanconiEligibilityAllScenariosQuestionnaireSubmission() {
 }
 
 /**
- * Method to assert the Fanconi Study: Consent Flow
+ * Method to assert the Fanconi Study: Consent Flow using @param rowCount
  */
 public void fanconiConsentAssertionOnFanconiStudyPage(int rowCount) {
     CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus,
@@ -1853,7 +1853,7 @@ public void fanconiConsentAssertionOnFanconiStudyPage(int rowCount) {
 }
 
 /**
- * Method to assert the Participant Detail Page: Assertion of the Participant Detail page
+ * Method to assert the Participant Detail Page: Assertion of the Participant Detail page using @param rowNumForAssertion
  */
 public void participantDetailPageAssertion(int rowNumForAssertion) {
     fanconiEligibilityQuestionnaireStepsImpl.participantDetailRecordClicked(rowNumForAssertion);
