@@ -100,7 +100,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Uncle       |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Uncle       |
 
   @jains @FHQSubmissionInPortal @CP2-550 @FHQ_Regression @selenium
@@ -112,7 +111,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | NieceNephew |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | NieceNephew |
 
   @jains @FHQSubmissionInPortal @CP2-559 @FHQ_Regression @selenium
@@ -124,7 +122,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative         |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | MaternalGrandMother |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | MaternalGrandMother |
 
   @jains @FHQSubmissionInPortal @CP2-559 @FHQ_Regression @selenium
@@ -136,7 +133,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative         |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | MaternalGrandFather |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | MaternalGrandFather |
 
   @jains @FHQSubmissionInPortal @CP2-559 @FHQ_Regression @selenium
@@ -148,7 +144,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative         |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | PaternalGrandMother |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | PaternalGrandMother |
 
   @jains @FHQSubmissionInPortal @CP2-559 @FHQ_Regression @selenium
@@ -160,7 +155,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative         |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | PaternalGrandFather |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | PaternalGrandFather |
 
   @jains @FHQSubmissionInPortal @CP2-563 @FHQ_Regression @selenium
@@ -172,7 +166,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative   |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | GrandChildren |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | GrandChildren |
 
   @jains @FHQSubmissionInPortal @CP2-563 @FHQ_Regression @selenium
@@ -184,7 +177,6 @@ Feature: FHQ Form Submission Scenarios
 
     Examples:
       | Email                  | Password      | FHQScenario  | FHQRelative |
-      | charmsras3@yahoo.com   | RASTest2023$$ | FHQScenario1 | Cousin      |
       | Rasopathy1@yopmail.com | Charms123$    | FHQScenario1 | Cousin      |
 
   @jains @FHQAssertionInNV @CP2-1013 @FHQ_Regression @selenium

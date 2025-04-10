@@ -23,6 +23,11 @@ public class FanconiScreenerNVPage extends PageInitializer {
     }
 
     /* Method to dynamically locate elements in Native View */
+    public WebElement dynamicLocatorContainsText1(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//span[@class='label-text'][normalize-space()='Screener'])[1]"));
+    }
+
+    /* Method to dynamically locate elements in Native View */
     public WebElement dynamicLocatorUsingNormalizeSpace(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//*[normalize-space()='" + text + "']"));
     }
@@ -40,11 +45,6 @@ public class FanconiScreenerNVPage extends PageInitializer {
     /* Method to dynamically locate Input Value elements in Native View */
     public WebElement dynamicLocatorForPreviewButtonLocator(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record: " + text + "'])[3]"));
-    }
-
-    /* Use This Method To Dynamically Preview Record Buttons On */
-    public WebElement dynamicPreviewButtonLocator2(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record: '])[3]"));
     }
 
     /* Method to dynamically locate elements in Native View */
@@ -117,6 +117,14 @@ public class FanconiScreenerNVPage extends PageInitializer {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//span[@class='input-group-checkbox'])["+ i +"]"));
     }
 
+    /* NV Fanconi Screener: Preview Button value  */
+    @FindBy(xpath = "(//a[@aria-label='Preview record: '])[2]")
+    public WebElement nVPreviewButtonLocator;
+
+    /* NV Fanconi Screener: Preview Button value  */
+    @FindBy(xpath = "(//a[@title='Preview record'])[3]")
+    public WebElement nVPreviewButtonLocator1;
+
     /* NV Fanconi Screener: NIH MRN number Input value  */
     @FindBy(xpath = "(//input[@id='x_naci_family_coho_participant_study.participant.nih_number'])[1]")
     public WebElement nVParticipantNIHMRNNumberInput;
@@ -124,6 +132,10 @@ public class FanconiScreenerNVPage extends PageInitializer {
     /* NV Fanconi Screener: Subject Id Input value  */
     @FindBy(xpath = "(//input[@id='sys_readonly.x_naci_family_coho_participant_study.participant.full_family_id'])[1]")
     public WebElement nVParticipantSubjectIdInput;
+
+    /* NV Fanconi Screener: Subject Id Input value  */
+    @FindBy(xpath = "(//input[@id='sys_readonly.x_naci_family_coho_participant_study.participant.name'])[1]")
+    public WebElement nVParticipantNameValue;
 
     /* NV Fanconi Screener: Participant Studies tab in Navigator */
     @FindBy(xpath = "(//span[normalize-space()='Participant Studies (1)'])[1]")

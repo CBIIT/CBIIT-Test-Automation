@@ -51,7 +51,7 @@ public class CharmsUtil {
 		while (count < 5) {
 			try {
 				webElement.click();
-				CommonUtils.sleep(600);
+				CommonUtils.sleep(800);
 				break;
 			} catch (WebDriverException ex) {
 				CommonUtils.sleep(2000);
@@ -229,8 +229,9 @@ public class CharmsUtil {
 			String options = selectResultsAsListCollection.get(i).getText();
 			if ( options.equals(dropDownValue))
 			{
+				CommonUtils.sleep(600);
 				selectResultsAsListCollection.get(i).click();
-				CommonUtils.sleep(300);
+				CommonUtils.sleep(600);
 				break;
 			}
 		}
