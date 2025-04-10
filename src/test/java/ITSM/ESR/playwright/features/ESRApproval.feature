@@ -55,7 +55,7 @@ Feature: ESR Approvals
     And the user is approved from a federal lead
     Then the user confirms the Federal Intake Approval is completed
 
-  @ESR-574 @sarwarahmed1 @Progression @playwright
+  @ESR-574 @sarwarahmed1 @Regression @playwright
   Scenario: Test "Rejected" from a Federal Lead in an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
