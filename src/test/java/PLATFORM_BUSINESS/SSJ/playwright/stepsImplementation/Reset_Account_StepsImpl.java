@@ -10,6 +10,8 @@ import com.microsoft.playwright.PlaywrightException;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
+import com.nci.automation.web.TestProperties;
+
 import static com.nci.automation.web.TestProperties.getNCISPUrl;
 
 public class Reset_Account_StepsImpl {
@@ -38,8 +40,18 @@ public class Reset_Account_StepsImpl {
      * @param testAccountName
      */
     public static void a_test_account_is_reset_before_executing_a_test(String testAccountName) {
-        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(SSJ_Constants.SSJ_TESTER);
-        PlaywrightUtils.page.locator(Playwright_ServiceNow_NCISP_Page.nativeViewLink).click();
+        if("stage".equals(TestProperties.ENV)) {
+            Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(SSJ_Constants.SSJ_STAGE_TESTER);
+        } else if ("test".equals(TestProperties.ENV)) {
+            Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(SSJ_Constants.SSJ_TESTER);
+        } else if ("sandbox".equals(TestProperties.ENV)) {
+            Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(SSJ_Constants.SSJ_TESTER);
+        } else if ("ezapps".equals(TestProperties.ENV)) {
+            Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(SSJ_Constants.SSJ_TESTER);
+        } else {
+            throw new IllegalStateException("Environment not recognized: " + TestProperties.ENV);
+        }
+        PlaywrightUtils.page.navigate(getNCISPUrl());
         Playwright_ServiceNow_Common_Methods.searchFilterNavigatorAndClickOption("SCSS", "Users");
         Playwright_ServiceNow_Common_Methods.selectDropDownOptionInsideIframe(User_Table_Page.usersDropDown, "First Name");
         CommonUtils.sleep(3000);
