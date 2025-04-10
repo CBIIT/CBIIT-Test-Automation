@@ -46,7 +46,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Add Document button
      */
-    @FindBy(xpath ="//button[@title='Click here to add new document [shift + alt + O]']")
+    @FindBy(xpath ="//button[@title='Add New Document [shift + alt + O]']")
     public WebElement addDocumentButton;
 
     /**
@@ -118,7 +118,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Success Message
      */
-    @FindBy(xpath = "//span[@id='mssg']")
+    @FindBy(xpath = "//span[@id='mssgGood']")
     public WebElement successMessage;
 
     /**
@@ -646,7 +646,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Grant field
      */
-    @FindBy(xpath = "//b[contains(text(),'Grant')]")
+    @FindBy(xpath = "//*[@id='content']/table[1]/tbody/tr/td/table/thead/tr[2]/td/b")
     public WebElement grantField;
 
     /**
@@ -738,6 +738,12 @@ public class EgrantsSearchAndFileManagementScenariosPage {
      */
     @FindBy(xpath = "//b[@id='page_title']")
     public WebElement updateDocPageHeader;
+
+    /**
+     * Upload file error message
+     */
+    @FindBy(xpath = "//*[@id='mssg']/div[1]")
+    public WebElement uploadFileErrorMessage;
 
     /**
      * Constructor
