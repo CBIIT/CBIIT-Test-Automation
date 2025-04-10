@@ -287,7 +287,7 @@ Given User is logged in the application and is on the landing page
     And User can see Update column header
 
   @EGRANTS-693 @FileUpload @alenaminsk @selenium @Regression
-  Scenario: Upload pdf file by Adding Only
+  Scenario: Upload PDF file by Adding Only - DOC file format
     And clicks on Add Document button
     And searches for "125123" on Add New Document page
     And selects grant year 18
@@ -298,7 +298,7 @@ Given User is logged in the application and is on the landing page
     And clicks on uploaded document
 
   @EGRANTS-693 @FileUpload @alenaminsk @selenium @Regression
-  Scenario: Upload pdf file by Adding Only
+  Scenario: Upload PDF file by Adding Only - DOCX file format
     And clicks on Add Document button
     And searches for "125123" on Add New Document page
     And selects grant year 18
