@@ -9,14 +9,16 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
-
 import java.util.*;
-
 import static CHARMS.pages.RAS_Survey_Native_View_Page.*;
 import static CHARMS.steps.RAS_Common_Methods.softAssertDropDownValueIsSelected;
 import static Hooks.Hooks.softAssert;
 
 public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
+
+    /**
+     * This method verifies the RAS Survey Data in Native View for Scenario One.
+     */
     @Then("RAS Survey Data for Scenario One is verified")
     public void ras_survey_Data_for_scenario_one_is_verified() {
         /**
@@ -429,7 +431,6 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
     @Then("RAS Survey Data for Scenario Two is verified")
     public void ras_survey_Data_for_scenario_two_is_verified() {
         ras_Survey_TestDataManager.dataInitializerRasSurvey("RASSurveyScenario2");
-
         verify_ras_survey_data_scenarioTwo_demographics_section();
         verify_ras_survey_data_scenarioTwo_rasopathy_history_section();
         verify_ras_survey_data_scenarioTwo_birth_and_gestation_section();
@@ -438,8 +439,5 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         verify_ras_survey_data_scenarioTwo_heart_section();
         verify_ras_survey_data_scenarioTwo_medical_history_section();
         verify_ras_survey_data_scenarioTwo_feeding_nutrition_gastro_symptoms_section();
-
-
-
     }
 }
