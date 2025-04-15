@@ -36,6 +36,16 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.confirmFederalIntakeApprovalWasRejectedForESRQ();
     }
 
+    @And("the user receives a rejection from a federal lead for intake approval in ESR-I")
+    public void the_user_receives_a_rejection_from_a_federal_lead_for_intake_approval_in_esr_i() {
+        ESRApprovalStepsImplementation.federalLeadIntakeRejectionForESRI();
+    }
+
+    @Then("the user confirms the Federal Intake Approval was rejected for the ESR-I ticket")
+    public void the_user_confirms_the_federal_intake_approval_was_rejected_for_the_esr_i_ticket() {
+        ESRApprovalStepsImplementation.confirmFederalIntakeApprovalWasRejectedForESRI();
+    }
+
     @And("the user is approved from the ESR Board approvers")
     public void the_user_is_approved_from_the_esr_board_approvers() {
         ESRApprovalStepsImplementation.esrBoardIntakeApprovals();
