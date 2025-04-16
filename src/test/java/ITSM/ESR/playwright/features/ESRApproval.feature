@@ -235,7 +235,7 @@ Feature: ESR Approvals
     And the user is approved for ESR Board Closeout Review for ESR-Q
     Then the user confirms the ESR Board Closeout Review approvals are completed
 
-  @ESR-713 @sarwarahmed1 @Progression @playwright
+  @ESR-713 @sarwarahmed1 @Regression @playwright
   Scenario: Test the "Need more Info" from ESR Board Closeout Review approvals in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR

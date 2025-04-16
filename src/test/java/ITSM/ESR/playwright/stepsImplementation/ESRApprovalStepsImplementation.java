@@ -299,7 +299,6 @@ public class ESRApprovalStepsImplementation {
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
     }
 
-
     /**
      * This method rejects the ESR Board Closeout Review approvals with a need more info for ESR-Q tickets
      */
