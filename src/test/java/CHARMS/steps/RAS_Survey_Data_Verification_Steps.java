@@ -15,6 +15,10 @@ import static CHARMS.steps.RAS_Common_Methods.softAssertDropDownValueIsSelected;
 import static Hooks.Hooks.softAssert;
 
 public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
+
+    /**
+     * This method verifies the RAS Survey Data in Native View for Scenario One.
+     */
     @Then("RAS Survey Data for Scenario One is verified")
     public void ras_survey_Data_for_scenario_one_is_verified() {
         /**
@@ -82,14 +86,9 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
     }
 
     /**
-     * This method verifies the RAS Survey Data in Native View for Scenario Two.
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Demographics" section.
      */
-    @Then("RAS Survey Data for Scenario Two is verified")
-    public void ras_survey_Data_for_scenario_two_is_verified() {
-        /**
-         * ----- BEGINNING Demographics SECTION VALIDATION -----
-         */
-        ras_Survey_TestDataManager.dataInitializerRasSurvey("RASSurveyScenario2");
+    public void verify_ras_survey_data_scenarioTwo_demographics_section() {
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Demographics"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Demographics"));
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Demographics"));
@@ -107,17 +106,15 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(ras_survey_native_view.biologicalFathersHeight).replace(",", ""), ras_survey_native_view.inchToCm(ras_Survey_TestDataManager.whatIsTheHeightOfYourBiologicalFather), "* * * * * RAS SURVEY MISMATCH IN 'Biological fathers height (cm)' INPUT FIELD * * * * *");
         verifyCheckbox("true", ras_survey_native_view.biologicalFatherHeightUnknown, "* * * * * RAS SURVEY MISMATCH IN 'Biological fathers height unknown' CHECKBOX * * * * *");
         CucumberLogUtils.logScreenshot();
-        /**
-         * ----- END Demographics SECTION VALIDATION -----
-         */
+    }
 
-        /**
-         * ----- BEGINNING RASopathy History SECTION VALIDATION -----
-         */
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "RASopathy History" section.
+     */
+    public void verify_ras_survey_data_scenarioTwo_rasopathy_history_section() {
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("RASopathy History"));
         CommonUtils.sleep(800);
         CommonUtils.waitForVisibility(ras_survey_native_view.dropdownDiagnosedWithRasopathyByPhysician);
-
         List<String> expectedDiagnosedRasopathies = new ArrayList<>() {
             {
                 add(ras_Survey_TestDataManager.pleaseIndicateIfYouHaveBeenDiagnosedWithRASopathiesOption1);
@@ -135,13 +132,12 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         softAssertDropDownValueIsSelected(ras_survey_native_view.dropdownDiagnosedWithRasopathyByPhysician, ras_Survey_TestDataManager.haveYouBeenDiagnosedWithARASopathy, "* * * * * RAS SURVEY MISMATCH IN 'Diagnosed with a RASopathy by a physician through testing' INPUT FIELD * * * * *");
         verifyInputField(ras_survey_native_view.specifyOtherRasopathyInputField, ras_Survey_TestDataManager.pleaseIndicateIfYouHaveBeenDiagnosedWithRASopathiesOption9Other, "* * * * * Please specify other RASopathy' INPUT FIELD * * * * *");
         CucumberLogUtils.logScreenshot();
-        /**
-         * ----- END RASopathy History SECTION VALIDATION -----
-         */
+    }
 
-        /**
-         * ----- BEGINNING Birth & Gestation SECTION VALIDATION -----
-         */
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Birth & Gestation" section.
+     */
+    public void verify_ras_survey_data_scenarioTwo_birth_and_gestation_section() {
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Birth & Gestation"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Birth & Gestation"));
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Birth & Gestation"));
@@ -256,13 +252,12 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         verifyInputField(ras_survey_native_view.fieldBioFatherOccupationWhileMotherWasPregnant, ras_Survey_TestDataManager.biologicalMotherOccupationDuringPregnancyFather, "* * * * * RAS SURVEY MISMATCH IN 'Biological fathers occupation while mother was pregnant with the participant' INPUT FIELD * * * * *");
         verifyCheckbox("true", ras_survey_native_view.biologicalFatherOccupationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN 'Biological father occupation unknown' CHECKBOX * * * * *");
         CucumberLogUtils.logScreenshot();
-        /**
-         * ----- END OF Birth & Gestation SECTION VALIDATION -----
-         */
+    }
 
-        /**
-         * ----- BEGINNING Growth SECTION VALIDATION -----
-         */
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Growth" section.
+     */
+    public void verify_ras_survey_data_scenarioTwo_growth_section() {
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Growth"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Growth"));
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Growth"));
@@ -285,13 +280,13 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         verifyInputField(ras_survey_native_view.doctorMedicalProviderNameInputField, ras_Survey_TestDataManager.whatIsTheNameOfTheEndocrinologistDoctor, "* * * * * RAS SURVEY MISMATCH IN 'Doctor/medical provider name' INPUT FIELD * * * * *");
         verifyInputField(ras_survey_native_view.locationCityStateCountryInputField, ras_Survey_TestDataManager.whatIsTheNameOfTheEndocrinologistLocation, "* * * * * RAS SURVEY MISMATCH IN 'Location (City, State, Country)' INPUT FIELD * * * * *");
         verifyInputField(ras_survey_native_view.hospitalOrHealthSystemAffiliationInputField, ras_Survey_TestDataManager.whatIsTheNameOfTheEndocrinologistHospital, "* * * * * RAS SURVEY MISMATCH IN 'Hospital or Health System Affiliation' INPUT FIELD * * * * *");
-        /**
-         * ---------------------END OF Growth SECTION VALIDATION---------------------
-         */
+        CucumberLogUtils.logScreenshot();
+    }
 
-        /**
-         * ---------------------BEGINNING OF Development SECTION VALIDATION---------------------
-         */
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Development" section.
+     */
+    public void verify_ras_survey_data_scenarioTwo_development_section() {
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Development"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Development"));
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Development"));
@@ -319,15 +314,130 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         };
         softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToListHyphenated(ras_survey_native_view.participantsDiagnosedLearningDifferencesTextList), expectedParticipantsDiagnosedLearningDifferencesTextList), "* * * * * RAS SURVEY MISMATCH IN 'Participants diagnosed learning differences' TEXT LIST * * * * *");
         verifyInputField(ras_survey_native_view.pleaseSpecifyParticipantsDiagnosedLearningDifferencesInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithLearningDifferencesOption4Other, "* * * * * RAS SURVEY MISMATCH IN 'Please specify(Participants diagnosed learning differences)' INPUT FIELD * * * * *");
-        /**
-         * ---------------------END OF Development SECTION VALIDATION---------------------
-         */
+        CucumberLogUtils.logScreenshot();
+    }
 
-        /**
-         * ---------------------BEGINNING OF Heart SECTION VALIDATION---------------------
-         */
-        /**
-         * ---------------------END OF Heart SECTION VALIDATION---------------------
-         */
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Heart" section.
+     */
+    public void verify_ras_survey_data_scenarioTwo_heart_section() {
+        CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Heart"));
+        JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Heart"));
+        CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Heart"));
+        CommonUtils.waitForVisibility(ras_survey_native_view.hasTheParticipantBeenEvaluatedByACardiologistDropdown);
+        softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantBeenEvaluatedByACardiologistDropdown, ras_Survey_TestDataManager.haveYouEverBeenEvaluatedByACardiologist, "* * * * * RAS SURVEY MISMATCH IN 'Has the participant been evaluated by a cardiologist?' DROPDOWN * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfCardiologistInputField, ras_Survey_TestDataManager.whatIsTheNameOfTheCardiologistDoctor, "* * * * * RAS SURVEY MISMATCH IN 'Name of cardiologist' INPUT FIELD * * * * *");
+        verifyInputField(ras_survey_native_view.locationOfCardiologistInputField, ras_Survey_TestDataManager.whatIsTheNameOfTheCardiologistLocation, "* * * * * RAS SURVEY MISMATCH IN 'Location (City, State, Country)' INPUT FIELD * * * * *");
+        verifyInputField(ras_survey_native_view.getHospitalOrHealthSystemAffiliationInputFieldInputField, ras_Survey_TestDataManager.whatIsTheNameOfTheCardiologistHospital, "* * * * * RAS SURVEY MISMATCH IN 'Hospital or Health Center Affiliation' INPUT FIELD * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantReceivedHeartTreatmentDropdown, ras_Survey_TestDataManager.haveYouEverReceivedTreatmentForHeartProblems, "* * * * * RAS SURVEY MISMATCH IN 'Has the participant received treatment for heart problems?' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantBeenDiagnosedWithAFunctionalHeartIssueDropdown, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyFunctionalHeartIssues, "* * * * * RAS SURVEY MISMATCH IN 'Has the participant been diagnosed with a functional heart issue?' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantBeenDiagnosedWithAStructuralHeartIssueDropdown, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyStructuralHeartIssues, "* * * * * RAS SURVEY MISMATCH IN 'Has the participant been diagnosed with  structural heart issues?' DROPDOWN * * * * *");
+        List<String> expectedParticipantsHeartIssuesTextList = new ArrayList<>() {
+            {
+                add(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingStructuralHeartIssuesOption1);
+                add(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingStructuralHeartIssuesOption2);
+                add(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingStructuralHeartIssuesOption3);
+                add(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingStructuralHeartIssuesOption4);
+                add(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingStructuralHeartIssuesOption5);
+                add(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingStructuralHeartIssuesOption6);
+            }
+        };
+        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToListHyphenated(ras_survey_native_view.participantsDiagnosedStructuralHeartIssuesText), expectedParticipantsHeartIssuesTextList), "* * * * * RAS SURVEY MISMATCH IN 'Participants diagnosed structural heart issues' TEXT LIST * * * * *");
+        verifyInputField(ras_survey_native_view.pleaseSpecifyOtherHeartIssuesInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingStructuralHeartIssuesOption6Other, "* * * * * RAS SURVEY MISMATCH IN 'Please specify (Heart issues)' INPUT FIELD * * * * *");
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Medical History" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_medical_history_section() {
+        CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Medical History"));
+        JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Medical History"));
+        CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Medical History"));
+        CommonUtils.waitForVisibility(ras_survey_native_view.doesTheParticipantHaveAPrimaryCareProviderDropdown);
+        softAssertDropDownValueIsSelected(ras_survey_native_view.doesTheParticipantHaveAPrimaryCareProviderDropdown, ras_Survey_TestDataManager.doYouHaveAPrimaryCareProvider, "* * * * * RAS SURVEY MISMATCH IN 'Does the participant have a primary care provider?' DROPDOWN * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfPrimaryCareProviderInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationForYourPrimaryCareProviderBelowDoctor, "* * * * * RAS SURVEY MISMATCH IN 'Name of primary care provider' INPUT FIELD * * * * *");
+        verifyInputField(ras_survey_native_view.locationOfPrimaryCareProviderInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationForYourPrimaryCareProviderBelowLocation, "* * * * * RAS SURVEY MISMATCH IN 'Location of primary care provider' INPUT FIELD * * * * *");
+        verifyInputField(ras_survey_native_view.primaryCareProviderAffiliationInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationForYourPrimaryCareProviderBelowHospital, "* * * * * RAS SURVEY MISMATCH IN 'Primary Care Provider Affiliation' INPUT FIELD * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantEverHadABiopsyDropdown, ras_Survey_TestDataManager.haveYouEverHadAnOperationOrBiopsy, "* * * * * RAS SURVEY MISMATCH IN 'Has the participant ever had a biopsy?' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.isTheParticipantAllergicToAnyMedicationsDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN 'Is the participant allergic to any medications' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.haveYouEverBeenDiagnosedWithALymphaticSystemIssueDropdown, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithALymphaticSystemIssue, "* * * * * RAS SURVEY MISMATCH IN 'Have you ever been diagnosed with a lymphatic system issue' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantEverBeenEvaluatedByANephrologistDropdown, ras_Survey_TestDataManager.haveYouEverBeenEvaluatedByANephrologist, "* * * * * RAS SURVEY MISMATCH IN 'Has the participant ever been evaluated by a nephrologist?' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantBeenHospitalizedForAnyReasonOtherThanAccidentalInjuryOrChildbirthDropdown, ras_Survey_TestDataManager.haveYouEverBeenHospitalizedForAnyReason, "* * * * * RAS SURVEY MISMATCH IN 'Hospitalized for any reason other than accidental injury or childbirth' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.isTheParticipantAllergicToAnyFoodsDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN 'Is the participant allergic to any foods' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.isTheParticipantAllergicToOtherThingsDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN 'Is the participant allergic to other things?' DROPDOWN * * * * *");
+        List<String> expectedParticipantsEarIssuesTextList = new ArrayList<>() {
+            {
+                add("Excessive earwax");
+                add("Chronic or recurrent ear infection (also known as recurrent otitis media)");
+                add(ras_Survey_TestDataManager.doYouHaveAnyOfTheFollowingIssuesWithYourEarsOption3Other);
+            }
+        };
+        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.participantEarIssuesTextList), expectedParticipantsEarIssuesTextList), "* * * * * RAS SURVEY MISMATCH IN 'Participants diagnosed structural heart issues' TEXT LIST * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfNephrologistInputField, ras_Survey_TestDataManager.pleaseListTheInformationBelowForTheNephrologistOption1, "* * * * * RAS SURVEY MISMATCH IN 'Name of nephrologist' INPUT FIELD * * * * *");
+        verifyInputField(ras_survey_native_view.nephrologistLocationInputField, ras_Survey_TestDataManager.pleaseListTheInformationBelowForTheNephrologistOption2, "* * * * * RAS SURVEY MISMATCH IN 'Nephrologist Location' INPUT FIELD * * * * *");
+        softAssert.assertEquals(ras_survey_native_view.nephrologistAffiliationTextArea, ras_Survey_TestDataManager.pleaseListTheInformationBelowForTheNephrologistOption3, "* * * * * RAS SURVEY MISMATCH IN 'Nephrologist Affiliation' TEXT AREA * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantEverBeenDiagnosedWithAKidneyProblemDropdown, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAKidneyProblem, "* * * * * RAS SURVEY MISMATCH IN 'Has the participant ever been diagnosed with a kidney problem' DROPDOWN * * * * *");
+    }
+
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Feeding, Nutrition & Gastro Symptoms" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_feeding_nutrition_gastro_symptoms_section() {
+        CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Feeding, Nutrition & Gastro Symptoms"));
+        JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Feeding, Nutrition & Gastro Symptoms"));
+        CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Feeding, Nutrition & Gastro Symptoms"));
+        CommonUtils.waitForVisibility(ras_survey_native_view.hasThePatientEverBeenSeenAGISpecialistDropdown);
+        softAssertDropDownValueIsSelected(ras_survey_native_view.hasThePatientEverBeenSeenAGISpecialistDropdown, ras_Survey_TestDataManager.haveYouEverBeenEvaluatedByAGastroenterologist, "* * * * * RAS SURVEY MISMATCH IN 'Has the patient ever seen a GI specialist' DROPDOWN * * * * *");
+        verifyInputField(ras_survey_native_view.giSpecialistNameInputField, ras_Survey_TestDataManager.pleaseProvideTheDetailsForTheGastroenterologistDoctor, "* * * * * RAS SURVEY MISMATCH IN 'GI Specialist Name' INPUT FIELD * * * * *");
+        verifyInputField(ras_survey_native_view.giSpecialistCityStateInputField, ras_Survey_TestDataManager.pleaseProvideTheDetailsForTheGastroenterologistLocation, "* * * * * RAS SURVEY MISMATCH IN 'GI Specialist City, State' INPUT FIELD * * * * *");
+        verifyInputField(ras_survey_native_view.giSpecialistHospitalHealthCenterAffiliationInputField, ras_Survey_TestDataManager.pleaseProvideTheDetailsForTheGastroenterologistHospital, "* * * * * RAS SURVEY MISMATCH IN 'GI Specialist Hospital / Health Center Affiliation' INPUT FIELD * * * * *");
+        List<String> expectedparticipantsDiagnosedFeedingDifficultiesTextList = new ArrayList<>() {
+            {
+                add(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingFeedingDifficultiesOption1);
+                add(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingFeedingDifficultiesOption2);
+                add(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingFeedingDifficultiesOption3);
+                add(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingFeedingDifficultiesOption4);
+                add(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingFeedingDifficultiesOption5);
+                add(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingFeedingDifficultiesOption6);
+            }
+        };
+        softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToListHyphenated(ras_survey_native_view.participantsDiagnosedFeedingDifficultiesTextList), expectedparticipantsDiagnosedFeedingDifficultiesTextList), "* * * * * RAS SURVEY MISMATCH IN 'Participant's diagnosed feeding difficulties' TEXT LIST * * * * *");
+        verifyInputField(ras_survey_native_view.otherFeedingDifficultiesInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingFeedingDifficultiesOption6Other, "* * * * * RAS SURVEY MISMATCH IN 'Other Feeding Difficulties' INPUT FIELD * * * * *");
+        verifyInputField(ras_survey_native_view.ageNJNGTubeWasPlacedInputField, ras_Survey_TestDataManager.atWhatAgeWasTheNasogastricOrNasojejunalTubePlacedAge, "* * * * * RAS SURVEY MISMATCH IN 'Age NJ/NG-tube was placed' INPUT FIELD * * * * *");
+        verifyCheckbox("false", ras_survey_native_view.ageOfNGNJTubeUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN 'Age of NG/NJ tube unknown' CHECKBOX * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantHadAnySymptomsThatLikelyInvolvedTheGISystemDropdown, ras_Survey_TestDataManager.HaveYouEverHadAnyPhysicalSymptoms, "* * * * * RAS SURVEY MISMATCH IN 'Has the participant had any symptoms that likely involved the GI system' DROPDOWN * * * * *");
+        verifyInputField(ras_survey_native_view.ageGGJTubeWasPlacedInputField, ras_Survey_TestDataManager.atWhatAgeWasTheNasogastricOrNasojejunalTubePlacedAge, "* * * * * RAS SURVEY MISMATCH IN 'Age G/G-J tube was placed' INPUT FIELD * * * * *");
+        verifyCheckbox("false", ras_survey_native_view.ggjTubePlacementAgeUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN 'G/G-J tube placement age unknown' CHECKBOX * * * * *");
+        verifyCheckbox("false", ras_survey_native_view.stillUsingGTubeCheckbox, "* * * * * RAS SURVEY MISMATCH IN 'Still using G-tube' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.ageGastronomyTubeGGJRemovedInputField, ras_Survey_TestDataManager.atWhatAgeWasTheGastrostomyGtubeRemovedAge, "* * * * * RAS SURVEY MISMATCH IN 'Age gastronomy tube(G/G-J) removed' INPUT FIELD * * * * *");
+        verifyCheckbox("false", ras_survey_native_view.ggjTubeRemovalAgeUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN 'G/G-J tube removal age unknown' CHECKBOX * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.toiletTrainedDropdown, ras_Survey_TestDataManager.areYouToiletTrained, "* * * * * RAS SURVEY MISMATCH IN 'Toilet trained' DROPDOWN * * * * *");
+        verifyInputField(ras_survey_native_view.ageSuccessfullyToiletTrainedInputField, ras_Survey_TestDataManager.atWhatAgeWereYouToiletTrained, "* * * * * RAS SURVEY MISMATCH IN 'Age successfully toilet trained' INPUT FIELD * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.anyEpisodesOfRepeatedUrineAccidentsAfterBeingToiletTrainedDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN 'Any episodes of repeated urine accidents after being toilet trained?' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.doesThePatientConsistentlyUseTheToiletForAllBowlMovementsDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN 'Does the patient consistently use the toilet for all bowel movements?' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.painWithBowelMovementsDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN 'Pain with bowel movements' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.bristolStoolChartTypeDropdown, ras_Survey_TestDataManager.pleaseUseTheBristolStoolChart, "* * * * * RAS SURVEY MISMATCH IN 'Bristol Stool Chart Type' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.doesThePatientConsistentlyUseTheToiletForAllUrinationDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN 'Does the patient consistently use the toilet for all urination?' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.getAnyEpisodesOfRepeatedBowelAccidentsAfterBeingToiletTrainedDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN 'Any episodes of repeated bowel movement accidents after being toilet trained?' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.howManyBowelMovementsDoYouHavePerWeekDropdown, ras_Survey_TestDataManager.howManyBowelMovementsDoYouHavePerWeek, "* * * * * RAS SURVEY MISMATCH IN 'How many bowel movements do you have per week?' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.longestTimeWithoutABowelMovementDropdown, ras_Survey_TestDataManager.whatIsTheLongestAmountOfTimeThatHasPassedWithout, "* * * * * RAS SURVEY MISMATCH IN 'Longest time without a bowel movement' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantHadAProcedureTestOrStudyToEvaluateTheirGIDropdown, ras_Survey_TestDataManager.haveYouEverHadAProcedureTestOrStudyToEvaluate, "* * * * * RAS SURVEY MISMATCH IN 'Has the participant had a procedure, test or study to evaluate their GI?' DROPDOWN * * * * *");
+    }
+
+    /**
+     * This method verifies the RAS Survey Data in Native View for Scenario Two.
+     */
+    @Then("RAS Survey Data for Scenario Two is verified")
+    public void ras_survey_Data_for_scenario_two_is_verified() {
+        ras_Survey_TestDataManager.dataInitializerRasSurvey("RASSurveyScenario2");
+        verify_ras_survey_data_scenarioTwo_demographics_section();
+        verify_ras_survey_data_scenarioTwo_rasopathy_history_section();
+        verify_ras_survey_data_scenarioTwo_birth_and_gestation_section();
+        verify_ras_survey_data_scenarioTwo_growth_section();
+        verify_ras_survey_data_scenarioTwo_development_section();
+        verify_ras_survey_data_scenarioTwo_heart_section();
+        verify_ras_survey_data_scenarioTwo_medical_history_section();
+        verify_ras_survey_data_scenarioTwo_feeding_nutrition_gastro_symptoms_section();
     }
 }
