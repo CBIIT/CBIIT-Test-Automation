@@ -621,6 +621,5 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         verify_ras_survey_data_scenarioTwo_skeletal_section();
         verify_ras_survey_data_scenarioTwo_hematology_oncology_and_immunology_section();
         verify_ras_survey_data_scenarioTwo_brain_neurology_section();
-
     }
 }
