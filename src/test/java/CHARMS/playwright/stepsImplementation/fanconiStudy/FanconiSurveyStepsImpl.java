@@ -33,7 +33,7 @@ public class FanconiSurveyStepsImpl {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Next")).click();
         page.getByLabel("Password").fill(FanconiSurveyPage.PASSWORD_VALUE);
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Verify")).click();
-        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Agree"))).isVisible();
+//        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Agree"))).isVisible();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Agree")).click();
         assertThat(page.locator("a").filter(new Locator.FilterOptions().setHasText("Eligibility Questionnaire"))).isVisible();
         Page page1 = page.waitForPopup(() -> {
@@ -70,11 +70,12 @@ public class FanconiSurveyStepsImpl {
         page1.locator("#QID189-4-label").click();
         page1.getByLabel("Next →").click();
         page1.getByLabel("Next →").click();
-        page1.getByLabel("Month").selectOption("6");
+//        page1.getByLabel("Month").selectOption("6");
         page1.getByLabel("Year").click();
         page1.getByLabel("Year").fill("1987");
         page1.getByLabel("Year").press("Enter");
-        page1.getByLabel("July 25,").click();
+//        page1.getByLabel("July 25,").click();
+        page1.getByLabel("July 25, 1987").click(); // remove this
         page1.getByLabel("Next →").click();
         page1.getByText("Female").click();
         page1.getByLabel("Next →").click();

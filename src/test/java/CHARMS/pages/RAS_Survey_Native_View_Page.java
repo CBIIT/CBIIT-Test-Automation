@@ -6,9 +6,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import static Hooks.Hooks.softAssert;
 
 public class RAS_Survey_Native_View_Page {
@@ -845,9 +847,63 @@ public class RAS_Survey_Native_View_Page {
     @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.gi_procedure']")
     public WebElement hasTheParticipantHadAProcedureTestOrStudyToEvaluateTheirGIDropdown;
 
-
-
     /** ---------------------END OF Feeding, Nutrition & Gastro Symptoms SECTION--------------------- */
+
+    /*********************************************************************
+     *                                                                   *
+     *                    BEGINNING OF Breath SECTION                    *
+     *                                                                   *
+     *********************************************************************/
+
+    /**
+     * Has the participant ever been evaluated by a pulmonologist? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.pulmonologist_evaluation']")
+    public WebElement hasTheParticipantEverBeenEvaluatedByAPulmonologistDropdown;
+
+    /**
+     * Pulmonologist name input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.pulmonologsit_name']")
+    public WebElement pulmonologistNameInputField;
+
+    /**
+     * Pulmonologist location input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.pulmonologist_location']")
+    public WebElement pulmonologistLocationInputField;
+
+    /**
+     * Pulmonologist affiliation input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.pulmonologist_affiliation']")
+    public WebElement pulmonologistAffiliationInputField;
+
+    /**
+     * Has the participant had wheezing or whistling in the chest? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.wheezing_whistling_in_chest']")
+    public WebElement hasTheParticipantHadWheezingOrWhistlingInTheChestDropdown;
+
+    /**
+     * Has the participant been in the emergency room for a breathing problem? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.emergency_room_for_breathing']")
+    public WebElement hasTheParticipantBeenInTheEmergencyRoomForABreathingProblemDropdown;
+
+    /**
+     * Has a doctor diagnosed the participant with reactive airway disease or asthma? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.diagnosed_with_asthma']")
+    public WebElement hasADoctorDiagnosedPatientWithReactionAirwayDiseaseOrAsthmaDropdown;
+
+    /**
+     * Has the participant been admitted to the hospital for a breathing problem? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.admitted_to_the_hospital_for_breathing']")
+    public WebElement hasTheParticipantBeenAdmittedToTheHospitalForABreathingProblemDropdown;
+
+    /** ---------------------END OF Breath SECTION--------------------- */
 
     /***************************************************************************
      *                                                                         *
@@ -916,7 +972,7 @@ public class RAS_Survey_Native_View_Page {
     public WebElement hasTheParticipantHadAnyChangesInTheirSenseOfSmellDropdown;
 
     /**
-     * Does the participant have jaw or temporomandibular joint pain
+     * Does the participant have jaw or temporomandibular joint pain dropdown
      */
     @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.temporomandibular_joint_paint']")
     public WebElement doesTheParticipantHaveJawOrTemporomandibularJointPainDropdown;
@@ -940,12 +996,6 @@ public class RAS_Survey_Native_View_Page {
     public WebElement hasTheParticipantHadElectiveJawSurgeryDropdown;
 
     /**
-     * Has the participant had elective jaw surgery dropdown
-     */
-    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.jaw_surgery']")
-    public WebElement hasTheParticipantYouHadElectiveJawSurgeryDropdown;
-
-    /**
      * History of cancer in the mouth or jaw dropdown
      */
     @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.cancer_of_mouth']")
@@ -958,13 +1008,13 @@ public class RAS_Survey_Native_View_Page {
     public WebElement pleaseSpecifyHistoryOfCancerInTheMouthOrJawInputField;
 
     /**
-     * Does the participant have any numbness in or around the mouth
+     * Does the participant have any numbness in or around the mouth dropdown
      */
     @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.mouth_numbness']")
     public WebElement doesTheParticipantHaveAnyNumbnessInOrAroundTheMouthDropdown;
 
     /**
-     * Do the participant's teeth feel sensitive to hot or cold food?
+     * Do the participant's teeth feel sensitive to hot or cold food? dropdown
      */
     @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.hot_cold_teeth_sensitivity']")
     public WebElement doTheParticipantsTeethFeelSensitiveToHotOrColdFoodDropdown;
@@ -984,7 +1034,7 @@ public class RAS_Survey_Native_View_Page {
     /**
      * Has the participant been self-conscious because of their teeth/mouth dropdown
      */
-    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.self_concious']")
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.self_councious_teeth']")
     public WebElement hasTheParticipantBeenSelfConsciousBecauseOfTheirTeethMouthDropdown;
 
     /**
@@ -1018,6 +1068,12 @@ public class RAS_Survey_Native_View_Page {
     public WebElement hasTheParticipantBeenTotallyUnableToFunctionBecauseOfTeethDropdown;
 
     /**
+     * When did the participant last visit a dentist input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.last_dentist_visit']")
+    public WebElement whenDidTheParticipantLastVisitADentistInputField;
+
+    /**
      * Does the participant's gums bleed easily with tooth brushing now? dropdown
      */
     @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.bleeding_gums']")
@@ -1042,7 +1098,7 @@ public class RAS_Survey_Native_View_Page {
     public WebElement howWouldTheParticipantRateTheirHygieneRoutineDropdown;
 
     /**
-     * How would the participant rate their teeth and gums
+     * How would the participant rate their teeth and gums dropdown
      */
     @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.teeth_gums_rating']")
     public WebElement howWouldTheParticipantRateTheirTeethAndGumsDropdown;
@@ -1105,10 +1161,10 @@ public class RAS_Survey_Native_View_Page {
      * Is anything unusual about the participant's teeth or mouth dropdown
      */
     @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.unusual_teeth_mouth']")
-    public WebElement isAnythingUnusualAboutTheParticipantSTeethOrMouthDropdown;
+    public WebElement isAnythingUnusualAboutTheParticipantsTeethOrMouthDropdown;
 
     /**
-     * Please specify(Is anything unusual about the participant's teeth or mouth)
+     * Please specify(Is anything unusual about the participant's teeth or mouth) input field
      */
     @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.please_specify_teeth_mouth']")
     public WebElement pleaseSpecifyIsAnythingUnusualAboutTheParticipantSTeethOrMouthInputField;
@@ -1153,6 +1209,322 @@ public class RAS_Survey_Native_View_Page {
      * ---------------------END OF Mouth/Dental SECTION---------------------
      */
 
+    /**************************************************************************
+     *                                                                        *
+     *                    BEGINNING OF Hair & Skin SECTION                    *
+     *                                                                        *
+     **************************************************************************/
+
+    /**
+     * Has participant been evaluated by a dermatologist? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.dermatologist']")
+    public WebElement hasParticipantBeenEvaluatedByADermatologistDropdown;
+
+    /**
+     * Name of dermatologist input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.name_of_dermatlogist']")
+    public WebElement nameOfDermatologistInputField;
+
+    /**
+     * City, State of dermatologist input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.city_state_of_dermatologist']")
+    public WebElement cityStateOfDermatologistInputField;
+
+    /**
+     * Hospital or Medical Center Affiliation of Dermatologist input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.dermatologist_affiliation']")
+    public WebElement hospitalOrMedicalCenterAffiliationOfDermatologistInputField;
+
+    /**
+     * Description of participant's hair text
+     */
+    @FindBy(xpath = "//p[@id='x_naci_family_coho_rasopathy_iiq.hair_description_nonedit']")
+    public WebElement descriptionOfParticipantsHairText;
+
+    /**
+     * Other hair description input field
+     */
+    @FindBy(xpath = "//span[normalize-space()='Other hair description']")
+    public WebElement otherHairDescriptionInputField;
+
+    /**
+     * Diagnosed skin issues text
+     */
+    @FindBy(xpath = "//p[@id='x_naci_family_coho_rasopathy_iiq.diagnosed_skin_issues_nonedit']")
+    public WebElement diagnosedSkinIssuesText;
+
+    /**
+     * Other skin issues input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.other_skin_issues']")
+    public WebElement otherSkinIssuesInputField;
+
+    /**
+     * Pigmented skin findings text
+     */
+    @FindBy(xpath = "//p[@id='x_naci_family_coho_rasopathy_iiq.pigmented_skin_findings_nonedit']")
+    public WebElement pigmentedSkinFindingsText;
+
+    /**
+     * Other pigmented findings input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.other_pigmented_findings']")
+    public WebElement otherPigmentedSkinFindingsInputField;
+
+    /**
+     * Diagnosed skin tumors text
+     */
+    @FindBy(xpath = "//p[@id='x_naci_family_coho_rasopathy_iiq.skin_tumors_nonedit']")
+    public WebElement diagnosedSkinTumorsText;
+
+    /**
+     * Other skin tumors input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.other_skin_tumors']")
+    public WebElement otherSkinTumorsInputField;
+
+    /**
+     * Is the texture or amount of hair similar to a biological relatives? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.similar_hair']")
+    public WebElement isTheTextureOrAmountOfHairSimilarToABiologicalRelativesDropdown;
+
+    /**
+     * Does the participant have any hemangiomas? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.hemangiomas']")
+    public WebElement doesTheParticipantHaveAnyHemangiomasDropdown;
+
+    /**
+     * ---------------------END OF Hair & Skin SECTION---------------------
+     */
+
+    /***********************************************************************
+     *                                                                     *
+     *                    BEGINNING OF Skeletal SECTION                    *
+     *                                                                     *
+     ***********************************************************************/
+
+    /**
+     * Has the participant been evaluated by an orthopaedic surgeon? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.orthopaedic_surgeon']")
+    public WebElement hasTheParticipantBeenEvaluatedByAnOrthopaedicSurgeonDropdown;
+
+    /**
+     * Name of orthopaedic surgeon input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.ortho_name']")
+    public WebElement nameOfOrthopaedicSurgeonInputField;
+
+    /**
+     * Location of orthopaedic surgeon input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.ortho_location']")
+    public WebElement locationOfOrthopaedicSurgeonInputField;
+
+    /**
+     * Orthopaedic surgeons hospital or medical center affiliation input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.orthopaedic_surgeon_affiliation']")
+    public WebElement orthopediacSurgeonsHospitalOrMedicalCenterAffiliationInputField;
+
+    /**
+     * Diagnosed skeletal findings text
+     */
+    @FindBy(xpath = "//p[@id='x_naci_family_coho_rasopathy_iiq.diagnosed_skeletal_findings_nonedit']")
+    public WebElement diagnosedSkeletalFindingsText;
+
+    /**
+     * Other skeletal findings input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.other_skeletal_findings']")
+    public WebElement otherSkeletalFindingsInputField;
+
+    /**
+     * Does the participant have any issues with curving of the spine dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.curving_of_the_spine']")
+    public WebElement doesTheParticipantHaveAnyIssuesWithCurvingOfTheSpineDropdown;
+
+    /**
+     * Has the participant's neck been described as short or webbed? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.short_webbed_neck']")
+    public WebElement hasTheParticipantNeckBeenDescribedAsShortOrWebbedDropdown;
+
+    /**
+     * Has the participant ever been diagnosed with joint issues? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.joint_issues']")
+    public WebElement hasTheParticipantEverBeenDiagnosedWithJoinIssuesDropdown;
+
+    /**
+     * ---------------------END OF Skeletal SECTION---------------------
+     */
+
+    /**************************************************************************************************
+     *                                                                                                *
+     *                    BEGINNING OF Hematology, Oncology and Immunology SECTION                    *
+     *                                                                                                *
+     **************************************************************************************************/
+
+    /**
+     * Has the participant ever had an evaluation by a hematologist or oncologist? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.hematologist_oncologist']")
+    public WebElement hasTheParticipantEverBeenEvaluatedByAHematologistOrOncologistDropdown;
+
+    /**
+     * Name of hematologist/oncologist dropdown
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.hematologist_name']")
+    public WebElement nameOfHematologistOncologistDropdown;
+
+    /**
+     * Location of hematologist/oncologist input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.hematologist_location']")
+    public WebElement locationOfHematologistOncologistDropdown;
+
+    /**
+     * Hematologist/Oncologist medical affiliation input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.hematologist_oncologist_medical_affiliation']")
+    public WebElement hematologistOncologistMedicalAffiliationInputField;
+
+    /**
+     * Does the participant have any issues with bleeding or bruising? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.bleeding_bruising']")
+    public WebElement doesTheParticipantHaveAnyIssuesWithBleedingOrBruisingDropdown;
+
+    /**
+     * Does the participant have a history of frequent infections? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.infections']")
+    public WebElement doesTheParticipantHaveAHistoryOfFrequentInfectionsDropdown;
+
+    /**
+     * Has the participant been diagnosed with an autoimmune disorder? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.diagnosed_autoimmune']")
+    public WebElement hasTheParticipantBeenDiagnosedWithAnAutoimmuneDisorderDropdown;
+
+    /**
+     * Name of immunologist/rheumatologist input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.immunologist_rheumatologist_name']")
+    public WebElement nameOfImmunologistRheumatologistInputField;
+
+    /**
+     * Immunologist/rheumatologist location input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.immunologist_rheumatologist_location']")
+    public WebElement immunologistRheumatologistLocationInputField;
+
+    /**
+     * Immunologist/rheumatologist affiliation input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.immunologist_rheumatologist_affiliation']")
+    public WebElement immunologistRheumatologistAffiliationInputField;
+
+    /**
+     * Does the participant have any known blood disorders or symptoms such disorders? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.known_blood_disorders']")
+    public WebElement doesTheParticipantHaveAnyKnownBloodDisordersOrSymptomsDropdown;
+
+    /**
+     * Has the participant been evaluated by an immunologist or rheumatologist? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.immunologist_rheumatologist']")
+    public WebElement hasTheParticipantBeenEvaluatedByAnImmunologistOrRheumatologistDropdown;
+
+    /**
+     * ---------------------END OF Hematology, Oncology and Immunology SECTION---------------------
+     */
+
+    /********************************************************************************
+     *                                                                              *
+     *                    BEGINNING OF Brain & Neurology SECTION                    *
+     *                                                                              *
+     ********************************************************************************/
+
+    /**
+     * Has the participant ever been evaluated by a neurologist or neurosurgeon? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.evaluated_by_neurologist']")
+    public WebElement hasTheParticipantEverBeenEvaluatedByANeurologistOrNeurosurgeonDropdown;
+
+    /**
+     * Name of neurologist input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.name_of_neurologist']")
+    public WebElement nameOfNeurologistInputField;
+
+    /**
+     * Location of neurologist input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.neurologist_location']")
+    public WebElement locationOfNeurologistInputField;
+
+    /**
+     * Neurologist affiliation input field
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_rasopathy_iiq.neurologist_affiliation']")
+    public WebElement neurologistAffiliationInputField;
+
+    /**
+     * Has the participant ever been diagnosed with a structural brain abnormality? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.diagnosed_brain_abnormality']")
+    public WebElement hasTheParticipantEverBeenDiagnosedWithABrainAbnormalityDropdown;
+
+    /**
+     * Evaluated by a psychiatrist, psychologist or behavioral pediatrician? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.evaluated_by_psychiatrist']")
+    public WebElement evaluatedByAPsychiatristPsychologistOrBehavioralPediatricianDropdown;
+
+    /**
+     * Name of physician input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.name_of_physician']")
+    public WebElement nameOfPhysicianInputField;
+
+    /**
+     * Location of physician input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.physician_location_psych']")
+    public WebElement locationOfPhysicianInputField;
+
+    /**
+     * Psychiatrist affiliation input field
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_rasopathy_iiq.psychiatrist_affiliation']")
+    public WebElement psychiatristAffiliationInputField;
+
+    /**
+     * Does the participant have a history seizures? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.seizure_history']")
+    public WebElement doesTheParticipantHaveAHistorySeizuresDropdown;
+
+    /**
+     * Has the participant been diagnosed with a behavioral or psychiatric condition? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.diagnosed_psychiatric_condition']")
+    public WebElement hasTheParticipantBeenDiagnosedWithABehavioralOrPsychiatricConditionDropdown;
+
+    /**
+     * ---------------------END OF Brain & Neurology SECTION---------------------
+     */
+
     /**
      * USE THIS METHOD TO DYNAMICALLY LOCATE TABS BY SPECIFYING EXACT TEXT
      *
@@ -1178,8 +1550,8 @@ public class RAS_Survey_Native_View_Page {
      * Verifies the checkbox element with the actual value against the value attribute of the checkbox element.
      *
      * @param expectedCheckboxValue the expected value to compare with the checkbox element's value attribute
-     * @param checkBoxElm         the WebElement representing the checkbox element to verify
-     * @param errorMessage        the error message to throw if the verification fails
+     * @param checkBoxElm           the WebElement representing the checkbox element to verify
+     * @param errorMessage          the error message to throw if the verification fails
      */
     public static void verifyCheckbox(String expectedCheckboxValue, WebElement checkBoxElm, String errorMessage) {
         softAssert.assertEquals(expectedCheckboxValue, CommonUtils.getAttributeValueOfValueAttribute(checkBoxElm), errorMessage);

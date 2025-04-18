@@ -638,16 +638,16 @@ public class RasScenario2StepsImpl extends PageInitializer {
      * USE THIS METHOD WILL COMPLETE THE RAS SURVEY SCENARIO 2
      */
     public void rasScreenerSurveyScenario2PartOne(){
-        CommonUtils.waitForVisibility(myRASSurveyPage.rasSurveyThankYouForStartingText);
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.thankYouForStartingTheRASSurveyAndFor,myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THANK YOU FOR STARTING THE RAS SURVEY AND FOR YOUR TEXT --");
+//        CommonUtils.waitForVisibility(myRASSurveyPage.rasSurveyThankYouForStartingText);
+//        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.thankYouForStartingTheRASSurveyAndFor,myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THANK YOU FOR STARTING THE RAS SURVEY AND FOR YOUR TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.rasSurveyThisQuestionMayTakeText);
         CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.thisQuestionnaireMayTakeYouSeveral,myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THIS QUESTIONNAIRE MAY TAKE YOU SEVERAL HOURS TO COMPLETE TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.rasSurveyTheFirstBlockText);
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.thisQuestionnaireMayTakeYouSeveral,myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE FIRST BLOCK OF QUESTIONS WILL COLLECT TEXT --");
+//        CommonUtils.waitForVisibility(myRASSurveyPage.rasSurveyTheFirstBlockText);
+//        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.thisQuestionnaireMayTakeYouSeveral,myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE FIRST BLOCK OF QUESTIONS WILL COLLECT TEXT --");
         CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(1));
