@@ -1,5 +1,6 @@
 package PLATFORM_BUSINESS.NERD.playwright.Steps;
 
+import APPS_COMMON.Pages.Playwright_Common_Locators;
 import PLATFORM_BUSINESS.NERD.playwright.StepImplementation.Top_Accomplishment_New_Submission_StepImpl;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
@@ -13,6 +14,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import java.util.regex.Pattern;
+
+import static APPS_COMMON.Pages.Playwright_Common_Locators.iframeLocator;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
@@ -91,8 +94,8 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @Then("{string} Field Auto Populated with the following value {string}")
     public void field_auto_populated_with_the_following_value(String category, String topAccomplishments) {
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.kb_category']")).containsText(category);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Category")).hasValue(topAccomplishments);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='label\\.u_kb_template_top_accomplishments\\.kb_category']")).containsText(category);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Category")).hasValue(topAccomplishments);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -116,30 +119,30 @@ public class Top_Accomplishment_New_Submission_Steps {
     public void field_is_mandatory_drop_down_with_the_following_options(String rank, String one, String two, String three, String four, String five, String six, String seven, String eight, String nine, String ten, String notTopTen) {
 
         CucumberLogUtils.scenario.log("----  SELECTS EACH RANK OPTION AND VERIFY THE SELECTED OPTION ----");
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_rank']")).containsText(rank);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Rank")).isVisible();
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank").selectOption(one);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).hasValue(one);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank").selectOption(two);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).hasValue(two);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank").selectOption(three);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).hasValue(three);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank").selectOption(four);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).hasValue(four);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank").selectOption(five);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).hasValue(five);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank").selectOption(six);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).hasValue(six);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank").selectOption(seven);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).hasValue(seven);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank").selectOption(eight);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).hasValue(eight);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank").selectOption(nine);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).hasValue(nine);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank").selectOption(ten);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).hasValue(ten);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank").selectOption(notTopTen);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).containsText(notTopTen);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_rank']")).containsText(rank);
+        assertThat(page.frameLocator(iframeLocator).getByText("Rank")).isVisible();
+        page.frameLocator(iframeLocator).getByLabel("Rank").selectOption(one);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Rank")).hasValue(one);
+        page.frameLocator(iframeLocator).getByLabel("Rank").selectOption(two);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Rank")).hasValue(two);
+        page.frameLocator(iframeLocator).getByLabel("Rank").selectOption(three);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Rank")).hasValue(three);
+        page.frameLocator(iframeLocator).getByLabel("Rank").selectOption(four);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Rank")).hasValue(four);
+        page.frameLocator(iframeLocator).getByLabel("Rank").selectOption(five);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Rank")).hasValue(five);
+        page.frameLocator(iframeLocator).getByLabel("Rank").selectOption(six);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Rank")).hasValue(six);
+        page.frameLocator(iframeLocator).getByLabel("Rank").selectOption(seven);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Rank")).hasValue(seven);
+        page.frameLocator(iframeLocator).getByLabel("Rank").selectOption(eight);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Rank")).hasValue(eight);
+        page.frameLocator(iframeLocator).getByLabel("Rank").selectOption(nine);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Rank")).hasValue(nine);
+        page.frameLocator(iframeLocator).getByLabel("Rank").selectOption(ten);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Rank")).hasValue(ten);
+        page.frameLocator(iframeLocator).getByLabel("Rank").selectOption(notTopTen);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Rank")).containsText(notTopTen);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
