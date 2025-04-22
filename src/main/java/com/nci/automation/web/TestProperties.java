@@ -924,8 +924,12 @@ public class TestProperties {
     }
 
     public static String getAAAUrl() {
-        if (ENV.toLowerCase().equals("test")) {
-            AAA_URL = AAA_TEST_PORTAL_URL;
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                break;
+            case "test":
+                AAA_URL = AAA_TEST_PORTAL_URL;
+                break;
         }
         return AAA_URL;
     }

@@ -26,17 +26,16 @@ public class AAAStepsImplementation extends PageInitializer {
      *Navigate tor to AAA form.
      */
     public static void navigateToAAAViaPortalView() {
-        CommonUtils.sleep(2000);
+        CommonUtils.waitForClickability(aaaPage.servicesDropdownPortalView);
         CommonUtils.clickOnElement(aaaPage.servicesDropdownPortalView);
-        CommonUtils.sleep(2000);
+        CommonUtils.waitForClickability(aaaPage.enterpriseITServicesPortalView);
         CommonUtils.clickOnElement(aaaPage.enterpriseITServicesPortalView);
-        CommonUtils.sleep(2000);
+        CommonUtils.waitForClickability(aaaPage.accountAdminAIMPortalView);
         CommonUtils.clickOnElement(aaaPage.accountAdminAIMPortalView);
-        CommonUtils.sleep(2000);
+        CommonUtils.waitForClickability(aaaPage.accountAdministrationAIMPortalView);
         CommonUtils.clickOnElement(aaaPage.accountAdministrationAIMPortalView);
-        CommonUtils.sleep(2000);
+        CommonUtils.waitForClickability(aaaPage.addRemovePermissionsPortalView;
         CommonUtils.clickOnElement(aaaPage.addRemovePermissionsPortalView);
-        CommonUtils.sleep(3000);
     }
 
     /**

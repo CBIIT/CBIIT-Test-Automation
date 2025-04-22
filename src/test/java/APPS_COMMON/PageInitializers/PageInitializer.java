@@ -188,7 +188,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static AAAStepsImplementation aaaStepsImplementation;
 	public static AAAPage aaaPage;
 
-
 	/** AWARD NOMINATION instances */
 	public static AwardNominationStepsImplementation awardNominationStepsImplementation;
 	public static AwardNominationPage awardNominationPage;
