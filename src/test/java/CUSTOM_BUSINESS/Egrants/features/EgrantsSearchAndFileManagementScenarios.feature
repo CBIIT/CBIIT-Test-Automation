@@ -234,8 +234,8 @@ Given User is logged in the application and is on the landing page
 
   @EGRANTS-685 @FileUpload @alenaminsk @selenium @Regression
   Scenario: Replace Document page
-    And clicks on Add Document button
-    And searches for "125123" on Add New Document page
+    And searches for grant "CA125123"
+    And expands all grant years
     And selects grant year 17S1 from list of Years
     And User clicks on Upload button for document Activation Notice: test convert
     And User can see that page title is "Replace Document"
@@ -243,8 +243,67 @@ Given User is logged in the application and is on the landing page
     And User can see Category field displayed
     And User can see Date field displayed
     And User can see Drag and Drop button displayed
-    And User can see Upload Document and Convert to PDF and Upload options
-    When User clicks on Locate File and Upload tab
-    And User can see Upload Document and Convert to PDF and Upload options
-    And uploads a file by clicking Upload Document under Locate File and Upload button
+
+  @EGRANTS-677 @FileUpload @alenaminsk @selenium @Regression
+  Scenario: Upload Doc file
+    And clicks on Add Document button
+    And searches for "125123" on Add New Document page
+    And selects grant year 18
+    And selects category as Application File
+    And User clicks on Locate File and Upload tab
+    And User uploads a single file with doc extension
+    And User clicks Convert to PDF and Add button
     Then verifies the success message "Done! New document has been created"
+    And clicks on uploaded document
+
+  @EGRANTS-615 @FileUpload @alenaminsk @selenium @Regression
+  Scenario: UI verification for Document Upload via Email
+    And clicks on Add Document button
+    And searches for "125123" on Add New Document page
+    And selects category as Application File
+    And User clicks on Upload via Email tab
+    And User can verify the warning is displayed
+    And User verifies Upload Via Email button is displayed
+    When User clicks on Return To eGrants File
+    Then User returns to eGrants File
+
+  @EGRANTS-616 @FileUpload @alenaminsk @selenium @Regression
+  Scenario: Grant page verification
+    And searches for grant "CA125123"
+    And expands all grant years
+    And selects grant year 17S1 from list of Years
+    And User clicks Add Document Grant button
+    And selects category as Application File
+    And User clicks on Locate File and Upload tab
+    And User uploads a single file with doc extension
+    And User clicks Convert to PDF and Add button
+    When User clicks on Return To eGrants File
+    And User can see Add Document button
+    And User can see Add Funding Document button
+    And User can see Document name column header
+    And User can see Date column header
+    And User can see Pages column header
+    And User can see Upload column header
+    And User can see Update column header
+
+  @EGRANTS-693 @FileUpload @alenaminsk @selenium @Regression
+  Scenario: Upload PDF file by Adding Only - DOC file format
+    And clicks on Add Document button
+    And searches for "125123" on Add New Document page
+    And selects grant year 18
+    And selects category as Application File
+    And User clicks on Locate File and Upload tab
+    And User uploads a docx file by clicking Add button
+    Then verifies the success message "Done! New document has been created"
+    And clicks on uploaded document
+
+  @EGRANTS-693 @FileUpload @alenaminsk @selenium @Regression
+  Scenario: Upload PDF file by Adding Only - DOCX file format
+    And clicks on Add Document button
+    And searches for "125123" on Add New Document page
+    And selects grant year 18
+    And selects category as Application File
+    And User clicks on Locate File and Upload tab
+    And User uploads a doc file by clicking Add button
+    Then verifies the success message "Done! New document has been created"
+    And clicks on uploaded document

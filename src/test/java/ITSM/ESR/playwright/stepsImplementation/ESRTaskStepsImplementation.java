@@ -136,7 +136,7 @@ public class ESRTaskStepsImplementation {
      * Completes the Engineering Project Execution catalog task
      */
     public static void completeEngineeringProjectExecutionCatalogTask() {
-        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (3)").click();
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks").click();
         Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[1]").click();
         Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").click();
         Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").fill("CBIIT Test Account");
@@ -155,7 +155,7 @@ public class ESRTaskStepsImplementation {
      * Completes the Closeout Preparation catalog task for ESR-Q
      */
     public static void completeCloseoutPreparationCatalogTaskForESRQ() {
-        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks (4)").click();
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Catalog Tasks").click();
         Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[1]").click();
         Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").click();
         Playwright_Common_Locators.iframeLocator().locator("//input[@aria-labelledby='label.sc_task.assigned_to']").fill("CBIIT Test Account");
@@ -175,7 +175,7 @@ public class ESRTaskStepsImplementation {
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("   Project Assignment Group")).click();
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("   Project Assignment Group")).fill("CHARMS Technical Support");
         Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Project Lead to implement Q-")).click();
-        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Project Lead to implement Q-")).fill("Larry Brem");
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Project Lead to implement Q-")).fill("Lawrence Brem");
         Playwright_Common_Locators.iframeLocator().getByLabel("Add a row for Technology").click();
         Playwright_Common_Locators.iframeLocator().frameLocator("iframe[name=\"dialog_frame\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Name")).click();
         Playwright_Common_Locators.iframeLocator().frameLocator("iframe[name=\"dialog_frame\"]").getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Name")).fill("Test Technology");

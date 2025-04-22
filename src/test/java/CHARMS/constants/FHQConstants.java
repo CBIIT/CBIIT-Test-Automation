@@ -32,7 +32,7 @@ public class FHQConstants {
 	public static final String FIRST_NAME_OF_THE_PARTICIPANT = "First Name of the participant";
 	public static final String PARTICIPANT_FIRST_NAME = "Participant First Name";
 	public static final String FIRST_INITIAL_OF_LAST_NAME_OF_THE_PARTICIPANT = "First Initial of LAST Name of the participant";
-	public static final String PARTICIPANT_SEX_ASSIGNED_AT_BIRTH = "Sex assigned at birth";
+	public static final String PARTICIPANT_SEX_ASSIGNED_AT_BIRTH = "Sex";
 	public static final String PARTICIPANT_GENDER_IDENTITY = "Gender Identity";
 	public static final String PARTICIPANT_TYPE_OF_BIRTH = "Type of birth";
 	public static final String HAS_THE_PARTICIPANT_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS = "Has the participant ever had any miscarriages or stillbirths?";
@@ -258,7 +258,7 @@ public class FHQConstants {
 	public static final String NIECE_NEPHEW_FIRST_INITIAL_OF_LAST_NAME_VALUE = "Niece/Nephew First Initial of LAST Name Value";
 	public static final String NIECE_NEPHEW_VITAL_STATUS_VALUE = "Niece/Nephew Vital Status Value";
 	public static final String NIECE_NEPHEW_YEAR_OF_BIRTH_VALUE = "Niece/Nephew Year of Birth Value";
-	public static final String NIECE_NEPHEW_SEX_ASSIGNED_AT_BIRTH = "Sex assigned at birth";
+	public static final String NIECE_NEPHEW_SEX_ASSIGNED_AT_BIRTH = "Sex";
 	public static final String NIECE_NEPHEW_SEX_ASSIGNED_AT_BIRTH_VALUE = "Niece/Nephew Sex assigned at birth Value";
 	public static final String PLEASE_MAKE_SURE_YOU_HAVE_COMPLETED_ALL_SIBLING_RECORDS = "Please make sure you have completed all Sibling records";
 	public static final String YOU_ARE_CURRENTLY_FILLING_OUT_INFORMATION_FOR_THE_PARTICIPANTS_NIECE_NEPHEW = "You are currently filling out information for the participant's niece/nephew.";
@@ -592,7 +592,7 @@ public class FHQConstants {
 	public static final ArrayList<String> BENIGN_TUMOR_TYPE = new ArrayList<String>() {
 		{
 			add("-- None --");
-			add("Atypical Spitz Tumor");
+			add("Atypical Spitz tumor");
 			add("Colon Polyps (Benign)");
 			add("Cystic nephroma");
 			add("Giant congenital nevus");

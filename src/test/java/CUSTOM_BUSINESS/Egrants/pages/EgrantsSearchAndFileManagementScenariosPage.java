@@ -46,7 +46,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Add Document button
      */
-    @FindBy(xpath = "//button[@title='Add New Document [shift + alt + O]']")
+    @FindBy(xpath ="//button[@title='Add New Document [shift + alt + O]']")
     public WebElement addDocumentButton;
 
     /**
@@ -118,7 +118,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Success Message
      */
-    @FindBy(xpath = "//span[@id='mssg']")
+    @FindBy(xpath = "//span[@id='mssgGood']")
     public WebElement successMessage;
 
     /**
@@ -646,7 +646,7 @@ public class EgrantsSearchAndFileManagementScenariosPage {
     /**
      * Grant field
      */
-    @FindBy(xpath = "//b[contains(text(),'Grant')]")
+    @FindBy(xpath = "//*[@id='content']/table[1]/tbody/tr/td/table/thead/tr[2]/td/b")
     public WebElement grantField;
 
     /**
@@ -672,6 +672,78 @@ public class EgrantsSearchAndFileManagementScenariosPage {
      */
     @FindBy(xpath = "//button[@id='btnDragdrop']")
     public WebElement dragAndDropUploadButton;
+
+    /**
+     * warning Upload Email
+     */
+    @FindBy(xpath = "//*[@id='by_email']")
+    public WebElement warningUploadEmail;
+
+    /**
+     * Upload via Email button
+     */
+    @FindBy(xpath = "//button[@id='btnEmail']")
+    public WebElement uploadViaEmailBtn;
+
+    /**
+     * Return to eGrants File button
+     */
+    @FindBy(xpath = "//button[@class='btn btn-primary eGrantsReturnBtn']")
+    public WebElement returnToeGrantsFileBtn;
+
+    /**
+     * header Grant Years
+     */
+    @FindBy(xpath = "//b[@id='toggle_title']")
+    public WebElement headerGrantYears;
+
+    /**
+     * Document name header
+     */
+    @FindBy(xpath = "//th[contains(text(),'Document Name')]")
+    public WebElement columnHeaderDocName;
+
+    /**
+     * Date header
+     */
+    @FindBy(xpath = "//th[contains(text(),'Date')]")
+    public WebElement columnHeaderDate;
+
+    /**
+     * Pages header
+     */
+    @FindBy(xpath = "//th[contains(text(),'Pages')]")
+    public WebElement columnHeaderPages;
+
+    /**
+     * Upload header
+     */
+    @FindBy(xpath = "//span[contains(text(),'Upload')]")
+    public WebElement columnHeaderUpload;
+
+    /**
+     * Update header
+     */
+    @FindBy(xpath = "//span[contains(text(),'Update')]")
+    public WebElement columnHeaderUpdate;
+
+    /**
+     * Update last document button
+     */
+    @FindBy(xpath = "//*[@id='loadgrid_10877115']/tbody/tr[1]/td[6]/a/img")
+    public WebElement updateLastDocButton;
+
+    /**
+     * Update Document page header
+     */
+    @FindBy(xpath = "//b[@id='page_title']")
+    public WebElement updateDocPageHeader;
+
+    /**
+     * Upload file error message
+     */
+    @FindBy(xpath = "//*[@id='mssg']/div[1]")
+    public WebElement uploadFileErrorMessage;
 
     /**
      * Constructor

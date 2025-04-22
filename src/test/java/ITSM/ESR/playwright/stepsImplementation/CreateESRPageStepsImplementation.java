@@ -43,7 +43,7 @@ public class CreateESRPageStepsImplementation {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login();
         page.getByPlaceholder(CreateESRPage.filterBoxNativeView).click();
         page.getByPlaceholder(CreateESRPage.filterBoxNativeView).fill(CreateESRPage.NCIAtYourServiceText);
-        page.getByLabel(CreateESRPage.NCIAtYourServiceText, new Page.GetByLabelOptions().setExact(true)).click();
+        page.getByLabel(CreateESRPage.NCIAtYourServiceIcon).click();
     }
 
     /**
@@ -81,7 +81,7 @@ public class CreateESRPageStepsImplementation {
         page.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]").selectOption("Q-Branch");
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitOCIO Federal Lead")).click();
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitOCIO Federal Lead")).click();
-        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitOCIO Federal Lead")).fill("Alex Nordan");
+        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitOCIO Federal Lead")).fill("Alexander Nordan");
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitBusiness Owner")).click();
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitBusiness Owner")).fill("Business Owner");
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Assignment Group")).click();
@@ -117,7 +117,7 @@ public class CreateESRPageStepsImplementation {
         page.frameLocator(CreateESRPage.iframeSelector).locator("(//div[@class='col-xs-12 form-field input_controls sc-form-field ']/select)[1]").selectOption("Implementation");
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitOCIO Federal Lead")).click();
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitOCIO Federal Lead")).click();
-        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitOCIO Federal Lead")).fill("Alex Nordan");
+        page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitOCIO Federal Lead")).fill("Alexander Nordan");
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitBusiness Owner")).click();
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitBusiness Owner")).fill("Business Owner");
         page.frameLocator(CreateESRPage.iframeSelector).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName("Mandatory - must be populated before SubmitProject Assignment Group")).click();
@@ -155,7 +155,7 @@ public class CreateESRPageStepsImplementation {
         page.getByLabel("Project Description").click();
         page.getByLabel("Project Description").fill("Test Description");
         page.locator("#s2id_sp_formfield_ocio_federal_lead").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
-        page.getByText("Alex Nordan").click();
+        page.getByText("Alexander Nordan").click();
         page.locator("#s2id_sp_formfield_assignment_group_esr").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("CHARMS Technical Support")).click();
         page.locator("#s2id_sp_formfield_business_owner").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
@@ -190,7 +190,7 @@ public class CreateESRPageStepsImplementation {
         page.getByLabel("Project Description").click();
         page.getByLabel("Project Description").fill("Test Description");
         page.locator("#s2id_sp_formfield_ocio_federal_lead").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
-        page.getByText("Alex Nordan").click();
+        page.getByText("Alexander Nordan").click();
         page.locator("#s2id_sp_formfield_assignment_group_esr").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();
         page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("CHARMS Technical Support")).click();
         page.locator("#s2id_sp_formfield_business_owner").getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("Lookup using list")).click();

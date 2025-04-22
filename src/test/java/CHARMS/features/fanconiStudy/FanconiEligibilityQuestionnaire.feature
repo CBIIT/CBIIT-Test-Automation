@@ -6,6 +6,12 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
   Scenario: Reset the test accounts
     Given run the Fanconi reset script to reset the accounts
 
+  @jains @FanconiSubmission @Fanconi_Regression @selenium
+  Scenario: Participant fills the Fanconi screener for all different scenarios
+    Given run the Fanconi reset script to reset the accounts
+    Given All scenarios are submitted
+    Given run the Fanconi reset script to reset the accounts
+
   @jains @FanconiSubmission @CP2-1949 @Fanconi_Regression @selenium @Smoke
   Scenario Outline: Participant fills the Fanconi screener by the Proband for scenario 1
     Given a Participant is on the Fanconi Study login page
@@ -135,7 +141,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
       | sj.fanconitester8@yopmail.com | Test123$$ | iMed                    | 7               |
 
   @jains @FanconiSubmission @CP2-1949 @Fanconi_Regression @selenium @Smoke
-  Scenario Outline: Participant fills the Fanconi screener by the Proxy for scenario 9
+  Scenario Outline: Participant fills the Fanconi screener by the Proband for scenario 9
     Given a Participant is on the Fanconi Study login page
     And logs in Fanconi page via Okta with username "<Email>" and password "<Password>"
     And clicks the Fanconi Eligibility Questionnaire widget
@@ -166,11 +172,6 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
       | Email                          | Password  | ConsentCollectionMethod | FanconiScenario |
       | sj.fanconitester10@yopmail.com | Test123$$ | iMed                    | 9               |
 
-  @jains @FanconiSubmission @Fanconi_Regression @selenium
-  Scenario: Participant fills the Fanconi screener for all different scenarios
-    Given run the Fanconi reset script to reset the accounts
-    Given All scenarios are submitted
-
   @jains @FanconiAssertion @CP2-1995 @Fanconi_Regression @selenium @Smoke
   Scenario Outline:: Participant Details Page Assertions for all the scenarios in ServiceNow
     Given the study nurse log in Native View
@@ -181,6 +182,14 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
       | FanconiScenario |
       | 0               |
       | 1               |
+      | 2               |
+      | 3               |
+      | 4               |
+      | 5               |
+      | 6               |
+      | 7               |
+      | 8               |
+      | 9               |
 
   @jains @FanconiAssertion @CP2-1995 @In-progress @selenium
   Scenario: Completion of the Consent process in participant details page in ServiceNow

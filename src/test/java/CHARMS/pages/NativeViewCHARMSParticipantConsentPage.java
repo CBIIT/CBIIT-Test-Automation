@@ -289,7 +289,7 @@ public class NativeViewCHARMSParticipantConsentPage {
     /**
      * Native View Ras Study Add File Button
      */
-    @FindBy(xpath = "//*[@id='add_attachment']")
+    @FindBy(xpath = "//button[@id='header_add_attachment']")
     public WebElement rasStudyConsentAddFileButton;
 
     /**

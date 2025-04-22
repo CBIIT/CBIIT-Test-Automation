@@ -17,7 +17,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	/***
 	 * THIS METHOD LOGS INTO eGrants
 	 */
-	public static void user_is_logged_in_the_application_and_is_on_the_landing_page(){
+	public static void user_is_logged_in_the_application_and_is_on_the_landing_page() {
 		WebDriverUtils.webDriver.get(getEGrantsUrl());
 		iTrustLoginPageImpl.loginToITrust();
 		CucumberLogUtils.logScreenshot();
@@ -65,11 +65,12 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/**
 	 * THIS METHOD SEARCHES FOR A STRING IN THE SEARCHBOX
+	 *
 	 * @param grantSerialNumber
 	 */
 	public static void searches_for(String grantSerialNumber) {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.searchBox);
-		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.searchBox,grantSerialNumber);
+		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.searchBox, grantSerialNumber);
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.searchButton);
 		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
@@ -96,7 +97,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 		System.out.println(expectedInstitutionName);
 		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
-}
+	}
 
 	/***
 	 * THIS METHOD SELECTS GRANT YEAR
@@ -109,6 +110,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/**
 	 * THIS METHOD VERIFIES THE USER IS ON THE INTENDED GRANT FOLDER
+	 *
 	 * @param grantFolder
 	 */
 	public static void verifies_is_the_landed_grant_folder(String grantFolder) {
@@ -129,6 +131,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/**
 	 * THIS METHOD SEARCHES FOR STRING WITHIN THE SEARCHBOX
+	 *
 	 * @param grant_serial_number
 	 */
 	public static void searches_for_grant(String grant_serial_number) {
@@ -157,11 +160,12 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/**
 	 * THIS METHOD PASSES A STRING AS SUBCATEGORY
+	 *
 	 * @param subCategoryText
 	 */
 	public static void passes_as_subcategory(String subCategoryText) {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.subCategory);
-		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.subCategory,subCategoryText);
+		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.subCategory, subCategoryText);
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -198,6 +202,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/**
 	 * THIS METHOD VERIFIES THE DOCUMENT UPLOAD MESSAGE
+	 *
 	 * @param uploadSuccessMessage
 	 */
 	public static void verifies_the_success_message(String uploadSuccessMessage) {
@@ -223,7 +228,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void selects_funding_category() {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.categoryDropdown);
-		CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.categoryDropdown,Egrants_Constants.FUNDING_CATEGORY);
+		CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.categoryDropdown, Egrants_Constants.FUNDING_CATEGORY);
 		CommonUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 	}
@@ -254,7 +259,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	/***
 	 * THIS METHOD CLICKS ON INSTITUTIONAL FILES MENU
 	 */
-	public static void user_clicks_on_institutional_files(){
+	public static void user_clicks_on_institutional_files() {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.institutionalFiles);
 		CucumberLogUtils.logScreenshot();
 	}
@@ -262,7 +267,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	/***
 	 * THIS METHOD SELECTS AN INSTITUTION
 	 */
-	public static void user_selects_aavogen(){
+	public static void user_selects_aavogen() {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.aavogeninc);
 		CucumberLogUtils.logScreenshot();
 	}
@@ -279,7 +284,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	/***
 	 * THIS METHOD SELECTS ORGANIZATION DOCUMENT FROM DROPDOWN
 	 */
-	public static void selects_organization_document_from_category_dropdown()  {
+	public static void selects_organization_document_from_category_dropdown() {
 		CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.documentCategoryDropdown, 3);
 		CommonUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
@@ -287,6 +292,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/**
 	 * THIS METHOD ADDS A SUBCATEGORY FOR THE SELECTED CATEGORY
+	 *
 	 * @param docSubCat
 	 */
 	public static void provides_as_a_subcategory(String docSubCat) {
@@ -340,7 +346,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	public static void clicks_on_assign_button() {
 		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.assignButton);
 		CommonUtils.sleep(2000);
-		if (CommonUtils.getAlertText().contentEquals(Egrants_Constants.ASSIGN_BUTTON_ALERT_MESSAGE)){
+		if (CommonUtils.getAlertText().contentEquals(Egrants_Constants.ASSIGN_BUTTON_ALERT_MESSAGE)) {
 			CommonUtils.sleep(2000);
 			CommonUtils.acceptAlert();
 			System.out.println("Alert Present and condition is true");
@@ -387,7 +393,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	public static void clicks_on_route_button() {
 		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.routeButton);
 		CommonUtils.sleep(2000);
-		if (CommonUtils.getAlertText().contentEquals(Egrants_Constants.ROUTE_BUTTON_ALERT_MESSAGE)){
+		if (CommonUtils.getAlertText().contentEquals(Egrants_Constants.ROUTE_BUTTON_ALERT_MESSAGE)) {
 			CommonUtils.sleep(2000);
 			CommonUtils.acceptAlert();
 			System.out.println("Alert Present and condition is true");
@@ -434,7 +440,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 * THIS METHOD CONFIRMS FILE DELETION IF CONDITION IS MET ELSE DISMISSES THE ALERT
 	 */
 	public static void confirm_document_deletion() {
-		if (CommonUtils.getAlertText().contentEquals(Egrants_Constants.DELETE_ALERT_MESSAGE)){
+		if (CommonUtils.getAlertText().contentEquals(Egrants_Constants.DELETE_ALERT_MESSAGE)) {
 			Egrants_CommonUtils.waitForAlertAndAccept(WebDriverUtils.webDriver);
 			System.out.println("Alert Present and condition is true");
 		} else {
@@ -450,7 +456,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 	public static void enters_subcategory_for_institutional_file() {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.subCategoryInstitutionalFiles);
 		CommonUtils.sleep(2000);
-		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.subCategoryInstitutionalFiles,Egrants_Constants.FOLLOWUP_SUBCATEGORY);
+		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.subCategoryInstitutionalFiles, Egrants_Constants.FOLLOWUP_SUBCATEGORY);
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -520,11 +526,11 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void verifies_the_created_grant_year() {
 		String actualGrantYearMessage = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.grantYearHasBeenCreated);
-		if (actualGrantYearMessage.contentEquals(Egrants_Constants.GRANT_YEAR_HAS_BEEN_CREATED_MESSAGE)){
+		if (actualGrantYearMessage.contentEquals(Egrants_Constants.GRANT_YEAR_HAS_BEEN_CREATED_MESSAGE)) {
 			System.out.println(actualGrantYearMessage);
 			CucumberLogUtils.logScreenshot();
-		} else if (actualGrantYearMessage.contentEquals(Egrants_Constants.DUPLICATE_GRANT_YEAR_EXISTS_MESSAGE)){
-			System.out.println(actualGrantYearMessage+" Creating a new grant year");
+		} else if (actualGrantYearMessage.contentEquals(Egrants_Constants.DUPLICATE_GRANT_YEAR_EXISTS_MESSAGE)) {
+			System.out.println(actualGrantYearMessage + " Creating a new grant year");
 			CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.applicationType, Egrants_Constants.APPLICATION_TYPE);
 			CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.activityCode, Egrants_Constants.ACITIVTY_CODE);
 			CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.yearTextBox);
@@ -552,6 +558,42 @@ public class EgrantsStepImplementation extends PageInitializer {
 		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.chooseFile, Egrants_Constants.TEST_FILE_PATH);
 		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.dragAndDropUploadButton);
+		CommonUtils.sleep(7000);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/***
+	 * THIS METHOD UPLOADS A DOC FILE BY CONVERT AND ADD
+	 */
+	public static void upload_a_doc_file() {
+		CommonUtils.sleep(7000);
+		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.chooseFile, Egrants_Constants.TEST_DOC_FILE_PATH);
+		CucumberLogUtils.logScreenshot();
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.convertToPdfAndAddButton);
+		CommonUtils.sleep(7000);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/***
+	 * THIS METHOD UPLOADS A DOC FILE BY ADD
+	 */
+	public static void upload_a_doc_file_add() {
+		CommonUtils.sleep(7000);
+		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.chooseFile, Egrants_Constants.TEST_DOC_FILE_PATH);
+		CucumberLogUtils.logScreenshot();
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addFileButton);
+		CommonUtils.sleep(7000);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/***
+	 * THIS METHOD UPLOADS A PDF FILE BY ADD
+	 */
+	public static void upload_a_docx_file_add() {
+		CommonUtils.sleep(7000);
+		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.chooseFile, Egrants_Constants.TEST_FILE_PATH);
+		CucumberLogUtils.logScreenshot();
+		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addFileButton);
 		CommonUtils.sleep(7000);
 		CucumberLogUtils.logScreenshot();
 	}

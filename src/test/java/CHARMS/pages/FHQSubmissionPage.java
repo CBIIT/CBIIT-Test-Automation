@@ -112,6 +112,10 @@ public class FHQSubmissionPage extends CommonUtils {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//*[normalize-space()='" + text + "']"));
 	}
 	/* Method to dynamically locate elements in FHQ */
+	public WebElement dynamicLocatorUsingNormalizeSpace1(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//*[normalize-space()='" + text + "'])[1]"));
+	}
+	/* Method to dynamically locate elements in FHQ */
 	public WebElement dynamicLocatorClassNormalizeSpace(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//span[@class='sp-field-label-padding ng-binding'][normalize-space()='" + text + "']"));
 	}
@@ -207,7 +211,7 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement biologicalParentOfThisChildDropdownSearch;
 
 	/* Which of the following individuals is a biological parent of this child? Selected Dropdown Value */
-	@FindBy(xpath = "(//ul[@id='select2-results-24'])[1]/li[1]")
+	@FindBy(xpath = "(//ul[@id='select2-results-23'])[1]/li[1]")
 	public WebElement biologicalParentOfThisChildDropdownValue;
 
 	@FindBy(xpath ="(//h2[@class='h2 m-t-none m-b-sm font-thin ng-binding ng-scope'])[1]")

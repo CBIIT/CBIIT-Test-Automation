@@ -4,10 +4,12 @@ import APPS_COMMON.PlaywrightUtils.Playwright_Common_Utils;
 import CUSTOM_BUSINESS.OASYS.StepsImplementation.OASYS_Steps_Implementation;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
+import CUSTOM_BUSINESS.OASYS.Utils.OASYS_CommonUtils;
 import CUSTOM_BUSINESS.OASYS.Utils.OASYS_Constants;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.*;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -23,7 +25,9 @@ public class Contracts {
     @Given("User is logged in the application and navigated to Contract Administration")
     public void user_is_logged_in_the_application_and_navigated_to_contract_administration() {
         OASYS_Steps_Implementation.user_is_logged_in_oasys();
+        OASYS_CommonUtils.waitForElementToBeVisible("text=Contract Administrationkeyboard_arrow_down");
         page.getByText("Contract Administrationkeyboard_arrow_down").click();
+        CommonUtils.sleep(3000);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -121,7 +125,6 @@ public class Contracts {
     @Then("User clicks on Save button to confirm the changes")
     public void user_clicks_on_save_button_to_confirm_the_changes() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -180,7 +183,6 @@ public class Contracts {
     @Then("User will click on SAVE button")
     public void user_will_click_on_save_button() {
         page.locator("xpath=//span[contains(text(),'Save')]").click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -246,7 +248,6 @@ public class Contracts {
         if (!contractMessageFound) {
             throw new AssertionError("*** MESSAGE WITH SUBJECT LINE '" + MessageSubject + "' NOT FOUND.***");
         }
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -333,7 +334,6 @@ public class Contracts {
     @Then("User clicks on SAVE button")
     public void user_clicks_on_save_button() {
         page.locator("xpath=//span[contains(text(),'Save')]").click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -437,7 +437,6 @@ public class Contracts {
     @Then("User will upload the file by clicking on the SAVE button")
     public void user_will_upload_the_file_by_clicking_on_the_save_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -456,7 +455,6 @@ public class Contracts {
     @Then("User clicks on DELETE button to confirm the deletion")
     public void user_clicks_on_delete_button_to_confirm_the_deletion() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Delete")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -721,7 +719,6 @@ public class Contracts {
     @Then("User verifies the contract header")
     public void user_verifies_the_contract_header() {
         assertThat(page.locator("xpath=(//div/div[@class='left-title-display']//div/span)[1]")).containsText(OASYS_Constants.CONTRACT_HEADER);
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -771,8 +768,7 @@ public class Contracts {
      */
     @Then("User will verify if {string} is listed in the search results")
     public void user_will_verify_if_is_listed_in_the_search_results(String ExpectedContractTile) {
-        assertThat(page.locator("mat-row")).containsText(ExpectedContractTile);
-        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.locator("div.link:has-text('Dell EMC Isilon Hardware and Software Support and Maintenance')")).containsText(ExpectedContractTile);
     }
 
     /**
@@ -835,7 +831,6 @@ public class Contracts {
     @Then("User closes the slider")
     public void user_closes_the_slider() {
         page.locator("button").filter(new Locator.FilterOptions().setHasText("close")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -844,7 +839,6 @@ public class Contracts {
     @Then("User will click on EXPORT SEARCH RESULT button")
     public void user_will_click_on_export_search_result_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Export Search Result")).click();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -877,6 +871,5 @@ public class Contracts {
     @Then("User will verify that Test COR can not access All Contracts")
     public void user_will_verify_that_test_cor_can_not_access_all_contracts() {
         assertThat(page.locator("div").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^All Contracts$"))).nth(2)).isHidden();
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 }
