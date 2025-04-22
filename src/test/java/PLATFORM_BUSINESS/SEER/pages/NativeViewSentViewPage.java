@@ -39,7 +39,7 @@ public class NativeViewSentViewPage extends CommonUtils {
 	public WebElement nativeViewPreviewVerifyEmailIcon;
 	
 	/**Native View Preview Email Open Record Button*/
-	@FindBy(linkText ="Open Record")
+	@FindBy(xpath ="//a[normalize-space()='Open Record']")
 	public WebElement NativeViewPreviewVerifyEmailOpenRecordButton;
 	
 	/**Native View Preview Email Preview HTML Body Link*/
