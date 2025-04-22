@@ -10,7 +10,7 @@ public class AAARegressionRunner {
             , features = "src/test/java/PLATFORM_BUSINESS/ApplicationAccessAndApproval/features"
             , glue = {"PLATFORM_BUSINESS.ApplicationAccessAndApproval.steps", "Hooks"}
             , tags = "@Regression"
-            , dryRun = true
+            , dryRun = false
     )
 
     public class ApplicationAccessAndApprovalRegressionRunner extends AbstractTestNGCucumberTests {

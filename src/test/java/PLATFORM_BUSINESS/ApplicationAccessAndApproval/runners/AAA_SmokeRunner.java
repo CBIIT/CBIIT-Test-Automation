@@ -10,7 +10,7 @@ public class AAA_SmokeRunner {
             , features = "src/test/java/PLATFORM_BUSINESS/ApplicationAccessAndApproval/features"
             , glue = {"PLATFORM_BUSINESS.ApplicationAccessAndApproval.steps", "Hooks"}
             , tags = "@Smoke"
-            , dryRun = true
+            , dryRun = false
     )
 
     public class AAASmokeRunner extends AbstractTestNGCucumberTests {
