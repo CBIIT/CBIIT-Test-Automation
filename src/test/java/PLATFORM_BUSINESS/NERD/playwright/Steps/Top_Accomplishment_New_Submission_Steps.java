@@ -1,6 +1,5 @@
 package PLATFORM_BUSINESS.NERD.playwright.Steps;
 
-import APPS_COMMON.Pages.Playwright_Common_Locators;
 import PLATFORM_BUSINESS.NERD.playwright.StepImplementation.Top_Accomplishment_New_Submission_StepImpl;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
@@ -14,7 +13,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import java.util.regex.Pattern;
-
 import static APPS_COMMON.Pages.Playwright_Common_Locators.iframeLocator;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
