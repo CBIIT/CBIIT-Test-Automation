@@ -13,6 +13,6 @@ public class AAARegressionRunner {
             , dryRun = true
     )
 
-    public class ApplicationAccessAndApprovalRegressionRunner  extends AbstractTestNGCucumberTests {
+    public class ApplicationAccessAndApprovalRegressionRunner extends AbstractTestNGCucumberTests {
     }
 }
