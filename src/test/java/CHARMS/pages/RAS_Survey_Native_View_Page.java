@@ -535,8 +535,319 @@ public class RAS_Survey_Native_View_Page {
     @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.evaluated_by_cardiologist']")
     public WebElement hasTheParticipantBeenEvaluatedByACardiologistDropdown;
 
+    /**
+     * Name of cardiologist input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.cardiologist_name']")
+    public WebElement nameOfCardiologistInputField;
+
+    /**
+     * Location (City, State, Country) input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.cardiologist_location']")
+    public WebElement locationOfCardiologistInputField;
+
+    /**
+     * Hospital or Health Center Affiliation input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.cardiologist_affiliation']")
+    public WebElement getHospitalOrHealthSystemAffiliationInputFieldInputField;
+
+    /**
+     * Has the participant received treatment for heart problems? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.heart_treatment_received']")
+    public WebElement hasTheParticipantReceivedHeartTreatmentDropdown;
+
+    /**
+     * Has the participant been diagnosed with a functional heart issue? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.functional_heart_issue']")
+    public WebElement hasTheParticipantBeenDiagnosedWithAFunctionalHeartIssueDropdown;
+
+    /**
+     * Has the participant been diagnosed with  structural heart issues? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.heart_disease']")
+    public WebElement hasTheParticipantBeenDiagnosedWithAStructuralHeartIssueDropdown;
+
+    /**
+     * Participants diagnosed structural heart issues text list
+     */
+    @FindBy(xpath = "//p[@id='x_naci_family_coho_rasopathy_iiq.heart_issues_nonedit']")
+    public WebElement participantsDiagnosedStructuralHeartIssuesText;
+
+    /**
+     * Please specify(Heart issues) input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.please_specify_heart_issues']")
+    public WebElement pleaseSpecifyOtherHeartIssuesInputField;
 
     /** ---------------------END OF Heart SECTION--------------------- */
+
+    /******************************************************************************
+     *                                                                            *
+     *                    BEGINNING OF Medical History SECTION                    *
+     *                                                                            *
+     ******************************************************************************/
+
+    /**
+     * Does the participant have a primary care provider? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.primary_care']")
+    public WebElement doesTheParticipantHaveAPrimaryCareProviderDropdown;
+
+    /**
+     * Name of primary care provider input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.pcp_name']")
+    public WebElement nameOfPrimaryCareProviderInputField;
+
+    /**
+     * Location of primary care provider input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.pcp_location']")
+    public WebElement locationOfPrimaryCareProviderInputField;
+
+    /**
+     * Primary Care Provider Affiliation input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.pcp_affiliation']")
+    public WebElement primaryCareProviderAffiliationInputField;
+
+    /**
+     * Has the participant ever had a biopsy? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.participant_biopsy']")
+    public WebElement hasTheParticipantEverHadABiopsyDropdown;
+
+    /**
+     * Is the participant allergic to any medications dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.medication_allergy']")
+    public WebElement isTheParticipantAllergicToAnyMedicationsDropdown;
+
+    /**
+     * Have you ever been diagnosed with a lymphatic system issue dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.lymphatic_diagnosis']")
+    public WebElement haveYouEverBeenDiagnosedWithALymphaticSystemIssueDropdown;
+
+    /**
+     * Has the participant ever been evaluated by a nephrologist? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.nephrologist_evaluated']")
+    public WebElement hasTheParticipantEverBeenEvaluatedByANephrologistDropdown;
+
+    /**
+     * Hospitalized for any reason other than accidental injury or childbirth dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.hospitalized_for_other_reason']")
+    public WebElement hasTheParticipantBeenHospitalizedForAnyReasonOtherThanAccidentalInjuryOrChildbirthDropdown;
+
+    /**
+     * Is the participant allergic to any foods dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.food_allergy']")
+    public WebElement isTheParticipantAllergicToAnyFoodsDropdown;
+
+    /**
+     * Is the participant allergic to other things? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.allergic_other_things']")
+    public WebElement isTheParticipantAllergicToOtherThingsDropdown;
+
+    /**
+     * Participant ear issues text list
+     */
+    @FindBy(css = "body > div:nth-child(11) > form:nth-child(1) > span:nth-child(48) > span:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > p:nth-child(4)")
+    public WebElement participantEarIssuesTextList;
+
+    /**
+     * Name of Nephrologist input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.nephrologist_name']")
+    public WebElement nameOfNephrologistInputField;
+
+    /**
+     * Nephrologist Location input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.nephrologist_location']")
+    public WebElement nephrologistLocationInputField;
+
+    /**
+     * Nephrologist affiliation textarea
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_rasopathy_iiq.nephrologist_affiliation']")
+    public WebElement nephrologistAffiliationTextArea;
+
+    /**
+     * Has the participant ever been diagnosed with a kidney problem dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.diagnosed_kidney_problem']")
+    public WebElement hasTheParticipantEverBeenDiagnosedWithAKidneyProblemDropdown;
+
+    /** ---------------------END OF Medical History SECTION--------------------- */
+
+    /***************************************************************************************************
+     *                                                                                                 *
+     *                    BEGINNING OF Feeding, Nutrition & Gastro Symptoms SECTION                    *
+     *                                                                                                 *
+     ***************************************************************************************************/
+
+    /**
+     * Has the patient ever seen a GI specialist dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.gi_specialist']")
+    public WebElement hasThePatientEverBeenSeenAGISpecialistDropdown;
+
+    /**
+     * GI Specialist Name input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.gi_specialist_name']")
+    public WebElement giSpecialistNameInputField;
+
+    /**
+     * GI Specialist City, State input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.gi_specialist_city_state']")
+    public WebElement giSpecialistCityStateInputField;
+
+    /**
+     * GI Specialist Hospital / Health Center Affiliation input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.ga_specialist_affiliation']")
+    public WebElement giSpecialistHospitalHealthCenterAffiliationInputField;
+
+    /**
+     * Participant's diagnosed feeding difficulties text list
+     */
+    @FindBy(xpath = "//p[@id='x_naci_family_coho_rasopathy_iiq.feeding_difficulties_nonedit']")
+    public WebElement participantsDiagnosedFeedingDifficultiesTextList;
+
+    /**
+     * Other Feeding Difficulties input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.other_feeding_difficulties']")
+    public WebElement otherFeedingDifficultiesInputField;
+
+    /**
+     * Age NJ/NG-tube was placed input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.age_nj_tube_placed']")
+    public WebElement ageNJNGTubeWasPlacedInputField;
+
+    /**
+     * Age of NG/NJ tube unknown checkbox
+     */
+    @FindBy(xpath = "//input[@id='sys_original.x_naci_family_coho_rasopathy_iiq.age_of_ng_nj_tube_unknown']")
+    public WebElement ageOfNGNJTubeUnknownCheckbox;
+
+    /**
+     * Has the participant had any symptoms that likely involved the GI system dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.gi_symptoms']")
+    public WebElement hasTheParticipantHadAnySymptomsThatLikelyInvolvedTheGISystemDropdown;
+
+    /**
+     * Age G/G-J tube was placed input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.age_g_g_j_tube_was_placed']")
+    public WebElement ageGGJTubeWasPlacedInputField;
+
+    /**
+     * G/G-J tube placement age unknown checkbox
+     */
+    @FindBy(xpath = "//input[@id='sys_original.x_naci_family_coho_rasopathy_iiq.g_g_j_tube_placement_age_unknown']")
+    public WebElement ggjTubePlacementAgeUnknownCheckbox;
+
+    /**
+     * Still using G-tube checkbox
+     */
+    @FindBy(xpath = "//input[@id='sys_original.x_naci_family_coho_rasopathy_iiq.still_using_g_tube']")
+    public WebElement stillUsingGTubeCheckbox;
+
+    /**
+     * Age gastronomy tube(G/G-J) removed input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.age_g_tube_removed']")
+    public WebElement ageGastronomyTubeGGJRemovedInputField;
+
+    /**
+     * G/G-J tube removal age unknown checkbox
+     */
+    @FindBy(xpath = "//input[@id='sys_original.x_naci_family_coho_rasopathy_iiq.g_g_j_tube_removal_age_unknown']")
+    public WebElement ggjTubeRemovalAgeUnknownCheckbox;
+
+    /**
+     * Toilet trained dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.toilet_trained']")
+    public WebElement toiletTrainedDropdown;
+
+    /**
+     * Age successfully toilet trained input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.age_successfully_toilet_trained']")
+    public WebElement ageSuccessfullyToiletTrainedInputField;
+
+    /**
+     * Any episodes of repeated urine accidents after being toilet trained? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.repeated_urine_accidents']")
+    public WebElement anyEpisodesOfRepeatedUrineAccidentsAfterBeingToiletTrainedDropdown;
+
+    /**
+     * Does the patient consistently use the toilet for all bowel movements? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.toilet_bowel_movements']")
+    public WebElement doesThePatientConsistentlyUseTheToiletForAllBowlMovementsDropdown;
+
+    /**
+     * Pain with bowel movements dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.pain_with_bowel_movements']")
+    public WebElement painWithBowelMovementsDropdown;
+
+    /**
+     * Bristol Stool Chart Type dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.bristol_stool_chart_type']")
+    public WebElement bristolStoolChartTypeDropdown;
+
+    /**
+     * Does the patient consistently use the toilet for all urination? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.toilet_urination']")
+    public WebElement doesThePatientConsistentlyUseTheToiletForAllUrinationDropdown;
+
+    /**
+     * Any episodes of repeated bowel movement accidents after being toilet trained? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.bowel_accidents']")
+    public WebElement getAnyEpisodesOfRepeatedBowelAccidentsAfterBeingToiletTrainedDropdown;
+
+    /**
+     * How many bowel movements do you have per week? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.how_many_bowel_movements_do_you_have_per_week']")
+    public WebElement howManyBowelMovementsDoYouHavePerWeekDropdown;
+
+    /**
+     * Longest time without a bowel movement dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.longest_time_without_a_bowel_movement']")
+    public WebElement longestTimeWithoutABowelMovementDropdown;
+
+    /**
+     * Has the participant had a procedure, test or study to evaluate their GI? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.gi_procedure']")
+    public WebElement hasTheParticipantHadAProcedureTestOrStudyToEvaluateTheirGIDropdown;
+
+
+
+    /** ---------------------END OF Feeding, Nutrition & Gastro Symptoms SECTION--------------------- */
 
     /***************************************************************************
      *                                                                         *
@@ -866,13 +1177,12 @@ public class RAS_Survey_Native_View_Page {
     /**
      * Verifies the checkbox element with the actual value against the value attribute of the checkbox element.
      *
-     * @param actualCheckboxValue the actual value to compare with the checkbox element's value attribute
+     * @param expectedCheckboxValue the expected value to compare with the checkbox element's value attribute
      * @param checkBoxElm         the WebElement representing the checkbox element to verify
      * @param errorMessage        the error message to throw if the verification fails
      */
-    public static void verifyCheckbox(String actualCheckboxValue, WebElement checkBoxElm, String errorMessage) {
-        softAssert.assertEquals(actualCheckboxValue, CommonUtils.getAttributeValueOfValueAttribute(checkBoxElm), errorMessage);
-
+    public static void verifyCheckbox(String expectedCheckboxValue, WebElement checkBoxElm, String errorMessage) {
+        softAssert.assertEquals(expectedCheckboxValue, CommonUtils.getAttributeValueOfValueAttribute(checkBoxElm), errorMessage);
     }
 
     /**
