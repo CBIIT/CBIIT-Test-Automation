@@ -1326,7 +1326,7 @@ public class RAS_Survey_Native_View_Page {
     public WebElement locationOfOrthopaedicSurgeonInputField;
 
     /**
-     * Orthopaedic surgeons hospital or medical center affiliation input field
+     * Orthopedic surgeons hospital or medical center affiliation input field
      */
     @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.orthopaedic_surgeon_affiliation']")
     public WebElement orthopediacSurgeonsHospitalOrMedicalCenterAffiliationInputField;
