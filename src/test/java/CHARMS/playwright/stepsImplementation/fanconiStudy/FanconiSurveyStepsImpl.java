@@ -75,7 +75,6 @@ public class FanconiSurveyStepsImpl {
         page1.getByLabel("Year").fill("1987");
         page1.getByLabel("Year").press("Enter");
         page1.getByLabel("July 25,").click();
-        page1.getByLabel("July 25, 1987").click();
         page1.getByLabel("Next →").click();
         page1.getByText("Female").click();
         page1.getByLabel("Next →").click();
