@@ -5,7 +5,7 @@ import PLATFORM_BUSINESS.ApplicationAccessAndApproval.stepsImplementation.AAASte
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
-public class AAAlSteps extends PageInitializer {
+public class AAAlSteps {
 
     @Given("Submitter User logged in to AAA Portal")
     public void submitter_user_logged_in_to_aaa_portal() {
