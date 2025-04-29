@@ -105,6 +105,7 @@ public class TestProperties {
      * AAA
      */
     public static final String AAA_TEST_PORTAL_URL = "https://service-test.nci.nih.gov/ncisp";
+    public static final String AAA_STAGE_PORTAL_URL = "https://service-stage.nci.nih.gov/ncisp";
     public static String AAA_URL;
 
     /**
@@ -926,6 +927,7 @@ public class TestProperties {
     public static String getAAAUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
+                AAA_URL = AAA_STAGE_PORTAL_URL;
                 break;
             case "test":
                 AAA_URL = AAA_TEST_PORTAL_URL;
