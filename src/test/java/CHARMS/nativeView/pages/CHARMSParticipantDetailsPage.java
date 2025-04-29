@@ -9,6 +9,9 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class CHARMSParticipantDetailsPage extends CommonUtils {
 
+	@FindBy(xpath = "(//span[normalize-space()='Proxy Contact Info'])[1]")
+	public WebElement nVParticipantProxyContactInfoTab;
+
 	/* USE THIS METHOD TO DYNAMICALLY LOCATE RECORD BUTTONS ON */
 	public static WebElement dynamicPreviewButtonLocator1(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::tr/td[2]"));
@@ -26,10 +29,6 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	public CHARMSParticipantDetailsPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
-
-	/* CHARMS Navigation-> All Participant Details Back Button */
-	@FindBy(xpath = "(//button[@aria-label='Back'])[1]")
-	public static WebElement nVAllParticipantDetailsBackButton;
 
 	/* Method to dynamically locate elements in Native View */
 	public WebElement dynamicLocatorContainsText(String text) {
@@ -75,6 +74,14 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	public WebElement dynamicLocatorForSelectElementsInParticipantDetailsPage(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='x_naci_family_coho_family_history_details." + text + "'])[1]"));
 	}
+
+	/* CHARMS Navigation-> All Participant Details Back Button */
+	@FindBy(xpath = "(//button[@aria-label='Back'])[1]")
+	public static WebElement nVAllParticipantDetailsBackButton;
+
+	/* Participant--> Search column: button*/
+	@FindBy(xpath = "(//button[@class='list_header_search_toggle icon-search btn btn-icon table-btn-lg'])[1]")
+	public WebElement nVParticipantSearchColumnButton;
 
 	/* Participant--> Search column: name TextBox */
 	@FindBy(xpath = "(//input[@aria-label='Search column: name'])[1]")

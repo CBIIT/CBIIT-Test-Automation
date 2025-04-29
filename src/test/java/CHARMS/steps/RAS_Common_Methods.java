@@ -30,6 +30,7 @@ public class RAS_Common_Methods extends PageInitializer {
      * @param sheetName The name of the sheet containing the data for the record.
      */
     public static void navigateToParticipantRecordInNativeView(String sheetName) {
+        ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
         CommonUtils.sleep(4000);
         CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
