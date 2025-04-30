@@ -16,7 +16,6 @@ import org.testng.asserts.SoftAssert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.ExcelReader;
 import com.nci.automation.web.WebDriverUtils;
-
 import static Hooks.Hooks.softAssert;
 
 /* @author SONIKA JAIN */
