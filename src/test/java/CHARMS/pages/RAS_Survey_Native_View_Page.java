@@ -1,6 +1,8 @@
 package CHARMS.pages;
 
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -9,6 +11,9 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
+import static CHARMS.steps.RAS_Common_Methods.softAssertDropDownValueIsSelected;
+import static CHARMS.utils.CharmsUtil.verifyInputField;
 import static Hooks.Hooks.softAssert;
 
 public class RAS_Survey_Native_View_Page {
@@ -1246,7 +1251,7 @@ public class RAS_Survey_Native_View_Page {
     /**
      * Other hair description input field
      */
-    @FindBy(xpath = "//span[normalize-space()='Other hair description']")
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.other_hair_description']")
     public WebElement otherHairDescriptionInputField;
 
     /**
@@ -1523,6 +1528,485 @@ public class RAS_Survey_Native_View_Page {
      * ---------------------END OF Brain & Neurology SECTION---------------------
      */
 
+    /********************************************************************************
+     *                                                                              *
+     *                    BEGINNING OF Vision & Hearing SECTION                     *
+     *                                                                              *
+     ********************************************************************************/
+
+    /**
+     * Diagnosed with ptosis Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.ptosis_diagnosis']")
+    public WebElement diagnosedWithPtosisDropdown;
+
+    /**
+     * Did the ptosis require treatment? Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.ptosis_treatment_required']")
+    public WebElement didThePtosisRequireTreatmentDropdown;
+
+    /**
+     * Participant experienced hearing loss Dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.hearing_loss']")
+    public WebElement participantExperiencedHearingLossDropdown;
+
+    /**
+     * Participant ear issues text
+     */
+    @FindBy(css = "div[aria-label='Vision & Hearing form section'] p[class='form-control-static']")
+    public WebElement participantEarIssuesText;
+
+    /**
+     * Please specify(Participant ear issues) input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_ear_issues']")
+    public WebElement pleaseSpecifyParticipantEarIssuesInputField;
+
+    /**
+     * Issues with vision or eyesight dropdown
+     */
+    @FindBy(xpath = "//select[contains(@name,'x_naci_family_coho_rasopathy_iiq.eye_issues')]")
+    public WebElement issuesWithVisionOrEyesightDropdown;
+
+    /**
+     * Participant experienced strabismus dropdown
+     */
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.strabismus']")
+    public WebElement participantExperiencedStrabismusDropdown;
+
+    /**
+     * Participant experienced nystagmus dropdown
+     */
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.nystagmus']")
+    public WebElement participantExperiencedNystagmusDropdown;
+
+    /**
+     * ---------------------END OF Vision & Hearing SECTION---------------------
+     */
+
+    /***********************************************************************************************
+     *                                                                                             *
+     *                    BEGINNING OF Medications Taken While Pregnant SECTION                    *
+     *                                                                                             *
+     ***********************************************************************************************/
+
+    /**
+     * Medication input field
+     */
+    @FindBy(xpath = "//input[@name='sys_display.original.x_naci_family_coho_medications_taken_while_pregnant.medication']")
+    public WebElement medicationInputField;
+
+    /**
+     * Name of Medication input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_medications_taken_while_pregnant.name']")
+    public WebElement nameOfMedicationInputField;
+
+    /**
+     * Length of time medication was taken input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_medications_taken_while_pregnant.medication_usage_length']")
+    public WebElement lengthOfTimeMedicationWasTakenInputField;
+
+    /**
+     * Please specify input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_medications_taken_while_pregnant.please_specify']")
+    public WebElement pleaseSpecifyMedicationWasTakenInputField;
+
+    /**
+     * Reason medication was taken input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_medications_taken_while_pregnant.reason_for_medication']")
+    public WebElement reasonMedicationWasTakenInputField;
+
+    /**
+     * ---------------------END OF Medications Taken While Pregnant SECTION---------------------
+     */
+
+    /*************************************************************************************
+     *                                                                                   *
+     *                    BEGINNING OF Growth Hormone Details SECTION                    *
+     *                                                                                   *
+     *************************************************************************************/
+
+    /**
+     * Hormone Treatment Number input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_growth_hormone_details.treatment_count']")
+    public WebElement hormoneTreatmentNumberInputField;
+
+    /**
+     * Age growth hormone started input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_growth_hormone_details.age_started']")
+    public WebElement ageGrowthHormoneStartedInputField;
+
+    /**
+     * Age growth hormone stopped field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_growth_hormone_details.age_stopped']")
+    public WebElement ageGrowthHormoneStoppedInputField;
+
+    /**
+     * Still on growth hormone dropdown
+     */
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_growth_hormone_details.growth_hormone_active']")
+    public WebElement stillOnGrowthHormoneDropdown;
+
+    /**
+     * Date growth hormone started input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_growth_hormone_details.date_started']")
+    public WebElement dateGrowthHormoneStartedInputField;
+
+    /**
+     * ---------------------END OF Growth Hormone Details SECTION---------------------
+     */
+
+    /*****************************************************************************
+     *                                                                           *
+     *                    BEGINNING OF Heart Symptoms SECTION                    *
+     *                                                                           *
+     *****************************************************************************/
+
+    /**
+     * Symptom input field
+     */
+    @FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_participant_heart_issue_symptom.symptom']")
+    public WebElement symptomInputField;
+
+    /**
+     * Age of first hospital evaluation input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_heart_issue_symptom.age_of_first_hospital_evaluation']")
+    public WebElement ageOfFirstHospitalEvaluationInputField;
+
+    /**
+     * Date of first evaluation input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_heart_issue_symptom.date_of_first_evaluation']")
+    public WebElement dateOfFirstEvaluationInputField;
+
+    /**
+     * First evaluation unknown checkbox
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_heart_issue_symptom.first_evaluation_unknown']")
+    public WebElement firstEvaluationUnknownCheckbox;
+
+    /**
+     * First hospital evaluation textarea
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_participant_heart_issue_symptom.first_hospital_evaluation']")
+    public WebElement firstHospitalEvaluationTextarea;
+
+    /**
+     * Age of most recent evaluation input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_heart_issue_symptom.age_recent_evaluation']")
+    public WebElement ageOfMostRecentEvaluationInputField;
+
+    /**
+     * Date of most recent evaluation input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_heart_issue_symptom.date_recent_evaluation']")
+    public WebElement dateOfMostRecentEvaluationInputField;
+
+    /**
+     * Date of recent evaluation unknown checkbox
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_heart_issue_symptom.date_recent_evaluation_unknown']")
+    public WebElement dateOfRecentEvaluationUnknownCheckbox;
+
+    /**
+     * Recent hospital evaluation textarea
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_participant_heart_issue_symptom.recent_hospital_evaluation']")
+    public WebElement recentHospitalEvaluationTextarea;
+
+    /**
+     * ---------------------END OF Heart Symptoms SECTION---------------------
+     */
+
+    /*******************************************************************************
+     *                                                                             *
+     *                    BEGINNING OF Heart Treatments SECTION                    *
+     *                                                                             *
+     ******************************************************************************/
+
+    /**
+     * Surgery input field
+     */
+    @FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_participant_heart_treatment_history.treatment']")
+    public WebElement surgeryInputField;
+
+    /**
+     * Please specify(Treatment) input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_heart_treatment_history.please_specify']")
+    public WebElement pleaseSpecifyTreatmentInputField;
+
+    /**
+     * Is the participant still on this medication dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_participant_heart_treatment_history.still_on_meds']")
+    public WebElement isTheParticipantStillOnThisMedicationDropdown;
+
+    /**
+     * Date of first treatment input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_heart_treatment_history.first_treatment_date']")
+    public WebElement dateOfFirstTreatmentInputField;
+
+    /**
+     * Date/age first treatment unknown checkbox
+     */
+    @FindBy(xpath = "//input[@id='sys_original.x_naci_family_coho_participant_heart_treatment_history.first_treatment_unknown']")
+    public WebElement dateAgeOfFirstTreatmentUnknownCheckbox;
+
+    /**
+     * First Treatment Location textarea
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_participant_heart_treatment_history.first_treatment_location']")
+    public WebElement firstTreatmentLocationTextarea;
+
+    /**
+     * Date of most recent treatment input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_heart_treatment_history.recent_treatment_date']")
+    public WebElement dateOfMostRecentTreatmentInputField;
+
+    /**
+     * Date/age recent treatment unknown checkbox
+     */
+    @FindBy(xpath = "//input[@id='sys_original.x_naci_family_coho_participant_heart_treatment_history.recent_treatment_unknown']")
+    public WebElement dateAgeOfMostRecentTreatmentUnknownCheckbox;
+
+    /**
+     * Most recent treatment location textarea
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_participant_heart_treatment_history.recent_treatment_location']")
+    public WebElement mostRecentTreatmentLocationTextarea;
+
+    /**
+     * ---------------------END OF Heart Treatments SECTION---------------------
+     */
+
+
+    /***************************************************************************************
+     *                                                                                     *
+     *                    BEGINNING OF Participant Heart Issues SECTION                    *
+     *                                                                                     *
+     ***************************************************************************************/
+
+    /**
+     * Issue input field
+     */
+    @FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_participant_heart_issues.issue']")
+    public WebElement issueInputField;
+
+    /**
+     * Participant heart issues - Please specify input field
+     */
+    @FindBy(xpath = "//span[normalize-space()='Please specify']/parent::label/parent::div/following-sibling::div/input")
+    public WebElement pleaseSpecifyParticipantHeartIssuesInputField;
+
+    /**
+     * Age at diagnosis input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_heart_issues.diagnosis_age']")
+    public WebElement ageAtDiagnosisInputField;
+
+    /**
+     * Date of diagnosis input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_heart_issues.diagnosis_date']")
+    public WebElement dateOfDiagnosisInputField;
+
+    /**
+     * Age/date of diagnosis unknown checkbox
+     */
+    @FindBy(xpath = "//input[@id='sys_original.x_naci_family_coho_participant_heart_issues.diagnosis_time_unknown']")
+    public WebElement ageDateOfDiagnosisUnknownCheckbox;
+
+    /**
+     * Treatment textarea
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_participant_heart_issues.treatment']")
+    public WebElement treatmentTextArea;
+
+    /**
+     * Hospital where treatment received textarea
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_participant_heart_issues.hospital']")
+    public WebElement hospitalWhereTreatmentReceivedTextarea;
+
+    /**
+     * Age at first symptoms input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_heart_issues.symptom_age']")
+    public WebElement ageAtFirstSymptomsInputField;
+
+    /**
+     * Date of first symptoms input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_heart_issues.symptom_date']")
+    public WebElement dateOfFirstSymptomsInputField;
+
+    /**
+     * Age/date of first symptom unknown checkbox
+     */
+    @FindBy(xpath = "//input[@id='sys_original.x_naci_family_coho_participant_heart_issues.symptom_time_unknown']")
+    public WebElement ageDateOfFirstSymptomUnknownCheckbox;
+
+    /**
+     * ---------------------END OF Participant Heart Issues SECTION---------------------
+     */
+
+    /*****************************************************************************
+     *                                                                           *
+     *                    BEGINNING OF Biopsy History SECTION                    *
+     *                                                                           *
+     *****************************************************************************/
+
+    /**
+     * Type input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_biopsy_history.type']")
+    public WebElement biopsyHistoryTypeInputField;
+
+    /**
+     * Date biopsy was performed input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_biopsy_history.date']")
+    public WebElement dateBiopsyWasPerformedInputField;
+
+    /**
+     * Name and location of facility where biopsy was preformed textarea
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_participant_biopsy_history.name_location']")
+    public WebElement nameAndLocationOfFacilityWhereBiopsyWasPreformedTextarea;
+
+    /**
+     * Reason dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_participant_biopsy_history.reason']")
+    public WebElement biopsyHistoryReasonDropdown;
+
+    /**
+     * ---------------------END OF Biopsy History Issues SECTION---------------------
+     */
+
+    /*****************************************************************************
+     *                                                                           *
+     *                    BEGINNING OF Allergy Histories SECTION                    *
+     *                                                                           *
+     *****************************************************************************/
+
+    /**
+     * Type dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_allergy_history.type']")
+    public WebElement allergyHistoryTypeDropdown;
+
+    /**
+     * Name input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_allergy_history.name']")
+    public WebElement allergyHistoryNameInputField;
+
+    /**
+     * Reaction input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_allergy_history.reaction']")
+    public WebElement allergyHistoryReactionInputField;
+
+    /**
+     * ---------------------END OF Allergy Histories SECTION---------------------
+     */
+
+    /*******************************************************************************
+     *                                                                             *
+     *                    BEGINNING OF Hospital History SECTION                    *
+     *                                                                             *
+     *******************************************************************************/
+
+    /**
+     * Where was the participant hospitalized textarea
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_hospitalization_history.location']")
+    public WebElement whereWasTheParticipantHospitalizedTextarea;
+
+    /**
+     * Reason for hospitalization textarea
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_hospitalization_history.reason']")
+    public WebElement reasonForHospitalizationTextarea;
+
+    /**
+     * ---------------------END OF Hospital History SECTION---------------------
+     */
+
+    /*************************************************************************************
+     *                                                                                   *
+     *                    BEGINNING OF Gastrointestinal Exams SECTION                    *
+     *                                                                                   *
+     *************************************************************************************/
+
+    /**
+     * Exam/Study textarea
+     */
+    @FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_gastrointestinal_symptom_history.exam']")
+    public WebElement gastrointestinalExamsExamStudyTextarea;
+
+    /**
+     * Date of first exam input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_gastrointestinal_symptom_history.date_of_first_study']")
+    public WebElement gastrointestinalExamsDateOfFirstExamInputField;
+
+    /**x
+     * Reason the participant had their exam/study textarea
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_gastrointestinal_symptom_history.reason_for_exam']")
+    public WebElement gastrointestinalExamsReasonTheParticipantHadTheirExamStudyTextarea;
+
+    /**
+     * Where did the participant have their first exam/study? textarea
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_gastrointestinal_symptom_history.location_first_exam']")
+    public WebElement gastrointestinalExamsWhereDidTheParticipantHaveTheirFirstExamStudyTextarea;
+
+    /**
+     * Date of most recent exam input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_gastrointestinal_symptom_history.date_recent_exam']")
+    public WebElement gastrointestinalExamsDateOfMostRecentExamInputField;
+
+    /**
+     * Findings of the most recent exam textarea
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_gastrointestinal_symptom_history.findings_recent_exam']")
+    public WebElement gastrointestinalExamsFindingsOfTheMostRecentExamTextarea;
+
+    /**
+     * Reason for most recent exam textarea
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_gastrointestinal_symptom_history.recent_exam_reason']")
+    public WebElement gastrointestinalExamsReasonForMostRecentExamTextarea;
+
+    /**
+     * Where did the participant have their most recent study? textarea
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_gastrointestinal_symptom_history.location_recent_exam']")
+    public WebElement gastrointestinalExamsWhereDidTheParticipantHaveTheirMostRecentStudyTextarea;
+
+    /**
+     * ---------------------END OF Gastrointestinal Exams SECTION---------------------
+     */
+
     /**
      * USE THIS METHOD TO DYNAMICALLY LOCATE TABS BY SPECIFYING EXACT TEXT
      *
@@ -1531,28 +2015,6 @@ public class RAS_Survey_Native_View_Page {
      */
     public WebElement dynamicTabLocator(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//span[text()='" + text + "']"));
-    }
-
-    /**
-     * Verifies the input field element with the expected value using SoftAssert and throws an error message if the assertion fails.
-     *
-     * @param inputFieldElm the WebElement input field element to verify
-     * @param expectedValue the expected value to compare with the input field element's value attribute
-     * @param errorMessage  the error message to throw in case of assertion failure
-     */
-    public static void verifyInputField(WebElement inputFieldElm, String expectedValue, String errorMessage) {
-        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(inputFieldElm), expectedValue, errorMessage);
-    }
-
-    /**
-     * Verifies the checkbox element with the actual value against the value attribute of the checkbox element.
-     *
-     * @param expectedCheckboxValue the expected value to compare with the checkbox element's value attribute
-     * @param checkBoxElm           the WebElement representing the checkbox element to verify
-     * @param errorMessage          the error message to throw if the verification fails
-     */
-    public static void verifyCheckbox(String expectedCheckboxValue, WebElement checkBoxElm, String errorMessage) {
-        softAssert.assertEquals(expectedCheckboxValue, CommonUtils.getAttributeValueOfValueAttribute(checkBoxElm), errorMessage);
     }
 
     /**
@@ -1625,6 +2087,66 @@ public class RAS_Survey_Native_View_Page {
             output.add(matcher.group(1).trim());
         }
         return output;
+    }
+
+    /**
+     * Clicks on the tab with the specified tabName.
+     *
+     * @param tabName the name of the tab that needs to be clicked
+     */
+    public static void clickTab(String tabName) {
+        CommonUtils.sleep(500);
+        CommonUtils.waitForVisibility(locateByXpath("//span[contains(text(), '" + tabName + "') and @class='tab_caption_text']"));
+        JavascriptUtils.scrollIntoView(locateByXpath("//span[contains(text(), '" + tabName + "') and @class='tab_caption_text']"));
+        JavascriptUtils.clickByJS(locateByXpath("//span[contains(text(), '" + tabName + "') and @class='tab_caption_text']"));
+    }
+
+    /**
+     * Opens a related list record by providing the record name as a parameter.
+     *
+     * @param recordName the name of the record to be opened in the related list
+     */
+    public static void openRelatedListRecord(String recordName) {
+        CommonUtils.hoverOverElement(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[contains(@aria-label, '" + recordName + "')]"));
+        JavascriptUtils.clickByJS(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[contains(@aria-label, '" + recordName + "')]"));
+        CommonUtils.sleep(800);
+        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
+        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
+        CommonUtils.sleep(800);
+    }
+
+    /**
+     *
+     * @param expectedTestType
+     */
+    public static void assertTestType(String expectedTestType) {
+        softAssert.assertEquals(expectedTestType, locateByXpath("//span[normalize-space()='Test type']/parent::label/parent::div/following-sibling::div/input[2]").getDomAttribute("value"), "* * * * * RAS SURVEY MISMATCH IN \"Test type\" INPUT FIELD * * * * *");
+    }
+
+    /**
+     *
+     * @param expectedTestResult
+     */
+    public static void assertTestResult(String expectedTestResult) {
+        softAssertDropDownValueIsSelected(locateByXpath("//span[normalize-space()='Test result']/parent::label/parent::div/following-sibling::div//select"), expectedTestResult, "* * * * * RAS SURVEY MISMATCH IN \"Test result\" DROP DOWN * * * * *");
+    }
+
+    /**
+     *
+     * @param expectedText
+     */
+    public static void assertPleaseSpecifyField(String expectedText) {
+        verifyInputField(locateByXpath("//span[normalize-space()='Please Specify']/parent::label/parent::div/following-sibling::div/div/input"), expectedText, "* * * * * RAS SURVEY MISMATCH IN \"Please Specify\" DROP DOWN * * * * *");
+    }
+
+
+    public static void verifyPrenatalTestHistory(String expectedTestType, String expectedTestResult) {
+        openRelatedListRecord(expectedTestType);
+        assertTestType(expectedTestType);
+        assertTestResult(expectedTestResult);
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
     }
 
     public RAS_Survey_Native_View_Page() {

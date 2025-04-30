@@ -12,6 +12,8 @@ import org.openqa.selenium.By;
 import java.util.*;
 import static CHARMS.pages.RAS_Survey_Native_View_Page.*;
 import static CHARMS.steps.RAS_Common_Methods.softAssertDropDownValueIsSelected;
+import static CHARMS.utils.CharmsUtil.verifyCheckbox;
+import static CHARMS.utils.CharmsUtil.verifyInputField;
 import static Hooks.Hooks.softAssert;
 
 public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
@@ -376,7 +378,7 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         softAssert.assertTrue(sortAndCompareLists(ras_survey_native_view.textToList(ras_survey_native_view.participantEarIssuesTextList), expectedParticipantsEarIssuesTextList), "* * * * * RAS SURVEY MISMATCH IN \"Medical History\" section 'Participants diagnosed structural heart issues' TEXT LIST * * * * *");
         verifyInputField(ras_survey_native_view.nameOfNephrologistInputField, ras_Survey_TestDataManager.pleaseListTheInformationBelowForTheNephrologistOption1, "* * * * * RAS SURVEY MISMATCH IN \"Medical History\" section 'Name of nephrologist' INPUT FIELD * * * * *");
         verifyInputField(ras_survey_native_view.nephrologistLocationInputField, ras_Survey_TestDataManager.pleaseListTheInformationBelowForTheNephrologistOption2, "* * * * * RAS SURVEY MISMATCH IN \"Medical History\" section 'Nephrologist Location' INPUT FIELD * * * * *");
-        softAssert.assertEquals(ras_survey_native_view.nephrologistAffiliationTextArea, ras_Survey_TestDataManager.pleaseListTheInformationBelowForTheNephrologistOption3, "* * * * * RAS SURVEY MISMATCH IN \"Medical History\" section 'Nephrologist Affiliation' TEXT AREA * * * * *");
+        verifyInputField(ras_survey_native_view.nephrologistAffiliationTextArea, ras_Survey_TestDataManager.pleaseListTheInformationBelowForTheNephrologistOption3, "* * * * * RAS SURVEY MISMATCH IN \"Medical History\" section 'Nephrologist Affiliation' TEXT AREA * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantEverBeenDiagnosedWithAKidneyProblemDropdown, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAKidneyProblem, "* * * * * RAS SURVEY MISMATCH IN \"Medical History\" section 'Has the participant ever been diagnosed with a kidney problem' DROPDOWN * * * * *");
         CucumberLogUtils.logScreenshot();
     }
@@ -600,6 +602,7 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         softAssertDropDownValueIsSelected(ras_survey_native_view.hasTheParticipantBeenDiagnosedWithABehavioralOrPsychiatricConditionDropdown, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithABehavioral, "* * * * * RAS SURVEY MISMATCH IN \"Brain & Neurology\" section 'Has the participant been diagnosed with a behavioral or psychiatric condition?' INPUT FIELD * * * * *");
         CucumberLogUtils.logScreenshot();
     }
+
 
     /**
      * This method verifies the RAS Survey Data in Native View for Scenario Two.

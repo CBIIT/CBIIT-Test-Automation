@@ -17,6 +17,8 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.ExcelReader;
 import com.nci.automation.web.WebDriverUtils;
 
+import static Hooks.Hooks.softAssert;
+
 /* @author SONIKA JAIN */
 public class CharmsUtil {
 	/* Excel Data Reader */
@@ -370,5 +372,25 @@ public class CharmsUtil {
 		componentTestResult.setComparisionResultList(comparisionResultList);
 		componentTestResult.setComponentResult(result);
 		return componentTestResult;
+	}
+
+	/**
+	 * Validates the input field element in the RAS Survey within Native View against the expected value using SoftAssert, and displays an error message if the validation fails.	 *
+	 * @param inputFieldElm the WebElement input field element to verify
+	 * @param expectedValue the expected value to compare with the input field element's value attribute
+	 * @param errorMessage  the error message to throw in case of assertion failure
+	 */
+	public static void verifyInputField(WebElement inputFieldElm, String expectedValue, String errorMessage) {
+		softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(inputFieldElm), expectedValue, errorMessage);
+	}
+
+	/**
+	 * Validates the checkbox element in the RAS Survey within Native View by comparing its actual value with the value attribute of the checkbox element.	 *
+	 * @param expectedCheckboxValue the expected value to compare with the checkbox element's value attribute
+	 * @param checkBoxElm           the WebElement representing the checkbox element to verify
+	 * @param errorMessage          the error message to throw if the verification fails
+	 */
+	public static void verifyCheckbox(String expectedCheckboxValue, WebElement checkBoxElm, String errorMessage) {
+		softAssert.assertEquals(expectedCheckboxValue, CommonUtils.getAttributeValueOfValueAttribute(checkBoxElm), errorMessage);
 	}
 }
