@@ -335,6 +335,18 @@ public class ESRApprovalStepsImplementation {
     }
 
     /**
+     * This method rejects the ESR Board Closeout Review approvals with a need more info for ESR-I tickets
+     */
+    public static void esrBoardCloseoutNeedMoreInfoForESRI() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (19)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[16]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("more");
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Need more information");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
      * This method confirms that the ESR Board Closeout Review approvals are completed
      */
     public static void confirmESRBoardCloseoutReviewApprovalsAreCompleted() {

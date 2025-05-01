@@ -156,6 +156,11 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.esrBoardCloseoutApprovalsForESRI();
     }
 
+    @And("the user is rejected from ESR Board Closeout Review with a need more info for ESR-I")
+    public void the_user_is_rejected_from_esr_board_closeout_review_with_a_need_more_info_for_esr_i() {
+        ESRApprovalStepsImplementation.esrBoardCloseoutNeedMoreInfoForESRI();
+    }
+
     @Then("the user confirms the ESR Board Closeout Review approvals are completed")
     public void the_user_confirms_the_esr_board_closeout_review_approvals_are_completed() {
         ESRApprovalStepsImplementation.confirmESRBoardCloseoutReviewApprovalsAreCompleted();
