@@ -46,5 +46,5 @@ Feature: RAS Screener Scenarios
     And Study Team member navigates to RASopathy Survey
     And RAS Survey Data for Scenario Two is verified
     Examples:
-      | Email                | Password          | ScreenerScenario  | IIQScenario  | SurveyScenario     |
-      | charmsras1@yahoo.com | CharmsStudies123$ | screenerScenario2 | IIQScenario2 | RASSurveyScenario2 |
+      | Email                       | Password   | ScreenerScenario  | IIQScenario  | SurveyScenario     |
+      | ras_progression@yopmail.com | Charms123$ | screenerScenario2 | IIQScenario2 | RASSurveyScenario2 |
