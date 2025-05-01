@@ -67,9 +67,6 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String  addRow;
 	public String  cancel;
 	public String  partner;
-//	public String  partnerfirstName;
-//	public String  partnerfirstInitialOfLASTName;
-	public String  partnervitalStatus;
 	public String  howManyTotalDifferentPartnersHasTheParticipantHadBiologicalChildrenWith;
 	public String  pleaseDoNotCountThemHere;
 	public String  weWouldLikeToAskYouSomeQuestionsAboutSiblingsDetails;
