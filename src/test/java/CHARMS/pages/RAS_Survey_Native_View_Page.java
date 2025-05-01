@@ -1,20 +1,11 @@
 package CHARMS.pages;
 
-import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
-import static CHARMS.steps.RAS_Common_Methods.softAssertDropDownValueIsSelected;
-import static CHARMS.utils.CharmsUtil.verifyInputField;
-import static Hooks.Hooks.softAssert;
 
 public class RAS_Survey_Native_View_Page {
 
@@ -1962,12 +1953,24 @@ public class RAS_Survey_Native_View_Page {
     public WebElement gastrointestinalExamsExamStudyTextarea;
 
     /**
+     * Please specify input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_gastrointestinal_symptom_history.please_specify']")
+    public WebElement gastrointestinalExamsPleaseSpecifyInputField;
+
+    /**
      * Date of first exam input field
      */
     @FindBy(xpath = "//input[@id='x_naci_family_coho_gastrointestinal_symptom_history.date_of_first_study']")
     public WebElement gastrointestinalExamsDateOfFirstExamInputField;
 
-    /**x
+    /**
+     * Findings from the first exam/study input field
+     */
+    @FindBy(xpath = "//textarea[@id='x_naci_family_coho_gastrointestinal_symptom_history.findings_from_first_exam']")
+    public WebElement gastrointestinalExamsFindingsFromTheFirstExamInputField;
+
+    /**
      * Reason the participant had their exam/study textarea
      */
     @FindBy(xpath = "//textarea[@id='x_naci_family_coho_gastrointestinal_symptom_history.reason_for_exam']")
@@ -2007,6 +2010,176 @@ public class RAS_Survey_Native_View_Page {
      * ---------------------END OF Gastrointestinal Exams SECTION---------------------
      */
 
+    /**************************************************************************
+     *                                                                        *
+     *                    BEGINNING OF GI Symptoms SECTION                    *
+     *                                                                        *
+     ***************************************************************************/
+
+    /**
+     * Symptom input field
+     */
+    @FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_gi_symptom_history.symptom']")
+    public WebElement giSymptomsSymptomInputField;
+
+    /**
+     * ---------------------START OF Lactose intolerance Record---------------------
+     */
+
+    /**
+     * Does the participant take a lactose supplement dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_gi_symptom_history.lactose_supplement']")
+    public WebElement giSymptomsDoesTheParticipantTakeALactoseSupplementDropdown;
+
+    /**
+     * Status dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_gi_symptom_history.status']")
+    public WebElement giSymptomsStatusDropdown;
+
+    /**
+     * ---------------------START OF Lactose intolerance Record---------------------
+     */
+
+    /**
+     * ---------------------START OF Constipation Record---------------------
+     */
+
+    /**
+     * 2 or fewer bowel movements per week dropdown
+     */
+    @FindBy(css = "select[id='x_naci_family_coho_gi_symptom_history.u_2_fewer_bowel_movement']")
+    public WebElement giSymptomsTwoOrFewerBowelMovementsPerWeekDropdown;
+
+    /**
+     * 1 or more stool accidents or stool incontinence per week dropdown
+     */
+    @FindBy(css = "select[id='x_naci_family_coho_gi_symptom_history.u_1_more_stool_accident']")
+    public WebElement giSymptomsOneOrMoreStoolAccidentOrStoolIncontinencePerWeekDropdown;
+
+    /**
+     * Posturing or excessive attempts to avoid having a bowel movement dropdown
+     */
+    @FindBy(css = "select[id='x_naci_family_coho_gi_symptom_history.attempts_avoid_bowel_movement']")
+    public WebElement giSymptomsPosturingOrExcessiveAttemptsToAvoidHavingABowelMovementDropdown;
+
+    /**
+     * History of stool impaction dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_gi_symptom_history.history_of_stool_impaction']")
+    public WebElement giSymptomsHistoryOfStoolImpactionDropdown;
+
+    /**
+     * Large bowel movements that clog the toilet dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_gi_symptom_history.clog_toilet']")
+    public WebElement giSymptomsLargeBowelMovementsThatClogTheToiletDropdown;
+
+    /**
+     * Blood on toilet paper or in the stool dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_gi_symptom_history.blood_constipation']")
+    public WebElement giSymptomsBloodOnToiletPaperOrInTheStoolDropdown;
+
+    /**
+     * Having bowel movements in places inappropriate or not socially acceptable dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_gi_symptom_history.innapropriate_bowel_movements']")
+    public WebElement giSymptomsBowelMovementsInPlacesInappropriateOrNotSociallyAcceptableDropdown;
+
+    /**
+     * Painful or Hard bowel movements dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_gi_symptom_history.constipation_painful_hard']")
+    public WebElement giSymptomsPainfulOrHardBowelMovementsDropdown;
+
+    /**
+     * ---------------------END OF Constipation Record---------------------
+     */
+
+    /**
+     * ---------------------START OF Decreased appetite Record---------------------
+     */
+
+    /**
+     * What supplemental nutrition have been taken? text
+     */
+    @FindBy(xpath = "//p[@id='x_naci_family_coho_gi_symptom_history.supplemental_nutrition_nonedit']")
+    public WebElement giSymptomsWhatSupplementalNutritionHaveBeenTakenText;
+
+    /**
+     * Has decreased appetite caused weight loss or poor growth? dropdown
+     */
+    @FindBy(xpath = "//p[@id='x_naci_family_coho_gi_symptom_history.supplemental_nutrition_nonedit']")
+    public WebElement giSymptomsHasDecreasedAppetiteCausedWeightLossOrPoorGrowthDropdown;
+
+    /**
+     * Have nutritional supplements/feeds ever been taken or received? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_gi_symptom_history.nutritional_supplements']")
+    public WebElement giSymptomsHaveNutritionalSupplementsFeedsEverBeenTakenOrReceivedDropdown;
+
+    /**
+     * ---------------------END OF Decreased appetite Record---------------------
+     */
+
+    /**
+     * ---------------------START OF Vomiting Record---------------------
+     */
+
+    /**
+     * Ever had at least 2 months with 1 or more episodes of vomiting per week? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_gi_symptom_history.vomiting_frequency']")
+    public WebElement giSymptomsEverHadAtLeast2MonthsWith1OrMoreEpisodesOfVomitingPerWeekDropdown;
+
+    /**
+     * Is vomiting ever self-induced? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_gi_symptom_history.vomiting_self_induced']")
+    public WebElement giSymptomsIsVomitingEverSelfInducedDropdown;
+
+    /**
+     * Is vomiting related to medication, surgery or other health issue? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_gi_symptom_history.vomiting_relation']")
+    public WebElement giSymptomsIsVomitingRelatedToMedicationSurgeryOrOtherHealthIssueDropdown;
+
+    /**
+     * Have any medications ever been taken for vomiting dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_gi_symptom_history.vomit_medications']")
+    public WebElement giSymptomsHaveAnyMedicationsEverBeenTakenForVomitingDropdown;
+
+    /**
+     * Do episodes of vomiting seem similar to each other when they occur? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_gi_symptom_history.vomiting_similarities']")
+    public WebElement giSymptomsDoEpisodesOfVomitingSeemSimilarToEachOtherWhenTheyOccurDropdown;
+
+    /**
+     * Are there weeks to months without symptoms of nausea/vomiting between episodes? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_gi_symptom_history.time_without_symptoms']")
+    public WebElement giSymptomsAreThereWeeksToMonthsWithoutSymptomsOfNauseaVomitingBetweenEpisodesDropdown;
+
+    /**
+     * Ever vomited blood? dropdown
+     */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_gi_symptom_history.vomited_blood']")
+    public WebElement giSymptomsEverVomitedBloodDropdown;
+
+    /**
+     * Ever had 2 or more episodes of intense vomiting within 6 month period dropdown
+     */
+    @FindBy(css = "select[id='x_naci_family_coho_gi_symptom_history.vomiting_2_intense']")
+    public WebElement giSymptomsEverHad2OrMoreEpisodesOfIntenseVomitingWithin6MonthPeriodDropdown;
+
+    /**
+     * ---------------------END OF GI Symptoms SECTION---------------------
+     */
+
     /**
      * USE THIS METHOD TO DYNAMICALLY LOCATE TABS BY SPECIFYING EXACT TEXT
      *
@@ -2015,138 +2188,6 @@ public class RAS_Survey_Native_View_Page {
      */
     public WebElement dynamicTabLocator(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//span[text()='" + text + "']"));
-    }
-
-    /**
-     * Converts the text content of a WebElement to a list of strings.
-     *
-     * @param webElement the WebElement containing the text to be processed
-     * @return a List of strings extracted from the text content of the WebElement, separated by commas and excluding content within parentheses
-     */
-    public List<String> textToList(WebElement webElement) {
-        List<String> output = new ArrayList<>();
-        StringBuilder currentItem = new StringBuilder();
-        int openParentheses = 0;
-        for (char c : webElement.getText().toCharArray()) {
-            if (c == ',' && openParentheses == 0) {
-                output.add(currentItem.toString().trim());
-                currentItem.setLength(0);
-            } else {
-                if (c == '(') {
-                    openParentheses++;
-                } else if (c == ')') {
-                    openParentheses--;
-                }
-                currentItem.append(c);
-            }
-        }
-        if (currentItem.length() > 0) {
-            output.add(currentItem.toString().trim());
-        }
-        return output;
-    }
-
-    /**
-     * Converts inches to centimeters.
-     *
-     * @param inches a String representation of the length in inches to be converted
-     * @return a String representing the length converted from inches to centimeters
-     */
-    public String inchToCm(String inches) {
-        return String.valueOf((int) Math.floor(Integer.parseInt(inches) * 2.54));
-    }
-
-    /**
-     * Sorts and compares two lists of string values in a case-insensitive manner.
-     *
-     * @param actualListValues   the list of actual string values to be sorted and compared
-     * @param expectedListValues the list of expected string values to be sorted and compared
-     * @return true if the sorted actualListValues is equal to the sorted expectedListValues, false otherwise
-     */
-    public static boolean sortAndCompareLists(List<String> actualListValues, List<String> expectedListValues) {
-        Collections.sort(actualListValues);
-        Collections.sort(expectedListValues);
-        System.out.println("Actual: " + actualListValues);
-        System.out.println("Expected: " + expectedListValues);
-        return actualListValues.equals(expectedListValues);
-    }
-
-    /**
-     * Converts the text content of a WebElement to a list of strings.
-     *
-     * @param webElement the WebElement containing the text to be processed
-     * @return a List of strings extracted from the text content of the WebElement, separated by commas and excluding content within parentheses
-     */
-    public List<String> textToListHyphenated(WebElement webElement) {
-        List<String> output = new ArrayList<>();
-
-        String regex = "(\\b[^,]+? - .*?)(?=, [^,]+? -|, Other \\(please specify\\)|$)";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(webElement.getText());
-        while (matcher.find()) {
-            output.add(matcher.group(1).trim());
-        }
-        return output;
-    }
-
-    /**
-     * Clicks on the tab with the specified tabName.
-     *
-     * @param tabName the name of the tab that needs to be clicked
-     */
-    public static void clickTab(String tabName) {
-        CommonUtils.sleep(500);
-        CommonUtils.waitForVisibility(locateByXpath("//span[contains(text(), '" + tabName + "') and @class='tab_caption_text']"));
-        JavascriptUtils.scrollIntoView(locateByXpath("//span[contains(text(), '" + tabName + "') and @class='tab_caption_text']"));
-        JavascriptUtils.clickByJS(locateByXpath("//span[contains(text(), '" + tabName + "') and @class='tab_caption_text']"));
-    }
-
-    /**
-     * Opens a related list record by providing the record name as a parameter.
-     *
-     * @param recordName the name of the record to be opened in the related list
-     */
-    public static void openRelatedListRecord(String recordName) {
-        CommonUtils.hoverOverElement(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[contains(@aria-label, '" + recordName + "')]"));
-        JavascriptUtils.clickByJS(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[contains(@aria-label, '" + recordName + "')]"));
-        CommonUtils.sleep(800);
-        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
-        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
-        CommonUtils.sleep(800);
-    }
-
-    /**
-     *
-     * @param expectedTestType
-     */
-    public static void assertTestType(String expectedTestType) {
-        softAssert.assertEquals(expectedTestType, locateByXpath("//span[normalize-space()='Test type']/parent::label/parent::div/following-sibling::div/input[2]").getDomAttribute("value"), "* * * * * RAS SURVEY MISMATCH IN \"Test type\" INPUT FIELD * * * * *");
-    }
-
-    /**
-     *
-     * @param expectedTestResult
-     */
-    public static void assertTestResult(String expectedTestResult) {
-        softAssertDropDownValueIsSelected(locateByXpath("//span[normalize-space()='Test result']/parent::label/parent::div/following-sibling::div//select"), expectedTestResult, "* * * * * RAS SURVEY MISMATCH IN \"Test result\" DROP DOWN * * * * *");
-    }
-
-    /**
-     *
-     * @param expectedText
-     */
-    public static void assertPleaseSpecifyField(String expectedText) {
-        verifyInputField(locateByXpath("//span[normalize-space()='Please Specify']/parent::label/parent::div/following-sibling::div/div/input"), expectedText, "* * * * * RAS SURVEY MISMATCH IN \"Please Specify\" DROP DOWN * * * * *");
-    }
-
-
-    public static void verifyPrenatalTestHistory(String expectedTestType, String expectedTestResult) {
-        openRelatedListRecord(expectedTestType);
-        assertTestType(expectedTestType);
-        assertTestResult(expectedTestResult);
-        CucumberLogUtils.logScreenshot();
-        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
-        CommonUtils.sleep(800);
     }
 
     public RAS_Survey_Native_View_Page() {
