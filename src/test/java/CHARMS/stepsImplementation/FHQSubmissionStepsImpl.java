@@ -1352,11 +1352,11 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	public static void addPartnerRowInMRVSPage() {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.ADD_ROW),fHQ_TestDataManager.addRow, " Add Row For Partner in MRVS ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.FIRST_NAME),fHQ_TestDataManager.firstName, " First name of Partner Label in MRVS ");
-		CharmsUtil.sendKeysToElement(fHQSubmissionPage.dynamicLocatorForTextBox("first_name_partner"), fHQ_TestDataManager.partnerfirstName);
+		CharmsUtil.sendKeysToElement(fHQSubmissionPage.dynamicLocatorForTextBox("first_name_partner"), fHQ_TestDataManager.partnerFirstName);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.PARTICIPANT_FIRST_INITIAL_OF_LAST_NAME),fHQ_TestDataManager.firstInitialOfLASTName, " First Initial of LAST Name of Partner Label in MRVS "); 
-		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown,FHQConstants.firstInitialLastName(),fHQ_TestDataManager.partnerfirstInitialOfLASTName);
+		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown,FHQConstants.firstInitialLastName(),fHQ_TestDataManager.partnerFirstInitialOfLASTName);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.PARTICIPANT_VITAL_STATUS),fHQ_TestDataManager.vitalStatus, " Vital Status of Partner Label in MRVS ");
-		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown,FHQConstants.VITAL_STATUS_LIST,fHQ_TestDataManager.partnervitalStatus);
+		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown,FHQConstants.VITAL_STATUS_LIST,fHQ_TestDataManager.partnerVitalStatus);
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.CANCEL),fHQ_TestDataManager.cancel, " Cancel Button for Partner MRVS ");
 		CharmsUtil.assertButtonLabel(softAssert, FHQSubmissionPage.addRowSaveButton,fHQ_TestDataManager.add," Add Button for Partner MRVS ");
 		CharmsUtil.clickOnElement(FHQSubmissionPage.addRowSaveButton);
@@ -1366,9 +1366,9 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	public static void assertPartnerRowAddedInMRVSTableForParticipant(int i) {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Edit Row 1",2),"", " Edit Row for Partner ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingAnchorTag("Remove Row 1",2),"", " Remove Row for Partner ");
-		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForMRVSTableValue(i+ 2),fHQ_TestDataManager.partnerfirstName, " First name of Partner Data ");
-		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForMRVSTableValue(i+3),fHQ_TestDataManager.partnerfirstInitialOfLASTName, " First Initial of LAST Name of Partner Data");
-		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForMRVSTableValue(i+4),fHQ_TestDataManager.partnervitalStatus, " Vital Status of Partner Data ");
+		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForMRVSTableValue(i+ 2),fHQ_TestDataManager.partnerFirstName, " First name of Partner Data ");
+		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForMRVSTableValue(i+3),fHQ_TestDataManager.partnerFirstInitialOfLASTName, " First Initial of LAST Name of Partner Data");
+		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForMRVSTableValue(i+4),fHQ_TestDataManager.partnerVitalStatus, " Vital Status of Partner Data ");
 	}
 
 	/** Participant's Siblings Question Asked */
@@ -3505,15 +3505,16 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertButtonLabelWithSpace(softAssert, fHQSubmissionPage.dynamicLocatorElementInTable(4,5), fHQ_TestDataManager.relationToPatientValue4, string + "Relation to Patient Value4 ");				
 	}
 
+	/** Form Submission after the Relatives form are complete and submitted */
 	public static void fhqFormSubmission() {
-		// Click on the Submit button
+		/* Click on the Submit button */
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingContainsNormalizeSpace("Submit FHQ Questionnaire",11));
 		CommonUtils.sleep(2000);
-		// Verify message or redirection
+		/* Verify message or redirection */
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText("Is there anything else you would like the study team to know about your family"), "Is there anything else you would like the study team to know about your family?  You may also use this space to tell us about non-biological relatives who are important to your family tree and extended relatives who have cancers or health conditions you would like us to know about.", "Verify submission success message");
 		CharmsUtil.assertButtonLabel(softAssert,fHQSubmissionPage.dynamicLocatorUsingContainsNormalizeSpace("Cancel",1),"Cancel", "Verify Cancel button");
 		CharmsUtil.assertButtonLabel(softAssert,fHQSubmissionPage.dynamicLocatorUsingContainsNormalizeSpace("Confirm and submit",1),"Confirm and submit", "Verify Confirm and submit button");
-		// Text Area to write the message
+		/* Text Area to write the message */
 		CharmsUtil.clickOnElement(fHQSubmissionPage.fhqSubmittedPageTextArea);
 		CharmsUtil.sendKeysToElement(fHQSubmissionPage.fhqSubmittedPageTextArea, "Everything is Mentioned");
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingContainsNormalizeSpace("Confirm and submit",1));

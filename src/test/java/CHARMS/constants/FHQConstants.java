@@ -331,6 +331,7 @@ public class FHQConstants {
 			add("Prefer not to answer");
 		}
 	};
+
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> RELATIONSHIP_TO_PARTICIPANT = new ArrayList<String>() {
 		{
@@ -339,6 +340,7 @@ public class FHQConstants {
 			add("I am a legal guardian or representative for the participant");
 		}
 	};
+
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER = new ArrayList<String>() {
 		{
@@ -349,6 +351,7 @@ public class FHQConstants {
 			add("Prefer not to answer");
 		}
 	};
+
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> TYPES_OF_SIBLING = new ArrayList<String>() {
 		{
@@ -363,7 +366,6 @@ public class FHQConstants {
 			add("Prefer not to answer");
 		}
 	};
-//	public static final String IS_THE_OTHER_BIOLOGICAL_PARENT_OF_THIS_RELATIVE_ONE_OF_THE_PARTNERS_YOU_HAVE_ENTERED_SELECTED = ;
 
 	public static final List<String> firstInitialLastName() {
 		ArrayList<String> numberList = new ArrayList<String>();
@@ -375,6 +377,7 @@ public class FHQConstants {
 		numberList.add("Prefer not to answer");
 		return numberList;
 	}
+
 	public static final List<String> numberUpToN(int n) {
 		ArrayList<String> numberList = new ArrayList<String>();
 		numberList.add("-- None --");
@@ -385,6 +388,7 @@ public class FHQConstants {
 		}
 		return numberList;
 	}
+
 	public static final List<String> numberUpToNStartingWithOne(int n) {
 		ArrayList<String> numberList = new ArrayList<String>();
 		numberList.add("-- None --");
@@ -395,17 +399,7 @@ public class FHQConstants {
 		}
 		return numberList;
 	}
-	public static final List<String> currentAge(int n) {
-		ArrayList<String> numberList = new ArrayList<String>();
-		numberList.add("-- None --");
-		for (int i = 19; i <= 120; i++) {
-			numberList.add(i + "");
-		}
-		numberList.add("Under 18");
-		numberList.add("Prefer not to answer");
-		numberList.add("Don't Know");
-		return numberList;
-	}
+
 	public static final List<String> yearOfBirthOrDeathAfter1900() {
 		ArrayList<String> numberList = new ArrayList<String>();
 		numberList.add("-- None --");
@@ -416,6 +410,7 @@ public class FHQConstants {
 		}
 		return numberList;
 	}
+
 	public static final List<String> yearOfDiagnosis() {
 		ArrayList<String> numberList = new ArrayList<String>();
 		numberList.add("-- None --");
@@ -426,6 +421,7 @@ public class FHQConstants {
 		}
 		return numberList;
 	}
+
 	public static final List<String> ageOfDiagnosis() {
 		ArrayList<String> numberList = new ArrayList<String>();
 		numberList.add("-- None --");
@@ -435,6 +431,7 @@ public class FHQConstants {
 		numberList.add("Less than 1 Year");
 		return numberList;
 	}
+
 	public static final List<String> ageOfDeath() {
 		ArrayList<String> numberList = new ArrayList<String>();
 		numberList.add("-- None --");
@@ -446,6 +443,7 @@ public class FHQConstants {
 		numberList.add("Don't Know");
 		return numberList;
 	}
+
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> SEX_ASSIGNED_AT_BIRTH = new ArrayList<String>() {
 		{
@@ -456,6 +454,7 @@ public class FHQConstants {
 			add("Prefer not to answer");
 		}
 	};
+
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> GENDER_IDENTITY = new ArrayList<String>() {
 		{
@@ -471,6 +470,7 @@ public class FHQConstants {
 			add("Prefer not to answer");
 		}
 	};
+
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> TYPE_OF_BIRTH = new ArrayList<String>() {
 		{
@@ -486,6 +486,7 @@ public class FHQConstants {
 			add("Prefer not to answer");
 		}
 	};
+
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> YEAR_OR_AGE_OF_DEATH = new ArrayList<String>() {
 		{
@@ -496,6 +497,7 @@ public class FHQConstants {
 			add("Prefer not to answer");
 		}
 	};
+
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> YEAR_OR_AGE_OF_DIAGNOSIS = new ArrayList<String>() {
 		{
@@ -506,6 +508,7 @@ public class FHQConstants {
 			add("Prefer not to answer");
 		}
 	};
+
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> CHILD_DISCRIPTION = new ArrayList<String>() {
 		{
@@ -520,6 +523,7 @@ public class FHQConstants {
 			add("Prefer not to answer");
 		}
 	};
+
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> OTHER_BIOLOGICAL_PARENT = new ArrayList<String>() {
 		{
@@ -532,6 +536,7 @@ public class FHQConstants {
 			add("Prefer not to answer");
 		}
 	};
+
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> RESOPATHY_TYPE = new ArrayList<String>() {
 		{
@@ -545,6 +550,7 @@ public class FHQConstants {
 			add("Other RASopathy");
 		}
 	};
+
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> CANCER_TYPE = new ArrayList<String>() {
 		{
@@ -591,7 +597,8 @@ public class FHQConstants {
 			add("Vulvar, Vaginal cancer");
 			add("Other cancer");
 		}
-	};	
+	};
+
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> BENIGN_TUMOR_TYPE = new ArrayList<String>() {
 		{
@@ -607,7 +614,8 @@ public class FHQConstants {
 			add("Spitz nevus");
 			add("Thyroid nodules (benign)");
 		}
-	};	
+	};
+
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> MEDICAL_CONDITIONS_TYPE = new ArrayList<String>() {
 		{

@@ -6,8 +6,6 @@ import CHARMS.constants.CHARMS_Data_File_Path_Constants;
 import CHARMS.constants.FHQConstants;
 import APPS_COMMON.PageInitializers.PageInitializer;
 
-import static CHARMS.constants.FHQConstants.PARTNER_FIRST_NAME;
-
 public class FHQ_TestDataManager extends PageInitializer {
 	/* Participant */
 	public Map<String, String> testDataForFHQ;
@@ -69,8 +67,8 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String  addRow;
 	public String  cancel;
 	public String  partner;
-	public String  partnerfirstName;
-	public String  partnerfirstInitialOfLASTName;
+//	public String  partnerfirstName;
+//	public String  partnerfirstInitialOfLASTName;
 	public String  partnervitalStatus;
 	public String  howManyTotalDifferentPartnersHasTheParticipantHadBiologicalChildrenWith;
 	public String  pleaseDoNotCountThemHere;
@@ -395,9 +393,9 @@ public class FHQ_TestDataManager extends PageInitializer {
 			howManyTotalDifferentPartnersHasTheParticipantHadBiologicalChildrenWith = testDataForFHQ.get(FHQConstants.HOW_MANY_TOTAL_DIFFERENT_PARTNERS_HAS_THE_PARTICIPANT_HAD_BIOLOGICAL_CHILDREN_WITH);
 			pleaseDoNotCountThemHere = testDataForFHQ.get(FHQConstants.PLEASE_DO_NOT_COUNT_THEM_HERE);
 			partner = testDataForFHQ.get(FHQConstants.PARTNER);
-			partnerfirstName= testDataForFHQ.get(PARTNER_FIRST_NAME);
-			partnerfirstInitialOfLASTName= testDataForFHQ.get(FHQConstants.PARTNER_FIRST_INITIAL_OF_LAST_NAME);
-			partnervitalStatus= testDataForFHQ.get(FHQConstants.PARTNER_VITAL_STATUS);		
+			partnerFirstName= testDataForFHQ.get(FHQConstants.PARTNER_FIRST_NAME);
+			partnerFirstInitialOfLASTName= testDataForFHQ.get(FHQConstants.PARTNER_FIRST_INITIAL_OF_LAST_NAME);
+			partnerVitalStatus= testDataForFHQ.get(FHQConstants.PARTNER_VITAL_STATUS);
 			weWouldLikeToAskYouSomeQuestionsAboutSiblingsDetails = testDataForFHQ.get(FHQConstants.WE_WOULD_LIKE_TO_ASK_YOU_SOME_QUESTIONS_ABOUT_SIBLINGS_DETAILS);
 			howManySiblingsDoesTheParticipantHave = testDataForFHQ.get(FHQConstants.HOW_MANY_SIBLINGS_DOES_THE_PARTICIPANT_HAVE);
 			pleaseIncludeAllFullAndHalfSiblings = testDataForFHQ.get(FHQConstants.PLEASE_INCLUDE_ALL_FULL_AND_HALF_SIBLINGS);
@@ -439,7 +437,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			vitalStatus = testDataForFHQ.get(FHQConstants.VITAL_STATUS);
 			yearOfBirth = testDataForFHQ.get(FHQConstants.YEAR_OF_BIRTH);
 			relationToPatient = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT);
-			partnerFirstName = testDataForFHQ.get(PARTNER_FIRST_NAME);
+			partnerFirstName = testDataForFHQ.get(FHQConstants.PARTNER_FIRST_NAME);
 			partnerFirstInitialOfLASTName = testDataForFHQ.get(FHQConstants.PARTNER_FIRST_INITIAL_OF_LAST_NAME);
 			partnerVitalStatus = testDataForFHQ.get(FHQConstants.PARTNER_VITAL_STATUS);
 			partnerYearOfBirth = testDataForFHQ.get(FHQConstants.PARTNER_YEAR_OF_BIRTH);
