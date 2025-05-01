@@ -291,7 +291,7 @@ public class FHQConstants {
 	public static final String VITAL_STATUS_VALUE_4 = "Vital Status Value 4";
 	public static final String YEAR_OF_BIRTH_VALUE_4 = "Year of Birth Value 4";
 	public static final String RELATION_TO_PATIENT_VALUE_1 = "Relation to Patient Value 1";
-	public static final String RELATION_TO_PATIENT_VALUE_2 = "Relation to patient Value 2";
+	public static final String RELATION_TO_PATIENT_VALUE_2 = "Relation to Patient Value 2";
 	public static final String RELATION_TO_PATIENT_VALUE_3 = "Relation to Patient Value 3";
 	public static final String RELATION_TO_PATIENT_VALUE_4 = "Relation to Patient Value 4";	
 	public static final String PARENT_OF_THIS_RELATIVE_VALUE_1= "Parent of this relative 1";
@@ -304,6 +304,8 @@ public class FHQConstants {
 	public static final String YEAR_OF_BIRTH_VALUE_ADDED = "Year of Birth Value Added";
 	public static final String VITAL_STATUS_VALUE_ADDED = "Vital Status Value Added";
 	public static final String SEX_ASSIGNED_AT_BIRTH_VALUE_ADDED = "Sex assigned at birth Value Added";
+	public static final String SEX_ASSIGNED_AT_BIRTH_VALUE_ADDED1 = "Sex assigned at birth Value Added1";
+	public static final String SEX_ASSIGNED_AT_BIRTH_VALUE_ADDED2 = "Sex assigned at birth Value Added2";
 	public static final String GENDER_IDENTITY_VALUE_ADDED = "Gender Identity Value Added";
 	public static final String TWIN__OR_PART_OF_A_MULTIPLE_BIRTH_VALUE_ADDED = "Twin or part of a multiple birth Value Added";
 	public static final String TYPE_OF_BIRTH_VALUE_ADDED = "Type of birth Value Added";
@@ -361,6 +363,8 @@ public class FHQConstants {
 			add("Prefer not to answer");
 		}
 	};
+//	public static final String IS_THE_OTHER_BIOLOGICAL_PARENT_OF_THIS_RELATIVE_ONE_OF_THE_PARTNERS_YOU_HAVE_ENTERED_SELECTED = ;
+
 	public static final List<String> firstInitialLastName() {
 		ArrayList<String> numberList = new ArrayList<String>();
 		numberList.add("-- None --");

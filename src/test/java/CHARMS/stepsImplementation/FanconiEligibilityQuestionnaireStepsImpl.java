@@ -1038,9 +1038,9 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Vital Status"), "Vital Status", " Vital Status Label of the General Information on Participant Details page ");
         CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("person_alive"), currentRow.get("VitalStatus"), " Vital Status Value of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Date of Birth"), "Date of Birth", " Date of Birth Label of the General Information on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("date_of_birth_month_day_year"), currentRow.get("DOB"), " Date of Birth value of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("date_of_birth"), currentRow.get("DOB"), " Date of Birth value of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Date of Death"), "Date of Death", " Date of Death Label of the General Information on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("date_of_death"), "", " Date of Death value of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("death_date"), "", " Date of Death value of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("If Date of Birth is unknown, is this person 18 years old or older"), "If Date of Birth is unknown, is this person 18 years old or older", " If Date of Birth is unknown, is this person 18 years old or older Label of the General Information on Participant Details page ");
         CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("if_date_of_birth_is_unkown_is_this_person_18_years_old_or_older"), "-- None --", " If Date of Birth is unkown of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Age"), "Age", " Age Label of the General Information on Participant Details page ");
@@ -1174,8 +1174,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         }
         else {
             if (subjectIDValue.isEmpty()) {
-                CharmsUtil.labelHighlight(fanconiScreenerNVPage.nVPreviewButtonLocator1);
-                JavascriptUtils.clickByJS(fanconiScreenerNVPage.nVPreviewButtonLocator1);
+                CharmsUtil.labelHighlight(fanconiScreenerNVPage.nVPreviewButtonLocator);
+                JavascriptUtils.clickByJS(fanconiScreenerNVPage.nVPreviewButtonLocator);
             } else {
                 CharmsUtil.clickOnElement(fanconiScreenerNVPage.dynamicLocatorForPreviewButtonLocator(subjectIDValue));
             }
@@ -1199,7 +1199,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * Method to assert data in the Fanconi Study page of nativeView
      */
     public void fanconiScreenerPageGeneralInformationAssertions(int rowNumForAssertion) {
-        String referralValue = fanconiScreenerNVPage.dynamicLocatorForInputElements("screener_ref").getDomAttribute("value");
+        String referralValue = fanconiScreenerNVPage.dynamicLocatorForInputElementsInFAScreener("number").getDomAttribute("value");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Number"), "Number", " Number label on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsInFAScreener("number"), referralValue, " Referral Number on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Does the participant need legal representation?"), "Does the participant need legal representation?", " Does the participant need legal representation? label on Fanconi Study Screener page ");
