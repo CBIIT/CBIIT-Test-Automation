@@ -4,7 +4,7 @@ Background: common steps
 Given User is logged in the application
 
 @SubmitRequestForm @NESARH2 @playwright @In-Progress
-Scenario: Submit a request form
+Scenario: Submit a new request form
   When User clicks on Create Request button
   And User enters the "Request Title"
   And User enters "RequestorName" in Requestor field

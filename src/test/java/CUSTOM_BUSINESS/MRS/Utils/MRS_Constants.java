@@ -7,4 +7,5 @@ public class MRS_Constants {
     public static final String DELEGATE_USER = "ELLISON, GARY";
     public static final String APPROVER_TITLE = "OD TEAM MEMBER";
     public static final String HIERARCHY_APPROVAL_SUCCESS_MESSAGE = "Approval Hierarchy definition saved successfully.";
+    public static final String DELEGATE_USER_SUCCESS_MESSAGE = "Delegate user added successfully.";
 }

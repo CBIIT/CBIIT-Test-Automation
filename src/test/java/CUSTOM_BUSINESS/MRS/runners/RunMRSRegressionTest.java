@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
         , features = "src/test/java/CUSTOM_BUSINESS/MRS/features"
         , glue = {"CUSTOM_BUSINESS.MRS.Steps", "Hooks"}
         , tags = "@Regression"
-        , dryRun = false
+        , dryRun = true
 )
 public class RunMRSRegressionTest extends AbstractTestNGCucumberTests{
 }

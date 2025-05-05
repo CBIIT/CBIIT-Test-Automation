@@ -10,7 +10,7 @@ import static com.nci.automation.web.TestProperties.*;
 public class MRS_Steps_Implementation {
 
     /**
-     * User is logging into MRS
+     * User is logging into MRS.
      */
     @Given("User is logged in the application")
     public static void user_is_logged_in_mrs() {

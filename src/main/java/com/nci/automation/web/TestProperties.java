@@ -349,7 +349,7 @@ public class TestProperties {
     public static String ACT24_PARTICIPANT_URL;
 
     /**
-     * MRS URLS
+     * MRS URLS:
      */
     public static String MRS_TEST_URL = "https://mrs-test.nci.nih.gov/mrs/dashboard.action";
     public static String MRS_STAGE_URL = "https://mrs-stage.nci.nih.gov/mrs/dashboard.action";
