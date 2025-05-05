@@ -53,5 +53,6 @@ public class MRS_CommonUtils {
         page.locator("xpath=//input[@id='searchApprover']").fill(MRS_Constants.DELEGATE_USER);
         page.getByText(MRS_Constants.DELEGATE_USER).nth(1).click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 }

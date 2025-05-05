@@ -154,7 +154,7 @@ public class ManageDelegationAndApprovalHierarchy {
     @And("User clicks on Save button and verifies the success message")
     public void user_clicks_on_save_button_and_verifies_the_success_message() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
-        assertThat(page.locator("#messageId")).containsText(MRS_Constants.HIERARCHY_APPROVAL_SUCCESS_MESSSAGE);
+        assertThat(page.locator("#messageId")).containsText(MRS_Constants.HIERARCHY_APPROVAL_SUCCESS_MESSAGE);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }
