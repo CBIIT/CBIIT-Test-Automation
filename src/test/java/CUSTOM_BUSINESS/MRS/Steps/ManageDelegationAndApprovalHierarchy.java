@@ -139,7 +139,7 @@ public class ManageDelegationAndApprovalHierarchy {
     }
 
     /**
-     * This method is used to enter the Title
+     * This method is used to enter the Title.
      */
     @And("User enters the Title")
     public void user_enters_the_title() {
