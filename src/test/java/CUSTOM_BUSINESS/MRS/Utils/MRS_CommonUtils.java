@@ -1,6 +1,11 @@
 package CUSTOM_BUSINESS.MRS.Utils;
 
 import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
+import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.CommonUtils;
+
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class MRS_CommonUtils {
@@ -30,5 +35,24 @@ public class MRS_CommonUtils {
                 e.printStackTrace();
             }
         }
+    }
+
+    /**
+     * This method handles adding Delegate Users.
+     */
+    public static void addDelegateUser() {
+        page.locator("xpath=//input[@id='delegateSelect']").click();
+        page.locator("xpath=//input[@id='delegateSelect']").fill(MRS_Constants.DELEGATE_USER);
+        page.getByText(MRS_Constants.DELEGATE_USER).nth(1).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+    /**
+     * This method handles adding Organization Approvers.
+     */
+    public static void addOrganizationApprover() {
+        page.locator("xpath=//input[@id='searchApprover']").click();
+        page.locator("xpath=//input[@id='searchApprover']").fill(MRS_Constants.DELEGATE_USER);
+        page.getByText(MRS_Constants.DELEGATE_USER).nth(1).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
     }
 }
