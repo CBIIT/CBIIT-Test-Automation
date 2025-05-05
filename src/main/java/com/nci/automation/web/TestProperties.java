@@ -102,6 +102,13 @@ public class TestProperties {
     public static String NCCR_URL;
 
     /**
+     * AAA
+     */
+    public static final String AAA_TEST_PORTAL_URL = "https://service-test.nci.nih.gov/ncisp";
+    public static final String AAA_STAGE_PORTAL_URL = "https://service-stage.nci.nih.gov/ncisp";
+    public static String AAA_URL;
+
+    /**
      * AWARD NOMINATION
      */
     public static final String AWARD_NOMINATION_TEST_URL = "https://service-test.nci.nih.gov/ncisp";
@@ -924,7 +931,18 @@ public class TestProperties {
         return ACT24_PARTICIPANT_URL;
     }
 
-    public static String getMRSUrl() {
+    public static String getAAAUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                AAA_URL = AAA_STAGE_PORTAL_URL;
+                break;
+            case "test":
+                AAA_URL = AAA_TEST_PORTAL_URL;
+                break;
+        }
+        return AAA_URL;
+    }
+        public static String getMRSUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
                 MRS_URL = MRS_STAGE_URL;

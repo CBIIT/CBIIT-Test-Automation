@@ -2,7 +2,7 @@ Feature: NCCR flow
 
   Description: This feature file contains scenarios relating to NCCR Portal
 
-  @selenium @Alena @Regression @NCCR-15 @NCCR-342 @NCCR-346 @NCCR-309 @NCCR-386 @NCCR-387 @NCCR-392
+  @selenium @Alena @Regression @NCCR-15 @NCCR-342 @NCCR-346 @NCCR-309 @NCCR-386 @NCCR-387 @NCCR-392 @NCCR-47 @NCCR-51 @NCCR-52
   Scenario: NCCR Home Page Options
     Given  Submitter User logged in to NCCR Portal
     And User can verify that User is on the NCCR Portal landing page

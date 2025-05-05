@@ -165,7 +165,7 @@ public class FanconiScreenerNVPage extends PageInitializer {
     public WebElement nVFScreenerStudy;
 
     /* NV Fanconi Screener: Vital Status */
-    @FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.family_member_record.person_alive'])[1]")
+    @FindBy(xpath = "(//select[@id='x_naci_family_coho_fanconi_study_screener.person_alive'])[1]")
     public WebElement nVFScreenerVitalStatus;
 
     /* NV Fanconi Screener: Date of death */
