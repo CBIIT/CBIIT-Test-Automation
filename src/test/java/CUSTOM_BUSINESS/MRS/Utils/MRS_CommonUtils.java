@@ -36,7 +36,7 @@ public class MRS_CommonUtils {
     }
 
     /**
-     * This method handles adding Delegate Users.
+     * This method handles adding Delegate Users
      */
     public static void addDelegateUser() {
         page.locator("xpath=//input[@id='delegateSelect']").click();
@@ -46,7 +46,7 @@ public class MRS_CommonUtils {
     }
 
     /**
-     * This method handles adding Organization Approvers.
+     * This method handles adding Organization Approvers
      */
     public static void addOrganizationApprover() {
         page.locator("xpath=//input[@id='searchApprover']").click();

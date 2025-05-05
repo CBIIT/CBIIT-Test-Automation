@@ -56,7 +56,7 @@ public class ManageDelegationAndApprovalHierarchy {
     }
 
     /**
-     * This method is used to select a Delegate for the person.
+     * This method is used to select a Delegate for the person
      */
     @And("User selects a Delegate for the person")
     public void user_selects_a_delegate_for_the_person() {

@@ -10,9 +10,9 @@ import static com.nci.automation.web.TestProperties.*;
 public class MRS_Steps_Implementation {
 
     /**
-     * User is logging into MRS.
+     * User is logging into MRS application
      */
-    @Given("User is logged in the application")
+    @Given("User is logged in MRS application")
     public static void user_is_logged_in_mrs() {
         page.navigate(getMRSUrl());
         page.locator(I_Trust_Page.usernameTextBox).fill(I_TRUST_USERNAME);

@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
         , features = "src/test/java/CUSTOM_BUSINESS/MRS/features"
         , glue = {"CUSTOM_BUSINESS.MRS.Steps", "Hooks"}
         , tags = "@Smoke"
-        , dryRun = true
+        , dryRun = false
 )
 public class RunMRSSmokeTest extends AbstractTestNGCucumberTests{
 }
