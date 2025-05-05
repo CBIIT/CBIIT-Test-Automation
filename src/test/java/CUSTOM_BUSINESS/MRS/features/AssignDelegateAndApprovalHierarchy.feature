@@ -1,7 +1,7 @@
 Feature: Manage Delegation and Approval Hierarchy
 
-  Background: common steps
-    Given User is logged in the application
+Background: common steps
+Given User is logged in the application
 
 @AssignDelegate @NESARH2 @playwright @Regression
 Scenario: Assign a delegate for a user - Manage Organizational Delegation

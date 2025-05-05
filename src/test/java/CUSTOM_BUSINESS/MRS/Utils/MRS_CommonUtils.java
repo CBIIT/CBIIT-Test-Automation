@@ -4,8 +4,6 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.web.CommonUtils;
-
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class MRS_CommonUtils {
@@ -46,6 +44,7 @@ public class MRS_CommonUtils {
         page.getByText(MRS_Constants.DELEGATE_USER).nth(1).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
+
     /**
      * This method handles adding Organization Approvers.
      */
