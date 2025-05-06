@@ -133,8 +133,8 @@ public class OSFMPARK_NV_Steps {
      *
      * @param delimo_Samuel The name of the user expected to be the Group Co-Manager
      */
-    @Then("{string} s the Group Co-Manager")
-    public void s_the_group_co_manager(String delimo_Samuel) {
+    @Then("{string} is the Group Co-Manager")
+    public void is_the_group_co_manager(String delimo_Samuel) {
         assertThat(page.locator(iframeLocator).contentFrame().getByText("Co-Manager")).isVisible();
         assertThat(page.locator(iframeLocator).contentFrame().locator("[id='label\\.sys_user_group\\.u_co_manager']")).containsText("Co-Manager");
         assertThat(page.locator(iframeLocator).contentFrame().getByLabel("Co-Manager", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(delimo_Samuel);
