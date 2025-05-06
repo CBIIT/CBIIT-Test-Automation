@@ -1,6 +1,6 @@
 Feature:These are the scenarios for the mSigPortal Home application
 
-  @satya @Smoke @Regression @playwright @@NCIATWP-5957
+  @satya @Smoke @Regression @playwright @NCIATWP-5957
   Scenario: Verify User is on the home page of the mSigPortal application
     Given User navigates to the mSigPortal Website
     Then Verify the title of the mSigPortal Website
