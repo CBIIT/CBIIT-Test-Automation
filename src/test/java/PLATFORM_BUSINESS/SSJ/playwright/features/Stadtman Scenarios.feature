@@ -72,16 +72,17 @@ Feature: Stadtman Scenarios
 #    And selects "American Indian or Alaska", "Asian", "Black or African-American", "Native Hawaiian or other", "White" for Race
 #    And selects "None of the conditions listed above apply to me." for Disability or Serious Health Condition
 #    And clicks "Next"
-#    Then user is on the "Review" page
-#    And user verifies basic information "<firstName>", "<middleName>", "<lastName>", "<email>", "<phone>", "<businessPhone>", "<highestEducation>", and "<US Citizenship>"
-#    And user verifies address information "<address>", "<aptNumber>", "<city>", "<state>", "<zip>"
+    Then user is on the "Review" page
+    And user verifies basic information "<firstName>", "<middleName>", "<lastName>", "<email>", "<phone>", "<businessPhone>", "<highestEducation>", and "<US Citizenship>"
+    And user verifies address information "<address>", "<aptNumber>", "<city>", "<state>", "<zip>"
 #    And user verifies demographics information "Yes", "Male", "Hispanic or Latino", "American Indian or Alaska Native, Asian, Black or African-American, Native Hawaiian or other Pacific Islander, White", and "None of the conditions listed above apply to me."
-#    And user verifies references one information "<referenceOneFirstName>", "<referenceOneLastName>", "<referenceOneEmail>", "<referenceOnePhoneNumber>", "<referenceOneRelationship>", "<referenceOnePositionTitle>", "<referenceOneOrganizationName>"
-#    And user verifies references two information "<referenceTwoFirstName>", "<referenceTwoLastName>", "<referenceTwoEmail>", "<referenceTwoPhoneNumber>", "<referenceTwoRelationship>", "<referenceTwoPositionTitle>", "<referenceTwoOrganizationName>"
-#    And if either a Cover Letter, Qualification Statement, Curriculum Vitae (CV), or Vision Statement (or all) were uploaded then documents are displayed in the Application Documents section
-#    And clicks "Submit Application"
-#    And clicks "Ok"
+    And user verifies references one information "<referenceOneFirstName>", "<referenceOneLastName>", "<referenceOneEmail>", "<referenceOnePhoneNumber>", "<referenceOneRelationship>", "<referenceOnePositionTitle>", "<referenceOneOrganizationName>"
+    And user verifies references two information "<referenceTwoFirstName>", "<referenceTwoLastName>", "<referenceTwoEmail>", "<referenceTwoPhoneNumber>", "<referenceTwoRelationship>", "<referenceTwoPositionTitle>", "<referenceTwoOrganizationName>"
+    And if either a Cover Letter, Qualification Statement, Curriculum Vitae (CV), or Vision Statement (or all) were uploaded then documents are displayed in the Application Documents section
+    And clicks "Submit Application"
+    And clicks "Ok"
 #    And clicks "Done"
+    And clicks "Done" for the Stadtman Scope Testing vacancy
 #    And verifies Your Applications tab is displayed
 #    When user navigates to Your Applications tab
 #    And user verifies "Your Applications" page title is displayed

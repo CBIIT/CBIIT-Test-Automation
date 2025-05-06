@@ -2,6 +2,7 @@ package PLATFORM_BUSINESS.SSJ.playwright.steps;
 
 import APPS_COMMON.Pages.Playwright_Common_Locators;
 import APPS_COMMON.PlaywrightUtils.Playwright_Common_Utils;
+import PLATFORM_BUSINESS.SSJ.playwright.stepsImplementation.ApplicantProfileStepsImpl;
 import PLATFORM_BUSINESS.SSJ.playwright.utils.SSJ_Constants;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
@@ -148,5 +149,11 @@ public class All_Steps {
             CucumberLogUtils.scenario.log("* * * REFERENCE THREE OPTION IS NOT REQUIRED - TEST CONTINUES * * *");
         }
         CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @Then("clicks {string} for the Stadtman Scope Testing vacancy")
+    public void clicks_for_the_stadtman_scope_testing_vacancy(String text) {
+        CommonUtils.sleep(2000);
+        ApplicantProfileStepsImpl.clicks(text);
     }
 }
