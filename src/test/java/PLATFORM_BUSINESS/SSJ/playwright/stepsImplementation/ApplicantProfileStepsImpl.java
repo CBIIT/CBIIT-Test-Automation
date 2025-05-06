@@ -12,6 +12,9 @@ import com.microsoft.playwright.options.LoadState;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.*;
 import org.testng.Assert;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -19,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import static com.nci.automation.web.PlaywrightUtils.page;
 import static com.nci.automation.web.TestProperties.getSSJUrl;
 
@@ -40,7 +44,7 @@ public class ApplicantProfileStepsImpl {
             Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate("Maria Chaudhry");
             CommonUtils.sleep(3000);
             PlaywrightUtils.page.navigate(getSSJUrl());
-        } else if(user.equals("OKTA_APPLICANT")) {
+        } else if (user.equals("OKTA_APPLICANT")) {
             Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(PLATFORM_BUSINESS.SSJ.playwright.utils.SSJ_Constants.OKTA_APPLICANT);
             CommonUtils.sleep(3000);
             PlaywrightUtils.page.navigate(getSSJUrl());
@@ -347,7 +351,6 @@ public class ApplicantProfileStepsImpl {
         page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator(text));
         Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
         page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
-        CommonUtils.sleep(2000);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -856,13 +859,14 @@ public class ApplicantProfileStepsImpl {
      */
     public static void uploads_cover_letter() {
         try {
-            ElementHandle fileInput = page.querySelector(ApplicationDocumentsPage.dynamicDocLocator("Cover Letter"));
-            fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_COVER_LETTER));
+            Path visionStatementPath = Paths.get(SSJ_Constants.SSJ_COVER_LETTER).toAbsolutePath();
+            if (Files.exists(visionStatementPath)) {
+                page.locator("//*[text()='Cover Letter']//following-sibling::div/div/div/div/div/div/span/div/span/input")
+                        .setInputFiles(visionStatementPath);
+            }
         } catch (Exception e) {
-            System.out.println("* * * COVER LETTER OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * COVER LETTER OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
+            System.out.println("* * * VISION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
         }
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -875,13 +879,14 @@ public class ApplicantProfileStepsImpl {
      */
     public static void uploads_qualification_statement() {
         try {
-            ElementHandle fileInput = page.querySelector(ApplicationDocumentsPage.dynamicDocLocator("Qualification Statement"));
-            fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_QUALIFICATION_STATEMENT));
+            Path visionStatementPath = Paths.get(SSJ_Constants.SSJ_QUALIFICATION_STATEMENT).toAbsolutePath();
+            if (Files.exists(visionStatementPath)) {
+                page.locator("//*[text()='Qualification Statement']//following-sibling::div/div/div/div/div/div/span/div/span/input")
+                        .setInputFiles(visionStatementPath);
+            }
         } catch (Exception e) {
-            System.out.println("* * * QUALIFICATION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * QUALIFICATION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
+            System.out.println("* * * VISION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
         }
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -896,13 +901,14 @@ public class ApplicantProfileStepsImpl {
      */
     public static void uploads_a_curriculum_vitae_if_curriculum_vitae_option_is_displayed() {
         try {
-            ElementHandle fileInput = page.querySelector(ApplicationDocumentsPage.dynamicDocLocator("Curriculum Vitae (CV)"));
-            fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_CURRICULUM_VITAE_CV));
+            Path visionStatementPath = Paths.get(SSJ_Constants.SSJ_CURRICULUM_VITAE_CV).toAbsolutePath();
+            if (Files.exists(visionStatementPath)) {
+                page.locator("//*[text()='Curriculum Vitae (CV)']//following-sibling::div/div/div/div/div/div/span/div/span/input")
+                        .setInputFiles(visionStatementPath);
+            }
         } catch (Exception e) {
-            System.out.println("* * * CURRICULUM VITAE OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * CURRICULUM VITAE OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
+            System.out.println("* * * VISION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
         }
-        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -912,14 +918,16 @@ public class ApplicantProfileStepsImpl {
      */
     public static void uploads_a_vision_statement_if_vision_statement_option_is_displayed() {
         try {
-            ElementHandle fileInput = page.querySelector(ApplicationDocumentsPage.dynamicDocLocator("Vision Statement"));
-            fileInput.setInputFiles(Paths.get(SSJ_Constants.SSJ_VISION_STATEMENT));
+            Path visionStatementPath = Paths.get(SSJ_Constants.SSJ_VISION_STATEMENT).toAbsolutePath();
+            if (Files.exists(visionStatementPath)) {
+                page.locator("//*[text()='Vision Statement']//following-sibling::div/div/div/div/div/div/span/div/span/input")
+                        .setInputFiles(visionStatementPath);
+            }
         } catch (Exception e) {
             System.out.println("* * * VISION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
-            CucumberLogUtils.scenario.log("* * * VISION STATEMENT OPTION IS NOT DISPLAYED - TEST CONTINUES * * *");
         }
-        CucumberLogUtils.playwrightScreenshot(page);
     }
+
 
     /**
      * Enters the first name in the reference one input field.
@@ -1677,11 +1685,11 @@ public class ApplicantProfileStepsImpl {
      * @param logInButton the locator of the login button element to click
      */
     public static void clicks_and_is_redirected_to_the_login_portal(String logInButton) {
-        page.locator("//span[normalize-space()='"+logInButton+"']").click();
+        page.locator("//span[normalize-space()='" + logInButton + "']").click();
         CommonUtils.sleep(4000);
         List<Page> pages = page.context().pages();
         newPage = pages.get(pages.size() - 1);
-        if (TestProperties.ENV.equals("test")){
+        if (TestProperties.ENV.equals("test")) {
             Hooks.softAssert.assertEquals(newPage.url(), "https://iam-stage.cancer.gov/app/servicenow_ud/exk13dplx1oy5d1pZ0h8/sso/saml?RelayState=https://specializedscientificjobs-test.nih.gov/nih-ssj.do#/");
         } else if (TestProperties.ENV.equals("sandbox")) {
             Hooks.softAssert.assertEquals(newPage.url(), "https://iam-stage.cancer.gov/app/servicenow_ud/exk13dplx1oy5d1pZ0h8/sso/saml?RelayState=https://specializedscientificjobs-sandbox.nih.gov/nih-ssj.do#/");
@@ -1798,12 +1806,12 @@ public class ApplicantProfileStepsImpl {
     /**
      * Verifies that reference one is updated with the expected values.
      *
-     * @param expectedUpdatedReferenceOneFirstName      The expected updated first name of reference one.
-     * @param expectedUpdatedReferenceOneMiddleName     The expected updated middle name of reference one.
-     * @param expectedUpdatedReferenceOneLastName       The expected updated last name of reference one.
-     * @param expectedUpdatedReferenceOneEmail          The expected updated email of reference one.
-     * @param expectedUpdatedReferenceOnePhoneNumber    The expected updated phone number of reference one.
-     * @param expectedUpdatedReferenceOnePositionTitle  The expected updated position title of reference one.
+     * @param expectedUpdatedReferenceOneFirstName        The expected updated first name of reference one.
+     * @param expectedUpdatedReferenceOneMiddleName       The expected updated middle name of reference one.
+     * @param expectedUpdatedReferenceOneLastName         The expected updated last name of reference one.
+     * @param expectedUpdatedReferenceOneEmail            The expected updated email of reference one.
+     * @param expectedUpdatedReferenceOnePhoneNumber      The expected updated phone number of reference one.
+     * @param expectedUpdatedReferenceOnePositionTitle    The expected updated position title of reference one.
      * @param expectedUpdatedReferenceOneOrganizationName The expected updated organization name of reference one.
      */
     public static void verifies_that_reference_one_is_updated(String expectedUpdatedReferenceOneFirstName, String expectedUpdatedReferenceOneMiddleName, String expectedUpdatedReferenceOneLastName, String expectedUpdatedReferenceOneEmail, String expectedUpdatedReferenceOnePhoneNumber, String expectedUpdatedReferenceOnePositionTitle, String expectedUpdatedReferenceOneOrganizationName) {
@@ -1828,12 +1836,12 @@ public class ApplicantProfileStepsImpl {
      * This method verifies that reference two is updated by comparing the expected values with the actual values
      * obtained from the page locators.
      *
-     * @param expectedUpdatedReferenceTwoFirstName       The expected updated first name for reference two.
-     * @param expectedUpdatedReferenceTwoMiddleName      The expected updated middle name for reference two.
-     * @param expectedUpdatedReferenceTwoLastName        The expected updated last name for reference two.
-     * @param expectedUpdatedReferenceTwoEmail           The expected updated email for reference two.
-     * @param expectedUpdatedReferenceTwoPhoneNumber     The expected updated phone number for reference two.
-     * @param expectedUpdatedReferenceTwoPositionTitle   The expected updated position title for reference two.
+     * @param expectedUpdatedReferenceTwoFirstName        The expected updated first name for reference two.
+     * @param expectedUpdatedReferenceTwoMiddleName       The expected updated middle name for reference two.
+     * @param expectedUpdatedReferenceTwoLastName         The expected updated last name for reference two.
+     * @param expectedUpdatedReferenceTwoEmail            The expected updated email for reference two.
+     * @param expectedUpdatedReferenceTwoPhoneNumber      The expected updated phone number for reference two.
+     * @param expectedUpdatedReferenceTwoPositionTitle    The expected updated position title for reference two.
      * @param expectedUpdatedReferenceTwoOrganizationName The expected updated organization name for reference two.
      */
     public static void verifies_tha_reference_two_is_updated(String expectedUpdatedReferenceTwoFirstName, String expectedUpdatedReferenceTwoMiddleName, String expectedUpdatedReferenceTwoLastName, String expectedUpdatedReferenceTwoEmail, String expectedUpdatedReferenceTwoPhoneNumber, String expectedUpdatedReferenceTwoPositionTitle, String expectedUpdatedReferenceTwoOrganizationName) {
@@ -1954,12 +1962,12 @@ public class ApplicantProfileStepsImpl {
      *
      * @param applicationStatus the status of the vacancy application to edit
      */
-    public static void edits_an_application_for_a_vacancy_that_status_is(String applicationStatus){
+    public static void edits_an_application_for_a_vacancy_that_status_is(String applicationStatus) {
         page.waitForSelector(".ant-table-thead");
         int rowCount = page.querySelectorAll("//tr[@class='ant-table-row ant-table-row-level-0']").size();
         System.out.println(rowCount);
         for (int i = 0; i < rowCount; i++) {
-            String rowSelector = "(//tr[@class='ant-table-row ant-table-row-level-0'])[" + (i+1) + "]";
+            String rowSelector = "(//tr[@class='ant-table-row ant-table-row-level-0'])[" + (i + 1) + "]";
             String statusSelector = rowSelector + "/td[2]";
             String editButtonSelector = rowSelector + "//span[contains(text(),'Edit')]";
             String status = page.locator(statusSelector).innerText();
@@ -1996,9 +2004,9 @@ public class ApplicantProfileStepsImpl {
     /**
      * Update the user's demographic information with the provided details.
      *
-     * @param sex The gender of the user
-     * @param ethnicity The ethnicity of the user
-     * @param race The race of the user
+     * @param sex                              The gender of the user
+     * @param ethnicity                        The ethnicity of the user
+     * @param race                             The race of the user
      * @param disabilitySeriousHealthCondition Indicates if the user has a disability or serious health condition
      */
     public static void user_makes_changes_to(String sex, String ethnicity, String race, String disabilitySeriousHealthCondition) {
@@ -2012,9 +2020,9 @@ public class ApplicantProfileStepsImpl {
     /**
      * Method to verify the updated values for sex, ethnicity, race, and disability/serious health condition on the sharing demographics page.
      *
-     * @param sex The expected sex value to verify.
-     * @param ethnicity The expected ethnicity value to verify.
-     * @param race The expected race value to verify.
+     * @param sex                              The expected sex value to verify.
+     * @param ethnicity                        The expected ethnicity value to verify.
+     * @param race                             The expected race value to verify.
      * @param disabilitySeriousHealthCondition The expected disability/serious health condition value to verify.
      */
     public static void user_verifies_the_updated_values(String sex, String ethnicity, String race, String disabilitySeriousHealthCondition) {
@@ -2023,11 +2031,11 @@ public class ApplicantProfileStepsImpl {
         String ethnicityText = Playwright_Common_Locators.getTextFromHeaderOrNormalizedSpan(ethnicity);
         String raceText = Playwright_Common_Locators.getTextFromHeaderOrNormalizedSpan(race);
         String disabilitySeriousHealthConditionText = Playwright_Common_Locators.getTextFromHeaderOrNormalizedSpan(disabilitySeriousHealthCondition);
-        Hooks.softAssert.assertEquals(sharingText,"Yes");
-        Hooks.softAssert.assertEquals(sexText,sex);
-        Hooks.softAssert.assertEquals(ethnicityText,ethnicity);
-        Hooks.softAssert.assertEquals(raceText,race);
-        Hooks.softAssert.assertEquals(disabilitySeriousHealthConditionText,disabilitySeriousHealthCondition);
+        Hooks.softAssert.assertEquals(sharingText, "Yes");
+        Hooks.softAssert.assertEquals(sexText, sex);
+        Hooks.softAssert.assertEquals(ethnicityText, ethnicity);
+        Hooks.softAssert.assertEquals(raceText, race);
+        Hooks.softAssert.assertEquals(disabilitySeriousHealthConditionText, disabilitySeriousHealthCondition);
     }
 
     /**
@@ -2039,7 +2047,7 @@ public class ApplicantProfileStepsImpl {
         page.locator(Demographic_Information_Page.iDoNotWantToShareRadioButton).click();
         page.locator(Playwright_Common_Locators.dynamicSpanNormalizeSpaceLocator("Save Application")).click();
         String alertMessage = page.textContent(".ant-message-notice-content");
-        Hooks.softAssert.assertEquals(alertMessage,"Application successfully saved Back to Applications Home?x");
+        Hooks.softAssert.assertEquals(alertMessage, "Application successfully saved Back to Applications Home?x");
     }
 
     /**
@@ -2052,16 +2060,17 @@ public class ApplicantProfileStepsImpl {
         var buttonElement = page.locator("(//button[@class='ant-btn ant-btn-primary'])[1]");
         Object colorObject = buttonElement.evaluate("element => getComputedStyle(element)['background-color']");
         String color = String.valueOf(colorObject);
-        Hooks.softAssert.assertEquals(color,"rgb(1, 94, 162)");
+        Hooks.softAssert.assertEquals(color, "rgb(1, 94, 162)");
     }
 
     /**
      * Indicates that when the user is on the phone number field, a tool tip will be displayed
-     * to notify the user about the proper formatting for the phone number*/
+     * to notify the user about the proper formatting for the phone number
+     */
     public static void user_is_on_the_phone_number_field_will_see_a_tool_tip_notifying_on_the_proper_formatting() {
         page.locator("(//input[@id='basic_phone'])[1]").click();
         String textPhone = page.locator("(//div[@class='ant-tooltip-content'])[1]").innerText();
-        Hooks.softAssert.assertEquals(textPhone,"Example format: 1112223333");
+        Hooks.softAssert.assertEquals(textPhone, "Example format: 1112223333");
     }
 
     /**
@@ -2072,6 +2081,6 @@ public class ApplicantProfileStepsImpl {
     public static void user_is_on_the_business_phone_number_field_will_see_a_tool_tip_notifying_on_the_proper_formatting() {
         page.locator("(//input[@id='basic_businessPhone'])[1]").click();
         String textBusinessPhone = page.locator("(//div[@role='tooltip'][normalize-space()='Example format: 1112223333'])[1]").innerText();
-        Hooks.softAssert.assertEquals(textBusinessPhone,"Example format: 1112223333");
+        Hooks.softAssert.assertEquals(textBusinessPhone, "Example format: 1112223333");
     }
 }
