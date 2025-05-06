@@ -11,6 +11,7 @@ public class mSigPortalExploration_Steps {
     public void user_clicks_on_the_submit_button_in_the_exploration_tab() {
         PlaywrightUtils.page.locator("//button[normalize-space()='Submit']").click();
     }
+
     @Then("User click on the reset button in the exploration tab")
     public void user_click_on_the_reset_button_in_the_exploration_tab() {
         mSigPortalExplorationStepsImpl.clickResetButton();
