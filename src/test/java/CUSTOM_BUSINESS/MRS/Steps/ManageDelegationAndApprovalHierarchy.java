@@ -1,17 +1,27 @@
 package CUSTOM_BUSINESS.MRS.Steps;
 
+import CUSTOM_BUSINESS.MRS.StepsImplementation.MRS_Steps_Implementation;
 import CUSTOM_BUSINESS.MRS.Utils.MRS_CommonUtils;
 import CUSTOM_BUSINESS.MRS.Utils.MRS_Constants;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class ManageDelegationAndApprovalHierarchy {
+
+    /**
+     * User is logging into MRS application
+     */
+    @Given("User is logged in MRS application")
+    public static void user_is_logged_in_mrs() {
+        MRS_Steps_Implementation.user_is_logged_in_mrs();
+    }
 
     /**
      * This method is used to log in a user with a specific role.
@@ -65,7 +75,7 @@ public class ManageDelegationAndApprovalHierarchy {
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Delete")).click();
             page.locator("#addDelegateForm_delegateTableBean_delegateTypeTemporary").check();
         }
-        MRS_CommonUtils.addDelegateUser();
+        MRS_CommonUtils.addDelegateOrApproverUser("xpath=//input[@id='delegateSelect']", MRS_Constants.DELEGATE_USER);
     }
 
     /**
@@ -96,12 +106,10 @@ public class ManageDelegationAndApprovalHierarchy {
     }
 
     /**
-     * This method is used to log in a user with an Admin role and click on Manage Approval Hierarchy
-     * @param Admin
+     * This method is used to click on Manage Approval Hierarchy
      */
-    @When("User with {string} role clicks on Manage Approval Hierarchy")
-    public void user_with_role_clicks_on_manage_approval_hierarchy(String Admin) {
-        a_user_with_role_is_logged_in(Admin);
+    @And("User clicks on Manage Approval Hierarchy")
+    public void user_with_role_clicks_on_manage_approval_hierarchy() {
         page.getByText("Maintain the Approval").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -135,7 +143,7 @@ public class ManageDelegationAndApprovalHierarchy {
             page.getByRole(AriaRole.ROW, new Page.GetByRoleOptions().setName("1 " + MRS_Constants.DELEGATE_USER + " [E] NCI DCCPS")).getByRole(AriaRole.LINK).nth(1).click();
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
         }
-        MRS_CommonUtils.addOrganizationApprover();
+        MRS_CommonUtils.addDelegateOrApproverUser("xpath=//input[@id='searchApprover']", MRS_Constants.DELEGATE_USER);
     }
 
     /**

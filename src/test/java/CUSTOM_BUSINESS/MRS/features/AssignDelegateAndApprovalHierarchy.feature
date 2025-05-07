@@ -15,7 +15,8 @@ Scenario: Assign a delegate for a user - Manage Organizational Delegation
 
 @SetupApprovalHierarchy @NESARH2 @playwright @Regression
 Scenario: Setup Approval Hierarchy as an Admin - Manage Approval Hierarchy
-  When User with "Admin" role clicks on Manage Approval Hierarchy
+  When a user with "Admin" role is logged in
+  And User clicks on Manage Approval Hierarchy
   And User selects "OFFICE OF THE DIRECTOR (OD)" from the list
   And User selects Default Approval Type
   And User enters the Approver Name

@@ -1,8 +1,6 @@
 package CUSTOM_BUSINESS.MRS.Utils;
 
 import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
@@ -36,23 +34,14 @@ public class MRS_CommonUtils {
     }
 
     /**
-     * This method handles adding Delegate Users
+     * This method handles adding users dynamically based on the provided locators and value
+     * @param inputLocator the locator for the input field
+     * @param value the value to fill in the input field
      */
-    public static void addDelegateUser() {
-        page.locator("xpath=//input[@id='delegateSelect']").click();
-        page.locator("xpath=//input[@id='delegateSelect']").fill(MRS_Constants.DELEGATE_USER);
-        page.getByText(MRS_Constants.DELEGATE_USER).nth(1).click();
-        CucumberLogUtils.playwrightScreenshot(page);
-    }
-
-    /**
-     * This method handles adding Organization Approvers
-     */
-    public static void addOrganizationApprover() {
-        page.locator("xpath=//input[@id='searchApprover']").click();
-        page.locator("xpath=//input[@id='searchApprover']").fill(MRS_Constants.DELEGATE_USER);
-        page.getByText(MRS_Constants.DELEGATE_USER).nth(1).click();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
+    public static void addDelegateOrApproverUser(String inputLocator, String value) {
+        page.locator(inputLocator).click();
+        page.locator(inputLocator).fill(value);
+        page.getByText(value).nth(1).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }
