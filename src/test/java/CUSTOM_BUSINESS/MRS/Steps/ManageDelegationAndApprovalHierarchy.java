@@ -70,12 +70,12 @@ public class ManageDelegationAndApprovalHierarchy {
      */
     @And("User selects a Delegate for the person")
     public void user_selects_a_delegate_for_the_person() {
-        if (page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(MRS_Constants.DELEGATE_USER + " [E]")).isVisible()) {
-            page.locator("//tr[td[contains(text(), '" + MRS_Constants.DELEGATE_USER + "')]]//a[@title='Delete']").click();
+        if (page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(MRS_Constants.APPROVER_OR_DELEGATE_USER + " [E]")).isVisible()) {
+            page.locator("//tr[td[contains(text(), '" + MRS_Constants.APPROVER_OR_DELEGATE_USER + "')]]//a[@title='Delete']").click();
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Delete")).click();
             page.locator("#addDelegateForm_delegateTableBean_delegateTypeTemporary").check();
         }
-        MRS_CommonUtils.addDelegateOrApproverUser("xpath=//input[@id='delegateSelect']", MRS_Constants.DELEGATE_USER);
+        MRS_CommonUtils.addDelegateOrApproverUser("xpath=//input[@id='delegateSelect']", MRS_Constants.APPROVER_OR_DELEGATE_USER);
     }
 
     /**
@@ -139,11 +139,11 @@ public class ManageDelegationAndApprovalHierarchy {
      */
     @And("User enters the Approver Name")
     public void user_enters_the_approver_name() {
-        if (page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(MRS_Constants.DELEGATE_USER + " [E]")).isVisible()) {
-            page.getByRole(AriaRole.ROW, new Page.GetByRoleOptions().setName("1 " + MRS_Constants.DELEGATE_USER + " [E] NCI DCCPS")).getByRole(AriaRole.LINK).nth(1).click();
+        if (page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(MRS_Constants.APPROVER_OR_DELEGATE_USER + " [E]")).isVisible()) {
+            page.getByRole(AriaRole.ROW, new Page.GetByRoleOptions().setName("1 " + MRS_Constants.APPROVER_OR_DELEGATE_USER + " [E] NCI DCCPS")).getByRole(AriaRole.LINK).nth(1).click();
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
         }
-        MRS_CommonUtils.addDelegateOrApproverUser("xpath=//input[@id='searchApprover']", MRS_Constants.DELEGATE_USER);
+        MRS_CommonUtils.addDelegateOrApproverUser("xpath=//input[@id='searchApprover']", MRS_Constants.APPROVER_OR_DELEGATE_USER);
     }
 
     /**
