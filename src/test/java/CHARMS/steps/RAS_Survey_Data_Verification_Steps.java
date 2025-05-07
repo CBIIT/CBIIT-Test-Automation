@@ -10,7 +10,9 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 import static CHARMS.steps.RAS_Common_Methods.softAssertDropDownValueIsSelected;
 import static CHARMS.utils.CharmsUtil.*;
 import static Hooks.Hooks.softAssert;
@@ -603,6 +605,705 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
     }
 
     /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Vision and Hearing" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_vision_and_hearing_section() {
+        String expectedParticipantEarIssues = "Excessive earwax, Chronic or recurrent ear infection, Other";
+        CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Vision & Hearing"));
+        JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Vision & Hearing"));
+        CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Vision & Hearing"));
+        CommonUtils.waitForVisibility(ras_survey_native_view.diagnosedWithPtosisDropdown);
+        softAssertDropDownValueIsSelected(ras_survey_native_view.diagnosedWithPtosisDropdown, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithPtosis, "* * * * * RAS SURVEY MISMATCH IN \"Vision & Hearing\" section 'Diagnosed with ptosis' INPUT FIELD * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.didThePtosisRequireTreatmentDropdown, ras_Survey_TestDataManager.didYouRequireTreatmentForPtosis, "* * * * * RAS SURVEY MISMATCH IN \"Vision & Hearing\" section 'Did the ptosis require treatment?' INPUT FIELD * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.participantExperiencedHearingLossDropdown, ras_Survey_TestDataManager.haveYouExperiencedHearingLoss, "* * * * * RAS SURVEY MISMATCH IN \"Vision & Hearing\" section 'Participant experienced hearing loss' INPUT FIELD * * * * *");
+        softAssert.assertEquals(ras_survey_native_view.participantEarIssuesText.getText(), expectedParticipantEarIssues, "* * * * * RAS SURVEY MISMATCH IN \"Vision & Hearing\" section 'Participant ear issues' TEXT LIST * * * * *");
+        verifyInputField(ras_survey_native_view.pleaseSpecifyParticipantEarIssuesInputField, ras_Survey_TestDataManager.doYouHaveAnyOfTheFollowingIssuesWithYourEarsOption3Other, "* * * * * RAS SURVEY MISMATCH IN \"Vision & Hearing\" section 'Please specify(Participant ear issues)' INPUT FIELD * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.issuesWithVisionOrEyesightDropdown, ras_Survey_TestDataManager.haveYouEverHadAnyIssuesWithYourVision, "* * * * * RAS SURVEY MISMATCH IN \"Vision & Hearing\" section 'Issues with vision or eyesight' INPUT FIELD * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.participantExperiencedStrabismusDropdown, ras_Survey_TestDataManager.haveYouEverExperiencedStabismus, "* * * * * RAS SURVEY MISMATCH IN \"Vision & Hearing\" section 'Participant experienced strabismus' INPUT FIELD * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.participantExperiencedNystagmusDropdown, ras_Survey_TestDataManager.haveYouEverExperiencedNystagmus, "* * * * * RAS SURVEY MISMATCH IN \"Vision & Hearing\" section 'Participant experienced nystagmus' INPUT FIELD * * * * *");
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Prenatal Test History" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_prenatal_test_history_section() {
+        clickTab("Prenatal Test History");
+        verifyPrenatalTestHistory("Fetal blood sampling", "Normal");
+        verifyPrenatalTestHistory("Ultrasound", "Normal");
+        verifyPrenatalTestHistory("Stress test", "Normal");
+        verifyPrenatalTestHistory("Amniocentesis", "Normal");
+        verifyPrenatalTestHistory("X-rays", "Normal");
+        verifyPrenatalTestHistory("Serum AFP (alpha-fetoprotein)", "Normal");
+        verifyPrenatalTestHistory("Chorionic villus sampling", "Normal");
+        openRelatedListRecord("Other (please specify)");
+        assertTestType("Other (please specify)");
+        assertTestResult("Normal");
+        assertPleaseSpecifyField(ras_Survey_TestDataManager.pleaseIndicateTheResultsOfThePrenatalTestsOther);
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+    }
+
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Medication Taken While Pregnant" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_medications_taken_while_pregnant_section() {
+        clickTab("Medication Taken While Pregnant");
+        openRelatedListRecord("Vitamins");
+        verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption2, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Vitamins\" section 'Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option2, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Vitamins\" section 'Name of Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.lengthOfTimeMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenDROPDOWNOption2, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Vitamins\" section 'Length of time medication was taken' * * * * *");
+        verifyInputField(ras_survey_native_view.reasonMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn2Option2, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Vitamins\" section 'Reason medication was taken' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Antihypertensives (for high blood pressure)");
+        verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption3, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Medication for high blood glucose (e.g. insulin)\" section 'Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Medication for high blood glucose (e.g. insulin)\" section 'Name of Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.lengthOfTimeMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenDROPDOWNOption3, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Medication for high blood glucose (e.g. insulin)\" section 'Length of time medication was taken' * * * * *");
+        verifyInputField(ras_survey_native_view.reasonMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn2Option3, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Medication for high blood glucose (e.g. insulin)\" section 'Reason medication was taken' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Medication for high blood glucose (e.g. insulin)");
+        verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption4, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antihypertensives\" section 'Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antihypertensives\" section 'Name of Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.lengthOfTimeMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenDROPDOWNOption4, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antihypertensives\" section 'Length of time medication was taken' * * * * *");
+        verifyInputField(ras_survey_native_view.reasonMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn2Option4, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antihypertensives\" section 'Reason medication was taken' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Antiemetics (for nausea)");
+        verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption5, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antiemetics (for nausea)\" section 'Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option5, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antiemetics (for nausea)\" section 'Name of Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.lengthOfTimeMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenDROPDOWNOption5, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antiemetics (for nausea)\" section 'Length of time medication was taken' * * * * *");
+        verifyInputField(ras_survey_native_view.reasonMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn2Option5, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antiemetics (for nausea)\" section 'Reason medication was taken' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Hormones (e.g. DES, progesterone)");
+        verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption6, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Hormones (e.g. DES, progesterone)\" section 'Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option6, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Hormones (e.g. DES, progesterone)\" section 'Name of Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.lengthOfTimeMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenDROPDOWNOption6, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Hormones (e.g. DES, progesterone)\" section 'Length of time medication was taken' * * * * *");
+        verifyInputField(ras_survey_native_view.reasonMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn2Option6, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Hormones (e.g. DES, progesterone)\" section 'Reason medication was taken' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Diuretics");
+        verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption8, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Diuretics\" section 'Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option7, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Diuretics\" section 'Name of Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.lengthOfTimeMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenDROPDOWNOption7, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Diuretics\" section 'Length of time medication was taken' * * * * *");
+        verifyInputField(ras_survey_native_view.reasonMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn2Option8, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Diuretics\" section 'Reason medication was taken' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Anti-depressants");
+        verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption7, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Anti-depressants\" section 'Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option8, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Anti-depressants\" section 'Name of Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.lengthOfTimeMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenDROPDOWNOption8, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Anti-depressants\" section 'Length of time medication was taken' * * * * *");
+        verifyInputField(ras_survey_native_view.reasonMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn2Option7, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Anti-depressants\" section 'Reason medication was taken' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Pain relievers");
+        verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption9, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Pain relievers\" section 'Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option9, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Pain relievers\" section 'Name of Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.lengthOfTimeMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenDROPDOWNOption9, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Pain relievers\" section 'Length of time medication was taken' * * * * *");
+        verifyInputField(ras_survey_native_view.reasonMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn2Option9, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Pain relievers\" section 'Reason medication was taken' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Medications for pre-term labor (e.g. terbutaline, magnesium sulfate)");
+        verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption10, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Medications for pre-term labor (e.g. terbutaline, magnesium sulfate)\" section 'Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option10, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Medications for pre-term labor (e.g. terbutaline, magnesium sulfate)\" section 'Name of Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.lengthOfTimeMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenDROPDOWNOption10, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Medications for pre-term labor (e.g. terbutaline, magnesium sulfate)\" section 'Length of time medication was taken' * * * * *");
+        verifyInputField(ras_survey_native_view.reasonMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn2Option10, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Medications for pre-term labor (e.g. terbutaline, magnesium sulfate)\" section 'Reason medication was taken' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Thyroid medications");
+        verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption11, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Thyroid medications\" section 'Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option11, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Thyroid medications\" section 'Name of Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.lengthOfTimeMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenDROPDOWNOption11, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Thyroid medications\" section 'Length of time medication was taken' * * * * *");
+        verifyInputField(ras_survey_native_view.reasonMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn2Option11, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Thyroid medications\" section 'Reason medication was taken' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Anti-seizure medications");
+        verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption12, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Anti-seizure medications\" section 'Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option12, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Anti-seizure medications\" section 'Name of Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.lengthOfTimeMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenDROPDOWNOption12, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Anti-seizure medications\" section 'Length of time medication was taken' * * * * *");
+        verifyInputField(ras_survey_native_view.reasonMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn2Option12, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Anti-seizure medications\" section 'Reason medication was taken' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Herbal supplements (please specify)");
+        verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption13, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Herbal supplements (please specify)\" section 'Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option13, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Herbal supplements (please specify)\" section 'Name of Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.lengthOfTimeMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenDROPDOWNOption13, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Herbal supplements (please specify)\" section 'Length of time medication was taken' * * * * *");
+        verifyInputField(ras_survey_native_view.reasonMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn2Option13, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Herbal supplements (please specify)\" section 'Reason medication was taken' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Total parental nutrition (TPN)");
+        verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption14, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Total parental nutrition (TPN)\" section 'Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option14, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Total parental nutrition (TPN)\" section 'Name of Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.lengthOfTimeMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenDROPDOWNOption14, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Total parental nutrition (TPN)\" section 'Length of time medication was taken' * * * * *");
+        verifyInputField(ras_survey_native_view.reasonMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn2Option14, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Total parental nutrition (TPN)\" section 'Reason medication was taken' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Other medication (please specify)");
+        verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption15, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Other medication (please specify)\" section 'Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option15, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Other medication (please specify)\" section 'Name of Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.lengthOfTimeMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenDROPDOWNOption15, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Other medication (please specify)\" section 'Length of time medication was taken' * * * * *");
+        verifyInputField(ras_survey_native_view.pleaseSpecifyMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption15PleaseSpecify, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Other medication (please specify)\" section 'Please specify' * * * * *");
+        verifyInputField(ras_survey_native_view.reasonMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn2Option15, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Other medication (please specify)\" section 'Reason medication was taken' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Antibiotics");
+        verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption1, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antibiotics\" section 'Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option1, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antibiotics\" section 'Name of Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.lengthOfTimeMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenDROPDOWNOption5, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antibiotics\" section 'Length of time medication was taken' * * * * *");
+        verifyInputField(ras_survey_native_view.reasonMedicationWasTakenInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn2Option1, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antibiotics\" section 'Reason medication was taken' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+    }
+
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Growth Hormone Details" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_growth_hormone_details_section() {
+        clickTab("Growth Hormone Details");
+        CommonUtils.hoverOverElement(locateByXpath("//tbody[@class='list2_body -sticky-group-headers']/tr[@record_class='x_naci_family_coho_growth_hormone_details']"));
+        JavascriptUtils.clickByJS(locateByXpath("//tbody[@class='list2_body -sticky-group-headers']//a[@data-list_id='x_naci_family_coho_rasopathy_iiq.x_naci_family_coho_growth_hormone_details.iiq']"));
+        CommonUtils.sleep(800);
+        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
+        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
+        CommonUtils.sleep(800);
+        verifyInputField(ras_survey_native_view.hormoneTreatmentNumberInputField, "1.0", "* * * * * RAS SURVEY MISMATCH IN \"Growth Hormone Details - Hormone Treatment Number\" section 'Medication' * * * * *");
+        verifyInputField(ras_survey_native_view.ageGrowthHormoneStartedInputField, ras_Survey_TestDataManager.pleaseProvideTheDetailsOfGrowthHormoneReplacementAgeStart, "* * * * * RAS SURVEY MISMATCH IN \"Growth Hormone Details - Age growth hormone started\" section '1.0' * * * * *");
+        verifyInputField(ras_survey_native_view.ageGrowthHormoneStoppedInputField, ras_Survey_TestDataManager.pleaseProvideTheDetailsOfGrowthHormoneReplacementAgeStopped, "* * * * * RAS SURVEY MISMATCH IN \"Growth Hormone Details - Age growth hormone stopped\" section '1.0' * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.stillOnGrowthHormoneDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN \"Growth Hormone Details - Still on growth hormone\" section '1.0' * * * * *");
+        verifyInputField(ras_survey_native_view.dateGrowthHormoneStartedInputField, ras_Survey_TestDataManager.pleaseProvideTheDetailsOfGrowthHormoneReplacementDateStart, "* * * * * RAS SURVEY MISMATCH IN \"Growth Hormone Details - Date growth hormone started\" section '1.0' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+    }
+
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Heart Symptoms" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_heart_symptoms_details_section() {
+        clickTab("Heart Symptoms");
+        openRelatedListRecord("Chest pain or tightening");
+        verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Chest pain or tightening\" section 'Symptom' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Chest pain or tightening\" section 'Age of first hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn2Option1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Chest pain or tightening\" section 'Date of first evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.firstEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Chest pain or tightening\" section 'First evaluation unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Chest pain or tightening\" section 'First hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn5Option1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Chest pain or tightening\" section 'Age of most recent evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn6Option1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Chest pain or tightening\" section 'Date of most recent evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateOfRecentEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Chest pain or tightening\" section 'Recent hospital evaluation' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.recentHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn8Option1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Chest pain or tightening\" section 'Recent hospital evaluation' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Fatigue");
+        verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Fatigue\" section 'Symptom' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Fatigue\" section 'Age of first hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn2Option2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Fatigue\" section 'Date of first evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.firstEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Fatigue\" section 'First evaluation unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Fatigue\" section 'First hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn5Option2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Fatigue\" section 'Age of most recent evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn6Option2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Fatigue\" section 'Date of most recent evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateOfRecentEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Fatigue\" section 'Recent hospital evaluation' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.recentHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn8Option2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Fatigue\" section 'Recent hospital evaluation' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Difficulty exercising");
+        verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption6, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Symptom' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option6, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Age of first hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn2Option6, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Date of first evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.firstEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'First evaluation unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn4Option6, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'First hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn5Option6, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Age of most recent evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn6Option6, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Date of most recent evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateOfRecentEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Recent hospital evaluation' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.recentHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn8Option6, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Recent hospital evaluation' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Stroke");
+        verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption10, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Stroke\" section 'Symptom' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option10, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Stroke\" section 'Age of first hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn2Option10, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Stroke\" section 'Date of first evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.firstEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Stroke\" section 'First evaluation unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn4Option10, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Stroke\" section 'First hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn5Option10, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Stroke\" section 'Age of most recent evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn6Option10, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Stroke\" section 'Date of most recent evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateOfRecentEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Stroke\" section 'Recent hospital evaluation' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.recentHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn8Option10, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Stroke\" section 'Recent hospital evaluation' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Heart palpitations/irregular heartbeat");
+        verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Heart palpitations/irregular heartbeat\" section 'Symptom' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Heart palpitations/irregular heartbeat\" section 'Age of first hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn2Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Heart palpitations/irregular heartbeat\" section 'Date of first evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.firstEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Heart palpitations/irregular heartbeat\" section 'First evaluation unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Heart palpitations/irregular heartbeat\" section 'First hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn5Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Heart palpitations/irregular heartbeat\" section 'Age of most recent evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn6Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Heart palpitations/irregular heartbeat\" section 'Date of most recent evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateOfRecentEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Heart palpitations/irregular heartbeat\" section 'Recent hospital evaluation' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.recentHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn8Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Heart palpitations/irregular heartbeat\" section 'Recent hospital evaluation' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Heart palpitations/irregular heartbeat");
+        verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Symptom' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Age of first hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn2Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Date of first evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.firstEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'First evaluation unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'First hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn5Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Age of most recent evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn6Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Date of most recent evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateOfRecentEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Recent hospital evaluation' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.recentHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn8Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Recent hospital evaluation' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("High blood pressure");
+        verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Symptom' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Age of first hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn2Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Date of first evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.firstEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'First evaluation unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn4Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'First hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn5Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Age of most recent evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn6Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Date of most recent evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateOfRecentEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Recent hospital evaluation' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.recentHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn8Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Recent hospital evaluation' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Transient ischemic attack (TIA) also known as \"mini stroke\"");
+        verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption11, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Transient ischemic attack (TIA) also known as \"mini stroke\"\" section 'Symptom' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option11, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Transient ischemic attack (TIA) also known as \"mini stroke\"\" section 'Age of first hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn2Option11, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Transient ischemic attack (TIA) also known as \"mini stroke\"\" section 'Date of first evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.firstEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Transient ischemic attack (TIA) also known as \"mini stroke\"\" section 'First evaluation unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn4Option11, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Transient ischemic attack (TIA) also known as \"mini stroke\"\" section 'First hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn5Option11, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Transient ischemic attack (TIA) also known as \"mini stroke\"\" section 'Age of most recent evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn6Option11, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Transient ischemic attack (TIA) also known as \"mini stroke\"\" section 'Date of most recent evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateOfRecentEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Transient ischemic attack (TIA) also known as \"mini stroke\"\" section 'Recent hospital evaluation' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.recentHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn8Option11, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Transient ischemic attack (TIA) also known as \"mini stroke\"\" section 'Recent hospital evaluation' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Leg cramping");
+        verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Leg cramping\" section 'Symptom' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Leg cramping\" section 'Age of first hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn2Option4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Leg cramping\" section 'Date of first evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.firstEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Leg cramping\" section 'First evaluation unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Leg cramping\" section 'First hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn5Option4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Leg cramping\" section 'Age of most recent evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn6Option4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Leg cramping\" section 'Date of most recent evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateOfRecentEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Leg cramping\" section 'Recent hospital evaluation' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.recentHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn8Option4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Leg cramping\" section 'Recent hospital evaluation' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Kidney dysfunction");
+        verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption8, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Kidney dysfunction\" section 'Symptom' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option8, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Kidney dysfunction\" section 'Age of first hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn2Option8, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Kidney dysfunction\" section 'Date of first evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.firstEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Kidney dysfunction\" section 'First evaluation unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn4Option8, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Kidney dysfunction\" section 'First hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn5Option8, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Kidney dysfunction\" section 'Age of most recent evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn6Option8, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Kidney dysfunction\" section 'Date of most recent evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateOfRecentEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Kidney dysfunction\" section 'Recent hospital evaluation' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.recentHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn8Option8, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Kidney dysfunction\" section 'Recent hospital evaluation' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Shortness of breath");
+        verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption5, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Shortness of breath\" section 'Symptom' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option5, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Shortness of breath\" section 'Age of first hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn2Option5, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Shortness of breath\" section 'Date of first evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.firstEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Shortness of breath\" section 'First evaluation unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn4Option5, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Shortness of breath\" section 'First hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn5Option5, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Shortness of breath\" section 'Age of most recent evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn6Option5, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Shortness of breath\" section 'Date of most recent evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateOfRecentEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Shortness of breath\" section 'Recent hospital evaluation' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.recentHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn8Option5, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Shortness of breath\" section 'Recent hospital evaluation' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Migraines");
+        verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption9, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Migraines\" section 'Symptom' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option9, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Migraines\" section 'Age of first hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn2Option9, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Migraines\" section 'Date of first evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.firstEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Migraines\" section 'First evaluation unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn4Option9, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Migraines\" section 'First hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn5Option9, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Migraines\" section 'Age of most recent evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn6Option9, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Migraines\" section 'Date of most recent evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateOfRecentEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Migraines\" section 'Recent hospital evaluation' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.recentHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn8Option9, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Migraines\" section 'Recent hospital evaluation' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+    }
+
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Heart Treatments" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_heart_treatments_section() {
+        clickTab("Heart Treatments");
+        openRelatedListRecord("Surgery");
+        verifyInputField(ras_survey_native_view.surgeryInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption3, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Surgery\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstTreatmentInputField, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn2Option3, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Surgery\" section 'Date of first treatment' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateAgeOfFirstTreatmentUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Surgery\" section 'Date/age first treatment unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstTreatmentLocationTextarea, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Surgery\" section 'First Treatment Location' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentTreatmentInputField, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn6Option3, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Surgery\" section 'Date of most recent treatment' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateAgeOfMostRecentTreatmentUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Surgery\" section 'Date/age recent treatment unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.mostRecentTreatmentLocationTextarea, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn8Option3, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Surgery\" section 'Most recent treatment location' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(1000);
+        CommonUtils.hoverOverElement(locateByXpath("//tr[contains(@id,'row_x_naci_family_coho_rasopathy_iiq.x_naci_family_coho_participant_heart_treatment_history')]//td//a[@aria-label='Preview record: Other (please specify)']"));
+        JavascriptUtils.clickByJS(locateByXpath("//tr[contains(@id,'row_x_naci_family_coho_rasopathy_iiq.x_naci_family_coho_participant_heart_treatment_history')]//td//a[@aria-label='Preview record: Other (please specify)']"));
+        CommonUtils.sleep(800);
+        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
+        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
+        CommonUtils.sleep(800);
+        verifyInputField(ras_survey_native_view.surgeryInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption4, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Other (please specify)\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.pleaseSpecifyTreatmentInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption4Specify, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Other (please specify)\" section 'Please specify' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstTreatmentInputField, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn2Option4, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Other (please specify)\" section 'Date of first treatment' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateAgeOfFirstTreatmentUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Other (please specify)\" section 'Date/age first treatment unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstTreatmentLocationTextarea, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Other (please specify)\" section 'First Treatment Location' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentTreatmentInputField, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn6Option4, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Other (please specify)\" section 'Date of most recent treatment' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateAgeOfMostRecentTreatmentUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Other (please specify)\" section 'Date/age recent treatment unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.mostRecentTreatmentLocationTextarea, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn8Option4, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Other (please specify)\" section 'Most recent treatment location' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Catheter intervention");
+        verifyInputField(ras_survey_native_view.surgeryInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption2, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Catheter intervention (i.e., \"a heart cath')\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstTreatmentInputField, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn2Option2, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Catheter intervention (i.e., \"a heart cath')\" section 'Date of first treatment' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateAgeOfFirstTreatmentUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Catheter intervention (i.e., \"a heart cath')\" section 'Date/age first treatment unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstTreatmentLocationTextarea, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Catheter intervention (i.e., \"a heart cath')\" section 'First Treatment Location' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentTreatmentInputField, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn6Option2, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Catheter intervention (i.e., \"a heart cath')\" section 'Date of most recent treatment' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateAgeOfMostRecentTreatmentUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Catheter intervention (i.e., \"a heart cath')\" section 'Date/age recent treatment unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.mostRecentTreatmentLocationTextarea, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn8Option2, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Catheter intervention (i.e., \"a heart cath')\" section 'Most recent treatment location' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Medication (please specify)");
+        verifyInputField(ras_survey_native_view.surgeryInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption1, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Medication (please specify)\" section 'Treatment' * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.isTheParticipantStillOnThisMedicationDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Medication (please specify)\" section 'Is the participant still on this medication' DROPDOWN * * * * *");
+        verifyInputField(ras_survey_native_view.pleaseSpecifyTreatmentInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption1Specify, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Medication (please specify)\" section 'Please specify' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstTreatmentInputField, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn2Option1, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Medication (please specify)\" section 'Date of first treatment' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateAgeOfFirstTreatmentUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Medication (please specify)\" section 'Date/age first treatment unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstTreatmentLocationTextarea, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Medication (please specify)\" section 'First Treatment Location' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentTreatmentInputField, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn6Option1, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Medication (please specify)\" section 'Date of most recent treatment' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateAgeOfMostRecentTreatmentUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Medication (please specify)\" section 'Date/age recent treatment unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.mostRecentTreatmentLocationTextarea, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn8Option1, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Medication (please specify)\" section 'Most recent treatment location' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+    }
+
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Participant Heart Issues" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_participant_heart_issues_section() {
+        clickTab("Participant Heart Issues");
+        openRelatedListRecord("Tachycardia (heart beats too fast)");
+        verifyInputField(ras_survey_native_view.issueInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyFunctionalHeartIssuesOption1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Tachycardia (heart beats too fast)\" section 'Issue' * * * * *");
+        verifyInputField(ras_survey_native_view.ageAtDiagnosisInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Tachycardia (heart beats too fast)\" section 'Age at diagnosis' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn5Option1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Tachycardia (heart beats too fast)\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.ageDateOfDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Tachycardia (heart beats too fast)\" section 'Age/date of diagnosis unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.treatmentTextArea, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn7Option1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Tachycardia (heart beats too fast)\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.hospitalWhereTreatmentReceivedTextarea, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn8Option1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Tachycardia (heart beats too fast)\" section 'Hospital where treatment received' * * * * *");
+        verifyInputField(ras_survey_native_view.ageAtFirstSymptomsInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn1Option1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Tachycardia (heart beats too fast)\" section 'Age at first symptoms' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstSymptomsInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn2Option1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Tachycardia (heart beats too fast)\" section 'Date of first symptoms' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.ageDateOfFirstSymptomUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Tachycardia (heart beats too fast)\" section 'Age/date of first symptom' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Cardiac conduction defect (when electrical signals cause irregular or abnormal heart beats)");
+        verifyInputField(ras_survey_native_view.issueInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyFunctionalHeartIssuesOption2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Cardiac conduction defect\" section 'Issue' * * * * *");
+        verifyInputField(ras_survey_native_view.ageAtDiagnosisInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Cardiac conduction defect\" section 'Age at diagnosis' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn5Option2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Cardiac conduction defect\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.ageDateOfDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Cardiac conduction defect\" section 'Age/date of diagnosis unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.treatmentTextArea, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn7Option2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Cardiac conduction defect\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.hospitalWhereTreatmentReceivedTextarea, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn8Option2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Cardiac conduction defect\" section 'Hospital where treatment received' * * * * *");
+        verifyInputField(ras_survey_native_view.ageAtFirstSymptomsInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn1Option2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Cardiac conduction defect\" section 'Age at first symptoms' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstSymptomsInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn2Option2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Cardiac conduction defect\" section 'Date of first symptoms' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.ageDateOfFirstSymptomUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Cardiac conduction defect\" section 'Age/date of first symptom' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Heart failure (when the heart cannot");
+        verifyInputField(ras_survey_native_view.issueInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyFunctionalHeartIssuesOption3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Heart failure (when the heart cannot pump enough blood to the body)\" section 'Issue' * * * * *");
+        verifyInputField(ras_survey_native_view.ageAtDiagnosisInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Heart failure (when the heart cannot pump enough blood to the body)\" section 'Age at diagnosis' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn5Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Heart failure (when the heart cannot pump enough blood to the body)\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.ageDateOfDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Heart failure (when the heart cannot pump enough blood to the body)\" section 'Age/date of diagnosis unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.treatmentTextArea, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn7Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Heart failure (when the heart cannot pump enough blood to the body)\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.hospitalWhereTreatmentReceivedTextarea, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn8Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Heart failure (when the heart cannot pump enough blood to the body)\" section 'Hospital where treatment received' * * * * *");
+        verifyInputField(ras_survey_native_view.ageAtFirstSymptomsInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Heart failure (when the heart cannot pump enough blood to the body)\" section 'Age at first symptoms' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstSymptomsInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn2Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Heart failure (when the heart cannot pump enough blood to the body)\" section 'Date of first symptoms' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.ageDateOfFirstSymptomUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Heart failure (when the heart cannot pump enough blood to the body)\" section 'Age/date of first symptom' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        CommonUtils.hoverOverElement(locateByXpath("//tr[contains(@id,'x_naci_family_coho_rasopathy_iiq.x_naci_family_coho_participant_heart_issues.iiq')]//td//a[@aria-label='Preview record: Other (please specify)']"));
+        JavascriptUtils.clickByJS(locateByXpath("//tr[contains(@id,'x_naci_family_coho_rasopathy_iiq.x_naci_family_coho_participant_heart_issues.iiq')]//td//a[@aria-label='Preview record: Other (please specify)']"));
+        CommonUtils.sleep(800);
+        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
+        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
+        CommonUtils.sleep(800);
+        verifyInputField(ras_survey_native_view.issueInputField, "Other (please specify)", "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Heart failure (when the heart cannot pump enough blood to the body)\" section 'Issue' * * * * *");
+        verifyInputField(ras_survey_native_view.pleaseSpecifyParticipantHeartIssuesInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyFunctionalHeartIssuesOption4Other, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Other (please specify)\" section 'Please specify' * * * * *");
+        verifyInputField(ras_survey_native_view.ageAtDiagnosisInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Other (please specify)\" section 'Age at diagnosis' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn5Option4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Other (please specify)\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.ageDateOfDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Other (please specify)\" section 'Age/date of diagnosis unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.treatmentTextArea, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn7Option4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Other (please specify)\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.hospitalWhereTreatmentReceivedTextarea, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn8Option4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Other (please specify)\" section 'Hospital where treatment received' * * * * *");
+        verifyInputField(ras_survey_native_view.ageAtFirstSymptomsInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Other (please specify)\" section 'Age at first symptoms' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstSymptomsInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn2Option4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Other (please specify)\" section 'Date of first symptoms' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.ageDateOfFirstSymptomUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Other (please specify)\" section 'Age/date of first symptom' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+    }
+
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Biopsy History" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_biopsy_history_section() {
+        clickTab("Biopsy History");
+        openRelatedListRecord("null");
+        verifyInputField(ras_survey_native_view.biopsyHistoryTypeInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationForEachBiopsyColumn1, "* * * * * RAS SURVEY MISMATCH IN \"Biopsy\" section 'Type' * * * * *");
+        verifyInputField(ras_survey_native_view.dateBiopsyWasPerformedInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationForEachBiopsyColumn3, "* * * * * RAS SURVEY MISMATCH IN \"Biopsy\" section 'Date biopsy was performed' * * * * *");
+        verifyInputField(ras_survey_native_view.nameAndLocationOfFacilityWhereBiopsyWasPreformedTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationForEachBiopsyColumn6, "* * * * * RAS SURVEY MISMATCH IN \"Biopsy\" section 'Name and location of facility where biopsy was preformed' * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.biopsyHistoryReasonDropdown, ras_Survey_TestDataManager.pleaseProvideTheInformationForEachBiopsyColumn5, "* * * * * RAS SURVEY MISMATCH IN \"Biopsy\" section 'Pain' DROPDOWN * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+    }
+
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Allergy Histories" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_allergy_histories_section() {
+        clickTab("Allergy Histories");
+        openRelatedListRecord("Test238");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.allergyHistoryTypeDropdown, "Medication", "* * * * * RAS SURVEY MISMATCH IN \"Allergy Histories - Test238\" section 'Type' DROPDOWN * * * * *");
+        verifyInputField(ras_survey_native_view.allergyHistoryNameInputField, ras_Survey_TestDataManager.pleaseCompleteAllMedicationsToWhichYouAreAllergicColumn1, "* * * * * RAS SURVEY MISMATCH IN \"Allergy Histories - Test238\" section 'Name' * * * * *");
+        verifyInputField(ras_survey_native_view.allergyHistoryReactionInputField, ras_Survey_TestDataManager.pleaseCompleteAllMedicationsToWhichYouAreAllergicColumn2, "* * * * * RAS SURVEY MISMATCH IN \"Allergy Histories - Test238\" section 'Reaction' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Test241");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.allergyHistoryTypeDropdown, "Other", "* * * * * RAS SURVEY MISMATCH IN \"Allergy Histories - Test241\" section 'Type' DROPDOWN * * * * *");
+        verifyInputField(ras_survey_native_view.allergyHistoryNameInputField, ras_Survey_TestDataManager.pleaseCompleteAllOtherToWhichYouAreAllergicColumn1, "* * * * * RAS SURVEY MISMATCH IN \"Allergy Histories - Test241\" section 'Name' * * * * *");
+        verifyInputField(ras_survey_native_view.allergyHistoryReactionInputField, ras_Survey_TestDataManager.pleaseCompleteAllFoodsToWhichYouAreAllergicColumn1, "* * * * * RAS SURVEY MISMATCH IN \"Allergy Histories - Test241\" section 'Reaction' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+    }
+
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Hospital History" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_hospital_history_section() {
+        clickTab("Hospital History");
+        openRelatedListRecord("Test 226");
+        verifyInputField(ras_survey_native_view.whereWasTheParticipantHospitalizedTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationForEachHospitalizationColumn5, "* * * * * RAS SURVEY MISMATCH IN \"Hospital History - Test 226\" section 'Where was the participant hospitalized' * * * * *");
+        verifyInputField(ras_survey_native_view.reasonForHospitalizationTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationForEachHospitalizationColumn1, "* * * * * RAS SURVEY MISMATCH IN \"Hospital History - Test 226\" section 'Reason for hospitalization' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+    }
+
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Gastrointestinal Exams" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_gastrointestinal_exams_section() {
+        clickTab("Gastrointestinal Exams");
+        openRelatedListRecord("Digital rectal exam");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption1, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Digital rectal exam\" section 'Exam/Study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn1Option1, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Digital rectal exam\" section 'Date of first exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsFromTheFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn3Option1, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Digital rectal exam\" section 'Findings from the first exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonTheParticipantHadTheirExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn2Option1, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Digital rectal exam\" section 'Reason the participant had their exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirFirstExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Digital rectal exam\" section 'Where did the participant have their first exam/study?' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfMostRecentExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option1, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Digital rectal exam\" section 'Date of most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsOfTheMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option1, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Digital rectal exam\" section 'Findings of the most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonForMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option1, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Digital rectal exam\" section 'Reason for most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirMostRecentStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Digital rectal exam\" section 'Where did the participant have their most recent study?' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Colonoscopy");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption3, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Colonoscopy\" section 'Exam/Study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Colonoscopy\" section 'Date of first exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsFromTheFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option3, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Colonoscopy\" section 'Findings from the first exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonTheParticipantHadTheirExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option3, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Colonoscopy\" section 'Reason the participant had their exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirFirstExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Colonoscopy\" section 'Where did the participant have their first exam/study?' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfMostRecentExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Colonoscopy\" section 'Date of most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsOfTheMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option3, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Colonoscopy\" section 'Findings of the most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonForMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option3, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Colonoscopy\" section 'Reason for most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirMostRecentStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Colonoscopy\" section 'Where did the participant have their most recent study?' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Other GI test (please specify)");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption9, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Other GI test (please specify)\" section 'Exam/Study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsPleaseSpecifyInputField, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption90ther, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Other GI test (please specify)\" section 'Please specify' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option9, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Other GI test (please specify)\" section 'Date of first exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsFromTheFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option9, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Other GI test (please specify)\" section 'Findings from the first exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonTheParticipantHadTheirExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option9, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Other GI test (please specify)\" section 'Reason the participant had their exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirFirstExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option9, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Other GI test (please specify)\" section 'Where did the participant have their first exam/study?' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfMostRecentExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option9, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Other GI test (please specify)\" section 'Date of most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsOfTheMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option9, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Other GI test (please specify)\" section 'Findings of the most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonForMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option9, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Other GI test (please specify)\" section 'Reason for most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirMostRecentStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option9, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Other GI test (please specify)\" section 'Where did the participant have their most recent study?' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Modified barium swallow study");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption7, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Modified barium swallow study\" section 'Exam/Study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option7, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Modified barium swallow study\" section 'Date of first exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsFromTheFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option7, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Modified barium swallow study\" section 'Findings from the first exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonTheParticipantHadTheirExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option7, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Modified barium swallow study\" section 'Reason the participant had their exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirFirstExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option7, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Modified barium swallow study\" section 'Where did the participant have their first exam/study?' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfMostRecentExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option7, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Modified barium swallow study\" section 'Date of most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsOfTheMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option7, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Modified barium swallow study\" section 'Findings of the most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonForMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option7, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Modified barium swallow study\" section 'Reason for most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirMostRecentStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option7, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Modified barium swallow study\" section 'Where did the participant have their most recent study?' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("pH probe or impedance study");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption5, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - pH probe or impedance study\" section 'Exam/Study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option5, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - pH probe or impedance study\" section 'Date of first exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsFromTheFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option5, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - pH probe or impedance study\" section 'Findings from the first exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonTheParticipantHadTheirExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option5, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - pH probe or impedance study\" section 'Reason the participant had their exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirFirstExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option5, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - pH probe or impedance study\" section 'Where did the participant have their first exam/study?' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfMostRecentExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option5, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - pH probe or impedance study\" section 'Date of most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsOfTheMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option5, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - pH probe or impedance study\" section 'Findings of the most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonForMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option3, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - pH probe or impedance study\" section 'Reason for most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirMostRecentStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option5, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - pH probe or impedance study\" section 'Where did the participant have their most recent study?' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Upper GI swallow study");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption6, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Upper GI swallow study\" section 'Exam/Study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option6, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Upper GI swallow study\" section 'Date of first exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsFromTheFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option6, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Upper GI swallow study\" section 'Findings from the first exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonTheParticipantHadTheirExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option6, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Upper GI swallow study\" section 'Reason the participant had their exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirFirstExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option6, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Upper GI swallow study\" section 'Where did the participant have their first exam/study?' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfMostRecentExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option6, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Upper GI swallow study\" section 'Date of most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsOfTheMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option6, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Upper GI swallow study\" section 'Findings of the most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonForMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option6, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Upper GI swallow study\" section 'Reason for most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirMostRecentStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option6, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Upper GI swallow study\" section 'Where did the participant have their most recent study?' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Anorectal manometry");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption4, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Exam/Study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Date of first exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsFromTheFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option4, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Findings from the first exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonTheParticipantHadTheirExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option4, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Reason the participant had their exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirFirstExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Where did the participant have their first exam/study?' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfMostRecentExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Date of most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsOfTheMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option4, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Findings of the most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonForMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option2, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Reason for most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirMostRecentStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Where did the participant have their most recent study?' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Upper endoscopy");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption2, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Exam/Study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option2, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Date of first exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsFromTheFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option2, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Findings from the first exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonTheParticipantHadTheirExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option2, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Reason the participant had their exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirFirstExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Where did the participant have their first exam/study?' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfMostRecentExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option2, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Date of most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsOfTheMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option2, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Findings of the most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonForMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option2, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Reason for most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirMostRecentStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Where did the participant have their most recent study?' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Gastric emptying study");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption8, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Gastric emptying study\" section 'Exam/Study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option8, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Gastric emptying study\" section 'Date of first exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsFromTheFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option8, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Gastric emptying study\" section 'Findings from the first exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonTheParticipantHadTheirExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option8, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Gastric emptying study\"section 'Reason the participant had their exam/study' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirFirstExamStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option8, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Gastric emptying study\" section 'Where did the participant have their first exam/study?' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfMostRecentExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option8, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Gastric emptying study\" section 'Date of most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsFindingsOfTheMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option8, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Gastric emptying study\" section 'Findings of the most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsReasonForMostRecentExamTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option8, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Gastric emptying study\" section 'Reason for most recent exam' * * * * *");
+        verifyInputField(ras_survey_native_view.gastrointestinalExamsWhereDidTheParticipantHaveTheirMostRecentStudyTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option8, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Gastric emptying study\" section 'Where did the participant have their most recent study?' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+    }
+
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Gastrointestinal Exams" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_gi_symptoms_section() {
+        clickTab("GI Symptoms");
+        openRelatedListRecord("Lactose intolerance (gas, bloating, diarrhea with dairy products)");
+        verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption13, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Lactose intolerance (gas, bloating, diarrhea with dairy products)\" section 'Symptom' * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsDoesTheParticipantTakeALactoseSupplementDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Lactose intolerance (gas, bloating, diarrhea with dairy products)\" section 'Does the participant take a lactose supplement' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Lactose intolerance (gas, bloating, diarrhea with dairy products)\" section 'Status' DROPDOWN * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Gas bloating");
+        verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption15, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Gas bloating\" section 'Symptom' * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Gas bloating\" section 'Status' DROPDOWN * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Perianal lesions or sores");
+        verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption19, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Perianal lesions or sores\" section 'Symptom' * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Perianal lesions or sores\" section 'Status' DROPDOWN * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Constipation");
+        verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption17, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Constipation\" section 'Symptom' * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsTwoOrFewerBowelMovementsPerWeekDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Constipation\" section '2 or fewer bowel movements per week' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsOneOrMoreStoolAccidentOrStoolIncontinencePerWeekDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Constipation\" section '1 or more stool accidents or stool incontinence per week' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsPosturingOrExcessiveAttemptsToAvoidHavingABowelMovementDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Constipation\" section 'Posturing or excessive attempts to avoid having a bowel movement' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsHistoryOfStoolImpactionDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Constipation\" section 'History of stool impaction' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Constipation\" section 'Status' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsLargeBowelMovementsThatClogTheToiletDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Constipation\" section 'Large bowel movements that clog the toilet' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsBloodOnToiletPaperOrInTheStoolDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Constipation\" section 'Blood on toilet paper or in the stool' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsBowelMovementsInPlacesInappropriateOrNotSociallyAcceptableDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Constipation\" section 'Having bowel movements in places inappropriate or not socially acceptable' DROPDOWN * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsPainfulOrHardBowelMovementsDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Constipation\" section 'Painful or Hard bowel movements' DROPDOWN * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Decreased appetite");
+        verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption21, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Decreased appetite\" section 'Symptom' * * * * *");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Decreased appetite\" section 'Status' DROPDOWN * * * * *");
+        String whatSupplementalNutritionHaveHaveBeenTakenExpectedText = "Drinks (ex. Pediasure), Tube feeding (ex NG or g-tube), TPN (IV nutrition)";
+        softAssert.assertEquals(ras_survey_native_view.giSymptomsWhatSupplementalNutritionHaveBeenTakenText.getText(), whatSupplementalNutritionHaveHaveBeenTakenExpectedText, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Decreased appetite\" section 'What supplemental nutrition have been taken?' TEXT * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+    }
+
+    /**
      * This method verifies the RAS Survey Data in Native View for Scenario Two.
      */
     @Then("RAS Survey Data for Scenario Two is verified")
@@ -622,5 +1323,17 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         verify_ras_survey_data_scenarioTwo_skeletal_section();
         verify_ras_survey_data_scenarioTwo_hematology_oncology_and_immunology_section();
         verify_ras_survey_data_scenarioTwo_brain_neurology_section();
+        verify_ras_survey_data_scenarioTwo_vision_and_hearing_section();
+        verify_ras_survey_data_scenarioTwo_prenatal_test_history_section();
+        verify_ras_survey_data_scenarioTwo_medications_taken_while_pregnant_section();
+        verify_ras_survey_data_scenarioTwo_growth_hormone_details_section();
+        verify_ras_survey_data_scenarioTwo_heart_symptoms_details_section();
+        verify_ras_survey_data_scenarioTwo_heart_treatments_section();
+        verify_ras_survey_data_scenarioTwo_participant_heart_issues_section();
+        verify_ras_survey_data_scenarioTwo_biopsy_history_section();
+        verify_ras_survey_data_scenarioTwo_allergy_histories_section();
+        verify_ras_survey_data_scenarioTwo_hospital_history_section();
+        verify_ras_survey_data_scenarioTwo_gastrointestinal_exams_section();
+        verify_ras_survey_data_scenarioTwo_gi_symptoms_section();
     }
 }
