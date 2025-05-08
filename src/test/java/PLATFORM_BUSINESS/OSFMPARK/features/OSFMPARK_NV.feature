@@ -15,6 +15,6 @@ Feature:  Parking Garage (SG Parking Permit (Non-NCI Staff Only)) Catalogue Item
     Given the "OSFM Parking Garage Access Requests" request
     When defining which users should be responsible for reports
     Then a Fulfillers group called "Parking Garage Request Fulfillers" is created
-    And contains the following users:"Tsegaye Ayele","Melvin Pirkle","Shane Hebert","Delimo Samuel"
+    And contains the following users:"Tsegaye Ayele","Melvin Pirkle","Shane Hebert", and "Delimo Samuel"
     And "Shane Hebert" is the Group Manager
     And "Delimo Samuel" is the Group Co-Manager
