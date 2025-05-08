@@ -163,10 +163,11 @@ public class FanconiSurveyStepsImpl {
         page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName("Log out")).click();
     }
 
-    /** Method to Reset Fanconi Screener */
+    /** Method to Reset Fanconi Survey */
     public static void resetFanconiSurvey() {
         var page = PlaywrightUtils.page;
         page.navigate("https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3D5de132b887f116507e87a8a60cbb35da%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D7%26sysparm_record_rows%3D1292%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
+        page.navigate("https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=4b56b6e98701ae50ad46326d3fbb350f");
         page.frameLocator("iframe[name=\"gsft_main\"]").locator("[id=\"section_head_right\\.e3dbd323bf3220001875647fcf0739c2\"]").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Run Fix Script")).click();
         page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Proceed in Background")).click();
         page.frameLocator("iframe[name=\"gsft_main\"]").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Close").setExact(true)).click();
