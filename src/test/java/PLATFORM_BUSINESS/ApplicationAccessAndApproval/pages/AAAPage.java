@@ -55,6 +55,38 @@ public class AAAPage {
     @FindBy(xpath = "//div//span[@id='select2-chosen-1']")
     public WebElement systemNameDropdown;
 
+    /**Application datasources dropdown*/
+    @FindBy(xpath = "//div[@id='s2id_sp_formfield_application_datasource_id']")
+    public WebElement applDatasourcesDropdown;
+
+    /**Application/Datasource Short Description field*/
+    @FindBy(xpath = "//textarea[@id='sp_formfield_short_description']")
+    public WebElement applDatasourcesDescriptionField;
+
+    /**DOC level field*/
+    @FindBy(xpath = "//div[@id='s2id_sp_formfield_doc_level']//input")
+    public WebElement docLevelField;
+
+    /**User Role field*/
+    @FindBy(xpath = "//div[@id='s2id_sp_formfield_user_role']//input")
+    public WebElement userRoleField;
+
+    /**datepicker field*/
+    @FindBy(xpath = "//input[@id='sp_formfield_valid_until_date']")
+    public WebElement datepickerField;
+
+    /**Business Justification field*/
+    @FindBy(xpath = "//textarea[@id='sp_formfield_business_justification']")
+    public WebElement businessJustificationField;
+
+    /**Federal Supervisor drpd*/
+    @FindBy(xpath = "//div[@id='s2id_sp_formfield_federal_supervisor']")
+    public WebElement federalSupervisorDropdown;
+
+    /**2nd Level Federal Supervisor drpd*/
+    @FindBy(xpath = "//a[@class='select2-choice select2-default form-control']")
+    public WebElement secondLevelSupervisorDropdown;
+
     public AAAPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

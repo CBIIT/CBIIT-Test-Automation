@@ -79,4 +79,60 @@ public class AAAStepsImplementation extends PageInitializer {
     public static void verifyRequestedForEmailFieldDisplayed() {
         softAssert.assertTrue(aaaPage.systemNameDropdown.isDisplayed());
     }
+
+    /**
+     *Verify Application datasources dropdown is displayed
+     */
+    public static void verifyApplDatasourcesDropdownDisplayed() {
+        softAssert.assertTrue(aaaPage.applDatasourcesDropdown.isDisplayed());
+    }
+
+    /**
+     *Verify Application datasources dropdown is displayed
+     */
+    public static void verifyApplDatasourcesDescriptionFieldDisplayed() {
+        softAssert.assertTrue(aaaPage.applDatasourcesDescriptionField.isDisplayed());
+    }
+
+    /**
+     *Verify DOC level is displayed
+     */
+    public static void verifyDocLevelFieldDisplayed() {
+        softAssert.assertTrue(aaaPage.docLevelField.isDisplayed());
+    }
+
+    /**
+     *Verify User role is displayed
+     */
+    public static void verifyUserRoleFieldDisplayed() {
+        softAssert.assertTrue(aaaPage.userRoleField.isDisplayed());
+    }
+
+    /**
+     *Verify datepicker is displayed
+     */
+    public static void verifyDatepickerFieldDisplayed() {
+        softAssert.assertTrue(aaaPage.datepickerField.isDisplayed());
+    }
+
+    /**
+     *Verify Business Justification is displayed
+     */
+    public static void verifyBusinessJustificationFieldDisplayed() {
+        softAssert.assertTrue(aaaPage.businessJustificationField.isDisplayed());
+    }
+
+    /**
+     *Verify Federal Supervisor dropdown is displayed
+     */
+    public static void verifyFederalSupervisorDropdownDisplayed() {
+        softAssert.assertTrue(aaaPage.federalSupervisorDropdown.isDisplayed());
+    }
+
+    /**
+     *Verify 2nd Level Federal Supervisordropdown is displayed
+     */
+    public static void verifySecondLevelSupervisorDropdownDisplayed() {
+        softAssert.assertTrue(aaaPage.secondLevelSupervisorDropdown.isDisplayed());
+    }
 }

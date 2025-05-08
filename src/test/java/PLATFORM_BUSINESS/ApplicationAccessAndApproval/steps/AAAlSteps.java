@@ -61,55 +61,41 @@ public class AAAlSteps {
 
     @Given("User can see Applications Datasources dropdown")
     public void user_can_see_applications_datasources_dropdown() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      AAAStepsImplementation.verifyApplDatasourcesDropdownDisplayed();
     }
 
     @Given("User can see Application Datasource Short Description field")
     public void user_can_see_application_datasource_short_description_field() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+     AAAStepsImplementation.verifyApplDatasourcesDescriptionFieldDisplayed();
     }
 
     @Given("User can see DOC Level field")
     public void user_can_see_doc_level_field() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      AAAStepsImplementation.verifyDocLevelFieldDisplayed();
     }
 
     @Given("User can see User Role field")
     public void user_can_see_user_role_field() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      AAAStepsImplementation.verifyUserRoleFieldDisplayed();
     }
 
     @Given("User can see Valid Until Date datepicker")
     public void user_can_see_valid_until_date_datepicker() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      AAAStepsImplementation.verifyDatepickerFieldDisplayed();
     }
 
     @Given("User can see Business Justification field")
     public void user_can_see_business_justification_field() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      AAAStepsImplementation.verifyBusinessJustificationFieldDisplayed();
     }
 
     @Given("User can see Federal Supervisor dropdown")
     public void user_can_see_federal_supervisor_dropdown() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
-    @Given("User can confirm Federal Supervisor is prepopulated")
-    public void user_can_confirm_federal_supervisor_is_prepopulated() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    AAAStepsImplementation.verifyFederalSupervisorDropdownDisplayed();
     }
 
     @Given("User can see 2nd Level Federal Supervisor dropdown")
     public void user_can_see_2nd_level_federal_supervisor_dropdown() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+     AAAStepsImplementation.verifySecondLevelSupervisorDropdownDisplayed();
     }
 }
