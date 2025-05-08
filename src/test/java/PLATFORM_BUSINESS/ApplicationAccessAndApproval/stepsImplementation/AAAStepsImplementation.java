@@ -34,8 +34,8 @@ public class AAAStepsImplementation extends PageInitializer {
         CommonUtils.clickOnElement(aaaPage.accountAdminAIMPortalView);
         CommonUtils.waitForClickability(aaaPage.accountAdministrationAIMPortalView);
         CommonUtils.clickOnElement(aaaPage.accountAdministrationAIMPortalView);
-        CommonUtils.waitForClickability(aaaPage.addRemovePermissionsPortalView);
-        CommonUtils.clickOnElement(aaaPage.addRemovePermissionsPortalView);
+        CommonUtils.waitForClickability(aaaPage.aaaPortalView);
+        CommonUtils.clickOnElement(aaaPage.aaaPortalView);
     }
 
     /**
@@ -43,5 +43,40 @@ public class AAAStepsImplementation extends PageInitializer {
      */
     public static void verifyAAAPageTitle() {
         softAssert.assertTrue(aaaPage.aaaPageTitle.isDisplayed());
+    }
+
+    /**
+     *Verify requested for dropdown is displayed
+     */
+    public static void verifyRequestedForDropdown() {
+        softAssert.assertTrue(aaaPage.requestedForDropdown.isDisplayed());
+    }
+
+    /**
+     *Verify requested for field is prepopulated
+     */
+    public static void verifyRequestedForFieldPopulated() {
+        softAssert.assertNotNull(aaaPage.requestedForField.getText());
+    }
+
+    /**
+     *Verify requested for email field is prepopulated
+     */
+    public static void verifyRequestedForEmailFieldPopulated() {
+        softAssert.assertNotNull(aaaPage.requestedForEmailField.getText());
+    }
+
+    /**
+     *Verify requested for email field is prepopulated
+     */
+    public static void verifyOrganizationAffiliationFieldPopulated() {
+        softAssert.assertNotNull(aaaPage.organizationAffiliationField.getText());
+    }
+
+    /**
+     *Verify requested for email field is displayed
+     */
+    public static void verifyRequestedForEmailFieldDisplayed() {
+        softAssert.assertTrue(aaaPage.systemNameDropdown.isDisplayed());
     }
 }

@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 import static APPS_COMMON.PageInitializers.PageInitializer.aaaPage;
+import static APPS_COMMON.PageInitializers.PageInitializer.aaaStepsImplementation;
 import static Hooks.Hooks.softAssert;
 
 public class AAAlSteps {
@@ -35,44 +36,27 @@ public class AAAlSteps {
 
     @Given("User can see Requested for dropdown")
     public void user_can_see_requested_for_dropdown() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      AAAStepsImplementation.verifyRequestedForDropdown();
     }
 
     @Given("User can see Requested for field is prepoluated")
     public void user_can_see_requested_for_field_is_prepoluated() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
-    @Given("User can see Requested for Email field")
-    public void user_can_see_requested_for_email_field() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        AAAStepsImplementation.verifyRequestedForFieldPopulated();
     }
 
     @Given("User can see Requested for Email is prepoluated")
     public void user_can_see_requested_for_email_is_prepoluated() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
-    @Given("User can see Requested for Organization Affiliation field")
-    public void user_can_see_requested_for_organization_affiliation_field() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      AAAStepsImplementation.verifyRequestedForEmailFieldPopulated();
     }
 
     @Given("User can see Requested for Organization Affiliation is prepopulated")
     public void user_can_see_requested_for_organization_affiliation_is_prepopulated() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        AAAStepsImplementation.verifyOrganizationAffiliationFieldPopulated();
     }
 
     @Given("User can see System Name dropdown")
     public void user_can_see_system_name_dropdown() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      AAAStepsImplementation.verifyRequestedForEmailFieldDisplayed();
     }
 
     @Given("User can see Applications Datasources dropdown")
