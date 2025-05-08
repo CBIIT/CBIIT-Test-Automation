@@ -31,6 +31,10 @@ public class AAAPage {
     @FindBy(xpath = "//title[contains(text(),'Add/Remove ServiceNow Permissions')]")
     public WebElement aaaPageTitle;
 
+    /**AAA Page Header*/
+    @FindBy(xpath = "//h1[.='Application Access and Approval']")
+    public WebElement aaaPageHeader;
+
     public AAAPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

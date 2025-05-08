@@ -34,7 +34,7 @@ public class AAAStepsImplementation extends PageInitializer {
         CommonUtils.clickOnElement(aaaPage.accountAdminAIMPortalView);
         CommonUtils.waitForClickability(aaaPage.accountAdministrationAIMPortalView);
         CommonUtils.clickOnElement(aaaPage.accountAdministrationAIMPortalView);
-        CommonUtils.waitForClickability(aaaPage.addRemovePermissionsPortalView;
+        CommonUtils.waitForClickability(aaaPage.addRemovePermissionsPortalView);
         CommonUtils.clickOnElement(aaaPage.addRemovePermissionsPortalView);
     }
 
