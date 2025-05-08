@@ -366,6 +366,25 @@ public class ESRApprovalStepsImplementation {
     }
 
     /**
+     * This method completes the ESR Board Closeout Approval as rejected for the ESR-I ticket
+     */
+    public static void esrBoardCloseoutRejectionForESRI() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (19)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[16]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("rejected");
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Approval was rejected");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the ESR Board Closeout Approval was rejected for the ESR-I ticket
+     */
+    public static void confirmESRBoardCloseoutApprovalWasRejectedForESRI() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Information Required for Closeout");
+    }
+
+    /**
      * This method confirms that the ESR Board Closeout Review approvals are completed
      */
     public static void confirmESRBoardCloseoutReviewApprovalsAreCompleted() {
