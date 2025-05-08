@@ -151,6 +151,16 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.esrBoardCloseoutNeedMoreInfoForESRQ();
     }
 
+    @And("the user is rejected from the ESR Board Closeout approvers with a rejection approval for ESR-Q")
+    public void the_user_is_rejected_from_the_esr_board_closeout_approvers_with_a_rejection_approval_for_esr_q() {
+        ESRApprovalStepsImplementation.esrBoardCloseoutRejectionForESRQ();
+    }
+
+    @Then("the user confirms the ESR Board Closeout Approval was rejected for the ESR-Q ticket")
+    public void the_user_confirms_the_esr_board_closeout_approval_was_rejected_for_the_esr_q_ticket() {
+        ESRApprovalStepsImplementation.confirmESRBoardCloseoutApprovalWasRejectedForESRQ();
+    }
+
     @And("the user is approved for ESR Board Closeout Review for ESR-I")
     public void the_user_is_approved_for_esr_board_closeout_review_for_esr_i() {
         ESRApprovalStepsImplementation.esrBoardCloseoutApprovalsForESRI();

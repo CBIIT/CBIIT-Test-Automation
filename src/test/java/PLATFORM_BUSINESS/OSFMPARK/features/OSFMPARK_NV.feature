@@ -8,7 +8,7 @@ Feature:  Parking Garage (SG Parking Permit (Non-NCI Staff Only)) Catalogue Item
     Then a group called "Parking Garage Request Report Users" is created
     And contains the following users:"Tsegaye Ayele","Melvin Pirkle","Shane Hebert","Delimo Samuel"
     And "Shane Hebert" is the Group Manager
-    And "Delimo Samuel" s the Group Co-Manager
+    And "Delimo Samuel" is the Group Co-Manager
 
   @OSFMPARK-9 @OSFMPARK-31 @Chaudhryma @Regression @playwright
   Scenario:Test Create a 'Fulfiller' User Group
@@ -17,4 +17,4 @@ Feature:  Parking Garage (SG Parking Permit (Non-NCI Staff Only)) Catalogue Item
     Then a Fulfillers group called "Parking Garage Request Fulfillers" is created
     And contains the following users:"Tsegaye Ayele","Melvin Pirkle","Shane Hebert","Delimo Samuel"
     And "Shane Hebert" is the Group Manager
-    And "Delimo Samuel" s the Group Co-Manager
+    And "Delimo Samuel" is the Group Co-Manager
