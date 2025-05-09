@@ -10,6 +10,7 @@ import io.cucumber.testng.CucumberOptions;
         , glue = {"PLATFORM_BUSINESS.ApplicationAccessAndApproval.steps", "Hooks"}
         , tags = "@Progression"
         , dryRun = false
+
 )
 
 public class AAAProgressionRunner extends AbstractTestNGCucumberTests {
