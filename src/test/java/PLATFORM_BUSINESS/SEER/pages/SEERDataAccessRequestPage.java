@@ -83,7 +83,7 @@ public class SEERDataAccessRequestPage extends CommonUtils {
 	public WebElement seerBestPracticesAssuranceForSecuringNCISupportedRegistryDataBody;
 
 	/** SEER Data Access Request: National Childhood Cancer Registry (NCCR) Research Data Use Agreement Heading */
-	@FindBy (xpath = "//h1//span[contains(text(),'National Childhood Cancer Registry (NCCR) Research')]")
+	@FindBy (xpath = "//label[normalize-space()='NCCR Research Data Use Agreement']")
 	public WebElement seerNationalChildhoodCancerRegistryNCCRResearchDataUseAgreementHeading;
 
 	/** SEER Data Access Request: National Childhood Cancer Registry (NCCR) Research Data Use Agreement Body */

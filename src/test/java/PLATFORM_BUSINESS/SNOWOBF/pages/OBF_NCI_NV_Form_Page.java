@@ -38,11 +38,6 @@ public class OBF_NCI_NV_Form_Page {
     public static String obf_App_NV_Search_Menu_Locator = ".sn-polaris-nav-body";
 
     /***
-     *  NATIVE VIEW PAGE FRAME LOCATOR
-     */
-    public static String nv_Page_Frame_Locator = "iframe[name=\"gsft_main\"]";
-
-    /***
      *  OBF NATIVE VIEW PAGE BREADCRUMB LOCATOR
      */
     public static String obf_NV_Page_BREADCRUMB_Locator = "#x_g_nci_obf_tickets_breadcrumb";
