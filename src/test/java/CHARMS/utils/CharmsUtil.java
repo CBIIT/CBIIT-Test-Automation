@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.apache.poi.ss.formula.functions.T;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -21,8 +20,6 @@ import org.testng.asserts.SoftAssert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.ExcelReader;
 import com.nci.automation.web.WebDriverUtils;
-
-import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByCssSelector;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 import static CHARMS.steps.RAS_Common_Methods.softAssertDropDownValueIsSelected;
 import static Hooks.Hooks.softAssert;
