@@ -348,6 +348,13 @@ public class TestProperties {
     public static String ACT24_PARTICIPANT_STAGE_URL = "https://act24-stage.cancer.gov/act24/participant/login";
     public static String ACT24_PARTICIPANT_URL;
 
+    /**
+     * MRS URLS
+     */
+    public static String MRS_TEST_URL = "https://mrs-test.nci.nih.gov/mrs/dashboard.action";
+    public static String MRS_STAGE_URL = "https://mrs-stage.nci.nih.gov/mrs/dashboard.action";
+    public static String MRS_URL;
+
     public static String getNativeViewSideDoorUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
@@ -934,5 +941,16 @@ public class TestProperties {
                 break;
         }
         return AAA_URL;
+    }
+        public static String getMRSUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                MRS_URL = MRS_STAGE_URL;
+                break;
+            case "test":
+                MRS_URL = MRS_TEST_URL;
+                break;
+        }
+        return MRS_URL;
     }
 }
