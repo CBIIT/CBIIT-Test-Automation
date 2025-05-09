@@ -1576,19 +1576,182 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
         softAssertDropDownValueIsSelected(ras_survey_native_view.participantKidneyIssuesIssueDropdown, "Other", "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Other\" section 'Issue' DROPDOWN * * * * *");
-        verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryPleaseSpecifyInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Other\" section 'Please specify' * * * * *");
-        verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn7Option4, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Other\" section 'Date of first symptom' * * * * *");
+        verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryPleaseSpecifyInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingKidneyProblemsOption4Other, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Other\" section 'Please specify' * * * * *");
+        verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Other\" section 'Date of first symptom' * * * * *");
         verifyCheckbox("true", ras_survey_native_view.participantKidneyIssuesHistoryDateAgeOfFirstSymptomsUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Other\" section 'Date/age of first symptoms unknown' CHECKBOX * * * * *");
         verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryTreatmentTextarea, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn7Option4, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Other\" section 'Treatment' * * * * *");
         verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryNameOfTreatingPhysicianTextarea, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn8Option4, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Other\" section 'Physician information' * * * * *");
         verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Other\" section 'Date of diagnosis' * * * * *");
         verifyCheckbox("true", ras_survey_native_view.participantKidneyIssuesHistoryDateAgeOfFirstDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Other\" section 'Date/age of diagnosis unknown' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Hydronephrosis");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.participantKidneyIssuesIssueDropdown, "Hydronephrosis", "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Hydronephrosis\" section 'Issue' DROPDOWN * * * * *");
+        verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Hydronephrosis\" section 'Date of first symptom' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantKidneyIssuesHistoryDateAgeOfFirstSymptomsUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Hydronephrosis\" section 'Date/age of first symptoms unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryTreatmentTextarea, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn7Option3, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Hydronephrosis\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryNameOfTreatingPhysicianTextarea, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn8Option3, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Hydronephrosis\" section 'Physician information' * * * * *");
+        verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Hydronephrosis\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantKidneyIssuesHistoryDateAgeOfFirstDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Hydronephrosis\" section 'Date/age of diagnosis unknown' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Underdeveloped kidney(renaly hopolasia) or missing kidney (renal agenesis)");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.participantKidneyIssuesIssueDropdown, "Underdeveloped kidney(renaly hopolasia) or missing kidney (renal agenesis)", "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Underdeveloped kidney\" section 'Issue' DROPDOWN * * * * *");
+        verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn1Option2, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Underdeveloped kidney\" section 'Date of first symptom' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantKidneyIssuesHistoryDateAgeOfFirstSymptomsUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Underdeveloped kidney\" section 'Date/age of first symptoms unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryTreatmentTextarea, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Underdeveloped kidney\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryNameOfTreatingPhysicianTextarea, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn8Option2, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Underdeveloped kidney\" section 'Physician information' * * * * *");
+        verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Underdeveloped kidney\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantKidneyIssuesHistoryDateAgeOfFirstDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Underdeveloped kidney\" section 'Date/age of diagnosis unknown' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+    }
+
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Spinal Information" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_spinal_information_section() {
+        clickTab("Spinal Information");
+        openRelatedListRecord("Kyphoscoliosis");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.participantSpinalInformationTypeOfCurvatureDropdown, "Kyphoscoliosis", "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Kyphoscoliosis\" section 'Type of curvature' DROPDOWN * * * * *");
+        verifyInputField(ras_survey_native_view.participantSpinalInformationDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Kyphoscoliosis\" section 'Date of first symptom' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantSpinalInformationDateAgeOfFirstSymptomsUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Kyphoscoliosis\" section 'Date/age of first symptoms unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.participantSpinalInformationTreatmentTextarea, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option3, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Kyphoscoliosis\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.participantSpinalInformationDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Kyphoscoliosis\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantSpinalInformationDateAgeOfFirstDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Kyphoscoliosis\" section 'Date/age of diagnosis unknown' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Kyphosis");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.participantSpinalInformationTypeOfCurvatureDropdown, "Kyphosis", "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Kyphosis\" section 'Type of curvature' DROPDOWN * * * * *");
+        verifyInputField(ras_survey_native_view.participantSpinalInformationDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option2, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Kyphosis\" section 'Date of first symptom' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantSpinalInformationDateAgeOfFirstSymptomsUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Kyphosis\" section 'Date/age of first symptoms unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.participantSpinalInformationTreatmentTextarea, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option2, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Kyphosis\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.participantSpinalInformationDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Kyphosis\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantSpinalInformationDateAgeOfFirstDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Kyphosis\" section 'Date/age of diagnosis unknown' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Scoliosis");
+        softAssertDropDownValueIsSelected(ras_survey_native_view.participantSpinalInformationTypeOfCurvatureDropdown, "Scoliosis", "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Scoliosis\" section 'Type of curvature' DROPDOWN * * * * *");
+        verifyInputField(ras_survey_native_view.participantSpinalInformationDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option1, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Scoliosis\" section 'Date of first symptom' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantSpinalInformationDateAgeOfFirstSymptomsUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Scoliosis\" section 'Date/age of first symptoms unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.participantSpinalInformationTreatmentTextarea, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option1, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Scoliosis\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.participantSpinalInformationDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Scoliosis\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantSpinalInformationDateAgeOfFirstDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Scoliosis\" section 'Date/age of diagnosis unknown' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        CommonUtils.hoverOverElement(locateByXpath("//tr[contains(@id,'row_x_naci_family_coho_rasopathy_iiq.x_naci_family_coho_participant_spinal_information.iiq')]//td//a[@aria-label='Preview record: Other']"));
+        JavascriptUtils.clickByJS(locateByXpath("//tr[contains(@id,'row_x_naci_family_coho_rasopathy_iiq.x_naci_family_coho_participant_spinal_information.iiq')]//td//a[@aria-label='Preview record: Other']"));
         CommonUtils.sleep(800);
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        softAssertDropDownValueIsSelected(ras_survey_native_view.participantSpinalInformationTypeOfCurvatureDropdown, "Other", "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Other\" section 'Type of curvature' DROPDOWN * * * * *");
+        verifyInputField(ras_survey_native_view.participantSpinalInformationPleaseSpecifyInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingSkinTumorsOthers, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Other\" section 'Please specify' * * * * *");
+        verifyInputField(ras_survey_native_view.participantSpinalInformationDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Other\" section 'Date of first symptom' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantSpinalInformationDateAgeOfFirstSymptomsUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Other\" section 'Date/age of first symptoms unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.participantSpinalInformationTreatmentTextarea, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option4, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Other\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.participantSpinalInformationDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Other\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantSpinalInformationDateAgeOfFirstDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Other\" section 'Date/age of diagnosis unknown' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+    }
 
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Joint Issues" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_joint_issues_section() {
+        clickTab("Joint Issues");
+        openRelatedListRecord("Hip dysplasia requiring surgery");
+        verifyInputField(ras_survey_native_view.participantJointIssuesInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithTheFollowingJointIssues4, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hip dysplasia requiring surgery\" section 'Issue' * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hip dysplasia requiring surgery\" section 'Date of first symptom' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantJointIssuesDateAgeOfFirstSymptomsUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hip dysplasia requiring surgery\" section 'Date/age of first symptoms unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesTreatmentTextarea, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn7Option4, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hip dysplasia requiring surgery\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hip dysplasia requiring surgery\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantJointIssuesDateAgeOfFirstDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hip dysplasia requiring surgery\" section 'Date/age of diagnosis unknown' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Pes planus/pes valgus (also known as flat feet)");
+        verifyInputField(ras_survey_native_view.participantJointIssuesInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithTheFollowingJointIssues2, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hip dysplasia requiring surgery\" section 'Issue' * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option2, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hip dysplasia requiring surgery\" section 'Date of first symptom' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantJointIssuesDateAgeOfFirstSymptomsUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hip dysplasia requiring surgery\" section 'Date/age of first symptoms unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesTreatmentTextarea, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn7Option2, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hip dysplasia requiring surgery\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hip dysplasia requiring surgery\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantJointIssuesDateAgeOfFirstDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hip dysplasia requiring surgery\" section 'Date/age of diagnosis unknown' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Achilles tendon contracture (tightness in the achilles tendon which runs from your heel to your ankle and causes pain or the foot to remain in an abnormal position)");
+        verifyInputField(ras_survey_native_view.participantJointIssuesInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithTheFollowingJointIssues3, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Achilles tendon contracture\" section 'Issue' * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Achilles tendon contracture\" section 'Date of first symptom' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantJointIssuesDateAgeOfFirstSymptomsUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Achilles tendon contracture\" section 'Date/age of first symptoms unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesTreatmentTextarea, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn7Option3, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Achilles tendon contracture\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Achilles tendon contracture\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantJointIssuesDateAgeOfFirstDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Achilles tendon contracture\" section 'Date/age of diagnosis unknown' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Hypermobility (joints that are more flexible than usual; sometimes referred to as \"double jointed\")");
+        verifyInputField(ras_survey_native_view.participantJointIssuesInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithTheFollowingJointIssues5, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hypermobility\" section 'Issue' * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option5, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hypermobility\" section 'Date of first symptom' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantJointIssuesDateAgeOfFirstSymptomsUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hypermobility\" section 'Date/age of first symptoms unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesTreatmentTextarea, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn7Option5, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hypermobility\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn4Option5, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hypermobility\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantJointIssuesDateAgeOfFirstDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hypermobility\" section 'Date/age of diagnosis unknown' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        openRelatedListRecord("Ulnar deviation (also called ulnar drift, when your fingers bend towards your pinky finger, but your wrist shifts towards your thumb. May cause swelling and difficulty gripping)");
+        verifyInputField(ras_survey_native_view.participantJointIssuesInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithTheFollowingJointIssues1, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Ulnar deviation\" section 'Issue' * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option1, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Ulnar deviation\" section 'Date of first symptom' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantJointIssuesDateAgeOfFirstSymptomsUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Ulnar deviation\" section 'Date/age of first symptoms unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesTreatmentTextarea, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn7Option1, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Ulnar deviation\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Ulnar deviation\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantJointIssuesDateAgeOfFirstDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Ulnar deviation\" section 'Date/age of diagnosis unknown' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        CommonUtils.hoverOverElement(locateByXpath("//tr[contains(@id,'row_x_naci_family_coho_rasopathy_iiq.x_naci_family_coho_participants_joint_issues.iiq')]//td//a[@aria-label='Preview record: Other (please specify)']"));
+        JavascriptUtils.clickByJS(locateByXpath("//tr[contains(@id,'row_x_naci_family_coho_rasopathy_iiq.x_naci_family_coho_participants_joint_issues.iiq')]//td//a[@aria-label='Preview record: Other (please specify)']"));
+        CommonUtils.sleep(800);
+        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
+        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
+        CommonUtils.sleep(800);
+        verifyInputField(ras_survey_native_view.participantJointIssuesInputField, "Other (please specify)", "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Other (please specify)\" section 'Issue' * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesPleaseSpecifyInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithTheFollowingJointIssues6Other, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Other (please specify)\" section 'Please specify' * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option6, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Other (please specify)\" section 'Date of first symptom' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantJointIssuesDateAgeOfFirstSymptomsUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Other (please specify)\" section 'Date/age of first symptoms unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesTreatmentTextarea, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn7Option6, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Other (please specify)\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn4Option6, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Other (please specify)\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantJointIssuesDateAgeOfFirstDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Other (please specify)\" section 'Date/age of diagnosis unknown' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+    }
 
+    /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Bleeding Issues" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_bleeding_issues_section() {
+        clickTab("Bleeding Issues");
+        openRelatedListRecord("Easy bruising (bruising with little or no trauma)");
+        verifyInputField(ras_survey_native_view.participantBleedingIssuesInputField, ras_Survey_TestDataManager.doYouHaveAnyOfTheFollowingIssuesWithBleedingOrBruising1, "* * * * * RAS SURVEY MISMATCH IN \"Bleeding Issues - Easy bruising\" section 'Issue' * * * * *");
+        verifyInputField(ras_survey_native_view.participantJointIssuesDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteBleedingBruisingIssuesListedColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Bleeding Issues - Easy bruising\" section 'Date of diagnosis' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantJointIssuesDateAgeOfFirstSymptomsUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Bleeding Issues - Easy bruising\" section 'Date/age of first symptoms unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.participantBleedingIssuesTreatmentTextarea, ras_Survey_TestDataManager.pleaseCompleteBleedingBruisingIssuesListedColumn7Option1, "* * * * * RAS SURVEY MISMATCH IN \"Bleeding Issues - Easy bruising\" section 'Treatment' * * * * *");
+        verifyInputField(ras_survey_native_view.participantBleedingIssuesNameOfTreatingHospitalOrPhysicianInputField, ras_Survey_TestDataManager.pleaseCompleteBleedingBruisingIssuesListedColumn8Option1, "* * * * * RAS SURVEY MISMATCH IN \"Bleeding Issues - Easy bruising\" section 'Name of treating hospital or physician' * * * * *");
+        verifyInputField(ras_survey_native_view.participantBleedingIssuesDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteBleedingBruisingIssuesListedColumn1Option1, "* * * * * RAS SURVEY MISMATCH IN \"Bleeding Issues - Easy bruising\" section 'Date of first symptom' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.participantJointIssuesDateAgeOfFirstDiagnosisUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Bleeding Issues - Easy bruising\" section 'Date/age of diagnosis unknown' CHECKBOX * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
     }
 
     /**
@@ -1597,33 +1760,36 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
     @Then("RAS Survey Data for Scenario Two is verified")
     public void ras_survey_Data_for_scenario_two_is_verified() {
         ras_Survey_TestDataManager.dataInitializerRasSurvey("RASSurveyScenario2");
-//        verify_ras_survey_data_scenarioTwo_demographics_section();
-//        verify_ras_survey_data_scenarioTwo_rasopathy_history_section();
-//        verify_ras_survey_data_scenarioTwo_birth_and_gestation_section();
-//        verify_ras_survey_data_scenarioTwo_growth_section();
-//        verify_ras_survey_data_scenarioTwo_development_section();
-//        verify_ras_survey_data_scenarioTwo_heart_section();
-//        verify_ras_survey_data_scenarioTwo_medical_history_section();
-//        verify_ras_survey_data_scenarioTwo_feeding_nutrition_gastro_symptoms_section();
-//        verify_ras_survey_data_scenarioTwo_breathing_section();
-//        verify_ras_survey_data_scenarioTwo_mouth_dental_section();
-//        verify_ras_survey_data_scenarioTwo_hair_and_skin_section();
-//        verify_ras_survey_data_scenarioTwo_skeletal_section();
-//        verify_ras_survey_data_scenarioTwo_hematology_oncology_and_immunology_section();
-//        verify_ras_survey_data_scenarioTwo_brain_neurology_section();
-//        verify_ras_survey_data_scenarioTwo_vision_and_hearing_section();
-//        verify_ras_survey_data_scenarioTwo_prenatal_test_history_section();
-//        verify_ras_survey_data_scenarioTwo_medications_taken_while_pregnant_section();
-//        verify_ras_survey_data_scenarioTwo_growth_hormone_details_section();
-//        verify_ras_survey_data_scenarioTwo_heart_symptoms_details_section();
-//        verify_ras_survey_data_scenarioTwo_heart_treatments_section();
-//        verify_ras_survey_data_scenarioTwo_participant_heart_issues_section();
-//        verify_ras_survey_data_scenarioTwo_biopsy_history_section();
-//        verify_ras_survey_data_scenarioTwo_allergy_histories_section();
-//        verify_ras_survey_data_scenarioTwo_hospital_history_section();
-//        verify_ras_survey_data_scenarioTwo_gastrointestinal_exams_section();
-//        verify_ras_survey_data_scenarioTwo_gi_symptoms_section();
-//        verify_ras_survey_data_scenarioTwo_lymphatic_system_issues_section();
+        verify_ras_survey_data_scenarioTwo_demographics_section();
+        verify_ras_survey_data_scenarioTwo_rasopathy_history_section();
+        verify_ras_survey_data_scenarioTwo_birth_and_gestation_section();
+        verify_ras_survey_data_scenarioTwo_growth_section();
+        verify_ras_survey_data_scenarioTwo_development_section();
+        verify_ras_survey_data_scenarioTwo_heart_section();
+        verify_ras_survey_data_scenarioTwo_medical_history_section();
+        verify_ras_survey_data_scenarioTwo_feeding_nutrition_gastro_symptoms_section();
+        verify_ras_survey_data_scenarioTwo_breathing_section();
+        verify_ras_survey_data_scenarioTwo_mouth_dental_section();
+        verify_ras_survey_data_scenarioTwo_hair_and_skin_section();
+        verify_ras_survey_data_scenarioTwo_skeletal_section();
+        verify_ras_survey_data_scenarioTwo_hematology_oncology_and_immunology_section();
+        verify_ras_survey_data_scenarioTwo_brain_neurology_section();
+        verify_ras_survey_data_scenarioTwo_vision_and_hearing_section();
+        verify_ras_survey_data_scenarioTwo_prenatal_test_history_section();
+        verify_ras_survey_data_scenarioTwo_medications_taken_while_pregnant_section();
+        verify_ras_survey_data_scenarioTwo_growth_hormone_details_section();
+        verify_ras_survey_data_scenarioTwo_heart_symptoms_details_section();
+        verify_ras_survey_data_scenarioTwo_heart_treatments_section();
+        verify_ras_survey_data_scenarioTwo_participant_heart_issues_section();
+        verify_ras_survey_data_scenarioTwo_biopsy_history_section();
+        verify_ras_survey_data_scenarioTwo_allergy_histories_section();
+        verify_ras_survey_data_scenarioTwo_hospital_history_section();
+        verify_ras_survey_data_scenarioTwo_gastrointestinal_exams_section();
+        verify_ras_survey_data_scenarioTwo_gi_symptoms_section();
+        verify_ras_survey_data_scenarioTwo_lymphatic_system_issues_section();
         verify_ras_survey_data_scenarioTwo_kidney_issues_section();
+        verify_ras_survey_data_scenarioTwo_spinal_information_section();
+        verify_ras_survey_data_scenarioTwo_joint_issues_section();
+        verify_ras_survey_data_scenarioTwo_bleeding_issues_section();
     }
 }

@@ -2659,6 +2659,164 @@ public class RAS_Survey_Native_View_Page {
      * ---------------------END OF Participant Kidney Issues SECTION---------------------
      */
 
+
+    /**
+     * ---------------------START OF Spinal Information SECTION---------------------
+     */
+
+    /**
+     * Type of curvature drop down
+     */
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_participant_spinal_information.type']")
+    public WebElement participantSpinalInformationTypeOfCurvatureDropdown;
+
+    /**
+     * Date of first symptom input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_spinal_information.date']")
+    public WebElement participantSpinalInformationDateOfFirstSymptomInputField;
+
+    /**
+     * Date/age of first symptoms unknown checkbox
+     */
+    @FindBy(xpath = "//input[@name='sys_original.x_naci_family_coho_participant_spinal_information.symtom_time_unknown']")
+    public WebElement participantSpinalInformationDateAgeOfFirstSymptomsUnknownCheckbox;
+
+    /**
+     * Treatment textarea
+     */
+    @FindBy(xpath = "//textarea[@name='x_naci_family_coho_participant_spinal_information.treatment']")
+    public WebElement participantSpinalInformationTreatmentTextarea;
+
+    /**
+     * Date of diagnosis input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_spinal_information.diagnosis_date']")
+    public WebElement participantSpinalInformationDateOfDiagnosisInputField;
+
+    /**
+     * Date/age of diagnosis unknown checkbox
+     */
+    @FindBy(xpath = "//input[@name='sys_original.x_naci_family_coho_participant_spinal_information.diagnosis_time_unknown']")
+    public WebElement participantSpinalInformationDateAgeOfFirstDiagnosisUnknownCheckbox;
+
+    /**
+     * Please specify input field
+     */
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_participant_spinal_information.type']")
+    public WebElement participantSpinalInformationPleaseSpecifyInputField;
+
+    /**
+     * ---------------------END OF Spinal Information SECTION---------------------
+     */
+
+    /**
+     * ---------------------START OF Joint Issues SECTION---------------------
+     */
+
+    /**
+     * Issue input field
+     */
+    @FindBy(xpath = "//input[@name='sys_display.x_naci_family_coho_participants_joint_issues.issue']")
+    public WebElement participantJointIssuesInputField;
+
+    /**
+     * Date of first symptom input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participants_joint_issues.symptom_date']")
+    public WebElement participantJointIssuesDateOfFirstSymptomInputField;
+
+    /**
+     * Date/age of first symptoms unknown checkbox
+     */
+    @FindBy(xpath = "//input[contains(@name,'sys_original.x_naci_family_coho_participants_joint_issues.symptom_time_unknown')]")
+    public WebElement participantJointIssuesDateAgeOfFirstSymptomsUnknownCheckbox;
+
+    /**
+     * Treatment textarea
+     */
+    @FindBy(xpath = "//textarea[@name='x_naci_family_coho_participants_joint_issues.treatment']")
+    public WebElement participantJointIssuesTreatmentTextarea;
+
+    /**
+     * Date of diagnosis input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participants_joint_issues.diagnosis_date']")
+    public WebElement participantJointIssuesDateOfDiagnosisInputField;
+
+    /**
+     * Date/age of diagnosis unknown checkbox
+     */
+    @FindBy(xpath = "//input[contains(@name,'sys_original.x_naci_family_coho_participants_joint_issues.diagnosis_time_unknown')]")
+    public WebElement participantJointIssuesDateAgeOfFirstDiagnosisUnknownCheckbox;
+
+    /**
+     * Please specify input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participants_joint_issues.please_specify']")
+    public WebElement participantJointIssuesPleaseSpecifyInputField;
+
+    /**
+     * ---------------------END OF Joint Issues SECTION---------------------
+     */
+
+    /**
+     * ---------------------START OF Bleeding Issues SECTION---------------------
+     */
+
+    /**
+     * Issue input field
+     */
+    @FindBy(xpath = "//input[@name='sys_display.x_naci_family_coho_participants_joint_issues.issue']")
+    public WebElement participantBleedingIssuesInputField;
+
+    /**
+     * Date of first symptom input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participants_joint_issues.symptom_date']")
+    public WebElement participantBleedingIssuesDateOfFirstSymptomInputField;
+
+    /**
+     * Date/age of first symptoms unknown checkbox
+     */
+    @FindBy(xpath = "//input[contains(@name,'sys_original.x_naci_family_coho_participants_joint_issues.symptom_time_unknown')]")
+    public WebElement participantBleedingIssuesDateAgeOfFirstSymptomsUnknownCheckbox;
+
+    /**
+     * Treatment textarea
+     */
+    @FindBy(xpath = "//textarea[@name='x_naci_family_coho_participants_joint_issues.treatment']")
+    public WebElement participantBleedingIssuesTreatmentTextarea;
+
+    /**
+     * Name of treating hospital or physician input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_bleeding_issues.physician_name']")
+    public WebElement participantBleedingIssuesNameOfTreatingHospitalOrPhysicianInputField;
+
+    /**
+     * Date of diagnosis input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participants_joint_issues.diagnosis_date']")
+    public WebElement participantBleedingIssuesDateOfDiagnosisInputField;
+
+    /**
+     * Date/age of diagnosis unknown checkbox
+     */
+    @FindBy(xpath = "//input[contains(@name,'sys_original.x_naci_family_coho_participants_joint_issues.diagnosis_time_unknown')]")
+    public WebElement participantBleedingIssuesDateAgeOfFirstDiagnosisUnknownCheckbox;
+
+    /**
+     * Please specify input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participants_joint_issues.please_specify']")
+    public WebElement participantBleedingIssuesPleaseSpecifyInputField;
+
+    /**
+     * ---------------------END OF Bleeding Issues SECTION---------------------
+     */
+
+
     /**
      * USE THIS METHOD TO DYNAMICALLY LOCATE TABS BY SPECIFYING EXACT TEXT
      *
