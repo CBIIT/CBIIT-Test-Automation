@@ -809,6 +809,12 @@ public class RAS_Survey_TestDataManager extends PageInitializer {
     public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option4;
     public String hasYourNeckBeenDescribedAsShortOrWebbed;
     public String haveYouEverBeenDiagnosedWithJointIssues;
+    public String haveYouEverBeenDiagnosedWithTheFollowingJointIssues1;
+    public String haveYouEverBeenDiagnosedWithTheFollowingJointIssues2;
+    public String haveYouEverBeenDiagnosedWithTheFollowingJointIssues3;
+    public String haveYouEverBeenDiagnosedWithTheFollowingJointIssues4;
+    public String haveYouEverBeenDiagnosedWithTheFollowingJointIssues5;
+    public String haveYouEverBeenDiagnosedWithTheFollowingJointIssues6;
     public String haveYouEverBeenDiagnosedWithTheFollowingJointIssues6Other;
     public String pleaseCompleteTheJointIssuesListedColumn1Option1;
     public String pleaseCompleteTheJointIssuesListedColumn1Option2;
@@ -2314,6 +2320,12 @@ public class RAS_Survey_TestDataManager extends PageInitializer {
             pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_7_OPTION_4);
             hasYourNeckBeenDescribedAsShortOrWebbed = testDataRasSurvey.get(ras_Survey_Constants.HAS_YOUR_NECK_BEEN_DESCRIBED_AS_SHORT_OR_WEBBED);
             haveYouEverBeenDiagnosedWithJointIssues = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_JOINT_ISSUES);
+            haveYouEverBeenDiagnosedWithTheFollowingJointIssues1 = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_JOINT_ISSUES_1);
+            haveYouEverBeenDiagnosedWithTheFollowingJointIssues2 = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_JOINT_ISSUES_2);
+            haveYouEverBeenDiagnosedWithTheFollowingJointIssues3 = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_JOINT_ISSUES_3);
+            haveYouEverBeenDiagnosedWithTheFollowingJointIssues4 = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_JOINT_ISSUES_4);
+            haveYouEverBeenDiagnosedWithTheFollowingJointIssues5 = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_JOINT_ISSUES_5);
+            haveYouEverBeenDiagnosedWithTheFollowingJointIssues6 = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_JOINT_ISSUES_6);
             haveYouEverBeenDiagnosedWithTheFollowingJointIssues6Other = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_JOINT_ISSUES_6_OTHER);
             pleaseCompleteTheJointIssuesListedColumn1Option1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_1_OPTION_1);
             pleaseCompleteTheJointIssuesListedColumn1Option2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_1_OPTION_2);
