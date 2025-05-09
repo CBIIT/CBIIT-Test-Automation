@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.formula.functions.T;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -20,6 +21,8 @@ import org.testng.asserts.SoftAssert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.ExcelReader;
 import com.nci.automation.web.WebDriverUtils;
+
+import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByCssSelector;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 import static CHARMS.steps.RAS_Common_Methods.softAssertDropDownValueIsSelected;
 import static Hooks.Hooks.softAssert;
@@ -490,12 +493,20 @@ public class CharmsUtil {
      * @param recordName the name of the record to be opened in the related list
      */
     public static void openRelatedListRecord(String recordName) {
-        CommonUtils.hoverOverElement(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[contains(@aria-label, '" + recordName + "')]"));
-        JavascriptUtils.clickByJS(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[contains(@aria-label, '" + recordName + "')]"));
-        CommonUtils.sleep(800);
-        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
-        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
-        CommonUtils.sleep(800);
+        try {
+            CommonUtils.hoverOverElement(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[contains(@aria-label, '" + recordName + "')]"));
+            JavascriptUtils.clickByJS(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[contains(@aria-label, '" + recordName + "')]"));
+        } catch (Exception e) {
+            locateByXpath("//span[@class='vcr_controls_bottom']//button[@aria-label='Next page' and @name='vcr_next' and not(contains(@class, 'disabled'))]").click();
+            CommonUtils.sleep(800);
+            CommonUtils.hoverOverElement(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[contains(@aria-label, '" + recordName + "')]"));
+            JavascriptUtils.clickByJS(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[contains(@aria-label, '" + recordName + "')]"));
+        } finally {
+            CommonUtils.sleep(800);
+            CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
+            JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
+            CommonUtils.sleep(800);
+        }
     }
 
     /**
