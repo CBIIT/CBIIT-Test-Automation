@@ -8,7 +8,7 @@ Feature: AAA flow
     And User navigates to AAA form via menu
     Then Submitter User can verify they are on the AAA form
 
-  @selenium @Alena @Regression @AAA-1 @Progression
+  @selenium @Alena @Regression @AAA-1
   Scenario: Validate AAA form fields in portal view
     Given  Submitter User logged in to AAA Portal
     And User navigates to AAA form via menu
