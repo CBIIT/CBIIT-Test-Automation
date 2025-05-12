@@ -55,21 +55,21 @@ public class AAAStepsImplementation extends PageInitializer {
     /**
      *Verify requested for field is prepopulated
      */
-    public static void verifyRequestedForFieldPopulated() {
+    public static void verifyRequestedForFieldPrepopulated() {
         softAssert.assertNotNull(aaaPage.requestedForField.getText());
     }
 
     /**
      *Verify requested for email field is prepopulated
      */
-    public static void verifyRequestedForEmailFieldPopulated() {
+    public static void verifyRequestedForEmailFieldPrepopulated() {
         softAssert.assertNotNull(aaaPage.requestedForEmailField.getText());
     }
 
     /**
-     *Verify requested for email field is prepopulated
+     *Verify organization affiliation field is prepopulated
      */
-    public static void verifyOrganizationAffiliationFieldPopulated() {
+    public static void verifyOrganizationAffiliationFieldPrepopulated() {
         softAssert.assertNotNull(aaaPage.organizationAffiliationField.getText());
     }
 
@@ -130,7 +130,7 @@ public class AAAStepsImplementation extends PageInitializer {
     }
 
     /**
-     *Verify 2nd Level Federal Supervisordropdown is displayed
+     *Verify 2nd Level Federal Supervisor dropdown is displayed
      */
     public static void verifySecondLevelSupervisorDropdownDisplayed() {
         softAssert.assertTrue(aaaPage.secondLevelSupervisorDropdown.isDisplayed());

@@ -1,12 +1,9 @@
 package PLATFORM_BUSINESS.ApplicationAccessAndApproval.steps;
 
-import APPS_COMMON.PageInitializers.PageInitializer;
 import PLATFORM_BUSINESS.ApplicationAccessAndApproval.stepsImplementation.AAAStepsImplementation;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-
 import static APPS_COMMON.PageInitializers.PageInitializer.aaaPage;
-import static APPS_COMMON.PageInitializers.PageInitializer.aaaStepsImplementation;
 import static Hooks.Hooks.softAssert;
 
 public class AAAlSteps {
@@ -39,19 +36,19 @@ public class AAAlSteps {
       AAAStepsImplementation.verifyRequestedForDropdown();
     }
 
-    @Given("User can see Requested for field is prepoluated")
-    public void user_can_see_requested_for_field_is_prepoluated() {
-        AAAStepsImplementation.verifyRequestedForFieldPopulated();
+    @Given("User can see Requested for field is prepopulated")
+    public void user_can_see_requested_for_field_is_prepopulated() {
+        AAAStepsImplementation.verifyRequestedForFieldPrepopulated();
     }
 
-    @Given("User can see Requested for Email is prepoluated")
-    public void user_can_see_requested_for_email_is_prepoluated() {
-      AAAStepsImplementation.verifyRequestedForEmailFieldPopulated();
+    @Given("User can see Requested for Email is prepopulated")
+    public void user_can_see_requested_for_email_is_prepopulated() {
+      AAAStepsImplementation.verifyRequestedForEmailFieldPrepopulated();
     }
 
     @Given("User can see Requested for Organization Affiliation is prepopulated")
     public void user_can_see_requested_for_organization_affiliation_is_prepopulated() {
-        AAAStepsImplementation.verifyOrganizationAffiliationFieldPopulated();
+        AAAStepsImplementation.verifyOrganizationAffiliationFieldPrepopulated();
     }
 
     @Given("User can see System Name dropdown")

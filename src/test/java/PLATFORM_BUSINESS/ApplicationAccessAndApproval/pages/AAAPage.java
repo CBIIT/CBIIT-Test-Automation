@@ -79,7 +79,7 @@ public class AAAPage {
     @FindBy(xpath = "//textarea[@id='sp_formfield_business_justification']")
     public WebElement businessJustificationField;
 
-    /**Federal Supervisor drpd*/
+    /**Federal Supervisor Dropdown*/
     @FindBy(xpath = "//div[@id='s2id_sp_formfield_federal_supervisor']")
     public WebElement federalSupervisorDropdown;
 
