@@ -49,14 +49,14 @@ public class mSigPortalHome_Steps {
         mSigPortalHomeStepsImpl.verifyCatalogueNavBarSelection();
     }
 
-    @When("User clicks on the visualisation card on the mSigPortal website")
-    public void user_clicks_on_the_visualisation_card_on_the_m_sig_portal_website() {
-        PlaywrightUtils.page.locator(mSigPortalHomePage.visualisationCard).click();
+    @When("User clicks on the visualization card on the mSigPortal website")
+    public void user_clicks_on_the_visualization_card_on_the_m_sig_portal_website() {
+        PlaywrightUtils.page.locator(mSigPortalHomePage.visualizationCard).click();
     }
 
-    @Then("Validate User is on the visualisation navbar on the mSigPortal website")
-    public void validate_user_is_on_the_visualisation_navbar_on_the_m_sig_portal_website() {
-        mSigPortalHomeStepsImpl.verifyVisualisationNavBarSelection();
+    @Then("Validate User is on the visualization navbar on the mSigPortal website")
+    public void validate_user_is_on_the_visualization_navbar_on_the_m_sig_portal_website() {
+        mSigPortalHomeStepsImpl.verifyVisualizationNavBarSelection();
     }
 
     @When("User clicks on the exploration card on the mSigPortal website")

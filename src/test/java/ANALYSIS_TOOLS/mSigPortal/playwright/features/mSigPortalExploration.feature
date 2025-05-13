@@ -5,4 +5,4 @@ Feature:These are the scenarios for the Exploration tab of mSigPortal website
     Given User navigates to the mSigPortal Website
     When User clicks on the exploration card on the mSigPortal website
     And User clicks on the submit button in the exploration tab
-    Then User click on the reset button in the exploration tab
+    Then User clicks on the reset button in the exploration tab

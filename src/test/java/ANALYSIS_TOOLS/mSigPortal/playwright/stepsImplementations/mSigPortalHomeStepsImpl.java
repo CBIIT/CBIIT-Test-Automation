@@ -41,7 +41,7 @@ public class mSigPortalHomeStepsImpl {
     /**
      * VERIFYING VISUALISATION NAVBAR SELECTION
      */
-    public static void verifyVisualisationNavBarSelection() {
+    public static void verifyVisualizationNavBarSelection() {
         Locator visualisationNavItem = PlaywrightUtils.page.locator("//div[@class='d-inline-block']//a[@id='Visualization-navbar']");
         boolean isActive = visualisationNavItem.getAttribute("class").contains("active-navlinks");
         softAssert.assertTrue(isActive);

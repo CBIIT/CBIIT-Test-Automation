@@ -5,7 +5,7 @@ public class mSigPortalHomePage {
     /***
      * MSIG PORTAL NAVBAR LOCATOR
      */
-    public static String mSigPortalHomeNavBar = "//div[@class='mx-auto']//div[@class='mx-auto']//a[@id='Home-navbar']";
+    public static String mSigPortalHomeNavBar = "//div[@class='mx-auto']//a[@id='Home-navbar']";
 
     /***
      * LEARN MORE ABOUT MSIGPORTAL BUTTON LOCATOR
@@ -20,7 +20,7 @@ public class mSigPortalHomePage {
     /***
      * VISUALISATION CARD
      */
-    public static String visualisationCard = "//div[contains(@class,'d-none d-lg-block')]//div[@id='Visualization']//div[contains(@class,'mb-3')]//span[1]";
+    public static String visualizationCard = "//div[contains(@class,'d-none d-lg-block')]//div[@id='Visualization']//div[contains(@class,'mb-3')]//span[1]";
 
     /***
      * EXPLORATION CARD

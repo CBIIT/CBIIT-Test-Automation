@@ -17,8 +17,8 @@ Feature:These are the scenarios for the mSigPortal Home application
     Given User navigates to the mSigPortal Website
     When User clicks on the catalogue card on the mSigPortal website
     Then Validate User is on the catalogue navbar on the mSigPortal website
-    When User clicks on the visualisation card on the mSigPortal website
-    Then Validate User is on the visualisation navbar on the mSigPortal website
+    When User clicks on the visualization card on the mSigPortal website
+    Then Validate User is on the visualization navbar on the mSigPortal website
     When User clicks on the exploration card on the mSigPortal website
     Then Validate User is on the exploration navbar on the mSigPortal website
     When User clicks on the association card on the mSigPortal website
