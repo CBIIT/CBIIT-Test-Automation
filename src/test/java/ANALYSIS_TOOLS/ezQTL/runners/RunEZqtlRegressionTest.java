@@ -10,9 +10,9 @@ import io.cucumber.testng.CucumberOptions;
         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/java/ANALYSIS_TOOLS/ezQTL/features",
         glue = {"ANALYSIS_TOOLS.ezQTL.steps", "Hooks"},
-        tags = "@Smoke",
+        tags = "@Regression",
         dryRun = false
 )
 
-public class RunEZqtlSmokeTest extends AbstractTestNGCucumberTests {
+public class RunEZqtlRegressionTest extends AbstractTestNGCucumberTests {
 }
