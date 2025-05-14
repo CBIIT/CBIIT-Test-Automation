@@ -5,7 +5,7 @@ import com.nci.automation.web.PlaywrightUtils;
 public class mSigPortalExplorationStepsImpl {
 
     /**
-     * CLICKING ON THE RESET BUTTON
+     * CLICKS ON THE NAVIGATION BAR AND THEN CLICKS ON THE RESET BUTTOn
      */
     public static void clickResetButton() {
         PlaywrightUtils.page.locator("//i[contains(@class,'fa fa-lg')]").click();

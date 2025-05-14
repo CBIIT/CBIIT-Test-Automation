@@ -17,21 +17,29 @@ public class mSigPortalVisualization_Steps {
         PlaywrightUtils.page.locator("//div[4]//div[2]//button[1]").click();
     }
 
+    /**
+     * CLICKS ON THE RESET BUTTON
+     */
     @Then("User click on the reset button in the visualization tab")
     public void user_click_on_the_reset_button_in_the_visualization_tab() {
         mSigPortalVisualizationStepsImpl.clickResetButton();
     }
 
     /**
-     * NAVIGATES TO THE TAB
+     * NAVIGATES TO THE MUTATIONAL PATTERN ENRICHMENT ANALYSIS TAB
      *
-     * @param  string navigates tab
+     * @param  string navigates enrichment analysis tab
      */
     @When("navigates to the {string} tab")
-    public void navigates_to_the_tab(String string) {
-        PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(string)).click();
+    public void navigates_to_the_tab(String enrichmentAnalysisTab) {
+        PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(enrichmentAnalysisTab)).click();
     }
 
+    /**
+     * CALCULATING WITH MINIMAL PROPORTIONS
+     *
+     * @param  string value on which minimal proportions calculated
+     */
     @When("calculates with {string} minimal proportions")
     public void calculates_with_minimal_proportions(String string) {
         mSigPortalVisualizationStepsImpl.calculatesWithMinimalProportions(string);
@@ -47,21 +55,33 @@ public class mSigPortalVisualization_Steps {
         mSigPortalVisualizationStepsImpl.clickDownloadPlotlyData();
     }
 
+    /**
+     * VALIDATING THE ERROR MESSAGE
+     *
+     * @param  string validating the error message that enter a value between 0 and 1
+     */
     @Then("Validate the error message {string}")
     public void validate_the_error_message(String string) {
         mSigPortalVisualizationStepsImpl.validateErrorMessage(string);
     }
 
     /**
-     * CLICKS ON THE TAB
+     * MOVES TO THE MUTATIONAL PROFILE TAB
      *
-     * @param  string moves to tab
+     * @param  string moves to the mutational profile tab
      */
     @When("User moves to the {string} tab")
-    public void user_moves_to_the_tab(String string) {
-        PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(string)).click();
+    public void user_moves_to_the_tab(String mutationalProfileTab) {
+        PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(mutationalProfileTab)).click();
     }
 
+    /**
+     * VERIFYING THE PROFILE TYPE AND MATRIX SIZE
+     *
+     * @param  string selects the profile type
+     * @param string2 selects the matrix size
+     *
+     */
     @Then("verifies that profile type is selected {string} and matrix size as {string}")
     public void verifies_that_profile_type_is_selected_and_matrix_size_as(String string, String string2) {
         mSigPortalVisualizationStepsImpl.verifySelectedValueInVisualization(string, string2);

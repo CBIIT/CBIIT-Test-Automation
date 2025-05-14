@@ -39,11 +39,11 @@ public class mSigPortalHomeStepsImpl {
     }
 
     /**
-     * VERIFYING VISUALISATION NAVBAR SELECTION
+     * VERIFYING VISUALIZATION NAVBAR SELECTION
      */
     public static void verifyVisualizationNavBarSelection() {
-        Locator visualisationNavItem = PlaywrightUtils.page.locator("//div[@class='d-inline-block']//a[@id='Visualization-navbar']");
-        boolean isActive = visualisationNavItem.getAttribute("class").contains("active-navlinks");
+        Locator visualizationNavItem = PlaywrightUtils.page.locator("//div[@class='d-inline-block']//a[@id='Visualization-navbar']");
+        boolean isActive = visualizationNavItem.getAttribute("class").contains("active-navlinks");
         softAssert.assertTrue(isActive);
         PlaywrightUtils.page.locator("//div[contains(@class,'d-inline-block')]//a[@id='Home-navbar']").click();
     }
@@ -52,8 +52,8 @@ public class mSigPortalHomeStepsImpl {
      * VERIFYING EXPLORATION NAVBAR SELECTION
      */
     public static void verifyExplorationNavBarSelection() {
-        Locator visualisationNavItem = PlaywrightUtils.page.locator("//div[@class='d-inline-block']//a[@id='Exploration-navbar']");
-        boolean isActive = visualisationNavItem.getAttribute("class").contains("active-navlinks");
+        Locator explorationNavItem = PlaywrightUtils.page.locator("//div[@class='d-inline-block']//a[@id='Exploration-navbar']");
+        boolean isActive = explorationNavItem.getAttribute("class").contains("active-navlinks");
         softAssert.assertTrue(isActive);
         PlaywrightUtils.page.locator("//div[contains(@class,'d-inline-block')]//a[@id='Home-navbar']").click();
     }
@@ -62,8 +62,8 @@ public class mSigPortalHomeStepsImpl {
      * VERIFYING ASSOCIATION NAVBAR SELECTION
      */
     public static void verifyAssociationNavBarSelection() {
-        Locator visualisationNavItem = PlaywrightUtils.page.locator("//div[@class='d-inline-block']//a[@id='Association-navbar']");
-        boolean isActive = visualisationNavItem.getAttribute("class").contains("active-navlinks");
+        Locator associationNavItem = PlaywrightUtils.page.locator("//div[@class='d-inline-block']//a[@id='Association-navbar']");
+        boolean isActive = associationNavItem.getAttribute("class").contains("active-navlinks");
         softAssert.assertTrue(isActive);
         PlaywrightUtils.page.locator("//div[contains(@class,'d-inline-block')]//a[@id='Home-navbar']").click();
     }
