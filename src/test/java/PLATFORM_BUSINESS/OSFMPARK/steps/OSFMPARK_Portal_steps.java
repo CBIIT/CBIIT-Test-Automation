@@ -43,25 +43,28 @@ public class OSFMPARK_Portal_steps {
         CucumberLogUtils.playwrightScreenshot(page);
         page.locator("//span[contains(text(),'Facilities')]").click();
         assertThat(page.getByLabel("Page breadcrumbs").getByRole(AriaRole.LIST)).containsText("Home Enterprise IT Services Facilities");
+        assertThat(page.getByRole(AriaRole.MAIN).locator("a").filter(new Locator.FilterOptions().setHasText("SG Parking Registration (Non-"))).isVisible();
+        assertThat(page.getByRole(AriaRole.MAIN)).containsText("SG Parking Registration (Non-NCI Staff Only)");
+        page.getByRole(AriaRole.MAIN).locator("a").filter(new Locator.FilterOptions().setHasText("SG Parking Registration (Non-")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
      * Verifies that the specified item is available on the NCI ServiceNow Portal via the provided breadcrumb path.
      *
-     * @param name_SG_Parking_Permit_Non_NCI_Staff_Only The name of the item to verify.
+     * @param name_SG_Parking_Register_Non_NCI_Staff_Only The name of the item to verify.
      */
     @Then("it is available on the NCI ServiceNow Portal via the following breadcrumb path: Services >> Enterprise IT Services >> Facilities >> {string}")
-    public void it_is_available_on_the_nci_service_now_portal_via_the_following_breadcrumb_path_services_enterprise_it_services_facilities(String name_SG_Parking_Permit_Non_NCI_Staff_Only) {
-        page.locator("//h4[normalize-space()='SG Parking Permit (Non-NCI Staff Only)']").scrollIntoViewIfNeeded();
-        assertThat(page.getByRole(AriaRole.MAIN).locator("a").filter(new Locator.FilterOptions().setHasText("SG Parking Permit (Non-NCI"))).isVisible();
+    public void it_is_available_on_the_nci_service_now_portal_via_the_following_breadcrumb_path_services_enterprise_it_services_facilities(String name_SG_Parking_Register_Non_NCI_Staff_Only) {
+        page.locator("//h1[normalize-space()='SG Parking Registration (Non-NCI Staff Only)']").scrollIntoViewIfNeeded();
+        assertThat(page.locator("#catItemTop").getByRole(AriaRole.HEADING, new Locator.GetByRoleOptions().setName("SG Parking Registration (Non-"))).isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
-        assertThat(page.getByRole(AriaRole.MAIN)).containsText(name_SG_Parking_Permit_Non_NCI_Staff_Only);
-        page.locator("//h4[normalize-space()='SG Parking Permit (Non-NCI Staff Only)']").click();
+        assertThat(page.getByRole(AriaRole.MAIN)).containsText(name_SG_Parking_Register_Non_NCI_Staff_Only);
+        page.locator("//h1[normalize-space()='SG Parking Registration (Non-NCI Staff Only)']").click();
         CucumberLogUtils.playwrightScreenshot(page);
-        assertThat(page.locator("#catItemTop").getByRole(AriaRole.HEADING, new Locator.GetByRoleOptions().setName("SG Parking Permit (Non-NCI"))).isVisible();
-        assertThat(page.getByLabel("Page breadcrumbs").getByRole(AriaRole.LIST)).containsText("Home Enterprise IT Services Facilities SG Parking Permit (Non-NCI Staff Only)");
-        assertThat(page.locator("//h1[normalize-space()='SG Parking Permit (Non-NCI Staff Only)']")).containsText(name_SG_Parking_Permit_Non_NCI_Staff_Only);
+        assertThat(page.locator("#catItemTop").getByRole(AriaRole.HEADING, new Locator.GetByRoleOptions().setName("SG Parking Registration (Non-"))).isVisible();
+        assertThat(page.getByLabel("Page breadcrumbs").getByRole(AriaRole.LIST)).containsText("Home Enterprise IT Services Facilities SG Parking Registration (Non-NCI Staff Only)");
+        assertThat(page.locator("//h1[normalize-space()='SG Parking Registration (Non-NCI Staff Only)']")).containsText(name_SG_Parking_Register_Non_NCI_Staff_Only);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -73,8 +76,8 @@ public class OSFMPARK_Portal_steps {
      */
     @Then("verify that {string} name does not exist on the NCI ServiceNow Portal via the following breadcrumb path: Services >> Enterprise IT Services >> Facilities")
     public void verify_that_name_does_not_exist_on_the_nci_service_now_portal_via_the_following_breadcrumb_path_services_enterprise_it_services_facilities(String parking_Garage_Access_Request) {
-        page.locator("//h4[normalize-space()='SG Parking Permit (Non-NCI Staff Only)']").scrollIntoViewIfNeeded();
-        assertThat(page.getByRole(AriaRole.MAIN).locator("a").filter(new Locator.FilterOptions().setHasText("SG Parking Permit (Non-NCI"))).isVisible();
+        page.locator("//h1[normalize-space()='SG Parking Registration (Non-NCI Staff Only)']").scrollIntoViewIfNeeded();
+        assertThat(page.locator("#catItemTop")).containsText("SG Parking Registration (Non-NCI Staff Only)");
         CucumberLogUtils.playwrightScreenshot(page);
 
         CucumberLogUtils.scenario.log("---- VERIFYING THAT THE OLD NAME 'PARKING GARAGE ACCESS REQUEST' DOES NOT EXIST. ----");
@@ -82,11 +85,11 @@ public class OSFMPARK_Portal_steps {
         Assert.assertEquals(oldNameParkingGarageAccessNOYExists, 0, "-- OLD NAME 'PARKING GARAGE ACCESS REQUEST' SHOULD NOT EXIST --");
 
         CucumberLogUtils.scenario.log("---- VERIFYING THAT THE NEW NAME 'SG PARKING PERMIT (NON-NCI STAFF ONLY)' EXISTS.----");
-        int newNameExists = page.locator("//h4[normalize-space()='SG Parking Permit (Non-NCI Staff Only)']").count();
+        int newNameExists = page.locator("//h1[normalize-space()='SG Parking Registration (Non-NCI Staff Only)']").count();
         Assert.assertEquals(newNameExists, 1, "-- NEW NAME 'SG PARKING PERMIT (NON-NCI STAFF ONLY)' SHOULD EXIST --");
 
         CucumberLogUtils.scenario.log("---- VERIFYING BY THE ASSERTION FALSE THAT THE OLD NAME 'PARKING GARAGE ACCESS REQUEST' IS RENAMED TO 'SG PARKING PERMIT (NON-NCI STAFF ONLY)' AND DOES NOT CONTAIN THE OLD NAME.----");
-        String renamedFormText = page.locator("//h4[normalize-space()='SG Parking Permit (Non-NCI Staff Only)']").innerText();
+        String renamedFormText = page.locator("//h1[normalize-space()='SG Parking Registration (Non-NCI Staff Only)']").innerText();
         Assert.assertFalse(renamedFormText.contains(parking_Garage_Access_Request), "-- TEXT 'PARKING GARAGE ACCESS REQUEST' SHOULD NOT BE PRESENT. --");
         System.out.println("Renamed text: " + renamedFormText);  //PRINT THE RENAMED APP TEXT TO THE CONSOLE
         CucumberLogUtils.playwrightScreenshot(page);
@@ -101,11 +104,64 @@ public class OSFMPARK_Portal_steps {
     @Then("it has renamed to {string}")
     public void it_has_renamed_to(String name_SG_Parking_Permit_Non_NCI_Staff_Only) {
         assertThat(page.getByRole(AriaRole.MAIN)).containsText(name_SG_Parking_Permit_Non_NCI_Staff_Only);
-        page.locator("//h4[normalize-space()='SG Parking Permit (Non-NCI Staff Only)']").click();
+        page.locator("//h1[normalize-space()='SG Parking Registration (Non-NCI Staff Only)']").click();
         CucumberLogUtils.playwrightScreenshot(page);
-        assertThat(page.locator("#catItemTop").getByRole(AriaRole.HEADING, new Locator.GetByRoleOptions().setName("SG Parking Permit (Non-NCI"))).isVisible();
-        assertThat(page.getByLabel("Page breadcrumbs").getByRole(AriaRole.LIST)).containsText("Home Enterprise IT Services Facilities SG Parking Permit (Non-NCI Staff Only)");
-        assertThat(page.locator("//h1[normalize-space()='SG Parking Permit (Non-NCI Staff Only)']")).containsText(name_SG_Parking_Permit_Non_NCI_Staff_Only);
+        assertThat(page.locator("#catItemTop").getByRole(AriaRole.HEADING, new Locator.GetByRoleOptions().setName("SG Parking Registration (Non-"))).isVisible();
+        assertThat(page.getByLabel("Page breadcrumbs").getByRole(AriaRole.LIST)).containsText("Home Enterprise IT Services Facilities SG Parking Registration (Non-NCI Staff Only)");
+        assertThat(page.locator("//h1[normalize-space()='SG Parking Registration (Non-NCI Staff Only)']")).containsText(name_SG_Parking_Permit_Non_NCI_Staff_Only);
         CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * A Non-NCI user access to the SG Parking Registration (Non-NCI Only) catalog item.
+     *
+     * @param aliyaTaranath The name of the Non-NCI user to impersonate while accessing the catalog item.
+     */
+    @Given("a Non-NCI user {string} access the SG Parking Registration \\(Non-NCI Only) catalog item")
+    public void a_non_nci_user_access_the_sg_parking_registration_non_nci_only_catalog_item(String aliyaTaranath) {
+        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(aliyaTaranath);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Navigates the user to the portal of the SG Parking Registration (Non-NCI Only) catalog item.
+     *
+     */
+    @When("the user is on the portal of the SG Parking Registration \\(Non-NCI Only) catalog item")
+    public void the_user_is_on_the_portal_of_the_sg_parking_registration_non_nci_only_catalog_item() {
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Services").setExact(true))).isVisible();
+        assertThat(page.locator("#fresponsive")).containsText("Services");
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Services").setExact(true)).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Enterprise IT Services")).first().click();
+        page.locator("//span[contains(text(),'Facilities')]").scrollIntoViewIfNeeded();
+        assertThat(page.locator("//span[contains(text(),'Facilities')]")).isVisible();
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.locator("//span[contains(text(),'Facilities')]").click();
+        assertThat(page.getByLabel("Page breadcrumbs").getByRole(AriaRole.LIST)).containsText("Home Enterprise IT Services Facilities");
+        assertThat(page.getByRole(AriaRole.MAIN).locator("a").filter(new Locator.FilterOptions().setHasText("SG Parking Registration (Non-"))).isVisible();
+        assertThat(page.getByRole(AriaRole.MAIN)).containsText("SG Parking Registration (Non-NCI Staff Only)");
+        page.getByRole(AriaRole.MAIN).locator("a").filter(new Locator.FilterOptions().setHasText("SG Parking Registration (Non-")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Verifies that the specified verbiage appears just below the catalog name header on the page.
+     * This method checks the presence of the expected text
+     * and performs assertions to confirm its visibility and accuracy.
+     *
+     * @param expectedText The expected verbiage string that should appear below the catalog name header.
+     */
+    @Then("the user verifies that the verbiage {string} should appear just below the catalog name Header")
+    public void the_user_verifies_that_the_verbiage_should_appear_just_below_the_catalog_name_header(String expectedText) {
+        page.locator("//h1[normalize-space()='SG Parking Registration (Non-NCI Staff Only)']").scrollIntoViewIfNeeded();
+        assertThat(page.locator("#catItemTop")).containsText("SG Parking Registration (Non-NCI Staff Only)");
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.getByRole(AriaRole.MAIN)).containsText(expectedText);
+        CucumberLogUtils.playwrightScreenshot(page);
+
+        CucumberLogUtils.scenario.log("---- VERIFYING THAT THE VERBIAGE DISPLAYS ON TOP OF THE 'SG PARKING PERMIT (NON-NCI STAFF ONLY)' CATALOG ITEM ----");
+        String actualText = page.locator("//div[@class='sc-item-description ng-binding']").textContent();
+        Assert.assertEquals(actualText, expectedText, "-- THE VERBIAGE DISPLAYS ON TOP OF THE 'SG PARKING PERMIT (NON-NCI STAFF ONLY)' CATALOG ITEM  --");
     }
 }

@@ -114,6 +114,38 @@ public class OSFMPARK_NV_Steps {
     }
 
     /**
+     * Verifies that the specified users are present in the system and validates their information.
+     *
+     * @param tsegaye_Ayele The name of the user Tsegaye Ayele to verify
+     * @param melvin_Pirkle The name of the user Melvin Pirkle to verify
+     * @param shane_Hebert The name of the user Shane Hebert to verify
+     * @param delimo_Samuel The name of the user Delimo Samuel to verify
+     */
+    @Then("contains the following users:{string},{string},{string}, and {string}")
+    public void contains_the_following_users_and(String tsegaye_Ayele, String melvin_Pirkle, String shane_Hebert, String delimo_Samuel) {
+        page.locator(iframeLocator).contentFrame().getByLabel("Section Tab Lists").getByText("Roles (1)").scrollIntoViewIfNeeded();
+        assertThat(page.locator(iframeLocator).contentFrame().getByLabel("Section Tab Lists").getByText("Roles (1)")).isVisible();
+        assertThat(page.locator(iframeLocator).contentFrame().getByLabel("Section Tab Lists")).containsText("Roles (1)");
+        page.locator(iframeLocator).contentFrame().getByLabel("Section Tab Lists").getByText("Roles (1)").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.frameLocator(iframeLocator).locator("//a[normalize-space()='x_g_nci_osfm_park.osfm_parking_garage_ac...']").isVisible();
+        assertThat(page.frameLocator(iframeLocator).locator("//a[normalize-space()='x_g_nci_osfm_park.osfm_parking_garage_ac...']")).containsText("x_g_nci_osfm_park.osfm_parking_garage_ac...");
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.frameLocator(iframeLocator).locator("//span[normalize-space()='Group Members (5)']").isVisible();
+        page.frameLocator(iframeLocator).locator("//span[normalize-space()='Group Members (5)']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.locator(iframeLocator).contentFrame().getByLabel("Open record: Tsegaye Ayele", new FrameLocator.GetByLabelOptions().setExact(true))).isVisible();
+        assertThat(page.locator(iframeLocator).contentFrame().getByLabel("Group Members.").locator("tbody")).containsText(tsegaye_Ayele);
+        assertThat(page.locator(iframeLocator).contentFrame().getByLabel("Open record: Melvin Pirkle", new FrameLocator.GetByLabelOptions().setExact(true))).isVisible();
+        assertThat(page.locator(iframeLocator).contentFrame().getByLabel("Open record: Melvin Pirkle", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(melvin_Pirkle);
+        assertThat(page.locator(iframeLocator).contentFrame().getByLabel("Open record: Shane Hebert", new FrameLocator.GetByLabelOptions().setExact(true))).isVisible();
+        assertThat(page.locator(iframeLocator).contentFrame().getByLabel("Open record: Shane Hebert", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(shane_Hebert);
+        assertThat(page.locator(iframeLocator).contentFrame().getByLabel("Open record: Delimo Samuel", new FrameLocator.GetByLabelOptions().setExact(true))).isVisible();
+        assertThat(page.locator(iframeLocator).contentFrame().getByLabel("Open record: Delimo Samuel", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(delimo_Samuel);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
      * Determines if the shane_Hebert user is the Group Manager.
      *
      * @param shane_Hebert The name of the user to check if they are the Group Manager
