@@ -238,6 +238,25 @@ public class ESRApprovalStepsImplementation {
     }
 
     /**
+     * This method confirms that the Federal Lead Closeout Approval was rejected for ESR-Q tickets
+     */
+    public static void federalLeadCloseoutRejectionForESRQ() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (10)").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("rejected");
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Approval was rejected");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the Federal Lead Closeout Approval was rejected for ESR-Q tickets
+     */
+    public static void confirmFederalLeadCloseoutApprovalWasRejectedForESRQ() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Information Required for Closeout");
+    }
+
+    /**
      * This method confirms that the Federal Lead Closeout Approval is completed
      */
     public static void confirmFederalLeadCloseoutApprovalIsCompleted() {
