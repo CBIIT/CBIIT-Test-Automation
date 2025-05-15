@@ -929,6 +929,12 @@ public class RAS_Survey_Constants {
     public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_7_OPTION_4 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 7 Option 4";
     public final String HAS_YOUR_NECK_BEEN_DESCRIBED_AS_SHORT_OR_WEBBED = "Has your neck been described as short or webbed?";
     public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_JOINT_ISSUES = "Have you ever been diagnosed with joint issues?  These conditions are often diagnosed by neurologists, rheumatologists and orthopaedic surgeons.  Examples include ulnar deviation, Achilles tendon contracture, hip dysplasia.";
+    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_JOINT_ISSUES_1 = "Have you ever been diagnosed with the following joint issues?  Please select all that apply. Option 1";
+    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_JOINT_ISSUES_2 = "Have you ever been diagnosed with the following joint issues?  Please select all that apply. Option 2";
+    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_JOINT_ISSUES_3 = "Have you ever been diagnosed with the following joint issues?  Please select all that apply. Option 3";
+    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_JOINT_ISSUES_4 = "Have you ever been diagnosed with the following joint issues?  Please select all that apply. Option 4";
+    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_JOINT_ISSUES_5 = "Have you ever been diagnosed with the following joint issues?  Please select all that apply. Option 5";
+    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_JOINT_ISSUES_6 = "Have you ever been diagnosed with the following joint issues?  Please select all that apply. Option 6";
     public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_JOINT_ISSUES_6_OTHER = "Have you ever been diagnosed with the following joint issues?  Please select all that apply. Option 6 Other";
     public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_1_OPTION_1 = "Please complete the table below for each of the joint issues listed. Column 1 Option 1";
     public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_1_OPTION_2 = "Please complete the table below for each of the joint issues listed. Column 1 Option 2";
