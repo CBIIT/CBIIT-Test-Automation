@@ -17,7 +17,7 @@ public class EtrackAssetsRecords_NativeView_Constants {
     public static final String ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX  = "New Decal Number 123 Test " + CommonUtils.lastNameRandomizer();
 
     /* ETRACKING ASSETS NEW RECORD MODEL TEXT BOX */
-    public static final String ETRACKING_ASSETS_NEW_RECORD_MODEL_TEXT_BOX  = "N95 Masks";
+    public static final String ETRACKING_ASSETS_NEW_RECORD_MODEL_TEXT_BOX  = "alcohol swabs";
 
     /* ETRACKING ASSETS NEW RECORD QUANTITY TEXT BOX */
     public static final String ETRACKING_ASSETS_NEW_RECORD_QUANTITY_TEXT_BOX  = "10";

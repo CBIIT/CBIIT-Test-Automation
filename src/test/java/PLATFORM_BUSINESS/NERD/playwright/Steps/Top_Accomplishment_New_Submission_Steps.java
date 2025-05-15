@@ -37,9 +37,9 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @When("they access the {string} Catalog")
     public void they_access_the_catalog(String nerd) {
-        page.frameLocator("iframe[name='gsft_main']").locator("//span[normalize-space()='NERD']").scrollIntoViewIfNeeded();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("//span[normalize-space()='NERD']")).containsText(nerd);
-        page.frameLocator("iframe[name='gsft_main']").locator("//span[normalize-space()='NERD']").click();
+        page.frameLocator(iframeLocator).locator("//span[normalize-space()='NERD']").scrollIntoViewIfNeeded();
+        assertThat(page.frameLocator(iframeLocator).locator("//span[normalize-space()='NERD']")).containsText(nerd);
+        page.frameLocator(iframeLocator).locator("//span[normalize-space()='NERD']").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -50,25 +50,25 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @Then("they can create a record called {string}")
     public void they_can_create_a_record_called(String topAccomplishments) {
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("#category-segmentedtab")).containsText(topAccomplishments);
-        page.frameLocator("iframe[name='gsft_main']").locator("//a[@class='ng-binding ng-scope selected']").click();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Create Article")).isVisible();
+        assertThat(page.frameLocator(iframeLocator).locator("#category-segmentedtab")).containsText(topAccomplishments);
+        page.frameLocator(iframeLocator).locator("//a[@class='ng-binding ng-scope selected']").click();
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Create Article")).isVisible();
 
         CucumberLogUtils.scenario.log("----  CLICK ON CREATE NEW ARTICLE  ----");
-        page.frameLocator("iframe[name='gsft_main']").locator("//span[normalize-space()='Create an Article']").click();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Create new article")).isVisible();
-        page.frameLocator("iframe[name='gsft_main']").getByPlaceholder("Filter article templates").click();
-        page.frameLocator("iframe[name='gsft_main']").getByPlaceholder("Filter article templates").fill(topAccomplishments);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByPlaceholder("Filter article templates")).hasValue(topAccomplishments);
+        page.frameLocator(iframeLocator).locator("//span[normalize-space()='Create an Article']").click();
+        assertThat(page.frameLocator(iframeLocator).getByText("Create new article")).isVisible();
+        page.frameLocator(iframeLocator).getByPlaceholder("Filter article templates").click();
+        page.frameLocator(iframeLocator).getByPlaceholder("Filter article templates").fill(topAccomplishments);
+        assertThat(page.frameLocator(iframeLocator).getByPlaceholder("Filter article templates")).hasValue(topAccomplishments);
         CucumberLogUtils.playwrightScreenshot(page);
 
         CucumberLogUtils.scenario.log("----  CLICK ON TOP ACCOMPLISHMENTS OPTION AND THEN CLICK ON NEXT PAGE ----");
-        page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.LINK, new FrameLocator.GetByRoleOptions().setName(topAccomplishments)).click();
-        page.frameLocator("iframe[name='gsft_main']").locator("(//div[normalize-space()='Next'])[1]").click();
-        page.frameLocator("iframe[name='gsft_main']").locator("//div[@class='navbar-title-caption navbar-title-new-record']").waitFor();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.HEADING)).containsText("Top Accomplishments");
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.HEADING)).containsText("New record");
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Knowledge Base", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("NERD");
+        page.frameLocator(iframeLocator).getByRole(AriaRole.LINK, new FrameLocator.GetByRoleOptions().setName(topAccomplishments)).click();
+        page.frameLocator(iframeLocator).locator("(//div[normalize-space()='Next'])[1]").click();
+        page.frameLocator(iframeLocator).locator("//div[@class='navbar-title-caption navbar-title-new-record']").waitFor();
+        assertThat(page.frameLocator(iframeLocator).getByRole(AriaRole.HEADING)).containsText("Top Accomplishments");
+        assertThat(page.frameLocator(iframeLocator).getByRole(AriaRole.HEADING)).containsText("New record");
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Knowledge Base", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("NERD");
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -78,8 +78,8 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @Then("add attachments via the record itself")
     public void add_attachments_via_the_record_itself() {
-        page.frameLocator("iframe[name='gsft_main']").locator("//button[@id='add_attachment']").waitFor();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("//button[@id='add_attachment']")).containsText("Add Attachment");
+        page.frameLocator(iframeLocator).locator("//button[@id='add_attachment']").waitFor();
+        assertThat(page.frameLocator(iframeLocator).locator("//button[@id='add_attachment']")).containsText("Add Attachment");
         Top_Accomplishment_New_Submission_StepImpl.uploadAttachmentInNativeView();
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -153,12 +153,12 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @Then("{string} field is mandatory dropdown with the following options for Previous year {string}, and Current year {string}")
     public void field_is_mandatory_dropdown_with_the_following_options_for_previous_year_and_current_year(String fiscalYear, String previousYear, String currentYear) {
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Fiscal Year")).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_fiscal_year']")).containsText(fiscalYear);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Fiscal Year").selectOption(previousYear);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Fiscal Year")).hasValue(previousYear);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Fiscal Year").selectOption(currentYear);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Fiscal Year")).hasValue(currentYear);
+        assertThat(page.frameLocator(iframeLocator).getByText("Fiscal Year")).isVisible();
+        assertThat(page.frameLocator(iframeLocator).locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_fiscal_year']")).containsText(fiscalYear);
+        page.frameLocator(iframeLocator).getByLabel("Fiscal Year").selectOption(previousYear);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Fiscal Year")).hasValue(previousYear);
+        page.frameLocator(iframeLocator).getByLabel("Fiscal Year").selectOption(currentYear);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Fiscal Year")).hasValue(currentYear);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -169,12 +169,12 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @Then("{string} field is mandatory short text field")
     public void field_is_mandatory_short_text_field(String title) {
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText(title, new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_title']")).containsText(title);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel(title, new FrameLocator.GetByLabelOptions().setExact(true)).click();
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Title", new FrameLocator.GetByLabelOptions().setExact(true)).fill("Top Accomplishment Submission");
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Title", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("Top Accomplishment Submission");
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='element\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_title']").click();
+        assertThat(page.frameLocator(iframeLocator).getByText(title, new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
+        assertThat(page.frameLocator(iframeLocator).locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_title']")).containsText(title);
+        page.frameLocator(iframeLocator).getByLabel(title, new FrameLocator.GetByLabelOptions().setExact(true)).click();
+        page.frameLocator(iframeLocator).getByLabel("Title", new FrameLocator.GetByLabelOptions().setExact(true)).fill("Top Accomplishment Submission");
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Title", new FrameLocator.GetByLabelOptions().setExact(true))).hasValue("Top Accomplishment Submission");
+        page.frameLocator(iframeLocator).locator("[id='element\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_title']").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -210,47 +210,47 @@ public class Top_Accomplishment_New_Submission_Steps {
                                                                                                 String dcb, String dccps, String dceg, String dcp, String dctd, String frederick, String occ, String oham, String sbir, String ttc) {
 
         CucumberLogUtils.scenario.log("----  SELECTS EACH DOC OPTION AND VERIFY THE SELECTED OPTION ----");
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText(doc)).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_doc']")).containsText(doc);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText("-- None --");
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(cbiit);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(cbiit);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(ccct);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(ccct);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(ccg);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(ccg);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(ccr);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(ccr);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(cct);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(cct);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(cgh);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(cgh);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(crchd);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(crchd);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(crs);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(crs);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(cssi);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(cssi);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(dcb);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(dcb);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(dccps);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(dccps);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(dceg);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(dceg);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(dcp);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(dcp);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(dctd);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(dctd);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(frederick);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(frederick);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(occ);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(occ);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(oham);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(oham);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(sbir);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(sbir);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(ttc);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(ttc);
+        assertThat(page.frameLocator(iframeLocator).getByText(doc)).isVisible();
+        assertThat(page.frameLocator(iframeLocator).locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_doc']")).containsText(doc);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText("-- None --");
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(cbiit);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(cbiit);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(ccct);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(ccct);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(ccg);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(ccg);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(ccr);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(ccr);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(cct);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(cct);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(cgh);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(cgh);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(crchd);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(crchd);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(crs);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(crs);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(cssi);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(cssi);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(dcb);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(dcb);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(dccps);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(dccps);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(dceg);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(dceg);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(dcp);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(dcp);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(dctd);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(dctd);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(frederick);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(frederick);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(occ);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(occ);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(oham);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(oham);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(sbir);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(sbir);
+        page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true)).selectOption(ttc);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("DOC", new FrameLocator.GetByLabelOptions().setExact(true))).containsText(ttc);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -258,10 +258,10 @@ public class Top_Accomplishment_New_Submission_Steps {
     public void the_rank_field_clears_out_and_all_the_options_are_reset_to_select_again_when_the_fiscal_year_and_doc_field_is_changed(String rank) {
 
         CucumberLogUtils.scenario.log("----  SELECTS THE RANK OPTION AGAIN SINCE IT RESETS AFTER FISCAL YEAR AND DOC SELECTION AND VERIFY THE SELECTED OPTION ----");
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_rank']")).containsText(rank);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Rank")).isVisible();
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank").selectOption("Not Top 10");
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Rank")).containsText("Not Top 10");
+        assertThat(page.frameLocator(iframeLocator).locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_rank']")).containsText(rank);
+        assertThat(page.frameLocator(iframeLocator).getByText("Rank")).isVisible();
+        page.frameLocator(iframeLocator).getByLabel("Rank").selectOption("Not Top 10");
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Rank")).containsText("Not Top 10");
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -274,11 +274,11 @@ public class Top_Accomplishment_New_Submission_Steps {
     @Then("{string} field is mandatory open HTML text field with subtext of {string} when hover over the Description field")
     public void field_is_mandatory_open_html_text_field_with_subtext_of_when_hover_over_the_description_field(String description, String subText) {
 
-        page.frameLocator("iframe[name='gsft_main']").locator("//span[normalize-space()='Description']//parent::label//child::span[1]").click();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_description']")).containsText(description);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.TOOLTIP, new FrameLocator.GetByRoleOptions().setName("(3 - 4 sentences max) –"))).containsText(subText);
-        page.frameLocator("iframe[name='gsft_main']").frameLocator("internal:role=application[name='Description'i] >> iframe[title='Rich Text Area']").getByRole(AriaRole.PARAGRAPH).click();
-        page.frameLocator("iframe[name='gsft_main']").frameLocator("internal:role=application[name='Description'i] >> iframe[title='Rich Text Area']").getByLabel("Description").fill("Test Description");
+        page.frameLocator(iframeLocator).locator("//span[normalize-space()='Description']//parent::label//child::span[1]").click();
+        assertThat(page.frameLocator(iframeLocator).locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_description']")).containsText(description);
+        assertThat(page.frameLocator(iframeLocator).getByRole(AriaRole.TOOLTIP, new FrameLocator.GetByRoleOptions().setName("(3 - 4 sentences max) –"))).containsText(subText);
+        page.frameLocator(iframeLocator).frameLocator("internal:role=application[name='Description'i] >> iframe[title='Rich Text Area']").getByRole(AriaRole.PARAGRAPH).click();
+        page.frameLocator(iframeLocator).frameLocator("internal:role=application[name='Description'i] >> iframe[title='Rich Text Area']").getByLabel("Description").fill("Test Description");
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -301,38 +301,38 @@ public class Top_Accomplishment_New_Submission_Steps {
     @Then("{string} field is mandatory drop-down, None \\(selected by default), {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
     public void field_is_mandatory_drop_down_none_selected_by_default(String researchTypeField, String basic, String cancerControl, String epidemiological, String healthCommunication, String populationScience,
                                                                       String researchWorkforceRecruitmentTrainingAndRetention, String scienceEducationAndLiteracy, String translationalPostClinical, String translationalPreClinical, String other) {
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_research_type_other_programs']")).containsText(researchTypeField);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).containsText("-- None --");
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs").selectOption(basic);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).containsText(basic);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).hasValue(basic);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs").selectOption(cancerControl);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).containsText(cancerControl);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).hasValue(cancerControl);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs").selectOption(epidemiological);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).containsText(epidemiological);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).hasValue(epidemiological);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs").selectOption(healthCommunication);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).containsText(healthCommunication);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).hasValue(healthCommunication);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs").selectOption(populationScience);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).containsText(populationScience);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).hasValue(populationScience);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs").selectOption(researchWorkforceRecruitmentTrainingAndRetention);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).containsText(researchWorkforceRecruitmentTrainingAndRetention);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).hasValue(researchWorkforceRecruitmentTrainingAndRetention);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs").selectOption(scienceEducationAndLiteracy);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).containsText(scienceEducationAndLiteracy);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).hasValue(scienceEducationAndLiteracy);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs").selectOption(translationalPostClinical);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).containsText(translationalPostClinical);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).hasValue(translationalPostClinical);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs").selectOption(translationalPreClinical);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).containsText(translationalPreClinical);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).hasValue(translationalPreClinical);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs").selectOption(other);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).containsText(other);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Research Type/Other Programs")).hasValue(other);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_research_type_other_programs']")).containsText(researchTypeField);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).containsText("-- None --");
+        page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs").selectOption(basic);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).containsText(basic);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).hasValue(basic);
+        page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs").selectOption(cancerControl);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).containsText(cancerControl);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).hasValue(cancerControl);
+        page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs").selectOption(epidemiological);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).containsText(epidemiological);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).hasValue(epidemiological);
+        page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs").selectOption(healthCommunication);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).containsText(healthCommunication);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).hasValue(healthCommunication);
+        page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs").selectOption(populationScience);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).containsText(populationScience);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).hasValue(populationScience);
+        page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs").selectOption(researchWorkforceRecruitmentTrainingAndRetention);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).containsText(researchWorkforceRecruitmentTrainingAndRetention);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).hasValue(researchWorkforceRecruitmentTrainingAndRetention);
+        page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs").selectOption(scienceEducationAndLiteracy);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).containsText(scienceEducationAndLiteracy);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).hasValue(scienceEducationAndLiteracy);
+        page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs").selectOption(translationalPostClinical);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).containsText(translationalPostClinical);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).hasValue(translationalPostClinical);
+        page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs").selectOption(translationalPreClinical);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).containsText(translationalPreClinical);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).hasValue(translationalPreClinical);
+        page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs").selectOption(other);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).containsText(other);
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Research Type/Other Programs")).hasValue(other);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -347,10 +347,10 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @Then("subtext of {string} when hover over the {string} field")
     public void subtext_of_when_hover_over_the_field(String subText, String researchTypeField) {
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_research_type_other_programs']")).containsText(researchTypeField);
-        page.frameLocator("iframe[name='gsft_main']").locator("label").filter(new Locator.FilterOptions().setHasText("Research Type/Other Programs")).hover();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Please select the most")).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Please select the most")).containsText(subText);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_research_type_other_programs']")).containsText(researchTypeField);
+        page.frameLocator(iframeLocator).locator("label").filter(new Locator.FilterOptions().setHasText("Research Type/Other Programs")).hover();
+        assertThat(page.frameLocator(iframeLocator).getByText("Please select the most")).isVisible();
+        assertThat(page.frameLocator(iframeLocator).getByText("Please select the most")).containsText(subText);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -378,55 +378,55 @@ public class Top_Accomplishment_New_Submission_Steps {
     public void field_is_an_optional_selection_to_select_one_or_multiple_via_a_list_collector_none_selected_by_default(String otherTopics, String bigDataSharing, String moonshot, String technologyDevelopment, String covid19, String pediatric, String researchResourcesInfrastructure,
                                                                           String earlyDetection, String rare, String meetingWorkshopConference, String metastatic, String trainingWorkforceDevelopment, String reportGuidelinesPolicy, String minorityHealthDisparities, String womenHealth) {
 
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(otherTopics);
-        page.frameLocator("iframe[name='gsft_main']").locator("label").filter(new Locator.FilterOptions().setHasText("Other Topics")).click();
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Unlock Other Topics").click();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='select_0u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).isEmpty();
+        assertThat(page.frameLocator(iframeLocator).locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(otherTopics);
+        page.frameLocator(iframeLocator).locator("label").filter(new Locator.FilterOptions().setHasText("Other Topics")).click();
+        page.frameLocator(iframeLocator).getByLabel("Unlock Other Topics").click();
+        assertThat(page.frameLocator(iframeLocator).locator("[id='select_0u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).isEmpty();
 
         CucumberLogUtils.scenario.log("---- NONE IS SELECTED BY DEFAULT ----");
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText("-- None --");
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(bigDataSharing);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(bigDataSharing);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(bigDataSharing);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(moonshot);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(moonshot);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(moonshot);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(technologyDevelopment);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(technologyDevelopment);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(technologyDevelopment);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(covid19);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(covid19);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(covid19);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(pediatric);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(pediatric);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(pediatric);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(researchResourcesInfrastructure);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(researchResourcesInfrastructure);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(researchResourcesInfrastructure);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(earlyDetection);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(earlyDetection);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(earlyDetection);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(rare);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(rare);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(rare);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(meetingWorkshopConference);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(meetingWorkshopConference);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(meetingWorkshopConference);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(metastatic);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(metastatic);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(metastatic);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(trainingWorkforceDevelopment);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(trainingWorkforceDevelopment);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(trainingWorkforceDevelopment);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(reportGuidelinesPolicy);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(reportGuidelinesPolicy);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(reportGuidelinesPolicy);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(minorityHealthDisparities);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(minorityHealthDisparities);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(minorityHealthDisparities);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(womenHealth);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(womenHealth);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(womenHealth);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText("-- None --");
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(bigDataSharing);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(bigDataSharing);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(bigDataSharing);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(moonshot);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(moonshot);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(moonshot);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(technologyDevelopment);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(technologyDevelopment);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(technologyDevelopment);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(covid19);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(covid19);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(covid19);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(pediatric);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(pediatric);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(pediatric);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(researchResourcesInfrastructure);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(researchResourcesInfrastructure);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(researchResourcesInfrastructure);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(earlyDetection);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(earlyDetection);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(earlyDetection);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(rare);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(rare);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(rare);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(meetingWorkshopConference);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(meetingWorkshopConference);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(meetingWorkshopConference);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(metastatic);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(metastatic);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(metastatic);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(trainingWorkforceDevelopment);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(trainingWorkforceDevelopment);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(trainingWorkforceDevelopment);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(reportGuidelinesPolicy);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(reportGuidelinesPolicy);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(reportGuidelinesPolicy);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(minorityHealthDisparities);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(minorityHealthDisparities);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(minorityHealthDisparities);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']").selectOption(womenHealth);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).hasValue(womenHealth);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_topics']")).containsText(womenHealth);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -437,11 +437,11 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @Then("subtext of {string} when hover over the Other Topics field")
     public void subtext_of_when_hover_over_the_other_topics_field(String subText) {
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Other Topics", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
-        page.frameLocator("iframe[name='gsft_main']").getByText("Other Topics", new FrameLocator.GetByTextOptions().setExact(true)).hover();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.TOOLTIP, new FrameLocator.GetByRoleOptions().setName("Please select the most"))).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Please select the most")).containsText(subText);
-        page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Lock Other Topics")).click();
+        assertThat(page.frameLocator(iframeLocator).getByText("Other Topics", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
+        page.frameLocator(iframeLocator).getByText("Other Topics", new FrameLocator.GetByTextOptions().setExact(true)).hover();
+        assertThat(page.frameLocator(iframeLocator).getByRole(AriaRole.TOOLTIP, new FrameLocator.GetByRoleOptions().setName("Please select the most"))).isVisible();
+        assertThat(page.frameLocator(iframeLocator).getByText("Please select the most")).containsText(subText);
+        page.frameLocator(iframeLocator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Lock Other Topics")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -482,94 +482,94 @@ public class Top_Accomplishment_New_Submission_Steps {
     public void field_is_an_optional_selection_to_select_one_or_multiple_via_a_list_collector_none_selected_by_default(String cancerSiteOrType, String generalCancerNotSpecificCancer, String gallbladder, String melanoma, String bladder, String gastricStomach, String multipleMyeloma, String brain, String glioblastoma, String neuroblastoma, String breast, String headAndNeck, String ovarian,
                                                                                                                        String centralNervousSystem, String kidney, String pancreatic, String cervical, String leukemia, String prostate, String colonColorectal, String liver, String sarcoma, String endometrial, String lung, String skin, String esophageal, String lymphoma, String thyroid) {
 
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Cancer Site/Type", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(cancerSiteOrType);
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Unlock Cancer Site/Type").click();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='select_0u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).isEmpty();
+        assertThat(page.frameLocator(iframeLocator).getByText("Cancer Site/Type", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
+        assertThat(page.frameLocator(iframeLocator).locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(cancerSiteOrType);
+        page.frameLocator(iframeLocator).getByLabel("Unlock Cancer Site/Type").click();
+        assertThat(page.frameLocator(iframeLocator).locator("[id='select_0u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).isEmpty();
 
         CucumberLogUtils.scenario.log("---- NONE IS SELECTED BY DEFAULT ----");
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText("-- None --");
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(generalCancerNotSpecificCancer);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(generalCancerNotSpecificCancer);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(generalCancerNotSpecificCancer);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(gallbladder);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(gallbladder);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(gallbladder);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(melanoma);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(melanoma);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(melanoma);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(bladder);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(bladder);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(bladder);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(gastricStomach);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(gastricStomach);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(gastricStomach);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(multipleMyeloma);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(multipleMyeloma);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(multipleMyeloma);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(brain);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(brain);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(brain);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(glioblastoma);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(glioblastoma);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(glioblastoma);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(neuroblastoma);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(neuroblastoma);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(neuroblastoma);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(breast);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(breast);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(breast);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(headAndNeck);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(headAndNeck);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(headAndNeck);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(ovarian);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(ovarian);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(ovarian);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(centralNervousSystem);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(centralNervousSystem);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(centralNervousSystem);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(kidney);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(kidney);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(kidney);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(pancreatic);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(pancreatic);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(pancreatic);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(cervical);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(cervical);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(cervical);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(leukemia);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(leukemia);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(leukemia);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(prostate);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(prostate);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(prostate);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(colonColorectal);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(colonColorectal);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(colonColorectal);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(liver);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(liver);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(liver);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(sarcoma);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(sarcoma);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(sarcoma);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(endometrial);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(endometrial);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(endometrial);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(lung);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(lung);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(lung);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(skin);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(skin);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(skin);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(esophageal);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(esophageal);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(esophageal);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(lymphoma);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(lymphoma);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(lymphoma);
-        page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(thyroid);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(thyroid);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(thyroid);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText("-- None --");
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(generalCancerNotSpecificCancer);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(generalCancerNotSpecificCancer);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(generalCancerNotSpecificCancer);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(gallbladder);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(gallbladder);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(gallbladder);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(melanoma);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(melanoma);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(melanoma);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(bladder);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(bladder);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(bladder);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(gastricStomach);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(gastricStomach);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(gastricStomach);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(multipleMyeloma);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(multipleMyeloma);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(multipleMyeloma);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(brain);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(brain);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(brain);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(glioblastoma);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(glioblastoma);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(glioblastoma);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(neuroblastoma);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(neuroblastoma);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(neuroblastoma);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(breast);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(breast);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(breast);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(headAndNeck);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(headAndNeck);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(headAndNeck);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(ovarian);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(ovarian);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(ovarian);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(centralNervousSystem);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(centralNervousSystem);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(centralNervousSystem);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(kidney);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(kidney);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(kidney);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(pancreatic);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(pancreatic);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(pancreatic);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(cervical);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(cervical);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(cervical);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(leukemia);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(leukemia);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(leukemia);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(prostate);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(prostate);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(prostate);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(colonColorectal);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(colonColorectal);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(colonColorectal);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(liver);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(liver);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(liver);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(sarcoma);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(sarcoma);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(sarcoma);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(endometrial);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(endometrial);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(endometrial);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(lung);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(lung);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(lung);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(skin);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(skin);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(skin);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(esophageal);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(esophageal);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(esophageal);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(lymphoma);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(lymphoma);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(lymphoma);
+        page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']").selectOption(thyroid);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).hasValue(thyroid);
+        assertThat(page.frameLocator(iframeLocator).locator("[id='choice\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_cancer_site_type']")).containsText(thyroid);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -581,12 +581,12 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @Then("verify the subtext of {string} when hover over the {string} field")
     public void verify_the_subtext_of_when_hover_over_the_field(String subText, String cancerSiteOrType) {
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Cancer Site/Type", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Cancer Site/Type", new FrameLocator.GetByTextOptions().setExact(true))).containsText(cancerSiteOrType);
-        page.frameLocator("iframe[name='gsft_main']").getByText("Cancer Site/Type", new FrameLocator.GetByTextOptions().setExact(true)).hover();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.TOOLTIP, new FrameLocator.GetByRoleOptions().setName("Please select a specific"))).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.TOOLTIP, new FrameLocator.GetByRoleOptions().setName("Please select a specific"))).containsText(subText);
-        page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Lock Cancer Site/Type")).click();
+        assertThat(page.frameLocator(iframeLocator).getByText("Cancer Site/Type", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
+        assertThat(page.frameLocator(iframeLocator).getByText("Cancer Site/Type", new FrameLocator.GetByTextOptions().setExact(true))).containsText(cancerSiteOrType);
+        page.frameLocator(iframeLocator).getByText("Cancer Site/Type", new FrameLocator.GetByTextOptions().setExact(true)).hover();
+        assertThat(page.frameLocator(iframeLocator).getByRole(AriaRole.TOOLTIP, new FrameLocator.GetByRoleOptions().setName("Please select a specific"))).isVisible();
+        assertThat(page.frameLocator(iframeLocator).getByRole(AriaRole.TOOLTIP, new FrameLocator.GetByRoleOptions().setName("Please select a specific"))).containsText(subText);
+        page.frameLocator(iframeLocator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Lock Cancer Site/Type")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -597,9 +597,9 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @Then("{string} is an optional open HTML text field")
     public void is_an_optional_open_html_text_field(String collaborations) {
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("label").filter(new Locator.FilterOptions().setHasText("Collaborations"))).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_collaborations']")).containsText(collaborations);
-        page.frameLocator("iframe[name='gsft_main']").getByText("Collaborations", new FrameLocator.GetByTextOptions().setExact(true)).click();
+        assertThat(page.frameLocator(iframeLocator).locator("label").filter(new Locator.FilterOptions().setHasText("Collaborations"))).isVisible();
+        assertThat(page.frameLocator(iframeLocator).locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_collaborations']")).containsText(collaborations);
+        page.frameLocator(iframeLocator).getByText("Collaborations", new FrameLocator.GetByTextOptions().setExact(true)).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -612,10 +612,10 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @Then("subtext of {string} when hover over the Collaborations field")
     public void subtext_of_when_hover_over_the_collaborations_field(String subText) {
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Collaborations", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
-        page.frameLocator("iframe[name='gsft_main']").getByText("Collaborations", new FrameLocator.GetByTextOptions().setExact(true)).hover();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.TOOLTIP, new FrameLocator.GetByRoleOptions().setName("Indicate the ICOs / agencies"))).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.TOOLTIP, new FrameLocator.GetByRoleOptions().setName("Indicate the ICOs / agencies"))).containsText(subText);
+        assertThat(page.frameLocator(iframeLocator).getByText("Collaborations", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
+        page.frameLocator(iframeLocator).getByText("Collaborations", new FrameLocator.GetByTextOptions().setExact(true)).hover();
+        assertThat(page.frameLocator(iframeLocator).getByRole(AriaRole.TOOLTIP, new FrameLocator.GetByRoleOptions().setName("Indicate the ICOs / agencies"))).isVisible();
+        assertThat(page.frameLocator(iframeLocator).getByRole(AriaRole.TOOLTIP, new FrameLocator.GetByRoleOptions().setName("Indicate the ICOs / agencies"))).containsText(subText);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -626,13 +626,13 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @Then("{string} is an optional short text field")
     public void is_an_optional_short_text_field(String references) {
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("References", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_references']")).containsText(references);
-        page.frameLocator("iframe[name='gsft_main']").getByText("References", new FrameLocator.GetByTextOptions().setExact(true)).click();
-        page.frameLocator("iframe[name='gsft_main']").frameLocator("internal:role=application[name='References's] >> iframe[title='Rich Text Area']").getByRole(AriaRole.PARAGRAPH).click();
-        page.frameLocator("iframe[name='gsft_main']").frameLocator("internal:role=application[name='References's] >> iframe[title='Rich Text Area']").getByLabel("References").fill("Test");
-        page.frameLocator("iframe[name='gsft_main']").getByText("ReferencesRemove lines from References script areaAdd lines to References").click();
-        page.frameLocator("iframe[name='gsft_main']").frameLocator("internal:role=application[name='References's] >> iframe[title='Rich Text Area']").locator("html").click();
+        assertThat(page.frameLocator(iframeLocator).getByText("References", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
+        assertThat(page.frameLocator(iframeLocator).locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_references']")).containsText(references);
+        page.frameLocator(iframeLocator).getByText("References", new FrameLocator.GetByTextOptions().setExact(true)).click();
+        page.frameLocator(iframeLocator).frameLocator("internal:role=application[name='References's] >> iframe[title='Rich Text Area']").getByRole(AriaRole.PARAGRAPH).click();
+        page.frameLocator(iframeLocator).frameLocator("internal:role=application[name='References's] >> iframe[title='Rich Text Area']").getByLabel("References").fill("Test");
+        page.frameLocator(iframeLocator).getByText("ReferencesRemove lines from References script areaAdd lines to References").click();
+        page.frameLocator(iframeLocator).frameLocator("internal:role=application[name='References's] >> iframe[title='Rich Text Area']").locator("html").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -643,10 +643,10 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @Then("subtext of {string} when hover over the References field")
     public void subtext_of_when_hover_over_the_references_field(String subText) {
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("References", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
-        page.frameLocator("iframe[name='gsft_main']").getByText("References", new FrameLocator.GetByTextOptions().setExact(true)).hover();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.TOOLTIP, new FrameLocator.GetByRoleOptions().setName("Please list PMIDs only,"))).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.TOOLTIP, new FrameLocator.GetByRoleOptions().setName("Please list PMIDs only,"))).containsText(subText);
+        assertThat(page.frameLocator(iframeLocator).getByText("References", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
+        page.frameLocator(iframeLocator).getByText("References", new FrameLocator.GetByTextOptions().setExact(true)).hover();
+        assertThat(page.frameLocator(iframeLocator).getByRole(AriaRole.TOOLTIP, new FrameLocator.GetByRoleOptions().setName("Please list PMIDs only,"))).isVisible();
+        assertThat(page.frameLocator(iframeLocator).getByRole(AriaRole.TOOLTIP, new FrameLocator.GetByRoleOptions().setName("Please list PMIDs only,"))).containsText(subText);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -657,13 +657,13 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @Then("{string} is short text field")
     public void is_short_text_field(String otherReferences) {
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Other References", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_references']")).containsText(otherReferences);
-        page.frameLocator("iframe[name='gsft_main']").getByText("Other References", new FrameLocator.GetByTextOptions().setExact(true)).click();
-        page.frameLocator("iframe[name='gsft_main']").frameLocator("internal:role=application[name='References's] >> iframe[title='Rich Text Area']").getByRole(AriaRole.PARAGRAPH).click();
-        page.frameLocator("iframe[name='gsft_main']").frameLocator("internal:role=application[name='References's] >> iframe[title='Rich Text Area']").getByLabel("References").fill("Test");
-        page.frameLocator("iframe[name='gsft_main']").getByText("ReferencesRemove lines from References script areaAdd lines to References").click();
-        page.frameLocator("iframe[name='gsft_main']").frameLocator("internal:role=application[name='References's] >> iframe[title='Rich Text Area']").locator("html").click();
+        assertThat(page.frameLocator(iframeLocator).getByText("Other References", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
+        assertThat(page.frameLocator(iframeLocator).locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_other_references']")).containsText(otherReferences);
+        page.frameLocator(iframeLocator).getByText("Other References", new FrameLocator.GetByTextOptions().setExact(true)).click();
+        page.frameLocator(iframeLocator).frameLocator("internal:role=application[name='References's] >> iframe[title='Rich Text Area']").getByRole(AriaRole.PARAGRAPH).click();
+        page.frameLocator(iframeLocator).frameLocator("internal:role=application[name='References's] >> iframe[title='Rich Text Area']").getByLabel("References").fill("Test");
+        page.frameLocator(iframeLocator).getByText("ReferencesRemove lines from References script areaAdd lines to References").click();
+        page.frameLocator(iframeLocator).frameLocator("internal:role=application[name='References's] >> iframe[title='Rich Text Area']").locator("html").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -674,10 +674,10 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @Then("subtext of {string} when hover over the Other References field")
     public void subtext_of_when_hover_over_the_other_references_field(String subText) {
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Other References", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
-        page.frameLocator("iframe[name='gsft_main']").getByText("Other References", new FrameLocator.GetByTextOptions().setExact(true)).hover();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Please list grant numbers,")).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Please list grant numbers,")).containsText(subText);
+        assertThat(page.frameLocator(iframeLocator).getByText("Other References", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
+        page.frameLocator(iframeLocator).getByText("Other References", new FrameLocator.GetByTextOptions().setExact(true)).hover();
+        assertThat(page.frameLocator(iframeLocator).getByText("Please list grant numbers,")).isVisible();
+        assertThat(page.frameLocator(iframeLocator).getByText("Please list grant numbers,")).containsText(subText);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -689,15 +689,15 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @Then("{string} is an optional list collector field AND offers multi-selection so more than one Point of Contact can be selected")
     public void is_an_optional_list_collector_field_and_offers_multi_selection_so_more_than_one_point_of_contact_can_be_selected(String pointOfContact) {
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("label").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Point of Contact$")))).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_point_of_contact']")).containsText(pointOfContact);
-        page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Point of Contact Add me")).click();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='u_kb_template_top_accomplishments\\.x_26385_crs_kd_point_of_contact_nonedit']")).containsText("CBIIT Test Account");
-        page.frameLocator("iframe[name='gsft_main']").getByLabel("Unlock Point of Contact").click();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Lookup using list"))).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByPlaceholder("Select target record")).isVisible();
+        assertThat(page.frameLocator(iframeLocator).locator("label").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Point of Contact$")))).isVisible();
+        assertThat(page.frameLocator(iframeLocator).locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_point_of_contact']")).containsText(pointOfContact);
+        page.frameLocator(iframeLocator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Point of Contact Add me")).click();
+        assertThat(page.frameLocator(iframeLocator).locator("[id='u_kb_template_top_accomplishments\\.x_26385_crs_kd_point_of_contact_nonedit']")).containsText("CBIIT Test Account");
+        page.frameLocator(iframeLocator).getByLabel("Unlock Point of Contact").click();
+        assertThat(page.frameLocator(iframeLocator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Lookup using list"))).isVisible();
+        assertThat(page.frameLocator(iframeLocator).getByPlaceholder("Select target record")).isVisible();
         nedUserPage = page.waitForPopup(() -> {
-            page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Lookup using list")).click();
+            page.frameLocator(iframeLocator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Lookup using list")).click();
         });
         CucumberLogUtils.playwrightScreenshot(nedUserPage);
         assertThat(nedUserPage.locator("//td[@class='text-align-right']")).isVisible();
@@ -706,11 +706,11 @@ public class Top_Accomplishment_New_Submission_Steps {
         nedUserPage.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Margie Blochlinger")).click();
         nedUserPage.close();
         CommonUtils.sleep(2000);
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText("Point of Contact", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Lock Point of Contact"))).isVisible();
-        page.frameLocator("iframe[name='gsft_main']").getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Lock Point of Contact")).click();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='u_kb_template_top_accomplishments\\.x_26385_crs_kd_point_of_contact_nonedit']")).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator(".section_header_html_no_scroll")).containsText("Point of Contact");
+        assertThat(page.frameLocator(iframeLocator).getByText("Point of Contact", new FrameLocator.GetByTextOptions().setExact(true))).isVisible();
+        assertThat(page.frameLocator(iframeLocator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Lock Point of Contact"))).isVisible();
+        page.frameLocator(iframeLocator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Lock Point of Contact")).click();
+        assertThat(page.frameLocator(iframeLocator).locator("[id='u_kb_template_top_accomplishments\\.x_26385_crs_kd_point_of_contact_nonedit']")).isVisible();
+        assertThat(page.frameLocator(iframeLocator).locator(".section_header_html_no_scroll")).containsText("Point of Contact");
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -721,24 +721,24 @@ public class Top_Accomplishment_New_Submission_Steps {
      */
     @Then("{string} is an optional field THAT gets populated with the email of the user selected from the Point of Contact field")
     public void is_an_optional_field_that_gets_populated_with_the_email_of_the_user_selected_from_the_point_of_contact_field(String pointOfContactEmailField) {
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='u_kb_template_top_accomplishments\\.x_26385_crs_kd_point_of_contact_nonedit']")).containsText("CBIIT Test Account, Margie Blochlinger");
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByText(pointOfContactEmailField)).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_point_of_contact_email']")).containsText(pointOfContactEmailField);
-        page.frameLocator("iframe[name='gsft_main']").locator("//button[@id='sysverb_insert_and_stay_bottom']").isVisible();
-        page.frameLocator("iframe[name='gsft_main']").locator("//button[@id='sysverb_insert_and_stay_bottom']").click();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Point of Contact Email")).isVisible();
-        assertThat(page.frameLocator("iframe[name='gsft_main']").getByLabel("Point of Contact Email")).containsText("juan.fourie@nih.gov,margie.blochlinger@nih.gov");
-        boolean emailPresent = page.frameLocator("iframe[name='gsft_main']").locator("//textarea[@id='sys_readonly.u_kb_template_top_accomplishments.x_26385_crs_kd_point_of_contact_email']").isVisible();
+        assertThat(page.frameLocator(iframeLocator).locator("[id='u_kb_template_top_accomplishments\\.x_26385_crs_kd_point_of_contact_nonedit']")).containsText("CBIIT Test Account, Margie Blochlinger");
+        assertThat(page.frameLocator(iframeLocator).getByText(pointOfContactEmailField)).isVisible();
+        assertThat(page.frameLocator(iframeLocator).locator("[id='label\\.u_kb_template_top_accomplishments\\.x_26385_crs_kd_point_of_contact_email']")).containsText(pointOfContactEmailField);
+        page.frameLocator(iframeLocator).locator("//button[@id='sysverb_insert_and_stay_bottom']").isVisible();
+        page.frameLocator(iframeLocator).locator("//button[@id='sysverb_insert_and_stay_bottom']").click();
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Point of Contact Email")).isVisible();
+        assertThat(page.frameLocator(iframeLocator).getByLabel("Point of Contact Email")).containsText("juan.fourie@nih.gov,margie.blochlinger@nih.gov");
+        boolean emailPresent = page.frameLocator(iframeLocator).locator("//textarea[@id='sys_readonly.u_kb_template_top_accomplishments.x_26385_crs_kd_point_of_contact_email']").isVisible();
         Assert.assertTrue("Expected email is not present on the page", emailPresent);
         CucumberLogUtils.playwrightScreenshot(page);
 
         CucumberLogUtils.scenario.log("----  DELETES THE RECORD SO RANK OPTION CAN BE AVAILABLE FOR NEXT RUN ----");
-        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#sysverb_delete")).isVisible();
-        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#sysverb_delete")).containsText("Delete");
-        page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#sysverb_delete").click();
-        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Confirmation Help").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Delete"))).isVisible();
-        assertThat(page.locator("iframe[name=\"gsft_main\"]").contentFrame().locator("#ok_button")).containsText("Delete");
-        page.locator("iframe[name=\"gsft_main\"]").contentFrame().getByLabel("Confirmation Help").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Delete")).click();
+        assertThat(page.locator(iframeLocator).contentFrame().locator("#sysverb_delete")).isVisible();
+        assertThat(page.locator(iframeLocator).contentFrame().locator("#sysverb_delete")).containsText("Delete");
+        page.locator(iframeLocator).contentFrame().locator("#sysverb_delete").click();
+        assertThat(page.locator(iframeLocator).contentFrame().getByLabel("Confirmation Help").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Delete"))).isVisible();
+        assertThat(page.locator(iframeLocator).contentFrame().locator("#ok_button")).containsText("Delete");
+        page.locator(iframeLocator).contentFrame().getByLabel("Confirmation Help").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Delete")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }
