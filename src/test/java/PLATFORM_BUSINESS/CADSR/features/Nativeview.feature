@@ -25,7 +25,7 @@ Feature: CADSR feature files
     When User Logins to the caDSR application
     Then Go to Native view of the application
     Then Go to CADSR Requests
-  	Then Start a new request on native view
+    Then Start a new request on native view
     Then User should see available different choices of status
 
   @SNOWCADSR-200

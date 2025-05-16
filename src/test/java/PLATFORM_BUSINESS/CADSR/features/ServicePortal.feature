@@ -456,7 +456,7 @@ Feature: CADSR feature files
 
   @SNOWCADSR-259
   Scenario: Validate closed tickets are not editable
-   Given User opens caDSR Application
+    Given User opens caDSR Application
     When User Logins to the caDSR application
     Then Start a new request
     Then Enter CADSR request details
@@ -469,4 +469,3 @@ Feature: CADSR feature files
     Then Close parent ticket without curation count and update
     Then Open latest caDSR ticket
     Then verify that the fields are disabled
-
