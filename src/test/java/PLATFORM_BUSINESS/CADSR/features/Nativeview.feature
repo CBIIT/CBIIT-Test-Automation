@@ -9,7 +9,7 @@ Feature: CADSR feature files
     Then Go to CADSR Requests
     Then Start a new request on native view
     Then User should see Save, Add Attachments and Submit button
-    
+
 
   @SNOWCADSR-109
   Scenario: Validate default columns for incident grid

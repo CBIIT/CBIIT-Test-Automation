@@ -251,6 +251,18 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
+
+                /**
+                 * * * * * DO YOU CURRENTLY LIVE IN THE UNITED STATES? * * * *
+                 */
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && (rasopathyQuestionnairePage.question.getText().trim().contentEquals(DO_YOU_CURRENTLY_LIVE_IN_THE_US) || rasopathyQuestionnairePage.question.getText().trim().contentEquals(formatRASQuestionForProxy(DOES_PARTICIPANT_CURRENTLY_LIVE_IN_THE_US)))) {
+                    CucumberLogUtils.scenario.log("* * * * * DO YOU CURRENTLY LIVE IN THE UNITED STATES? * * * * *");
+                    CommonUtils.sleep(200);
+                    dynamicLocator(ras_Screener_TestDataManager.DO_YOU_CURRENTLY_LIVE_IN_THE_US).click();
+                    CucumberLogUtils.logScreenshot();
+                    ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
+                }
+
                 /**
                  * * * * * IN WHICH COUNTRY DO YOU CURRENTLY LIVE? * * * *
                  */
@@ -786,12 +798,12 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CommonUtils.clickOnElement(myRASHomePage.rasoptathyRasSurveyGoButton);
         CommonUtils.switchToNextWindow();
         CommonUtils.sleep(3000);
-        CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicTextBoxLocator("Email"));
-        rasopathyQuestionnairePage.dynamicTextBoxLocator("Email").sendKeys(email);
-        rasopathyQuestionnairePage.pinTextBox.sendKeys(pin);
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.sleep(3000);
-        ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
+//        CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicTextBoxLocator("Email"));
+//        rasopathyQuestionnairePage.dynamicTextBoxLocator("Email").sendKeys(email);
+//        rasopathyQuestionnairePage.pinTextBox.sendKeys(pin);
+//        CucumberLogUtils.logScreenshot();
+//        CommonUtils.sleep(3000);
+//        ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
     }

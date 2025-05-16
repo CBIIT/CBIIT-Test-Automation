@@ -341,7 +341,7 @@ Feature: CADSR feature files
     Then Open latest caDSR ticket
     Then User should see assignment group as "<AssignmentGroup>"
 
-    Examples: 
+    Examples:
       | OrganizationName                                     | AssignmentGroup |
       | Alliance (Alliance for Clinical Trials in Oncology ) | caDSR Green     |
       | AMC (Aids Malignancy Consortium)                     | caDSR Red       |
