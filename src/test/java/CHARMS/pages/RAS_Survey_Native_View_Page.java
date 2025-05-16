@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import java.util.*;
 
+import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
+
 public class RAS_Survey_Native_View_Page {
 
     /*** STORE RAS SURVEY NATIVE VIEW ELEMENTS HERE*/
@@ -2767,25 +2769,25 @@ public class RAS_Survey_Native_View_Page {
     /**
      * Issue input field
      */
-    @FindBy(xpath = "//input[@name='sys_display.x_naci_family_coho_participants_joint_issues.issue']")
+    @FindBy(xpath = "//input[@name='sys_display.x_naci_family_coho_participant_bleeding_issues.issue']")
     public WebElement participantBleedingIssuesInputField;
 
     /**
      * Date of first symptom input field
      */
-    @FindBy(xpath = "//input[@name='x_naci_family_coho_participants_joint_issues.symptom_date']")
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_bleeding_issues.symptom_date']")
     public WebElement participantBleedingIssuesDateOfFirstSymptomInputField;
 
     /**
      * Date/age of first symptoms unknown checkbox
      */
-    @FindBy(xpath = "//input[contains(@name,'sys_original.x_naci_family_coho_participants_joint_issues.symptom_time_unknown')]")
+    @FindBy(xpath = "//input[@name='sys_original.x_naci_family_coho_participant_bleeding_issues.first_symptom_time_unknown']")
     public WebElement participantBleedingIssuesDateAgeOfFirstSymptomsUnknownCheckbox;
 
     /**
      * Treatment textarea
      */
-    @FindBy(xpath = "//textarea[@name='x_naci_family_coho_participants_joint_issues.treatment']")
+    @FindBy(xpath = "//textarea[@name='x_naci_family_coho_participant_bleeding_issues.treatment']")
     public WebElement participantBleedingIssuesTreatmentTextarea;
 
     /**
@@ -2797,23 +2799,243 @@ public class RAS_Survey_Native_View_Page {
     /**
      * Date of diagnosis input field
      */
-    @FindBy(xpath = "//input[@name='x_naci_family_coho_participants_joint_issues.diagnosis_date']")
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_bleeding_issues.diagnosis_date']")
     public WebElement participantBleedingIssuesDateOfDiagnosisInputField;
 
     /**
      * Date/age of diagnosis unknown checkbox
      */
-    @FindBy(xpath = "//input[contains(@name,'sys_original.x_naci_family_coho_participants_joint_issues.diagnosis_time_unknown')]")
+    @FindBy(xpath = "//input[@name='sys_original.x_naci_family_coho_participant_bleeding_issues.diagnosis_time_unknown']")
     public WebElement participantBleedingIssuesDateAgeOfFirstDiagnosisUnknownCheckbox;
 
     /**
      * Please specify input field
      */
-    @FindBy(xpath = "//input[@name='x_naci_family_coho_participants_joint_issues.please_specify']")
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_bleeding_issues.please_specify']")
     public WebElement participantBleedingIssuesPleaseSpecifyInputField;
 
     /**
      * ---------------------END OF Bleeding Issues SECTION---------------------
+     */
+
+
+    /**
+     * ---------------------START OF Blood Disorders SECTION---------------------
+     */
+
+    /**
+     * Blood disorder/symptom input field
+     */
+    @FindBy(xpath = "//input[@name='sys_display.x_naci_family_coho_participant_blood_disorders.disorder_symptom']")
+    public WebElement participantBloodDisordersDisorderSymptomInputField;
+
+    /**
+     * Date of first symptom input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_blood_disorders.symptom_date']")
+    public WebElement participantBloodDisordersDateOfFirstSymptomInputField;
+
+    /**
+     * Date/age of first symptoms unknown checkbox
+     */
+    @FindBy(xpath = "//input[@name='sys_original.x_naci_family_coho_participant_blood_disorders.diagnosis_time_unknown']")
+    public WebElement participantBloodDisordersDateAgeOfFirstSymptomsUnknownCheckbox;
+
+    /**
+     * Treatment textarea
+     */
+    @FindBy(xpath = "//textarea[@name='x_naci_family_coho_participant_blood_disorders.treatment']")
+    public WebElement participantBloodDisordersTreatmentTextarea;
+
+    /**
+     * Name of treating hospital or physician text area
+     */
+    @FindBy(xpath = "//textarea[@name='x_naci_family_coho_participant_blood_disorders.name_of_treating_phyisican']")
+    public WebElement participantBloodDisordersNameOfTreatingHospitalOrPhysicianTextarea;
+
+    /**
+     * Date of diagnosis input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_blood_disorders.diagnosis_date']")
+    public WebElement participantBloodDisordersDateOfDiagnosisInputField;
+
+    /**
+     * Date/age of diagnosis unknown checkbox
+     */
+    @FindBy(xpath = "//input[@name='sys_original.x_naci_family_coho_participant_blood_disorders.diagnosis_time_unknown']")
+    public WebElement participantBloodDisordersDateAgeOfFirstDiagnosisUnknownCheckbox;
+
+    /**
+     * Please specify input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_blood_disorders.please_specify']")
+    public WebElement participantBloodDisordersPleaseSpecifyInputField;
+
+    /**
+     * ---------------------END OF Blood Disorders SECTION---------------------
+     */
+
+    /**
+     * ---------------------START OF Infections SECTION---------------------
+     */
+
+    /**
+     * Infection dropdown
+     */
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_participant_infection_history.infection']")
+    public WebElement participantInfectionsInfectionDropdown;
+
+    /**
+     * Date of first symptom input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_infection_history.symptom_date']")
+    public WebElement participantInfectionsDateOfFirstSymptomInputField;
+
+    /**
+     * Date/age of first symptoms unknown checkbox
+     */
+    @FindBy(xpath = "//input[contains(@name,'sys_original.x_naci_family_coho_participant_infection_history.symptom_time_unknown')]")
+    public WebElement participantInfectionsDateAgeOfFirstSymptomsUnknownCheckbox;
+
+    /**
+     * Treatment textarea
+     */
+    @FindBy(xpath = "//textarea[@name='x_naci_family_coho_participant_infection_history.treatment']")
+    public WebElement participantInfectionsTreatmentTextarea;
+
+    /**
+     * Name of treating hospital or physician text area
+     */
+    @FindBy(xpath = "//textarea[@name='x_naci_family_coho_participant_infection_history.name_of_physician']")
+    public WebElement participantInfectionsNameOfTreatingHospitalOrPhysicianTextarea;
+
+    /**
+     * Date of diagnosis input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_infection_history.diagnosis_date']")
+    public WebElement participantInfectionsDateOfDiagnosisInputField;
+
+    /**
+     * Date/age of diagnosis unknown checkbox
+     */
+    @FindBy(xpath = "//input[contains(@name,'sys_original.x_naci_family_coho_participant_infection_history.diagnosis_time_unknown')]")
+    public WebElement participantInfectionsDateAgeOfFirstDiagnosisUnknownCheckbox;
+
+    /**
+     * Please specify input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_infection_history.please_specify']")
+    public WebElement participantInfectionsPleaseSpecifyInputField;
+
+    /**
+     * ---------------------END OF Infections SECTION---------------------
+     */
+
+
+    /**
+     * ---------------------START OF Tumors SECTION---------------------
+     */
+
+    /**
+     * Tumors input field
+     */
+    @FindBy(xpath = "//input[@name='sys_display.x_naci_family_coho_participant_tumor_history.tumor']")
+    public WebElement participantTumorsInputField;
+
+    /**
+     * Date of first symptom input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_tumor_history.symptom_date']")
+    public WebElement participantTumorsDateOfFirstSymptomInputField;
+
+    /**
+     * Date/age of first symptoms unknown checkbox
+     */
+    @FindBy(xpath = "//input[@name='sys_original.x_naci_family_coho_participant_tumor_history.symptom_time_unknown']")
+    public WebElement participantTumorsDateAgeOfFirstSymptomsUnknownCheckbox;
+
+    /**
+     * Date of diagnosis input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_tumor_history.diagnosis_date']")
+    public WebElement participantTumorsDateOfDiagnosisInputField;
+
+    /**
+     * Date/age of diagnosis unknown checkbox
+     */
+    @FindBy(xpath = "//input[@name='sys_original.x_naci_family_coho_participant_tumor_history.diagnosis_time_unknown']")
+    public WebElement participantTumorsDateAgeOfFirstDiagnosisUnknownCheckbox;
+
+    /**
+     * Genetic testing dropdown
+     */
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_participant_tumor_history.genetic_testing']")
+    public WebElement participantTumorsGeneticTestingDropdown;
+
+    /**
+     * Please specify input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_tumor_history.please_specify']")
+    public WebElement participantTumorsPleaseSpecifyInputField;
+
+    /**
+     * ---------------------END OF Tumors SECTION---------------------
+     */
+
+    /**
+     * ---------------------START OF Autoimmune History SECTION---------------------
+     */
+
+    /**
+     * Condition input field
+     */
+    @FindBy(xpath = "//input[@name='sys_display.x_naci_family_coho_participant_autoimmune_history.condition']")
+    public WebElement participantAutoimmuneHistoryInputField;
+
+    /**
+     * Age of first symptoms input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_autoimmune_history.symptom_age']")
+    public WebElement participantAutoimmuneHistoryAgeOfFirstSymptomInputField;
+
+    /**
+     * Date of first symptoms input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_autoimmune_history.syptom_date']")
+    public WebElement participantAutoimmuneHistoryDateOfFirstSymptomInputField;
+
+    /**
+     * Date of diagnosis input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_autoimmune_history.diagnosis_date']")
+    public WebElement participantAutoimmuneHistoryDateOfDiagnosisInputField;
+
+    /**
+     * Date/age of diagnosis unknown checkbox
+     */
+    @FindBy(xpath = "//input[@name='sys_original.x_naci_family_coho_participant_autoimmune_history.diagnosis_time_unknown']")
+    public WebElement participantAutoimmuneHistoryDateAgeOfFirstDiagnosisUnknownCheckbox;
+
+    /**
+     * Treatment textarea
+     */
+    @FindBy(xpath = "//textarea[@name='x_naci_family_coho_participant_autoimmune_history.treatment']")
+    public WebElement participantAutoimmuneHistoryTreatmentTextarea;
+
+    /**
+     * Name of treating hospital or physician text area
+     */
+    @FindBy(xpath = "//textarea[@name='x_naci_family_coho_participant_autoimmune_history.physician_info']")
+    public WebElement participantAutoimmuneHistoryNameOfTreatingHospitalOrPhysicianTextarea;
+
+    /**
+     * Please specify input field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_participant_autoimmune_history.please_specify']")
+    public WebElement participantAutoimmuneHistoryPleaseSpecifyInputField;
+
+    /**
+     * ---------------------END OF Autoimmune History SECTION---------------------
      */
 
 
@@ -2825,6 +3047,36 @@ public class RAS_Survey_Native_View_Page {
      */
     public WebElement dynamicTabLocator(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//span[text()='" + text + "']"));
+    }
+
+    /**
+     * use this method to dynamically locate input fields by providing the input field label text.
+     *
+     * @param inputFieldLabel the label associated with the input field
+     * @return WebElement representing the located input field
+     */
+    public static WebElement dynamicInputFieldLocator(String inputFieldLabel) {
+        return locateByXpath("//span[normalize-space()='" + inputFieldLabel + "']/parent::label/parent::div/following-sibling::div/input");
+    }
+
+    /**
+     * Use this method to dynamically locate lookup fields by providing the lookup field label text.
+     *
+     * @param lookupFieldLabel the label associated with the lookup field
+     * @return WebElement representing the located lookup field
+     */
+    public static WebElement dynamicLookupFieldLocator(String lookupFieldLabel) {
+        return locateByXpath("//span[normalize-space()='" + lookupFieldLabel + "']/parent::label/parent::div/following-sibling::div/input[2]");
+    }
+
+    /**
+     * Use this method to dynamically locate select dropdowns by providing the select dropdown label text.
+     *
+     * @param selectDropdownLabel The label text of the select dropdown to be located.
+     * @return The WebElement corresponding to the located dropdown element.
+     */
+    public static WebElement dynamicSelectDropdownLocator(String selectDropdownLabel) {
+        return locateByXpath("//span[normalize-space()='" + selectDropdownLabel + "']/parent::label/parent::div/following-sibling::div/select");
     }
 
     public RAS_Survey_Native_View_Page() {

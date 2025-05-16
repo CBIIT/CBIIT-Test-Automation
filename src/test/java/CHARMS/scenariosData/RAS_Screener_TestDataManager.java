@@ -30,6 +30,7 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
     public String WHAT_IS_YOUR_SEX;
     public String ARE_YOU_ADOPTED_OPTION;
     public String IS_THE_PARTICIPANT_ALIVE;
+    public String DO_YOU_CURRENTLY_LIVE_IN_THE_US;
     public String COUNTRY_OPTION;
     public String STREET;
     public String STREET2;
@@ -185,6 +186,7 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
             SEX_ASSIGNED_AT_BIRTH_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("What was your sex assigned at birth?");
             WHAT_IS_YOUR_SEX = TEST_DATA_FOR_RAS_SCREENER.get("What is your sex?");
             ARE_YOU_ADOPTED_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("Are you adopted?");
+            DO_YOU_CURRENTLY_LIVE_IN_THE_US = TEST_DATA_FOR_RAS_SCREENER.get("Do you currently live in the United States?");
             COUNTRY_OPTION = TEST_DATA_FOR_RAS_SCREENER.get("In which country do you currently live?");
             STREET = TEST_DATA_FOR_RAS_SCREENER.get("Street");
             STREET2 = TEST_DATA_FOR_RAS_SCREENER.get("Street 2 (optional)");
