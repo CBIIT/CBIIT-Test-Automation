@@ -1,8 +1,12 @@
 package PLATFORM_BUSINESS.ApplicationAccessAndApproval.steps;
 
 import PLATFORM_BUSINESS.ApplicationAccessAndApproval.stepsImplementation.AAAStepsImplementation;
+import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
 import static APPS_COMMON.PageInitializers.PageInitializer.aaaPage;
 import static Hooks.Hooks.softAssert;
 
@@ -94,5 +98,49 @@ public class AAAlSteps {
     @Given("User can see 2nd Level Federal Supervisor dropdown")
     public void user_can_see_2nd_level_federal_supervisor_dropdown() {
      AAAStepsImplementation.verifySecondLevelSupervisorDropdownDisplayed();
+    }
+
+    /**
+     *User clicks on System Name dropdown
+     */
+    @When("User clicks on System Name dropdown")
+    public void user_clicks_on_system_name_dropdown() {;
+        aaaPage.systemNameDropdown.click();
+    }
+
+    @Then("User can see the expected System Name dropdown options")
+    public void user_can_see_the_expected_system_name_dropdown_options() {
+       AAAStepsImplementation.verifySystemNameDropdownOptionsDisplayed();
+    }
+
+    @When("User clicks on Applications Datasources dropdown")
+    public void user_clicks_on_applications_datasources_dropdown() {
+        CommonUtils.waitForClickability(aaaPage.applDatasourcesDropdown);
+        JavascriptUtils.clickByJS(aaaPage.applDatasourcesDropdown);
+    }
+
+    @Then("User can see Applications Datasources text input field")
+    public void user_can_see_applications_datasources_text_input_field() {
+       AAAStepsImplementation.verifyApplicationsDatasourcesInputTextDisplayed();
+    }
+
+    @Then("User can see Privilege level field text")
+    public void user_can_see_privilege_level_field_text() {
+       AAAStepsImplementation.verifyPrivilegeLevelTextFieldDisplayed();
+    }
+
+    @Then("User can see DOC level field text")
+    public void user_can_see_doc_level_field_text() {
+        AAAStepsImplementation.verifyDOCLevelTextFieldDisplayed();
+    }
+
+    @Then("User can see Valid Until Date field text")
+    public void user_can_see_valid_until_date_field_text() {
+        AAAStepsImplementation.verifyValidUntilDateTextFieldDisplayed();
+    }
+
+    @Then("User can see Add Attachment button")
+    public void user_can_see_add_attachment_button() {
+    AAAStepsImplementation.verifyAddAttachmentDisplayed();
     }
 }
