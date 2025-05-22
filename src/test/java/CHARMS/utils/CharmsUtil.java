@@ -490,12 +490,20 @@ public class CharmsUtil {
      * @param recordName the name of the record to be opened in the related list
      */
     public static void openRelatedListRecord(String recordName) {
-        CommonUtils.hoverOverElement(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[contains(@aria-label, '" + recordName + "')]"));
-        JavascriptUtils.clickByJS(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[contains(@aria-label, '" + recordName + "')]"));
-        CommonUtils.sleep(800);
-        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
-        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
-        CommonUtils.sleep(800);
+        try {
+            CommonUtils.hoverOverElement(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[contains(@aria-label, '" + recordName + "')]"));
+            JavascriptUtils.clickByJS(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[contains(@aria-label, '" + recordName + "')]"));
+        } catch (Exception e) {
+            locateByXpath("//span[@class='vcr_controls_bottom']//button[@aria-label='Next page' and @name='vcr_next' and not(contains(@class, 'disabled'))]").click();
+            CommonUtils.sleep(800);
+            CommonUtils.hoverOverElement(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[contains(@aria-label, '" + recordName + "')]"));
+            JavascriptUtils.clickByJS(locateByXpath("//td[@class='list_decoration_cell col-small col-center ']//a[contains(@aria-label, '" + recordName + "')]"));
+        } finally {
+            CommonUtils.sleep(800);
+            CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
+            JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
+            CommonUtils.sleep(800);
+        }
     }
 
     /**
