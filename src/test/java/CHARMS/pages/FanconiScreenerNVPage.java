@@ -73,8 +73,18 @@ public class FanconiScreenerNVPage extends PageInitializer {
     }
 
     /* Method to dynamically locate Input Value elements of family member in Fanconi Study Screener in Native View */
-    public WebElement dynamicLocatorForInputElementsOfFamilyInFAScreener(String text) {
+    public WebElement dynamicLocatorForInputElementsOfFamilyInFAScreener1(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='x_naci_family_coho_fanconi_study_screener.family_member_record." + text + "'])[1]"));
+    }
+
+    /* Method to dynamically locate Input Value elements of family member in Fanconi Study Screener in Native View */
+    public WebElement dynamicLocatorForInputElementsOfFamilyInFAScreener2(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@name='x_naci_family_coho_fanconi_study_screener." + text + "'])[1]"));
+    }
+
+    /* Method to dynamically locate Input Value elements of family member in Fanconi Study Screener in Native View */
+    public WebElement dynamicLocatorForInputElementsOfFamilyInFAScreener(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@name='x_naci_family_coho_fanconi_study_screener." + text + "'])[1]"));
     }
 
     /* Method to dynamically locate Select Value elements in Fanconi Screener page in Native View */
