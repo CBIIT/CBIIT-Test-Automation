@@ -251,6 +251,18 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
+
+                /**
+                 * * * * * DO YOU CURRENTLY LIVE IN THE UNITED STATES? * * * *
+                 */
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && (rasopathyQuestionnairePage.question.getText().trim().contentEquals(DO_YOU_CURRENTLY_LIVE_IN_THE_US) || rasopathyQuestionnairePage.question.getText().trim().contentEquals(formatRASQuestionForProxy(DOES_PARTICIPANT_CURRENTLY_LIVE_IN_THE_US)))) {
+                    CucumberLogUtils.scenario.log("* * * * * DO YOU CURRENTLY LIVE IN THE UNITED STATES? * * * * *");
+                    CommonUtils.sleep(200);
+                    dynamicLocator(ras_Screener_TestDataManager.DO_YOU_CURRENTLY_LIVE_IN_THE_US).click();
+                    CucumberLogUtils.logScreenshot();
+                    ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
+                }
+
                 /**
                  * * * * * IN WHICH COUNTRY DO YOU CURRENTLY LIVE? * * * *
                  */
