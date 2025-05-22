@@ -135,4 +135,49 @@ public class AAAStepsImplementation extends PageInitializer {
     public static void verifySecondLevelSupervisorDropdownDisplayed() {
         softAssert.assertTrue(aaaPage.secondLevelSupervisorDropdown.isDisplayed());
     }
+
+    /**
+     *Verify System Name dropdown options
+     */
+    public static void verifySystemNameDropdownOptionsDisplayed() {
+        softAssert.assertTrue(aaaPage.SystemDropdownNoneOption.isDisplayed());
+        softAssert.assertTrue(aaaPage.SystemDropdownNIADDIROption.isDisplayed());
+        softAssert.assertTrue(aaaPage.SystemDropdownNIDAPOption.isDisplayed());
+        softAssert.assertTrue(aaaPage.SystemDropdownNOTNIDAPOption.isDisplayed());
+    }
+
+    /**
+     *User can see Applications Datasources text input field
+     */
+    public static void verifyApplicationsDatasourcesInputTextDisplayed() {
+        softAssert.assertTrue(aaaPage.ApplicationsDatasourcesTextInputField.isDisplayed());
+    }
+
+    /**
+     * Verify Privilege Level text field
+     */
+    public static void verifyPrivilegeLevelTextFieldDisplayed() {
+        softAssert.assertTrue(aaaPage.privilegeLevelTextbox.isDisplayed());
+    }
+
+    /**
+     * Verify DOC Level text field
+     */
+    public static void verifyDOCLevelTextFieldDisplayed() {
+        softAssert.assertTrue(aaaPage.docLevelTextbox.isDisplayed());
+    }
+
+    /**
+     * Verify Valid Until Date text field
+     */
+    public static void verifyValidUntilDateTextFieldDisplayed() {
+        softAssert.assertTrue(aaaPage.ValidUntilDateTextbox.isDisplayed());
+    }
+
+    /**
+     * Verify Add Attachment button is displayed
+     */
+    public static void verifyAddAttachmentDisplayed() {
+        softAssert.assertTrue(aaaPage.addAttachmentButton.isDisplayed());
+    }
 }

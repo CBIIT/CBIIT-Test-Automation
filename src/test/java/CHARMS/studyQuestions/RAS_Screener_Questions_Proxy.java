@@ -14,6 +14,7 @@ public class RAS_Screener_Questions_Proxy {
     public static final String SEX_OF_ASSIGNED_AT_BIRTH = "Sex of %s assigned at birth";
     public static final String IS_ADOPTED = "Is %s adopted?";
     public static final String IS_ALIVE = "Is %s alive?";
+    public static final String DOES_PARTICIPANT_CURRENTLY_LIVE_IN_THE_US = "Does %s currently live in the United States?";
     public static final String IN_WHICH_COUNTRY_DOES_THE_PROBAND_CURRENTLY_LIVE = "In which country does %s currently live?";
     public static final String ETHNICITY_OF = "Ethnicity of %s";
     public static final String RACE_OF = "Race of %s. Please select all that apply.";
