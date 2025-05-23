@@ -8,6 +8,9 @@ import com.nci.automation.utils.CucumberLogUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import java.util.regex.Pattern;
+
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
@@ -127,6 +130,32 @@ public class CCR_OIT_HELPDESK_Steps {
         page.locator("//span[normalize-space()='Protocol Number']").scrollIntoViewIfNeeded();
         assertThat(page.locator("#protocol_number").getByText("Protocol Number")).isVisible();
         assertThat(page.locator("#protocol_number")).containsText(protocolNumber);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Selects "General Support" for the Request Type.
+     */
+    @When("I select General Support for Request Type")
+    public void i_select_general_support_for_request_type() {
+        page.locator("//span[normalize-space()='Request Type']").scrollIntoViewIfNeeded();
+        assertThat(page.locator("span").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Request Type$")))).isVisible();
+        assertThat(page.locator("#u_request_type")).containsText("Request Type");
+        page.locator("a").filter(new Locator.FilterOptions().setHasText("-- None --")).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("General Support")).click();
+        assertThat(page.locator("//span[@id='select2-chosen-1']")).containsText("General Support");
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Verifies the additional optional field "Protocol/Study" is displayed.
+     * @param protocolStudy
+     */
+    @Then("I will see the additional optional field being displayed {string}")
+    public void i_will_see_the_additional_optional_field_being_displayed(String protocolStudy) {
+        page.locator("//label[contains(@for,'sp_formfield_protocol_study')]").scrollIntoViewIfNeeded();
+        assertThat(page.getByText("Protocol/Study")).isVisible();
+        assertThat(page.locator("#protocol_study")).containsText(protocolStudy);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }
