@@ -52,7 +52,7 @@ public class AAAPage {
     public WebElement organizationAffiliationField;
 
     /**System Name dropdown*/
-    @FindBy(xpath = "//div//span[@id='select2-chosen-1']")
+    @FindBy(xpath = "//*[@id='s2id_sp_formfield_system_names']/a/span[2]")
     public WebElement systemNameDropdown;
 
     /**Application datasources dropdown*/
@@ -83,9 +83,45 @@ public class AAAPage {
     @FindBy(xpath = "//div[@id='s2id_sp_formfield_federal_supervisor']")
     public WebElement federalSupervisorDropdown;
 
-    /**2nd Level Federal Supervisor drpd*/
+    /**2nd Level Federal Supervisor dropdown*/
     @FindBy(xpath = "//a[@class='select2-choice select2-default form-control']")
     public WebElement secondLevelSupervisorDropdown;
+
+    /**System dropdown none option*/
+    @FindBy(xpath = "(//div[@class='select2-result-label']//span[@class='select2-match'])[1]")
+    public WebElement SystemDropdownNoneOption;
+
+    /**System dropdown NIAID DIR LMI option*/
+    @FindBy(xpath = "(//div[@class='select2-result-label']//span[@class='select2-match'])[2]")
+    public WebElement SystemDropdownNIADDIROption;
+
+    /**System dropdown NIDAP option*/
+    @FindBy(xpath = "(//div[@class='select2-result-label']//span[@class='select2-match'])[3]")
+    public WebElement SystemDropdownNIDAPOption;
+
+    /**System dropdown NOT NIDAP option*/
+    @FindBy(xpath = "(//div[@class='select2-result-label']//span[@class='select2-match'])[3]")
+    public WebElement SystemDropdownNOTNIDAPOption;
+
+    /**Applications Datasources text input field*/
+    @FindBy(xpath = "//*[@id='s2id_autogen2_search']")
+    public WebElement ApplicationsDatasourcesTextInputField;
+
+    /**Privilege level textbox*/
+    @FindBy(xpath = "//span[@title='Check as many boxes as needed. None is checked by Default for Systems that do not have any privilege levels.']")
+    public WebElement privilegeLevelTextbox;
+
+    /**DOC level textbox*/
+    @FindBy(xpath = "//span[@title='If DOC level access is requested, please indicate DOC']")
+    public WebElement docLevelTextbox;
+
+    /**Valid Until Date textbox*/
+    @FindBy(xpath = "//span[@title='Use valid until date for users that require only temporary access']")
+    public WebElement ValidUntilDateTextbox;
+
+    /**Add Attachment button*/
+    @FindBy(xpath = "//*[@id='catItemTop']/div[1]/div[3]/div[2]/label")
+    public WebElement addAttachmentButton;
 
     public AAAPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
