@@ -7,6 +7,7 @@ import CHARMS.pages.NativeViewCHARMSDashboardPage;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
+import CHARMS.utils.CharmsUtil;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -74,13 +75,13 @@ public class RAS_Common_Methods extends PageInitializer {
             CucumberLogUtils.logScreenshot();
             CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
         } else if (sheetName.contentEquals("screenerScenarioAge11-13")) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
             CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
         } else if (sheetName.contentEquals("screenerScenarioAge14-17")) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
             CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
         }
         CommonUtils.sleep(1000);
         if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
@@ -277,6 +278,7 @@ public class RAS_Common_Methods extends PageInitializer {
      * @param errorMessage  The message to be displayed in case of assertion failure.
      */
     public static void softAssertDropDownValueIsSelected(WebElement element, String expectedValue, String errorMessage) {
+        CharmsUtil.labelHighlight(element);
         Select select = new Select(element);
         softAssert.assertEquals(select.getFirstSelectedOption().getText(), expectedValue, errorMessage);
     }

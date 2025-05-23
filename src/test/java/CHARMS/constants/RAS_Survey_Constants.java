@@ -1408,6 +1408,12 @@ public class RAS_Survey_Constants {
     public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_PTOSIS = "Have you ever been diagnosed with ptosis (droopiness of the upper eyelid)?";
     public final String DID_YOU_REQUIRE_TREATMENT_FOR_PTOSIS = "Did you require treatment for ptosis?";
     public final String HAVE_YOU_EVER_HAD_ANY_ISSUES_WITH_YOUR_VISION = "Have you ever had any issues with your vision or eyesight?";
+    public final String PLEASE_SELECT_ALL_THE_VISIO_EYESIGHT_CONDITIONS_OPTION_1 = "Please select all the vision eyesight conditions for which you have been diagnosed. Option 1";
+    public final String PLEASE_SELECT_ALL_THE_VISIO_EYESIGHT_CONDITIONS_OPTION_2 = "Please select all the vision eyesight conditions for which you have been diagnosed. Option 2";
+    public final String PLEASE_SELECT_ALL_THE_VISIO_EYESIGHT_CONDITIONS_OPTION_3 = "Please select all the vision eyesight conditions for which you have been diagnosed. Option 3";
+    public final String PLEASE_SELECT_ALL_THE_VISIO_EYESIGHT_CONDITIONS_OPTION_4 = "Please select all the vision eyesight conditions for which you have been diagnosed. Option 4";
+    public final String PLEASE_SELECT_ALL_THE_VISIO_EYESIGHT_CONDITIONS_OPTION_5 = "Please select all the vision eyesight conditions for which you have been diagnosed. Option 5";
+    public final String PLEASE_SELECT_ALL_THE_VISIO_EYESIGHT_CONDITIONS_OPTION_6 = "Please select all the vision eyesight conditions for which you have been diagnosed. Option 6";
     public final String PLEASE_SELECT_ALL_THE_VISIO_EYESIGHT_CONDITIONS_OPTION_6_OTHER = "Please select all the vision eyesight conditions for which you have been diagnosed. Option 6 Other";
     public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_1_OPTION_1 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 1 Option 1";
     public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_1_OPTION_2 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 1 Option 2";

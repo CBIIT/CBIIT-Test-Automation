@@ -2324,6 +2324,106 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
     }
 
     /**
+     * This method verifies the RAS Survey data for scenario two in Native View within the "Vision" section.
+     */
+    public static void verify_ras_survey_data_scenarioTwo_vision_section() {
+        clickTab("Vision (");
+        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='Test901']/parent::tr/td[2]/a"));
+        JavascriptUtils.clickByJS(locateByXpath("//td[normalize-space()='Test901']/parent::tr/td[2]/a"));
+        CommonUtils.sleep(800);
+        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
+        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
+        CommonUtils.sleep(800);
+        verifyInputField(dynamicLookupFieldLocator("Issue"), ras_Survey_TestDataManager.pleaseSelectAllTheVisionEyesightOption1, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Neurological visual impairment\" section 'Issue' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Date of first symptom']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn1Option1, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Neurological visual impairment\" section 'Date of first symptom' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Date of diagnosis']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Neurological visual impairment\" section 'Date of diagnosis' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='First Symptom Time Unknown']/parent::label/parent::div/following-sibling::div/input[1]"), "true", "* * * * * RAS SURVEY MISMATCH IN \"Vision - Neurological visual impairment\" section 'First Symptom Time Unknown' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Diagnosis Time Unknown']/parent::label/parent::div/following-sibling::div/input[1]"), "true", "* * * * * RAS SURVEY MISMATCH IN \"Vision - Neurological visual impairment\" section 'Diagnosis Time Unknown' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Treatment']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn7Option1, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Neurological visual impairment\" section 'Treatment' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+
+
+        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='Test902']/parent::tr/td[2]/a"));
+        JavascriptUtils.clickByJS(locateByXpath("//td[normalize-space()='Test902']/parent::tr/td[2]/a"));
+        CommonUtils.sleep(800);
+        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
+        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
+        CommonUtils.sleep(800);
+        verifyInputField(dynamicLookupFieldLocator("Issue"), ras_Survey_TestDataManager.pleaseSelectAllTheVisionEyesightOption2, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Nearsightedness (also called myopia; things in the distance look fuzzy)\" section 'Issue' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Date of first symptom']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn1Option2, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Nearsightedness (also called myopia; things in the distance look fuzzy)\" section 'Date of first symptom' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Date of diagnosis']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Nearsightedness (also called myopia; things in the distance look fuzzy)\" section 'Date of diagnosis' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='First Symptom Time Unknown']/parent::label/parent::div/following-sibling::div/input[1]"), "true", "* * * * * RAS SURVEY MISMATCH IN \"Vision - Nearsightedness (also called myopia; things in the distance look fuzzy)\" section 'First Symptom Time Unknown' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Diagnosis Time Unknown']/parent::label/parent::div/following-sibling::div/input[1]"), "true", "* * * * * RAS SURVEY MISMATCH IN \"Vision - Nearsightedness (also called myopia; things in the distance look fuzzy)\" section 'Diagnosis Time Unknown' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Treatment']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn7Option2, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Nearsightedness (also called myopia; things in the distance look fuzzy)\" section 'Treatment' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='Test903']/parent::tr/td[2]/a"));
+        JavascriptUtils.clickByJS(locateByXpath("//td[normalize-space()='Test903']/parent::tr/td[2]/a"));
+        CommonUtils.sleep(800);
+        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
+        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
+        CommonUtils.sleep(800);
+        verifyInputField(dynamicLookupFieldLocator("Issue"), ras_Survey_TestDataManager.pleaseSelectAllTheVisionEyesightOption3, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Farsightedness\" section 'Issue' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Date of first symptom']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Farsightedness\" section 'Date of first symptom' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Date of diagnosis']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Farsightedness\" section 'Date of diagnosis' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='First Symptom Time Unknown']/parent::label/parent::div/following-sibling::div/input[1]"), "true", "* * * * * RAS SURVEY MISMATCH IN \"Vision - Farsightedness\" section 'First Symptom Time Unknown' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Diagnosis Time Unknown']/parent::label/parent::div/following-sibling::div/input[1]"), "true", "* * * * * RAS SURVEY MISMATCH IN \"Vision - Farsightedness\" section 'Diagnosis Time Unknown' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Treatment']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn7Option3, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Farsightedness\" section 'Treatment' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='Test904']/parent::tr/td[2]/a"));
+        JavascriptUtils.clickByJS(locateByXpath("//td[normalize-space()='Test904']/parent::tr/td[2]/a"));
+        CommonUtils.sleep(800);
+        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
+        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
+        CommonUtils.sleep(800);
+        verifyInputField(dynamicLookupFieldLocator("Issue"), ras_Survey_TestDataManager.pleaseSelectAllTheVisionEyesightOption4, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Astigmatism\" section 'Issue' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Date of first symptom']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Astigmatism\" section 'Date of first symptom' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Date of diagnosis']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Astigmatism\" section 'Date of diagnosis' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='First Symptom Time Unknown']/parent::label/parent::div/following-sibling::div/input[1]"), "true", "* * * * * RAS SURVEY MISMATCH IN \"Vision - Astigmatism\" section 'First Symptom Time Unknown' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Diagnosis Time Unknown']/parent::label/parent::div/following-sibling::div/input[1]"), "true", "* * * * * RAS SURVEY MISMATCH IN \"Vision - Astigmatism\" section 'Diagnosis Time Unknown' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Treatment']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn7Option4, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Astigmatism\" section 'Treatment' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='Test905']/parent::tr/td[2]/a"));
+        JavascriptUtils.clickByJS(locateByXpath("//td[normalize-space()='Test905']/parent::tr/td[2]/a"));
+        CommonUtils.sleep(800);
+        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
+        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
+        CommonUtils.sleep(800);
+        verifyInputField(dynamicLookupFieldLocator("Issue"), "Amblyopia (sometimes called \"lazy eye\"; one eye has weaker vision and may wander inwards aor outwards and vision does not develop properly)", "* * * * * RAS SURVEY MISMATCH IN \"Vision - Amblyopia\" section 'Issue' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Date of first symptom']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn1Option5, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Amblyopia\" section 'Date of first symptom' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Date of diagnosis']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn4Option5, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Amblyopia\" section 'Date of diagnosis' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='First Symptom Time Unknown']/parent::label/parent::div/following-sibling::div/input[1]"), "true", "* * * * * RAS SURVEY MISMATCH IN \"Vision - Amblyopia\" section 'First Symptom Time Unknown' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Diagnosis Time Unknown']/parent::label/parent::div/following-sibling::div/input[1]"), "true", "* * * * * RAS SURVEY MISMATCH IN \"Vision - Amblyopia\" section 'Diagnosis Time Unknown' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Treatment']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn7Option5, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Amblyopia\" section 'Treatment' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='Test906']/parent::tr/td[2]/a"));
+        JavascriptUtils.clickByJS(locateByXpath("//td[normalize-space()='Test906']/parent::tr/td[2]/a"));
+        CommonUtils.sleep(800);
+        CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
+        JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
+        CommonUtils.sleep(800);
+        verifyInputField(dynamicLookupFieldLocator("Issue"), "Other (please specify)", "* * * * * RAS SURVEY MISMATCH IN \"Vision - Other (please specify)\" section 'Issue' * * * * *");
+        verifyInputField(locateByXpath("//input[@name='x_naci_family_coho_participant_vision_history.please_specify']"), ras_Survey_TestDataManager.pleaseSelectAllTheVisionEyesightOption6Other, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Other (please specify)\" section 'Date of first symptom' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Date of first symptom']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn1Option6, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Other (please specify)\" section 'Date of first symptom' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Date of diagnosis']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn4Option6, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Other (please specify)\" section 'Date of diagnosis' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='First Symptom Time Unknown']/parent::label/parent::div/following-sibling::div/input[1]"), "true", "* * * * * RAS SURVEY MISMATCH IN \"Vision - Other (please specify)\" section 'First Symptom Time Unknown' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Diagnosis Time Unknown']/parent::label/parent::div/following-sibling::div/input[1]"), "true", "* * * * * RAS SURVEY MISMATCH IN \"Vision - Other (please specify)\" section 'Diagnosis Time Unknown' * * * * *");
+        verifyInputField(locateByXpath("//span[normalize-space()='Treatment']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn7Option6, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Other (please specify)\" section 'Treatment' * * * * *");
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
+        CommonUtils.sleep(800);
+    }
+
+    /**
      * This method verifies the RAS Survey data for scenario two in Native View within the "Participant Strabismus Histories" section.
      */
     public static void verify_ras_survey_data_scenarioTwo_strabismus_history_section() {
@@ -2461,6 +2561,7 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         verify_ras_survey_data_scenarioTwo_brain_issues_section();
         verify_ras_survey_data_scenarioTwo_seizure_history_section();
         verify_ras_survey_data_scenarioTwo_behavioural_psychiatric_histories_section();
+        verify_ras_survey_data_scenarioTwo_vision_section();
         verify_ras_survey_data_scenarioTwo_strabismus_history_section();
         verify_ras_survey_data_scenarioTwo_participant_nystagmus_histories_section();
         verify_ras_survey_data_scenarioTwo_participant_hearing_loss_section();

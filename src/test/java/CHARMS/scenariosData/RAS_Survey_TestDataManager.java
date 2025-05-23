@@ -1288,6 +1288,12 @@ public class RAS_Survey_TestDataManager extends PageInitializer {
     public String haveYouEverBeenDiagnosedWithPtosis;
     public String didYouRequireTreatmentForPtosis;
     public String haveYouEverHadAnyIssuesWithYourVision;
+    public String pleaseSelectAllTheVisionEyesightOption1;
+    public String pleaseSelectAllTheVisionEyesightOption2;
+    public String pleaseSelectAllTheVisionEyesightOption3;
+    public String pleaseSelectAllTheVisionEyesightOption4;
+    public String pleaseSelectAllTheVisionEyesightOption5;
+    public String pleaseSelectAllTheVisionEyesightOption6;
     public String pleaseSelectAllTheVisionEyesightOption6Other;
     public String pleaseCompleteTheTableVisionEyesightColumn1Option1;
     public String pleaseCompleteTheTableVisionEyesightColumn1Option2;
@@ -2838,6 +2844,12 @@ public class RAS_Survey_TestDataManager extends PageInitializer {
             haveYouEverBeenDiagnosedWithPtosis = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_PTOSIS);
             didYouRequireTreatmentForPtosis = testDataRasSurvey.get(ras_Survey_Constants.DID_YOU_REQUIRE_TREATMENT_FOR_PTOSIS);
             haveYouEverHadAnyIssuesWithYourVision = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_HAD_ANY_ISSUES_WITH_YOUR_VISION);
+            pleaseSelectAllTheVisionEyesightOption1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_SELECT_ALL_THE_VISIO_EYESIGHT_CONDITIONS_OPTION_1);
+            pleaseSelectAllTheVisionEyesightOption2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_SELECT_ALL_THE_VISIO_EYESIGHT_CONDITIONS_OPTION_2);
+            pleaseSelectAllTheVisionEyesightOption3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_SELECT_ALL_THE_VISIO_EYESIGHT_CONDITIONS_OPTION_3);
+            pleaseSelectAllTheVisionEyesightOption4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_SELECT_ALL_THE_VISIO_EYESIGHT_CONDITIONS_OPTION_4);
+            pleaseSelectAllTheVisionEyesightOption5 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_SELECT_ALL_THE_VISIO_EYESIGHT_CONDITIONS_OPTION_5);
+            pleaseSelectAllTheVisionEyesightOption6 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_SELECT_ALL_THE_VISIO_EYESIGHT_CONDITIONS_OPTION_6);
             pleaseSelectAllTheVisionEyesightOption6Other = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_SELECT_ALL_THE_VISIO_EYESIGHT_CONDITIONS_OPTION_6_OTHER);
             pleaseCompleteTheTableVisionEyesightColumn1Option1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_1_OPTION_1);
             pleaseCompleteTheTableVisionEyesightColumn1Option2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_1_OPTION_2);
