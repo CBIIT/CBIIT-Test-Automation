@@ -942,6 +942,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
         }
         CommonUtils.waitForVisibility(cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Subject ID"));
+        CommonUtils.sleep(500);
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Subject ID"), "Subject ID", " Subject ID Label of the General Information on Participant Details page ");
         subjectIDValue = (cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("full_family_id").getDomAttribute("value"));
         if (subjectIDValue.isEmpty()) {
@@ -978,10 +979,12 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         }
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Studies"), "Studies", " Studies Label of the General Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantStudies, "Fanconi", " Studies on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Study Subcategory"), "Study Subcategory", " Study Subcategory Label of the General Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("NIH MRN number"), "NIH MRN number", " NIH MRN number Label of the General Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("nih_number"), "", " NIH MRN number on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantNIHMRNnumberInfo, "NIH MRN number should include the dashes", " NIH MRN number Information Text on Participant Details page ");
-    }
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Invitation Code"), "Invitation Code", " Invitation Code Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("invitation_code"), "", " Invitation Code on Participant Details page "); }
 
     /**
      * Method to assert the Personal Information on Participant Details
@@ -1037,8 +1040,14 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("person_alive"), currentRow.get("VitalStatus"), " Vital Status Value of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Date of Birth"), "Date of Birth", " Date of Birth Label of the General Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("date_of_birth"), currentRow.get("DOB"), " Date of Birth value of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Date of birth is estimated"), "Date of birth is estimated", " Date of birth is estimated Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingLabel("Date of birth is estimated"), "", " Date of Birth is estimated value of the General Information on Participant Details page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElementsInPS("date_of_birth_is_estimated"), false, " Date of Birth is estimated CheckBox Value of the General Information on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Date of Death"), "Date of Death", " Date of Death Label of the General Information on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("death_date"), "", " Date of Death value of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("death_date"), "", " Date of death value of the Demographics on Participant Details page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElementsInPS("date_of_death_is_estimated"), false, " Date of death is estimated CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Date of death is estimated"), "Date of death is estimated", " Date of death is estimated Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingLabel("Date of death is estimated"), "", " Date of death is estimated value of the General Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("If Date of Birth is unknown, is this person 18 years old or older"), "If Date of Birth is unknown, is this person 18 years old or older", " If Date of Birth is unknown, is this person 18 years old or older Label of the General Information on Participant Details page ");
         CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("if_date_of_birth_is_unkown_is_this_person_18_years_old_or_older"), "-- None --", " If Date of Birth is unkown of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Age"), "Age", " Age Label of the General Information on Participant Details page ");
@@ -1058,30 +1067,28 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("What is your relationship to the participant?"), "What is your relationship to the participant?", " What is your relationship to the participant? Label of the Contact Information on Participant Details page ");
             CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("relationship"), currentRow.get("WhatIsYourRelationshipToParticipantInNV"), " What is your relationship to the participant? Value of the Contact Info on Participant Details page ");
         } else {
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("legal_representative_name"), "", " Person who filled the screener text box of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("legal_representative_name"), currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantMiddleName") + " " + currentRow.get("ParticipantLastName"), " Person who filled the screener text box of the Contact Information on Participant Details page ");
             CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("What is your relationship to the participant?"), "What is your relationship to the participant?", " What is your relationship to the participant? Label of the Contact Information on Participant Details page ");
-            CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("relationship"), "-- None --", " What is your relationship to the participant? Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("relationship"), "Self", " What is your relationship to the participant? Value of the Contact Info on Participant Details page ");
         }
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Are you the legal guardian of this person?"), "Are you the legal guardian of this person?", " Are you the legal guardian of this person? Label of the Contact Information on Participant Details page ");
         CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("legal_guardian"), currentRow.get("AreYouTheLegalGuardianOfThisPerson"), " Are you the legal guardian of this person? Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Does the participant need legal representation?"), "Does the participant need legal representation?", " Does the participant need legal representation? Label of the Contact Information on Participant Details page ");
         CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("proxy_required"), "-- None --", " Does the participant need legal representation? Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact Street Address"), "Contact Street Address", " Contact Street Address Label of the Contact Information on Participant Details page ");
-        if (currentRow.get("StreetAddress1").contentEquals("")) {
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("street_address"), currentRow.get("StreetAddress1"), " Contact Street Address Value for non USA country of the Contact Info on Participant Details page ");
-        } else {
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("street_address"), currentRow.get("StreetAddress1") + " " + currentRow.get("StreetAddress2"), " Contact Street Address of the Contact Info on Participant Details page ");
-        }
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("street_address"), currentRow.get("StreetAddress1"), " Contact Street Address Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact Street Address 2"), "Contact Street Address 2", " Contact Street Address2 Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("contact_street_address_2"),  currentRow.get("StreetAddress2") , " Contact Street Address 2 of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact City"), "Contact City", " Contact City Label of the Contact Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("city"), currentRow.get("City"), " Contact City Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact State"), "Contact State", " Contact State Label of the Contact Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("state"), currentRow.get("State"), " Contact State Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact Zip Code"), "Contact Zip Code", " Contact Zip Code Label of the Contact Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("zipcode"), currentRow.get("ZipCode"), "Contact Zip Code Value of the Contact Info on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact Country (Old)"), "Contact Country (Old)", " Contact Country Label of the Contact Information on Participant Details page ");
-        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("country"), currentRow.get("CountryLived"), "Contact Country Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingSpanNormalizeSpace("Contact Country"), "Contact Country", " Contact Country Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementsInParticipantDetailsPage("contact_country"), currentRow.get("CountryLived"), "Contact Country Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Registration Email"), "Registration Email", " Registration Email Label of the Contact Information on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("user_record.email"), currentRow.get("RegistrationEmailAddress"), "Registration Email Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("user_record.email"), currentRow.get("RegistrationEmailAddress"), "Registration Email Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact Email"), "Contact Email", " Contact Email Label of the Contact Information on Participant Details page ");
         if (currentRow.get("ParticipantFirstName").contentEquals("")) {
             CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("email_address"), "", " Contact Email Value of the Contact Info on Participant Details page ");
@@ -1124,6 +1131,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_contact_zipcode"), currentRow.get("ProxyZipCode"), " Proxy Zip Code Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Contact Zipcode"), "Proxy Contact Zipcode", " Proxy Contact Zipcode Label of the Contact Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_contact_zipcode"), currentRow.get("ProxyZipCode"), " Proxy Zip Code Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Contact Country"), "Proxy Contact Country", " Proxy Contact Country Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementsInParticipantDetailsPage("proxy_contact_country"), currentRow.get("ProxyCountry"), " Proxy Contact Country Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Contact Email"), "Proxy Contact Email", " Proxy Contact Email Label of the Contact Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_email_address"), currentRow.get("ProxyEmailAddress"), " Proxy Email Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Contact Home Phone"), "Proxy Contact Home Phone", " Proxy Contact Home Phone Label of the Contact Information on Participant Details page ");
@@ -1166,7 +1175,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVParticipantStudiesTab);
         if (currentRow.get("ParticipantFirstName").isBlank()) {
             if (subjectIDValue.isEmpty()) {
-                CharmsUtil.clickOnElement(fanconiScreenerNVPage.dynamicLocatorForPreviewButtonLocator(""));
+                CharmsUtil.labelHighlight(fanconiScreenerNVPage.nVPreviewButtonLocator);
+                JavascriptUtils.clickByJS(fanconiScreenerNVPage.nVPreviewButtonLocator);
             } else {
                 System.out.println("subjectIDValue: " + subjectIDValue);
                 CharmsUtil.clickOnElement(fanconiScreenerNVPage.dynamicLocatorForPreviewButtonLocator(subjectIDValue));
@@ -1220,9 +1230,9 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.nVFScreenerVitalStatus, "Not answered", "Vital Status of the General Information on Fanconi Study Screener page ");
         if (participantValue.isEmpty()) {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Eligibility Status"), "Eligibility Status", " Eligibility Status label on Fanconi Study Screener page ");
-            CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.nVFScreenerEligibilityStatus, "Waiting for Eligibility", "Eligibility Status of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerEligibilityStatus, "waiting_for_eligibility", "Eligibility Status of the General Information on Fanconi Study Screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Enrollment Status"), "Enrollment Status", " Enrollment Status label on Fanconi Study Screener page ");
-            CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.nVFScreenerEnrollmentStatus, "New Screener Received", "Enrollment Status of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerEnrollmentStatus, "1", "Enrollment Status of the General Information on Fanconi Study Screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Date Consent Requested"), "Date Consent Requested", " Date Consent Requested label on Fanconi Study Screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerDateConsentRequested, "", "Date Consent Requested of the General Information on Fanconi Study Screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Consent Reminder Count"), "Consent Reminder Count", " Consent Reminder Count label on Fanconi Study Screener page ");
@@ -1251,81 +1261,91 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("middle_name"), currentRow.get("ProxyMiddleName"), " Middle Name Value of the Contact Information in Fanconi Study screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Last Name"), "Last Name", " Last Name label of the Contact Information in Fanconi Study screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("last_name"), currentRow.get("ProxyLastName"), " Last Name Value of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy First Name"), "Proxy First Name", " Proxy First Name label of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_first_name"), currentRow.get("WhatIsYourNameFirstName"), " Proxy First Name  Value of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Middle Name"), "Proxy Middle Name", " Proxy Middle Name label of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_middle_name"), currentRow.get("WhatIsYourNameMiddleName"), " Proxy Middle Name Value of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Last Name"), "Proxy Last Name", " Proxy Last Name label of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_last_name"), currentRow.get("WhatIsYourNameLastName"), " Proxy Last Name Value of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("What is your relationship to this person?"), "What is your relationship to this person?", " What is your relationship to this person? label of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementInFAScreenerPage("relationship"), currentRow.get("WhatIsYourRelationshipToParticipantInNV"), " What is your relationship to this person? Input value of the Contact Information in Fanconi Study screener page ");
-        } else {
+        }
+        else {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("First Name"), "First Name", " First Name label of the Contact Information in Fanconi Study screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("first_name"), currentRow.get("ParticipantFirstName"), " First Name Value of the Contact Information in Fanconi Study screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Middle Name"), "Middle Name", " Middle Name label of the Contact Information in Fanconi Study screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("middle_name"), currentRow.get("ParticipantMiddleName"), " Middle Name Value of the Contact Information in Fanconi Study screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Last Name"), "Last Name", " Last Name label of the Contact Information in Fanconi Study screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("last_name"), currentRow.get("ParticipantLastName"), " Last Name Value of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy First Name"), "Proxy First Name", " Proxy First Name label of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_first_name"), currentRow.get("ProxyFirstName"), " Proxy First Name Value of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Middle Name"), "Proxy Middle Name", " Proxy Middle Name label of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_middle_name"), currentRow.get("ProxyMiddleName"), " Proxy Middle Name Value of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Last Name"), "Proxy Last Name", " Proxy Last Name label of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_last_name"), currentRow.get("ProxyLastName"), " Proxy Last Name Value of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("What is your relationship to this person?"), "What is your relationship to this person?", " What is your relationship to this person? label of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementInFAScreenerPage("relationship"), currentRow.get("WhatIsYourRelationshipToParticipant"), " What is your relationship to this person? Input value of the Contact Information in Fanconi Study screener page ");
         }
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact Street Address"), "Contact Street Address", " Contact Street Address label of the Contact Information in Fanconi Study screener page ");
-        if (currentRow.get("StreetAddress1").contentEquals("")) {
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("street_address"), currentRow.get("StreetAddress1"), " Contact Street Address Value for non USA country of the Contact Information in Fanconi Study screener page ");
-        } else {
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("street_address"), currentRow.get("StreetAddress1") + " " + currentRow.get("StreetAddress2"), " Contact Street Address of the Contact Information in Fanconi Study screener page ");
-        }
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact City"), "Contact City", " Contact City label of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("city"), currentRow.get("City"), " Contact City Value of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact State"), "Contact State", " Contact State label of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("state"), currentRow.get("State"), " Contact State Value of the Contact Information in  Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact Zip Code"), "Contact Zip Code", " Contact Zip Code label of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("zipcode"), currentRow.get("ZipCode"), " Contact Zip Code Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Street Address"), "Street Address", " Street Address label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("street_address"), currentRow.get("StreetAddress1"), " Street Address Value for non USA country of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Street 2 (optional)"), "Street 2 (optional)", " Street 2 (optional) label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("street_address2"), currentRow.get("StreetAddress2"), " Street 2 (optional) Value for non USA country of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("City"), "City", " City label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("city"), currentRow.get("City"), " City Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("State/Province"), "State/Province", " State/Province label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("state"), currentRow.get("State"), " State/Province Value of the Contact Information in  Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Zip Code"), "Zip Code", " Zip Code label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("zip_code"), currentRow.get("ZipCode"), " Contact Zip Code Value of the Contact Information in Fanconi Study screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact Country"), "Contact Country", " Contact Country label of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementsInFAScreenerPage("country"), currentRow.get("CountryLived"), " Contact Country Value of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact Email"), "Contact Email", " Contact Email label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVParticipantContactCountryInput, currentRow.get("CountryLived"), " Contact Country Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Email Address"), "Email Address", " Email Address label of the Contact Information in Fanconi Study screener page ");
         if (currentRow.get("ParticipantFirstName").contentEquals("")) {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("email_address"), "", " Contact Email Value of the Contact Information in Fanconi Study screener page ");
         }
         else {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("email_address"), currentRow.get("EmailAddress"), " Contact Email Value of the Contact Information in Fanconi Study screener page ");
         }
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact Home Phone"), "Contact Home Phone", " Contact Home Phone label of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("phone"), currentRow.get("HomePhoneNumber"), " Contact Home Phone Value of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact Cell Phone"), "Contact Cell Phone", " Contact Cell Phone label of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("cell_phone"), currentRow.get("CellPhoneNumber"), " Contact Cell Phone Value of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact Work Phone"), "Contact Work Phone", " Contact Work Phone label of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("work_phone"), currentRow.get("WorkPhoneNumber"), " Contact Work Phone Value of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact Preferred phone"), "Contact Preferred phone", " Contact Preferred phone label of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("preferred_phone"), currentRow.get("PreferredPhoneNumber"), " Contact Preferred phone Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Preferred Contact"), "Preferred Contact", " Preferred Contact label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementInFAScreenerPage("preferred_contact"), currentRow.get("PreferredPhoneNumberInStudyScreener"), " Preferred Contact Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Home Phone Number"), "Home Phone Number", " Home Phone Number label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("home_phone"), currentRow.get("HomePhoneNumber"), " Contact Home Phone Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Cell Phone Number"), "Cell Phone Number", " Cell Phone Number label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("cell_phone"), currentRow.get("CellPhoneNumber"), " Cell Phone Number Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Work Phone Number"), "Work Phone Number", " Work Phone Number label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("work_phone"), currentRow.get("WorkPhoneNumber"), " Work Phone Number Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("What is your relationship to this person?"), "What is your relationship to this person?", " What is your relationship to this person? label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementInFAScreenerPage("relationship"), currentRow.get("WhatIsYourRelationshipToParticipantInNV"), " Relationship Value of the Contact Info on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy First Name"), "Proxy First Name", " Proxy First Name label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("your_first_name"), currentRow.get("WhatIsYourNameFirstName"), " Proxy First Name  Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Middle Name"), "Proxy Middle Name", " Proxy Middle Name label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("your_middle_name"), currentRow.get("WhatIsYourNameMiddleName"), " Proxy Middle Name Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Last Name"), "Proxy Last Name", " Proxy Last Name label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("your_last_name"), currentRow.get("WhatIsYourNameLastName"), " Proxy Last Name Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Street Address"), "Proxy Street Address", " Proxy Street Address label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_street_address"), currentRow.get("ProxyStreetAddress"), " Street Address Value for non USA country of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Street Address 2 (Optional)"), "Proxy Street Address 2 (Optional)", " Proxy Street Address 2 (Optional) label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_street_address_2"), currentRow.get("ProxyStreetAddress2"), " Proxy Street Address 2 (Optional) Value for non USA country of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy City"), "Proxy City", " Proxy City label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_city"), currentRow.get("ProxyCity"), " Proxy City Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy State/Province"), "Proxy State/Province", " Proxy State/Province label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_state"), currentRow.get("ProxyState"), " State/Province Value of the Contact Information in  Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Zip Code"), "Proxy Zip Code", " Proxy Zip Code label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_zip_code"), currentRow.get("ProxyZipCode"), " Proxy Zip Code Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Email Address"), "Proxy Email Address", " Proxy Email Address label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_email_address"), currentRow.get("ProxyEmailAddress"), " Proxy Email Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Home Phone"), "Proxy Home Phone", " Proxy Home Phone label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_home_phone"), currentRow.get("ProxyPhoneNumber"), " Proxy Home Phone Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Cell Phone"), "Proxy Cell Phone", " Proxy Cell Phone label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_cell_phone"), currentRow.get("ProxyCellPhone"), " Proxy Cell Phone Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Work Phone"), "Proxy Work Phone", " Proxy Work Phone label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_work_phone"), currentRow.get("ProxyWorkPhone"), " Proxy Work Phone Value of the Contact Information in Fanconi Study screener page ");
     }
+
 
     /**
      * Method to assert the Fanconi Screener: Demographics Information of the Participant in Fanconi screener Page
      */
     public void demographicsAssertionOnFanconiStudyPage(int rowNumForAssertion) {
         CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerDemographicsTab);
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Date of Birth"), "Date of Birth", " Date of Birth label of the Demographics Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("date_of_birth_month_day_year"), currentRow.get("DOB"), " Date of Birth Value of the Demographics in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Date of birth"), "Date of birth", " Date of birth label of the Demographics Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("date_of_birth"), currentRow.get("DOB"), " Date of birth Value of the Demographics in Fanconi Study screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Sex"), "Sex", " Biological Gender label of the Demographics Information in Fanconi Study screener page ");
-        CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementsInFAScreenerPage("biological_gender"), currentRow.get("SexAssigned"), " Biological Gender Value of the Demographics in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVParticipantBiologicalSexInput, currentRow.get("SexAssigned"), " Biological Gender Value of the Demographics in Fanconi Study screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Participant Race (Select all that apply)"), "Participant Race (Select all that apply)", " Participant Race (Select all that apply) label of the Demographics Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerRace, currentRow.get("RaceList"), " Participant Race Value of the Demographics in Fanconi Study screener page ");
-        String value= fanconiScreenerNVPage.nVFScreenerRace.getText();
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerRace1, currentRow.get("RaceList"), " Participant Race Value of the Demographics in Fanconi Study screener page ");
+        String value= fanconiScreenerNVPage.nVFScreenerRace1.getText();
         if (value.contains("Other (please specify)")){
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Other"), "Other", " Other Race label of the Demographics Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerRaceOtherText, currentRow.get("OtherRace"), " Participant Other Race Value of the Demographics in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Other race"), "Other race", " Other Race label of the Demographics Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("other_race"), currentRow.get("OtherRace"), " Participant Other Race Value of the Demographics in Fanconi Study screener page ");
         }
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Is the participant adopted?"), "Is the participant adopted?", " Is the participant adopted? label of the Demographics Information in Fanconi Study screener page ");
-        CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementsInFAScreenerPage("adopted"), currentRow.get("AreYouAdopted"), " Is the participant adopted? Value of the Demographics in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Adopted"), "Adopted", " Adopted label of the Demographics Information in Fanconi Study screener page ");
+        CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementInFAScreenerPage("u_adopted"), currentRow.get("AreYouAdopted"), " Adopted  Value of the Demographics in Fanconi Study screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Ethnicity"), "Ethnicity", " Ethnicity label of the Demographics Information in Fanconi Study screener page ");
-        CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementsInFAScreenerPage("ethnicity"), currentRow.get("Ethnicity"), " Ethnicity Value of the Demographics in Fanconi Study screener page ");
+        CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementInFAScreenerPage("race_ethnicity"), currentRow.get("Ethnicity"), " Ethnicity Value of the Demographics in Fanconi Study screener page ");
     }
 
     /**
@@ -1556,10 +1576,14 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfIntakeParticipatesInFAScreener("start_date"), currentRowForAnotherStudy.get("OtherStudyParticipationYear1"), " Start Date in Intake participates in another study in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("End Date"), "End Date", " End Date label of Intake participates title in another study in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfIntakeParticipatesInFAScreener("end_date"), currentRowForAnotherStudy.get("OtherStudyParticipationYear2"), " End Date in Intake participates in another study in Fanconi Study Screener page ");
+                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Participant Info"), "Participant Info", " Participant Info label of Intake participates in another study in Fanconi Study Screener page ");
+                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfIntakeParticipatesDisplayInFAScreener("participant_details"), "", " Participant Info value in Intake participates in another study in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Institution"), "Institution", " Institution label of Intake participates title in another study in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfIntakeParticipatesInFAScreener("institution"), currentRowForAnotherStudy.get("OtherStudyInstitution"), " Institution in Intake participates in another study in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Currently participating"), "Currently participating", " Currently participating label of Intake participates title in another study in Fanconi Study Screener page ");
                 CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.nVFScreenerIntakeParticipatesStudyCurrentlyParticipatingDropDown, currentRowForAnotherStudy.get("OtherStudyCurrentlyParticipation"), " Currently participating in Intake participates in another study in Fanconi Study Screener page ");
+                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Intake Form ID"), "Intake Form ID", " Intake Form ID label of Intake participates title in another study in Fanconi Study Screener page ");
+                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfIntakeParticipatesDisplayInFAScreener("intake_form_id"), referralValue, " Intake Form ID value in Intake participates in another study in Fanconi Study Screener page ");
                 CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerBackButton);
                 CommonUtils.scrollIntoView(fanconiScreenerNVPage.nVFScreenerIntakeParticipatesInAnotherStudyTable);
                 CommonUtils.sleep(1800);
@@ -1619,7 +1643,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementOfCancerHistoryInFAScreener("month_of_diagnosis"), currentRowForCancerHistory.get("TumorMonthOfDiagnosis"), " Month of diagnosis in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Year of diagnosis"), "Year of diagnosis", " Year of diagnosis label of Patient Cancer History in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfCancerHistoryInFAScreener("year_of_diagnosis"), currentRowForCancerHistory.get("TumorYearOfDiagnosis"), " Year of diagnosis in Fanconi Study Screener page ");
-                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("How old was the research participant when the cancer was diagnosed?"), "How old was the research participant when the cancer was diagnosed?", " How old was the research participant when the cancer was diagnosed? label of Patient Cancer History in Fanconi Study Screener page ");
+                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Age at Diagnosis"), "Age at Diagnosis", " Age at Diagnosis label of Patient Cancer History in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfCancerHistoryInFAScreener("age_in_years_at_diagnosis"), currentRowForCancerHistory.get("TumorAgeAtDiagnosis"), " How old was the research participant when the cancer was diagnosed?in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Currently being treated"), "Currently being treated", " Currently being treated label of Patient Cancer History in Fanconi Study Screener page ");
                 CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementOfCancerHistoryInFAScreener("currently_being_treated"), currentRowForCancerHistory.get("AreYouCurrentlyReceivingTumorTreatment"), " Currently being treated in Fanconi Study Screener page ");
@@ -1656,14 +1680,12 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         referralValue = fanconiScreenerNVPage.dynamicLocatorForInputElements("screener_ref").getDomAttribute("value");
         participantValue = fanconiScreenerNVPage.dynamicLocatorForInputElements("participant").getDomAttribute("value");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingDataNormalizeSpaceInSpan("Participant"), "Participant", "Participant label of the General Information on Fanconi Study Screener page ");
-
         if (Objects.requireNonNull(fanconiScreenerNVPage.dynamicLocatorForInputElements("participant").getDomAttribute("value")).isEmpty()) {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("participant"), "", "Participant Input Value of the General Information on Fanconi Study Screener page ");
         } else {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("participant"), subjectIDValue, "Participant Input Value of the General Information on Fanconi Study Screener page ");
         }
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingDataNormalizeSpaceInSpan("Name"), "Name", "Name label of the General Information on Fanconi Study Screener page ");
-
         if (currentRow.get("ParticipantFirstName").contentEquals("")) {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVParticipantNameValue, (currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyMiddleName") + " " + currentRow.get("ProxyLastName")), " Participant Name in proxy Scenario of the General Information on Participant Details page ");
         } else {
@@ -1727,458 +1749,458 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CommonUtils.sleep(800);
     }
 
-/**
- * Method to assert all data in the Fanconi Study page
- */
-public void fanconiScreenerPageAssertions(int rowNumForAssertion) {
-    if(currentRow==null) {
-        currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
-    }
-    fanconiEligibilityQuestionnaireStepsImpl.fanconiScreenerPagePreviewRecordClicked();
-    fanconiEligibilityQuestionnaireStepsImpl.fanconiScreenerPageGeneralInformationAssertions(rowNumForAssertion);
-    fanconiEligibilityQuestionnaireStepsImpl.contactInformationAssertionOnFanconiStudyPage(rowNumForAssertion);
-    fanconiEligibilityQuestionnaireStepsImpl.demographicsAssertionOnFanconiStudyPage(rowNumForAssertion);
-    fanconiEligibilityQuestionnaireStepsImpl.fanconiHistoryAssertionOnFanconiStudyPage(rowNumForAssertion);
-    fanconiEligibilityQuestionnaireStepsImpl.geneticTestingHistoryAssertionOnFanconiStudyPage(rowNumForAssertion);
-    fanconiEligibilityQuestionnaireStepsImpl.fAGenesTestedAssertionOnFanconiStudyPage(rowNumForAssertion);
-    fanconiEligibilityQuestionnaireStepsImpl.medicalHistoryAssertionOnFanconiStudyPage(rowNumForAssertion);
-    fanconiEligibilityQuestionnaireStepsImpl.participantFeaturesAssertionOnFanconiStudyPage(rowNumForAssertion);
-    fanconiEligibilityQuestionnaireStepsImpl.finaInformationAssertionOnFanconiStudyPage(rowNumForAssertion);
-    fanconiEligibilityQuestionnaireStepsImpl.intakeParticipatesInAnotherStudyAssertionOnFanconiStudyPage(rowNumForAssertion);
-    fanconiEligibilityQuestionnaireStepsImpl.geneticMutationVariantsAssertionOnFanconiStudyPage(rowNumForAssertion);
-    fanconiEligibilityQuestionnaireStepsImpl.cancerHistoryAssertionOnFanconiStudyPage();
-    fanconiEligibilityQuestionnaireStepsImpl.nativeViewProfilelogOut();
-    softAssert.assertAll();
-}
-
-/**
- * Fanconi Eligibility Question submission method
- */
-public void fanconiEligibilityAllScenariosQuestionnaireSubmission() {
-    for (int i = 1; i <= 10; ++i) {
-        String username = "sj.fanconitester" + i + "@yopmail.com";
-        String password = "Test123$$";
-        WebDriverUtils.webDriver.get(getFanconiUrl());
-        System.out.println(username);
-        CommonUtils.sleep(800);
-        CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton1);
-        CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton1);
-        if (i != 1) {
-            CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpace("Back to sign in"));
-            oktaLoginPage.usernameTxtBox.clear();
+    /**
+     * Method to assert all data in the Fanconi Study page
+     */
+    public void fanconiScreenerPageAssertions(int rowNumForAssertion) {
+        if(currentRow==null) {
+            currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
         }
-        CharmsUtil.sendKeysToElement(oktaLoginPage.usernameTxtBox, username);
-        CharmsUtil.clickOnElement(oktaLoginPage.nextButton);
-        CharmsUtil.sendKeysToElement(oktaLoginPage.passwordTxtBox, password);
-        CharmsUtil.clickOnElement(oktaLoginPage.verifyBtn);
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForVisibility(oktaLoginPage.agreeBtn);
-        CharmsUtil.clickOnElement(oktaLoginPage.agreeBtn);
-        fanconiLoginPage.eligibilityQuestionnaireLink.click();
-        fanconiEligibilityQuestionnaireStepsImpl.fanconiEligibilityQuestionnaireSubmissionScenario(i - 1);
-        fanconiEligibilityQuestionnaireStepsImpl.clickSubmitButton();
+        fanconiEligibilityQuestionnaireStepsImpl.fanconiScreenerPagePreviewRecordClicked();
+        fanconiEligibilityQuestionnaireStepsImpl.fanconiScreenerPageGeneralInformationAssertions(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.contactInformationAssertionOnFanconiStudyPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.demographicsAssertionOnFanconiStudyPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.fanconiHistoryAssertionOnFanconiStudyPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.geneticTestingHistoryAssertionOnFanconiStudyPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.fAGenesTestedAssertionOnFanconiStudyPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.medicalHistoryAssertionOnFanconiStudyPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.participantFeaturesAssertionOnFanconiStudyPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.finaInformationAssertionOnFanconiStudyPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.intakeParticipatesInAnotherStudyAssertionOnFanconiStudyPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.geneticMutationVariantsAssertionOnFanconiStudyPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.cancerHistoryAssertionOnFanconiStudyPage();
+        fanconiEligibilityQuestionnaireStepsImpl.nativeViewProfilelogOut();
+        softAssert.assertAll();
     }
-}
 
-/**
- * Method to assert the Fanconi Study: Consent Flow using @param rowCount
- */
-public void fanconiConsentAssertionOnFanconiStudyPage(int rowCount) {
-    CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus,
-            "New Screener Received", " Enrollment Status of the General Information on Participant Details page ");
-    CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantSubmitForEligibilityReviewButton);
-    cHARMSParticipantDetailsPage.nVParticipantSubmitForEligibilityReviewButton.click();
-    CommonUtils.sleep(2000);
-    CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantHoldDateTextBox);
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantHoldDateButton);
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantHoldGoToTodayButton);
-    CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantSubmitForEligibilityReviewButton);
-    cHARMSParticipantDetailsPage.nVParticipantSubmitForEligibilityReviewButton.click();
-    CommonUtils.sleep(2000);
-    CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus, "Eligibility Review", " Enrollment Status of the General Information on Participant Details page ");
-    CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantMarkEligibleButton);
-    cHARMSParticipantDetailsPage.nVParticipantMarkEligibleButton.click();
-    CommonUtils.sleep(2000);
-    CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus, "Eligible", " Eligibility Status of the General Information on Participant Details page ");
-    CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus, "Awaiting Consent", " Enrollment Status of the General Information on Participant Details page ");
-    CommonUtils.scrollIntoView(cHARMSParticipantDetailsPage.nVParticipantConsentTableTab);
-    CommonUtils.sleep(2000);
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantConsentTableTab);
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantConsentTablePreviewLink);
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantOpenRecordButton);
-    CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantFamilyMemberTextBox, (currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")), " Family Member of the CHARMS Consent Page ");
-    CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantConsentStatusTextBox, "1", "Consent Status in Family Member of the CHARMS Consent Page ");
-    CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantConsentCallScheduledTimeTextBox);
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantTimeIcon);
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantGoToToday);
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton);
-    CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantConsentCallDatesTextBox);
-    CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantTimeIcon1);
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantTimeIcon);
-    CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantGoToToday);
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantGoToToday);
-    CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton);
-    cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton.click();
-    CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantCohortTextBox, "field", " Cohort in CHARMS Consent Page ");
-    CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantConsentFormDropDown, "Field");
-    CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantConsentVersionTextBox);
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantTimeIcon3);
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantGoToToday);
-    CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantConsentTypeDropDown, "Adult");
-    CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantResponseTypeDropDown, "Upload to Portal");
-    CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantConsentStatusTextBox, "3", " Consent Status Family Member of the CHARMS Consent Page ");
-    CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantConsentDateTextBox);
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantTimeIcon4);
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantGoToToday);
-    CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton);
-    cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton.click();
-    CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantCurrentPreviousDropDown, "Current");
-    CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantStudyTextBox, "Fanconi", "Family Member of the CHARMS Consent Page ");
-    CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantConsentAssentStatusDropDown, "Pending");
-    CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantInterpreterUsedDropDown, "No");
-    CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantFutureUseOfSpecimensAndDataByNIHDropDown, "Dead End by Study Manager");
-    CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantFutureUseByCollaboratorsDropDown, "Dead End by PI");
-    CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantFutureIdentifiableUseByCollaboratorsDropDown, "Dead End by PI");
-    CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantReturnOfGeneticFindingsDropDown, "0");
-    CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantParticipantAssentDropDown, "Not Needed");
-    CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantParticipantConsentDropDown, "Required");
-    CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantCallCompleteButton);
-    cHARMSParticipantDetailsPage.nVParticipantCallCompleteButton.click();
-    CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantConsentStatusTextBox, "5", " Consent Status Family Member of the CHARMS Consent Page ");
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantAttachmentButton);
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantChooseFileButton);
-    cHARMSParticipantDetailsPage.nVParticipantChooseFileButton.sendKeys("/Users/jains18/git/CBIIT-Test-Automation/src/main/resources/Family Cohort Study Consent.pdf");
-    CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantHardCopyOfConsentReceivedButton);
-    softAssert.assertAll();
-}
+    /**
+     * Fanconi Eligibility Question submission method
+     */
+    public void fanconiEligibilityAllScenariosQuestionnaireSubmission() {
+        for (int i = 1; i <= 10; ++i) {
+            String username = "sj.fanconitester" + i + "@yopmail.com";
+            String password = "Test123$$";
+            WebDriverUtils.webDriver.get(getFanconiUrl());
+            System.out.println(username);
+            CommonUtils.sleep(800);
+            CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton1);
+            CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton1);
+            if (i != 1) {
+                CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpace("Back to sign in"));
+                oktaLoginPage.usernameTxtBox.clear();
+            }
+            CharmsUtil.sendKeysToElement(oktaLoginPage.usernameTxtBox, username);
+            CharmsUtil.clickOnElement(oktaLoginPage.nextButton);
+            CharmsUtil.sendKeysToElement(oktaLoginPage.passwordTxtBox, password);
+            CharmsUtil.clickOnElement(oktaLoginPage.verifyBtn);
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.waitForVisibility(oktaLoginPage.agreeBtn);
+            CharmsUtil.clickOnElement(oktaLoginPage.agreeBtn);
+            fanconiLoginPage.eligibilityQuestionnaireLink.click();
+            fanconiEligibilityQuestionnaireStepsImpl.fanconiEligibilityQuestionnaireSubmissionScenario(i - 1);
+            fanconiEligibilityQuestionnaireStepsImpl.clickSubmitButton();
+        }
+    }
 
-/**
- * Method to assert the Participant Detail Page: Assertion of the Participant Detail page using @param rowNumForAssertion
- */
-public void participantDetailPageAssertion(int rowNumForAssertion) {
-    fanconiEligibilityQuestionnaireStepsImpl.participantDetailRecordClicked(rowNumForAssertion);
-    fanconiEligibilityQuestionnaireStepsImpl.generalInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
-    fanconiEligibilityQuestionnaireStepsImpl.personalInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
-    fanconiEligibilityQuestionnaireStepsImpl.demographicsAssertionOnParticipantDetailPage(rowNumForAssertion);
-    fanconiEligibilityQuestionnaireStepsImpl.contactInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
-    fanconiEligibilityQuestionnaireStepsImpl.proxyContactInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
-    softAssert.assertAll();
-}
+    /**
+     * Method to assert the Fanconi Study: Consent Flow using @param rowCount
+     */
+    public void fanconiConsentAssertionOnFanconiStudyPage(int rowCount) {
+        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus,
+                "New Screener Received", " Enrollment Status of the General Information on Participant Details page ");
+        CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantSubmitForEligibilityReviewButton);
+        cHARMSParticipantDetailsPage.nVParticipantSubmitForEligibilityReviewButton.click();
+        CommonUtils.sleep(2000);
+        CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantHoldDateTextBox);
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantHoldDateButton);
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantHoldGoToTodayButton);
+        CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantSubmitForEligibilityReviewButton);
+        cHARMSParticipantDetailsPage.nVParticipantSubmitForEligibilityReviewButton.click();
+        CommonUtils.sleep(2000);
+        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus, "Eligibility Review", " Enrollment Status of the General Information on Participant Details page ");
+        CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantMarkEligibleButton);
+        cHARMSParticipantDetailsPage.nVParticipantMarkEligibleButton.click();
+        CommonUtils.sleep(2000);
+        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus, "Eligible", " Eligibility Status of the General Information on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus, "Awaiting Consent", " Enrollment Status of the General Information on Participant Details page ");
+        CommonUtils.scrollIntoView(cHARMSParticipantDetailsPage.nVParticipantConsentTableTab);
+        CommonUtils.sleep(2000);
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantConsentTableTab);
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantConsentTablePreviewLink);
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantOpenRecordButton);
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantFamilyMemberTextBox, (currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")), " Family Member of the CHARMS Consent Page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantConsentStatusTextBox, "1", "Consent Status in Family Member of the CHARMS Consent Page ");
+        CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantConsentCallScheduledTimeTextBox);
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantTimeIcon);
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantGoToToday);
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton);
+        CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantConsentCallDatesTextBox);
+        CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantTimeIcon1);
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantTimeIcon);
+        CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantGoToToday);
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantGoToToday);
+        CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton);
+        cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton.click();
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantCohortTextBox, "field", " Cohort in CHARMS Consent Page ");
+        CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantConsentFormDropDown, "Field");
+        CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantConsentVersionTextBox);
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantTimeIcon3);
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantGoToToday);
+        CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantConsentTypeDropDown, "Adult");
+        CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantResponseTypeDropDown, "Upload to Portal");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantConsentStatusTextBox, "3", " Consent Status Family Member of the CHARMS Consent Page ");
+        CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantConsentDateTextBox);
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantTimeIcon4);
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantGoToToday);
+        CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton);
+        cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton.click();
+        CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantCurrentPreviousDropDown, "Current");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantStudyTextBox, "Fanconi", "Family Member of the CHARMS Consent Page ");
+        CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantConsentAssentStatusDropDown, "Pending");
+        CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantInterpreterUsedDropDown, "No");
+        CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantFutureUseOfSpecimensAndDataByNIHDropDown, "Dead End by Study Manager");
+        CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantFutureUseByCollaboratorsDropDown, "Dead End by PI");
+        CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantFutureIdentifiableUseByCollaboratorsDropDown, "Dead End by PI");
+        CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantReturnOfGeneticFindingsDropDown, "0");
+        CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantParticipantAssentDropDown, "Not Needed");
+        CharmsUtil.selectDropDownValue(cHARMSParticipantDetailsPage.nVParticipantParticipantConsentDropDown, "Required");
+        CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantCallCompleteButton);
+        cHARMSParticipantDetailsPage.nVParticipantCallCompleteButton.click();
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantConsentStatusTextBox, "5", " Consent Status Family Member of the CHARMS Consent Page ");
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantAttachmentButton);
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantChooseFileButton);
+        cHARMSParticipantDetailsPage.nVParticipantChooseFileButton.sendKeys("/Users/jains18/git/CBIIT-Test-Automation/src/main/resources/Family Cohort Study Consent.pdf");
+        CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantHardCopyOfConsentReceivedButton);
+        softAssert.assertAll();
+    }
 
-/**
- * Submits consent with the specified collection method for the provided row of data.
- *
- * @param collectionMethod The collection method to be used for submitting consent.
- * @param rowCount The row number from which the data will be retrieved for submitting consent.
- */
-public void  consent_is_submitted_with_collection_method(String collectionMethod, int rowCount) {
-    currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowCount);
-    ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-    CommonUtils.sleep(4000);
-    CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
-    NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.sleep(3000);
-    CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
-    CommonUtils.sleep(3000);
-    CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-    CommonUtils.sleep(2000);
-    CucumberLogUtils.logScreenshot();
-    if (currentRow.get("ParticipantFirstName")!=null  && !("").equals(currentRow.get("ParticipantFirstName"))) {
+    /**
+     * Method to assert the Participant Detail Page: Assertion of the Participant Detail page using @param rowNumForAssertion
+     */
+    public void participantDetailPageAssertion(int rowNumForAssertion) {
+        fanconiEligibilityQuestionnaireStepsImpl.participantDetailRecordClicked(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.generalInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.personalInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.demographicsAssertionOnParticipantDetailPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.contactInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.proxyContactInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
+        softAssert.assertAll();
+    }
+
+    /**
+     * Submits consent with the specified collection method for the provided row of data.
+     *
+     * @param collectionMethod The collection method to be used for submitting consent.
+     * @param rowCount The row number from which the data will be retrieved for submitting consent.
+     */
+    public void  consent_is_submitted_with_collection_method(String collectionMethod, int rowCount) {
+        currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowCount);
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        CommonUtils.sleep(4000);
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(3000);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
+        CommonUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        if (currentRow.get("ParticipantFirstName")!=null  && !("").equals(currentRow.get("ParticipantFirstName"))) {
+            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
+            CucumberLogUtils.logScreenshot();
+        }
+        else {
+            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName")));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName")));
+            CucumberLogUtils.logScreenshot();
+        }
+        CommonUtils.sleep(1800);
+        if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        }
+        CommonUtils.sleep(2000);
+        RAS_Common_Methods.submitParticipantForReviewAndEligibility();
+        /**
+         * BEGINNING: CONSENT FLOW PROCESS
+         */
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
+        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
+        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(800);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
+        CucumberLogUtils.logScreenshot();
+        CucumberLogUtils.scenario.log("* * * * CONSENT CALL SCHEDULED TIME * * * *");
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeAcceptButton);
+        CucumberLogUtils.scenario.log("* * * * CONSENT CALL DATE * * * *");
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleDateCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CucumberLogUtils.scenario.log("* * * * RESPONSE TYPE * * * *");
+        CommonUtils.selectDropDownValue(collectionMethod, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown);
+        CucumberLogUtils.scenario.log("* * * * CONSENT CALL VERSION * * * *");
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CucumberLogUtils.scenario.log("* * * * CONSENT DATE * * * *");
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CucumberLogUtils.scenario.log("* * * * CONSENTED BY * * * *");
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox);
+        CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, CHARMSRASScreenerConstants.CONSENTED_BY_USER_NAME);
+        CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
+        CommonUtils.sleep(800);
+        if (!collectionMethod.equalsIgnoreCase("iMed")) {
+            CommonUtils.sleep(800);
+            CucumberLogUtils.scenario.log("* * * * COPY OF CONSENT/ASSENT PROVIDED PROVIDED BEFORE SIGNING * * * *");
+            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
+            CommonUtils.sleep(800);
+            CucumberLogUtils.scenario.log("* * * * PROTOCOL DISCUSSED IN PRIVATE SETTING * * * *");
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentProtocolDiscussedInPrivateSettingDropDown);
+            CommonUtils.sleep(800);
+            CucumberLogUtils.scenario.log("* * * * PARTICIPANT VERBALIZED UNDERSTANDING OF STUDY CONDITIONS AND PARTICIPATION * * * *");
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantVerbalizedUnderstandingOfStudyConditionsAndParticipationDropDown);
+            CommonUtils.sleep(800);
+            CucumberLogUtils.scenario.log("* * * * QUESTIONS ADDRESSED BEFORE SIGNING * * * *");
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentQuestionsAddressedBeforeSigningDropDown);
+            CucumberLogUtils.logScreenshot();
+        }
+        CommonUtils.sleep(800);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallCompleteButton);
+        CommonUtils.sleep(1800);
+        if (!collectionMethod.equalsIgnoreCase("iMed")) {
+            CucumberLogUtils.scenario.log("* * * * CONSENT/ASSENT OBTAINED BEFORE STUDY PROCEDURES * * * *");
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentObtainedBeforeStudyProceduresDropDown);
+            CommonUtils.sleep(800);
+            CucumberLogUtils.scenario.log("* * * * COPY OF SIGNED/DATED CONSENT/ASSENT GIVEN TO PARTICIPANT * * * *");
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfSignedDatedConsentAssentGivenToParticipantDropDown);
+        } else {
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureSpecimensAndDataDropDown);
+            CommonUtils.sleep(800);
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureUseCollaboratorsDropDown);
+            CommonUtils.sleep(800);
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown);
+            CommonUtils.sleep(800);
+            CucumberLogUtils.logScreenshot();
+        }
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(8000);
+        JavascriptUtils.uploadFileToHiddenFieldWithInputTag(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileButton, CHARMS_Data_File_Path_Constants.FAMILY_COHORT_STUDY_PDF_PATH);
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileCloseButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage);
+        softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage.getText(), CHARMSRASScreenerConstants.PARTICIPANT_READY_TO_PROGRESS_TEXT, "---- VERIFYING PARTICIPANT RECORD READY TO PROGRESS MESSAGE ----");
+        softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage.getText(), CHARMSRASScreenerConstants.CONSENT_RECORD_COMPLETED_TEXT, "---- VERIFYING CONSENT RECORD COMPLETED AND FAMILY RECORD IS NOW ACTIVE! MESSAGE ----");
+        CommonUtils.sleep(1800);
+        CucumberLogUtils.logScreenshot();
+        RAS_All_Steps.nativeViewStudyTeamMemberLogsOut();
+    }
+
+    /**
+     * Submits consent with the provided collection method for a participant.
+     *
+     * @param collectionMethod The method used for collecting consent
+     */
+    public void consent_is_submitted_with_collection_method(String collectionMethod) {
+        currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", 0);
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        CommonUtils.sleep(4000);
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(3000);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
+        CommonUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
+        CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
-        CucumberLogUtils.logScreenshot();
-    }
-    else {
-        CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName")));
-        CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName")));
-        CucumberLogUtils.logScreenshot();
-    }
-    CommonUtils.sleep(1800);
-    if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
+        CommonUtils.sleep(1800);
+        if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        }
+        CommonUtils.sleep(2000);
+        RAS_Common_Methods.submitParticipantForReviewAndEligibility();
+        /**
+         * BEGINNING: CONSENT FLOW PROCESS
+         */
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
+        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
+        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(800);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
+        CucumberLogUtils.logScreenshot();
+        CucumberLogUtils.scenario.log("* * * * CONSENT CALL SCHEDULED TIME * * * *");
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeAcceptButton);
+        CucumberLogUtils.scenario.log("* * * * CONSENT CALL DATE * * * *");
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleDateCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CucumberLogUtils.scenario.log("* * * * RESPONSE TYPE * * * *");
+        CommonUtils.selectDropDownValue(collectionMethod, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown);
+        CucumberLogUtils.scenario.log("* * * * CONSENT CALL VERSION * * * *");
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CucumberLogUtils.scenario.log("* * * * CONSENT DATE * * * *");
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        CucumberLogUtils.scenario.log("* * * * CONSENTED BY * * * *");
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox);
+        CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, CHARMSRASScreenerConstants.CONSENTED_BY_USER_NAME);
+        CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
+        CommonUtils.sleep(800);
+        if (!collectionMethod.equalsIgnoreCase("iMed")) {
+            CommonUtils.sleep(800);
+            CucumberLogUtils.scenario.log("* * * * COPY OF CONSENT/ASSENT PROVIDED PROVIDED BEFORE SIGNING * * * *");
+            CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
+            CommonUtils.sleep(800);
+            CucumberLogUtils.scenario.log("* * * * PROTOCOL DISCUSSED IN PRIVATE SETTING * * * *");
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentProtocolDiscussedInPrivateSettingDropDown);
+            CommonUtils.sleep(800);
+            CucumberLogUtils.scenario.log("* * * * PARTICIPANT VERBALIZED UNDERSTANDING OF STUDY CONDITIONS AND PARTICIPATION * * * *");
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantVerbalizedUnderstandingOfStudyConditionsAndParticipationDropDown);
+            CommonUtils.sleep(800);
+            CucumberLogUtils.scenario.log("* * * * QUESTIONS ADDRESSED BEFORE SIGNING * * * *");
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentQuestionsAddressedBeforeSigningDropDown);
+            CucumberLogUtils.logScreenshot();
+        }
+        CommonUtils.sleep(800);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallCompleteButton);
+        CommonUtils.sleep(1800);
+        if (!collectionMethod.equalsIgnoreCase("iMed")) {
+            CucumberLogUtils.scenario.log("* * * * CONSENT/ASSENT OBTAINED BEFORE STUDY PROCEDURES * * * *");
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentObtainedBeforeStudyProceduresDropDown);
+            CommonUtils.sleep(800);
+            CucumberLogUtils.scenario.log("* * * * COPY OF SIGNED/DATED CONSENT/ASSENT GIVEN TO PARTICIPANT * * * *");
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfSignedDatedConsentAssentGivenToParticipantDropDown);
+        } else {
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureSpecimensAndDataDropDown);
+            CommonUtils.sleep(800);
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureUseCollaboratorsDropDown);
+            CommonUtils.sleep(800);
+            CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown);
+            CommonUtils.sleep(800);
+            CucumberLogUtils.logScreenshot();
+        }
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(8000);
+        JavascriptUtils.uploadFileToHiddenFieldWithInputTag(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileButton, CHARMS_Data_File_Path_Constants.FAMILY_COHORT_STUDY_PDF_PATH);
+        CommonUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileCloseButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage);
+        softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage.getText(), CHARMSRASScreenerConstants.PARTICIPANT_READY_TO_PROGRESS_TEXT, "---- VERIFYING PARTICIPANT RECORD READY TO PROGRESS MESSAGE ----");
+        softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage.getText(), CHARMSRASScreenerConstants.CONSENT_RECORD_COMPLETED_TEXT, "---- VERIFYING CONSENT RECORD COMPLETED AND FAMILY RECORD IS NOW ACTIVE! MESSAGE ----");
+        CommonUtils.sleep(1800);
+        CucumberLogUtils.logScreenshot();
+        RAS_All_Steps.nativeViewStudyTeamMemberLogsOut();
     }
-    CommonUtils.sleep(2000);
-    RAS_Common_Methods.submitParticipantForReviewAndEligibility();
+
     /**
-     * BEGINNING: CONSENT FLOW PROCESS
+     * Logs in to Native View and navigates to the participant's CGB IIQ record.
      */
-    JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-    CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
-    CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-    CommonUtils.sleep(800);
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-    CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
-    CucumberLogUtils.logScreenshot();
-    CucumberLogUtils.scenario.log("* * * * CONSENT CALL SCHEDULED TIME * * * *");
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
-    CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeAcceptButton);
-    CucumberLogUtils.scenario.log("* * * * CONSENT CALL DATE * * * *");
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleDateCalendar);
-    CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-    CucumberLogUtils.scenario.log("* * * * RESPONSE TYPE * * * *");
-    CommonUtils.selectDropDownValue(collectionMethod, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown);
-    CucumberLogUtils.scenario.log("* * * * CONSENT CALL VERSION * * * *");
-    CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
-    CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
-    CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-    CucumberLogUtils.scenario.log("* * * * CONSENT DATE * * * *");
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateCalendar);
-    CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-    CucumberLogUtils.scenario.log("* * * * CONSENTED BY * * * *");
-    CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox);
-    CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, CHARMSRASScreenerConstants.CONSENTED_BY_USER_NAME);
-    CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
-    CommonUtils.sleep(800);
-    if (!collectionMethod.equalsIgnoreCase("iMed")) {
-        CommonUtils.sleep(800);
-        CucumberLogUtils.scenario.log("* * * * COPY OF CONSENT/ASSENT PROVIDED PROVIDED BEFORE SIGNING * * * *");
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
-        CommonUtils.sleep(800);
-        CucumberLogUtils.scenario.log("* * * * PROTOCOL DISCUSSED IN PRIVATE SETTING * * * *");
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentProtocolDiscussedInPrivateSettingDropDown);
-        CommonUtils.sleep(800);
-        CucumberLogUtils.scenario.log("* * * * PARTICIPANT VERBALIZED UNDERSTANDING OF STUDY CONDITIONS AND PARTICIPATION * * * *");
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantVerbalizedUnderstandingOfStudyConditionsAndParticipationDropDown);
-        CommonUtils.sleep(800);
-        CucumberLogUtils.scenario.log("* * * * QUESTIONS ADDRESSED BEFORE SIGNING * * * *");
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentQuestionsAddressedBeforeSigningDropDown);
+    public void study_team_navigate_to_participant_s_cgb_iiq_record() {
+        currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", 0);
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        CommonUtils.sleep(4000);
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
         CucumberLogUtils.logScreenshot();
-    }
-    CommonUtils.sleep(800);
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallCompleteButton);
-    CommonUtils.sleep(1800);
-    if (!collectionMethod.equalsIgnoreCase("iMed")) {
-        CucumberLogUtils.scenario.log("* * * * CONSENT/ASSENT OBTAINED BEFORE STUDY PROCEDURES * * * *");
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentObtainedBeforeStudyProceduresDropDown);
-        CommonUtils.sleep(800);
-        CucumberLogUtils.scenario.log("* * * * COPY OF SIGNED/DATED CONSENT/ASSENT GIVEN TO PARTICIPANT * * * *");
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfSignedDatedConsentAssentGivenToParticipantDropDown);
-    } else {
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureSpecimensAndDataDropDown);
-        CommonUtils.sleep(800);
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureUseCollaboratorsDropDown);
-        CommonUtils.sleep(800);
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(3000);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
+        CommonUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
-    }
-    CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.sleep(8000);
-    JavascriptUtils.uploadFileToHiddenFieldWithInputTag(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileButton, CHARMS_Data_File_Path_Constants.FAMILY_COHORT_STUDY_PDF_PATH);
-    CommonUtils.sleep(2000);
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileCloseButton);
-    CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
-    CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
-    CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage);
-    softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage.getText(), CHARMSRASScreenerConstants.PARTICIPANT_READY_TO_PROGRESS_TEXT, "---- VERIFYING PARTICIPANT RECORD READY TO PROGRESS MESSAGE ----");
-    softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage.getText(), CHARMSRASScreenerConstants.CONSENT_RECORD_COMPLETED_TEXT, "---- VERIFYING CONSENT RECORD COMPLETED AND FAMILY RECORD IS NOW ACTIVE! MESSAGE ----");
-    CommonUtils.sleep(1800);
-    CucumberLogUtils.logScreenshot();
-    RAS_All_Steps.nativeViewStudyTeamMemberLogsOut();
-}
-
-/**
- * Submits consent with the provided collection method for a participant.
- *
- * @param collectionMethod The method used for collecting consent
- */
-public void consent_is_submitted_with_collection_method(String collectionMethod) {
-    currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", 0);
-    ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-    CommonUtils.sleep(4000);
-    CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
-    NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.sleep(3000);
-    CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
-    CommonUtils.sleep(3000);
-    CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-    CommonUtils.sleep(2000);
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
-    CommonUtils.sleep(1800);
-    if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
+        CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
+        CommonUtils.sleep(1800);
+        if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        }
+        CommonUtils.sleep(2000);
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsCGBIIQTab);
+        nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsCGBIIQTab.click();
+        CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='CGB Individual Information Questionnaire']"));
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.cgbIiqPreviewButton);
+        nativeViewCHARMSParticipantDetailsPage.cgbIiqPreviewButton.click();
+        CommonUtils.sleep(800);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(800);
+        verify_fields_in_native_view_cgb_iqq_record();
     }
-    CommonUtils.sleep(2000);
-    RAS_Common_Methods.submitParticipantForReviewAndEligibility();
+
     /**
-     * BEGINNING: CONSENT FLOW PROCESS
+     * Method for verifying CGB IIQ record fields in Native View.
      */
-    JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-    CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
-    CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-    CommonUtils.sleep(800);
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-    CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
-    CucumberLogUtils.logScreenshot();
-    CucumberLogUtils.scenario.log("* * * * CONSENT CALL SCHEDULED TIME * * * *");
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
-    CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeAcceptButton);
-    CucumberLogUtils.scenario.log("* * * * CONSENT CALL DATE * * * *");
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleDateCalendar);
-    CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-    CucumberLogUtils.scenario.log("* * * * RESPONSE TYPE * * * *");
-    CommonUtils.selectDropDownValue(collectionMethod, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown);
-    CucumberLogUtils.scenario.log("* * * * CONSENT CALL VERSION * * * *");
-    CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
-    CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
-    CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-    CucumberLogUtils.scenario.log("* * * * CONSENT DATE * * * *");
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateCalendar);
-    CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-    CucumberLogUtils.scenario.log("* * * * CONSENTED BY * * * *");
-    CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox);
-    CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, CHARMSRASScreenerConstants.CONSENTED_BY_USER_NAME);
-    CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
-    CommonUtils.sleep(800);
-    if (!collectionMethod.equalsIgnoreCase("iMed")) {
-        CommonUtils.sleep(800);
-        CucumberLogUtils.scenario.log("* * * * COPY OF CONSENT/ASSENT PROVIDED PROVIDED BEFORE SIGNING * * * *");
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
-        CommonUtils.sleep(800);
-        CucumberLogUtils.scenario.log("* * * * PROTOCOL DISCUSSED IN PRIVATE SETTING * * * *");
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentProtocolDiscussedInPrivateSettingDropDown);
-        CommonUtils.sleep(800);
-        CucumberLogUtils.scenario.log("* * * * PARTICIPANT VERBALIZED UNDERSTANDING OF STUDY CONDITIONS AND PARTICIPATION * * * *");
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantVerbalizedUnderstandingOfStudyConditionsAndParticipationDropDown);
-        CommonUtils.sleep(800);
-        CucumberLogUtils.scenario.log("* * * * QUESTIONS ADDRESSED BEFORE SIGNING * * * *");
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentQuestionsAddressedBeforeSigningDropDown);
-        CucumberLogUtils.logScreenshot();
-    }
-    CommonUtils.sleep(800);
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallCompleteButton);
-    CommonUtils.sleep(1800);
-    if (!collectionMethod.equalsIgnoreCase("iMed")) {
-        CucumberLogUtils.scenario.log("* * * * CONSENT/ASSENT OBTAINED BEFORE STUDY PROCEDURES * * * *");
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentObtainedBeforeStudyProceduresDropDown);
-        CommonUtils.sleep(800);
-        CucumberLogUtils.scenario.log("* * * * COPY OF SIGNED/DATED CONSENT/ASSENT GIVEN TO PARTICIPANT * * * *");
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfSignedDatedConsentAssentGivenToParticipantDropDown);
-    } else {
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureSpecimensAndDataDropDown);
-        CommonUtils.sleep(800);
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureUseCollaboratorsDropDown);
-        CommonUtils.sleep(800);
-        CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown);
+    public void verify_fields_in_native_view_cgb_iqq_record() {
+        softAssert.assertEquals(nativeViewCGBIIQPage.participantsCityOfBirthTextField.getDomAttribute("value"), iiq_TestDataManager.whereWereYouBornCityTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Participants city of birth\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.participantsStateProvidenceOfTextField.getDomAttribute("value"), iiq_TestDataManager.whereWereYouBornStateTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Participants state/province of birth\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.participantsCountryOfBirthTextField.getDomAttribute("value"), iiq_TestDataManager.whereWereYouBornCountryTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Participants country of birth\" * * * * *");
+        softAssert.assertTrue(nativeViewCGBIIQPage.participantsBirthLocationUnknownCheckbox.getDomAttribute("value").equals("true"), "* * * * * CGB IIQ - MISMATCH IN \"Birth location unknown\" * * * * *");
         CommonUtils.sleep(800);
         CucumberLogUtils.logScreenshot();
-    }
-    CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.sleep(8000);
-    JavascriptUtils.uploadFileToHiddenFieldWithInputTag(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileButton, CHARMS_Data_File_Path_Constants.FAMILY_COHORT_STUDY_PDF_PATH);
-    CommonUtils.sleep(2000);
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileCloseButton);
-    CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
-    CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
-    CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage);
-    softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage.getText(), CHARMSRASScreenerConstants.PARTICIPANT_READY_TO_PROGRESS_TEXT, "---- VERIFYING PARTICIPANT RECORD READY TO PROGRESS MESSAGE ----");
-    softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage.getText(), CHARMSRASScreenerConstants.CONSENT_RECORD_COMPLETED_TEXT, "---- VERIFYING CONSENT RECORD COMPLETED AND FAMILY RECORD IS NOW ACTIVE! MESSAGE ----");
-    CommonUtils.sleep(1800);
-    CucumberLogUtils.logScreenshot();
-    RAS_All_Steps.nativeViewStudyTeamMemberLogsOut();
-}
-
-/**
- * Logs in to Native View and navigates to the participant's CGB IIQ record.
- */
-public void study_team_navigate_to_participant_s_cgb_iiq_record() {
-    currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", 0);
-    ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-    CommonUtils.sleep(4000);
-    CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
-    NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.sleep(3000);
-    CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
-    CommonUtils.sleep(3000);
-    CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-    CommonUtils.sleep(2000);
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
-    CommonUtils.sleep(1800);
-    if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
+        JavascriptUtils.scrollIntoView(nativeViewCGBIIQPage.participantsBioMomAncestryNonEdit);
+        softAssert.assertEquals(nativeViewCGBIIQPage.participantsBioMomAncestryNonEdit, iiq_TestDataManager.mostPeopleHaveAncestorsCheckBox, "* * * * * CGB IIQ - MISMATCH IN \"Biological mothers ancestral background\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.participantsBioDadAncestryNonEdit, iiq_TestDataManager.whatIsYourBiologicalFatherAncestralBackgroundTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Biological mothers ancestral background\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.familysReligiousBackgroundNonEdit, iiq_TestDataManager.whatIsYourFammilysReligiousBackgroundCheckBox, "* * * * * CGB IIQ - MISMATCH IN \"Family's religous background\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.raisedByNonBioParentDropdown, iiq_TestDataManager.wereYouRaisedPrimarilyRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Was the participant raised by someone other than their own bio parent?\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.isTheParticipantOfAshkenaziJewishDescentDropdown, iiq_TestDataManager.areYouOfAshkenazyJewishDescentRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Is the participant of Ashkenazi jewish descent?\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.maritalStatusDropdown, iiq_TestDataManager.whatIsYourMaritalStatusCheckBox, "* * * * * CGB IIQ - MISMATCH IN \"Participant's marital status\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.householdIncomeDropdown, iiq_TestDataManager.whatIsTheTotalCombinedYearlyIncomeRadioButton.split(", or")[0], "* * * * * CGB IIQ - MISMATCH IN \"Total household income in the last 12 months\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.participantsHighestLevelOfSchoolingDropdown, iiq_TestDataManager.whatIsTheHighestLevelOfSchoolingRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Participants highest level of schooling\" * * * * *");
+        softAssert.assertEquals(nativeViewCGBIIQPage.participantsUsualJobOrMainOccupationTextArea.getText(), iiq_TestDataManager.whatHasBeenYourUsualJobOther, "* * * * * CGB IIQ - MISMATCH IN \"Participants usual job or main occupation during their lifetime\" * * * * *");
+        RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.doesTheParticipantHaveHealthInsuranceDropdown, iiq_TestDataManager.doYouCurrentlyHaveHealthInsuranceRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Does the participant have health insurance?\" * * * * *");
         CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
     }
-    CommonUtils.sleep(2000);
-    JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsCGBIIQTab);
-    nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsCGBIIQTab.click();
-    CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='CGB Individual Information Questionnaire']"));
-    CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.cgbIiqPreviewButton);
-    nativeViewCHARMSParticipantDetailsPage.cgbIiqPreviewButton.click();
-    CommonUtils.sleep(800);
-    CucumberLogUtils.logScreenshot();
-    CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-    CommonUtils.sleep(800);
-    verify_fields_in_native_view_cgb_iqq_record();
-}
-
-/**
- * Method for verifying CGB IIQ record fields in Native View.
- */
-public void verify_fields_in_native_view_cgb_iqq_record() {
-    softAssert.assertEquals(nativeViewCGBIIQPage.participantsCityOfBirthTextField.getDomAttribute("value"), iiq_TestDataManager.whereWereYouBornCityTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Participants city of birth\" * * * * *");
-    softAssert.assertEquals(nativeViewCGBIIQPage.participantsStateProvidenceOfTextField.getDomAttribute("value"), iiq_TestDataManager.whereWereYouBornStateTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Participants state/province of birth\" * * * * *");
-    softAssert.assertEquals(nativeViewCGBIIQPage.participantsCountryOfBirthTextField.getDomAttribute("value"), iiq_TestDataManager.whereWereYouBornCountryTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Participants country of birth\" * * * * *");
-    softAssert.assertTrue(nativeViewCGBIIQPage.participantsBirthLocationUnknownCheckbox.getDomAttribute("value").equals("true"), "* * * * * CGB IIQ - MISMATCH IN \"Birth location unknown\" * * * * *");
-    CommonUtils.sleep(800);
-    CucumberLogUtils.logScreenshot();
-    JavascriptUtils.scrollIntoView(nativeViewCGBIIQPage.participantsBioMomAncestryNonEdit);
-    softAssert.assertEquals(nativeViewCGBIIQPage.participantsBioMomAncestryNonEdit, iiq_TestDataManager.mostPeopleHaveAncestorsCheckBox, "* * * * * CGB IIQ - MISMATCH IN \"Biological mothers ancestral background\" * * * * *");
-    softAssert.assertEquals(nativeViewCGBIIQPage.participantsBioDadAncestryNonEdit, iiq_TestDataManager.whatIsYourBiologicalFatherAncestralBackgroundTextBox, "* * * * * CGB IIQ - MISMATCH IN \"Biological mothers ancestral background\" * * * * *");
-    softAssert.assertEquals(nativeViewCGBIIQPage.familysReligiousBackgroundNonEdit, iiq_TestDataManager.whatIsYourFammilysReligiousBackgroundCheckBox, "* * * * * CGB IIQ - MISMATCH IN \"Family's religous background\" * * * * *");
-    RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.raisedByNonBioParentDropdown, iiq_TestDataManager.wereYouRaisedPrimarilyRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Was the participant raised by someone other than their own bio parent?\" * * * * *");
-    RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.isTheParticipantOfAshkenaziJewishDescentDropdown, iiq_TestDataManager.areYouOfAshkenazyJewishDescentRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Is the participant of Ashkenazi jewish descent?\" * * * * *");
-    RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.maritalStatusDropdown, iiq_TestDataManager.whatIsYourMaritalStatusCheckBox, "* * * * * CGB IIQ - MISMATCH IN \"Participant's marital status\" * * * * *");
-    RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.householdIncomeDropdown, iiq_TestDataManager.whatIsTheTotalCombinedYearlyIncomeRadioButton.split(", or")[0], "* * * * * CGB IIQ - MISMATCH IN \"Total household income in the last 12 months\" * * * * *");
-    RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.participantsHighestLevelOfSchoolingDropdown, iiq_TestDataManager.whatIsTheHighestLevelOfSchoolingRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Participants highest level of schooling\" * * * * *");
-    softAssert.assertEquals(nativeViewCGBIIQPage.participantsUsualJobOrMainOccupationTextArea.getText(), iiq_TestDataManager.whatHasBeenYourUsualJobOther, "* * * * * CGB IIQ - MISMATCH IN \"Participants usual job or main occupation during their lifetime\" * * * * *");
-    RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCGBIIQPage.doesTheParticipantHaveHealthInsuranceDropdown, iiq_TestDataManager.doYouCurrentlyHaveHealthInsuranceRadioButton, "* * * * * CGB IIQ - MISMATCH IN \"Does the participant have health insurance?\" * * * * *");
-    CucumberLogUtils.logScreenshot();
-}
 }

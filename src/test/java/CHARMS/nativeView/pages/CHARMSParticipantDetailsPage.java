@@ -36,6 +36,11 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	}
 
 	/* Method to dynamically locate elements in Native View */
+	public WebElement dynamicLocatorUsingLabel(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//label[@aria-label='" + text + "']"));
+	}
+
+	/* Method to dynamically locate elements in Native View */
 	public WebElement dynamicLocatorUsingNormalizeSpace(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//*[normalize-space()='" + text + "']"));
 	}
