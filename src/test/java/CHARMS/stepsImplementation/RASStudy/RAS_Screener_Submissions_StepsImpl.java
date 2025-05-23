@@ -251,7 +251,6 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
-
                 /**
                  * * * * * DO YOU CURRENTLY LIVE IN THE UNITED STATES? * * * *
                  */
@@ -262,7 +261,6 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
-
                 /**
                  * * * * * IN WHICH COUNTRY DO YOU CURRENTLY LIVE? * * * *
                  */
@@ -798,12 +796,12 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CommonUtils.clickOnElement(myRASHomePage.rasoptathyRasSurveyGoButton);
         CommonUtils.switchToNextWindow();
         CommonUtils.sleep(3000);
-        CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicTextBoxLocator("Email"));
-        rasopathyQuestionnairePage.dynamicTextBoxLocator("Email").sendKeys(email);
-        rasopathyQuestionnairePage.pinTextBox.sendKeys(pin);
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.sleep(3000);
-        ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
+//        CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicTextBoxLocator("Email"));
+//        rasopathyQuestionnairePage.dynamicTextBoxLocator("Email").sendKeys(email);
+//        rasopathyQuestionnairePage.pinTextBox.sendKeys(pin);
+//        CucumberLogUtils.logScreenshot();
+//        CommonUtils.sleep(3000);
+//        ras_screenerSubmissions_stepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
     }
