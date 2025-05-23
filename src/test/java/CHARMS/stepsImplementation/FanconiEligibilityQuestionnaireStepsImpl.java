@@ -1894,6 +1894,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * @param rowCount The row number from which the data will be retrieved for submitting consent.
      */
     public void  consent_is_submitted_with_collection_method(String collectionMethod, int rowCount) {
+        String participantView = currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantMiddleName") + " " + currentRow.get("ParticipantLastName");
+        String participantProxyView = currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyMiddleName") + " " + currentRow.get("ProxyLastName");
         currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowCount);
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sleep(4000);
@@ -1907,13 +1909,13 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         if (currentRow.get("ParticipantFirstName")!=null  && !("").equals(currentRow.get("ParticipantFirstName"))) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
+            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(participantView));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(participantView));
             CucumberLogUtils.logScreenshot();
         }
         else {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName")));
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName")));
+            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(participantProxyView));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(participantProxyView));
             CucumberLogUtils.logScreenshot();
         }
         CommonUtils.sleep(1800);
