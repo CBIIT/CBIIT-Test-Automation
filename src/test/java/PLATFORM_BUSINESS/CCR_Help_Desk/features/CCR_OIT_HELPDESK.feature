@@ -12,3 +12,10 @@ Feature: CCR/OIT HelpDesk testing
     And I have selected Labmatrix for Application
     When I select Protocol Build for Request Type
     Then I will see the Required fields, "Principal Investigator" and "Protocol Number"
+
+  @CCRHELPDES-173 @chaudhryma @Regression @playwright
+  Scenario: Test CCR/OIT Enhancement LabMatrix - Request Type = General Support
+    Given I am an authenticated user "Rohit Paul" on the CCR OIT Help Desk form
+    And I have selected Labmatrix for Application
+    When I select General Support for Request Type
+    Then I will see the additional optional field being displayed "Protocol/Study"

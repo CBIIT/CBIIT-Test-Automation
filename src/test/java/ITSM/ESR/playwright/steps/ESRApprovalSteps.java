@@ -106,6 +106,16 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.confirmOperationalPOCApprovalIsCompleted();
     }
 
+    @And("the user is rejected from an Operational POC with a need more info")
+    public void the_user_is_rejected_from_an_operational_poc_with_a_need_more_info() {
+        ESRApprovalStepsImplementation.operationalPOCNeedMoreInfo();
+    }
+
+    @Then("the user confirms the Operational POC Approval needs more information")
+    public void the_user_confirms_the_operational_poc_approval_needs_more_information() {
+        ESRApprovalStepsImplementation.confirmOperationalPOCApprovalNeedsMoreInfo();
+    }
+
     @And("the user is approved from a federal lead for closeout approval")
     public void the_user_is_approved_from_a_federal_lead_for_closeout_approval() {
         ESRApprovalStepsImplementation.federalLeadCloseoutApproval();
