@@ -45,7 +45,7 @@ import GRANTS.EM.selenium.stepImplementation.EMStepsImplementation;
 import PLATFORM_BUSINESS.ApplicationAccessAndApproval.pages.AAAPage;
 import PLATFORM_BUSINESS.ApplicationAccessAndApproval.stepsImplementation.AAAStepsImplementation;
 import PLATFORM_BUSINESS.TransferFundsMOU.pages.TFMPage;
-import PLATFORM_BUSINESS.TransferFundsMOU.stepsImplemetation.TFMStepsImplementation;
+import PLATFORM_BUSINESS.TransferFundsMOU.stepsImplementation.TFMStepsImplementation;
 import ServiceNow.AwardNomination.Pages.AwardNominationPage;
 import ServiceNow.AwardNomination.StepsImplementation.AwardNominationStepsImplementation;
 import CHARMS.constants.*;

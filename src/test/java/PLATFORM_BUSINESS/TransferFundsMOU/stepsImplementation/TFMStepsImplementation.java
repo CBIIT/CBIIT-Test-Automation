@@ -1,16 +1,15 @@
-package PLATFORM_BUSINESS.TransferFundsMOU.stepsImplemetation;
+package PLATFORM_BUSINESS.TransferFundsMOU.stepsImplementation;
 
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
-import PLATFORM_BUSINESS.ApplicationAccessAndApproval.constants.AAAConstants;
 import PLATFORM_BUSINESS.TransferFundsMOU.constants.TFMConstants;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
+import org.openqa.selenium.NoSuchElementException;
 
 import static Hooks.Hooks.softAssert;
-import static com.nci.automation.web.TestProperties.getAAAUrl;
 import static com.nci.automation.web.TestProperties.getTFMUrl;
 
 public class TFMStepsImplementation extends PageInitializer {
@@ -41,7 +40,13 @@ public class TFMStepsImplementation extends PageInitializer {
     /**
      *Verify TFM portal view Page title
      */
-    public static void verifyTFMPageTitle() {
-        softAssert.assertTrue(tfmPage.pageTitleTFMPortalView.isDisplayed());
+    public static void verifyTFMPageTitle() throws Exception {
+        {
+            try {
+                softAssert.assertTrue(tfmPage.pageTitleTFMPortalView.isDisplayed());
+            } catch (Exception e) {
+                throw e;
+            }
+        }
     }
 }
