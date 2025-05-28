@@ -214,7 +214,7 @@ Feature: ESR Approvals
     And the user is rejected from an Operational POC with a need more info
     Then the user confirms the Operational POC Approval needs more information
 
-  @ESR-705 @sarwarahmed1 @Progression @playwright
+  @ESR-705 @sarwarahmed1 @Regression @playwright
   Scenario: Test the "Rejected" Approval for the Operational POC Approval in an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
