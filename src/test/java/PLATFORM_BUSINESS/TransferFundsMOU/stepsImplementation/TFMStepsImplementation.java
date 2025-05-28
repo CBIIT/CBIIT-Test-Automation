@@ -7,8 +7,6 @@ import PLATFORM_BUSINESS.TransferFundsMOU.constants.TFMConstants;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-import org.openqa.selenium.NoSuchElementException;
-
 import static Hooks.Hooks.softAssert;
 import static com.nci.automation.web.TestProperties.getTFMUrl;
 
