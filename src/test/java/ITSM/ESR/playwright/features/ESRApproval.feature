@@ -214,6 +214,21 @@ Feature: ESR Approvals
     And the user is rejected from an Operational POC with a need more info
     Then the user confirms the Operational POC Approval needs more information
 
+  @ESR-705 @sarwarahmed1 @Progression @playwright
+  Scenario: Test the "Rejected" Approval for the Operational POC Approval in an ESR-I ticket
+    Given a user logs into Native View on the NCI at your service page
+    And navigates to create ESR
+    And fills out all required information for ESR-I and clicks submit
+    And user clicks on Intake Preparation catalog task
+    And user fills out all required information for ESR-I Intake Preparation
+    And the user is approved from a federal lead
+    And ESR Board Intake Review catalog task is completed
+    And the user is approved from the ESR Board approvers
+    And the Engineering Project Execution catalog task is completed
+    And the Closeout Preparation catalog task for ESR-I is completed
+    And the user is rejected from an Operational POC
+    Then the user confirms the Operational POC Approval is rejected
+
   @ESR-704 @sarwarahmed1 @Regression @playwright
   Scenario: Test the Federal Lead Closeout Approval in an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page
