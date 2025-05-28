@@ -26,3 +26,17 @@ Feature: AAA flow
     And User can see Business Justification field
     And User can see Federal Supervisor dropdown
     And User can see 2nd Level Federal Supervisor dropdown
+
+  @selenium @Alena @Regression @AAA-37
+  Scenario: Validate AAA form dropdown and text in portal view
+    Given  Submitter User logged in to AAA Portal
+    And User navigates to AAA form via menu
+    And User is on AAA form portal view
+    When User clicks on System Name dropdown
+    Then User can see the expected System Name dropdown options
+    When User clicks on Applications Datasources dropdown
+    Then User can see Applications Datasources text input field
+    And User can see Privilege level field text
+    And User can see DOC level field text
+    And User can see Valid Until Date field text
+   And User can see Add Attachment button
