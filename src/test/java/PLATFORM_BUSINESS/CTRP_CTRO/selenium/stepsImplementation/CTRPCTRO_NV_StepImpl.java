@@ -1,7 +1,7 @@
-package PLATFORM_BUSINESS.CTRP_CTRO.stepsImplementation;
+package PLATFORM_BUSINESS.CTRP_CTRO.selenium.stepsImplementation;
 
-import PLATFORM_BUSINESS.CTRP_CTRO.constants.CTRPCTRO_NV_Constants;
-import PLATFORM_BUSINESS.CTRP_CTRO.pages.CTRPCTRO_NV_Page;
+import PLATFORM_BUSINESS.CTRP_CTRO.selenium.Constants.CTRPCTRO_NV_Constants;
+import PLATFORM_BUSINESS.CTRP_CTRO.selenium.pages.CTRPCTRO_NV_Page;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
@@ -206,4 +206,54 @@ public class CTRPCTRO_NV_StepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         CTRPCTRO_NV_StepImpl.deleteTheRecord();
     }
+
+    /**
+     * This method will open the CTRP/CTRO Helpdesk Case in Native View
+     */
+   public static void a_user_is_on_a_ctrp_ctro_helpdesk_case(){
+       ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+       CucumberLogUtils.logScreenshot();
+       WebDriverUtils.webDriver.get(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_URL);
+       CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+       CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+       CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryField(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD));
+       JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryField(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD));
+       CommonUtils.assertEqualsWithMessage(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD, CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryField(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD).getText(),
+               "This assertion verifies the Category field on the CTRP CTRO NV Case");
+       CucumberLogUtils.logScreenshot();
+       CommonUtils.selectDropDownValue(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDown, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_FDAAA_NIH_POLICY_OUTREACH_OPTION);
+       JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_FDAAA_NIH_POLICY_OUTREACH_OPTION));
+       CommonUtils.assertEqualsWithMessage(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_FDAAA_NIH_POLICY_OUTREACH_OPTION, CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_FDAAA_NIH_POLICY_OUTREACH_OPTION).getText(),
+               "This assertion verifies the Category field 'FDAAA/NIH Policy Outreach' on the CTRP CTRO NV Case");
+       CucumberLogUtils.logScreenshot();
+       CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseAssignmentGroupFieldSearchBox);
+       CommonUtils.sendKeys(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseAssignmentGroupFieldSearchBox, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_ASSIGNMENT_GROUP_FIELD_SEARCH_BOX_OPTION);
+       CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseShortDescriptionFieldTextBox);
+       CommonUtils.sendKeys(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseShortDescriptionFieldTextBox, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SHORT_DESCRIPTION_FIELD_TEXT_BOX_OPTION);
+       CucumberLogUtils.logScreenshot();
+       CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseSubmitButton.click();
+       CucumberLogUtils.logScreenshot();
+       CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVAllCasesSearchDropDown);
+       CommonUtils.selectDropDownValue(CTRPCTRO_NV_Page.ctrpCTRONVAllCasesSearchDropDown, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_ALL_CASES_SEARCH_DROP_DOWN);
+       CommonUtils.sendKeysToElement(CTRPCTRO_NV_Page.ctrpCTRONVAllCasesSearchTextBox, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SHORT_DESCRIPTION_FIELD_TEXT_BOX_OPTION);
+       CommonUtils.sendKeys(CTRPCTRO_NV_Page.ctrpCTRONVAllCasesSearchTextBox, Keys.ENTER);
+       CommonUtils.hoverOverElement(CTRPCTRO_NV_Page.nVRecordName(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SHORT_DESCRIPTION_FIELD_TEXT_BOX_OPTION));
+       CommonUtils.waitForClickability(CTRPCTRO_NV_Page.ctrpCTROCaseLocator(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SHORT_DESCRIPTION_FIELD_TEXT_BOX_OPTION));
+       JavascriptUtils.clickByJS(CTRPCTRO_NV_Page.ctrpCTROCaseLocator(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SHORT_DESCRIPTION_FIELD_TEXT_BOX_OPTION));
+       CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVCaseOpenRecordButton);
+       CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCaseOpenRecordButton);
+       CucumberLogUtils.logScreenshot();
+   }
+
+    /**
+     * This method verifies that there is a Category available called FDAAA/NIH Policy Outreach
+     * @param fdaaaNihPolicyOutreach
+     */
+   public static void user_sees_there_is_a_category_available_called(String fdaaaNihPolicyOutreach) {
+       CommonUtils.selectDropDownValue(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDown, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_FDAAA_NIH_POLICY_OUTREACH_OPTION);
+       JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_FDAAA_NIH_POLICY_OUTREACH_OPTION));
+       CommonUtils.assertTrue(fdaaaNihPolicyOutreach.contains(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_FDAAA_NIH_POLICY_OUTREACH_OPTION).getText()));
+       CucumberLogUtils.logScreenshot();
+       System.out.println("PRINT ------------------"+CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_FDAAA_NIH_POLICY_OUTREACH_OPTION).getText());
+   }
 }

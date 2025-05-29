@@ -65,7 +65,7 @@ import PLATFORM_BUSINESS.NCCR.stepsImplementation.NCCRStepsImplementation;
 import PLATFORM_BUSINESS.OA_Intake.pages.OAIntakePage;
 import PLATFORM_BUSINESS.OA_Intake.stepsImplementation.OAIntakeStepsImplementation;
 import PLATFORM_BUSINESS.ETracking.pages.EtrackAssetsRecords_NativeViewPage;
-import PLATFORM_BUSINESS.CTRP_CTRO.pages.CTRPCTRO_NV_Page;
+import PLATFORM_BUSINESS.CTRP_CTRO.selenium.pages.CTRPCTRO_NV_Page;
 import PLATFORM_BUSINESS.GDC.pages.GDC_Workflow_NativeView_Page;
 import PLATFORM_BUSINESS.GCP.pages.GCPNotifications_NativeViewPage;
 import PLATFORM_BUSINESS.NERD.selenium.Pages.*;
