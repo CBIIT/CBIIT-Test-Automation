@@ -50,7 +50,7 @@ public class CTRPCTRO_NV_Steps {
     }
 
     @Then("User sees there is a Category available called {string}")
-    public void user_sees_there_is_a_category_available_called(String string) {
-        CTRPCTRO_NV_StepImpl.user_sees_there_is_a_category_available_called(string);
+    public void user_sees_there_is_a_category_available_called(String fdaaaNihPolicyOutreach) {
+        CTRPCTRO_NV_StepImpl.user_sees_there_is_a_category_available_called(fdaaaNihPolicyOutreach);
     }
 }
