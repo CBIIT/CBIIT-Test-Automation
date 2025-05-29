@@ -17,7 +17,7 @@ public class RequestForm {
      */
     @When("User clicks on Create Request button")
     public void user_clicks_on_create_request_button() {
-        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Submit a new request for")).locator("div").nth(4).click();
+        page.getByText("Submit a new request for").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -40,7 +40,7 @@ public class RequestForm {
     public void user_enters_in_requestor_field(String Requestor) {
         page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("  Requestor:")).click();
         page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("  Requestor:")).fill(Requestor);
-        page.getByText(Requestor).click();
+        page.locator("div.ui-menu-item-wrapper", new Page.LocatorOptions().setHasText(Requestor)).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -57,11 +57,12 @@ public class RequestForm {
 
     /**
      * This method is used to select the Yes radio button for Do you want to submit On Behalf Of another NCI Division?
-     * @param YesRadioButton
+     * @param OnBehalfOf
      */
     @And("User selects {string} for Do you want to submit On Behalf Of another NCI Division?")
-    public void user_selects_for_do_you_want_to_submit_on_behalf_of_another_nci_division_office_center(String YesRadioButton) {
-        page.locator("#requestorSummaryGroup").getByText(YesRadioButton).click();
+    public void user_selects_for_do_you_want_to_submit_on_behalf_of_another_nci_division_office_center(String OnBehalfOf) {
+        String OnBehalfOfLocator = "//input[@id='onBehalfOf" + OnBehalfOf + "']";
+        page.locator("xpath=" + OnBehalfOfLocator).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -105,7 +106,7 @@ public class RequestForm {
      */
     @And("User selects {string} for any associated fees")
     public void user_selects_for_any_associated_fees(String AssociatedFees) {
-        page.locator("#publicationSummaryGroup").getByText(AssociatedFees).click();
+        page.locator("#associatedFees"+AssociatedFees).check();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -198,19 +199,21 @@ public class RequestForm {
 
     /**
      * This method is used to select No for the High Profile or Controversial Content question
+     * @param HighProfile
      */
-    @And("User selects No for Does this Request address any high profile or controversial content?")
-    public void user_selects_no_for_does_this_request_address_any_high_profile_or_controversial_content() {
-        page.locator("#highProfileNo").check();
+    @And("User selects {string} for Does this Request address any high profile or controversial content?")
+    public void user_selects_no_for_does_this_request_address_any_high_profile_or_controversial_content(String HighProfile) {
+        page.locator("#highProfile"+HighProfile).check();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
      * This method is used to select No for the Clinical Trial Information question
+     * @param ClinicalTrial
      */
-    @And("User selects No for Does this manuscript involve clinical trial information?")
-    public void user_selects_for_does_this_manuscript_involve_clinical_trial_information() {
-        page.locator("#clinicalTrialRadioNo").check();
+    @And("User selects {string} for Does this manuscript involve clinical trial information?")
+    public void user_selects_for_does_this_manuscript_involve_clinical_trial_information(String ClinicalTrial) {
+        page.locator("#clinicalTrialRadio"+ClinicalTrial).check();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -226,9 +229,9 @@ public class RequestForm {
     /**
      * This method is used to Serial as Approval Type
      */
-    @And("User selects Serial as Approval Type")
-    public void user_selects_serial_as_approval_type() {
-        page.locator("xpath=//input[@name='mrsRequest.approvalType.id' and @id=51]").check();
+    @And("User selects {string} as Approval Type")
+    public void user_selects_serial_as_approval_type(String ApprovalType) {
+        page.getByText(ApprovalType).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -250,6 +253,69 @@ public class RequestForm {
     @Then("User clicks on Submit for Verification button")
     public void user_clicks_on_submit_for_verification_button() {
         page.locator("#VerifyRequestAlt").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to impersonate as a different user
+     * @param DCCPSUser
+     */
+    @When("User impersonates as {string}")
+    public void user_impersonates_as(String DCCPSUser) {
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(" Change User")).click();
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Enter First or Last Name")).fill(DCCPSUser);
+        page.getByText(DCCPSUser).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to enter the explanation for the request
+     * @param Explanation
+     */
+    @And("User enters {string} as the explanation")
+    public void user_enters_as_the_explanation(String Explanation) {
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Comment(s) (Provide")).click();
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Comment(s) (Provide")).fill(Explanation);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select the radio button for Does this manuscript or abstract involve a Clinical Study with a CTEP or NIH Trial?
+     * @param ClinicalStudyProtocol
+     */
+    @And("User selects {string} for Does this manuscript or abstract involve a Clinical Study with a CTEP or NIH Trial?")
+    public void user_selects_yes_for_does_this_manuscript_or_abstract_involve_a_clinical_study_with_a_ctep_or_nih_trial(String ClinicalStudyProtocol) {
+        page.locator("#clinicalStudyProtocol"+ClinicalStudyProtocol).check();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to enter the CTEP or NIH Clinical Trial Number
+     * @param CTEPOrNIHClinicalTrialNumber
+     */
+    @And("User enters {string} as the CTEP or NIH Clinical Trial Number")
+    public void user_enters_as_the_ctep_or_nih_clinical_trial_number(String CTEPOrNIHClinicalTrialNumber) {
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName(" CTEP/NIH Clinical Trial #:")).click();
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName(" CTEP/NIH Clinical Trial #:")).fill(CTEPOrNIHClinicalTrialNumber);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select the radio button for Is the study exempt from being considered human subjects research?
+     * @param ClinicalExemption
+     */
+    @And("User selects {string} for Clinical Exemption: Is the study exempt from being considered human subjects research?")
+    public void user_selects_yes_for_clinical_exemption_is_the_study_exempt_from_being_considered_human_subjects_research(String ClinicalExemption) {
+        page.locator("#clinicalExcemptionFlag"+ClinicalExemption).check();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the Submit for Approval button
+     */
+    @Then("User clicks on Submit for Approval button")
+    public void user_clicks_on_submit_for_approval_button() {
+        page.locator("#submitForApprovalRequestAlt").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }
