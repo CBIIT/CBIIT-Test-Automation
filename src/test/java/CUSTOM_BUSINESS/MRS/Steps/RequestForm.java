@@ -57,11 +57,11 @@ public class RequestForm {
 
     /**
      * This method is used to select the Yes radio button for Do you want to submit On Behalf Of another NCI Division?
-     * @param OnBehalfOf
+     * @param RadioButton
      */
     @And("User selects {string} for Do you want to submit On Behalf Of another NCI Division?")
-    public void user_selects_for_do_you_want_to_submit_on_behalf_of_another_nci_division_office_center(String OnBehalfOf) {
-        String OnBehalfOfLocator = "//input[@id='onBehalfOf" + OnBehalfOf + "']";
+    public void user_selects_for_do_you_want_to_submit_on_behalf_of_another_nci_division_office_center(String RadioButton) {
+        String OnBehalfOfLocator = "//input[@id='onBehalfOf" + RadioButton + "']";
         page.locator("xpath=" + OnBehalfOfLocator).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -102,11 +102,11 @@ public class RequestForm {
 
     /**
      * This method is to select the Yes radio button for any associated fees
-     * @param AssociatedFees
+     * @param Fees
      */
     @And("User selects {string} for any associated fees")
-    public void user_selects_for_any_associated_fees(String AssociatedFees) {
-        page.locator("#associatedFees"+AssociatedFees).check();
+    public void user_selects_for_any_associated_fees(String Fees) {
+        page.locator("#associatedFees"+Fees).check();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -199,21 +199,21 @@ public class RequestForm {
 
     /**
      * This method is used to select No for the High Profile or Controversial Content question
-     * @param HighProfile
+     * @param YesOrNo
      */
     @And("User selects {string} for Does this Request address any high profile or controversial content?")
-    public void user_selects_no_for_does_this_request_address_any_high_profile_or_controversial_content(String HighProfile) {
-        page.locator("#highProfile"+HighProfile).check();
+    public void user_selects_no_for_does_this_request_address_any_high_profile_or_controversial_content(String YesOrNo) {
+        page.locator("#highProfile"+YesOrNo).check();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
      * This method is used to select No for the Clinical Trial Information question
-     * @param ClinicalTrial
+     * @param ManuscriptInvolvement
      */
     @And("User selects {string} for Does this manuscript involve clinical trial information?")
-    public void user_selects_for_does_this_manuscript_involve_clinical_trial_information(String ClinicalTrial) {
-        page.locator("#clinicalTrialRadio"+ClinicalTrial).check();
+    public void user_selects_for_does_this_manuscript_involve_clinical_trial_information(String ManuscriptInvolvement) {
+        page.locator("#clinicalTrialRadio"+ManuscriptInvolvement).check();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -281,11 +281,11 @@ public class RequestForm {
 
     /**
      * This method is used to select the radio button for Does this manuscript or abstract involve a Clinical Study with a CTEP or NIH Trial?
-     * @param ClinicalStudyProtocol
+     * @param Protocol
      */
     @And("User selects {string} for Does this manuscript or abstract involve a Clinical Study with a CTEP or NIH Trial?")
-    public void user_selects_yes_for_does_this_manuscript_or_abstract_involve_a_clinical_study_with_a_ctep_or_nih_trial(String ClinicalStudyProtocol) {
-        page.locator("#clinicalStudyProtocol"+ClinicalStudyProtocol).check();
+    public void user_selects_yes_for_does_this_manuscript_or_abstract_involve_a_clinical_study_with_a_ctep_or_nih_trial(String Protocol) {
+        page.locator("#clinicalStudyProtocol"+Protocol).check();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -302,11 +302,11 @@ public class RequestForm {
 
     /**
      * This method is used to select the radio button for Is the study exempt from being considered human subjects research?
-     * @param ClinicalExemption
+     * @param ExemptedOrNot
      */
     @And("User selects {string} for Clinical Exemption: Is the study exempt from being considered human subjects research?")
-    public void user_selects_yes_for_clinical_exemption_is_the_study_exempt_from_being_considered_human_subjects_research(String ClinicalExemption) {
-        page.locator("#clinicalExcemptionFlag"+ClinicalExemption).check();
+    public void user_selects_yes_for_clinical_exemption_is_the_study_exempt_from_being_considered_human_subjects_research(String ExemptedOrNot) {
+        page.locator("#clinicalExcemptionFlag"+ExemptedOrNot).check();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 

@@ -31,7 +31,7 @@ Scenario: Submit a request form on behalf of another person
 
   @SubmitRequestFormForYourself @NESARH2 @playwright @Regression
   Scenario: Submit a request form for yourself
-    When User impersonates as "Ellison, Gary"
+    When User impersonates as "ELLISON, GARY"
     And User clicks on Create Request button
     And User enters the "Creating a request through for myself automated test" as Request Title
     And User enters "ELLISON, GARY" in Requestor field
