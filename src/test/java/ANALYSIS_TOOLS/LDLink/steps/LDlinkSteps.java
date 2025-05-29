@@ -6,15 +6,15 @@ import com.microsoft.playwright.options.AriaRole;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
+import static com.nci.automation.web.TestProperties.LD_LINK_URL;
 
 public class LDlinkSteps extends PageInitializer {
 
     @Given("the user is on the LDscore module on LDlink")
     public void the_user_is_on_the_l_dscore_module_on_l_dlink() {
-        page.navigate("https://ldlink-qa.nih.gov/?tab=home");
+        page.navigate(LD_LINK_URL);
         page.getByText("LDscore Calculate LDscore.").click();
     }
 
