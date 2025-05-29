@@ -254,6 +254,5 @@ public class CTRPCTRO_NV_StepImpl extends PageInitializer {
        JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_FDAAA_NIH_POLICY_OUTREACH_OPTION));
        CommonUtils.assertTrue(fdaaaNihPolicyOutreach.contains(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_FDAAA_NIH_POLICY_OUTREACH_OPTION).getText()));
        CucumberLogUtils.logScreenshot();
-       System.out.println("PRINT ------------------"+CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_FDAAA_NIH_POLICY_OUTREACH_OPTION).getText());
    }
 }
