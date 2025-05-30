@@ -251,7 +251,6 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
-
                 /**
                  * * * * * DO YOU CURRENTLY LIVE IN THE UNITED STATES? * * * *
                  */
@@ -262,7 +261,6 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
-
                 /**
                  * * * * * IN WHICH COUNTRY DO YOU CURRENTLY LIVE? * * * *
                  */
