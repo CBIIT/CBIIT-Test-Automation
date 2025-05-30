@@ -35,6 +35,8 @@ import CUSTOM_BUSINESS.ETD.stepsImplementation.*;
 import CUSTOM_BUSINESS.Egrants.pages.EgrantsQuickLinkAndManagementMenuPage;
 import CUSTOM_BUSINESS.Egrants.pages.EgrantsSearchAndFileManagementScenariosPage;
 import CUSTOM_BUSINESS.Egrants.stepsImplementation.EgrantsStepImplementation;
+import CUSTOM_BUSINESS.FCAS_VENDOR_PORTAL.pages.FCASVENDORPORTALPage;
+import CUSTOM_BUSINESS.FCAS_VENDOR_PORTAL.stepsImplementation.FCASVENDORPORTALStepsImplementation;
 import GRANTS.ChangePassword.pages.*;
 import GRANTS.ChangePassword.stepsImplementation.*;
 import GRANTS.EM.selenium.pages.AccountDetailsPage;
@@ -193,6 +195,10 @@ public class PageInitializer extends WebDriverUtils {
 	/** TFM instances */
 	public static TFMStepsImplementation tfmStepsImplementation;
 	public static TFMPage tfmPage;
+
+	/** FCAS Vendor Portal instances */
+	public static FCASVENDORPORTALPage  fCASVENDORPORTALPage;
+	public static FCASVENDORPORTALStepsImplementation fCASVENDORPORTALStepsImplementation;
 
 	/** AWARD NOMINATION instances */
 	public static AwardNominationStepsImplementation awardNominationStepsImplementation;
@@ -441,6 +447,10 @@ public class PageInitializer extends WebDriverUtils {
 		/** TFM Instance Variables */
 		tfmPage =  new TFMPage();
 		tfmStepsImplementation = new TFMStepsImplementation();
+
+		/** FCAS Vendor Portal Instance Variables */
+		fCASVENDORPORTALStepsImplementation = new FCASVENDORPORTALStepsImplementation();
+		fCASVENDORPORTALPage = new FCASVENDORPORTALPage();
 
 		/** CHARMS Instance Variables **/
 		charmsNativeViewPage = new CHARMSNativeViewPage();
