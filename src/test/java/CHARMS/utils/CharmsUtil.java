@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
-import CHARMS.pages.NativeViewCHARMSDashboardPage;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
