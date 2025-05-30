@@ -1,4 +1,4 @@
-package PLATFORM_BUSINESS.CTRP_CTRO.constants;
+package PLATFORM_BUSINESS.CTRP_CTRO.selenium.Constants;
 
 import com.nci.automation.web.CommonUtils;
 
@@ -38,6 +38,9 @@ public class CTRPCTRO_NV_Constants {
             "Systems/Development\n" +
             "TSR Change Requests\n" +
             "TSR Verifications]";
+
+    /* CTRP/CTRO NATIVE VIEW CREATE NEW CASE CATEGORY FIELD DROP DOWN FDAAA/NIH POLICY OUTREACH OPTION */
+    public static final String CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_FDAAA_NIH_POLICY_OUTREACH_OPTION = "FDAAA/NIH Policy Outreach";
 
     /* CTRP/CTRO NATIVE VIEW CREATE NEW CASE SUBCATEGORY FIELD */
     public static final String CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD = "Subcategory";
