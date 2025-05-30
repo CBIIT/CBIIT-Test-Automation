@@ -44,6 +44,8 @@ import GRANTS.EM.selenium.pages.ModifyAccountPage;
 import GRANTS.EM.selenium.stepImplementation.EMStepsImplementation;
 import PLATFORM_BUSINESS.ApplicationAccessAndApproval.pages.AAAPage;
 import PLATFORM_BUSINESS.ApplicationAccessAndApproval.stepsImplementation.AAAStepsImplementation;
+import PLATFORM_BUSINESS.TransferFundsMOU.pages.TFMPage;
+import PLATFORM_BUSINESS.TransferFundsMOU.stepsImplementation.TFMStepsImplementation;
 import ServiceNow.AwardNomination.Pages.AwardNominationPage;
 import ServiceNow.AwardNomination.StepsImplementation.AwardNominationStepsImplementation;
 import CHARMS.constants.*;
@@ -189,6 +191,10 @@ public class PageInitializer extends WebDriverUtils {
 	/** AAA instances */
 	public static AAAStepsImplementation aaaStepsImplementation;
 	public static AAAPage aaaPage;
+
+	/** TFM instances */
+	public static TFMStepsImplementation tfmStepsImplementation;
+	public static TFMPage tfmPage;
 
 	/** AWARD NOMINATION instances */
 	public static AwardNominationStepsImplementation awardNominationStepsImplementation;
@@ -434,6 +440,10 @@ public class PageInitializer extends WebDriverUtils {
 		/** AAA Instance Variables */
 		aaaPage =  new AAAPage();
 		aaaStepsImplementation = new AAAStepsImplementation();
+
+		/** TFM Instance Variables */
+		tfmPage =  new TFMPage();
+		tfmStepsImplementation = new TFMStepsImplementation();
 
 		/** CHARMS Instance Variables **/
 		charmsNativeViewPage = new CHARMSNativeViewPage();
