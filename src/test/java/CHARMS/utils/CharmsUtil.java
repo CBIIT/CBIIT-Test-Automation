@@ -1,20 +1,17 @@
 package CHARMS.utils;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
+import CHARMS.pages.NativeViewCHARMSDashboardPage;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -548,5 +545,32 @@ public class CharmsUtil {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+    }
+
+    /**
+     * Looks up a value in a reference field within a web page.
+     *
+     * @param referenceField the WebElement representing the reference field to interact with
+     * @param columnName the name of the column where the value will be searched
+     * @param value the value to search for in the specified column
+     */
+    public static void lookUpInReferenceField(WebElement referenceField, String columnName, String value) {
+        String currentWindow = WebDriverUtils.webDriver.getWindowHandle();
+        Set<String> allWindows = WebDriverUtils.webDriver.getWindowHandles();
+        for (String window : allWindows) {
+            if (!window.equals(currentWindow)) {
+                WebDriverUtils.webDriver.switchTo().window(window).close();
+            }
+        }
+        WebDriverUtils.webDriver.switchTo().window(currentWindow);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        JavascriptUtils.clickByJS(referenceField);
+        CommonUtils.sleep(800);
+        CommonUtils.switchToAnotherTabWindow();
+        locateByXpath("//input[@aria-label='Search column: " + columnName + "']").sendKeys(value);
+        locateByXpath("//input[@aria-label='Search column: " + columnName + "']").sendKeys(Keys.ENTER);
+        locateByXpath("(//a[@role='button'][normalize-space()='" + value + "'])[1]").click();
+        WebDriverUtils.webDriver.switchTo().window(currentWindow);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
     }
 }

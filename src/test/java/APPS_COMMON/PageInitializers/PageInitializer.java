@@ -161,6 +161,8 @@ public class PageInitializer extends WebDriverUtils {
 	public static RAS_Survey_Smoking_Survey_TestDataManager ras_Survey_Smoking_Survey_TestDataManager;
 	public static RAS_Physical_Activities_Survey_TestDataManager ras_Physical_Activities_Survey_TestDataManager;
 	public static IIQ_TestDataManager iiq_TestDataManager;
+	public static NV_Clinic_Visits_TestDataManager nv_Clinic_Visits_TestDataManager;
+	public static NV_New_Appointment_TestDataManager nv_New_Appointment_TestDataManager;
 	public static ParticipantDetailsPage participantDetailsPage;
 	public static ReferralTablePage referralTablePage;
 	public static FanconiEligibilityQuestionnairePage fanconiEligibilityQuestionnairePage;
@@ -368,6 +370,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewMembersOfCongressPage nativeViewMembersOfCongressPage;
 	public static NativeViewCHARMSDashboardPage nativeViewCHARMSDashboardPage;
 	public static NativeViewCHARMSFHQPatientPage nativeViewCHARMSFHQPatientPage;
+	public static NativeViewCHARMSNewAppointmentPage nativeViewCHARMSNewAppointmentPage;
 	public static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSClinicVisitsPage nativeViewCHARMSClinicVisitsPage;
@@ -461,6 +464,8 @@ public class PageInitializer extends WebDriverUtils {
 		ras_Survey_Smoking_Survey_TestDataManager = new RAS_Survey_Smoking_Survey_TestDataManager();
 		ras_Physical_Activities_Survey_TestDataManager = new RAS_Physical_Activities_Survey_TestDataManager();
 		iiq_TestDataManager = new IIQ_TestDataManager();
+		nv_Clinic_Visits_TestDataManager = new NV_Clinic_Visits_TestDataManager();
+		nv_New_Appointment_TestDataManager = new NV_New_Appointment_TestDataManager();
 		cgbIIQPage = new CGBIIQPage();
 		cGBIIQPages = new CGBIIQPages();
 		rAS_Survey_Page = new RAS_Survey_Page();
@@ -655,6 +660,7 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewMembersOfCongressPage = new NativeViewMembersOfCongressPage();
 		nativeViewCHARMSDashboardPage = new NativeViewCHARMSDashboardPage();
 		nativeViewCHARMSFHQPatientPage = new NativeViewCHARMSFHQPatientPage();
+		nativeViewCHARMSNewAppointmentPage = new NativeViewCHARMSNewAppointmentPage();
 		nativeViewCHARMSParticipantDetailsPage = new NativeViewCHARMSParticipantDetailsPage();
 		nativeViewCHARMSParticipantConsentPage = new NativeViewCHARMSParticipantConsentPage();
 		nativeViewCHARMSClinicVisitsPage = new NativeViewCHARMSClinicVisitsPage();
