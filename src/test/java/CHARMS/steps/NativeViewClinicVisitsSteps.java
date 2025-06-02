@@ -13,10 +13,12 @@ public class NativeViewClinicVisitsSteps {
 
     public static String participantFSID;
     public static String newAppointmentTime;
-    public static String currentDate = java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+    public static String currentDate = CommonUtils.getTodayDate();
 
     /**
      * Study Team member opens PD record, navigates to the Clinic Visits related list, and creates a new Clinic Visit.
+     *
+     @param sheetName The name of the Excel sheet containing the data to be entered.
      */
     @Then("Study Team member navigates to the Clinic Visits related list and creates new Clinic Visit for {string}")
     public void study_team_member_navigates_to_the_clinic_visits_related_list_and_creates_new_clinic_visit(String sheetName) {
@@ -60,6 +62,8 @@ public class NativeViewClinicVisitsSteps {
 
     /**
      * Study Team member creates a new Appointment.
+     *
+     @param sheetName The name of the Excel sheet containing the data to be entered.
      */
     @Then("creates a new Appointment for {string}")
     public void creates_a_new_appointment(String sheetName) {

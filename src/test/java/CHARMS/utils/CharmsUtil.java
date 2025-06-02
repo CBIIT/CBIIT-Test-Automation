@@ -1,7 +1,11 @@
 package CHARMS.utils;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
@@ -553,6 +557,7 @@ public class CharmsUtil {
      * @param value the value to search for in the specified column
      */
     public static void lookUpInReferenceField(WebElement referenceField, String columnName, String value) {
+        WebElement column;
         String currentWindow = WebDriverUtils.webDriver.getWindowHandle();
         Set<String> allWindows = WebDriverUtils.webDriver.getWindowHandles();
         for (String window : allWindows) {
@@ -565,8 +570,9 @@ public class CharmsUtil {
         JavascriptUtils.clickByJS(referenceField);
         CommonUtils.sleep(800);
         CommonUtils.switchToAnotherTabWindow();
-        locateByXpath("//input[@aria-label='Search column: " + columnName + "']").sendKeys(value);
-        locateByXpath("//input[@aria-label='Search column: " + columnName + "']").sendKeys(Keys.ENTER);
+        column = locateByXpath("//input[@aria-label='Search column: " + columnName + "']");
+        column.sendKeys(value);
+        column.sendKeys(Keys.ENTER);
         locateByXpath("(//a[@role='button'][normalize-space()='" + value + "'])[1]").click();
         WebDriverUtils.webDriver.switchTo().window(currentWindow);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
