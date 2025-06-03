@@ -15,7 +15,7 @@ Feature:These are the scenarios for the mSigPortal Home application
   @satya @Smoke @Regression @playwright @NCIATWP-5957
   Scenario: Verify User is navigating to the respective card on link of it
     Given User navigates to the mSigPortal Website
-    When User clicks on the catalogue card on the mSigPortal website
+    When User clicks on the catalog card on the m+SigPortal website
     Then Validate User is on the catalogue navbar on the mSigPortal website
     When User clicks on the visualization card on the mSigPortal website
     Then Validate User is on the visualization navbar on the mSigPortal website

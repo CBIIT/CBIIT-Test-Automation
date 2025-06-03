@@ -41,4 +41,13 @@ public class mSigPortalCatalogStepsImpl {
         Thread.sleep(2000);
         PlaywrightUtils.page.locator("//div[contains(text(),'Enter any [Signature Source], [Profile Name], [Ref')]//div[2]//form[1]//div[1]//div[7]//button[1]").click();
     }
+
+    /**
+     * CLICKING ON NEW PLOT BUTTON AND THEN CALCULATES ON SELECTED RESOURCE
+     */
+    public static void verifyNewPlotAndDownloadData() throws InterruptedException {
+        PlaywrightUtils.page.locator("//div[@role='tabpanel']//div[2]//div[1]//div[2]//div[2]//div[1]//button[1]").isVisible();
+        Thread.sleep(2000);
+        PlaywrightUtils.page.locator("//div[@role='tabpanel']//div[2]//div[1]//div[2]//div[2]//div[1]//button[1]").click();
+    }
 }
