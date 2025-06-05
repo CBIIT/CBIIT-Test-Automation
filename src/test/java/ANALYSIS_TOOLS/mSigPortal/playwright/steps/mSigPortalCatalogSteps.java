@@ -4,7 +4,7 @@ import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Then;
 import ANALYSIS_TOOLS.mSigPortal.playwright.stepsImplementations.mSigPortalCatalogStepsImpl;
 
-public class mSigPortalCatalog_Steps {
+public class mSigPortalCatalogSteps {
 
     /**
      * CLICKING ON THE CATEGORY OF ENVIRONMENTAL MUTAGENESIS
@@ -14,9 +14,7 @@ public class mSigPortalCatalog_Steps {
         PlaywrightUtils.page.locator("//div[normalize-space()='Environmental Mutagenesis']").click();
     }
 
-    /**
-     * CLICKING AND THEN SELECTING PROPOSED ETIOLOGY
-     */
+
     @Then("User clicks on the aromatic amines and then selects etiology")
     public void user_clicks_on_the_aromatic_amines_and_then_selects_etiology() {
         mSigPortalCatalogStepsImpl.clickAndSelectEtiology();
@@ -38,9 +36,7 @@ public class mSigPortalCatalog_Steps {
         PlaywrightUtils.page.locator("//a[@class='secondary-navlinks px-2 py-1 d-inline-block text-catalog']").click();
     }
 
-    /**
-     * CLICKING ON THE PROFILE TAB AND THEN CALCULATED TO VISUALIZE MUTATIONAL PROFILE
-     */
+
     @Then("User clicks on the RS profile tab and calculates to visualize the mutational signature profile")
     public void user_clicks_on_the_rs_profile_tab_and_calculates_to_visualize_the_mutational_signature_profile() {
         mSigPortalCatalogStepsImpl.clickProfileAndCalculates();

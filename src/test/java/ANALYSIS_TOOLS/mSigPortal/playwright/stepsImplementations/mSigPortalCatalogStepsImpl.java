@@ -1,6 +1,7 @@
 package ANALYSIS_TOOLS.mSigPortal.playwright.stepsImplementations;
 
 import com.microsoft.playwright.Locator;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import static Hooks.Hooks.softAssert;
 
@@ -33,21 +34,21 @@ public class mSigPortalCatalogStepsImpl {
     /**
      * CLICKING ON NEW PLOT BUTTON AND THEN CALCULATES ON SELECTED RESOURCE
      */
-    public static void addNewPlotAndCalculates() throws InterruptedException {
+    public static void addNewPlotAndCalculates() {
         PlaywrightUtils.page.locator("//span[@title='Add Plot']").click();
         PlaywrightUtils.page.locator("//div//label[contains(text(),'Signature Source') and @for='plotForms[1].source']//parent::div//div").first().click();
-        Thread.sleep(2000);
+        CommonUtils.sleep(2000);
         PlaywrightUtils.page.locator("//div//label[contains(text(),'Signature Source') and @for='plotForms[1].source']//parent::div//div").first().press("Enter");
-        Thread.sleep(2000);
+        CommonUtils.sleep(2000);
         PlaywrightUtils.page.locator("//div[contains(text(),'Enter any [Signature Source], [Profile Name], [Ref')]//div[2]//form[1]//div[1]//div[7]//button[1]").click();
     }
 
     /**
      * CLICKING ON NEW PLOT BUTTON AND THEN CALCULATES ON SELECTED RESOURCE
      */
-    public static void verifyNewPlotAndDownloadData() throws InterruptedException {
+    public static void verifyNewPlotAndDownloadData() {
         PlaywrightUtils.page.locator("//div[@role='tabpanel']//div[2]//div[1]//div[2]//div[2]//div[1]//button[1]").isVisible();
-        Thread.sleep(2000);
+        CommonUtils.sleep(2000);
         PlaywrightUtils.page.locator("//div[@role='tabpanel']//div[2]//div[1]//div[2]//div[2]//div[1]//button[1]").click();
     }
 }

@@ -15,7 +15,7 @@ public class mSigPortalHomePage {
     /***
      * CATALOG CARD
      */
-    public static String catalogCard = "//div[contains(@class,'d-none d-lg-block')]//div[@id='Catalog']//div[contains(@class,'mb-3')]//span[1]";
+    public static String catalogueCard = "//div[contains(@class,'d-none d-lg-block')]//div[@id='Catalog']//div[contains(@class,'mb-3')]//span[1]";
 
     /***
      * VISUALISATION CARD

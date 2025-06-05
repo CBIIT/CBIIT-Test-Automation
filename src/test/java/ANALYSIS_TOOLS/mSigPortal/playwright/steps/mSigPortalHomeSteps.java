@@ -11,7 +11,7 @@ import static com.nci.automation.web.TestProperties.getMsigPortalUrl;
 import ANALYSIS_TOOLS.mSigPortal.playwright.stepsImplementations.mSigPortalHomeStepsImpl;
 import io.cucumber.java.en.When;
 
-public class mSigPortalHome_Steps {
+public class mSigPortalHomeSteps {
 
     @Given("User navigates to the mSigPortal Website")
     public void user_navigates_to_the_m_sig_portal_website() {
@@ -39,9 +39,9 @@ public class mSigPortalHome_Steps {
         mSigPortalHomeStepsImpl.verifyAboutNavBarSelection();
     }
 
-    @When("User clicks on the catalog card on the mSigPortal website")
-    public void user_clicks_on_the_catalog_card_on_the_m_sig_portal_website() {
-        PlaywrightUtils.page.locator(mSigPortalHomePage.catalogCard).click();
+    @When("User clicks on the catalogue card on the mSigPortal website")
+    public void user_clicks_on_the_catalogue_card_on_the_m_sig_portal_website() {
+        PlaywrightUtils.page.locator(mSigPortalHomePage.catalogueCard).click();
     }
 
     @Then("Validate User is on the catalogue navbar on the mSigPortal website")
