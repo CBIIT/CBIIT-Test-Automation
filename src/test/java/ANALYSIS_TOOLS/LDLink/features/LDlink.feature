@@ -10,12 +10,12 @@ Feature: These are the test cases for the LDlink application
   Scenario: User navigates from landing page to home page
     Given a LDlink user opens Analysis Tools page
     When user clicks LDLink on landing page
-    Then User verify title is "LDlink is a suite of web-based applications designed to easily and efficiently interrogate linkage disequilibrium in population groups. Each included application is specialized for querying and displaying unique aspects of linkage disequilibrium."
+    Then User verifies title is "LDlink is a suite of web-based applications designed to easily and efficiently interrogate linkage disequilibrium in population groups. Each included application is specialized for querying and displaying unique aspects of linkage disequilibrium."
 
   @Smoke @Regression @matakevin @selenium
   Scenario: Home Page - Validate LDlink
     When a LDlink user opens home page
-    Then User verify title is "LDlink is a suite of web-based applications designed to easily and efficiently interrogate linkage disequilibrium in population groups. Each included application is specialized for querying and displaying unique aspects of linkage disequilibrium."
+    Then User verifies title is "LDlink is a suite of web-based applications designed to easily and efficiently interrogate linkage disequilibrium in population groups. Each included application is specialized for querying and displaying unique aspects of linkage disequilibrium."
 
   @Smoke @Regression @matakevin @selenium @NCIATWP-8678
   Scenario: Calculating the example file on LDassoc
@@ -126,7 +126,7 @@ Feature: These are the test cases for the LDlink application
   @Smoke @Regression @playwright @NegativeTest @NCIATWP-8942
   Scenario: LDScores LDScore Calculation validation error
     Given the user is on the LDScore Calculation module
-    When calculating with ones one fam file
+    When calculating with one fam file
     Then the "Three files in the format *.bed, *.bim, *.fam are required" error message on LDScore Calculation is displayed
 
   @Smoke @Regression @playwright @NegativeTest @NCIATWP-8943
