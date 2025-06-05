@@ -13,3 +13,9 @@ Feature: CTRP/CTRO Native View Case Test Scenarios
     When users select 'Category'
     Then the 'NCI DCC Accrual Report' category option is placed ABOVE the 'On-hold Trials' category
     And all categories are displayed in alphabetical order
+
+  @CTRPSNOW-127 @chaudhryma @Regression @selenium
+  Scenario: New ‘FDAAA/NIH Policy Outreach' Category
+    Given a user is on a CTRP CTRO Helpdesk Case
+    When users select 'Category'
+    Then User sees there is a Category available called 'FDAAA/NI Policy Outreach'

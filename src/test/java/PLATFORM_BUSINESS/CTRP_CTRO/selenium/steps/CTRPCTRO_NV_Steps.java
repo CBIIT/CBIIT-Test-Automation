@@ -1,6 +1,6 @@
-package PLATFORM_BUSINESS.CTRP_CTRO.steps;
+package PLATFORM_BUSINESS.CTRP_CTRO.selenium.steps;
 
-import PLATFORM_BUSINESS.CTRP_CTRO.stepsImplementation.CTRPCTRO_NV_StepImpl;
+import PLATFORM_BUSINESS.CTRP_CTRO.selenium.stepsImplementation.CTRPCTRO_NV_StepImpl;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -42,5 +42,15 @@ public class CTRPCTRO_NV_Steps {
     @Then("all categories are displayed in alphabetical order")
     public void all_categories_are_displayed_in_alphabetical_order() {
         CTRPCTRO_NV_StepImpl.all_categories_are_displayed_in_alphabetical_order();
+    }
+
+    @Given("a user is on a CTRP CTRO Helpdesk Case")
+    public void a_user_is_on_a_ctrp_ctro_helpdesk_case() {
+        CTRPCTRO_NV_StepImpl.a_user_is_on_a_ctrp_ctro_helpdesk_case();
+    }
+
+    @Then("User sees there is a Category available called {string}")
+    public void user_sees_there_is_a_category_available_called(String fdaaaNihPolicyOutreach) {
+        CTRPCTRO_NV_StepImpl.user_sees_there_is_a_category_available_called(fdaaaNihPolicyOutreach);
     }
 }
