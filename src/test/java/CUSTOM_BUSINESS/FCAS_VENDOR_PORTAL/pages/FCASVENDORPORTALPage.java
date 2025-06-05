@@ -11,7 +11,7 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "//h1[.='Existing Contracts']")
     public WebElement existingContractsPageHeader;
 
-    /**accept option Welcome Screen*/
+    /**Accept option Welcome Screen*/
     @FindBy(xpath = "//span[.='Accept']")
     public WebElement acceptWelcomeScreen;
 
@@ -31,7 +31,7 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "//*[@id='mat-checkbox-1']/label/span[2]")
     public WebElement showClosedContractsOption;
 
-    /**text serach field*/
+    /**Text search field*/
     @FindBy(xpath = "//div//input[@placeholder='Search this page...']")
     public WebElement textSearchField;
 

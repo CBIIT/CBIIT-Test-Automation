@@ -3,7 +3,7 @@ Feature: FCAS Vendor Portal Flow
   Background: common steps
     Given User is logged in to the FCAS Vendor Portal
 
-  @Alena @Regression @selenium @OASYS-4122
+  @Progression @Alena @Regression @selenium @OASYS-4122
   Scenario: Edit contract information
     And User accepts PII Disclaimer
     And User is on Existing Contracts page

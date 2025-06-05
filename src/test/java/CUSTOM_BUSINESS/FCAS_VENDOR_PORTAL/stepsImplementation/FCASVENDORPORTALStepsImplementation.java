@@ -15,8 +15,8 @@ public class FCASVENDORPORTALStepsImplementation extends PageInitializer {
      */
     public static void userLoginFCASVendorPortal() {
         WebDriverUtils.webDriver.get(getFCASVendorPortalUrl());
-        CommonUtils.sendKeys(nihLoginPage.username,fcasVendorPortalConstants.I_TRUST_USERNAME);
-        String decryptedPass = EncryptionUtils.decrypt(fcasVendorPortalConstants.I_TRUST_PASSWORD);
+        CommonUtils.sendKeys(nihLoginPage.username,I_TRUST_USERNAME);
+        String decryptedPass = EncryptionUtils.decrypt(I_TRUST_PASSWORD);
         CommonUtils.sendKeys(nihLoginPage.password, decryptedPass);
         CommonUtils.clickOnElement(nihLoginPage.signInButton);
         CommonUtils.sleep(3000);

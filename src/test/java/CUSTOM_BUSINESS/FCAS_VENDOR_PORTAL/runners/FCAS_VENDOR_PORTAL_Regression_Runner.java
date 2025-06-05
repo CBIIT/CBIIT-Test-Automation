@@ -13,4 +13,3 @@ import io.cucumber.testng.CucumberOptions;
     )
 
     public class FCAS_VENDOR_PORTAL_Regression_Runner extends AbstractTestNGCucumberTests {}
-
