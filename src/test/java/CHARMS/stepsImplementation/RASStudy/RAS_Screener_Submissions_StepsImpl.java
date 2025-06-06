@@ -9,11 +9,14 @@ import APPS_COMMON.Utils.Dynamic_Locators;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
 import APPS_COMMON.PageInitializers.PageInitializer;
+import CHARMS.utils.CharmsUtil;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.*;
+
+import static CHARMS.utils.CharmsUtil.convertDOBToMMddyyyyFormat;
 import static Hooks.Hooks.softAssert;
 import static CHARMS.pages.RAS_Screener_Page.*;
 import static CHARMS.studyQuestions.RAS_Screener_Questions_Proband.*;
@@ -21,6 +24,8 @@ import static CHARMS.studyQuestions.RAS_Screener_Questions_Proxy.*;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 
 public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
+    public static String FSID;
+
     /***
      * USE THIS METHOD TO CLICK ON SCREENER NEXT BUTTON
      */
@@ -619,10 +624,14 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
      * THIS METHOD WILL SELECT THE SCREENER FOR VERIFICATION ACCORDING TO THE SHEET CHOSEN IN THE FEATURE FILE
      */
     public void rasScreenerVerificationScenarioSelector(String sheetName) {
-        if (sheetName.contentEquals("screenerScenario1")) {
+        if (sheetName.contentEquals("screenerScenario2")) {
             ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            ras_screenerSubmissions_stepsImpl.verifying_RAS_Screener_Scenario_1_Data(sheetName);
+            ras_screenerSubmissions_stepsImpl.verifying_RAS_Screener_Scenario_2_Data(sheetName);
+        } else if (sheetName.contentEquals("screenerScenarioAge11-13")) {
+            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+            ras_screenerSubmissions_stepsImpl.verifying_RAS_Screener_Scenario_Minor_Data(sheetName);
         }
+
     }
 
     /***
@@ -972,6 +981,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage.getText(), CHARMSRASScreenerConstants.CONSENT_RECORD_COMPLETED_TEXT, "---- VERIFYING CONSENT RECORD COMPLETED AND FAMILY RECORD IS NOW ACTIVE! MESSAGE ----");
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
+        FSID = nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantInfoTextBox.getDomAttribute("value");
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
 
@@ -1072,7 +1082,8 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
             try {
                 rasopathyQuestionnairePage.probandDateOfBirthTextBox.sendKeys(iiq_TestDataManager.whatIsYourDateOfBirthCalendar);
                 CucumberLogUtils.logScreenshot();
-            } catch (NoSuchElementException e) {}
+            } catch (NoSuchElementException e) {
+            }
         }
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         try {
@@ -2205,9 +2216,9 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
     }
 
     /***
-     * THIS METHOD VERIFIES RAS SCREENER SCENARIO 1 DATA IN NATIVE VIEW
+     * THIS METHOD VERIFIES RAS SCREENER SCENARIO 2 DATA IN NATIVE VIEW
      */
-    public void verifying_RAS_Screener_Scenario_1_Data(String sheetName) {
+    public void verifying_RAS_Screener_Scenario_2_Data(String sheetName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sleep(3000);
         CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
@@ -2219,13 +2230,13 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyParticipantsDetailsMenu);
         CucumberLogUtils.logScreenshot();
         if (sheetName.contentEquals("screenerScenario1")) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
             CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
         } else if (sheetName.contentEquals("screenerScenario2")) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
             CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
         } else if (sheetName.contentEquals("screenerScenario3")) {
             CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
             CucumberLogUtils.logScreenshot();
@@ -2235,6 +2246,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
             CucumberLogUtils.logScreenshot();
             CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
         }
+
         CommonUtils.sleep(1000);
         CucumberLogUtils.scenario.log("---- VERIFYING PARTICIPANT RECORD PREVIEW DATA ----");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.firstNameRecordPreviewField), ras_Screener_TestDataManager.FIRST_NAME, "-- VERIFYING PREVIEW RECORD FIRST NAME --");
@@ -2246,10 +2258,9 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
             CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         }
         CucumberLogUtils.scenario.log("---- VERIFYING PARTICIPANT NAME DATA ----");
-        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(webDriver.findElement(By.xpath("//select[@name='x_naci_family_coho_family_history_details.relationship_to_you']"))), "Proband", "-- VERIFYING RELATIONSHIP TO PROBAND --");
-        // MODIFY CODE AS BELOW
-        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(locateByXpath("//select[@name='x_naci_family_coho_family_history_details.relationship_to_you']")), "Proband", "-- VERIFYING RELATIONSHIP TO PROBAND --");
-        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.nameTextBox), ras_Screener_TestDataManager.FIRST_NAME + ras_Screener_Constants.SPACE + ras_Screener_TestDataManager.LAST_NAME, "-- VERIFYING FULL NAME --");
+        CommonUtils.waitForVisibility(participantDetailsPage.relationshipToProbandDropDown);
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.relationshipToProbandDropDown), "Proband", "-- VERIFYING RELATIONSHIP TO PROBAND --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.nameTextBox), ras_Screener_TestDataManager.FIRST_NAME + ras_Screener_Constants.SPACE + ras_Screener_TestDataManager.MIDDLE_INITIAL + ras_Screener_Constants.SPACE + ras_Screener_TestDataManager.LAST_NAME, "-- VERIFYING FULL NAME --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.firstNameTextBox), ras_Screener_TestDataManager.FIRST_NAME, "-- VERIFYING FIRST NAME --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.middleInitialTextBox), ras_Screener_TestDataManager.MIDDLE_INITIAL, "-- VERIFYING MIDDLE INITIAL --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.lastNameTextBox), ras_Screener_TestDataManager.LAST_NAME, "-- VERIFYING LAST NAME --");
@@ -2257,8 +2268,8 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
 
         CucumberLogUtils.scenario.log("---- VERIFYING PARTICIPANT DEMOGRAPHICS DATA ----");
         CommonUtils.clickOnElement(participantDetailsPage.demographicsTab);
-        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.biologicalGenderDropDown), ras_Screener_TestDataManager.SEX_ASSIGNED_AT_BIRTH_OPTION, "-- VERIFYING BIOLOGICAL GENDER --");
-        softAssert.assertEquals(participantDetailsPage.participantRacePreferNotToAnswerOption.getText(), ras_Screener_TestDataManager.WHAT_IS_YOUR_RACE, "-- VERIFYING RACE --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.biologicalGenderDropDown), ras_Screener_TestDataManager.WHAT_IS_YOUR_SEX, "-- VERIFYING SEX --");
+        softAssert.assertEquals(participantDetailsPage.participantRaceOption.getText(), ras_Screener_TestDataManager.WHAT_IS_YOUR_RACE, "-- VERIFYING RACE --");
         softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.ethnicityDropDownOption), ras_Screener_TestDataManager.WHAT_IS_YOUR_ETHNICITY, "-- VERIFYING ETHNICITY --");
         softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.isParticipantAdoptedDropDown), ras_Screener_TestDataManager.ARE_YOU_ADOPTED_OPTION, "-- VERIFYING IF THE PARTICIPANT IS ADOPTED --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.dateOfBirthTextBox), CommonUtils.convertDate(ras_Screener_TestDataManager.WHAT_IS_YOUR_DATE_OF_BIRTH), "-- VERIFYING DATE OF BIRTH --");
@@ -2266,7 +2277,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
 
         CucumberLogUtils.scenario.log("---- VERIFYING PARTICIPANT CONTACT INFORMATION DATA ----");
         CommonUtils.clickOnElement(participantDetailsPage.contactInfoTab);
-        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactStreetAddress), ras_Screener_TestDataManager.STREET + ras_Screener_Constants.SPACE + ras_Screener_TestDataManager.STREET2, "-- VERIFYING CONTACT STREET ADDRESS --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactStreetAddress), ras_Screener_TestDataManager.STREET, "-- VERIFYING CONTACT STREET ADDRESS --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactState), ras_Screener_TestDataManager.STATE, "-- VERIFYING CONTACT STATE --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactCity), ras_Screener_TestDataManager.CITY, "- VERIFYING CONTACT CITY --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactZipCode), ras_Screener_TestDataManager.ZIPCODE, "-- VERIFYING ZIP CODE --");
@@ -2291,7 +2302,6 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CommonUtils.clickOnElement(participantDetailsPage.participantStudiesInfoButton);
         CommonUtils.waitForVisibility(locateByXpath("//tr[@record_class='x_naci_family_coho_participant_study']//td[@class='list_decoration_cell col-small col-center ']//a"));
         CommonUtils.clickOnElement(locateByXpath("//tr[@record_class='x_naci_family_coho_participant_study']//td[@class='list_decoration_cell col-small col-center ']//a"));
-
         CucumberLogUtils.logScreenshot();
 
         CucumberLogUtils.scenario.log("---- NAVIGATING TO RAS SCREENER TABLE ----");
@@ -2300,9 +2310,10 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantStudyPage.participantStudyScreenerInfoButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantStudyPage.participantStudyScreenerInfoButton);
+        CommonUtils.sleep(800);
 
         CucumberLogUtils.scenario.log("---- VERIFYING RAS SCREENER PREVIEW RECORD DATA ----");
-        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewFamilyMemberRecordField), ras_Screener_TestDataManager.FIRST_NAME + ras_Screener_Constants.SPACE + ras_Screener_TestDataManager.LAST_NAME, "-- VERIFYING SCREENER PREVIEW RECORD FAMILY MEMBER RECORD NAME --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewParticipantInfoRecordField), FSID, "-- VERIFYING SCREENER PREVIEW RECORD PARTICIPANT INFO FIELD --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewContactEmailAddressField), ras_Screener_TestDataManager.EMAIL_ADDRESS, "-- VERIFYING SCREENER PREVIEW RECORD CONTACT EMAIL ADDRESS FIELD --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewStudyField), ras_Screener_Constants.RAS_STUDY, "-- VERIFYING SCREENER PREVIEW STUDY FIELD --");
         CucumberLogUtils.logScreenshot();
@@ -2310,20 +2321,23 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.scenario.log("---- NAVIGATING TO RAS SCREENER TABLE ----");
         CommonUtils.waitForClickability(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(800);
         CucumberLogUtils.logScreenshot();
 
         CucumberLogUtils.scenario.log("---- VERIFYING SCREENER RECORD NAME AND CONTACT INFORMATION DATA ----");
         softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.vitalStatusYesDropDownOption), "Alive", "-- VERIFYING VITAL STATUS --");
         CommonUtils.clickOnElement(ScreenerRecordTablePage.dynamicTabLocatorUsingExactText("Contact Information"));
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerStudyField), ras_Screener_Constants.RAS_STUDY, "-- VERIFYING STUDY FIELD --");
-        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.familyMemberRecordField), ras_Screener_TestDataManager.FIRST_NAME + ras_Screener_Constants.SPACE + ras_Screener_TestDataManager.LAST_NAME, "-- VERIFYING FAMILY MEMBER RECORD FIELD --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.participantInfoRecordField), FSID, "-- VERIFYING PARTICIPANT INFO RECORD FIELD --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactEmailField), ras_Screener_TestDataManager.EMAIL_ADDRESS, "-- VERIFYING CONTACT EMAIL FIELD --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.preferredContactDropDown), "Cell Phone", "-- VERIFYING PREFERRED CONTACT DROPDOWN --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactHomePhoneField), ras_Screener_TestDataManager.HOME_PHONE_NUMBER, "-- VERIFYING CONTACT HOME PHONE NUMBER --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactCellPhoneField), ras_Screener_TestDataManager.CELL_PHONE_NUMBER, "-- VERIFYING CONTACT CELL PHONE NUMBER --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactWorkPhoneField), ras_Screener_TestDataManager.WORK_PHONE_NUMBER, "-- VERIFYING CONTACT WORK PHONE NUMBER --");
         softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.contactCountryDropDown), ras_Screener_TestDataManager.COUNTRY_OPTION, "-- VERIFYING COUNTRY CONTACT FIELD --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactStateField), ras_Screener_TestDataManager.STATE, "-- VERIFYING STATE --");
-        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactStreetAddressField), ras_Screener_TestDataManager.STREET + ras_Screener_Constants.SPACE + ras_Screener_TestDataManager.STREET2, "-- VERIFYING CONTACT STREET ADDRESS --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactStreetAddressField), ras_Screener_TestDataManager.STREET, "-- VERIFYING CONTACT STREET ADDRESS --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactStreetAddress2OptionalField), ras_Screener_TestDataManager.STREET2, "-- VERIFYING CONTACT STREET ADDRESS 2(OPTIONAL) FIELD --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactCityField), ras_Screener_TestDataManager.CITY, "-- VERIFYING CONTACT CITY --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactZipCodeField), ras_Screener_TestDataManager.ZIPCODE, "-- VERIFYING ZIP CODE --");
         CucumberLogUtils.logScreenshot();
@@ -2331,15 +2345,15 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.scenario.log("---- VERIFYING RAS SCREENER TABLE DEMOGRAPHICS INFORMATION DATA ----");
         CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForTabs("Demographics"));
         softAssert.assertEquals(screenerRecordTablePage.demographicsParticipantRacePreferNotToAnswerOption.getText(), ras_Screener_TestDataManager.WHAT_IS_YOUR_RACE, "-- VERIFYING RACE OF PARTICIPANT --");
-        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.demographicsBiologicalGenderDropDown), ras_Screener_TestDataManager.SEX_ASSIGNED_AT_BIRTH_OPTION, "-- VERIFYING BIOLOGICAL GENDER --");
-        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.demographicsDateOfBirthField), ras_Screener_TestDataManager.WHAT_IS_YOUR_DATE_OF_BIRTH, "-- VERIFYING DATE OF BIRTH --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.demographicsSexInput), ras_Screener_TestDataManager.WHAT_IS_YOUR_SEX, "-- VERIFYING SEX --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.demographicsDateOfBirthField), convertDOBToMMddyyyyFormat(ras_Screener_TestDataManager.WHAT_IS_YOUR_DATE_OF_BIRTH), "-- VERIFYING DATE OF BIRTH --");
         softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.demographicsEthnicityDropDown), ras_Screener_TestDataManager.WHAT_IS_YOUR_ETHNICITY, "-- VERIFYING ETHNICITY --");
         CucumberLogUtils.logScreenshot();
 
         CucumberLogUtils.scenario.log("---- VERIFYING RAS SCREENER TABLE RASOPATHY HISTORY DATA ----");
         CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForTabs("RASopathy History"));
         softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.rasopathyHistoryHaveYouBeenDiagnosedWithARasopathyDropDown), ras_Screener_TestDataManager.HAVE_YOU_BEEN_DIAGNOSED_WITH_A_RASOPATHY, "-- VERIFYING IF PARTICIPANT HAS BEEN DIAGNOSED WITH A RASOPATHY --");
-        softAssert.assertEquals(screenerRecordTablePage.rasopathyHistoryNeverDiagnosedWithAnyOfTheseConditions.getText(), ras_Screener_TestDataManager.HAVE_YOU_BEEN_DIAGNOSED_WITH_FOLLOWING_CONDITIONS, "-- VERIFYING IF CANDIDATE HAS BEEN DIAGNOSED WITH ANY CONDITIONS --");
+        softAssert.assertEquals(screenerRecordTablePage.rasopathyHistoryNeverDiagnosedWithAnyOfTheseConditions.getText(), ras_Screener_TestDataManager.HAVE_YOU_BEEN_DIAGNOSED_WITH_FOLLOWING_CONDITIONS_ALL_OPTION, "-- VERIFYING IF CANDIDATE HAS BEEN DIAGNOSED WITH ANY CONDITIONS --");
         softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.rasopathyHistoryHaveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathyDropDown), ras_Screener_TestDataManager.HAVE_ANY_OF_YOUR_BIOLOGICAL_RELATIVES_BEEN_DIAGNOSED_WITH_A_RASOPATHY, "-- VERIFYING IF ANY OF BIOLOGICAL RELATIVES BEEN DIAGNOSED WITH A RASOPATHY --");
         CucumberLogUtils.logScreenshot();
 
@@ -2351,16 +2365,183 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.scenario.log("---- VERIFYING RAS SCREENER TABLE GENETIC TESTING HISTORY ----");
         CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForTabs("Genetic Testing History"));
         softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.geneticTestingHistoryHasTheParticipantEverHadGeneticTestingDropDown), ras_Screener_TestDataManager.HAVE_YOU_EVER_HAD_GENETIC_TESTING, "-- VERIFYING IF PARTICIPANT HAS HAD GENETIC TESTING --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.doesTheParticipantHaveACopyOfGeneticTestResultsDropDown), ras_Screener_TestDataManager.DO_YOU_HAVE_A_COPY_OF_THE_GENETIC, "-- VERIFYING IF PARTICIPANT HAS A COPY OF GENETIC TEST RESULTS --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.participantsPreferredMethodOfDeliveringGeneticTestResultsDropDown), ras_Screener_TestDataManager.HOW_WOULD_YOU_LIKE_TO_PROVIDE_THE_GENETIC_TEST_RESULTS, "-- VERIFYING PARTICIPANT'S PREFERRED METHOD OF DELIVERING GENETIC TEST RESULTS --");
         CucumberLogUtils.logScreenshot();
 
         CucumberLogUtils.scenario.log("---- VERIFYING RAS SCREENER TABLE FINAL INFORMATION ----");
         CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForTabs("Final Information"));
         softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.finalInformationHowDidYouHearAboutThisStudyDropDown), ras_Screener_TestDataManager.HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY, "-- VERIFYING HOW DID PARTICIPANT HEAR ABOUT THE STUDY --");
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.finalInformationHowDidYouHearAboutThisStudyPleaseSpecifyTextBox), ras_Screener_TestDataManager.HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY_OTHER_REASON, "-- VERIFYING HOW DID YOU PARTICIPANT HEAR ABOUT THE STUDY OTHER REASONS --");
-        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.finalInformationHasParticipantOrAnyFamilyMemberParticipatedInAnyCancerStudyDropDown), ras_Screener_TestDataManager.HAVE_YOU_OR_OTHER_FAMILY_MEMBERS_PARTICIPATED_IN_OTHER_STUDY, "-- VERIFYING IF PARTICIPANT OR FAMILY MEMBER HAVE PARTICIPATED IN CANCER STUDY --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.finalInformationHasParticipantOrAnyFamilyMemberParticipatedInAnyCancerStudyDropDown), "Not answered", "-- VERIFYING IF PARTICIPANT OR FAMILY MEMBER HAVE PARTICIPATED IN CANCER STUDY --");
+        softAssert.assertEquals(screenerRecordTablePage.finalInformationMainReasonsForParticipatingInThisStudyOtherOption.getText(), ras_Screener_TestDataManager.WHAT_ARE_MAIN_REASONS_FOR_PARTICIPATING_IN_STUDY_ALL, "-- VERIFYING MAIN REASONS FOR PARTICIPATING IN STUDY --");
+        softAssert.assertEquals(screenerRecordTablePage.finalInformationMainReasonsForParticipatingInThisStudyOtherReasonsField.getText(), ras_Screener_TestDataManager.WHAT_ARE_MAIN_REASONS_FOR_PARTICIPATING_IN_STUDY_OTHER_REASON_OPTION_4, "-- VERIFYING MAIN REASONS FOR PARTICIPATING IN STUDY FIELD --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.finalInformationAreYouAParticipantInAnyOtherResearchStudyOrRegistryGroupDropDown), "Not answered", "-- VERIFYING IF PARTICIPANT IS PART OF RESEARCH STUDY OR REGISTRY GROUP --");
+        CucumberLogUtils.logScreenshot();
+        ServiceNow_Common_Methods.logOutOfNativeView();
+    }
+
+    /***
+     * THIS METHOD VERIFIES RAS SCREENER SCENARIO FOR MINOR DATA IN NATIVE VIEW
+     */
+    public void verifying_RAS_Screener_Scenario_Minor_Data(String sheetName) {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        CommonUtils.sleep(3000);
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
+        CommonUtils.sleep(3000);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
+        CommonUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyParticipantsDetailsMenu);
+        CucumberLogUtils.logScreenshot();
+        if (sheetName.contentEquals("screenerScenarioAge11-13")) {
+            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_MI + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_MI + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
+        }
+        CommonUtils.sleep(1000);
+        CucumberLogUtils.scenario.log("---- VERIFYING PARTICIPANT RECORD PREVIEW DATA ----");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.firstNameRecordPreviewField), ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME, "-- VERIFYING PREVIEW RECORD FIRST NAME --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.lastNameRecordPreviewField), ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME, "-- VERIFYING PREVIEW RECORD LAST NAME --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.proxyContactEmailRecordPreviewField), ras_Screener_TestDataManager.EMAIL_ADDRESS, "-- VERIFYING PREVIEW RECORD PROXY CONTACT EMAIL ADDRESS --");
+        CucumberLogUtils.logScreenshot();
+        if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
+            CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        }
+        CucumberLogUtils.scenario.log("---- VERIFYING PARTICIPANT NAME DATA ----");
+        CommonUtils.clickOnElement(participantDetailsPage.personalInformationTab);
+        CommonUtils.waitForVisibility(participantDetailsPage.relationshipToProbandDropDown);
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.relationshipToProbandDropDown), "Proband", "-- VERIFYING RELATIONSHIP TO PROBAND --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.nameTextBox), ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + ras_Screener_Constants.SPACE + ras_Screener_TestDataManager.PARTICIPANT_MIDDLE_INITIAL + ras_Screener_Constants.SPACE + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME, "-- VERIFYING FULL NAME --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.firstNameTextBox), ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME, "-- VERIFYING FIRST NAME --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.middleInitialTextBox), ras_Screener_TestDataManager.PARTICIPANT_MIDDLE_INITIAL, "-- VERIFYING MIDDLE INITIAL --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.lastNameTextBox), ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME, "-- VERIFYING LAST NAME --");
+        CucumberLogUtils.logScreenshot();
+
+        CucumberLogUtils.scenario.log("---- VERIFYING PARTICIPANT DEMOGRAPHICS DATA ----");
+        CommonUtils.clickOnElement(participantDetailsPage.demographicsTab);
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.biologicalGenderDropDown), ras_Screener_TestDataManager.WHAT_IS_THE_PARTICIPANTS_SEX, "-- VERIFYING SEX --");
+        softAssert.assertEquals(participantDetailsPage.participantRaceOption.getText(), ras_Screener_TestDataManager.WHAT_IS_YOUR_RACE, "-- VERIFYING RACE --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.ethnicityDropDownOption), ras_Screener_TestDataManager.WHAT_IS_YOUR_ETHNICITY, "-- VERIFYING ETHNICITY --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.isParticipantAdoptedDropDown), ras_Screener_TestDataManager.ARE_YOU_ADOPTED_OPTION, "-- VERIFYING IF THE PARTICIPANT IS ADOPTED --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.dateOfBirthTextBox), CommonUtils.convertDate(ras_Screener_TestDataManager.DATE_OF_BIRTH_OF_THE_PARTICIPANT), "-- VERIFYING DATE OF BIRTH --");
+        CucumberLogUtils.logScreenshot();
+
+        CucumberLogUtils.scenario.log("---- VERIFYING PROXY CONTACT INFORMATION DATA ----");
+        CommonUtils.clickOnElement(participantDetailsPage.proxyContactInfoTab);
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.proxyFirstName), ras_Screener_TestDataManager.FIRST_NAME, "-- VERIFYING PROXY FIRST NAME --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.proxyMiddleName).trim(), ras_Screener_TestDataManager.MIDDLE_INITIAL, "-- VERIFYING PROXY MIDDLE NAME --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.proxyLastName).trim(), ras_Screener_TestDataManager.LAST_NAME, "-- VERIFYING PROXY LAST NAME --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.proxyContactStreetAddress), ras_Screener_TestDataManager.STREET, "-- VERIFYING PROXY CONTACT STREET ADDRESS --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.proxyContactStreetAddress2Optional), ras_Screener_TestDataManager.STREET2, "-- VERIFYING PROXY CONTACT STREET ADDRESS 2(OPTIONAL) --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.proxyContactState), ras_Screener_TestDataManager.STATE, "-- VERIFYING PROXY CONTACT STATE --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.proxyContactCity), ras_Screener_TestDataManager.CITY, "- VERIFYING PROXY CONTACT CITY --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.proxyContactZipcode), ras_Screener_TestDataManager.ZIPCODE, "-- VERIFYING PROXY ZIP CODE --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.proxyContactCountry), ras_Screener_TestDataManager.COUNTRY_OPTION, "-- VERIFYING PROXY CONTACT COUNTRY --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.proxyContactEmailAddress), ras_Screener_TestDataManager.EMAIL_ADDRESS, "-- VERIFYING PROXY CONTACT EMAIL ADDRESS --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.proxyContactHomePhone), ras_Screener_TestDataManager.HOME_PHONE_NUMBER, "-- VERIFYING PROXY CONTACT HOME PHONE --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.proxyContactHomeCellphone), ras_Screener_TestDataManager.CELL_PHONE_NUMBER, "-- VERIFYING PROXY CONTACT CELL PHONE --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.proxyContactWorkPhone), ras_Screener_TestDataManager.WORK_PHONE_NUMBER, "-- VERIFYING PROXY CONTACT WORK PHONE --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.proxyContactPreferredPhone), ras_Screener_TestDataManager.CELL_PHONE_NUMBER, "-- VERIFYING PROXY PREFERRED PHONE --");
+        CucumberLogUtils.logScreenshot();
+
+        CucumberLogUtils.scenario.log("---- OPENING PARTICIPANT STUDIES RECORD ----");
+        JavascriptUtils.scrollIntoView(participantDetailsPage.participantStudiesTab);
+        CommonUtils.clickOnElement(participantDetailsPage.participantStudiesTab);
+        CucumberLogUtils.logScreenshot();
+
+        CommonUtils.sleep(500);
+        JavascriptUtils.clickByJS(participantDetailsPage.participantStudiesPreviewButton);
+        CucumberLogUtils.logScreenshot();
+
+        CucumberLogUtils.scenario.log("---- NAVIGATING TO RAS SCREENER TABLE ----");
+        CommonUtils.waitForClickability(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantStudyPage.participantStudyScreenerInfoButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantStudyPage.participantStudyScreenerInfoButton);
+        CommonUtils.sleep(800);
+
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SCREENER PREVIEW RECORD DATA ----");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewProxyContactEmailAddressField), ras_Screener_TestDataManager.EMAIL_ADDRESS, "-- VERIFYING SCREENER PREVIEW RECORD CONTACT EMAIL ADDRESS FIELD --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewStudyField), ras_Screener_Constants.RAS_STUDY, "-- VERIFYING SCREENER PREVIEW STUDY FIELD --");
+        CucumberLogUtils.logScreenshot();
+
+        CucumberLogUtils.scenario.log("---- NAVIGATING TO RAS SCREENER TABLE ----");
+        CommonUtils.waitForClickability(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(800);
+        CucumberLogUtils.logScreenshot();
+
+        CucumberLogUtils.scenario.log("---- VERIFYING SCREENER RECORD NAME AND CONTACT INFORMATION DATA ----");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(participantDetailsPage.vitalStatusYesDropDownOption), "Alive", "-- VERIFYING VITAL STATUS --");
+        CommonUtils.clickOnElement(ScreenerRecordTablePage.dynamicTabLocatorUsingExactText("Contact Information"));
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.doesTheParticipantNeedLegalRepresentationDropdown), "Yes, minor under 18", "-- VERIFYING DOES THE PARTICIPANT NEED LEGAL REPRESENTATION? DROPDOWN --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.personWhoFilledTheScreenerField), ras_Screener_TestDataManager.FIRST_NAME + "  " + ras_Screener_TestDataManager.MIDDLE_INITIAL + "  " + ras_Screener_TestDataManager.LAST_NAME, "-- DOES THE PARTICIPANT NEED LEGAL REPRESENTATION? --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.whatIsYourRelationshipToTheParticipantDropdown), "I am the person's parent", "-- WHAT IS YOUR RELATIONSHIP TO THE PARTICIPANT? DROPDOWN --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.ageCompletedField), String.valueOf(CharmsUtil.calculateAge(ras_Screener_TestDataManager.DATE_OF_BIRTH_OF_THE_PARTICIPANT)), "-- VERIFYING AGE COMPLETED FIELD --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.vitalStatusDropdown), ras_Screener_TestDataManager.IS_THE_PARTICIPANT_ALIVE, "-- VERIFYING VITAL STATUS DROPDOWN --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerStudyField), ras_Screener_Constants.RAS_STUDY, "-- VERIFYING STUDY FIELD --");
+
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.firstNameField), ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME, "-- VERIFYING FIRST NAME FIELD --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.middleNameField), ras_Screener_TestDataManager.PARTICIPANT_MIDDLE_INITIAL, "-- VERIFYING MIDDLE NAME FIELD --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.lastNameField), ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME, "-- VERIFYING LAST NAME FIELD --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.preferredContactDropDown), "Cell Phone", "-- VERIFYING PREFERRED CONTACT DROPDOWN --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.whatIsYourRelationshipToThisPersonDropdown), "I am the person's parent", "-- WHAT IS YOUR RELATIONSHIP TO THIS PERSON? DROPDOWN --");
+
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.proxyFirstNameField).trim(), ras_Screener_TestDataManager.FIRST_NAME, "-- VERIFYING PROXY FIRST NAME FIELD --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.proxyMiddleNameField).trim(), ras_Screener_TestDataManager.MIDDLE_INITIAL, "-- VERIFYING PROXY LAST NAME FIELD --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.proxyLastNameField).trim(), ras_Screener_TestDataManager.LAST_NAME, "-- VERIFYING PROXY LAST NAME FIELD --");
+
+
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.proxyContactHomePhone), ras_Screener_TestDataManager.HOME_PHONE_NUMBER, "-- VERIFYING PROXY CONTACT HOME PHONE NUMBER --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.proxyContactHomeCellphone), ras_Screener_TestDataManager.CELL_PHONE_NUMBER, "-- VERIFYING PROXY CONTACT CELLPHONE NUMBER --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.proxyContactWorkPhone), ras_Screener_TestDataManager.WORK_PHONE_NUMBER, "-- VERIFYING PROXY CONTACT CELL PHONE NUMBER --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.proxyContactState), ras_Screener_TestDataManager.STATE, "-- VERIFYING STATE --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.proxyContactStreetAddress), ras_Screener_TestDataManager.STREET, "-- VERIFYING PROXY CONTACT STREET ADDRESS --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.proxyContactStreetAddress2Optional), ras_Screener_TestDataManager.STREET2, "-- VERIFYING PROXY CONTACT STREET ADDRESS 2(OPTIONAL) FIELD --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.proxyContactCity), ras_Screener_TestDataManager.CITY, "-- VERIFYING PROXY CONTACT CITY --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.proxyContactZipcode), ras_Screener_TestDataManager.ZIPCODE, "-- VERIFYING PROXY ZIP CODE --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.proxyContactEmailAddress), ras_Screener_TestDataManager.EMAIL_ADDRESS, "-- VERIFYING PROXY EMAIL ADDRESS FIELD --");
+        CucumberLogUtils.logScreenshot();
+
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SCREENER TABLE DEMOGRAPHICS INFORMATION DATA ----");
+        CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForTabs("Demographics"));
+        softAssert.assertEquals(screenerRecordTablePage.demographicsParticipantRacePreferNotToAnswerOption.getText(), ras_Screener_TestDataManager.WHAT_IS_YOUR_RACE, "-- VERIFYING RACE OF PARTICIPANT --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.demographicsSexInput), ras_Screener_TestDataManager.WHAT_IS_THE_PARTICIPANTS_SEX, "-- VERIFYING SEX --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.demographicsDateOfBirthField), convertDOBToMMddyyyyFormat(ras_Screener_TestDataManager.DATE_OF_BIRTH_OF_THE_PARTICIPANT), "-- VERIFYING DATE OF BIRTH --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.demographicsEthnicityDropDown), ras_Screener_TestDataManager.WHAT_IS_YOUR_ETHNICITY, "-- VERIFYING ETHNICITY --");
+        CucumberLogUtils.logScreenshot();
+
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SCREENER TABLE RASOPATHY HISTORY DATA ----");
+        CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForTabs("RASopathy History"));
+        CommonUtils.sleep(500);
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.rasopathyHistoryHaveYouBeenDiagnosedWithARasopathyDropDown), ras_Screener_TestDataManager.HAVE_YOU_BEEN_DIAGNOSED_WITH_A_RASOPATHY, "-- VERIFYING IF PARTICIPANT HAS BEEN DIAGNOSED WITH A RASOPATHY --");
+        softAssert.assertEquals(screenerRecordTablePage.rasopathyHistoryNeverDiagnosedWithAnyOfTheseConditions.getText(), ras_Screener_TestDataManager.HAVE_YOU_BEEN_DIAGNOSED_WITH_FOLLOWING_CONDITIONS, "-- VERIFYING IF CANDIDATE HAS BEEN DIAGNOSED WITH ANY CONDITIONS --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.rasopathyHistoryHaveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathyDropDown), "No", "-- VERIFYING IF ANY OF BIOLOGICAL RELATIVES BEEN DIAGNOSED WITH A RASOPATHY --");
+        CucumberLogUtils.logScreenshot();
+
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SCREENER TABLE CANCER HISTORY ----");
+        CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForTabs("Cancer History"));
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.cancerHistoryHasAPhysicianEverDiagnosedParticipantWithCancerDropDown), ras_Screener_TestDataManager.HAVE_YOU_BEEN_DIAGNOSED_WITH_CANCER, "-- VERIFYING IF PARTICIPANT HAS BEEN DIAGNOSED WITH CANCER --");
+        CucumberLogUtils.logScreenshot();
+
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SCREENER TABLE GENETIC TESTING HISTORY ----");
+        CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForTabs("Genetic Testing History"));
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.geneticTestingHistoryHasTheParticipantEverHadGeneticTestingDropDown), ras_Screener_TestDataManager.HAVE_YOU_EVER_HAD_GENETIC_TESTING, "-- VERIFYING IF PARTICIPANT HAS HAD GENETIC TESTING --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.doesTheParticipantHaveACopyOfGeneticTestResultsDropDown), "Not answered", "-- VERIFYING IF PARTICIPANT HAS A COPY OF GENETIC TEST RESULTS --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.participantsPreferredMethodOfDeliveringGeneticTestResultsDropDown), "Not answered", "-- VERIFYING PARTICIPANT'S PREFERRED METHOD OF DELIVERING GENETIC TEST RESULTS --");
+        CucumberLogUtils.logScreenshot();
+
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SCREENER TABLE FINAL INFORMATION ----");
+        CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForTabs("Final Information"));
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.finalInformationHowDidYouHearAboutThisStudyDropDown), ras_Screener_TestDataManager.HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY, "-- VERIFYING HOW DID PARTICIPANT HEAR ABOUT THE STUDY --");
+        softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.finalInformationHowDidYouHearAboutThisStudyPleaseSpecifyTextBox), ras_Screener_TestDataManager.HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY_OTHER_REASON, "-- VERIFYING HOW DID YOU PARTICIPANT HEAR ABOUT THE STUDY OTHER REASONS --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.finalInformationHasParticipantOrAnyFamilyMemberParticipatedInAnyCancerStudyDropDown), "Not answered", "-- VERIFYING IF PARTICIPANT OR FAMILY MEMBER HAVE PARTICIPATED IN CANCER STUDY --");
         softAssert.assertEquals(screenerRecordTablePage.finalInformationMainReasonsForParticipatingInThisStudyOtherOption.getText(), ras_Screener_TestDataManager.WHAT_ARE_MAIN_REASONS_FOR_PARTICIPATING_IN_STUDY, "-- VERIFYING MAIN REASONS FOR PARTICIPATING IN STUDY --");
         softAssert.assertEquals(screenerRecordTablePage.finalInformationMainReasonsForParticipatingInThisStudyOtherReasonsField.getText(), ras_Screener_TestDataManager.WHAT_ARE_MAIN_REASONS_FOR_PARTICIPATING_IN_STUDY_OTHER_REASON, "-- VERIFYING MAIN REASONS FOR PARTICIPATING IN STUDY FIELD --");
-        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.finalInformationAreYouAParticipantInAnyOtherResearchStudyOrRegistryGroupDropDown), ras_Screener_TestDataManager.ARE_YOU_A_PARTICIPANT_IN_OTHER_STUDY_GROUP, "-- VERIFYING IF PARTICIPANT IS PART OF RESEARCH STUDY OR REGISTRY GROUP --");
+        softAssert.assertEquals(CommonUtils.getTextOfSelectedDropDownOption(screenerRecordTablePage.finalInformationAreYouAParticipantInAnyOtherResearchStudyOrRegistryGroupDropDown), "Not answered", "-- VERIFYING IF PARTICIPANT IS PART OF RESEARCH STUDY OR REGISTRY GROUP --");
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
     }
