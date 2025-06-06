@@ -41,6 +41,18 @@ public class ParticipantDetailsPage {
     @FindBy(xpath = "//input[@id='sys_readonly.x_naci_family_coho_family_history_details.email_address']")
     public WebElement contactEmailRecordPreviewField;
 
+    /* PROXY CONTACT EMAIL RECORD PREVIEW FIELD */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.proxy_email_address']")
+    public WebElement proxyContactEmailRecordPreviewField;
+
+    /* PERSONAL INFORMATION TAB */
+    @FindBy(xpath = "//span[normalize-space()='Personal Information']")
+    public WebElement personalInformationTab;
+
+    /* RELATIONSHIP TO PROBAND DROPDOWN */
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_family_history_details.relationship_to_you']")
+    public WebElement relationshipToProbandDropDown;
+
     /* NAME TEXT BOX */
     @FindBy(xpath = "//input[@aria-label='Name']")
     public WebElement nameTextBox;
@@ -66,7 +78,7 @@ public class ParticipantDetailsPage {
     public WebElement demographicsTab;
 
     /* DATE OF BIRTH TEXT BOX*/
-    @FindBy(xpath = "//div[@id='label.x_naci_family_coho_family_history_details.date_of_birth_month_day_year']/following-sibling::div/span/input")
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.date_of_birth']")
     public WebElement dateOfBirthTextBox;
 
     /* BIOLOGICAL GENDER DROPDOWN  */
@@ -80,6 +92,10 @@ public class ParticipantDetailsPage {
     /* PARTICIPANT RACE PREFER NOT TO ANSWER OPTION */
     @FindBy(xpath = "//p[contains(text(),'Prefer not to answer')]")
     public WebElement participantRacePreferNotToAnswerOption;
+
+    /* PARTICIPANT RACE TEXT */
+    @FindBy(xpath = "//p[@data-original-title='Participant Race (Select all that apply)']")
+    public WebElement participantRaceOption;
 
     /* ETHNICITY DROP DOWN OPTION*/
     @FindBy(xpath = "//select[@id='x_naci_family_coho_family_history_details.ethnicity']")
@@ -133,21 +149,88 @@ public class ParticipantDetailsPage {
     public WebElement contactPreferredPhone;
 
     /**
+     * PROXY CONTACT INFORMATION SECTION
+     */
+    /* PROXY CONTACT INFO TAB */
+    @FindBy(xpath = "//span[normalize-space()='Proxy Contact Info']")
+    public WebElement proxyContactInfoTab;
+
+    /* PROXY FIRST NAME */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.proxy_first_name']")
+    public WebElement proxyFirstName;
+
+    /* PROXY MIDDLE NAME */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.proxy_middle_name']")
+    public WebElement proxyMiddleName;
+
+    /* PROXY LAST NAME */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.proxy_last_name']")
+    public WebElement proxyLastName;
+
+    /* PROXY CONTACT STREET ADDRESS */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.proxy_contact_street_address']")
+    public WebElement proxyContactStreetAddress;
+
+    /* PROXY CONTACT STREET ADDRESS 2(OPTIONAL) */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.proxy_street_address_2']")
+    public WebElement proxyContactStreetAddress2Optional;
+
+    /* PROXY CONTACT CITY */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.proxy_contact_city']")
+    public WebElement proxyContactCity;
+
+    /* PROXY CONTACT STATE */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.proxy_state']")
+    public WebElement proxyContactState;
+
+    /* PROXY CONTACT ZIPCODE */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.proxy_contact_zipcode']")
+    public WebElement proxyContactZipcode;
+
+    /* PROXY CONTACT COUNTRY */
+    @FindBy(xpath = "//input[@name='sys_display.x_naci_family_coho_family_history_details.proxy_contact_country']")
+    public WebElement proxyContactCountry;
+
+    /* PROXY CONTACT EMAIL ADDRESS */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.proxy_email_address']")
+    public WebElement proxyContactEmailAddress;
+
+    /* PROXY CONTACT HOME PHONE */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.proxy_phone_number']")
+    public WebElement proxyContactHomePhone;
+
+    /* PROXY CONTACT CELLPHONE */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.proxy_work_phone']")
+    public WebElement proxyContactWorkPhone;
+
+    /* PROXY CONTACT WORK PHONE */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.proxy_cell_phone']")
+    public WebElement proxyContactHomeCellphone;
+
+    /* PROXY CONTACT PREFERRED PHONE */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_family_history_details.proxy_preferred_phone']")
+    public WebElement proxyContactPreferredPhone;
+
+    /**
      * RELATED LINKS SECTION
      */
     /* PARTICIPANT STUDIES TAB */
     @FindBy(xpath = "//span[normalize-space()='Participant Studies (1)']")
     public WebElement participantStudiesTab;
 
+    /* PARTICIPANT STUDIES PREVIEW BUTTON */
+    @FindBy(xpath = "//table[@glide_table='x_naci_family_coho_participant_study']//td//a[contains(@aria-label,'Preview record')]")
+    public WebElement participantStudiesPreviewButton;
+
     /* PARTICIPANT STUDIES INFO BUTTON */
-    @FindBy(xpath = "//a[normalize-space()='RASopathy']//parent::td//parent::tr//child::td[2]//child::a")
+    @FindBy(xpath = "//tr[@record_class='x_naci_family_coho_participant_study']//td/a[contains(@data-list_id, 'x_naci_family_coho_family_history_details')]")
     public WebElement participantStudiesInfoButton;
 
     /***
      * MEDICAL INFORMATION SECTION
      */
     /* VITAL STATUS YES DROP DOWN OPTION */
-    @FindBy(xpath = "//*[@id='x_naci_family_coho_ras_referral.family_member_record.person_alive']")
+    @FindBy(xpath = "//*[@name='x_naci_family_coho_ras_referral.person_alive']")
     public WebElement vitalStatusYesDropDownOption;
 
     /***
