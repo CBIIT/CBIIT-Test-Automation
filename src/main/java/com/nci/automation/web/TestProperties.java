@@ -4,7 +4,7 @@ public class TestProperties {
 
     public static String ENV = "test";
     public static String BROWSER = "chrome";
-    public static boolean HEADLESS = true;
+    public static boolean HEADLESS = false;
     public static int SET_SLOW_MO_TIME = 1000;
 
     /**
@@ -114,6 +114,13 @@ public class TestProperties {
     public static final String TFM_TEST_PORTAL_URL = "https://service-test.nci.nih.gov/ncisp";
     public static final String TFM_STAGE_PORTAL_URL = "https://service-stage.nci.nih.gov/ncisp";
     public static String TFM_URL;
+
+    /**
+     * FCAS Vendor Portal
+     */
+    public static final String FCAS_VENDOR_PORTAL_TEST_URL = "https://fcasvendorportal-qa.cancer.gov/";
+    public static final String FCAS_VENDOR_PORTAL_STAGE_URL = "https://fcasvendorportal-stage.cancer.gov/";
+    public static String FCAS_VENDOR_PORTAL_URL;
 
     /**
      * AWARD NOMINATION
@@ -969,5 +976,17 @@ public class TestProperties {
                 break;
         }
         return TFM_URL;
+    }
+
+    public static String getFCASVendorPortalUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                FCAS_VENDOR_PORTAL_URL = FCAS_VENDOR_PORTAL_STAGE_URL;
+                break;
+            case "test":
+                FCAS_VENDOR_PORTAL_URL = FCAS_VENDOR_PORTAL_TEST_URL;
+                break;
+        }
+        return FCAS_VENDOR_PORTAL_URL;
     }
 }
