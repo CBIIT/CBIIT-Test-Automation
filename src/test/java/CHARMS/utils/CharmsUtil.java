@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -23,7 +22,6 @@ import org.testng.asserts.SoftAssert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.ExcelReader;
 import com.nci.automation.web.WebDriverUtils;
-
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 import static CHARMS.steps.RAS_Common_Methods.softAssertDropDownValueIsSelected;
 import static Hooks.Hooks.softAssert;

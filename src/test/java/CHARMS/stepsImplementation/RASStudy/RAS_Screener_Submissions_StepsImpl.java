@@ -15,7 +15,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.*;
-
 import static CHARMS.utils.CharmsUtil.convertDOBToMMddyyyyFormat;
 import static Hooks.Hooks.softAssert;
 import static CHARMS.pages.RAS_Screener_Page.*;
@@ -631,7 +630,6 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
             ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
             ras_screenerSubmissions_stepsImpl.verifying_RAS_Screener_Scenario_Minor_Data(sheetName);
         }
-
     }
 
     /***
