@@ -24,7 +24,7 @@ public class FCASVENDORPORTALSteps {
     }
 
     @And("User is on Existing Contracts page")
-    public void user_is_on_existing_contracts_page() throws Exception {
+    public void user_is_on_existing_contracts_page(){
        FCASVENDORPORTALStepsImplementation.verifyExistingContractsPageTitle();
     }
 
@@ -37,17 +37,17 @@ public class FCASVENDORPORTALSteps {
     }
 
     @Then("User can see All Contracts and My Contracts options")
-    public void user_can_see_all_contracts_and_my_contracts_options() throws Exception {
+    public void user_can_see_all_contracts_and_my_contracts_options(){
       FCASVENDORPORTALStepsImplementation.verifyAllMyContractsOptions();
     }
 
     @And("User can see Show Closed Contracts option")
-    public void user_can_see_show_closed_contracts_option() throws Exception {
+    public void user_can_see_show_closed_contracts_option(){
        FCASVENDORPORTALStepsImplementation.verifyShowClosedContractsOption();
     }
 
     @And("User can see a search page text field")
-    public void user_can_see_a_search_page_text_field() throws Exception {
+    public void user_can_see_a_search_page_text_field(){
         FCASVENDORPORTALStepsImplementation.textSearchFieldOption();
     }
 }
