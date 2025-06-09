@@ -2,6 +2,7 @@ package CUSTOM_BUSINESS.FCAS_VENDOR_PORTAL.steps;
 
 import CUSTOM_BUSINESS.FCAS_VENDOR_PORTAL.stepsImplementation.FCASVENDORPORTALStepsImplementation;
 import com.nci.automation.web.CommonUtils;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -22,7 +23,7 @@ public class FCASVENDORPORTALSteps {
         CommonUtils.clickOnElement(fCASVENDORPORTALPage.acceptWelcomeScreen);
     }
 
-    @Given("User is on Existing Contracts page")
+    @And("User is on Existing Contracts page")
     public void user_is_on_existing_contracts_page() throws Exception {
        FCASVENDORPORTALStepsImplementation.verifyExistingContractsPageTitle();
     }
@@ -40,12 +41,12 @@ public class FCASVENDORPORTALSteps {
       FCASVENDORPORTALStepsImplementation.verifyAllMyContractsOptions();
     }
 
-    @Then("User can see Show Closed Contracts option")
+    @And("User can see Show Closed Contracts option")
     public void user_can_see_show_closed_contracts_option() throws Exception {
        FCASVENDORPORTALStepsImplementation.verifyShowClosedContractsOption();
     }
 
-    @Then("User can see a search page text field")
+    @And("User can see a search page text field")
     public void user_can_see_a_search_page_text_field() throws Exception {
         FCASVENDORPORTALStepsImplementation.textSearchFieldOption();
     }
