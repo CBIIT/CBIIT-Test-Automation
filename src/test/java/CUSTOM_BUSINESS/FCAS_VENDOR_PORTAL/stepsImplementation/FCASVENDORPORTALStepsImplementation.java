@@ -10,7 +10,7 @@ import static com.nci.automation.web.TestProperties.*;
 public class FCASVENDORPORTALStepsImplementation extends PageInitializer {
 
     /**
-     * User logs in as a Submitter to TFM Portal.
+     * User logs in as a Submitter to FCAS vendor Portal.
      */
     public static void userLoginFCASVendorPortal() {
         WebDriverUtils.webDriver.get(getFCASVendorPortalUrl());
@@ -44,7 +44,7 @@ public class FCASVENDORPORTALStepsImplementation extends PageInitializer {
     }
 
     /**
-     * Verify show closed contracts options
+     * Verify text Search Field Option
      */
     public static void textSearchFieldOption() {
         softAssert.assertTrue(fCASVENDORPORTALPage.textSearchField.isDisplayed());
