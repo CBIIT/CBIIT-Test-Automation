@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import static com.nci.automation.web.WebDriverUtils.webDriver;
 
-public class ScreenerRecordTablePage {
+public class NativeViewCHARMSScreenerRecordTablePage {
 
     /* SCREENER PREVIEW PARTICIPANT INFO RECORD FIELD */
     @FindBy(xpath = "//input[@name='x_naci_family_coho_ras_referral.family_member_record_label']")
@@ -268,7 +268,7 @@ public class ScreenerRecordTablePage {
         return webDriver.findElement(By.xpath("(//button[contains(text(),'" + text + "')])[1]"));
     }
 
-    public ScreenerRecordTablePage() {
+    public NativeViewCHARMSScreenerRecordTablePage() {
         PageFactory.initElements(webDriver, this);
     }
 }
