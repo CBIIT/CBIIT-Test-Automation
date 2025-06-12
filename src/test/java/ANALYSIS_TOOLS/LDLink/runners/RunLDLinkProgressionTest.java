@@ -3,7 +3,7 @@ package ANALYSIS_TOOLS.LDLink.runners;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(plugin = {"html:target/html-re]ports/cucumber-default-report",
+@CucumberOptions(plugin = {"html:target/ldLink-progression-reports/ldLink-progression-report.html",
 		"json:target/cucumber.json",
 		"rerun:target/failed.txt",
 		"pretty",
