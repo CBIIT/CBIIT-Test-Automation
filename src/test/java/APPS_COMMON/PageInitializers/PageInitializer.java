@@ -35,6 +35,8 @@ import CUSTOM_BUSINESS.ETD.stepsImplementation.*;
 import CUSTOM_BUSINESS.Egrants.pages.EgrantsQuickLinkAndManagementMenuPage;
 import CUSTOM_BUSINESS.Egrants.pages.EgrantsSearchAndFileManagementScenariosPage;
 import CUSTOM_BUSINESS.Egrants.stepsImplementation.EgrantsStepImplementation;
+import CUSTOM_BUSINESS.FCAS_VENDOR_PORTAL.pages.FCASVENDORPORTALPage;
+import CUSTOM_BUSINESS.FCAS_VENDOR_PORTAL.stepsImplementation.FCASVENDORPORTALStepsImplementation;
 import GRANTS.ChangePassword.pages.*;
 import GRANTS.ChangePassword.stepsImplementation.*;
 import GRANTS.EM.selenium.pages.AccountDetailsPage;
@@ -67,7 +69,7 @@ import PLATFORM_BUSINESS.NCCR.stepsImplementation.NCCRStepsImplementation;
 import PLATFORM_BUSINESS.OA_Intake.pages.OAIntakePage;
 import PLATFORM_BUSINESS.OA_Intake.stepsImplementation.OAIntakeStepsImplementation;
 import PLATFORM_BUSINESS.ETracking.pages.EtrackAssetsRecords_NativeViewPage;
-import PLATFORM_BUSINESS.CTRP_CTRO.pages.CTRPCTRO_NV_Page;
+import PLATFORM_BUSINESS.CTRP_CTRO.selenium.pages.CTRPCTRO_NV_Page;
 import PLATFORM_BUSINESS.GDC.pages.GDC_Workflow_NativeView_Page;
 import PLATFORM_BUSINESS.GCP.pages.GCPNotifications_NativeViewPage;
 import PLATFORM_BUSINESS.NERD.selenium.Pages.*;
@@ -195,6 +197,10 @@ public class PageInitializer extends WebDriverUtils {
 	/** TFM instances */
 	public static TFMStepsImplementation tfmStepsImplementation;
 	public static TFMPage tfmPage;
+
+	/** FCAS Vendor Portal instances */
+	public static FCASVENDORPORTALPage  fCASVENDORPORTALPage;
+	public static FCASVENDORPORTALStepsImplementation fCASVENDORPORTALStepsImplementation;
 
 	/** AWARD NOMINATION instances */
 	public static AwardNominationStepsImplementation awardNominationStepsImplementation;
@@ -444,6 +450,10 @@ public class PageInitializer extends WebDriverUtils {
 		/** TFM Instance Variables */
 		tfmPage =  new TFMPage();
 		tfmStepsImplementation = new TFMStepsImplementation();
+
+		/** FCAS Vendor Portal Instance Variables */
+		fCASVENDORPORTALStepsImplementation = new FCASVENDORPORTALStepsImplementation();
+		fCASVENDORPORTALPage = new FCASVENDORPORTALPage();
 
 		/** CHARMS Instance Variables **/
 		charmsNativeViewPage = new CHARMSNativeViewPage();
