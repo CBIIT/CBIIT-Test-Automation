@@ -221,25 +221,4 @@ public class MetforminScreenerPage extends CommonUtils {
 
     @FindBy(xpath = " (//textarea[@name='additional_details_cancer_mrvs'])[1]")
     public WebElement metforminParticipantCancerAdditionalDetailsInput;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
