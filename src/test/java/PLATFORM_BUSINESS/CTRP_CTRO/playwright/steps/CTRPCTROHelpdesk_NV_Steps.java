@@ -1,9 +1,12 @@
 package PLATFORM_BUSINESS.CTRP_CTRO.playwright.steps;
 
+import APPS_COMMON.PlaywrightUtils.Playwright_Common_Utils;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -36,6 +39,7 @@ public class CTRPCTROHelpdesk_NV_Steps {
         assertThat(page.locator("iframe[name='gsft_main']").contentFrame().getByLabel("Open record: CTRP-Cloud One")).containsText("CTRP-Cloud One");
         page.frameLocator("iframe[name='gsft_main']").locator("//a[@aria-label='Preview record: CTRP-Cloud One']").click();
         page.frameLocator("iframe[name='gsft_main']").locator("//a[normalize-space()='Open Record']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -59,5 +63,6 @@ public class CTRPCTROHelpdesk_NV_Steps {
     public void the_role_is_added_to_the_group(String cTRPRole, String cTRPCloudOne) {
         assertThat(page.frameLocator("iframe[name='gsft_main']").locator("//input[@id='sys_user_group.name']")).hasValue(cTRPCloudOne);
         assertThat(page.frameLocator("iframe[name='gsft_main']").locator("//a[normalize-space()='x_naci_ctrp_ctro.case_user']")).containsText(cTRPRole);
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 }
