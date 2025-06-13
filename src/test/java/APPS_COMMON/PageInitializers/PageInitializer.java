@@ -157,6 +157,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static FHQSurveyPortalPage fHQSurveyPortalPage;
 	public static FHQSubmissionPage fHQSubmissionPage;
 	public static FHQSubmissionStepsImpl fHQSubmissionStepsImpl;
+	public static RASSurveyDataVerificationStepsImpl rASSurveyDataVerificationStepsImpl;
 	public static FHQConstants fHQConstants;
 	public static FHQ_TestDataManager fHQ_TestDataManager;
 	public static RAS_Screener_TestDataManager ras_Screener_TestDataManager;
@@ -167,14 +168,13 @@ public class PageInitializer extends WebDriverUtils {
 	public static IIQ_TestDataManager iiq_TestDataManager;
 	public static NV_Clinic_Visits_TestDataManager nv_Clinic_Visits_TestDataManager;
 	public static NV_New_Appointment_TestDataManager nv_New_Appointment_TestDataManager;
-	public static ParticipantDetailsPage participantDetailsPage;
 	public static ReferralTablePage referralTablePage;
 	public static FanconiEligibilityQuestionnairePage fanconiEligibilityQuestionnairePage;
 	public static FanconiScreenerNVPage fanconiScreenerNVPage;
 	public static FanconiLoginPage fanconiLoginPage;
 	public static CHARMSParticipantDetailsPage cHARMSParticipantDetailsPage;
 	public static FanconiEligibilityQuestionnaireStepsImpl fanconiEligibilityQuestionnaireStepsImpl;
-	public static ScreenerRecordTablePage screenerRecordTablePage;
+	public static NativeViewCHARMSScreenerRecordTablePage nativeViewCHARMSScreenerRecordTablePage;
 	public static MyRASSurveyPage myRASSurveyPage;
 	public static RAS_Survey_Native_View_Page ras_survey_native_view;
 	// Melanoma and Spitzoid Tumor instances
@@ -494,16 +494,16 @@ public class PageInitializer extends WebDriverUtils {
 		fHQSurveyPage = new FHQSurveyPage();
 		fHQSubmissionPage = new FHQSubmissionPage();
 		fHQSubmissionStepsImpl = new FHQSubmissionStepsImpl();
+		rASSurveyDataVerificationStepsImpl = new RASSurveyDataVerificationStepsImpl();
 		fHQ_TestDataManager = new FHQ_TestDataManager();
 		fHQConstants = new FHQConstants();
-		participantDetailsPage = new ParticipantDetailsPage();
 		referralTablePage = new ReferralTablePage();
 		fanconiLoginPage = new FanconiLoginPage();
 		fanconiEligibilityQuestionnairePage = new FanconiEligibilityQuestionnairePage();
 		fanconiScreenerNVPage = new FanconiScreenerNVPage();
 		cHARMSParticipantDetailsPage = new CHARMSParticipantDetailsPage();
 		fanconiEligibilityQuestionnaireStepsImpl = new FanconiEligibilityQuestionnaireStepsImpl();
-		screenerRecordTablePage = new ScreenerRecordTablePage();
+		nativeViewCHARMSScreenerRecordTablePage = new NativeViewCHARMSScreenerRecordTablePage();
 		myRASIIQFormPage = new MyRASIIQFormPage();
 		ras_survey_native_view = new RAS_Survey_Native_View_Page();
 		myRASSurveyPage = new MyRASSurveyPage();

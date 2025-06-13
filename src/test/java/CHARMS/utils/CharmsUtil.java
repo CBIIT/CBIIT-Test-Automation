@@ -1,6 +1,9 @@
 package CHARMS.utils;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -553,8 +556,8 @@ public class CharmsUtil {
      * Looks up a value in a reference field within a web page.
      *
      * @param referenceField the WebElement representing the reference field to interact with
-     * @param columnName the name of the column where the value will be searched
-     * @param value the value to search for in the specified column
+     * @param columnName     the name of the column where the value will be searched
+     * @param value          the value to search for in the specified column
      */
     public static void lookUpInReferenceField(WebElement referenceField, String columnName, String value) {
         WebElement column;
@@ -576,5 +579,39 @@ public class CharmsUtil {
         locateByXpath("(//a[@role='button'][normalize-space()='" + value + "'])[1]").click();
         WebDriverUtils.webDriver.switchTo().window(currentWindow);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+    }
+
+    /**
+     * Converts a given date of birth from the format "Month day, year" to the "mm/dd/yyyy" format.
+     *
+     * @param dateOfBirth the date of birth string to be converted, formatted as "Month day, year" (e.g., "April 1, 1990").
+     * @return the converted date string in the "MM/dd/yyyy" format (e.g., "04/01/1990").
+     */
+    public static String convertDOBToMMddyyyyFormat(String dateOfBirth) {
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+        LocalDate date = LocalDate.parse(dateOfBirth, inputFormatter);
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        return date.format(outputFormatter);
+    }
+
+    /**
+     * Calculates the age of a participant based on their birthday in "Month day, year" format
+     *
+     * @param birthday the participant's birthday in format "October 31, 2012"
+     * @return the age in years as an integer
+     */
+    public static int calculateAge(String birthday) {
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+            LocalDate birthDate = LocalDate.parse(birthday.trim(), formatter);
+
+            LocalDate currentDate = LocalDate.now();
+            if (birthDate.isAfter(currentDate)) {
+                throw new IllegalArgumentException("Birthday cannot be in the future");
+            }
+            return Period.between(birthDate, currentDate).getYears();
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid date format. Expected format: 'Month day, year' (e.g., 'October 31, 2012')", e);
+        }
     }
 }
