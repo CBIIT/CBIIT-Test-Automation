@@ -8,6 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 public class NativeViewCHARMSParticipantStudyPage {
 
     /**
+     * Participant input field
+     */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_study.participant_id']")
+    public WebElement participantField;
+
+    /**
      * Native View Participant Study Screener Info Button
      */
     @FindBy(xpath = "//span[normalize-space()='Screener']//parent::label//parent::div//parent::div//child::div[3]//child::span//child::button")

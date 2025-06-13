@@ -16,52 +16,41 @@ public class MyRASPhysicalActivitiesSurvey {
     public WebElement submitButton;
 
     /**
-     * Locates a checkbox element on the web page with dynamic text content matching the given text.
-     *
-     * @param checkboxText the text content that the checkbox element should contain
-     * @
-     */
-    public static WebElement dynamicCheckboxLocator(String checkboxText) {
-        return locateByXpath("//span[contains(text(),'" + checkboxText + "')]");
-    }
-
-    /**
      * Selects an option from a dropdown in the section "During the past 12 months, about how often did you do each of these household or shopping activities outside of work?" based on the provided label and option text.
      *
      * @param dropdownLabelText  the label text of the dropdown element
      * @param dropdownOptionText the text of the option to be selected from the dropdown
      */
-    public static void dropdownSelectorDuringPast12MonthsHowOften(String dropdownLabelText, String dropdownOptionText) {
+    public static WebElement dropdownSelectorDuringPast12MonthsHowOften(String dropdownLabelText, String dropdownOptionText) {
         locateByXpath("//span[normalize-space()='" + dropdownLabelText + "']/parent::label/parent::div/following-sibling::span").click();
         CommonUtils.sleep(500);
         CommonUtils.waitForClickability(locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[contains(text(), '" + dropdownOptionText + "')]"));
-        locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[contains(text(), '" + dropdownOptionText + "')]").click();
+        return locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[contains(text(), '" + dropdownOptionText + "')]");
     }
 
     /**
-     * Selects an option from a dropdown in the section "When you did household tasks or shopping, how much time per day did you spend doing each activity?" based on the provided label and option text.
+     * Returns an option from a physical activities dropdown menu within a specific section of the survey
+     * based on the provided section name, dropdown label, and option text.
      *
+     * @param sectionName        the name of the section containing the dropdown element
      * @param dropdownLabelText  the label text of the dropdown element
-     * @param dropdownOptionText the text of the option to be selected from the dropdown
+     * @param dropdownOptionText the text of the option to be returned from the dropdown
+     * @return a WebElement representing the dropdown option located using the dynamic XPath
      */
-    public static void dropdownSelectorHowMuchTimePerDay(String dropdownLabelText, String dropdownOptionText) {
-        CommonUtils.clickOnElement(locateByXpath("//span[normalize-space()='" + dropdownLabelText + "']/parent::label[@class='field-label field-label-question' and contains(@for, 'time_spent')]/parent::div/following-sibling::span"));
-        CommonUtils.waitForClickability(locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[contains(text(), '" + dropdownOptionText + "')]"));
-        CommonUtils.sleep(500);
-        CommonUtils.clickOnElement(locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[contains(text(), '" + dropdownOptionText + "')]"));
+    public static WebElement physicalActivitiesDropdownOptionSelector(String sectionName, String dropdownLabelText, String dropdownOptionText) {
+        CommonUtils.clickOnElement(locateByXpath("//span[contains(@role,'heading')][normalize-space()='" + sectionName + "']/parent::span/parent::span/parent::div//span[@class='sp-field-label-padding ng-binding' and contains(text(), '" + dropdownLabelText + "')]/parent::label/parent::div/following-sibling::span"));
+        CommonUtils.sleep(800);
+        return locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[text()='" + dropdownOptionText + "']");
     }
 
     /**
-     * Selects an option from a dropdown in the section "During the past 12 months, did you do any of these activities outside of work?" based on the provided label and option text.
+     * Locates a section on the web page based on the provided section text.
      *
-     * @param dropdownLabelText  the label text of the dropdown element
-     * @param dropdownOptionText the text of the option to be selected from the dropdown
+     * @param sectionText the visible text of the section heading to locate
+     * @return a WebElement representing the section heading found using the dynamic XPath
      */
-    public static void dropdownSelectorDidYouDoAnyOfTheseOutsideOfWork(String dropdownLabelText, String dropdownOptionText) {
-        locateByXpath("//span[normalize-space()='" + dropdownLabelText + "']/parent::label[@class='field-label field-label-question']/parent::div/following-sibling::span").click();
-        CommonUtils.waitForClickability(locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[text()='" + dropdownOptionText + "']"));
-        CommonUtils.sleep(500);
-        CommonUtils.clickOnElement(locateByXpath("//div/ul[@aria-label='" + dropdownLabelText + "']//li/div[text()='" + dropdownOptionText + "']"));
+    public static WebElement dynamicSectionLocator(String sectionText) {
+        return locateByXpath("//span[@role='heading'][normalize-space()='" + sectionText + "']");
     }
 
     public MyRASPhysicalActivitiesSurvey() {
