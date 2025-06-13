@@ -45,6 +45,7 @@ public class RAS_All_Steps extends PageInitializer {
         /**
          * BEGINNING: CONSENT FLOW PROCESS
          */
+
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.consentStatusText);
@@ -53,9 +54,12 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
         CucumberLogUtils.logScreenshot();
         CucumberLogUtils.scenario.log("* * * * * CONSENT CALL SCHEDULED TIME * * * * *");
+        CommonUtils.sleep(800);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
@@ -430,7 +434,7 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * Study Team member submits a participant for review and marks them as eligible for further processing.
+     * Navigates to participant studies and submits the participant for review and marks them as eligible for further processing.
      * This method triggers the submission process and eligibility marking within the study team workflow.
      */
     @When("Study Team member submits participant for review and marks them eligible")
@@ -457,9 +461,9 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         if (sheetName.equals("screenerScenarioAdult")) {
-            softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME + "']/following-sibling::td[4]").getText(), "New Screener Received");
+            softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME + "']/following-sibling::td[3]").getText(), "New Screener Received");
         } else {
-            softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME + "']/following-sibling::td[4]").getText(), "New Screener Received");
+            softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME + "']/following-sibling::td[3]").getText(), "New Screener Received");
         }
     }
 
@@ -1231,50 +1235,48 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * Submits the Physical Activities Survey.
-     * This method interacts with the user interface to submit the Physical Activities Survey by selecting various options and filling out necessary information.
-     * It clicks on checkboxes, dropdowns, and radio buttons representing different physical activities and time spent on each activity in a survey form.
+     * Completes and submits the Physical Activities Survey
      */
     @Given("submits the Physical Activities Survey")
     public void submits_the_physical_activities_survey() {
         CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='In the past 12 months how often did you walk or hike for exercise?']"));
         JavascriptUtils.scrollIntoView(locateByXpath("//span[normalize-space()='In the past 12 months how often did you walk or hike for exercise?']"));
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("In the past 12 months how often did you walk or hike for exercise?", "Once a month or less");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("On the days that you walked or hiked, about how much time per day did you spend doing this activity?", "1 hour");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("Light household chores (such as cooking, tidying up, laundry, or dusting)", "Never");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("Moderate to Vigorous household chores (such as vacuuming or sweeping)", "Once a month or less");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("Caring for pets (walking dogs, feeding, playing, grooming)", "2 to 3 days per month");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("Caring for children or adults (pushing stroller or wheelchair, lifting, bathing)", "1 to 2 days per week");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("Walking while shopping or doing errands (do not count walking for exercise)", "3 to 4 days per week");
+        JavascriptUtils.scrollIntoView(MyRASPhysicalActivitiesSurvey.dynamicSectionLocator("During the past 12 months, did you do any of these exercises or recreational activities?"));
+        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("In the past 12 months how often did you walk or hike for exercise?", "Once a month or less").click();
+        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("On the days that you walked or hiked, about how much time per day did you spend doing this activity?", "1 hour").click();
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
-        JavascriptUtils.scrollIntoView(locateByXpath("//span[@role='heading'][normalize-space()='When you did household tasks or shopping, how much time per day did you spend doing each activity?']"));
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Light household chores (such as cooking, cleaning up, laundry, or dusting.)", "15 minutes or less");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Moderate to vigorous household chores (such as vacuuming or sweeping)", "16 to 30 minutes");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Caring for pets (walking dogs, feeding, playing, grooming)", "31 to 44 minutes");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Caring for children or adults (pushing stroller or wheelchair, lifting, bathing)", "45 to 59 minutes");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Walking while shopping or doing errands (do not count walking for exercise)", "1 hour");
+        JavascriptUtils.scrollIntoView(MyRASPhysicalActivitiesSurvey.dynamicSectionLocator("During the past 12 months, about how often did you do each of these household or shopping activities outside of work?"));
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("During the past 12 months, about how often did you do each of these household or shopping activities outside of work?", "Light household chores (such as cooking, tidying up, laundry, or dusting)", "Never").click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("During the past 12 months, about how often did you do each of these household or shopping activities outside of work?", "Moderate to Vigorous household chores (such as vacuuming or sweeping)", "Once a month or less").click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("During the past 12 months, about how often did you do each of these household or shopping activities outside of work?", "Caring for pets (walking dogs, feeding, playing, grooming)", "2 to 3 days per month").click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("During the past 12 months, about how often did you do each of these household or shopping activities outside of work?", "Caring for children or adults (pushing stroller or wheelchair, lifting, bathing)", "1 to 2 days per week").click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("During the past 12 months, about how often did you do each of these household or shopping activities outside of work?", "Walking while shopping or doing errands (do not count walking for exercise)", "3 to 4 days per week").click();
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDidYouDoAnyOfTheseOutsideOfWork("Moderate outdoor chores (such as weeding, raking or mowing the lawn)", "Yes");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDidYouDoAnyOfTheseOutsideOfWork("Vigorous outdoor chores (such as digging, carrying lumber, or snow shoveling)", "No");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDidYouDoAnyOfTheseOutsideOfWork("Home repair (such as painting, plumbing, or replacing carpeting)", "Yes");
-        CommonUtils.clickOnElement(locateByXpath("//div[@id='select_age_range']//span[@class='type-choice field-actual question-width']"));
-        CommonUtils.waitForClickability(locateByXpath("//ul[@aria-label='Select Age Group']//div[contains(text(), '25-34')]"));
-        locateByXpath("//ul[@aria-label='Select Age Group']//div[contains(text(), '25-34')]").click();
-        CommonUtils.clickOnElement(locateByXpath("//div[@id='frequency_stren_activities']//div[contains(@class,'form-group ng-scope ng-isolate-scope')]"));
-        CommonUtils.waitForClickability(locateByXpath("//ul[@aria-label='Average Hours per week']//div[text()='1-3 hours']"));
-        locateByXpath("//ul[@aria-label='Average Hours per week']//div[text()='1-3 hours']").click();
-        CommonUtils.clickOnElement(locateByXpath("//div[@id='select_age_group_2']//span[contains(@class,'type-choice field-actual question-width')]"));
-        CommonUtils.waitForClickability(locateByXpath("//ul[@aria-label='Select Age Group']//div[text()='25-34']"));
-        locateByXpath("//ul[@aria-label='Select Age Group']//div[text()='25-34']").click();
-        CommonUtils.clickOnElement(locateByXpath("//div[@id='average_hours_per_week_2']//div[contains(@class,'form-group ng-scope ng-isolate-scope')]"));
-        CommonUtils.waitForClickability(locateByXpath("//ul[@aria-label='Average Hours per week']//div[text()='More than 3 hours']"));
-        locateByXpath("//ul[@aria-label='Average Hours per week']//div[text()='More than 3 hours']").click();
+        JavascriptUtils.scrollIntoView(MyRASPhysicalActivitiesSurvey.dynamicSectionLocator("When you did household tasks or shopping, how much time per day did you spend doing each activity?"));
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("When you did household tasks or shopping, how much time per day did you spend doing each activity?", "Moderate to vigorous household chores (such as vacuuming or sweeping)", "16 to 30 minutes").click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("When you did household tasks or shopping, how much time per day did you spend doing each activity?", "Caring for pets (walking dogs, feeding, playing, grooming)", "31 to 44 minutes").click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("When you did household tasks or shopping, how much time per day did you spend doing each activity?", "Caring for children or adults (pushing stroller or wheelchair, lifting, bathing)", "45 to 59 minutes").click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("When you did household tasks or shopping, how much time per day did you spend doing each activity?", "Walking while shopping or doing errands (do not count walking for exercise)", "1 hour").click();
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
-        myRASPhysicalActivitiesSurvey.submitButton.click();
+        JavascriptUtils.scrollIntoView(MyRASPhysicalActivitiesSurvey.dynamicSectionLocator("During the past 12 months, did you do any of these activities outside of work?"));
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("During the past 12 months, did you do any of these activities outside of work?","Moderate outdoor chores (such as weeding, raking or mowing the lawn)","Yes").click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("During the past 12 months, did you do any of these activities outside of work?","Vigorous outdoor chores (such as digging, carrying lumber, or snow shoveling)","No").click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("During the past 12 months, did you do any of these activities outside of work?","Home repair (such as painting, plumbing, or replacing carpeting)","Yes").click();
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.scrollIntoView(MyRASPhysicalActivitiesSurvey.dynamicSectionLocator("How often did you participate in STRENUOUS activities or sports?"));
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("How often did you participate in STRENUOUS activities or sports?","Select Age Group","25-34").click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("How often did you participate in STRENUOUS activities or sports?","Average Hours per week","1-3 hours").click();
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.scrollIntoView(MyRASPhysicalActivitiesSurvey.dynamicSectionLocator("How often did you participate in MODERATE activities or sports?"));
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("How often did you participate in MODERATE activities or sports?","Select Age Group","25-34").click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("How often did you participate in MODERATE activities or sports?","Average Hours per week","More than 3 hours").click();
         CommonUtils.sleep(1000);
+        myRASPhysicalActivitiesSurvey.submitButton.click();
         CucumberLogUtils.logScreenshot();
     }
 
