@@ -18,4 +18,4 @@ Feature: CTRP/CTRO Native View Case Test Scenarios
   Scenario: New ‘FDAAA/NIH Policy Outreach' Category
     Given a user is on a CTRP CTRO Helpdesk Case
     When users select 'Category'
-    Then User sees there is a Category available called 'FDAAA/NI Policy Outreach'
+    Then User sees there is a Category available called 'FDAAA/NIH Policy Outreach'
