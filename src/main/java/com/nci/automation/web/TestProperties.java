@@ -66,6 +66,14 @@ public class TestProperties {
     public static String FANCONI_URL;
 
     /**
+     * STUDY AGNOSTIC URLS
+     */
+    public static final String STUDY_AGNOSTIC_TEST_URL = "https://service-test.nci.nih.gov/familystudyhub";
+    public static final String STUDY_AGNOSTIC_STAGE_URL = "https://service-test.nci.nih.gov/familystudyhub";
+    public static final String STUDY_AGNOSTIC_SANDBOX_URL = "https://service-test.nci.nih.gov/familystudyhub";
+    public static String STUDY_AGNOSTIC_URL;
+
+    /**
      * EIDP NHGRI URLS
      */
     public static final String EIDP_NHGRI_TEST_URL = "https://idp-test.nih.gov/nhgri/idp";
@@ -437,6 +445,21 @@ public class TestProperties {
                 break;
         }
         return FANCONI_URL;
+    }
+
+    public static String getStudyAgnosticUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                STUDY_AGNOSTIC_URL = STUDY_AGNOSTIC_STAGE_URL;
+                break;
+            case "test":
+                STUDY_AGNOSTIC_URL = STUDY_AGNOSTIC_TEST_URL;
+                break;
+            case "sandbox":
+                STUDY_AGNOSTIC_URL = STUDY_AGNOSTIC_SANDBOX_URL;
+                break;
+        }
+        return STUDY_AGNOSTIC_URL;
     }
 
     public static String getEidpNhgriUrl() {
