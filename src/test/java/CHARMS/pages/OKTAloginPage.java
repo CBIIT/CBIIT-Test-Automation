@@ -6,7 +6,12 @@ import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
-public class OKTAloginPage extends CommonUtils {	
+public class OKTAloginPage extends CommonUtils {
+
+	/* Home Button */
+	@FindBy(xpath = "(//a[normalize-space()='login'])[1]")
+	public WebElement enrollLoginButton;
+
 	/* Username Text Box */
 	@FindBy (xpath = "//input[@type='text']")
 	public WebElement usernameTxtBox;

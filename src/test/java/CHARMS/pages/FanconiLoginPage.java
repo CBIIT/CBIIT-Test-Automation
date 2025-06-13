@@ -18,14 +18,10 @@ public class FanconiLoginPage extends CommonUtils {
 	/* Profile LogOut Button */
 	@FindBy(xpath = "//a[normalize-space()='Sign Out']")
 	public WebElement profileLogOutButton;
-
-	/* Home Button */
-	@FindBy(xpath = "//a[@class='link']")
-	public WebElement enrollLoginButton;
 	
 	/* Home Button */
 	@FindBy(xpath = "(//a[normalize-space()='login'])[1]")
-	public WebElement enrollLoginButton1;
+	public WebElement enrollLoginButton;
 
 	/* Agree Button */
 	@FindBy(xpath = "//button[contains(@class,'btn btn-default')]")
@@ -34,10 +30,6 @@ public class FanconiLoginPage extends CommonUtils {
 	/* Eligibility Questionnaire Link */
 	@FindBy(xpath = "//div/a[@aria-label='Review Eligibility Questionnaire']/img[@role='presentation']")
 	public WebElement eligibilityQuestionnaireLink;
-
-	/* Log Out Drop Down Link */
-	@FindBy(xpath = "//button[@id='user-info-dropdown']")
-	public WebElement LogoutDropDownLink;
 
 	/* Log Out Button */
 	@FindBy(xpath = "(//a[normalize-space()='Sign Out'])[1]")

@@ -16,8 +16,8 @@ public class FanconiLoginSteps extends PageInitializer {
 
 	@Given("logs in Fanconi page via Okta with username {string} and password {string}")
 	public void logs_in_Fanconi_page_via_Okta_with_username_and_password(String username, String password) {
-		CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton1);
-		CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton1);
+		CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton);
+		CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton);
 		CharmsUtil.sendKeysToElement(oktaLoginPage.usernameTxtBox, username);
 		CharmsUtil.clickOnElement(oktaLoginPage.nextButton);
 		CharmsUtil.sendKeysToElement(oktaLoginPage.passwordTxtBox, password);
