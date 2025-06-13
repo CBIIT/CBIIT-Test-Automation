@@ -171,6 +171,11 @@ public class PageInitializer extends WebDriverUtils {
 	public static ScreenerRecordTablePage screenerRecordTablePage;
 	public static MyRASSurveyPage myRASSurveyPage;
 	public static RAS_Survey_Native_View_Page ras_survey_native_view;
+	public static MetforminScreenerPage metforminScreenerPage;
+	public static MetforminScreenerStepsImpl metforminScreenerStepsImpl;
+	public static MetforminScreener_TestDataManager metforminScreener_TestDataManager;
+
+
 	// Melanoma and Spitzoid Tumor instances
 	public static MelanomaLoginPage melanomaLoginPage;
 	public static MelanomaHomePage melanomaHomePage;
@@ -485,6 +490,10 @@ public class PageInitializer extends WebDriverUtils {
 		melanomaLoginPage = new MelanomaLoginPage();
 		melanomaHomePage = new MelanomaHomePage();
 		melanomaQuestionnairePage = new MelanomaQuestionnairePage();
+		metforminScreenerPage = new MetforminScreenerPage();
+		metforminScreenerStepsImpl= new MetforminScreenerStepsImpl();
+		metforminScreener_TestDataManager = new MetforminScreener_TestDataManager();
+
 
 		/** SEER Instance Variables */
 		seerLandingPage = new SEERLandingPage();
