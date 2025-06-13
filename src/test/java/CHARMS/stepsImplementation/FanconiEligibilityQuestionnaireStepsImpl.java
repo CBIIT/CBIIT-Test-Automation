@@ -1912,13 +1912,17 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         if (currentRow.get("ParticipantFirstName")!=null  && !("").equals(currentRow.get("ParticipantFirstName"))) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(participantView));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(participantView));
             CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(participantView));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
             CucumberLogUtils.logScreenshot();
         }
         else {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(participantProxyView));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(participantProxyView));
             CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(participantProxyView));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName")));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName")));
             CucumberLogUtils.logScreenshot();
         }
         CommonUtils.sleep(1800);
@@ -1933,7 +1937,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
          */
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
+        CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.consentStatusText);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(800);
@@ -2042,7 +2046,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
+        CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
         CommonUtils.sleep(1800);
@@ -2057,7 +2061,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
          */
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
+        CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.consentStatusText);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(800);
@@ -2164,7 +2168,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
+        CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
         CommonUtils.sleep(1800);

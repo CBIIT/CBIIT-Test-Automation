@@ -1,10 +1,10 @@
 package CHARMS.utils;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
@@ -15,10 +15,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.TestProperties;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -73,7 +70,7 @@ public class CharmsUtil {
         }
     }
 
-    /** @SonikaJain@param webElement:Element to be clicked to avoid the exception */
+    /** @SonikaJain @param webElement:Element to be clicked to avoid the exception */
     public static void clickOnRadioButtonElement(WebElement webElement) {
         CharmsUtil.labelHighlight(webElement);
         int count = 0;
@@ -217,7 +214,14 @@ public class CharmsUtil {
         return false;
     }
 
-    /** @SonikaJain Method to select a value from the Drop down List */
+    public static void clickAutoPopulatedReference(WebElement webElement, List<String> referenceElements, String dropDownValue) {
+        CharmsUtil.labelHighlight(webElement);
+        CharmsUtil.clickOnElement(webElement);
+        CommonUtils.sleep(500);
+        WebElement select2ElementResults = WebDriverUtils.webDriver
+                .findElement(By.xpath("s2id_sp_formfield_other_biological_parent_partner"));
+    }
+
     public static void SelectValueFromDropDown(WebElement webElement, List<String> dropdownList, String dropDownValue) {
         CharmsUtil.clickOnElement(webElement);
         WebElement select2ElementResults = WebDriverUtils.webDriver
@@ -522,6 +526,69 @@ public class CharmsUtil {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+    }
+
+    /**
+     * Looks up a value in a reference field within a web page.
+     *
+     * @param referenceField the WebElement representing the reference field to interact with
+     * @param columnName     the name of the column where the value will be searched
+     * @param value          the value to search for in the specified column
+     */
+    public static void lookUpInReferenceField(WebElement referenceField, String columnName, String value) {
+        WebElement column;
+        String currentWindow = WebDriverUtils.webDriver.getWindowHandle();
+        Set<String> allWindows = WebDriverUtils.webDriver.getWindowHandles();
+        for (String window : allWindows) {
+            if (!window.equals(currentWindow)) {
+                WebDriverUtils.webDriver.switchTo().window(window).close();
+            }
+        }
+        WebDriverUtils.webDriver.switchTo().window(currentWindow);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        JavascriptUtils.clickByJS(referenceField);
+        CommonUtils.sleep(800);
+        CommonUtils.switchToAnotherTabWindow();
+        column = locateByXpath("//input[@aria-label='Search column: " + columnName + "']");
+        column.sendKeys(value);
+        column.sendKeys(Keys.ENTER);
+        locateByXpath("(//a[@role='button'][normalize-space()='" + value + "'])[1]").click();
+        WebDriverUtils.webDriver.switchTo().window(currentWindow);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+    }
+
+    /**
+     * Converts a given date of birth from the format "Month day, year" to the "mm/dd/yyyy" format.
+     *
+     * @param dateOfBirth the date of birth string to be converted, formatted as "Month day, year" (e.g., "April 1, 1990").
+     * @return the converted date string in the "MM/dd/yyyy" format (e.g., "04/01/1990").
+     */
+    public static String convertDOBToMMddyyyyFormat(String dateOfBirth) {
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+        LocalDate date = LocalDate.parse(dateOfBirth, inputFormatter);
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        return date.format(outputFormatter);
+    }
+
+    /**
+     * Calculates the age of a participant based on their birthday in "Month day, year" format
+     *
+     * @param birthday the participant's birthday in format "October 31, 2012"
+     * @return the age in years as an integer
+     */
+    public static int calculateAge(String birthday) {
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+            LocalDate birthDate = LocalDate.parse(birthday.trim(), formatter);
+
+            LocalDate currentDate = LocalDate.now();
+            if (birthDate.isAfter(currentDate)) {
+                throw new IllegalArgumentException("Birthday cannot be in the future");
+            }
+            return Period.between(birthDate, currentDate).getYears();
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid date format. Expected format: 'Month day, year' (e.g., 'October 31, 2012')", e);
+        }
     }
 
     /** @SonikaJain Login to NativeView

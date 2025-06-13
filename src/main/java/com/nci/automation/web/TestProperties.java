@@ -117,6 +117,20 @@ public class TestProperties {
     public static String AAA_URL;
 
     /**
+     * TFM
+     */
+    public static final String TFM_TEST_PORTAL_URL = "https://service-test.nci.nih.gov/ncisp";
+    public static final String TFM_STAGE_PORTAL_URL = "https://service-stage.nci.nih.gov/ncisp";
+    public static String TFM_URL;
+
+    /**
+     * FCAS Vendor Portal
+     */
+    public static final String FCAS_VENDOR_PORTAL_TEST_URL = "https://fcasvendorportal-qa.cancer.gov/";
+    public static final String FCAS_VENDOR_PORTAL_STAGE_URL = "https://fcasvendorportal-stage.cancer.gov/";
+    public static String FCAS_VENDOR_PORTAL_URL;
+
+    /**
      * AWARD NOMINATION
      */
     public static final String AWARD_NOMINATION_TEST_URL = "https://service-test.nci.nih.gov/ncisp";
@@ -953,7 +967,6 @@ public class TestProperties {
         }
         return ACT24_PARTICIPANT_URL;
     }
-
     public static String getAAAUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
@@ -975,5 +988,28 @@ public class TestProperties {
                 break;
         }
         return MRS_URL;
+    }
+    public static String getTFMUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                TFM_URL = TFM_STAGE_PORTAL_URL;
+                break;
+            case "test":
+                TFM_URL = TFM_TEST_PORTAL_URL;
+                break;
+        }
+        return TFM_URL;
+    }
+
+    public static String getFCASVendorPortalUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                FCAS_VENDOR_PORTAL_URL = FCAS_VENDOR_PORTAL_STAGE_URL;
+                break;
+            case "test":
+                FCAS_VENDOR_PORTAL_URL = FCAS_VENDOR_PORTAL_TEST_URL;
+                break;
+        }
+        return FCAS_VENDOR_PORTAL_URL;
     }
 }

@@ -1,5 +1,6 @@
 package CHARMS.pages;
 
+import CHARMS.utils.CharmsUtil;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -3065,6 +3066,7 @@ public class RAS_Survey_Native_View_Page {
      * @return WebElement representing the located lookup field
      */
     public static WebElement dynamicLookupFieldLocator(String lookupFieldLabel) {
+        CharmsUtil.labelHighlight(locateByXpath("//span[normalize-space()='" + lookupFieldLabel + "']/parent::label/parent::div/following-sibling::div/input[2]"));
         return locateByXpath("//span[normalize-space()='" + lookupFieldLabel + "']/parent::label/parent::div/following-sibling::div/input[2]");
     }
 

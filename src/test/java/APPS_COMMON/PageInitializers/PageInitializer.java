@@ -35,6 +35,8 @@ import CUSTOM_BUSINESS.ETD.stepsImplementation.*;
 import CUSTOM_BUSINESS.Egrants.pages.EgrantsQuickLinkAndManagementMenuPage;
 import CUSTOM_BUSINESS.Egrants.pages.EgrantsSearchAndFileManagementScenariosPage;
 import CUSTOM_BUSINESS.Egrants.stepsImplementation.EgrantsStepImplementation;
+import CUSTOM_BUSINESS.FCAS_VENDOR_PORTAL.pages.FCASVENDORPORTALPage;
+import CUSTOM_BUSINESS.FCAS_VENDOR_PORTAL.stepsImplementation.FCASVENDORPORTALStepsImplementation;
 import GRANTS.ChangePassword.pages.*;
 import GRANTS.ChangePassword.stepsImplementation.*;
 import GRANTS.EM.selenium.pages.AccountDetailsPage;
@@ -44,6 +46,8 @@ import GRANTS.EM.selenium.pages.ModifyAccountPage;
 import GRANTS.EM.selenium.stepImplementation.EMStepsImplementation;
 import PLATFORM_BUSINESS.ApplicationAccessAndApproval.pages.AAAPage;
 import PLATFORM_BUSINESS.ApplicationAccessAndApproval.stepsImplementation.AAAStepsImplementation;
+import PLATFORM_BUSINESS.TransferFundsMOU.pages.TFMPage;
+import PLATFORM_BUSINESS.TransferFundsMOU.stepsImplementation.TFMStepsImplementation;
 import ServiceNow.AwardNomination.Pages.AwardNominationPage;
 import ServiceNow.AwardNomination.StepsImplementation.AwardNominationStepsImplementation;
 import CHARMS.constants.*;
@@ -65,7 +69,7 @@ import PLATFORM_BUSINESS.NCCR.stepsImplementation.NCCRStepsImplementation;
 import PLATFORM_BUSINESS.OA_Intake.pages.OAIntakePage;
 import PLATFORM_BUSINESS.OA_Intake.stepsImplementation.OAIntakeStepsImplementation;
 import PLATFORM_BUSINESS.ETracking.pages.EtrackAssetsRecords_NativeViewPage;
-import PLATFORM_BUSINESS.CTRP_CTRO.pages.CTRPCTRO_NV_Page;
+import PLATFORM_BUSINESS.CTRP_CTRO.selenium.pages.CTRPCTRO_NV_Page;
 import PLATFORM_BUSINESS.GDC.pages.GDC_Workflow_NativeView_Page;
 import PLATFORM_BUSINESS.GCP.pages.GCPNotifications_NativeViewPage;
 import PLATFORM_BUSINESS.NERD.selenium.Pages.*;
@@ -153,6 +157,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static FHQSurveyPortalPage fHQSurveyPortalPage;
 	public static FHQSubmissionPage fHQSubmissionPage;
 	public static FHQSubmissionStepsImpl fHQSubmissionStepsImpl;
+	public static RASSurveyDataVerificationStepsImpl rASSurveyDataVerificationStepsImpl;
 	public static FHQConstants fHQConstants;
 	public static FHQ_TestDataManager fHQ_TestDataManager;
 	public static RAS_Screener_TestDataManager ras_Screener_TestDataManager;
@@ -161,14 +166,15 @@ public class PageInitializer extends WebDriverUtils {
 	public static RAS_Survey_Smoking_Survey_TestDataManager ras_Survey_Smoking_Survey_TestDataManager;
 	public static RAS_Physical_Activities_Survey_TestDataManager ras_Physical_Activities_Survey_TestDataManager;
 	public static IIQ_TestDataManager iiq_TestDataManager;
-	public static ParticipantDetailsPage participantDetailsPage;
+	public static NV_Clinic_Visits_TestDataManager nv_Clinic_Visits_TestDataManager;
+	public static NV_New_Appointment_TestDataManager nv_New_Appointment_TestDataManager;
 	public static ReferralTablePage referralTablePage;
 	public static FanconiEligibilityQuestionnairePage fanconiEligibilityQuestionnairePage;
 	public static FanconiScreenerNVPage fanconiScreenerNVPage;
 	public static FanconiLoginPage fanconiLoginPage;
 	public static CHARMSParticipantDetailsPage cHARMSParticipantDetailsPage;
 	public static FanconiEligibilityQuestionnaireStepsImpl fanconiEligibilityQuestionnaireStepsImpl;
-	public static ScreenerRecordTablePage screenerRecordTablePage;
+	public static NativeViewCHARMSScreenerRecordTablePage nativeViewCHARMSScreenerRecordTablePage;
 	public static MyRASSurveyPage myRASSurveyPage;
 	public static RAS_Survey_Native_View_Page ras_survey_native_view;
 	public static MetforminScreenerPage metforminScreenerPage;
@@ -192,6 +198,14 @@ public class PageInitializer extends WebDriverUtils {
 	/** AAA instances */
 	public static AAAStepsImplementation aaaStepsImplementation;
 	public static AAAPage aaaPage;
+
+	/** TFM instances */
+	public static TFMStepsImplementation tfmStepsImplementation;
+	public static TFMPage tfmPage;
+
+	/** FCAS Vendor Portal instances */
+	public static FCASVENDORPORTALPage  fCASVENDORPORTALPage;
+	public static FCASVENDORPORTALStepsImplementation fCASVENDORPORTALStepsImplementation;
 
 	/** AWARD NOMINATION instances */
 	public static AwardNominationStepsImplementation awardNominationStepsImplementation;
@@ -373,6 +387,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewMembersOfCongressPage nativeViewMembersOfCongressPage;
 	public static NativeViewCHARMSDashboardPage nativeViewCHARMSDashboardPage;
 	public static NativeViewCHARMSFHQPatientPage nativeViewCHARMSFHQPatientPage;
+	public static NativeViewCHARMSNewAppointmentPage nativeViewCHARMSNewAppointmentPage;
 	public static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSClinicVisitsPage nativeViewCHARMSClinicVisitsPage;
@@ -437,6 +452,14 @@ public class PageInitializer extends WebDriverUtils {
 		aaaPage =  new AAAPage();
 		aaaStepsImplementation = new AAAStepsImplementation();
 
+		/** TFM Instance Variables */
+		tfmPage =  new TFMPage();
+		tfmStepsImplementation = new TFMStepsImplementation();
+
+		/** FCAS Vendor Portal Instance Variables */
+		fCASVENDORPORTALStepsImplementation = new FCASVENDORPORTALStepsImplementation();
+		fCASVENDORPORTALPage = new FCASVENDORPORTALPage();
+
 		/** CHARMS Instance Variables **/
 		charmsNativeViewPage = new CHARMSNativeViewPage();
 		testAccountResetImpl = new TestAccountResetImpl();
@@ -466,6 +489,8 @@ public class PageInitializer extends WebDriverUtils {
 		ras_Survey_Smoking_Survey_TestDataManager = new RAS_Survey_Smoking_Survey_TestDataManager();
 		ras_Physical_Activities_Survey_TestDataManager = new RAS_Physical_Activities_Survey_TestDataManager();
 		iiq_TestDataManager = new IIQ_TestDataManager();
+		nv_Clinic_Visits_TestDataManager = new NV_Clinic_Visits_TestDataManager();
+		nv_New_Appointment_TestDataManager = new NV_New_Appointment_TestDataManager();
 		cgbIIQPage = new CGBIIQPage();
 		cGBIIQPages = new CGBIIQPages();
 		rAS_Survey_Page = new RAS_Survey_Page();
@@ -474,16 +499,16 @@ public class PageInitializer extends WebDriverUtils {
 		fHQSurveyPage = new FHQSurveyPage();
 		fHQSubmissionPage = new FHQSubmissionPage();
 		fHQSubmissionStepsImpl = new FHQSubmissionStepsImpl();
+		rASSurveyDataVerificationStepsImpl = new RASSurveyDataVerificationStepsImpl();
 		fHQ_TestDataManager = new FHQ_TestDataManager();
 		fHQConstants = new FHQConstants();
-		participantDetailsPage = new ParticipantDetailsPage();
 		referralTablePage = new ReferralTablePage();
 		fanconiLoginPage = new FanconiLoginPage();
 		fanconiEligibilityQuestionnairePage = new FanconiEligibilityQuestionnairePage();
 		fanconiScreenerNVPage = new FanconiScreenerNVPage();
 		cHARMSParticipantDetailsPage = new CHARMSParticipantDetailsPage();
 		fanconiEligibilityQuestionnaireStepsImpl = new FanconiEligibilityQuestionnaireStepsImpl();
-		screenerRecordTablePage = new ScreenerRecordTablePage();
+		nativeViewCHARMSScreenerRecordTablePage = new NativeViewCHARMSScreenerRecordTablePage();
 		myRASIIQFormPage = new MyRASIIQFormPage();
 		ras_survey_native_view = new RAS_Survey_Native_View_Page();
 		myRASSurveyPage = new MyRASSurveyPage();
@@ -664,6 +689,7 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewMembersOfCongressPage = new NativeViewMembersOfCongressPage();
 		nativeViewCHARMSDashboardPage = new NativeViewCHARMSDashboardPage();
 		nativeViewCHARMSFHQPatientPage = new NativeViewCHARMSFHQPatientPage();
+		nativeViewCHARMSNewAppointmentPage = new NativeViewCHARMSNewAppointmentPage();
 		nativeViewCHARMSParticipantDetailsPage = new NativeViewCHARMSParticipantDetailsPage();
 		nativeViewCHARMSParticipantConsentPage = new NativeViewCHARMSParticipantConsentPage();
 		nativeViewCHARMSClinicVisitsPage = new NativeViewCHARMSClinicVisitsPage();

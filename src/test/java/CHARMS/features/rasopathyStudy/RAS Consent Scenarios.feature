@@ -72,6 +72,8 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "<Email>" and password "<Password>"
     And "Download Study Consent" text shows on participant portal and when clicked downloads "Consent Record"
     And "Download Study Assent" text shows on participant portal and when clicked downloads "Assent Record"
+    And participant logs out of RAS portal
+    Then data submitted for scenario is verified in native from the excel sheet "<ScreenerScenario>"
     Examples:
       | Email                           | Password   | ScreenerScenario         | ConsentStatus | ConsentType                          | ResponseType     | AccountResetScriptURL                                                                                    |
       | consent_participant@yopmail.com | Charms123$ | screenerScenarioAge11-13 | Complete      | Aged 11 - 13, signed assent required | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
