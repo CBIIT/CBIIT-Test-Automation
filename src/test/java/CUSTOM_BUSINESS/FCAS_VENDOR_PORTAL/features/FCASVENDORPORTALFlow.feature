@@ -11,3 +11,14 @@ Feature: FCAS Vendor Portal Flow
     Then User can see All Contracts and My Contracts options
     And User can see Show Closed Contracts option
     And User can see a search page text field
+
+
+  @Alena @Regression @selenium @OASYS-4132
+  Scenario: Edit contract information
+    Given User accepts PII Disclaimer
+    And User is on Existing Contracts page
+    When Usr chooses to view a contract
+    Then User can view a contract
+
+
+
