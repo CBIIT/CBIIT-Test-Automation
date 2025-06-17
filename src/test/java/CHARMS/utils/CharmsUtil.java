@@ -638,6 +638,8 @@ public class CharmsUtil {
         CommonUtils.sleep(800);
     }
 
+    /** @SonikaJain  login To Study Page Using Username And Password in NativeView
+     */
     public static void loginToStudyPageUsingUsernameAndPassword(String username, String password) {
         CommonUtils.waitForVisibility(oktaLoginPage.enrollLoginButton);
         CharmsUtil.clickOnElement(oktaLoginPage.enrollLoginButton);
