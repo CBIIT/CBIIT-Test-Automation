@@ -13,11 +13,11 @@ Feature: FCAS Vendor Portal Flow
     And User can see a search page text field
 
 
-  @Alena @Regression @selenium @OASYS-4132
+  @Alena @Regression @selenium @OASYS-3657 @Progression
   Scenario: Edit contract information
     Given User accepts PII Disclaimer
     And User is on Existing Contracts page
-    And Use chooses Existing Contracts Submit Invoice option
+    And User chooses Existing Contracts Submit Invoice option
     Then User can see Submit Invoice page header
     And User can see Invoice field
     And User can see Invoice date field

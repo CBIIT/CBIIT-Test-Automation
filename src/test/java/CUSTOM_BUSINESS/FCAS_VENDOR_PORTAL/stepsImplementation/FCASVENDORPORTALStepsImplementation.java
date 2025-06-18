@@ -49,4 +49,81 @@ public class FCASVENDORPORTALStepsImplementation extends PageInitializer {
     public static void textSearchFieldOption() {
         softAssert.assertTrue(fCASVENDORPORTALPage.textSearchField.isDisplayed());
     }
+
+    /**
+     * Verify text Search Field Option
+     */
+    public static void verifySubmitInvoiceHeader() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.submitInvoiceHeader.isDisplayed());
+    }
+
+    /**
+     * Verify Invoice field
+     */
+    public static void verifyInvoiceField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.invoiceFieldSubmitInvoice.isDisplayed());
+    }
+
+    /**
+     * Verify Invoice Date field
+     */
+    public static void verifyInvoiceDateField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.invoiceDateFieldSubmitInvoice.isDisplayed());
+    }
+
+    /**
+     * Verify Start Date field
+     */
+    public static void verifyStartDateField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.startDateFieldSubmitInvoice.isDisplayed());
+    }
+
+    /**
+     * Verify End Date field
+     */
+    public static void verifyEndDateField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.endDateFieldSubmitInvoice.isDisplayed());
+    }
+
+    /**
+     * Verify Amount field
+     */
+    public static void verifyAmountField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.amountFieldSubmitInvoice.isDisplayed());
+    }
+
+    /**
+     * Verify Submission Type Dropdown
+     */
+    public static void verifySubmissionTypeDropdown() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.submissionTypeDropdownSubmitInvoice.isDisplayed());
+    }
+
+    /**
+     * Verify Primary Contact Dropdown
+     */
+    public static void verifyPrimaryContactDropdown() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.primaryContactDropdownSubmitInvoice.isDisplayed());
+    }
+
+    /**
+     * Verify Associates Contact Dropdown
+     */
+    public static void verifyAssociatesDropdown() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.associatesDropdownSubmitInvoice.isDisplayed());
+    }
+
+    /**
+     * Verify Comments Field
+     */
+    public static void verifyCommentsField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.commentsFieldSubmitInvoice.isDisplayed());
+    }
+
+    /**
+     * Verify Choose File button
+     */
+    public static void verifyChooseFileButton() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.chooseFileButton.isDisplayed());
+    }
 }
