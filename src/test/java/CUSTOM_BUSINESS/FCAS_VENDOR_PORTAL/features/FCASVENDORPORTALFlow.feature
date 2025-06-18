@@ -43,7 +43,3 @@ Feature: FCAS Vendor Portal Flow
     And User can see Unscheduled field
     Then User clicks Cancel button
 
-
-
-
-

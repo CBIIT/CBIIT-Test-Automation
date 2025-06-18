@@ -112,7 +112,6 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "//div[@class='unscheduled-empty ng-star-inserted']")
     public WebElement unscheduledFieldSubmitDeliverable;
 
-
     public FCASVENDORPORTALPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
