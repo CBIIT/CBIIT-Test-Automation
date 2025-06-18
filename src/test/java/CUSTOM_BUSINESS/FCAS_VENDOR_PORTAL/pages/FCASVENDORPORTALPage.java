@@ -47,6 +47,10 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "//button[@aria-label='submit deliverable']")
     public WebElement submitDeliverableOption;
 
+    /**Existing Contracts Menu Submit COA option*/
+    @FindBy(xpath = "//button[@aria-label='submit coa']")
+    public WebElement submitCOAOption;
+
     /**Submit Invoice page header*/
     @FindBy(xpath = "//div[.='Submit Invoice']")
     public WebElement submitInvoiceHeader;
@@ -54,6 +58,10 @@ public class FCASVENDORPORTALPage {
     /**Submit Deliverable page header*/
     @FindBy(xpath = "//div[.='Submit Deliverable']")
     public WebElement submitDeliverableHeader;
+
+    /**Submit COA page header*/
+    @FindBy(xpath = "//div[.='Submit COA']")
+    public WebElement submitCOAHeader;
 
     /**Invoice Field Submit Invoice*/
     @FindBy(xpath = "//div//input[@ng-reflect-placeholder='Invoice # *']")
@@ -111,6 +119,18 @@ public class FCASVENDORPORTALPage {
     /**Unscheduled Field Submit Deliverable*/
     @FindBy(xpath = "//div[@class='unscheduled-empty ng-star-inserted']")
     public WebElement unscheduledFieldSubmitDeliverable;
+
+    /**coa Requirement Dropdown Submit COA*/
+    @FindBy(xpath = "//div[@class='unscheduled-empty ng-star-inserted']")
+    public WebElement coaRequirementDropdownSubmitCOA;
+
+    /**COA Field Submit COA*/
+    @FindBy(xpath = "//div//input[@ng-reflect-placeholder='COA # *']")
+    public WebElement coaFieldSubmitCOA;
+
+    /**Title Field Submit COA*/
+    @FindBy(xpath = "//div//input[@ng-reflect-placeholder='Title *']")
+    public WebElement titleFieldSubmitCOA;
 
     public FCASVENDORPORTALPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);

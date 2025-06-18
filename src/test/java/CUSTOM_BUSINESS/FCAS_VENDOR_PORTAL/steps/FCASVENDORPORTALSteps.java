@@ -151,4 +151,34 @@ public class FCASVENDORPORTALSteps {
     public void user_can_see_unscheduled_field() {
         FCASVENDORPORTALStepsImplementation.verifyUnscheduledField();
     }
+
+    /**
+     * User chooses Existing Contracts Submit COA option
+     */
+    @Given("User chooses Existing Contracts Submit COA option")
+    public void user_chooses_existing_contracts_submit_coa_option() {
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.existingContractsRecordMenu);
+        CommonUtils.waitForClickability(fCASVENDORPORTALPage.submitCOAOption);
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.submitCOAOption);
+    }
+
+    @Then("User can see Submit COA page header")
+    public void user_can_see_submit_coa_page_header() {
+     FCASVENDORPORTALStepsImplementation.verifySubmitCOAPageHeader();
+    }
+
+    @Then("User can see COA Requirement dropdown")
+    public void user_can_see_coa_requirement_dropdown() {
+        FCASVENDORPORTALStepsImplementation.coaRequirementDropdown();
+    }
+
+    @Then("User can see COA field")
+    public void user_can_see_coa_field() {
+       FCASVENDORPORTALStepsImplementation.verifyCOAField();
+    }
+
+    @Then("User can see Title field")
+    public void user_can_see_title_field() {
+        FCASVENDORPORTALStepsImplementation.verifyTitleField();
+    }
 }

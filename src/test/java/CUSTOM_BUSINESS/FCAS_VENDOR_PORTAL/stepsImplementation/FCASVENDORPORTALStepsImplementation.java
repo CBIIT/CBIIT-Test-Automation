@@ -135,6 +135,13 @@ public class FCASVENDORPORTALStepsImplementation extends PageInitializer {
     }
 
     /**
+     * Verify Submit COA Page Header
+     */
+    public static void verifySubmitCOAPageHeader() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.submitCOAHeader.isDisplayed());
+    }
+
+    /**
      * Verify Submit Status Filter Dropdown
      */
     public static void verifyStatusFilterDropdown() {
@@ -153,5 +160,26 @@ public class FCASVENDORPORTALStepsImplementation extends PageInitializer {
      */
     public static void verifyUnscheduledField() {
         softAssert.assertTrue(fCASVENDORPORTALPage.unscheduledFieldSubmitDeliverable.isDisplayed());
+    }
+
+    /**
+     * Verify COA RequirementDropdown
+     */
+    public static void coaRequirementDropdown() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.coaRequirementDropdownSubmitCOA.isDisplayed());
+    }
+
+    /**
+     * Verify COA Field
+     */
+    public static void verifyCOAField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.coaFieldSubmitCOA.isDisplayed());
+    }
+
+    /**
+     * Verify title Field
+     */
+    public static void verifyTitleField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.titleFieldSubmitCOA.isDisplayed());
     }
 }
