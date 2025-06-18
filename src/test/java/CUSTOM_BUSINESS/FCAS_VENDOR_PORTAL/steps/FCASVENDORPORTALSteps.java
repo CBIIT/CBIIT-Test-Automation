@@ -246,4 +246,26 @@ public class FCASVENDORPORTALSteps {
     public void user_can_see_room_field() {
         FCASVENDORPORTALStepsImplementation.verifyRoomIDField();
     }
+
+    @Given("User chooses Existing Contracts Submit Notification option")
+    public void user_chooses_existing_contracts_submit_notification_option() {
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.existingContractsRecordMenu);
+        CommonUtils.waitForClickability(fCASVENDORPORTALPage.submitNotificationOption);
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.submitNotificationOption);
+    }
+
+    @Then("User can see Submit Notification page header")
+    public void user_can_see_submit_notification_page_header() {
+     FCASVENDORPORTALStepsImplementation.verifySubmitNotificationHeader();
+    }
+
+    @Then("User can see Notification Type dropdown")
+    public void user_can_see_notification_type_dropdown() {
+     FCASVENDORPORTALStepsImplementation.verifyNotificationsDropdown();
+    }
+
+    @Then("User can see Notification field")
+    public void user_can_see_notification_field() {
+       FCASVENDORPORTALStepsImplementation.verifyNotificationField();
+    }
 }

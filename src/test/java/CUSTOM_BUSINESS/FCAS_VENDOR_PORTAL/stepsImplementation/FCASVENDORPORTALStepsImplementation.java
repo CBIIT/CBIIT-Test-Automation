@@ -259,4 +259,25 @@ public class FCASVENDORPORTALStepsImplementation extends PageInitializer {
     public static void verifyRoomIDField() {
         softAssert.assertTrue(fCASVENDORPORTALPage.roomFieldSubmitWorkOrder.isDisplayed());
     }
+
+    /**
+     * Notifications Dropdown Submit Notification
+     */
+    public static void verifyNotificationsDropdown() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.notificationsDropdownSubmitNotification.isDisplayed());
+    }
+
+    /**
+     * Notifications Field Submit Notification
+     */
+    public static void verifyNotificationField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.notificationFieldSubmitNotification.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Submit Notification page header
+     */
+    public static void verifySubmitNotificationHeader() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.submitNotificationHeader.isDisplayed());
+    }
 }

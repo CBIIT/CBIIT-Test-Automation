@@ -58,7 +58,7 @@ Feature: FCAS Vendor Portal Flow
     And User can see Choose File button
     Then User clicks Cancel button
 
-  @Alena @Regression @selenium @OASYS-3657 @Progression
+  @Alena @Regression @selenium @OASYS-3657
   Scenario: Edit contract information Submit Work Order option
     Given User accepts PII Disclaimer
     And User is on Existing Contracts page
@@ -70,7 +70,6 @@ Feature: FCAS Vendor Portal Flow
     And User can see Package Type dropdown
     And User can see Primary Contact dropdown
     And User can see Associates dropdown
-
     And User can see Estimate field
     And User can see Beneficiary Occupancy Date field
     And User can see Project ID field
@@ -82,6 +81,18 @@ Feature: FCAS Vendor Portal Flow
     And User can see Choose File button
     Then User clicks Cancel button
 
-
-
+  @Alena @Regression @selenium @OASYS-3657
+  Scenario: Edit contract information Submit Notification option
+    Given User accepts PII Disclaimer
+    And User is on Existing Contracts page
+    And User chooses Existing Contracts Submit Notification option
+    Then User can see Submit Notification page header
+    And User can see Notification Type dropdown
+    And User can see Notification field
+    And User can see Title field
+    And User can see Primary Contact dropdown
+    And User can see Associates dropdown
+    And User can see Comments field
+    And User can see Choose File button
+    Then User clicks Cancel button
 

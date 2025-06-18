@@ -43,6 +43,10 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "//button[@aria-label='submit invoice']")
     public WebElement submitInvoiceOption;
 
+    /**Existing Contracts Menu Submit Notification option*/
+    @FindBy(xpath = "//button[@aria-label='submit notification']")
+    public WebElement submitNotificationOption;
+
     /**Existing Contracts Menu Submit Deliverable option*/
     @FindBy(xpath = "//button[@aria-label='submit deliverable']")
     public WebElement submitDeliverableOption;
@@ -179,6 +183,18 @@ public class FCASVENDORPORTALPage {
     /**Room Field Submit Work Order*/
     @FindBy(xpath = "//input[@ng-reflect-placeholder='Room (optional)']")
     public WebElement roomFieldSubmitWorkOrder;
+
+    /**Submit Notification page header*/
+    @FindBy(xpath = "//div[.='Submit Notification']")
+    public WebElement submitNotificationHeader;
+
+    /** Notifications Dropdown Submit Notification*/
+    @FindBy(xpath = "//div[.='Submit Notification']")
+    public WebElement notificationsDropdownSubmitNotification;
+
+    /** Notifications Field Submit Notification*/
+    @FindBy(xpath = "//div//input[@ng-reflect-placeholder ='Notification # *']")
+    public WebElement notificationFieldSubmitNotification;
 
     public FCASVENDORPORTALPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
