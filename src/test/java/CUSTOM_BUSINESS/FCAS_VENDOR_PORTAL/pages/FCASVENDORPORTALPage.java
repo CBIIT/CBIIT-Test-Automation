@@ -43,9 +43,17 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "//button[@aria-label='submit invoice']")
     public WebElement submitInvoiceOption;
 
+    /**Existing Contracts Menu Submit Deliverable option*/
+    @FindBy(xpath = "//button[@aria-label='submit deliverable']")
+    public WebElement submitDeliverableOption;
+
     /**Submit Invoice page header*/
-    @FindBy(xpath = "//button[@aria-label='submit invoice']")
+    @FindBy(xpath = "//div[.='Submit Invoice']")
     public WebElement submitInvoiceHeader;
+
+    /**Submit Deliverable page header*/
+    @FindBy(xpath = "//div[.='Submit Deliverable']")
+    public WebElement submitDeliverableHeader;
 
     /**Invoice Field Submit Invoice*/
     @FindBy(xpath = "//div//input[@ng-reflect-placeholder='Invoice # *']")
@@ -90,6 +98,20 @@ public class FCASVENDORPORTALPage {
     /**CancelButton*/
     @FindBy(xpath = "//button//span[.='Cancel']")
     public WebElement cancelButton;
+
+    /**Status Filter Dropdown Submit Deliverable*/
+    @FindBy(xpath = "//div[@id='mat-select-value-9']")
+    public WebElement statusFilterDropdownSubmitDeliverable;
+
+
+    /**Scheduled Field Submit Deliverable*/
+    @FindBy(xpath = "//div[@class='unscheduled-empty ng-star-inserted']")
+    public WebElement scheduledFieldSubmitDeliverable;
+
+    /**Unscheduled Field Submit Deliverable*/
+    @FindBy(xpath = "//div[@class='unscheduled-empty ng-star-inserted']")
+    public WebElement unscheduledFieldSubmitDeliverable;
+
 
     public FCASVENDORPORTALPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);

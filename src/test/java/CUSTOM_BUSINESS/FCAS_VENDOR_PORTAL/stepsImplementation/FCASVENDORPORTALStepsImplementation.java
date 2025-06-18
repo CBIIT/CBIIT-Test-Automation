@@ -126,4 +126,32 @@ public class FCASVENDORPORTALStepsImplementation extends PageInitializer {
     public static void verifyChooseFileButton() {
         softAssert.assertTrue(fCASVENDORPORTALPage.chooseFileButton.isDisplayed());
     }
+
+    /**
+     * Verify Submit Deliverables Page Header
+     */
+    public static void verifySubmitDeliverablesPageHeader() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.submitDeliverableHeader.isDisplayed());
+    }
+
+    /**
+     * Verify Submit Status Filter Dropdown
+     */
+    public static void verifyStatusFilterDropdown() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.statusFilterDropdownSubmitDeliverable.isDisplayed());
+    }
+
+    /**
+     * Verify Scheduled Field
+     */
+    public static void verifyScheduledField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.scheduledFieldSubmitDeliverable.isDisplayed());
+    }
+
+    /**
+     * Verify Scheduled Field
+     */
+    public static void verifyUnscheduledField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.unscheduledFieldSubmitDeliverable.isDisplayed());
+    }
 }

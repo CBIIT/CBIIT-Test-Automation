@@ -7,6 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static APPS_COMMON.PageInitializers.PageInitializer.fCASVENDORPORTALPage;
+import static APPS_COMMON.PageInitializers.PageInitializer.fCASVENDORPORTALStepsImplementation;
 
 public class FCASVENDORPORTALSteps {
 
@@ -57,6 +58,7 @@ public class FCASVENDORPORTALSteps {
     @Given("User chooses Existing Contracts Submit Invoice option")
     public void user_chooses_existing_contracts_submit_invoice_option() {
        CommonUtils.clickOnElement(fCASVENDORPORTALPage.existingContractsRecordMenu);
+       CommonUtils.waitForClickability(fCASVENDORPORTALPage.submitInvoiceOption);
        CommonUtils.clickOnElement(fCASVENDORPORTALPage.submitInvoiceOption);
     }
 
@@ -118,5 +120,35 @@ public class FCASVENDORPORTALSteps {
     @Then("User clicks Cancel button")
     public void user_clicks_cancel_button() {
        CommonUtils.clickOnElement(fCASVENDORPORTALPage.cancelButton);
+    }
+
+    /**
+     * User chooses Existing Contracts Submit Deliverable option
+     */
+    @Given("User chooses Existing Contracts Submit Deliverable option")
+    public void user_chooses_existing_contracts_submit_deliverable_option() {
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.existingContractsRecordMenu);
+        CommonUtils.waitForClickability(fCASVENDORPORTALPage.submitDeliverableOption);
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.submitDeliverableOption);
+    }
+
+    @Then("User can see Submit Deliverable page header")
+    public void user_can_see_submit_deliverable_page_header() {
+    FCASVENDORPORTALStepsImplementation.verifySubmitDeliverablesPageHeader();
+    }
+
+    @Then("User can see Status Filter dropdown")
+    public void user_can_see_status_filter_dropdown() {
+        FCASVENDORPORTALStepsImplementation.verifyStatusFilterDropdown();
+    }
+
+    @Then("User can see Scheduled field")
+    public void user_can_see_scheduled_field() {
+        FCASVENDORPORTALStepsImplementation.verifyScheduledField();
+    }
+
+    @Then("User can see Unscheduled field")
+    public void user_can_see_unscheduled_field() {
+        FCASVENDORPORTALStepsImplementation.verifyUnscheduledField();
     }
 }

@@ -13,8 +13,8 @@ Feature: FCAS Vendor Portal Flow
     And User can see a search page text field
 
 
-  @Alena @Regression @selenium @OASYS-3657 @Progression
-  Scenario: Edit contract information
+  @Alena @Regression @selenium @OASYS-3657
+  Scenario: Edit contract information Submit Invoice option
     Given User accepts PII Disclaimer
     And User is on Existing Contracts page
     And User chooses Existing Contracts Submit Invoice option
@@ -30,6 +30,17 @@ Feature: FCAS Vendor Portal Flow
     And User can see Associates dropdown
     And User can see Comments field
     And User can see Choose File button
+    Then User clicks Cancel button
+
+  @Alena @Regression @selenium @OASYS-3657
+  Scenario: Edit contract information Submit Deliverable option
+    Given User accepts PII Disclaimer
+    And User is on Existing Contracts page
+    And User chooses Existing Contracts Submit Deliverable option
+    Then User can see Submit Deliverable page header
+    And User can see Status Filter dropdown
+    And User can see Scheduled field
+    And User can see Unscheduled field
     Then User clicks Cancel button
 
 
