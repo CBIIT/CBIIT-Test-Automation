@@ -142,6 +142,13 @@ public class FCASVENDORPORTALStepsImplementation extends PageInitializer {
     }
 
     /**
+     * Verify Submit Work Order Page Header
+     */
+    public static void verifySubmitWorkOrderPageHeader() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.submitWorkOrderHeader.isDisplayed());
+    }
+
+    /**
      * Verify Submit Status Filter Dropdown
      */
     public static void verifyStatusFilterDropdown() {
@@ -181,5 +188,75 @@ public class FCASVENDORPORTALStepsImplementation extends PageInitializer {
      */
     public static void verifyTitleField() {
         softAssert.assertTrue(fCASVENDORPORTALPage.titleFieldSubmitCOA.isDisplayed());
+    }
+
+    /**
+     * Verify Work Order field Submit Work Order
+     */
+    public static void verifyWorkOrderField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.workOrderFieldSubmitWorkOrder.isDisplayed());
+    }
+
+    /**
+     * Verify Version field Submit Work Order
+     */
+    public static void verifyVersionField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.versionFieldSubmitWorkOrder.isDisplayed());
+    }
+
+    /**
+     * Verify Package Type dropdown Submit Work Order
+     */
+    public static void verifyPackageTypeDropdown() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.packageTypeDropdownSubmitWorkOrder.isDisplayed());
+    }
+
+    /**
+     * Verify Estimate field Submit Work Order
+     */
+    public static void verifyEstimateField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.estimateFieldSubmitWorkOrder.isDisplayed());
+    }
+
+    /**
+     * Beneficiary Occupant Date Field Submit Work Order
+     */
+    public static void verifyBeneficiaryOccupantDateFieldField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.beneficiaryOccupantDateFieldSubmitWorkOrder.isDisplayed());
+    }
+
+    /**
+     * Project ID Field Submit Work Order
+     */
+    public static void verifyProjectIdField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.projectIDFieldSubmitWorkOrder.isDisplayed());
+    }
+
+    /**
+     * Directorate Customer Field Submit Work Order
+     */
+    public static void verifyDirectorateCustomerIDField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.directorateCustomerFieldSubmitWorkOrder.isDisplayed());
+    }
+
+    /**
+     * Directorate Field Submit Work Order
+     */
+    public static void verifyDirectorateIDField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.directorateFieldSubmitWorkOrder.isDisplayed());
+    }
+
+    /**
+     * Building Field Submit Work Order
+     */
+    public static void verifyBuildingIDField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.buildingFieldSubmitWorkOrder.isDisplayed());
+    }
+
+    /**
+     * Room Field Submit Work Order
+     */
+    public static void verifyRoomIDField() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.roomFieldSubmitWorkOrder.isDisplayed());
     }
 }

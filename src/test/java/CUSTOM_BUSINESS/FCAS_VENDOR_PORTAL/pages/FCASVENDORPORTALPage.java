@@ -51,6 +51,10 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "//button[@aria-label='submit coa']")
     public WebElement submitCOAOption;
 
+    /**Existing Contracts Menu Submit Work Order option*/
+    @FindBy(xpath = "//button[@aria-label='submit work order']")
+    public WebElement submitWorkOrderOption;
+
     /**Submit Invoice page header*/
     @FindBy(xpath = "//div[.='Submit Invoice']")
     public WebElement submitInvoiceHeader;
@@ -62,6 +66,10 @@ public class FCASVENDORPORTALPage {
     /**Submit COA page header*/
     @FindBy(xpath = "//div[.='Submit COA']")
     public WebElement submitCOAHeader;
+
+    /**Submit Work Order page header*/
+    @FindBy(xpath = "//div[.='Submit Work Order']")
+    public WebElement submitWorkOrderHeader;
 
     /**Invoice Field Submit Invoice*/
     @FindBy(xpath = "//div//input[@ng-reflect-placeholder='Invoice # *']")
@@ -131,6 +139,46 @@ public class FCASVENDORPORTALPage {
     /**Title Field Submit COA*/
     @FindBy(xpath = "//div//input[@ng-reflect-placeholder='Title *']")
     public WebElement titleFieldSubmitCOA;
+
+    /**Work Order Field Submit Work Order*/
+    @FindBy(xpath = "//div//input[@ng-reflect-placeholder='Work Order # *']")
+    public WebElement workOrderFieldSubmitWorkOrder;
+
+    /**Version Field Submit Work Order*/
+    @FindBy(xpath = "//div//input[@ng-reflect-name='VersionNumber']")
+    public WebElement versionFieldSubmitWorkOrder;
+
+    /**Package Type Dropdown Submit Work Order*/
+    @FindBy(xpath = "//div//hp-select[@aria-label='Package Type']")
+    public WebElement packageTypeDropdownSubmitWorkOrder;
+
+    /**Estimate Field Submit Work Order*/
+    @FindBy(xpath = "//div//input[@ng-reflect-placeholder='Estimate *']")
+    public WebElement estimateFieldSubmitWorkOrder;
+
+    /**Beneficiary Occupant Date Field Submit Work Order*/
+    @FindBy(xpath = "//*[@id='mat-input-51']")
+    public WebElement beneficiaryOccupantDateFieldSubmitWorkOrder;
+
+    /**Project ID Field Submit Work Order*/
+    @FindBy(xpath = "//input[@ng-reflect-placeholder='Project ID *']")
+    public WebElement projectIDFieldSubmitWorkOrder;
+
+    /**Directorate Customer Field Submit Work Order*/
+    @FindBy(xpath = "//input[@ng-reflect-placeholder='Directorate Customer (optional']")
+    public WebElement directorateCustomerFieldSubmitWorkOrder;
+
+    /**Directorate Field Submit Work Order*/
+    @FindBy(xpath = "//input[@ng-reflect-placeholder='Directorate (optional)']")
+    public WebElement directorateFieldSubmitWorkOrder;
+
+    /**Building Field Submit Work Order*/
+    @FindBy(xpath = "//input[@ng-reflect-placeholder='Building (optional)']")
+    public WebElement buildingFieldSubmitWorkOrder;
+
+    /**Room Field Submit Work Order*/
+    @FindBy(xpath = "//input[@ng-reflect-placeholder='Room (optional)']")
+    public WebElement roomFieldSubmitWorkOrder;
 
     public FCASVENDORPORTALPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
