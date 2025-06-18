@@ -219,15 +219,130 @@ public class MetforminScreenerStepsImpl extends PageInitializer {
 
     /*** THIS METHOD WILL SUBMIT AND ASSERT THE PARTICIPANT CANCER DIAGNOSIS INFORMATION IN METFORMIN SCREENER FROM PORTAL ***/
     private void participantCancerDiagnosis() {
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.HAVE_YOU_THE_PARTICIPANT_EVER_BEEN_DIAGNOSED_WITH_CANCER), MetforminScreenerConstants.HAVE_YOU_THE_PARTICIPANT_EVER_BEEN_DIAGNOSED_WITH_CANCER, " Have you/the participant ever been diagnosed with cancer? Label");
+        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId("15"), MetforminScreenerConstants.YES_NO_UNKNOWN_UNSURE, metforminScreener_TestDataManager.haveYouTheParticipantEverBeenDiagnosedWithCancer);
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.metforminParticipantCancerHelpText, MetforminScreenerConstants.CANCER_HELP_TEXT, " Cancer help text Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.metforminParticipantCancerInformationText, MetforminScreenerConstants.CANCER_INFORMATION_TEXT, " Cancer information Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.CANCER_DETAILS), MetforminScreenerConstants.CANCER_DETAILS, " Cancer Details Label");
+        CharmsUtil.assertButtonLabel(softAssert, metforminScreenerPage.dynamicLocatorForButtonUsingNormalizeSpace(MetforminScreenerConstants.ADD), MetforminScreenerConstants.ADD, " Add Button Label");
+        CharmsUtil.assertButtonLabel(softAssert, metforminScreenerPage.dynamicLocatorForButtonUsingNormalizeSpace(MetforminScreenerConstants.REMOVE_ALL), MetforminScreenerConstants.REMOVE_ALL, " Remove All Button Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTableNormalizeSpace(MetforminScreenerConstants.ACTIONS), MetforminScreenerConstants.ACTIONS, " Actions Label in the table");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTableNormalizeSpace(MetforminScreenerConstants.TUMOR_TYPE), MetforminScreenerConstants.TUMOR_TYPE, " Tumor Type Label in the table");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTableNormalizeSpace(MetforminScreenerConstants.PLEASE_SELECT_AGE_OR_DATE_FOR_REPORTING), MetforminScreenerConstants.PLEASE_SELECT_AGE_OR_DATE_FOR_REPORTING, "Please select Age or Date for reporting Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTableNormalizeSpace(MetforminScreenerConstants.AGE_AT_DIAGNOSIS), MetforminScreenerConstants.AGE_AT_DIAGNOSIS, "Age at Diagnosis Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTableNormalizeSpace(MetforminScreenerConstants.MONTH_OF_DIAGNOSIS), MetforminScreenerConstants.MONTH_OF_DIAGNOSIS, "Month of Diagnosis Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTableNormalizeSpace(MetforminScreenerConstants.YEAR_OF_DIAGNOSIS), MetforminScreenerConstants.YEAR_OF_DIAGNOSIS, "Year of Diagnosis Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTableNormalizeSpace(MetforminScreenerConstants.ARE_YOU_THE_PARTICIPANT_CURRENTLY_RECEIVING_TREATMENT), MetforminScreenerConstants.ARE_YOU_THE_PARTICIPANT_CURRENTLY_RECEIVING_TREATMENT, "Are you/the participant currently receiving treatment? Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTableNormalizeSpace(MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_DIAGNOSED), MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_DIAGNOSED, "Please provide the name of the institution where the cancer was diagnosed. Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTableNormalizeSpace(MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_TREATED), MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_TREATED, "Please provide the name of the institution where the cancer was treated. Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTableNormalizeSpace(MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_TREATING_PHYSICIAN), MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_TREATING_PHYSICIAN, "Please provide the name of the treating physician. Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTableNormalizeSpace(MetforminScreenerConstants.ADDITIONAL_DETAILS), MetforminScreenerConstants.ADDITIONAL_DETAILS, "Additional Details Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.metforminCancerNoDataToDisplay, MetforminScreenerConstants.NO_DATA_TO_DISPLAY, " No data to display Label");
+        CharmsUtil.clickOnElement(metforminScreenerPage.dynamicLocatorForButtonUsingNormalizeSpace(MetforminScreenerConstants.ADD));
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.TUMOR_TYPE), MetforminScreenerConstants.TUMOR_TYPE, " Tumor Type Label");
+        CharmsUtil.clickOnElement(metforminScreenerPage.metforminParticipantTumorTypeInput);
+        CommonUtils.sleep(500);
+        CharmsUtil.clickOnElement(metforminScreenerPage.metforminParticipantTumorTypeInput1);
+        CharmsUtil.sendKeysToElement(metforminScreenerPage.metforminParticipantTumorTypeInput, metforminScreener_TestDataManager.tumorType);
+        metforminScreenerPage.metforminParticipantTumorTypeInput.sendKeys(org.openqa.selenium.Keys.TAB);
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.PLEASE_SELECT_AGE_OR_DATE_FOR_REPORTING), MetforminScreenerConstants.PLEASE_SELECT_AGE_OR_DATE_FOR_REPORTING, "Please select Age or Date for reporting Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.metforminParticipantTumorDateOrAgeLabel, "Select Unknown/Unsure if you don't know the date or age of cancer diagnosis", "Select Unknown/Unsure help text Label");
+        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId("37"), MetforminScreenerConstants.YEAR_OR_AGE_OF_DIAGNOSIS, metforminScreener_TestDataManager.pleaseSelectAgeOrDateForReporting);
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceSpan(MetforminScreenerConstants.AGE_AT_DIAGNOSIS), MetforminScreenerConstants.AGE_AT_DIAGNOSIS, "Age at Diagnosis Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceSpan("Select 0 if diagnosis occurred before age 1."), "Select 0 if diagnosis occurred before age 1.", "Select 0 if diagnosis occurred before age 1. Label");
+        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId("44"), MetforminScreenerConstants.ageOfDiagnosis(), metforminScreener_TestDataManager.ageAtDiagnosis);
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceSpan(MetforminScreenerConstants.ARE_YOU_THE_PARTICIPANT_CURRENTLY_RECEIVING_TREATMENT), MetforminScreenerConstants.ARE_YOU_THE_PARTICIPANT_CURRENTLY_RECEIVING_TREATMENT, "Are you/the participant currently receiving treatment? Label");
+        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId("47"), MetforminScreenerConstants.YES_NO_UNKNOWN_UNSURE, metforminScreener_TestDataManager.areYouTheParticipantCurrentlyReceivingTreatment);
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceSpan(MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_DIAGNOSED), MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_DIAGNOSED, "Please provide the name of the institution where the cancer was diagnosed. Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanTitle(MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE,1), MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE, "Type Unknown/Unsure if you are not sure. Label");
+        CharmsUtil.sendKeysToElement(metforminScreenerPage.metforminParticipantInstitutionDiagnosedInput, metforminScreener_TestDataManager.pleaseProvideTheNameOfTheInstitutionWhereTheCancerWasDiagnosed);
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceSpan(MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_TREATED), MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_TREATED, "Please provide the name of the institution where the cancer was treated. Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanTitle(MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE,1), MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE, "Type Unknown/Unsure if you are not sure. Label");
+        CharmsUtil.sendKeysToElement(metforminScreenerPage.metforminParticipantInstitutionTreatedInput, metforminScreener_TestDataManager.pleaseProvideTheNameOfTheInstitutionWhereTheCancerWasTreated);
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceSpan(MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_TREATING_PHYSICIAN), MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_TREATING_PHYSICIAN, "Please provide the name of the treating physician. Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanTitle(MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE,1), MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE, "Type Unknown/Unsure if you are not sure. Label");
+        CharmsUtil.sendKeysToElement(metforminScreenerPage.metforminParticipantTreatingPhysicianInput, metforminScreener_TestDataManager.pleaseProvideTheNameOfTheTreatingPhysician);
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.ADDITIONAL_DETAILS), MetforminScreenerConstants.ADDITIONAL_DETAILS, " Additional Details Label");
+        CharmsUtil.sendKeysToElement(metforminScreenerPage.metforminParticipantCancerAdditionalDetailsInput, metforminScreener_TestDataManager.additionalDetails);
+        CharmsUtil.assertButtonLabel(softAssert, metforminScreenerPage.dynamicLocatorForButtonUsingNormalizeSpace("Cancel"), "Cancel", "Cancel button Label");
+        CharmsUtil.assertButtonLabel(softAssert, metforminScreenerPage.dynamicLocatorForButtonUsingNormalizeSpace("Add"), "Add", "Add button Label");
+        CucumberLogUtils.logScreenshot();
     }
 
     /*** THIS METHOD WILL SUBMIT AND ASSERT THE PARTICIPANT CANCER TREATMENT DETAILS INFORMATION IN METFORMIN SCREENER FROM PORTAL ***/
     private void participantCancerTreatmentDetails() {
-        }
+        /***** Assertion and input for "Have you/the participant had surgery to remove a cancer in the last 3 months? *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.HAVE_YOU_THE_PARTICIPANT_HAD_SURGERY_TO_REMOVE_CANCER_LAST_3_MONTHS), MetforminScreenerConstants.HAVE_YOU_THE_PARTICIPANT_HAD_SURGERY_TO_REMOVE_CANCER_LAST_3_MONTHS, "Have you/the participant had surgery to remove a cancer in the last 3 months? Label");
+        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId("16"), MetforminScreenerConstants.YES_NO_UNKNOWN_UNSURE, metforminScreener_TestDataManager.haveYouTheParticipantHadSurgeryToRemoveCancerLast3Months);
+        /***** Assertion and input for "Please provide the date of surgery. *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.PLEASE_PROVIDE_THE_DATE_OF_SURGERY), MetforminScreenerConstants.PLEASE_PROVIDE_THE_DATE_OF_SURGERY, "Please provide the date of surgery. Label");
+        CharmsUtil.sendKeysToElement(metforminScreenerPage.dynamicLocatorForInputElementUsingNameInMetforminScreener("date_of_3mnth", 1), metforminScreener_TestDataManager.pleaseProvideTheDateOfSurgery);
+        /***** Assertion and input for "Have you/the participant received chemotherapy or radiation in the last 6 months? *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.HAVE_YOU_THE_PARTICIPANT_RECEIVED_CHEMOTHERAPY_OR_RADIATION_LAST_6_MONTHS), MetforminScreenerConstants.HAVE_YOU_THE_PARTICIPANT_RECEIVED_CHEMOTHERAPY_OR_RADIATION_LAST_6_MONTHS, "Have you/the participant received chemotherapy or radiation in the last 6 months? Label");
+        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId("17"), MetforminScreenerConstants.YES_NO_UNKNOWN_UNSURE, metforminScreener_TestDataManager.haveYouTheParticipantReceivedChemotherapyOrRadiationLast6Months);
+        /***** Assertion and input for "What was the date of your/the participant's last treatment? *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanContainText(MetforminScreenerConstants.WHAT_WAS_THE_DATE_OF_PARTICIPANT_LAST_TREATMENT), MetforminScreenerConstants.WHAT_WAS_THE_DATE_OF_PARTICIPANT_LAST_TREATMENT, "What was the date of your/the participant's last treatment? Label");
+        CharmsUtil.sendKeysToElement(metforminScreenerPage.dynamicLocatorForInputElementUsingNameInMetforminScreener("date_of_6mnth", 1), metforminScreener_TestDataManager.whatWasTheDateOfParticipantLastTreatment);
+        /***** Assertion and input for "Are you/the participant currently undergoing treatment for a cancer? *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.ARE_YOU_THE_PARTICIPANT_CURRENTLY_UNDERGOING_TREATMENT_FOR_CANCER), MetforminScreenerConstants.ARE_YOU_THE_PARTICIPANT_CURRENTLY_UNDERGOING_TREATMENT_FOR_CANCER, "Are you/the participant currently undergoing treatment for a cancer? Label");
+        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId("18"), MetforminScreenerConstants.YES_NO_UNKNOWN_UNSURE, metforminScreener_TestDataManager.areYouTheParticipantCurrentlyUndergoingTreatmentForCancer);
+        /***** Assertion for "What current medication(s) are you/the participant taking? (if any) *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.metforminParticipantCurrentMedLabel, MetforminScreenerConstants.WHAT_CURRENT_MEDICATIONS_ARE_YOU_THE_PARTICIPANT_TAKING_IF_ANY, "What current medication(s) are you/the participant taking? (if any) Label");
+        /***** Assertion and input for "List all medications and separate with a semicolon (example: aspirin; Tylenol). *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.LIST_ALL_MEDICATIONS_AND_SEPARATE_WITH_A_SEMICOLON), MetforminScreenerConstants.LIST_ALL_MEDICATIONS_AND_SEPARATE_WITH_A_SEMICOLON, "List all medications and separate with a semicolon (example: aspirin; Tylenol). Label");
+        CharmsUtil.sendKeysToElement(metforminScreenerPage.metforminParticipantCurrentMedInput, metforminScreener_TestDataManager.listAllMedicationsAndSeparateWithASemicolon);
+        /***** Assertion for "Not applicable / No medication *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanContainText(MetforminScreenerConstants.NOT_APPLICABLE_NO_MEDICATION), MetforminScreenerConstants.NOT_APPLICABLE_NO_MEDICATION, "Not applicable / No medication Label");
+        CharmsUtil.assertCheckBox(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanContainText(MetforminScreenerConstants.NOT_APPLICABLE_NO_MEDICATION), false, "Not applicable / No medication Checkbox selected");
+        /***** Assertion and dropdown for "Do you/the participant have a known allergy to Metformin? *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.DO_YOU_THE_PARTICIPANT_HAVE_A_KNOWN_ALLERGY_TO_METFORMIN), MetforminScreenerConstants.DO_YOU_THE_PARTICIPANT_HAVE_A_KNOWN_ALLERGY_TO_METFORMIN, "Do you/the participant have a known allergy to Metformin? Label");
+        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId("19"), MetforminScreenerConstants.YES_NO_UNKNOWN_UNSURE, metforminScreener_TestDataManager.doYouTheParticipantHaveAKnownAllergyToMetformin);
+        /***** Assertion and dropdown for "Have you/the participant ever taken Metformin? *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.HAVE_YOU_THE_PARTICIPANT_EVER_TAKEN_METFORMIN), MetforminScreenerConstants.HAVE_YOU_THE_PARTICIPANT_EVER_TAKEN_METFORMIN, "Have you/the participant ever taken Metformin? Label");
+        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId("20"), MetforminScreenerConstants.YES_NO_UNKNOWN_UNSURE, metforminScreener_TestDataManager.haveYouTheParticipantEverTakenMetformin);
+        /***** Assertion for "Have you/the participant taken Metformin for more than 3 months in total? *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.HAVE_YOU_THE_PARTICIPANT_TAKEN_METFORMIN_FOR_MORE_THAN_3_MONTHS_IN_TOTAL), MetforminScreenerConstants.HAVE_YOU_THE_PARTICIPANT_TAKEN_METFORMIN_FOR_MORE_THAN_3_MONTHS_IN_TOTAL, "Have you/the participant taken Metformin for more than 3 months in total? Label");
+        /***** Assertion  and dropdown for "For example, if you took Metformin for two months in 2015 and one month in 2017, select yes. *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.metforminParticipantMetforminInfoLabel, "For example, if you took Metformin for two months in 2015 and one month in 2017, select yes.", "Metformin duration example help text Label");
+        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId("21"), MetforminScreenerConstants.YES_NO_UNKNOWN_UNSURE, metforminScreener_TestDataManager.haveYouTheParticipantTakenMetforminForMoreThan3MonthsInTotal);
+        /***** Assertion and dropdown for "Are you/the participant currently taking Metformin? *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.ARE_YOU_THE_PARTICIPANT_CURRENTLY_TAKING_METFORMIN), MetforminScreenerConstants.ARE_YOU_THE_PARTICIPANT_CURRENTLY_TAKING_METFORMIN, "Are you/the participant currently taking Metformin? Label");
+        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId("22"), MetforminScreenerConstants.YES_NO_UNKNOWN_UNSURE, metforminScreener_TestDataManager.areYouTheParticipantCurrentlyTakingMetformin);
+    }
 
     /*** THIS METHOD WILL SUBMIT AND ASSERT THE PARTICIPANT STUDY DETAILS INFORMATION IN METFORMIN SCREENER FROM PORTAL ***/
     private void participantStudyDetails() {
-       }
+        /***** Assertion for "Here are a few remaining questions regarding this study." *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.HERE_ARE_A_FEW_REMAINING_QUESTIONS_REGARDING_THIS_STUDY), MetforminScreenerConstants.HERE_ARE_A_FEW_REMAINING_QUESTIONS_REGARDING_THIS_STUDY, "Here are a few remaining questions regarding this study. Label");
+        /***** Assertion and dropdown for "How did you/the participant hear about this study?" *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.HOW_DID_YOU_THE_PARTICIPANT_HEAR_ABOUT_THIS_STUDY), MetforminScreenerConstants.HOW_DID_YOU_THE_PARTICIPANT_HEAR_ABOUT_THIS_STUDY, "How did you/the participant hear about this study? Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.metforminParticipantHealthCareInfoLabel, MetforminScreenerConstants.STUDY_INFORMATION, "If a specific health care provider referred you to this study, please include their name in the corresponding text box. Label");
+        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId("23"), MetforminScreenerConstants.HEAR_ABOUT_STUDY_OPTIONS, metforminScreener_TestDataManager.howDidYouTheParticipantHearAboutThisStudy);
+        /***** Assertion for "Medical Information" *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.metforminParticipantMedicalInfoLabel, MetforminScreenerConstants.MEDICAL_INFORMATION, "In case we require additional medical information to determine if you/the participant are eligible to participate in our research study, please provide us with the name, address, and phone number of the health care provider who is most familiar with your/the participant’s case:Label");
+        /***** Assertion and dropdown input for "Name" *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.NAME), MetforminScreenerConstants.NAME, "Name Label");
+        CharmsUtil.sendKeysToElement(metforminScreenerPage.dynamicLocatorForInputElementUsingNameInMetforminScreener("health_care_prov_name", 1), metforminScreener_TestDataManager.name);
+        /***** Assertion and dropdown input for "Address" *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.ADDRESS), MetforminScreenerConstants.ADDRESS, "Address Label");
+        CharmsUtil.sendKeysToElement(metforminScreenerPage.dynamicLocatorForInputElementUsingNameInMetforminScreener("health_care_prov_address", 1), metforminScreener_TestDataManager.address);
+        /***** Assertion and dropdown input for "Phone Number" *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanContainTextAndIndex(MetforminScreenerConstants.PHONE_NUMBER, 5), MetforminScreenerConstants.PHONE_NUMBER, "Phone Number Label");
+        CharmsUtil.sendKeysToElement(metforminScreenerPage.dynamicLocatorForInputElementUsingNameInMetforminScreener("health_care_prov_phone_number", 1), metforminScreener_TestDataManager.medicalPhoneNumber);
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceSpan(MetforminScreenerConstants.DO_WE_HAVE_YOUR_THE_PARTICIPANTS_PERMISSION_TO_CALL_THIS_INDIVIDUAL_TO_SEEK_MORE_INFORMATION), MetforminScreenerConstants.DO_WE_HAVE_YOUR_THE_PARTICIPANTS_PERMISSION_TO_CALL_THIS_INDIVIDUAL_TO_SEEK_MORE_INFORMATION, "Do we have your/the participant's permission to call this individual to seek more information? Label");
+        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId("24"), MetforminScreenerConstants.YES_NO, metforminScreener_TestDataManager.doWeHaveYourTheParticipantsPermissionToCallThisIndividualToSeekMoreInformation);
+        /***** Assertion and dropdown for "What are the main reasons for participating in this study? Select all that apply." *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY_SELECT_ALL_THAT_APPLY), MetforminScreenerConstants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY_SELECT_ALL_THAT_APPLY, "What are the main reasons for participating in this study? Select all that apply. Label");// Assertion for "Please elaborate on the reason in the corresponding textbox."
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.PLEASE_ELABORATE_ON_THE_REASON_IN_THE_CORRESPONDING_TEXTBOX), MetforminScreenerConstants.PLEASE_ELABORATE_ON_THE_REASON_IN_THE_CORRESPONDING_TEXTBOX, "Please elaborate on the reason in the corresponding textbox. Label");
+        CommonUtils.sleep(1000);
+        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.metforminParticipantStudySiteInput, MetforminScreenerConstants.STUDY_REASON, metforminScreener_TestDataManager.whatAreTheMainReasonsForParticipatingInThisStudySelectAllThatApply);
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.RECEIVE_GENETIC_TESTING), MetforminScreenerConstants.RECEIVE_GENETIC_TESTING, "Receive genetic testing: Label");
+        CharmsUtil.sendKeysToElement(metforminScreenerPage.metforminParticipantGeneticTestInput, metforminScreener_TestDataManager.receiveGeneticTesting);
+        metforminScreenerPage.metforminParticipantGeneticTestInput.sendKeys(org.openqa.selenium.Keys.TAB);
+        /***** Assertion for "Please provide any additional information you would like to share with the study team." and Submit button *****/
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.metforminParticipantSubmitInfoLabel, MetforminScreenerConstants.SUBMIT_INFORMATION, "Submit Information Label");
+        CharmsUtil.assertButtonLabel(softAssert, metforminScreenerPage.dynamicLocatorForButtonUsingNormalizeSpace("Submit"), "Submit", "Submit button Label");
+    }
 
     /*** THIS METHOD WILL SUBMIT AND ASSERT ALL THE SCENARIOS FOR METFORMIN SCREENER FROM PORTAL ***/
     public void submitAllScenarios() {
