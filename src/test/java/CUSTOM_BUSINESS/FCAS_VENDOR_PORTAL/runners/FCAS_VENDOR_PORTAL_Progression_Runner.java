@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
             , features = "src/test/java/CUSTOM_BUSINESS/FCAS_VENDOR_PORTAL/features"
             , glue = {"CUSTOM_BUSINESS.FCAS_VENDOR_PORTAL.steps", "Hooks"}
             , tags = "@Progression"
-            , dryRun = true
+            , dryRun = false
     )
 
     public class FCAS_VENDOR_PORTAL_Progression_Runner extends AbstractTestNGCucumberTests {}
