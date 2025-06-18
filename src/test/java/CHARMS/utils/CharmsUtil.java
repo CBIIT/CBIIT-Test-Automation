@@ -4,16 +4,15 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.ArrayList;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
+import APPS_COMMON.Utils.ServiceNow_Common_Methods;
+import APPS_COMMON.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.web.TestProperties;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
 import org.openqa.selenium.*;
@@ -22,6 +21,8 @@ import org.testng.asserts.SoftAssert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.ExcelReader;
 import com.nci.automation.web.WebDriverUtils;
+import static APPS_COMMON.PageInitializers.PageInitializer.oktaLoginPage;
+import static APPS_COMMON.PageInitializers.PageInitializer.testAccountResetPage;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 import static CHARMS.steps.RAS_Common_Methods.softAssertDropDownValueIsSelected;
 import static Hooks.Hooks.softAssert;
@@ -41,19 +42,19 @@ public class CharmsUtil {
         return currentRow;
     }
 
-    /* @param webElement:Element to be highlighted */
+    /** @SonikaJain @param webElement:Element to be highlighted */
     public static void labelHighlight(WebElement webElement) {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) WebDriverUtils.webDriver;
         jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red')", webElement);
     }
 
-    /* @param webElement:Element to be Unhighlighted */
+    /** @SonikaJain @param webElement:Element to be Unhighlighted */
     public static void labelUnHighlight(WebElement webElement) {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) WebDriverUtils.webDriver;
         jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:none; background:white')", webElement);
     }
 
-    /* @param webElement:Element to be clicked to avoid the exception */
+    /** @SonikaJain @param webElement:Element to be clicked to avoid the exception */
     public static void clickOnElement(WebElement webElement) {
         CharmsUtil.labelHighlight(webElement);
         int count = 0;
@@ -69,7 +70,7 @@ public class CharmsUtil {
         }
     }
 
-    /* @param webElement:Element to be clicked to avoid the exception */
+    /** @SonikaJain @param webElement:Element to be clicked to avoid the exception */
     public static void clickOnRadioButtonElement(WebElement webElement) {
         CharmsUtil.labelHighlight(webElement);
         int count = 0;
@@ -85,7 +86,7 @@ public class CharmsUtil {
         }
     }
 
-    /* @param webElement:USE THIS METHOD TO SEND KEYS TO STALE ELEMENTS */
+    /** @SonikaJain @param webElement:USE THIS METHOD TO SEND KEYS TO STALE ELEMENTS */
     public static void sendKeysToElement(WebElement webElement, String text) {
         int count = 0;
         while (count < 5) {
@@ -101,7 +102,7 @@ public class CharmsUtil {
         }
     }
 
-    /* @param webElement:Element to be Verified */
+    /** @SonikaJain @param webElement:Element to be Verified */
     public static void assertCheckBox(SoftAssert softAssert, WebElement webElement, boolean expectedValue,
                                       String message) {
         CharmsUtil.labelHighlight(webElement);
@@ -109,14 +110,14 @@ public class CharmsUtil {
         softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + message + "-->");
     }
 
-    /* @param webElement:Button Label to be Verified */
+    /** @SonikaJain @param webElement:Button Label to be Verified */
     public static void assertButtonLabel(SoftAssert softAssert, WebElement webElement, String expectedValue, String message) {
         CharmsUtil.labelHighlight(webElement);
         String actualValue = webElement.getText();
         softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + message + "-->");
     }
 
-    /* @param webElement:Button Label to be Verified */
+    /** @SonikaJain @param webElement:Button Label to be Verified */
     public static void assertButtonLabelWithSpace(SoftAssert softAssert, WebElement webElement, String expectedValue, String messsage) {
         CharmsUtil.labelHighlight(webElement);
         String actualValue = webElement.getText();
@@ -140,7 +141,7 @@ public class CharmsUtil {
         return false;
     }
 
-    /* webElement:A text box to be Verified */
+    /** @SonikaJain webElement:A text box to be Verified */
     public static void assertTextBoxData(SoftAssert softAssert, WebElement webElement, String expectedValue, String message) {
         CharmsUtil.labelHighlight(webElement);
         CommonUtils.sleep(300);
@@ -155,14 +156,11 @@ public class CharmsUtil {
         softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + message + "-->");
     }
 
-    /* webElement:A text box to be Verified */
+    /** @SonikaJain webElement:A text box to be Verified */
     public static void assertTextBoxDataSelected(SoftAssert softAssert, WebElement webElement, String expectedValue, String message) {
         CharmsUtil.labelHighlight(webElement);
         CommonUtils.sleep(300);
         String actualValue = null;
-        if (webElement.getAttribute("value") != null) {
-            actualValue = webElement.getAttribute("value");
-        }
         if (webElement.getAttribute("value") != null) {
             actualValue = webElement.getAttribute("value");
         } else {
@@ -171,7 +169,7 @@ public class CharmsUtil {
         softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + message + "-->");
     }
 
-    /* webElement:A DropDown value to be Verified */
+    /** @SonikaJain webElement:A DropDown value to be Verified */
     public static void assertDropDownData(SoftAssert softAssert, WebElement webElement, String expectedValue, String message) {
         CharmsUtil.labelHighlight(webElement);
         CommonUtils.sleep(200);
@@ -184,6 +182,7 @@ public class CharmsUtil {
         softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + message + "-->");
     }
 
+    /** @SonikaJain webElement:Compare Actual results */
     public static void compareExpectedActualValue(SoftAssert softAssert, WebElement webElement, String expectedValue, String message) {
         CharmsUtil.labelHighlight(webElement);
         Select select = new Select(webElement);
@@ -191,7 +190,7 @@ public class CharmsUtil {
         softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + message + "-->");
     }
 
-    /* Method to select a value from the Drop down List */
+    /** @SonikaJain Method to select a value from the Drop down List */
     public static boolean selectDropDownValue(WebElement webElement, String selectedValue) {
         CharmsUtil.labelHighlight(webElement);
         CharmsUtil.clickOnElement(webElement);
@@ -244,7 +243,7 @@ public class CharmsUtil {
         }
     }
 
-    /* Method to select a value from the Radio Button List */
+    /** @SonikaJain Method to select a value from the Radio Button List */
     public static boolean selectRadioButtonValue(List<WebElement> radioButtonList, String selectedValue) {
         int itemCount = radioButtonList.size();
         for (int l = 0; l < itemCount; l++) {
@@ -263,7 +262,7 @@ public class CharmsUtil {
         return false;
     }
 
-    /* @param webElement: Method to compare the expected Value to the actual value
+    /** @SonikaJain @param webElement: Method to compare the expected Value to the actual value
      * and then adding in to the Comparison Results list and then adding that list
      * to the final Component Test Result */
     public static ComponentTestResult verifyLabel(WebElement webElement, String expectedValue) {
@@ -286,7 +285,7 @@ public class CharmsUtil {
         return componentTestResult;
     }
 
-    /* @param webElement:WebElement is Actual value, List is the Expected Dropdown list.
+    /** @SonikaJain @param webElement:WebElement is Actual value, List is the Expected Dropdown list.
      * @return ComponentTestResult:Comparison results list for each option (actual
      * v.s. expected) */
     public static ComponentTestResult verifyDropDowns(WebElement webElement, List<String> list) {
@@ -318,7 +317,7 @@ public class CharmsUtil {
         return componentTestResult;
     }
 
-    /* @param webElement:WebElement compared to the expected Dropdown values
+    /** @SonikaJain @param webElement:WebElement compared to the expected Dropdown values
      * @param dropdownList: Expected Dropdown list
      * @param dropdownSelectedIndex:The Dropdown selected index @return */
     public static ComponentTestResult verifySelect2DropDowns(WebElement webElement, List<String> dropdownList,
@@ -352,6 +351,9 @@ public class CharmsUtil {
         return componentTestResult;
     }
 
+    /** @SonikaJain @param webElement:WebElement is Actual value, String is the Expected value.
+     * @return ComponentTestResult:Comparison results list for each option (actual
+     * v.s. expected) */
     public static ComponentTestResult assertTextBoxDataV(WebElement webElement, String expectedValue) {
         CharmsUtil.labelHighlight(webElement);
         CommonUtils.sleep(500);
@@ -379,21 +381,16 @@ public class CharmsUtil {
         return componentTestResult;
     }
 
-    /**
-     * Validates the input field element in the RAS Survey within Native View against the expected value using SoftAssert, and displays an error message if the validation fails.	 *
-     *
+    /** Validates the input field element in the RAS Survey within Native View against the expected value using SoftAssert, and displays an error message if the validation fails.	 *
      * @param inputFieldElm the WebElement input field element to verify
      * @param expectedValue the expected value to compare with the input field element's value attribute
      * @param errorMessage  the error message to throw in case of assertion failure
      */
     public static void verifyInputField(WebElement inputFieldElm, String expectedValue, String errorMessage) {
-        CharmsUtil.labelHighlight(inputFieldElm);
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(inputFieldElm), expectedValue, errorMessage);
     }
 
-    /**
-     * Validates the checkbox element in the RAS Survey within Native View by comparing its actual value with the value attribute of the checkbox element.	 *
-     *
+    /** Validates the checkbox element in the RAS Survey within Native View by comparing its actual value with the value attribute of the checkbox element.	 *
      * @param expectedCheckboxValue the expected value to compare with the checkbox element's value attribute
      * @param checkBoxElm           the WebElement representing the checkbox element to verify
      * @param errorMessage          the error message to throw if the verification fails
@@ -402,10 +399,7 @@ public class CharmsUtil {
         softAssert.assertEquals(expectedCheckboxValue, CommonUtils.getAttributeValueOfValueAttribute(checkBoxElm), errorMessage);
     }
 
-
-    /**
-     * RAS Survey Native View - Converts the text content of a WebElement to a list of strings.
-     *
+    /** RAS Survey Native View - Converts the text content of a WebElement to a list of strings.
      * @param webElement the WebElement containing the text to be processed
      * @return a List of strings extracted from the text content of the WebElement, separated by commas and excluding content within parentheses
      */
@@ -432,9 +426,7 @@ public class CharmsUtil {
         return output;
     }
 
-    /**
-     * RAS Survey Native View - Converts inches to centimeters.
-     *
+    /** RAS Survey Native View - Converts inches to centimeters.
      * @param inches a String representation of the length in inches to be converted
      * @return a String representing the length converted from inches to centimeters
      */
@@ -442,9 +434,7 @@ public class CharmsUtil {
         return String.valueOf((int) Math.floor(Integer.parseInt(inches) * 2.54));
     }
 
-    /**
-     * RAS Survey Native View - Sorts and compares two lists of string values in a case-insensitive manner.
-     *
+    /** RAS Survey Native View - Sorts and compares two lists of string values in a case-insensitive manner.
      * @param actualListValues   the list of actual string values to be sorted and compared
      * @param expectedListValues the list of expected string values to be sorted and compared
      * @return true if the sorted actualListValues is equal to the sorted expectedListValues, false otherwise
@@ -457,9 +447,7 @@ public class CharmsUtil {
         return actualListValues.equals(expectedListValues);
     }
 
-    /**
-     * RAS Survey Native View - Converts the text content of a WebElement to a list of strings.
-     *
+    /** RAS Survey Native View - Converts the text content of a WebElement to a list of strings.
      * @param webElement the WebElement containing the text to be processed
      * @return a List of strings extracted from the text content of the WebElement, separated by commas and excluding content within parentheses
      */
@@ -475,9 +463,7 @@ public class CharmsUtil {
         return output;
     }
 
-    /**
-     * RAS Survey Native View - Clicks on the tab with the specified tabName.
-     *
+    /**RAS Survey Native View - Clicks on the tab with the specified tabName.
      * @param tabName the name of the tab that needs to be clicked
      */
     public static void clickTab(String tabName) {
@@ -487,9 +473,7 @@ public class CharmsUtil {
         JavascriptUtils.clickByJS(locateByXpath("//span[contains(text(), '" + tabName + "') and @class='tab_caption_text']"));
     }
 
-    /**
-     * RAS Survey Native View - Opens a related list record by providing the record name as a parameter.
-     *
+    /** RAS Survey Native View - Opens a related list record by providing the record name as a parameter.
      * @param recordName the name of the record to be opened in the related list
      */
     public static void openRelatedListRecord(String recordName) {
@@ -509,9 +493,7 @@ public class CharmsUtil {
         }
     }
 
-    /**
-     * RAS Survey Native View - Asserts the test type by comparing the expected test type with the value attribute of the corresponding input field element.
-     *
+    /** RAS Survey Native View - Asserts the test type by comparing the expected test type with the value attribute of the corresponding input field element.
      * @param expectedTestType the expected test type to compare with the actual value of the input field
      */
     public static void assertTestType(String expectedTestType) {
@@ -519,27 +501,21 @@ public class CharmsUtil {
     }
 
 
-    /**
-     * RAS Survey Native View - Asserts the test result in a dropdown element by using a soft assertion to verify that the expected test result is selected.
-     *
+    /** RAS Survey Native View - Asserts the test result in a dropdown element by using a soft assertion to verify that the expected test result is selected.
      * @param expectedTestResult The expected test result to be selected in the dropdown element.
      */
     public static void assertTestResult(String expectedTestResult) {
         softAssertDropDownValueIsSelected(locateByXpath("//span[normalize-space()='Test result']/parent::label/parent::div/following-sibling::div//select"), expectedTestResult, "* * * * * RAS SURVEY MISMATCH IN \"Test result\" DROP DOWN * * * * *");
     }
 
-    /**
-     * RAS Survey Native View - Asserts the specified text against the "Please Specify" field in the RAS Survey dropdown.
-     *
+    /** RAS Survey Native View - Asserts the specified text against the "Please Specify" field in the RAS Survey dropdown.
      * @param expectedText the text to be asserted against the "Please Specify" field
      */
     public static void assertPleaseSpecifyField(String expectedText) {
         verifyInputField(locateByXpath("//span[normalize-space()='Please Specify']/parent::label/parent::div/following-sibling::div/div/input"), expectedText, "* * * * * RAS SURVEY MISMATCH IN \"Please Specify\" DROP DOWN * * * * *");
     }
 
-    /**
-     * RAS Survey Native View - Verifies the prenatal test history by opening the related list record and asserting the expected test type and result.
-     *
+    /**RAS Survey Native View - Verifies the prenatal test history by opening the related list record and asserting the expected test type and result.
      * @param expectedTestType   The expected type of the prenatal test to be verified.
      * @param expectedTestResult The expected result of the prenatal test to be verified.
      */
@@ -613,5 +589,66 @@ public class CharmsUtil {
         } catch (Exception e) {
             throw new IllegalArgumentException("Invalid date format. Expected format: 'Month day, year' (e.g., 'October 31, 2012')", e);
         }
+    }
+
+    /** @SonikaJain Login to NativeView
+     */
+    public static void loginToNativeView() {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /** @SonikaJain Login to NativeView to run the reset accounts script for the Fanconi screener accounts
+     *    * @param testURL The Test URL for the expected reset script.
+     *      * @param devURL The Dev URL for the expected reset script.
+     */
+    public static void resetTestAccountSignIn( String testURL, String devURL) {
+        if (TestProperties.ENV.equals("test")) {
+            WebDriverUtils.webDriver.get(testURL);
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.sleep(1800);
+        } else if (TestProperties.ENV.equals("dev2")) {
+            WebDriverUtils.webDriver.get(devURL);
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.sleep(1800);
+        }
+    }
+
+    /** @SonikaJain  Login to the NativeView and run the reset accounts script for the Fanconi screener accounts
+     */
+    public static void resetTestAccount() {
+        if (TestProperties.ENV.equals("test")) {
+            CommonUtils.sleep(100);
+            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+            CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
+            testAccountResetPage.nativeViewRunFixScriptButton.click();
+            CommonUtils.sleep(800);
+            CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
+            testAccountResetPage.nativeViewProceedInBackgroundButton.click();
+            CommonUtils.sleep(800);
+            CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCloseButton);
+            testAccountResetPage.nativeViewCloseButton.click();
+        }
+    }
+
+    /** @SonikaJain  LogOut of the account profile in NativeView
+     */
+    public static void nativeViewProfileLogOut() {
+        ServiceNow_Common_Methods.logOutOfNativeView();
+        CommonUtils.sleep(800);
+    }
+
+    /** @SonikaJain  login To Study Page Using Username And Password in NativeView
+     */
+    public static void loginToStudyPageUsingUsernameAndPassword(String username, String password) {
+        CommonUtils.waitForVisibility(oktaLoginPage.enrollLoginButton);
+        CharmsUtil.clickOnElement(oktaLoginPage.enrollLoginButton);
+        CharmsUtil.sendKeysToElement(oktaLoginPage.usernameTxtBox, username);
+        CharmsUtil.clickOnElement(oktaLoginPage.nextButton);
+        CharmsUtil.sendKeysToElement(oktaLoginPage.passwordTxtBox, password);
+        CharmsUtil.clickOnElement(oktaLoginPage.verifyBtn);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForVisibility(oktaLoginPage.agreeBtn);
+        CharmsUtil.clickOnElement(oktaLoginPage.agreeBtn);
     }
 }

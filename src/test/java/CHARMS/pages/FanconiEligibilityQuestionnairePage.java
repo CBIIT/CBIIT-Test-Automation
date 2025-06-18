@@ -125,18 +125,6 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	@FindBy(xpath = "(//span[contains(@class,'LabelWrapper')])")
 	public List<WebElement> currentGenderRBtonList;
 
-	/* Participant: Current Gender Different term text box */
-	@FindBy(xpath = "(//input[@title='I use a different term:'])[1]")
-	public WebElement currentGenderDifferentTermTextBox;
-
-	/* Participant: Pronouns Radio Button List */
-	@FindBy(xpath = "(//span[contains(@class,'LabelWrapper')])")
-	public List<WebElement> pronounsRBtonList;
-
-	/* Participant: Pronouns Different term text box */
-	@FindBy(xpath = "(//input[@title='I use a different term:'])[1]")
-	public WebElement pronounsDifferentTermTextBox;
-
 	/* Participant: Adopted Radio Button List */
 	@FindBy(xpath = "(//span[contains(@class,'LabelWrapper')])")
 	public List<WebElement> adoptedRBtonList;
@@ -242,7 +230,7 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	 * participation in other studies.
 	 */
 	@FindBy(xpath = "(//input[@name='QR~QID25~2~TEXT'])[1]")
-	public WebElement fanconiAnemiaResearcStudyAt1TextBox;
+	public WebElement fanconiAnemiaResearchStudyAt1TextBox;
 
 	/*
 	 * Participant:Please specify the study(ies) or registry group(s) regarding
