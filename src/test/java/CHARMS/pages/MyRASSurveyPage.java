@@ -280,6 +280,7 @@ public class MyRASSurveyPage {
     public WebElement enterTextInTextAreaTextBox(int indexOne, int indextwo) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='QuestionBody']//child::tbody//tr[" + indexOne + "]//child::td[" + indextwo + "]//textarea"));
     }
+
     /*
     USE THIS METHOD TO ENTER TEXT IN PLEASE PROVIDE DETAILS ON THE NAME OF THE MEDICATION TAKEN TEXT BOX
     */
@@ -309,9 +310,9 @@ public class MyRASSurveyPage {
     }
 
     /*
-    USE THIS METHOD TO DYNAMICLY SELECT FROM DROPDOWN
+    USE THIS METHOD TO DYNAMICALLY SELECT FROM DROPDOWN
     */
-    public WebElement selectFromDynamicdropDown(int index) {
+    public WebElement selectFromDynamicDropDown(int index) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='QuestionBody']//child::tbody//tr[" + index + "]//child::td[3]//child::select"));
     }
 
@@ -334,6 +335,18 @@ public class MyRASSurveyPage {
     */
     public WebElement enterTextInDoctorLocationHospitalTextBox(int index) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='QuestionBody']//child::tbody//tr[" + index + "]//child::td[2]//child::input"));
+    }
+
+    /**
+     *
+     * USE THIS METHOD TO DYNAMICALLY SELECT DROPDOWNS IN THE "WHICH PRIMARY CANCERS WERE DIAGNOSED AND AT WHAT AGE AND YEAR THEY OCCURRED" SECTION
+     *
+     * @param row The row index in the table where the dropdown is located.
+     * @param column The column index in the table where the dropdown is located.
+     * @return The WebElement representing the dropdown selector for the specified row and column.
+     */
+    public WebElement whichPrimaryCancersWereDiagnosedDropDownSelector(int row, int column) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='QuestionBody']//child::tbody//tr[" + row + "]//child::td[contains(@class, 'SBS')][" + column + "]/select"));
     }
 
     public MyRASSurveyPage() {
