@@ -12,7 +12,6 @@ Feature: FCAS Vendor Portal Flow
     And User can see Show Closed Contracts option
     And User can see a search page text field
 
-
   @Alena @Regression @selenium @OASYS-3657
   Scenario: Edit contract information Submit Invoice option
     Given User accepts PII Disclaimer
