@@ -32,7 +32,6 @@ public class RAS_Consent_Call_Steps {
         CucumberLogUtils.logScreenshot();
     }
 
-
     /**
      * Selects the specified option for whether the participant needs legal representation.
      *
@@ -41,9 +40,12 @@ public class RAS_Consent_Call_Steps {
     @When("selects {string} for does participant does need legal representation")
     public void selects_yes_the_participant_does_need_legal_representation(String selectOption) {
         nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsContactInfoTab.click();
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantDetailsPage.doesParticipantNeedLegalRepresentationDropdown);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.doesParticipantNeedLegalRepresentationDropdown);
+        CommonUtils.sleep(600);
         CommonUtils.selectDropDownValue(selectOption, nativeViewCHARMSParticipantDetailsPage.doesParticipantNeedLegalRepresentationDropdown);
         CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(600);
+        nativeViewCHARMSParticipantDetailsPage.saveButton.click();
     }
 
     /**

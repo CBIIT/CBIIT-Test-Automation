@@ -121,7 +121,6 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
             CucumberLogUtils.scenario.log("* * * THIS IS A PROXY SCREENER SUBMISSION * * *");
         }
         for (int i = 0; i < 75; i++) {
-            RAS_Common_Methods.randomSleepInterval(800, 4000);
             try {
                 /**
                  * * * * * ARE YOU COMPLETING THIS FORM FOR SOMEONE ELSE OR FOR YOURSELF? * * * *
@@ -486,31 +485,42 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
                 }
                 /**
-                 * * * * * PLEASE COMPLETE THE BOX BELOW BY SELECTING WHICH PRIMARY CANCERS WERE DIAGNOSED AND AT WHAT AGE AND YEAR THEY OCCURRED.  IF CANCER SPREAD FROM ONE PLACE TO ANOTHER, PLEASE ONLY INDICATE THE ORIGINAL CANCERS AND NOT THE NUMBER OF SITES WHERE CANCER SPREAD. * * * *
+                 * * * * * PLEASE COMPLETE THE BOX BELOW BY SELECTING WHICH PRIMARY CANCERS WERE DIAGNOSED AND AT WHAT AGE AND YEAR THEY OCCURRED. IF CANCER SPREAD FROM ONE PLACE TO ANOTHER, PLEASE ONLY INDICATE THE ORIGINAL CANCERS AND NOT THE NUMBER OF SITES WHERE CANCER SPREAD. * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_WERE_DIAGNOSED)) {
-                    CucumberLogUtils.scenario.log("* * * * * PLEASE COMPLETE THE BOX BELOW BY SELECTING WHICH PRIMARY CANCERS WERE DIAGNOSED AND AT WHAT AGE AND YEAR THEY OCCURRED.  IF CANCER SPREAD FROM ONE PLACE TO ANOTHER, PLEASE ONLY INDICATE THE ORIGINAL CANCERS AND NOT THE NUMBER OF SITES WHERE CANCER SPREAD. * * * * *");
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().trim().contentEquals(PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_WERE_DIAGNOSED)) {
+                    CucumberLogUtils.scenario.log("* * * * * PLEASE COMPLETE THE BOX BELOW BY SELECTING WHICH PRIMARY CANCERS WERE DIAGNOSED AND AT WHAT AGE AND YEAR THEY OCCURRED. IF CANCER SPREAD FROM ONE PLACE TO ANOTHER, PLEASE ONLY INDICATE THE ORIGINAL CANCERS AND NOT THE NUMBER OF SITES WHERE CANCER SPREAD. * * * * *");
                     if (sheetName.contentEquals("screenerScenario2")) {
-                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN1_OPTION1, myRASSurveyPage.selectFromDynamicdropDown(1));
-                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN1_OPTION2, myRASSurveyPage.selectFromDynamicdropDown(2));
-                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN1_OPTION3, myRASSurveyPage.selectFromDynamicdropDown(3));
-                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN1_OPTION4, myRASSurveyPage.selectFromDynamicdropDown(4));
+                        CommonUtils.sleep(800);
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN1_OPTION1, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(1, 1));
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN1_OPTION2, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(2, 1));
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN1_OPTION3, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(3, 1));
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN1_OPTION4, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(4, 1));
+
                         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 6), ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN2_OPTION1);
                         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 6), ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN2_OPTION2);
                         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 6), ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN2_OPTION3);
                         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 6), ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN2_OPTION4);
-                        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 9), ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN3_OPTION1);
-                        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 9), ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN3_OPTION2);
-                        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 9), ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN3_OPTION3);
-                        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 9), ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN3_OPTION4);
-                        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 12), ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN4_OPTION1);
-                        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 12), ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN4_OPTION2);
-                        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 12), ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN4_OPTION3);
-                        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 12), ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN4_OPTION4);
-                        CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1, 15));
-                        CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(2, 15));
-                        CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(3, 15));
-                        CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(4, 15));
+
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN3_OPTION1, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(1, 3));
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN3_OPTION2, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(2, 3));
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN3_OPTION3, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(3, 3));
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN3_OPTION4, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(4, 3));
+
+                        CommonUtils.sleep(300);
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN4_OPTION1, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(1, 4));
+                        CommonUtils.sleep(300);
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN4_OPTION2, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(2, 4));
+
+
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN5_OPTION1, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(1, 5));
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN5_OPTION2, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(2, 5));
+
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN6_OPTION3, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(3, 6));
+
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN7_OPTION1, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(1, 7));
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN7_OPTION2, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(2, 7));
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN7_OPTION3, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(3, 7));
+                        CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_COLUMN7_OPTION4, myRASSurveyPage.whichPrimaryCancersWereDiagnosedDropDownSelector(4, 7));
                     }
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
@@ -882,6 +892,14 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
             CucumberLogUtils.logScreenshot();
             CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         }
+        CommonUtils.sleep(800);
+        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubjectID.getText().split("-")[0], nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsFamilyID.getText());
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.participantStudiesTab);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.participantStudiesTab);
+        CommonUtils.sleep(500);
+        JavascriptUtils.clickByJS(nativeViewCHARMSParticipantDetailsPage.participantStudiesPreviewButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(2000);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
         CucumberLogUtils.logScreenshot();
@@ -890,19 +908,16 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
-        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubjectID.getText().split("-")[0], nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsFamilyID.getText());
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText);
         CucumberLogUtils.logScreenshot();
-        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), CHARMSRASScreenerConstants.CONSENT_ADDED_TEXT, "---- VERIFYING SCREENER RECORD RASOPATHY HISTORY DATA ----");
-        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), CHARMSRASScreenerConstants.CONSENT_ADDED_TEXT, "---- VERIFYING SCREENER RECORD RASOPATHY HISTORY DATA ----");
+        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), CHARMSRASScreenerConstants.CONSENT_ADDED_TEXT, "---- VERIFYING CONSENT WAS ADDED  ----");
 
         /**
          * BEGINNING: CONSENT FLOW PROCESS
          */
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.consentStatusText);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
+        JavascriptUtils.clickByJS(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();

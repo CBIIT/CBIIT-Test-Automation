@@ -7,7 +7,6 @@ import CHARMS.pages.NativeViewCHARMSDashboardPage;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
-import CHARMS.stepsImplementation.RASStudy.RAS_Screener_Submissions_StepsImpl;
 import CHARMS.utils.CharmsUtil;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
@@ -19,7 +18,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 import static Hooks.Hooks.softAssert;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateElementsByXpath;
@@ -64,17 +62,17 @@ public class RAS_Common_Methods extends PageInitializer {
             CucumberLogUtils.logScreenshot();
             CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
         } else if (sheetName.contentEquals("screenerScenarioAdult-NeedsLAR")) {
-            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
             CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
         } else if (sheetName.contentEquals("screenerScenarioAgeUnder7")) {
             CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
             CucumberLogUtils.logScreenshot();
             CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
         } else if (sheetName.contentEquals("screenerScenarioAge7-10")) {
-            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
             CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
         } else if (sheetName.contentEquals("screenerScenarioAge11-13")) {
             CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
             CucumberLogUtils.logScreenshot();
@@ -93,33 +91,27 @@ public class RAS_Common_Methods extends PageInitializer {
     }
 
     /**
-     * Submits the participant for review and eligibility.
-     * This method performs the following steps:
-     * - Sleeps for 2 seconds.
-     * - Waits for the visibility of the "Submit for Eligibility" button in the participant details page.
-     * - Logs a screenshot.
-     * - Clicks on the "Submit for Eligibility" button.
-     * - Sleeps for 1.5 seconds.
-     * - Waits for the visibility of the "Mark Eligible" button in the participant details page.
-     * - Logs a screenshot.
-     * - Clicks on the "Mark Eligible" button.
-     * - Waits for the visibility of the "Consent Added" text in the participant details page.
-     * - Logs a screenshot.
-     * - Asserts that the text of the "Consent Added" element is equal to the constant value "CONSENT_ADDED_TEXT" in the CHARMSRASScreenerConstants class.
+     * Navigates to Participant Study and submits the participant for review and eligibility.
      */
     public static void submitParticipantForReviewAndEligibility() {
         CommonUtils.sleep(2000);
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.participantStudiesTab);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.participantStudiesTab);
+        CommonUtils.sleep(500);
+        JavascriptUtils.clickByJS(nativeViewCHARMSParticipantDetailsPage.participantStudiesPreviewButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(500);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
         CommonUtils.sleep(2000);
-        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubjectID.getText().split("-")[0], nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsFamilyID.getText());
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText);
+        CommonUtils.sleep(800);
         CucumberLogUtils.logScreenshot();
-        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), CHARMSRASScreenerConstants.CONSENT_ADDED_TEXT, "---- VERIFYING SCREENER RECORD RASOPATHY HISTORY DATA ----");
+        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), CHARMSRASScreenerConstants.CONSENT_ADDED_TEXT, "---- VERIFYING CONSENT WAS ADDED ----");
         CommonUtils.sleep(2000);
     }
 
@@ -258,16 +250,6 @@ public class RAS_Common_Methods extends PageInitializer {
         for (int i = 0; i < Native_View_Constants.subjectFlagsColumns.size(); i++) {
             softAssert.assertEquals(Native_View_Constants.subjectFlagsColumns.get(i), locateByXpath("//tr[@id='hdr_x_naci_family_coho_participant_study.x_naci_family_coho_subject_flag.participant_study']//th[@class='text-align-left list_header_cell list_hdr '][" + (i + 1) + "]").getText());
         }
-    }
-
-    /**
-     * Generates a random sleep interval between the specified minimum and maximum values.
-     *
-     * @param min The minimum value for the sleep interval.
-     * @param max The maximum value for the sleep interval.
-     */
-    public static void randomSleepInterval(int min, int max) {
-        CommonUtils.sleep(ThreadLocalRandom.current().nextInt(min, max + 1));
     }
 
     /**
