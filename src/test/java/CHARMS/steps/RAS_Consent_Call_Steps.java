@@ -591,4 +591,9 @@ public class RAS_Consent_Call_Steps {
         CommonUtils.waitForVisibility(locateByXpath("//div[@class='outputmsg_text']"));
         CucumberLogUtils.logScreenshot();
     }
+
+    @Then("Study Team member completes re-consent with {string} as the collection method")
+    public void study_team_member_completes_re_consent_with_as_the_collection_method(String collectionMethod) {
+        rasConsentStepsImpl.study_team_member_completes_re_consent_with_as_the_collection_method(collectionMethod);
+    }
 }

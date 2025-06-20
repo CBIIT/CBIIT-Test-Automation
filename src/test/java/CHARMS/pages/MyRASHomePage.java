@@ -42,6 +42,10 @@ public class MyRASHomePage {
 	@FindBy(xpath = "//div[@class='custom-card-image']//a[@aria-label='Assent']")
 	public WebElement rasopathyStudyAssent;
 
+	/* RASopathy portal header */
+	@FindBy(xpath = "//div[@class='header-title ng-binding']")
+	public WebElement rasopathyPortalHeader;
+
 	/**
 	 * Locates a dynamic module based on the given text.
 	 *

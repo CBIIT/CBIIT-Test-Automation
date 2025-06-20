@@ -3,7 +3,6 @@ package CHARMS.stepsImplementation.RASStudy;
 import CHARMS.constants.CHARMS_Data_File_Path_Constants;
 import CHARMS.constants.CHARMSRASScreenerConstants;
 import CHARMS.pages.*;
-import CHARMS.steps.RAS_Common_Methods;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.Dynamic_Locators;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
@@ -755,6 +754,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
             CucumberLogUtils.logScreenshot();
             myRASHomePage.warningAgreeButton.click();
         }
+        softAssert.assertEquals(myRASHomePage.rasopathyPortalHeader, CHARMSRASScreenerConstants.PORTAL_HEADER);
     }
 
     /***

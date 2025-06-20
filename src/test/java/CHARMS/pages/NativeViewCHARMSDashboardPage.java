@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
+
 public class NativeViewCHARMSDashboardPage {
 
     /**
@@ -50,6 +52,17 @@ public class NativeViewCHARMSDashboardPage {
      */
     @FindBy(xpath = "//button[normalize-space()='Add New Participant']")
     public WebElement nativeViewAddNewParticipantButton;
+
+    /**
+     * Locates a web element representing a search input field for a specific column
+     * in a native view table based on the provided column name.
+     *
+     * @param columnName the name of the column to locate the search input field for
+     * @return the WebElement corresponding to the search input field of the specified column
+     */
+    public WebElement nativeViewSearchColumnLocator(String columnName) {
+        return locateByXpath("//input[@aria-label='Search column: " + columnName.toLowerCase() +"']");
+    }
 
     public NativeViewCHARMSDashboardPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
