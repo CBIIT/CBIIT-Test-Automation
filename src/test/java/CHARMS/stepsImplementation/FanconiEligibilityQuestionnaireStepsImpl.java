@@ -44,10 +44,10 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * Run Reset Script for Fanconi in NativeView
      */
     public void runResetScripts() {
-        fanconiEligibilityQuestionnaireStepsImpl.loginToNativeView();
-        fanconiEligibilityQuestionnaireStepsImpl.resetTestAccountSignIn();
-        fanconiEligibilityQuestionnaireStepsImpl.resetTestAccount();
-        fanconiEligibilityQuestionnaireStepsImpl.nativeViewProfilelogOut();
+        loginToNativeView();
+        resetTestAccountSignIn();
+        resetTestAccount();
+        nativeViewProfilelogOut();
     }
 
     /**
@@ -55,6 +55,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      */
     public void loginToNativeView() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        CucumberLogUtils.logScreenshot();
     }
 
     /**
@@ -64,10 +65,12 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         if (TestProperties.ENV.equals("test")) {
             WebDriverUtils.webDriver.get(
                     "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Db1cf5c0087d0d610ad46326d3fbb3507%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D2%26sysparm_record_rows%3D1263%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
+            CucumberLogUtils.logScreenshot();
             CommonUtils.sleep(1800);
         } else if (TestProperties.ENV.equals("dev2")) {
             WebDriverUtils.webDriver.get(
                     "https://service-dev2.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Db1cf5c0087d0d610ad46326d3fbb3507%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D2%26sysparm_record_rows%3D1263%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
+            CucumberLogUtils.logScreenshot();
             CommonUtils.sleep(1800);
         }
     }
@@ -383,7 +386,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         if (currentRow.get("HaveYouEverParticipatedInFanconiAnemiaStudyAtAnotherMedicalInstitution").contentEquals("Yes")) {
             CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("SpecifyParticipationInOtherStudies0"));
             fanconiEligibilityQuestionnairePage.commonRBtonList.get(1).click();
-            CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.fanconiAnemiaResearcStudyAt1TextBox, currentRow.get("SpecifyParticipationInOtherStudiesDetails1"));
+            CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.fanconiAnemiaResearchStudyAt1TextBox, currentRow.get("SpecifyParticipationInOtherStudiesDetails1"));
             fanconiEligibilityQuestionnairePage.commonRBtonList.get(2).click();
             CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.fanconiAnemiaResearcStudyAt2TextBox, currentRow.get("SpecifyParticipationInOtherStudiesDetails2"));
             fanconiEligibilityQuestionnairePage.commonRBtonList.get(3).click();
@@ -1783,8 +1786,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             WebDriverUtils.webDriver.get(getFanconiUrl());
             System.out.println(username);
             CommonUtils.sleep(800);
-            CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton1);
-            CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton1);
+            CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton);
+            CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton);
             if (i != 1) {
                 CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpace("Back to sign in"));
                 oktaLoginPage.usernameTxtBox.clear();
@@ -1894,6 +1897,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * @param rowCount The row number from which the data will be retrieved for submitting consent.
      */
     public void  consent_is_submitted_with_collection_method(String collectionMethod, int rowCount) {
+        String participantView = currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantMiddleName") + " " + currentRow.get("ParticipantLastName");
+        String participantProxyView = currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyMiddleName") + " " + currentRow.get("ProxyLastName");
         currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowCount);
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sleep(4000);
@@ -1907,11 +1912,15 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         if (currentRow.get("ParticipantFirstName")!=null  && !("").equals(currentRow.get("ParticipantFirstName"))) {
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(participantView));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(participantView));
             CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
             CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
             CucumberLogUtils.logScreenshot();
         }
         else {
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(participantProxyView));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(participantProxyView));
             CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName")));
             CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName")));
             CucumberLogUtils.logScreenshot();
