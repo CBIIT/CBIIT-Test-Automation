@@ -5,13 +5,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
+
 public class NativeViewCHARMSParticipantStudyPage {
 
     /**
      * Participant input field
      */
-    @FindBy(xpath = "//input[@id='x_naci_family_coho_participant_study.participant_id']")
-    public WebElement participantField;
+    @FindBy(xpath = "//input[@name='sys_display.x_naci_family_coho_participant_study.participant']")
+    public WebElement participantInputField;
 
     /**
      * Native View Participant Study Screener Info Button
@@ -96,6 +98,22 @@ public class NativeViewCHARMSParticipantStudyPage {
      */
     @FindBy(xpath = "//tr[@record_class='x_naci_family_coho_rasopathy_iiq']//a[@class='btn btn-icon table-btn-lg icon-info list_popup']")
     public WebElement rasopathySurveyPreviewButton;
+
+    /**
+     * RASopathy Survey re-consent button
+     */
+    @FindBy(xpath = "//span[contains(@class,'navbar_ui_actions')]//button[contains(@name,'not_important')][normalize-space()='Re-Consent']")
+    public WebElement reConsentButton;
+
+    /**
+     * Finds and returns the WebElement for the current or previous consent record based on the Current/Previous status
+     *
+     * @param currentPreviousStatus the status text used to identify the consent record (e.g., "Current" or "Previous").
+     * @return the WebElement representing the preview link for the specified current or previous consent record.
+     */
+    public static WebElement findCurrentOrPreviousConsentRecord(String currentPreviousStatus) {
+        return locateByXpath("//a[contains(@aria-label, '" + currentPreviousStatus + " - Open record')]/parent::td/parent::tr//a[contains(@aria-label,'Preview record')]");
+    }
 
     public NativeViewCHARMSParticipantStudyPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);

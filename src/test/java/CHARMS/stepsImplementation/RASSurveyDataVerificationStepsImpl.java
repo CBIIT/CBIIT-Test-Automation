@@ -93,6 +93,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Demographics" section.
      */
     public void verify_ras_survey_data_scenarioTwo_demographics_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN DEMOGRAPHICS SECTION -----");
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Demographics"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Demographics"));
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Demographics"));
@@ -116,6 +117,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "RASopathy History" section.
      */
     public void verify_ras_survey_data_scenarioTwo_rasopathy_history_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY \"DATA IN HISTORY SECTION\" -----");
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("RASopathy History"));
         CommonUtils.sleep(800);
         CommonUtils.waitForVisibility(ras_survey_native_view.dropdownDiagnosedWithRasopathyByPhysician);
@@ -142,6 +144,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Birth & Gestation" section.
      */
     public void verify_ras_survey_data_scenarioTwo_birth_and_gestation_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY \"DATA IN BIRTH & GESTATION\" SECTION -----");
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Birth & Gestation"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Birth & Gestation"));
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Birth & Gestation"));
@@ -262,6 +265,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Growth" section.
      */
     public void verify_ras_survey_data_scenarioTwo_growth_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GROWTH SECTION\" SECTION -----");
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Growth"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Growth"));
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Growth"));
@@ -291,6 +295,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Development" section.
      */
     public void verify_ras_survey_data_scenarioTwo_development_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"DEVELOPMENT\" SECTION -----");
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Development"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Development"));
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Development"));
@@ -325,6 +330,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Heart" section.
      */
     public void verify_ras_survey_data_scenarioTwo_heart_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEART\" SECTION -----");
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Heart"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Heart"));
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Heart"));
@@ -355,6 +361,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Medical History" section.
      */
     public void verify_ras_survey_data_scenarioTwo_medical_history_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MEDICAL HISTORY\" SECTION -----");
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Medical History"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Medical History"));
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Medical History"));
@@ -389,6 +396,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Feeding, Nutrition & Gastro Symptoms" section.
      */
     public void verify_ras_survey_data_scenarioTwo_feeding_nutrition_gastro_symptoms_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"FEEDING, NUTRITION & GASTRO SYMPTOMS\" SECTION -----");
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Feeding, Nutrition & Gastro Symptoms"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Feeding, Nutrition & Gastro Symptoms"));
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Feeding, Nutrition & Gastro Symptoms"));
@@ -435,6 +443,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Breathing" section.
      */
     public void verify_ras_survey_data_scenarioTwo_breathing_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BREATHING\" SECTION -----");
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Breathing"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Breathing"));
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Breathing"));
@@ -454,6 +463,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Mouth/Dental" section.
      */
     public void verify_ras_survey_data_scenarioTwo_mouth_dental_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MOUTH/DENTAL\" SECTION -----");
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Mouth/Dental"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Mouth/Dental"));
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Mouth/Dental"));
@@ -514,6 +524,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Hair & Skin" section.
      */
     public void verify_ras_survey_data_scenarioTwo_hair_and_skin_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HAIR & SKIN\" SECTION -----");
         String expectedDescriptionOfParticipantsHairText = "Waveless, Wavy, Sparse/having too little hair, Fine, Curly/wooly, East to pluck, Other";
         String expectedDiagnosedSkinIssuesText = "Keratosis pilaris (patches of small, hard bumps often found on the upper arms. These look similar to goose bumps), Palmar/plantar hyperkeratosis (significant thickening of the skin on the palms of the hands or soles of the feet), Facial keratosis/Ulerythema ophryogenes (patches of dry, hard sandpaper-like bumps on the face, particularly in and near the eyebrows), Ichthyosis (dry, scaly skin), Other (please specify)";
         String expectedDescriptionOfParticipantsSkinMarksText = "Three or more cafe-au-lait spots (light brown birthmarks the color of coffee with milk), Diffuse hyperpigmentation (patches of skin that are darker than the rest of your skin), Three or more nevi (small brown, tan, pink or red spots, also called moles), Three or more lentigines (dark, smooth/flat freckles or spots on the skin), Other (please specify)";
@@ -543,6 +554,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Skeletal" section.
      */
     public void verify_ras_survey_data_scenarioTwo_skeletal_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"SKELETAL\" SECTION -----");
         String expectedDiagnosedSkeletalFindingsText = "Pectus carinatum (breastbone sticks out from the chest), Pectus excavatum (breastbone appears sunken or caved into the chest), Broad chest, nipples widely spaced, Other (please specify)";
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Skeletal"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Skeletal"));
@@ -564,6 +576,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Hematology, Oncology and Immunology" section.
      */
     public void verify_ras_survey_data_scenarioTwo_hematology_oncology_and_immunology_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEMATOLOGY, ONCOLOGY AND IMMUNOLOGY\" SECTION -----");
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Hematology, Oncology and Immunology"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Hematology, Oncology and Immunology"));
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Hematology, Oncology and Immunology"));
@@ -587,6 +600,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Brain & Neurology" section.
      */
     public void verify_ras_survey_data_scenarioTwo_brain_neurology_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BRAIN & NEUROLOGY\" SECTION -----");
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Brain & Neurology"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Brain & Neurology"));
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Brain & Neurology"));
@@ -609,6 +623,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Vision and Hearing" section.
      */
     public void verify_ras_survey_data_scenarioTwo_vision_and_hearing_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"VISION AND HEARING\" SECTION -----");
         String expectedParticipantEarIssues = "Excessive earwax, Chronic or recurrent ear infection, Other";
         CommonUtils.waitForVisibility(ras_survey_native_view.dynamicTabLocator("Vision & Hearing"));
         JavascriptUtils.scrollIntoView(ras_survey_native_view.dynamicTabLocator("Vision & Hearing"));
@@ -629,6 +644,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Prenatal Test History" section.
      */
     public void verify_ras_survey_data_scenarioTwo_prenatal_test_history_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"PRENATAL TEST HISTORY\" SECTION -----");
         clickTab("Prenatal Test History");
         verifyPrenatalTestHistory("Fetal blood sampling", "Normal");
         verifyPrenatalTestHistory("Ultrasound", "Normal");
@@ -650,6 +666,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Medication Taken While Pregnant" section.
      */
     public void verify_ras_survey_data_scenarioTwo_medications_taken_while_pregnant_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MEDICATION TAKEN WHILE PREGNANT\" SECTION: VITAMINS -----");
         clickTab("Medication Taken While Pregnant");
         openRelatedListRecord("Vitamins");
         verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption2, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Vitamins\" section 'Medication' * * * * *");
@@ -659,6 +676,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MEDICATION TAKEN WHILE PREGNANT\" SECTION: ANTIHYPERTENSIVES (FOR HIGH BLOOD PRESSURE) -----");
         openRelatedListRecord("Antihypertensives (for high blood pressure)");
         verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption3, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Medication for high blood glucose (e.g. insulin)\" section 'Medication' * * * * *");
         verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Medication for high blood glucose (e.g. insulin)\" section 'Name of Medication' * * * * *");
@@ -667,6 +685,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MEDICATION TAKEN WHILE PREGNANT\" SECTION: MEDICATION FOR HIGH BLOOD GLUCOSE (E.G. INSULIN) -----");
         openRelatedListRecord("Medication for high blood glucose (e.g. insulin)");
         verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption4, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antihypertensives\" section 'Medication' * * * * *");
         verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antihypertensives\" section 'Name of Medication' * * * * *");
@@ -675,6 +694,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MEDICATION TAKEN WHILE PREGNANT\" SECTION: ANTIEMETICS (FOR NAUSEA) -----");
         openRelatedListRecord("Antiemetics (for nausea)");
         verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption5, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antiemetics (for nausea)\" section 'Medication' * * * * *");
         verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option5, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antiemetics (for nausea)\" section 'Name of Medication' * * * * *");
@@ -683,6 +703,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MEDICATION TAKEN WHILE PREGNANT\" SECTION: HORMONES (E.G. DES, PROGESTERONE) -----");
         openRelatedListRecord("Hormones (e.g. DES, progesterone)");
         verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption6, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Hormones (e.g. DES, progesterone)\" section 'Medication' * * * * *");
         verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option6, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Hormones (e.g. DES, progesterone)\" section 'Name of Medication' * * * * *");
@@ -691,6 +712,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MEDICATION TAKEN WHILE PREGNANT\" SECTION: DIURETICS -----");
         openRelatedListRecord("Diuretics");
         verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption8, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Diuretics\" section 'Medication' * * * * *");
         verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option7, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Diuretics\" section 'Name of Medication' * * * * *");
@@ -699,6 +721,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MEDICATION TAKEN WHILE PREGNANT\" SECTION: ANTI-DEPRESSANTS -----");
         openRelatedListRecord("Anti-depressants");
         verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption7, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Anti-depressants\" section 'Medication' * * * * *");
         verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option8, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Anti-depressants\" section 'Name of Medication' * * * * *");
@@ -707,6 +730,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MEDICATION TAKEN WHILE PREGNANT\" SECTION: PAIN RELIEVERS -----");
         openRelatedListRecord("Pain relievers");
         verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption9, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Pain relievers\" section 'Medication' * * * * *");
         verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option9, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Pain relievers\" section 'Name of Medication' * * * * *");
@@ -715,6 +739,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MEDICATION TAKEN WHILE PREGNANT\" SECTION: MEDICATIONS FOR PRE-TERM LABOR (E.G. TERBUTALINE, MAGNESIUM SULFATE) -----");
         openRelatedListRecord("Medications for pre-term labor (e.g. terbutaline, magnesium sulfate)");
         verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption10, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Medications for pre-term labor (e.g. terbutaline, magnesium sulfate)\" section 'Medication' * * * * *");
         verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option10, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Medications for pre-term labor (e.g. terbutaline, magnesium sulfate)\" section 'Name of Medication' * * * * *");
@@ -723,6 +748,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MEDICATION TAKEN WHILE PREGNANT\" SECTION: THYROID MEDICATIONS -----");
         openRelatedListRecord("Thyroid medications");
         verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption11, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Thyroid medications\" section 'Medication' * * * * *");
         verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option11, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Thyroid medications\" section 'Name of Medication' * * * * *");
@@ -731,6 +757,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MEDICATION TAKEN WHILE PREGNANT\" SECTION: ANTI-SEIZURE MEDICATIONS -----");
         openRelatedListRecord("Anti-seizure medications");
         verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption12, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Anti-seizure medications\" section 'Medication' * * * * *");
         verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option12, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Anti-seizure medications\" section 'Name of Medication' * * * * *");
@@ -739,6 +766,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MEDICATION TAKEN WHILE PREGNANT\" SECTION: HERBAL SUPPLEMENTS (PLEASE SPECIFY) -----");
         openRelatedListRecord("Herbal supplements (please specify)");
         verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption13, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Herbal supplements (please specify)\" section 'Medication' * * * * *");
         verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option13, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Herbal supplements (please specify)\" section 'Name of Medication' * * * * *");
@@ -747,6 +775,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MEDICATION TAKEN WHILE PREGNANT\" SECTION: TOTAL PARENTAL NUTRITION (TPN) -----");
         openRelatedListRecord("Total parental nutrition (TPN)");
         verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption14, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Total parental nutrition (TPN)\" section 'Medication' * * * * *");
         verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option14, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Total parental nutrition (TPN)\" section 'Name of Medication' * * * * *");
@@ -755,6 +784,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MEDICATION TAKEN WHILE PREGNANT\" SECTION: OTHER MEDICATION (PLEASE SPECIFY) -----");
         openRelatedListRecord("Other medication (please specify)");
         verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption15, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Other medication (please specify)\" section 'Medication' * * * * *");
         verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option15, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Other medication (please specify)\" section 'Name of Medication' * * * * *");
@@ -764,6 +794,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"MEDICATION TAKEN WHILE PREGNANT\" SECTION: ANTIBIOTICS -----");
         openRelatedListRecord("Antibiotics");
         verifyInputField(ras_survey_native_view.medicationInputField, ras_Survey_TestDataManager.pleaseSelectAllMedicationsYourMotherTookOption1, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antibiotics\" section 'Medication' * * * * *");
         verifyInputField(ras_survey_native_view.nameOfMedicationInputField, ras_Survey_TestDataManager.pleaseProvideDetailsOfTheMedicationTakenColumn1Option1, "* * * * * RAS SURVEY MISMATCH IN \"Medications Taken While Pregnant - Antibiotics\" section 'Name of Medication' * * * * *");
@@ -778,6 +809,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Growth Hormone Details" section.
      */
     public void verify_ras_survey_data_scenarioTwo_growth_hormone_details_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GROWTH HORMONE DETAILS\" SECTION -----");
         clickTab("Growth Hormone Details");
         CommonUtils.hoverOverElement(locateByXpath("//tbody[@class='list2_body -sticky-group-headers']/tr[@record_class='x_naci_family_coho_growth_hormone_details']"));
         JavascriptUtils.clickByJS(locateByXpath("//tbody[@class='list2_body -sticky-group-headers']//a[@data-list_id='x_naci_family_coho_rasopathy_iiq.x_naci_family_coho_growth_hormone_details.iiq']"));
@@ -799,6 +831,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      * This method verifies the RAS Survey data for scenario two in Native View within the "Heart Symptoms" section.
      */
     public void verify_ras_survey_data_scenarioTwo_heart_symptoms_details_section() {
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEART SYMPTOMS\" SECTION: CHEST PAIN OR TIGHTENING -----");
         clickTab("Heart Symptoms");
         openRelatedListRecord("Chest pain or tightening");
         verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Chest pain or tightening\" section 'Symptom' * * * * *");
@@ -813,6 +846,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEART SYMPTOMS\" SECTION: FATIGUE -----");
         openRelatedListRecord("Fatigue");
         verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Fatigue\" section 'Symptom' * * * * *");
         verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Fatigue\" section 'Age of first hospital evaluation' * * * * *");
@@ -826,6 +860,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEART SYMPTOMS\" SECTION: DIFFICULTY EXERCISING -----");
         openRelatedListRecord("Difficulty exercising");
         verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption6, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Symptom' * * * * *");
         verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option6, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Age of first hospital evaluation' * * * * *");
@@ -839,6 +874,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEART SYMPTOMS\" SECTION: STROKE -----");
         openRelatedListRecord("Stroke");
         verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption10, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Stroke\" section 'Symptom' * * * * *");
         verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option10, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Stroke\" section 'Age of first hospital evaluation' * * * * *");
@@ -852,6 +888,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEART SYMPTOMS\" SECTION: HEART PALPITATIONS/IRREGULAR HEARTBEAT -----");
         openRelatedListRecord("Heart palpitations/irregular heartbeat");
         verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Heart palpitations/irregular heartbeat\" section 'Symptom' * * * * *");
         verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Heart palpitations/irregular heartbeat\" section 'Age of first hospital evaluation' * * * * *");
@@ -865,32 +902,21 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
-        openRelatedListRecord("Heart palpitations/irregular heartbeat");
-        verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Symptom' * * * * *");
-        verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Age of first hospital evaluation' * * * * *");
-        verifyInputField(ras_survey_native_view.dateOfFirstEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn2Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Date of first evaluation' * * * * *");
-        verifyCheckbox("true", ras_survey_native_view.firstEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'First evaluation unknown' CHECKBOX * * * * *");
-        verifyInputField(ras_survey_native_view.firstHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'First hospital evaluation' * * * * *");
-        verifyInputField(ras_survey_native_view.ageOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn5Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Age of most recent evaluation' * * * * *");
-        verifyInputField(ras_survey_native_view.dateOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn6Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Date of most recent evaluation' * * * * *");
-        verifyCheckbox("true", ras_survey_native_view.dateOfRecentEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Recent hospital evaluation' CHECKBOX * * * * *");
-        verifyInputField(ras_survey_native_view.recentHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn8Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Recent hospital evaluation' * * * * *");
-        CucumberLogUtils.logScreenshot();
-        JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
-        CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEART SYMPTOMS\" SECTION: HIGH BLOOD PRESSURE -----");
         openRelatedListRecord("High blood pressure");
-        verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Symptom' * * * * *");
-        verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Age of first hospital evaluation' * * * * *");
-        verifyInputField(ras_survey_native_view.dateOfFirstEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn2Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Date of first evaluation' * * * * *");
-        verifyCheckbox("true", ras_survey_native_view.firstEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'First evaluation unknown' CHECKBOX * * * * *");
-        verifyInputField(ras_survey_native_view.firstHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn4Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'First hospital evaluation' * * * * *");
-        verifyInputField(ras_survey_native_view.ageOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn5Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Age of most recent evaluation' * * * * *");
-        verifyInputField(ras_survey_native_view.dateOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn6Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Date of most recent evaluation' * * * * *");
-        verifyCheckbox("true", ras_survey_native_view.dateOfRecentEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Recent hospital evaluation' CHECKBOX * * * * *");
-        verifyInputField(ras_survey_native_view.recentHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn8Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Difficulty exercising\" section 'Recent hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - High blood pressure\" section 'Symptom' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - High blood pressure\" section 'Age of first hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfFirstEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn2Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - High blood pressure\" section 'Date of first evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.firstEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - High blood pressure\" section 'First evaluation unknown' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.firstHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn4Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - High blood pressure\" section 'First hospital evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.ageOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn5Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - High blood pressure\" section 'Age of most recent evaluation' * * * * *");
+        verifyInputField(ras_survey_native_view.dateOfMostRecentEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn6Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - High blood pressure\" section 'Date of most recent evaluation' * * * * *");
+        verifyCheckbox("true", ras_survey_native_view.dateOfRecentEvaluationUnknownCheckbox, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - High blood pressure\" section 'Recent hospital evaluation' CHECKBOX * * * * *");
+        verifyInputField(ras_survey_native_view.recentHospitalEvaluationTextarea, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn8Option7, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - High blood pressure\" section 'Recent hospital evaluation' * * * * *");
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEART SYMPTOMS\" SECTION: TRANSIENT ISCHEMIC ATTACK (TIA) ALSO KNOWN AS \"MINI STROKE\" -----");
         openRelatedListRecord("Transient ischemic attack (TIA) also known as \"mini stroke\"");
         verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption11, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Transient ischemic attack (TIA) also known as \"mini stroke\"\" section 'Symptom' * * * * *");
         verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option11, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Transient ischemic attack (TIA) also known as \"mini stroke\"\" section 'Age of first hospital evaluation' * * * * *");
@@ -904,6 +930,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEART SYMPTOMS\" SECTION: LEG CRAMPING -----");
         openRelatedListRecord("Leg cramping");
         verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Leg cramping\" section 'Symptom' * * * * *");
         verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Leg cramping\" section 'Age of first hospital evaluation' * * * * *");
@@ -917,6 +944,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEART SYMPTOMS\" SECTION: KIDNEY DYSFUNCTION -----");
         openRelatedListRecord("Kidney dysfunction");
         verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption8, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Kidney dysfunction\" section 'Symptom' * * * * *");
         verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option8, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Kidney dysfunction\" section 'Age of first hospital evaluation' * * * * *");
@@ -930,6 +958,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEART SYMPTOMS\" SECTION: SHORTNESS OF BREATH -----");
         openRelatedListRecord("Shortness of breath");
         verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption5, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Shortness of breath\" section 'Symptom' * * * * *");
         verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option5, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Shortness of breath\" section 'Age of first hospital evaluation' * * * * *");
@@ -943,6 +972,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEART SYMPTOMS\" SECTION: MIGRAINES -----");
         openRelatedListRecord("Migraines");
         verifyInputField(ras_survey_native_view.symptomInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption9, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Migraines\" section 'Symptom' * * * * *");
         verifyInputField(ras_survey_native_view.ageOfFirstHospitalEvaluationInputField, ras_Survey_TestDataManager.pleaseProvideInformationForTheFIRSTTreatmentColumn1Option9, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Symptoms - Migraines\" section 'Age of first hospital evaluation' * * * * *");
@@ -963,6 +993,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_heart_treatments_section() {
         clickTab("Heart Treatments");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEART TREATMENTS\" SECTION: SURGERY -----");
         openRelatedListRecord("Surgery");
         verifyInputField(ras_survey_native_view.surgeryInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption3, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Surgery\" section 'Treatment' * * * * *");
         verifyInputField(ras_survey_native_view.dateOfFirstTreatmentInputField, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn2Option3, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Surgery\" section 'Date of first treatment' * * * * *");
@@ -980,6 +1011,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEART TREATMENTS\" SECTION: OTHER (PLEASE SPECIFY) -----");
         verifyInputField(ras_survey_native_view.surgeryInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption4, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Other (please specify)\" section 'Treatment' * * * * *");
         verifyInputField(ras_survey_native_view.pleaseSpecifyTreatmentInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption4Specify, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Other (please specify)\" section 'Please specify' * * * * *");
         verifyInputField(ras_survey_native_view.dateOfFirstTreatmentInputField, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn2Option4, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Other (please specify)\" section 'Date of first treatment' * * * * *");
@@ -991,6 +1023,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEART TREATMENTS\" SECTION: CATHETER INTERVENTION -----");
         openRelatedListRecord("Catheter intervention");
         verifyInputField(ras_survey_native_view.surgeryInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption2, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Catheter intervention (i.e., \"a heart cath')\" section 'Treatment' * * * * *");
         verifyInputField(ras_survey_native_view.dateOfFirstTreatmentInputField, ras_Survey_TestDataManager.pleaseProvidingInformationForFirstAndMostRecentTreatmentColumn2Option2, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Catheter intervention (i.e., \"a heart cath')\" section 'Date of first treatment' * * * * *");
@@ -1002,6 +1035,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEART TREATMENTS\" SECTION: MEDICATION (PLEASE SPECIFY) -----");
         openRelatedListRecord("Medication (please specify)");
         verifyInputField(ras_survey_native_view.surgeryInputField, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption1, "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Medication (please specify)\" section 'Treatment' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.isTheParticipantStillOnThisMedicationDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN \"Heart Treatments - Medication (please specify)\" section 'Is the participant still on this medication' DROPDOWN * * * * *");
@@ -1022,6 +1056,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_participant_heart_issues_section() {
         clickTab("Participant Heart Issues");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"PARTICIPANT HEART ISSUES\" SECTION: TACHYCARDIA (HEART BEATS TOO FAST) -----");
         openRelatedListRecord("Tachycardia (heart beats too fast)");
         verifyInputField(ras_survey_native_view.issueInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyFunctionalHeartIssuesOption1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Tachycardia (heart beats too fast)\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.ageAtDiagnosisInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Tachycardia (heart beats too fast)\" section 'Age at diagnosis' * * * * *");
@@ -1035,6 +1070,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"PARTICIPANT HEART ISSUES\" SECTION: CARDIAC CONDUCTION DEFECT (WHEN ELECTRICAL SIGNALS CAUSE IRREGULAR OR ABNORMAL HEART BEATS) -----");
         openRelatedListRecord("Cardiac conduction defect (when electrical signals cause irregular or abnormal heart beats)");
         verifyInputField(ras_survey_native_view.issueInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyFunctionalHeartIssuesOption2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Cardiac conduction defect\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.ageAtDiagnosisInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Cardiac conduction defect\" section 'Age at diagnosis' * * * * *");
@@ -1048,6 +1084,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"PARTICIPANT HEART ISSUES\" SECTION: HEART FAILURE (WHEN THE HEART CANNOT -----");
         openRelatedListRecord("Heart failure (when the heart cannot");
         verifyInputField(ras_survey_native_view.issueInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyFunctionalHeartIssuesOption3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Heart failure (when the heart cannot pump enough blood to the body)\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.ageAtDiagnosisInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Heart failure (when the heart cannot pump enough blood to the body)\" section 'Age at diagnosis' * * * * *");
@@ -1067,6 +1104,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"PARTICIPANT HEART ISSUES\" SECTION: OTHER (PLEASE SPECIFY) -----");
         verifyInputField(ras_survey_native_view.issueInputField, "Other (please specify)", "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Heart failure (when the heart cannot pump enough blood to the body)\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.pleaseSpecifyParticipantHeartIssuesInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyFunctionalHeartIssuesOption4Other, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Other (please specify)\" section 'Please specify' * * * * *");
         verifyInputField(ras_survey_native_view.ageAtDiagnosisInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Heart Issues - Other (please specify)\" section 'Age at diagnosis' * * * * *");
@@ -1088,6 +1126,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
     public void verify_ras_survey_data_scenarioTwo_biopsy_history_section() {
         clickTab("Biopsy History");
         openRelatedListRecord("null");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BIOPSY HISTORY\" SECTION: NULL -----");
         verifyInputField(ras_survey_native_view.biopsyHistoryTypeInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationForEachBiopsyColumn1, "* * * * * RAS SURVEY MISMATCH IN \"Biopsy\" section 'Type' * * * * *");
         verifyInputField(ras_survey_native_view.dateBiopsyWasPerformedInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationForEachBiopsyColumn3, "* * * * * RAS SURVEY MISMATCH IN \"Biopsy\" section 'Date biopsy was performed' * * * * *");
         verifyInputField(ras_survey_native_view.nameAndLocationOfFacilityWhereBiopsyWasPreformedTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationForEachBiopsyColumn6, "* * * * * RAS SURVEY MISMATCH IN \"Biopsy\" section 'Name and location of facility where biopsy was preformed' * * * * *");
@@ -1102,6 +1141,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_allergy_histories_section() {
         clickTab("Allergy Histories");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"ALLERGY HISTORIES\" SECTION: TEST238 -----");
         openRelatedListRecord("Test238");
         softAssertDropDownValueIsSelected(ras_survey_native_view.allergyHistoryTypeDropdown, "Medication", "* * * * * RAS SURVEY MISMATCH IN \"Allergy Histories - Test238\" section 'Type' DROPDOWN * * * * *");
         verifyInputField(ras_survey_native_view.allergyHistoryNameInputField, ras_Survey_TestDataManager.pleaseCompleteAllMedicationsToWhichYouAreAllergicColumn1, "* * * * * RAS SURVEY MISMATCH IN \"Allergy Histories - Test238\" section 'Name' * * * * *");
@@ -1109,6 +1149,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"ALLERGY HISTORIES\" SECTION: TEST241 -----");
         openRelatedListRecord("Test241");
         softAssertDropDownValueIsSelected(ras_survey_native_view.allergyHistoryTypeDropdown, "Other", "* * * * * RAS SURVEY MISMATCH IN \"Allergy Histories - Test241\" section 'Type' DROPDOWN * * * * *");
         verifyInputField(ras_survey_native_view.allergyHistoryNameInputField, ras_Survey_TestDataManager.pleaseCompleteAllOtherToWhichYouAreAllergicColumn1, "* * * * * RAS SURVEY MISMATCH IN \"Allergy Histories - Test241\" section 'Name' * * * * *");
@@ -1123,6 +1164,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_hospital_history_section() {
         clickTab("Hospital History");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HOSPITAL HISTORY\" SECTION: TEST 226 -----");
         openRelatedListRecord("Test 226");
         verifyInputField(ras_survey_native_view.whereWasTheParticipantHospitalizedTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationForEachHospitalizationColumn5, "* * * * * RAS SURVEY MISMATCH IN \"Hospital History - Test 226\" section 'Where was the participant hospitalized' * * * * *");
         verifyInputField(ras_survey_native_view.reasonForHospitalizationTextarea, ras_Survey_TestDataManager.pleaseProvideTheInformationForEachHospitalizationColumn1, "* * * * * RAS SURVEY MISMATCH IN \"Hospital History - Test 226\" section 'Reason for hospitalization' * * * * *");
@@ -1136,6 +1178,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_gastrointestinal_exams_section() {
         clickTab("Gastrointestinal Exams");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GASTROINTESTINAL EXAMS\" SECTION: DIGITAL RECTAL EXAM -----");
         openRelatedListRecord("Digital rectal exam");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption1, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Digital rectal exam\" section 'Exam/Study' * * * * *");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideAnyDetailsKnownForTheConditionsColumn1Option1, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Digital rectal exam\" section 'Date of first exam' * * * * *");
@@ -1149,6 +1192,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GASTROINTESTINAL EXAMS\" SECTION: COLONOSCOPY -----");
         openRelatedListRecord("Colonoscopy");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption3, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Colonoscopy\" section 'Exam/Study' * * * * *");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Colonoscopy\" section 'Date of first exam' * * * * *");
@@ -1162,6 +1206,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GASTROINTESTINAL EXAMS\" SECTION: OTHER GI TEST (PLEASE SPECIFY) -----");
         openRelatedListRecord("Other GI test (please specify)");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption9, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Other GI test (please specify)\" section 'Exam/Study' * * * * *");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsPleaseSpecifyInputField, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption90ther, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Other GI test (please specify)\" section 'Please specify' * * * * *");
@@ -1176,6 +1221,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GASTROINTESTINAL EXAMS\" SECTION: MODIFIED BARIUM SWALLOW STUDY -----");
         openRelatedListRecord("Modified barium swallow study");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption7, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Modified barium swallow study\" section 'Exam/Study' * * * * *");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option7, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Modified barium swallow study\" section 'Date of first exam' * * * * *");
@@ -1189,6 +1235,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GASTROINTESTINAL EXAMS\" SECTION: PH PROBE OR IMPEDANCE STUDY -----");
         openRelatedListRecord("pH probe or impedance study");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption5, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - pH probe or impedance study\" section 'Exam/Study' * * * * *");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option5, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - pH probe or impedance study\" section 'Date of first exam' * * * * *");
@@ -1202,6 +1249,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GASTROINTESTINAL EXAMS\" SECTION: UPPER GI SWALLOW STUDY -----");
         openRelatedListRecord("Upper GI swallow study");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption6, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Upper GI swallow study\" section 'Exam/Study' * * * * *");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option6, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Upper GI swallow study\" section 'Date of first exam' * * * * *");
@@ -1215,6 +1263,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GASTROINTESTINAL EXAMS\" SECTION: ANORECTAL MANOMETRY -----");
         openRelatedListRecord("Anorectal manometry");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption4, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Exam/Study' * * * * *");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Date of first exam' * * * * *");
@@ -1228,6 +1277,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GASTROINTESTINAL EXAMS\" SECTION: UPPER ENDOSCOPY -----");
         openRelatedListRecord("Upper endoscopy");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption2, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Exam/Study' * * * * *");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option2, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Anorectal manometry\" section 'Date of first exam' * * * * *");
@@ -1241,6 +1291,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GASTROINTESTINAL EXAMS\" SECTION: GASTRIC EMPTYING STUDY -----");
         openRelatedListRecord("Gastric emptying study");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsExamStudyTextarea, ras_Survey_TestDataManager.pleaseIndicateWhichOfTheFollowingProceduresOption8, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Gastric emptying study\" section 'Exam/Study' * * * * *");
         verifyInputField(ras_survey_native_view.gastrointestinalExamsDateOfFirstExamInputField, ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option8, "* * * * * RAS SURVEY MISMATCH IN \"Gastrointestinal Exams - Gastric emptying study\" section 'Date of first exam' * * * * *");
@@ -1261,6 +1312,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_gi_symptoms_section() {
         clickTab("GI Symptoms");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: LACTOSE INTOLERANCE (GAS, BLOATING, DIARRHEA WITH DAIRY PRODUCTS) -----");
         openRelatedListRecord("Lactose intolerance (gas, bloating, diarrhea with dairy products)");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption13, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Lactose intolerance (gas, bloating, diarrhea with dairy products)\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsDoesTheParticipantTakeALactoseSupplementDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Lactose intolerance (gas, bloating, diarrhea with dairy products)\" section 'Does the participant take a lactose supplement' DROPDOWN * * * * *");
@@ -1268,18 +1320,21 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: GAS BLOATING -----");
         openRelatedListRecord("Gas bloating");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption15, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Gas bloating\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Gas bloating\" section 'Status' DROPDOWN * * * * *");
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: PERIANAL LESIONS OR SORES -----");
         openRelatedListRecord("Perianal lesions or sores");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption19, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Perianal lesions or sores\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Perianal lesions or sores\" section 'Status' DROPDOWN * * * * *");
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: CONSTIPATION -----");
         openRelatedListRecord("Constipation");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption17, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Constipation\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsTwoOrFewerBowelMovementsPerWeekDropdown, "Yes", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Constipation\" section '2 or fewer bowel movements per week' DROPDOWN * * * * *");
@@ -1294,6 +1349,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: DECREASED APPETITE -----");
         openRelatedListRecord("Decreased appetite");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption21, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Decreased appetite\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Decreased appetite\" section 'Status' DROPDOWN * * * * *");
@@ -1304,6 +1360,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: VOMITING -----");
         openRelatedListRecord("Vomiting");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption8, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Vomitting\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Vomiting\" section 'Status' DROPDOWN * * * * *");
@@ -1318,6 +1375,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: CHOKING/GAGGING -----");
         openRelatedListRecord("Choking/gagging");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption1, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Choking/gagging\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Choking/gagging\" section 'Status' DROPDOWN * * * * *");
@@ -1327,12 +1385,14 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: PAINFUL SWALLOWING -----");
         openRelatedListRecord("Painful swallowing");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption3, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Painful swallowing\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Painful swallowing\" section 'Status' DROPDOWN * * * * *");
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: JAUNDICE (YELLOW SKIN). THIS DOES NOT INCLUDE JAUNDICE THAT OCCURS IN THE FIRST WEEK OF LIFE -----");
         openRelatedListRecord("Jaundice (yellow skin). This does not include jaundice that occurs in the first week of life");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption11, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Jaundice (yellow skin)\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Jaundice (yellow skin)\" section 'Status' DROPDOWN * * * * *");
@@ -1341,6 +1401,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: ABDOMINAL PAIN -----");
         openRelatedListRecord("Abdominal pain");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption7, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Abdominal pain\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Abdominal pain\" section 'Status' DROPDOWN * * * * *");
@@ -1368,6 +1429,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: NAUSEA -----");
         openRelatedListRecord("Nausea");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption6, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Nausea\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Nausea\" section 'Status' DROPDOWN * * * * *");
@@ -1379,12 +1441,14 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: DIFFICULTY SWALLOWING -----");
         openRelatedListRecord("Difficulty swallowing");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption2, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Difficulty swallowing\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Difficulty swallowing\" section 'Status' DROPDOWN * * * * *");
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: ENCOPRESIS (FREQUENT OR DAILY LEAKAGE OF STOOL) -----");
         openRelatedListRecord("Encopresis (Frequent or daily leakage of stool)");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption18, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Encopresis\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Encopresis\" section 'Status' DROPDOWN * * * * *");
@@ -1393,6 +1457,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: AVERSION TO SPECIFIC FOODS OR QUALITIES/FOOD TEXTURES -----");
         openRelatedListRecord("Aversion to specific foods or qualities/food textures");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption14, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Aversion to specific foods or qualities/food textures\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Aversion to specific foods or qualities/food textures\" section 'Status' DROPDOWN * * * * *");
@@ -1400,12 +1465,14 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: GALLBLADDER PROBLEMS (EG, STONES, INFECTION) -----");
         openRelatedListRecord("Gallbladder problems (eg, stones, infection)");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption10, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Gallbladder problems (eg, stones, infection)\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Gallbladder problems (eg, stones, infection)\" section 'Status' DROPDOWN * * * * *");
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: FEEL FULL QUICKLY OR HAVE ABDOMINAL PAIN THAT INTERFERES WITH APPETITE -----");
         openRelatedListRecord("Feel full quickly or have abdominal pain that interferes with appetite");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption9, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Feel full quickly or have abdominal pain that interferes with appetite\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Feel full quickly or have abdominal pain that interferes with appetite\" section 'Status' DROPDOWN * * * * *");
@@ -1420,6 +1487,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: REFLUX/HEARTBURN -----");
         openRelatedListRecord("Reflux/heartburn");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption5, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Reflux/heartburn\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Reflux/heartburn\" section 'Status' DROPDOWN * * * * *");
@@ -1429,18 +1497,21 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: FOOD ALLERGIES -----");
         openRelatedListRecord("Food allergies");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption12, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Food allergies\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Food allergies\" section 'Status' DROPDOWN * * * * *");
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: FOOD GETTING STUCK WHILE SWALLOWING -----");
         openRelatedListRecord("Food getting stuck while swallowing");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption4, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Food getting stuck while swallowing\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Food getting stuck while swallowing\" section 'Status' DROPDOWN * * * * *");
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: UNINTENTIONAL OR UNPLANNED WEIGHT LOSS -----");
         openRelatedListRecord("Unintentional or unplanned weight loss");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption20, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Unintentional or unplanned weight loss\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Unintentional or unplanned weight loss\" section 'Status' DROPDOWN * * * * *");
@@ -1450,6 +1521,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"GI SYMPTOMS\" SECTION: DIARRHEA (LOOSE LIQUID STOOL > 1 PER DAY) -----");
         openRelatedListRecord("Diarrhea (loose liquid stool > 1 per day)");
         verifyInputField(ras_survey_native_view.giSymptomsSymptomInputField, ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption16, "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Diarrhea (loose liquid stool > 1 per day)\" section 'Symptom' * * * * *");
         softAssertDropDownValueIsSelected(ras_survey_native_view.giSymptomsStatusDropdown, "Previous (resolved symptom)", "* * * * * RAS SURVEY MISMATCH IN \"GI Symptoms - Diarrhea (loose liquid stool > 1 per day)\" section 'Status' DROPDOWN * * * * *");
@@ -1469,6 +1541,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_lymphatic_system_issues_section() {
         clickTab("Lymphatic System Issues");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"LYMPHATIC SYSTEM ISSUES\" SECTION: CONGENITAL CHYLOTHORAX -----");
         openRelatedListRecord("Congenital chylothorax");
         verifyInputField(ras_survey_native_view.participantLymphaticIssueHistoryIssueInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption3, "* * * * * RAS SURVEY MISMATCH IN \"Lymphatic System Issues - Congenital chylothorax\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantLymphaticIssueHistoryDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Lymphatic System Issues - Congenital chylothorax\" section 'Date of first symptom' * * * * *");
@@ -1486,6 +1559,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"LYMPHATIC SYSTEM ISSUES\" SECTION: OTHER (PLEASE SPECIFY) -----");
         verifyInputField(ras_survey_native_view.participantLymphaticIssueHistoryIssueInputField, "Other (please specify)", "* * * * * RAS SURVEY MISMATCH IN \"Lymphatic System Issues - Other (please specify)\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantLymphaticIssueHistoryPleaseSpecifyInputField, ras_Survey_TestDataManager.overallIsThereAnythingUnusualAboutYourTeethOrMouthPlease, "* * * * * RAS SURVEY MISMATCH IN \"Lymphatic System Issues - Other (please specify)\" section 'Please specify' * * * * *");
         verifyInputField(ras_survey_native_view.participantLymphaticIssueHistoryDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option7, "* * * * * RAS SURVEY MISMATCH IN \"Lymphatic System Issues - Other (please specify)\" section 'Date of first symptom' * * * * *");
@@ -1497,6 +1571,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"LYMPHATIC SYSTEM ISSUES\" SECTION: NEONATAL LYMPHEDEMA -----");
         openRelatedListRecord("Neonatal lymphedema");
         verifyInputField(ras_survey_native_view.participantLymphaticIssueHistoryIssueInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption1, "* * * * * RAS SURVEY MISMATCH IN \"Lymphatic System Issues - Neonatal lymphedema \" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantLymphaticIssueHistoryDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option1, "* * * * * RAS SURVEY MISMATCH IN \"Lymphatic System Issues - Neonatal lymphedema \" section 'Date of first symptom' * * * * *");
@@ -1508,6 +1583,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"LYMPHATIC SYSTEM ISSUES\" SECTION: PLEURAL EFFUSION/CHYLOTHORAX -----");
         openRelatedListRecord("Pleural effusion/chylothorax");
         verifyInputField(ras_survey_native_view.participantLymphaticIssueHistoryIssueInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption4, "* * * * * RAS SURVEY MISMATCH IN \"Lymphatic System Issues - Pleural effusion/chylothorax\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantLymphaticIssueHistoryDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Lymphatic System Issues - Pleural effusion/chylothorax\" section 'Date of first symptom' * * * * *");
@@ -1519,6 +1595,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"LYMPHATIC SYSTEM ISSUES\" SECTION: LYMPHANGIOMA -----");
         openRelatedListRecord("Lymphangioma");
         verifyInputField(ras_survey_native_view.participantLymphaticIssueHistoryIssueInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption5 + ")", "* * * * * RAS SURVEY MISMATCH IN \"Lymphatic System Issues - Lymphangioma\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantLymphaticIssueHistoryDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option5, "* * * * * RAS SURVEY MISMATCH IN \"Lymphatic System Issues - Lymphangioma\" section 'Date of first symptom' * * * * *");
@@ -1530,6 +1607,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"LYMPHATIC SYSTEM ISSUES\" SECTION: LYMPHEDEMA -----");
         openRelatedListRecord("Lymphedema");
         verifyInputField(ras_survey_native_view.participantLymphaticIssueHistoryIssueInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption2, "* * * * * RAS SURVEY MISMATCH IN \"Lymphatic System Issues - Lymphedema\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantLymphaticIssueHistoryDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option2, "* * * * * RAS SURVEY MISMATCH IN \"Lymphatic System Issues - Lymphedema\" section 'Date of first symptom' * * * * *");
@@ -1541,6 +1619,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"LYMPHATIC SYSTEM ISSUES\" SECTION: CHRONIC ABDOMINAL PAIN -----");
         openRelatedListRecord("Chronic abdominal pain");
         verifyInputField(ras_survey_native_view.participantLymphaticIssueHistoryIssueInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption6, "* * * * * RAS SURVEY MISMATCH IN \"Lymphatic System Issues - Chronic abdominal pain\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantLymphaticIssueHistoryDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option6, "* * * * * RAS SURVEY MISMATCH IN \"Lymphatic System Issues - Chronic abdominal pain\" section 'Date of first symptom' * * * * *");
@@ -1559,6 +1638,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_kidney_issues_section() {
         clickTab("Kidney Issues");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"KIDNEY ISSUES\" SECTION: MINOR ISSUES WITH KIDNEYS -----");
         openRelatedListRecord("Minor issues with kidenys");
         softAssertDropDownValueIsSelected(ras_survey_native_view.participantKidneyIssuesIssueDropdown, "Minor issues with kidenys", "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Minor issues with kidneys\" section 'Issue' DROPDOWN * * * * *");
         verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn1Option1, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Minor issues with kidneys\" section 'Date of first symptom' * * * * *");
@@ -1576,6 +1656,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"KIDNEY ISSUES\" SECTION: OTHER -----");
         softAssertDropDownValueIsSelected(ras_survey_native_view.participantKidneyIssuesIssueDropdown, "Other", "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Other\" section 'Issue' DROPDOWN * * * * *");
         verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryPleaseSpecifyInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingKidneyProblemsOption4Other, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Other\" section 'Please specify' * * * * *");
         verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Other\" section 'Date of first symptom' * * * * *");
@@ -1587,6 +1668,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"KIDNEY ISSUES\" SECTION: HYDRONEPHROSIS -----");
         openRelatedListRecord("Hydronephrosis");
         softAssertDropDownValueIsSelected(ras_survey_native_view.participantKidneyIssuesIssueDropdown, "Hydronephrosis", "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Hydronephrosis\" section 'Issue' DROPDOWN * * * * *");
         verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Hydronephrosis\" section 'Date of first symptom' * * * * *");
@@ -1598,6 +1680,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"KIDNEY ISSUES\" SECTION: UNDERDEVELOPED KIDNEY(RENALY HOPOLASIA) OR MISSING KIDNEY (RENAL AGENESIS) -----");
         openRelatedListRecord("Underdeveloped kidney(renaly hopolasia) or missing kidney (renal agenesis)");
         softAssertDropDownValueIsSelected(ras_survey_native_view.participantKidneyIssuesIssueDropdown, "Underdeveloped kidney(renaly hopolasia) or missing kidney (renal agenesis)", "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Underdeveloped kidney\" section 'Issue' DROPDOWN * * * * *");
         verifyInputField(ras_survey_native_view.participantKidneyIssuesHistoryDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableRegardingKidneyColumn1Option2, "* * * * * RAS SURVEY MISMATCH IN \"Kidney Issues - Underdeveloped kidney\" section 'Date of first symptom' * * * * *");
@@ -1616,6 +1699,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_spinal_information_section() {
         clickTab("Spinal Information");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"SPINAL INFORMATION\" SECTION: KYPHOSCOLIOSIS -----");
         openRelatedListRecord("Kyphoscoliosis");
         softAssertDropDownValueIsSelected(ras_survey_native_view.participantSpinalInformationTypeOfCurvatureDropdown, "Kyphoscoliosis", "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Kyphoscoliosis\" section 'Type of curvature' DROPDOWN * * * * *");
         verifyInputField(ras_survey_native_view.participantSpinalInformationDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Kyphoscoliosis\" section 'Date of first symptom' * * * * *");
@@ -1626,6 +1710,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"SPINAL INFORMATION\" SECTION: KYPHOSIS -----");
         openRelatedListRecord("Kyphosis");
         softAssertDropDownValueIsSelected(ras_survey_native_view.participantSpinalInformationTypeOfCurvatureDropdown, "Kyphosis", "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Kyphosis\" section 'Type of curvature' DROPDOWN * * * * *");
         verifyInputField(ras_survey_native_view.participantSpinalInformationDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option2, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Kyphosis\" section 'Date of first symptom' * * * * *");
@@ -1636,6 +1721,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"SPINAL INFORMATION\" SECTION: SCOLIOSIS -----");
         openRelatedListRecord("Scoliosis");
         softAssertDropDownValueIsSelected(ras_survey_native_view.participantSpinalInformationTypeOfCurvatureDropdown, "Scoliosis", "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Scoliosis\" section 'Type of curvature' DROPDOWN * * * * *");
         verifyInputField(ras_survey_native_view.participantSpinalInformationDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option1, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Scoliosis\" section 'Date of first symptom' * * * * *");
@@ -1652,6 +1738,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"SPINAL INFORMATION\" SECTION: OTHER -----");
         softAssertDropDownValueIsSelected(ras_survey_native_view.participantSpinalInformationTypeOfCurvatureDropdown, "Other", "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Other\" section 'Type of curvature' DROPDOWN * * * * *");
         verifyInputField(ras_survey_native_view.participantSpinalInformationPleaseSpecifyInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingSkinTumorsOthers, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Other\" section 'Please specify' * * * * *");
         verifyInputField(ras_survey_native_view.participantSpinalInformationDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Spinal Information - Other\" section 'Date of first symptom' * * * * *");
@@ -1669,6 +1756,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_joint_issues_section() {
         clickTab("Joint Issues");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"JOINT ISSUES\" SECTION: HIP DYSPLASIA REQUIRING SURGERY -----");
         openRelatedListRecord("Hip dysplasia requiring surgery");
         verifyInputField(ras_survey_native_view.participantJointIssuesInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithTheFollowingJointIssues4, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hip dysplasia requiring surgery\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantJointIssuesDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hip dysplasia requiring surgery\" section 'Date of first symptom' * * * * *");
@@ -1679,6 +1767,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"JOINT ISSUES\" SECTION: PES PLANUS/PES VALGUS (ALSO KNOWN AS FLAT FEET) -----");
         openRelatedListRecord("Pes planus/pes valgus (also known as flat feet)");
         verifyInputField(ras_survey_native_view.participantJointIssuesInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithTheFollowingJointIssues2, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hip dysplasia requiring surgery\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantJointIssuesDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option2, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hip dysplasia requiring surgery\" section 'Date of first symptom' * * * * *");
@@ -1689,6 +1778,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"JOINT ISSUES\" SECTION: ACHILLES TENDON CONTRACTURE (TIGHTNESS IN THE ACHILLES TENDON WHICH RUNS FROM YOUR HEEL TO YOUR ANKLE AND CAUSES PAIN OR THE FOOT TO REMAIN IN AN ABNORMAL POSITION) -----");
         openRelatedListRecord("Achilles tendon contracture (tightness in the achilles tendon which runs from your heel to your ankle and causes pain or the foot to remain in an abnormal position)");
         verifyInputField(ras_survey_native_view.participantJointIssuesInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithTheFollowingJointIssues3, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Achilles tendon contracture\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantJointIssuesDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Achilles tendon contracture\" section 'Date of first symptom' * * * * *");
@@ -1699,6 +1789,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"JOINT ISSUES\" SECTION: HYPERMOBILITY (JOINTS THAT ARE MORE FLEXIBLE THAN USUAL; SOMETIMES REFERRED TO AS \"DOUBLE JOINTED\") -----");
         openRelatedListRecord("Hypermobility (joints that are more flexible than usual; sometimes referred to as \"double jointed\")");
         verifyInputField(ras_survey_native_view.participantJointIssuesInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithTheFollowingJointIssues5, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hypermobility\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantJointIssuesDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option5, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Hypermobility\" section 'Date of first symptom' * * * * *");
@@ -1709,6 +1800,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"JOINT ISSUES\" SECTION: ULNAR DEVIATION (ALSO CALLED ULNAR DRIFT, WHEN YOUR FINGERS BEND TOWARDS YOUR PINKY FINGER, BUT YOUR WRIST SHIFTS TOWARDS YOUR THUMB. MAY CAUSE SWELLING AND DIFFICULTY GRIPPING) -----");
         openRelatedListRecord("Ulnar deviation (also called ulnar drift, when your fingers bend towards your pinky finger, but your wrist shifts towards your thumb. May cause swelling and difficulty gripping)");
         verifyInputField(ras_survey_native_view.participantJointIssuesInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithTheFollowingJointIssues1, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Ulnar deviation\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantJointIssuesDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option1, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Ulnar deviation\" section 'Date of first symptom' * * * * *");
@@ -1725,6 +1817,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"JOINT ISSUES\" SECTION: OTHER (PLEASE SPECIFY) -----");
         verifyInputField(ras_survey_native_view.participantJointIssuesInputField, "Other (please specify)", "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Other (please specify)\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantJointIssuesPleaseSpecifyInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithTheFollowingJointIssues6Other, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Other (please specify)\" section 'Please specify' * * * * *");
         verifyInputField(ras_survey_native_view.participantJointIssuesDateOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option6, "* * * * * RAS SURVEY MISMATCH IN \"Joint Issues - Other (please specify)\" section 'Date of first symptom' * * * * *");
@@ -1742,6 +1835,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_bleeding_issues_section() {
         clickTab("Bleeding Issues");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BLEEDING ISSUES\" SECTION: EASY BRUISING -----");
         openRelatedListRecord("Easy bruising");
         verifyInputField(ras_survey_native_view.participantBleedingIssuesInputField, ras_Survey_TestDataManager.doYouHaveAnyOfTheFollowingIssuesWithBleedingOrBruising1, "* * * * * RAS SURVEY MISMATCH IN \"Bleeding Issues - Easy bruising\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantBleedingIssuesDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteBleedingBruisingIssuesListedColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Bleeding Issues - Easy bruising\" section 'Date of diagnosis' * * * * *");
@@ -1753,6 +1847,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BLEEDING ISSUES\" SECTION: PLATELET DYSFUNCTION -----");
         openRelatedListRecord("Platelet dysfunction");
         verifyInputField(ras_survey_native_view.participantBleedingIssuesInputField, ras_Survey_TestDataManager.doYouHaveAnyOfTheFollowingIssuesWithBleedingOrBruising2, "* * * * * RAS SURVEY MISMATCH IN \"Bleeding Issues - Platelet dysfunction\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantBleedingIssuesDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteBleedingBruisingIssuesListedColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Bleeding Issues - Platelet dysfunction\" section 'Date of diagnosis' * * * * *");
@@ -1764,6 +1859,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BLEEDING ISSUES\" SECTION: CLOTTING DISORDER -----");
         openRelatedListRecord("Clotting disorder");
         verifyInputField(ras_survey_native_view.participantBleedingIssuesInputField, ras_Survey_TestDataManager.doYouHaveAnyOfTheFollowingIssuesWithBleedingOrBruising3, "* * * * * RAS SURVEY MISMATCH IN \"Bleeding Issues - Clotting disorder\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantBleedingIssuesDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteBleedingBruisingIssuesListedColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Bleeding Issues - Clotting disorder\" section 'Date of diagnosis' * * * * *");
@@ -1781,6 +1877,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BLEEDING ISSUES\" SECTION: OTHER (PLEASE SPECIFY) -----");
         verifyInputField(ras_survey_native_view.participantBleedingIssuesInputField, "Other (please specify)", "* * * * * RAS SURVEY MISMATCH IN \"Bleeding Issues - Easy bruising\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantBleedingIssuesPleaseSpecifyInputField, ras_Survey_TestDataManager.doYouHaveAnyOfTheFollowingIssuesWithBleedingOrBruising4Other, "* * * * * RAS SURVEY MISMATCH IN \"Bleeding Issues - Other (please specify)\" section 'Please specify' * * * * *");
         verifyInputField(ras_survey_native_view.participantBleedingIssuesDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteBleedingBruisingIssuesListedColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Bleeding Issues - Other (please specify)\" section 'Date of diagnosis' * * * * *");
@@ -1799,6 +1896,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_blood_disorders_section() {
         clickTab("Blood Disorders");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BLOOD DISORDERS\" SECTION: JUVENILE MYELOMONOCYTIC LEUKEMIA -----");
         openRelatedListRecord("Juvenile myelomonocytic leukemia");
         verifyInputField(ras_survey_native_view.participantBloodDisordersDisorderSymptomInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithBloodDisorders3, "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - Juvenile myelomonocytic leukemia\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantBloodDisordersDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheBloodDisordersIssuesListedColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - Juvenile myelomonocytic leukemia\" section 'Date of diagnosis' * * * * *");
@@ -1810,6 +1908,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BLOOD DISORDERS\" SECTION: OTHER LEUKEMIA (PLEASE SPECIFY) -----");
         openRelatedListRecord("Other leukemia (please specify)");
         verifyInputField(ras_survey_native_view.participantBloodDisordersDisorderSymptomInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithBloodDisorders7, "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - Other leukemia (please specify)\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantBloodDisordersPleaseSpecifyInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithBloodDisorders7Other, "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - Other leukemia (please specify)\" section 'Please specify' * * * * *");
@@ -1822,6 +1921,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BLOOD DISORDERS\" SECTION: THROMBOCYTOPENIA -----");
         openRelatedListRecord("Thrombocytopenia");
         verifyInputField(ras_survey_native_view.participantBloodDisordersDisorderSymptomInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithBloodDisorders4, "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - Thrombocytopenia\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantBloodDisordersDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheBloodDisordersIssuesListedColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - Thrombocytopenia\" section 'Date of diagnosis' * * * * *");
@@ -1833,6 +1933,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BLOOD DISORDERS\" SECTION: MARROW HYPOPLASIA -----");
         openRelatedListRecord("Marrow hypoplasia");
         verifyInputField(ras_survey_native_view.participantBloodDisordersDisorderSymptomInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithBloodDisorders5, "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - Marrow hypoplasia\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantBloodDisordersDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheBloodDisordersIssuesListedColumn4Option5, "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - Marrow hypoplasia\" section 'Date of diagnosis' * * * * *");
@@ -1844,6 +1945,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BLOOD DISORDERS\" SECTION: MYELOPROLIFERATIVE DISORDER -----");
         openRelatedListRecord("Myeloproliferative disorder");
         verifyInputField(ras_survey_native_view.participantBloodDisordersDisorderSymptomInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithBloodDisorders2 + ")", "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - Myeloproliferative disorder\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantBloodDisordersDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheBloodDisordersIssuesListedColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - Myeloproliferative disorder\" section 'Date of diagnosis' * * * * *");
@@ -1855,6 +1957,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BLOOD DISORDERS\" SECTION: SPLENOMEGALY (WHEN THE SPLEEN IS ENLARGED) -----");
         openRelatedListRecord("Splenomegaly (when the spleen is enlarged)");
         verifyInputField(ras_survey_native_view.participantBloodDisordersDisorderSymptomInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithBloodDisorders1, "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - Splenomegaly (when the spleen is enlarged)\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantBloodDisordersDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheBloodDisordersIssuesListedColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - Splenomegaly (when the spleen is enlarged)\" section 'Date of diagnosis' * * * * *");
@@ -1866,6 +1969,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BLOOD DISORDERS\" SECTION: HISTORY OF LOW WHITE BLOOD CELL COUNT -----");
         openRelatedListRecord("History of low white blood cell count");
         verifyInputField(ras_survey_native_view.participantBloodDisordersDisorderSymptomInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithBloodDisorders6, "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - History of low white blood cell count\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantBloodDisordersDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheBloodDisordersIssuesListedColumn4Option6, "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - History of low white blood cell count\" section 'Date of diagnosis' * * * * *");
@@ -1883,6 +1987,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BLOOD DISORDERS\" SECTION: OTHER (PLEASE SPECIFY) -----");
         verifyInputField(ras_survey_native_view.participantBloodDisordersDisorderSymptomInputField, "Other (please specify)", "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - Other (please specify)\" section 'Issue' * * * * *");
         verifyInputField(ras_survey_native_view.participantBloodDisordersPleaseSpecifyInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithBloodDisorders8Other, "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - Other (please specify)\" section 'Please specify' * * * * *");
         verifyInputField(ras_survey_native_view.participantBloodDisordersDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheBloodDisordersIssuesListedColumn4Option8, "* * * * * RAS SURVEY MISMATCH IN \"Blood Disorders - Other (please specify)\" section 'Date of diagnosis' * * * * *");
@@ -1901,6 +2006,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_infections_section() {
         clickTab("Infections");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"INFECTIONS\" SECTION: FREQUENT INFECTIONS IN INFANCY AND CHILDHOOD (NO IMMUNODEFICIENCY) -----");
         openRelatedListRecord("Frequent infections in infancy and childhood (no immunodeficiency)");
         softAssertDropDownValueIsSelected(ras_survey_native_view.participantInfectionsInfectionDropdown, "Frequent infections in infancy and childhood (no immunodeficiency)", "* * * * * RAS SURVEY MISMATCH IN \"Infections - Preview Frequent infections in infancy and childhood (no immunodeficiency)\" section 'Infection' DROPDOWN * * * * *");
         verifyInputField(ras_survey_native_view.participantInfectionsDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheImmunodeficienciesListedColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Infections - Preview Frequent infections in infancy and childhood (no immunodeficiency)\" section 'Date of diagnosis' * * * * *");
@@ -1912,6 +2018,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"INFECTIONS\" SECTION: FREQUENT INFECTIONS IN INFANCY AND CHILDHOOD (DIAGNOSED WITH IMMUNODEFICIENCY) -----");
         openRelatedListRecord("Frequent infections in infancy and childhood (diagnosed with immunodeficiency)");
         softAssertDropDownValueIsSelected(ras_survey_native_view.participantInfectionsInfectionDropdown, "Frequent infections in infancy and childhood (diagnosed with immunodeficiency)", "* * * * * RAS SURVEY MISMATCH IN \"Infections - Frequent infections in infancy and childhood (diagnosed with immunodeficiency)\" section 'Infection' DROPDOWN * * * * *");
         verifyInputField(ras_survey_native_view.participantInfectionsDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheImmunodeficienciesListedColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Infections - Frequent infections in infancy and childhood (diagnosed with immunodeficiency)\" section 'Date of diagnosis' * * * * *");
@@ -1929,6 +2036,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"INFECTIONS\" SECTION: OTHER -----");
         softAssertDropDownValueIsSelected(ras_survey_native_view.participantInfectionsInfectionDropdown, "Other", "* * * * * RAS SURVEY MISMATCH IN \"Infections - Other\" section 'Infection' DROPDOWN * * * * *");
         verifyInputField(ras_survey_native_view.participantInfectionsPleaseSpecifyInputField, ras_Survey_TestDataManager.howWouldYouDescribeInfectionFrequencyOption3Other, "* * * * * RAS SURVEY MISMATCH IN \"Infections - Other\" section 'Please specify' * * * * *");
         verifyInputField(ras_survey_native_view.participantInfectionsDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheTumorsListedColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Infections - Other\" section 'Date of diagnosis' * * * * *");
@@ -1947,6 +2055,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_tumors_section() {
         clickTab("Tumors");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"TUMORS\" SECTION: GIANT CELL LESION OF THE JAW -----");
         openRelatedListRecord("Giant cell lesion of the jaw");
         verifyInputField(ras_survey_native_view.participantTumorsInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingTumorsOption1, "* * * * * RAS SURVEY MISMATCH IN \"Tumors - Giant cell lesion of the jaw\" section 'Tumor' * * * * *");
         verifyInputField(ras_survey_native_view.participantTumorsDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheTumorsListedColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Tumors - Giant cell lesion of the jaw\" section 'Date of diagnosis' * * * * *");
@@ -1957,6 +2066,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"TUMORS\" SECTION: PAPILLOMATA (MULTIPLE WART-LIKE GROWTHS ON THE SKIN) -----");
         openRelatedListRecord("Papillomata (multiple wart-like growths on the skin)");
         verifyInputField(ras_survey_native_view.participantTumorsInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingTumorsOption3, "* * * * * RAS SURVEY MISMATCH IN \"Tumors - Papillomata (multiple wart-like growths on the skin)\" section 'Tumor' * * * * *");
         verifyInputField(ras_survey_native_view.participantTumorsDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheTumorsListedColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Tumors - Papillomata (multiple wart-like growths on the skin)\" section 'Date of diagnosis' * * * * *");
@@ -1967,6 +2077,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"TUMORS\" SECTION: RHABDOMYOSARCOMA (A SOFT TISSUE TUMOR, SUCH AS IN THE MUSCLE) -----");
         openRelatedListRecord("Rhabdomyosarcoma (a soft tissue tumor, such as in the muscle)");
         verifyInputField(ras_survey_native_view.participantTumorsInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingTumorsOption4, "* * * * * RAS SURVEY MISMATCH IN \"Tumors - Rhabdomyosarcoma (a soft tissue tumor, such as in the muscle)\" section 'Tumor' * * * * *");
         verifyInputField(ras_survey_native_view.participantTumorsDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheTumorsListedColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Tumors - Rhabdomyosarcoma (a soft tissue tumor, such as in the muscle)\" section 'Date of diagnosis' * * * * *");
@@ -1977,6 +2088,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"TUMORS\" SECTION: NEUROBLASTOMA (A NERVE CELL TUMOR) -----");
         openRelatedListRecord("Neuroblastoma (a nerve cell tumor)");
         verifyInputField(ras_survey_native_view.participantTumorsInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingTumorsOption5, "* * * * * RAS SURVEY MISMATCH IN \"Tumors - Neuroblastoma (a nerve cell tumor)\" section 'Tumor' * * * * *");
         verifyInputField(ras_survey_native_view.participantTumorsDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheTumorsListedColumn4Option5, "* * * * * RAS SURVEY MISMATCH IN \"Tumors - Neuroblastoma (a nerve cell tumor)\" section 'Date of diagnosis' * * * * *");
@@ -1987,6 +2099,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"TUMORS\" SECTION: PIGMENTED VILLONODULOUS SYNOVITIS (A MASS OR TUMOR AFFECTING THE TENDONS OR JOINTS OF THE BODY, COMMONLY THE KNEE) -----");
         openRelatedListRecord("Pigmented villonodulous synovitis (a mass or tumor affecting the tendons or joints of the body, commonly the knee)");
         verifyInputField(ras_survey_native_view.participantTumorsInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingTumorsOption2, "* * * * * RAS SURVEY MISMATCH IN \"Tumors - Pigmented villonodulous synovitis\" section 'Tumor' * * * * *");
         verifyInputField(ras_survey_native_view.participantTumorsDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheTumorsListedColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Tumors - Pigmented villonodulous synovitis\" section 'Date of diagnosis' * * * * *");
@@ -2003,6 +2116,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"TUMORS\" SECTION: OTHER (PLEASE SPECIFY) -----");
         verifyInputField(ras_survey_native_view.participantTumorsInputField, "Other (please specify)", "* * * * * RAS SURVEY MISMATCH IN \"Tumors - Other (please specify)\" section 'Tumor' * * * * *");
         verifyInputField(ras_survey_native_view.participantTumorsPleaseSpecifyInputField, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingTumorsOption6Other, "* * * * * RAS SURVEY MISMATCH IN \"Tumors - Other (please specify)\" section 'Please specify' * * * * *");
         verifyInputField(ras_survey_native_view.participantTumorsDateOfDiagnosisInputField, ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheTumorsListedColumn4Option6, "* * * * * RAS SURVEY MISMATCH IN \"Tumors - Other (please specify)\" section 'Date of diagnosis' * * * * *");
@@ -2020,6 +2134,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_autoimmune_history_section() {
         clickTab("Autoimmune History");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"AUTOIMMUNE HISTORY\" SECTION: AUTOIMMUNE THYROIDITIS -----");
         openRelatedListRecord("Autoimmune thyroiditis");
         verifyInputField(ras_survey_native_view.participantAutoimmuneHistoryInputField, ras_Survey_TestDataManager.withWhatAutoimmuneDisorderHaveYouBeenDiagnosedOption1, "* * * * * RAS SURVEY MISMATCH IN \"Autoimmune History - Autoimmune thyroiditis\" section 'Condition' * * * * *");
         verifyInputField(ras_survey_native_view.participantAutoimmuneHistoryAgeOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheAutoimmuneConditionsListedBelowColumn2Option1, "* * * * * RAS SURVEY MISMATCH IN \"Autoimmune History - Autoimmune thyroiditis\" section 'Age at first symptoms' * * * * *");
@@ -2031,6 +2146,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"AUTOIMMUNE HISTORY\" SECTION: LUPUS (SLE) -----");
         openRelatedListRecord("Lupus (SLE)");
         verifyInputField(ras_survey_native_view.participantAutoimmuneHistoryInputField, ras_Survey_TestDataManager.withWhatAutoimmuneDisorderHaveYouBeenDiagnosedOption2, "* * * * * RAS SURVEY MISMATCH IN \"Autoimmune History - Lupus (SLE)\" section 'Condition' * * * * *");
         verifyInputField(ras_survey_native_view.participantAutoimmuneHistoryAgeOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheAutoimmuneConditionsListedBelowColumn2Option2, "* * * * * RAS SURVEY MISMATCH IN \"Autoimmune History - Lupus (SLE)\" section 'Age at first symptoms' * * * * *");
@@ -2042,6 +2158,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"AUTOIMMUNE HISTORY\" SECTION: PSORIASIS -----");
         openRelatedListRecord("Psoriasis");
         verifyInputField(ras_survey_native_view.participantAutoimmuneHistoryInputField, ras_Survey_TestDataManager.withWhatAutoimmuneDisorderHaveYouBeenDiagnosedOption3, "* * * * * RAS SURVEY MISMATCH IN \"Autoimmune History - Psoriasis\" section 'Condition' * * * * *");
         verifyInputField(ras_survey_native_view.participantAutoimmuneHistoryAgeOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheAutoimmuneConditionsListedBelowColumn2Option3, "* * * * * RAS SURVEY MISMATCH IN \"Autoimmune History - Psoriasis\" section 'Age at first symptoms' * * * * *");
@@ -2053,6 +2170,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"AUTOIMMUNE HISTORY\" SECTION: AUTOIMMUNE BLOOD CONDITION (IE, NEUTROPENIC, THROMBOCYTOPENIA). PLEASE SPECIFY -----");
         openRelatedListRecord("Autoimmune blood condition (ie, neutropenic, thrombocytopenia). Please specify");
         verifyInputField(ras_survey_native_view.participantAutoimmuneHistoryInputField, ras_Survey_TestDataManager.withWhatAutoimmuneDisorderHaveYouBeenDiagnosedOption4, "* * * * * RAS SURVEY MISMATCH IN \"Autoimmune History - Autoimmune blood condition (ie, neutropenic, thrombocytopenia). Please specify\" section 'Condition' * * * * *");
         verifyInputField(ras_survey_native_view.participantAutoimmuneHistoryPleaseSpecifyInputField, ras_Survey_TestDataManager.withWhatAutoimmuneDisorderHaveYouBeenDiagnosedOption4Other, "* * * * * RAS SURVEY MISMATCH IN \"Autoimmune History - Autoimmune blood condition (ie, neutropenic, thrombocytopenia). Please specify\" section 'Please specify' * * * * *");
@@ -2071,6 +2189,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"AUTOIMMUNE HISTORY\" SECTION: OTHER (PLEASE SPECIFY) -----");
         verifyInputField(ras_survey_native_view.participantAutoimmuneHistoryInputField, "Other (please specify)", "* * * * * RAS SURVEY MISMATCH IN \"Autoimmune History - Other (please specify)\" section 'Condition' * * * * *");
         verifyInputField(ras_survey_native_view.participantAutoimmuneHistoryPleaseSpecifyInputField, ras_Survey_TestDataManager.withWhatAutoimmuneDisorderHaveYouBeenDiagnosedOption5Other, "* * * * * RAS SURVEY MISMATCH IN \"Autoimmune History - Other (please specify)\" section 'Please specify' * * * * *");
         verifyInputField(ras_survey_native_view.participantAutoimmuneHistoryAgeOfFirstSymptomInputField, ras_Survey_TestDataManager.pleaseCompleteTheAutoimmuneConditionsListedBelowColumn2Option5, "* * * * * RAS SURVEY MISMATCH IN \"Autoimmune History - Other (please specify)\" section 'Age at first symptoms' * * * * *");
@@ -2089,6 +2208,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_brain_issues_section() {
         clickTab("Brain Issues");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BRAIN ISSUES\" SECTION: TETHERED SPINAL CORD -----");
         openRelatedListRecord("Tethered spinal cord");
         verifyInputField(dynamicLookupFieldLocator("Brain Issue"), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyBrainOption4, "* * * * * RAS SURVEY MISMATCH IN \"Brain Issues - Tethered spinal cord)\" section 'Brain Issue' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableForEachOfTheConditionsListedBrainIssuesColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Brain Issues - Tethered spinal cord)\" section 'Date of diagnosis' * * * * *");
@@ -2099,6 +2219,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BRAIN ISSUES\" SECTION: CORTICAL ATROPHY -----");
         openRelatedListRecord("Cortical atrophy");
         verifyInputField(dynamicLookupFieldLocator("Brain Issue"), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyBrainOption5, "* * * * * RAS SURVEY MISMATCH IN \"Brain Issues - Cortical atrophy\" section 'Brain Issue' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableForEachOfTheConditionsListedBrainIssuesColumn4Option5, "* * * * * RAS SURVEY MISMATCH IN \"Brain Issues - Cortical atrophy\" section 'Date of diagnosis' * * * * *");
@@ -2109,6 +2230,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BRAIN ISSUES\" SECTION: HYDROCEPHALUS -----");
         openRelatedListRecord("Hydrocephalus");
         verifyInputField(dynamicLookupFieldLocator("Brain Issue"), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyBrainOption2, "* * * * * RAS SURVEY MISMATCH IN \"Brain Issues - Hydrocephalus\" section 'Brain Issue' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableForEachOfTheConditionsListedBrainIssuesColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Brain Issues - Hydrocephalus\" section 'Date of diagnosis' * * * * *");
@@ -2119,6 +2241,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BRAIN ISSUES\" SECTION: SYRINGOMYELIA -----");
         openRelatedListRecord("Syringomyelia");
         verifyInputField(dynamicLookupFieldLocator("Brain Issue"), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyBrainOption3, "* * * * * RAS SURVEY MISMATCH IN \"Brain Issues - Syringomyelia\" section 'Brain Issue' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableForEachOfTheConditionsListedBrainIssuesColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Brain Issues - Syringomyelia\" section 'Date of diagnosis' * * * * *");
@@ -2129,6 +2252,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BRAIN ISSUES\" SECTION: CHIARI 1 MALFORMATION OR CEREBELLAR TONSILLAR ECTOPIA -----");
         openRelatedListRecord("Chiari 1 malformation or cerebellar tonsillar ectopia");
         verifyInputField(dynamicLookupFieldLocator("Brain Issue"), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyBrainOption1, "* * * * * RAS SURVEY MISMATCH IN \"Brain Issues - Chiari 1 malformation or cerebellar tonsillar ectopia\" section 'Brain Issue' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableForEachOfTheConditionsListedBrainIssuesColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Brain Issues - Chiari 1 malformation or cerebellar tonsillar ectopia\" section 'Date of diagnosis' * * * * *");
@@ -2145,6 +2269,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BRAIN ISSUES\" SECTION: OTHER (PLEASE SPECIFY) -----");
         verifyInputField(dynamicLookupFieldLocator("Brain Issue"), "Other (please specify)", "* * * * * RAS SURVEY MISMATCH IN \"Brain Issues - Other (please specify)\" section 'Brain Issue' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Please specify"), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyBrainOption6Other, "* * * * * RAS SURVEY MISMATCH IN \"Brain Issues - Other (please specify)\" section 'Please specify' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableForEachOfTheConditionsListedBrainIssuesColumn4Option6, "* * * * * RAS SURVEY MISMATCH IN \"Brain Issues - Other (please specify)\" section 'Date of diagnosis' * * * * *");
@@ -2162,6 +2287,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_seizure_history_section() {
         clickTab("Seizure History");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"SEIZURE HISTORY\" SECTION: EPILEPSY -----");
         openRelatedListRecord("Epilepsy");
         softAssertDropDownValueIsSelected(dynamicSelectDropdownLocator("Seizure history"), ras_Survey_TestDataManager.pleaseSelectAllSeizureDisordersOption2, "* * * * * RAS SURVEY MISMATCH IN \"Seizure History - Epilepsy, resolved after course of treatment\" section 'Seizure history' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowSeizureDisordersColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Seizure History - Epilepsy, resolved after course of treatment\" section 'Date of diagnosis' * * * * *");
@@ -2172,6 +2298,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"SEIZURE HISTORY\" SECTION: FEBRILE OR SHORT-TERM SEIZURES, REQUIRING NO TREATMENT -----");
         openRelatedListRecord("Febrile or short-term seizures, requiring no treatment");
         softAssertDropDownValueIsSelected(dynamicSelectDropdownLocator("Seizure history"), "Febrile or short-term seizures, requiring no treatment", "* * * * * RAS SURVEY MISMATCH IN \"Seizure History - Febrile or short-term seizures, requiring no treatment\" section 'Seizure history' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowSeizureDisordersColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Seizure History - Febrile or short-term seizures, requiring no treatment\" section 'Date of diagnosis' * * * * *");
@@ -2182,6 +2309,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"SEIZURE HISTORY\" SECTION: SEIZURES, UNCONTROLLED BY TREATMENT, ALSO KNOWN AS INTRACTABLE EPILEPSY -----");
         openRelatedListRecord("Seizures, uncontrolled by treatment, also known as intractable epilepsy");
         softAssertDropDownValueIsSelected(dynamicSelectDropdownLocator("Seizure history"), "Seizures, uncontrolled by treatment, also known as intractable epilepsy", "* * * * * RAS SURVEY MISMATCH IN \"Seizure History - Seizures, uncontrolled by treatment, also known as intractable epilepsy\" section 'Seizure history' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowSeizureDisordersColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Seizure History - Seizures, uncontrolled by treatment, also known as intractable epilepsy\" section 'Date of diagnosis' * * * * *");
@@ -2192,6 +2320,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"SEIZURE HISTORY\" SECTION: EPILEPSY, ONGOING TREATMENT -----");
         openRelatedListRecord("Epilepsy, ongoing treatment");
         softAssertDropDownValueIsSelected(dynamicSelectDropdownLocator("Seizure history"), ras_Survey_TestDataManager.pleaseSelectAllSeizureDisordersOption3, "* * * * * RAS SURVEY MISMATCH IN \"Seizure History - Epilepsy, ongoing treatment\" section 'Seizure history' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowSeizureDisordersColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Seizure History - Epilepsy, ongoing treatment\" section 'Date of diagnosis' * * * * *");
@@ -2208,6 +2337,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"SEIZURE HISTORY\" SECTION: OTHER -----");
         softAssertDropDownValueIsSelected(dynamicSelectDropdownLocator("Seizure history"), "Other", "* * * * * RAS SURVEY MISMATCH IN \"Seizure History - Other\" section 'Seizure history' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Please specify"), ras_Survey_TestDataManager.pleaseSelectAllSeizureDisordersOption5Other, "* * * * * RAS SURVEY MISMATCH IN \"Seizure History - Other\" section 'Please specify' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowSeizureDisordersColumn4Option5, "* * * * * RAS SURVEY MISMATCH IN \"Seizure History - Other\" section 'Date of diagnosis' * * * * *");
@@ -2225,6 +2355,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_behavioural_psychiatric_histories_section() {
         clickTab("Behavioral & Psychiatric Histories");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BEHAVIORAL & PSYCHIATRIC HISTORIES\" SECTION: AUTISM SPECTRUM DISORDER -----");
         openRelatedListRecord("Autism spectrum disorder");
         verifyInputField(dynamicLookupFieldLocator("Condition"), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithABehavioralOption1, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Autism spectrum disorder\" section 'Condition' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableBehavioralAndPsychiatricConditionsColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Autism spectrum disorder\" section 'Date of diagnosis' * * * * *");
@@ -2234,6 +2365,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BEHAVIORAL & PSYCHIATRIC HISTORIES\" SECTION: MOOD PROBLEMS -----");
         openRelatedListRecord("Mood problems");
         verifyInputField(dynamicLookupFieldLocator("Condition"), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithABehavioralOption5, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Mood problems (depression, rapid or drastic mood swings, etc)\" section 'Condition' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableBehavioralAndPsychiatricConditionsColumn4Option5, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Mood problems (depression, rapid or drastic mood swings, etc)\" section 'Date of diagnosis' * * * * *");
@@ -2243,6 +2375,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BEHAVIORAL & PSYCHIATRIC HISTORIES\" SECTION: AGGRESSION -----");
         openRelatedListRecord("Aggression");
         verifyInputField(dynamicLookupFieldLocator("Condition"), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithABehavioralOption9, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Aggression\" section 'Condition' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableBehavioralAndPsychiatricConditionsColumn4Option9, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Aggression\" section 'Date of diagnosis' * * * * *");
@@ -2252,6 +2385,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BEHAVIORAL & PSYCHIATRIC HISTORIES\" SECTION: SCHIZOPHRENIA -----");
         openRelatedListRecord("Schizophrenia");
         verifyInputField(dynamicLookupFieldLocator("Condition"), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithABehavioralOption2, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Schizophrenia\" section 'Condition' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableBehavioralAndPsychiatricConditionsColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Schizophrenia\" section 'Date of diagnosis' * * * * *");
@@ -2261,6 +2395,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BEHAVIORAL & PSYCHIATRIC HISTORIES\" SECTION: OBSESSIONS OR COMPULSIONS -----");
         openRelatedListRecord("Obsessions or compulsions");
         verifyInputField(dynamicLookupFieldLocator("Condition"), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithABehavioralOption6, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Obsessions or compulsions\" section 'Condition' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableBehavioralAndPsychiatricConditionsColumn4Option6, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Obsessions or compulsions\" section 'Date of diagnosis' * * * * *");
@@ -2270,6 +2405,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BEHAVIORAL & PSYCHIATRIC HISTORIES\" SECTION: BIPOLAR DISORDER -----");
         openRelatedListRecord("Bipolar disorder");
         verifyInputField(dynamicLookupFieldLocator("Condition"), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithABehavioralOption3, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Bipolar disorder\" section 'Condition' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableBehavioralAndPsychiatricConditionsColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Bipolar disorder\" section 'Date of diagnosis' * * * * *");
@@ -2279,6 +2415,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BEHAVIORAL & PSYCHIATRIC HISTORIES\" SECTION: POST-TRAUMATIC STRESS DISORDER -----");
         openRelatedListRecord("Post-traumatic stress disorder");
         verifyInputField(dynamicLookupFieldLocator("Condition"), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithABehavioralOption7, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Post-traumatic stress disorder\" section 'Condition' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableBehavioralAndPsychiatricConditionsColumn4Option7, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Post-traumatic stress disorder\" section 'Date of diagnosis' * * * * *");
@@ -2288,6 +2425,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BEHAVIORAL & PSYCHIATRIC HISTORIES\" SECTION: ANXIETY -----");
         openRelatedListRecord("Anxiety");
         verifyInputField(dynamicLookupFieldLocator("Condition"), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithABehavioralOption4, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Anxiety\" section 'Condition' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableBehavioralAndPsychiatricConditionsColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Anxiety\" section 'Date of diagnosis' * * * * *");
@@ -2297,6 +2435,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BEHAVIORAL & PSYCHIATRIC HISTORIES\" SECTION: SELF-HARM ACTS -----");
         openRelatedListRecord("Self-harm acts");
         verifyInputField(dynamicLookupFieldLocator("Condition"), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithABehavioralOption8, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Self-harm acts\" section 'Condition' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableBehavioralAndPsychiatricConditionsColumn4Option8, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Self-harm acts\" section 'Date of diagnosis' * * * * *");
@@ -2312,6 +2451,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"BEHAVIORAL & PSYCHIATRIC HISTORIES\" SECTION: OTHER (PLEASE SPECIFY) -----");
         verifyInputField(dynamicLookupFieldLocator("Condition"), "Other (please specify)", "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Other (please specify)\" section 'Condition' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Please specify"), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithABehavioralOption10Other, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Other (please specify)\" section 'Please specify' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableBehavioralAndPsychiatricConditionsColumn4Option10, "* * * * * RAS SURVEY MISMATCH IN \"Behavioral & Psychiatric Histories - Other (please specify)\" section 'Date of diagnosis' * * * * *");
@@ -2334,6 +2474,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"VISION\" SECTION: NEUROLOGICAL VISUAL IMPAIRMENT -----");
         verifyInputField(dynamicLookupFieldLocator("Issue"), ras_Survey_TestDataManager.pleaseSelectAllTheVisionEyesightOption1, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Neurological visual impairment\" section 'Issue' * * * * *");
         verifyInputField(locateByXpath("//span[normalize-space()='Date of first symptom']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn1Option1, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Neurological visual impairment\" section 'Date of first symptom' * * * * *");
         verifyInputField(locateByXpath("//span[normalize-space()='Date of diagnosis']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Neurological visual impairment\" section 'Date of diagnosis' * * * * *");
@@ -2343,14 +2484,13 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
-
-
         CommonUtils.hoverOverElement(locateByXpath("//td[normalize-space()='Test902']/parent::tr/td[2]/a"));
         JavascriptUtils.clickByJS(locateByXpath("//td[normalize-space()='Test902']/parent::tr/td[2]/a"));
         CommonUtils.sleep(800);
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"VISION\" SECTION: NEARSIGHTEDNESS (ALSO CALLED MYOPIA; THINGS IN THE DISTANCE LOOK FUZZY) -----");
         verifyInputField(dynamicLookupFieldLocator("Issue"), ras_Survey_TestDataManager.pleaseSelectAllTheVisionEyesightOption2, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Nearsightedness (also called myopia; things in the distance look fuzzy)\" section 'Issue' * * * * *");
         verifyInputField(locateByXpath("//span[normalize-space()='Date of first symptom']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn1Option2, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Nearsightedness (also called myopia; things in the distance look fuzzy)\" section 'Date of first symptom' * * * * *");
         verifyInputField(locateByXpath("//span[normalize-space()='Date of diagnosis']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Nearsightedness (also called myopia; things in the distance look fuzzy)\" section 'Date of diagnosis' * * * * *");
@@ -2366,6 +2506,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"VISION\" SECTION: FARSIGHTEDNESS -----");
         verifyInputField(dynamicLookupFieldLocator("Issue"), ras_Survey_TestDataManager.pleaseSelectAllTheVisionEyesightOption3, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Farsightedness\" section 'Issue' * * * * *");
         verifyInputField(locateByXpath("//span[normalize-space()='Date of first symptom']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn1Option3, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Farsightedness\" section 'Date of first symptom' * * * * *");
         verifyInputField(locateByXpath("//span[normalize-space()='Date of diagnosis']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Farsightedness\" section 'Date of diagnosis' * * * * *");
@@ -2381,6 +2522,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"VISION\" SECTION: ASTIGMATISM -----");
         verifyInputField(dynamicLookupFieldLocator("Issue"), ras_Survey_TestDataManager.pleaseSelectAllTheVisionEyesightOption4, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Astigmatism\" section 'Issue' * * * * *");
         verifyInputField(locateByXpath("//span[normalize-space()='Date of first symptom']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn1Option4, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Astigmatism\" section 'Date of first symptom' * * * * *");
         verifyInputField(locateByXpath("//span[normalize-space()='Date of diagnosis']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Astigmatism\" section 'Date of diagnosis' * * * * *");
@@ -2396,6 +2538,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"VISION\" SECTION: AMBLYOPIA (SOMETIMES CALLED \"LAZY EYE\"; ONE EYE HAS WEAKER VISION AND MAY WANDER INWARDS AOR OUTWARDS AND VISION DOES NOT DEVELOP PROPERLY) -----");
         verifyInputField(dynamicLookupFieldLocator("Issue"), "Amblyopia (sometimes called \"lazy eye\"; one eye has weaker vision and may wander inwards aor outwards and vision does not develop properly)", "* * * * * RAS SURVEY MISMATCH IN \"Vision - Amblyopia\" section 'Issue' * * * * *");
         verifyInputField(locateByXpath("//span[normalize-space()='Date of first symptom']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn1Option5, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Amblyopia\" section 'Date of first symptom' * * * * *");
         verifyInputField(locateByXpath("//span[normalize-space()='Date of diagnosis']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn4Option5, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Amblyopia\" section 'Date of diagnosis' * * * * *");
@@ -2411,6 +2554,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"VISION\" SECTION: OTHER (PLEASE SPECIFY) -----");
         verifyInputField(dynamicLookupFieldLocator("Issue"), "Other (please specify)", "* * * * * RAS SURVEY MISMATCH IN \"Vision - Other (please specify)\" section 'Issue' * * * * *");
         verifyInputField(locateByXpath("//input[@name='x_naci_family_coho_participant_vision_history.please_specify']"), ras_Survey_TestDataManager.pleaseSelectAllTheVisionEyesightOption6Other, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Other (please specify)\" section 'Date of first symptom' * * * * *");
         verifyInputField(locateByXpath("//span[normalize-space()='Date of first symptom']/parent::label/parent::div/following-sibling::div/input[1]"), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn1Option6, "* * * * * RAS SURVEY MISMATCH IN \"Vision - Other (please specify)\" section 'Date of first symptom' * * * * *");
@@ -2428,6 +2572,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_strabismus_history_section() {
         clickTab("Participant Strabismus Histories");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN PARTICIPANT \"STRABISMUS HISTORIES\" SECTION: OCCLUSION THERAPY -----");
         openRelatedListRecord("Occlusion therapy");
         softAssertDropDownValueIsSelected(dynamicSelectDropdownLocator("Treatment"), "Occlusion therapy, when the stronger eye is covered to strengthen the weaker eye", "* * * * * RAS SURVEY MISMATCH IN \"Participant Strabismus Histories - Occlusion therapy\" section 'Condition' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of first symptom"), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowRegardingStrabismusColumn1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Strabismus Histories - Occlusion therapy\" section 'Date of first symptom' * * * * *");
@@ -2444,6 +2589,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_participant_nystagmus_histories_section() {
         clickTab("Participant Nystagmus Histories");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"PARTICIPANT NYSTAGMUS HISTORIES\" SECTION: MILD OR SHORT-TERM NYSTAGMUS -----");
         openRelatedListRecord("Mild or short-term nystagmus");
         softAssertDropDownValueIsSelected(dynamicSelectDropdownLocator("Severity"), "Mild or short-term nystagmus", "* * * * * RAS SURVEY MISMATCH IN \"Participant Nystagmus Histories - Mild or short-term nystagmus\" section 'Severity' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowRegardingNystagmusColumn4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Nystagmus Histories - Mild or short-term nystagmus\" section 'Date of diagnosis' * * * * *");
@@ -2459,6 +2605,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
      */
     public void verify_ras_survey_data_scenarioTwo_participant_hearing_loss_section() {
         clickTab("Hearing Loss");
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEARING LOSS\" SECTION: MIXED HEARING LOSS -----");
         openRelatedListRecord("Mixed hearing loss");
         softAssertDropDownValueIsSelected(dynamicSelectDropdownLocator("Hearing Loss"), "Mixed hearing loss", "* * * * * RAS SURVEY MISMATCH IN \"Participant Hearing Loss - Mixed hearing loss\" section 'Hearing Loss' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableHearingLossColumn4Option3, "* * * * * RAS SURVEY MISMATCH IN \"Participant Hearing Loss - Mixed hearing loss\" section 'Date of diagnosis' * * * * *");
@@ -2469,6 +2616,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEARING LOSS\" SECTION: SENSORINEURAL HEARING LOSS (SNHL) -----");
         openRelatedListRecord("Sensorineural hearing loss (SNHL)");
         softAssertDropDownValueIsSelected(dynamicSelectDropdownLocator("Hearing Loss"), "Sensorineural hearing loss (SNHL)", "* * * * * RAS SURVEY MISMATCH IN \"Participant Hearing Loss - Sensorineural hearing loss (SNHL)\" section 'Hearing Loss' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableHearingLossColumn4Option1, "* * * * * RAS SURVEY MISMATCH IN \"Participant Hearing Loss - Sensorineural hearing loss (SNHL)\" section 'Date of diagnosis' * * * * *");
@@ -2479,6 +2627,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEARING LOSS\" SECTION: HEARING LOSS, UNSURE WHICH TYPE -----");
         openRelatedListRecord("Hearing Loss, unsure which type");
         softAssertDropDownValueIsSelected(dynamicSelectDropdownLocator("Hearing Loss"), "Hearing Loss, unsure which type", "* * * * * RAS SURVEY MISMATCH IN \"Participant Hearing Loss - Hearing Loss, unsure which type\" section 'Hearing Loss' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableHearingLossColumn4Option4, "* * * * * RAS SURVEY MISMATCH IN \"Participant Hearing Loss - Hearing Loss, unsure which type\" section 'Date of diagnosis' * * * * *");
@@ -2489,6 +2638,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(locateByXpath("//button[@title='Back']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEARING LOSS\" SECTION: CONDUCTIVE HEARING LOSS -----");
         openRelatedListRecord("Conductive hearing loss");
         softAssertDropDownValueIsSelected(dynamicSelectDropdownLocator("Hearing Loss"), "Conductive hearing loss", "* * * * * RAS SURVEY MISMATCH IN \"Participant Hearing Loss - Conductive hearing loss\" section 'Hearing Loss' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableHearingLossColumn4Option2, "* * * * * RAS SURVEY MISMATCH IN \"Participant Hearing Loss - Conductive hearing loss\" section 'Date of diagnosis' * * * * *");
@@ -2505,6 +2655,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(locateByXpath("//a[normalize-space()='Open Record']"));
         JavascriptUtils.clickByJS(locateByXpath("//a[normalize-space()='Open Record']"));
         CommonUtils.sleep(800);
+        CucumberLogUtils.scenario.log("---- VERIFYING RAS SURVEY DATA IN \"HEARING LOSS\" SECTION: OTHER -----");
         softAssertDropDownValueIsSelected(dynamicSelectDropdownLocator("Hearing Loss"), "Other", "* * * * * RAS SURVEY MISMATCH IN \"Participant Hearing Loss - Other\" section 'Hearing Loss' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Please specify"), ras_Survey_TestDataManager.haveYouExperiencedAnyTypesOfHearingLossOption5Other, "* * * * * RAS SURVEY MISMATCH IN \"Participant Hearing Loss - Other\" section 'Date of diagnosis' * * * * *");
         verifyInputField(dynamicInputFieldLocator("Date of diagnosis"), ras_Survey_TestDataManager.pleaseCompleteTheTableHearingLossColumn4Option5, "* * * * * RAS SURVEY MISMATCH IN \"Participant Hearing Loss - Other\" section 'Date of diagnosis' * * * * *");
