@@ -360,7 +360,7 @@ Feature: RAS Consent Scenarios
     And participant logs out of RAS portal
     And Study Team members logs in to Native View and verifies "Patient Smoking History" QBank data
 
-  @muzipovay2 @RAS_STUDY @selenium @RAS_Regression2 @TO-DO
+  @muzipovay2 @RAS_STUDY @selenium @TO-DO
   Scenario: Completing the re-consent process
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
