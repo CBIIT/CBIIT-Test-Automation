@@ -22,9 +22,9 @@ public class TestProperties {
     /**
      * NATIVE VIEW SIDE DOOR URLS
      */
-    public static final String NATIVE_VIEW_SIDE_DOOR_STAGE_URL = "https://service-stage.nci.nih.gov/side_door.do";
-    public static final String NATIVE_VIEW_SIDE_DOOR_TEST_URL = "https://service-test.nci.nih.gov/side_door.do";
-    public static final String NATIVE_VIEW_SIDE_DOOR_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/side_door.do";
+    public static final String NATIVE_VIEW_SIDE_DOOR_STAGE_URL = "https://service-stage.nci.nih.gov/login.do";
+    public static final String NATIVE_VIEW_SIDE_DOOR_TEST_URL = "https://service-test.nci.nih.gov/login.do";
+    public static final String NATIVE_VIEW_SIDE_DOOR_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/login.do";
     public static String NATIVE_VIEW_SIDE_DOOR_URL;
 
     /**
@@ -64,6 +64,14 @@ public class TestProperties {
     public static final String FANCONI_STAGE_URL = "https://service-stage.nci.nih.gov/fanconi";
     public static final String FANCONI_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/fanconi";
     public static String FANCONI_URL;
+
+    /**
+     * STUDY AGNOSTIC URLS
+     */
+    public static final String STUDY_AGNOSTIC_TEST_URL = "https://service-test.nci.nih.gov/familystudyhub";
+    public static final String STUDY_AGNOSTIC_STAGE_URL = "https://service-test.nci.nih.gov/familystudyhub";
+    public static final String STUDY_AGNOSTIC_SANDBOX_URL = "https://service-test.nci.nih.gov/familystudyhub";
+    public static String STUDY_AGNOSTIC_URL;
 
     /**
      * EIDP NHGRI URLS
@@ -107,6 +115,20 @@ public class TestProperties {
     public static final String AAA_TEST_PORTAL_URL = "https://service-test.nci.nih.gov/ncisp";
     public static final String AAA_STAGE_PORTAL_URL = "https://service-stage.nci.nih.gov/ncisp";
     public static String AAA_URL;
+
+    /**
+     * TFM
+     */
+    public static final String TFM_TEST_PORTAL_URL = "https://service-test.nci.nih.gov/ncisp";
+    public static final String TFM_STAGE_PORTAL_URL = "https://service-stage.nci.nih.gov/ncisp";
+    public static String TFM_URL;
+
+    /**
+     * FCAS Vendor Portal
+     */
+    public static final String FCAS_VENDOR_PORTAL_TEST_URL = "https://fcasvendorportal-qa.cancer.gov/";
+    public static final String FCAS_VENDOR_PORTAL_STAGE_URL = "https://fcasvendorportal-stage.cancer.gov/";
+    public static String FCAS_VENDOR_PORTAL_URL;
 
     /**
      * AWARD NOMINATION
@@ -437,6 +459,21 @@ public class TestProperties {
                 break;
         }
         return FANCONI_URL;
+    }
+
+    public static String getStudyAgnosticUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                STUDY_AGNOSTIC_URL = STUDY_AGNOSTIC_STAGE_URL;
+                break;
+            case "test":
+                STUDY_AGNOSTIC_URL = STUDY_AGNOSTIC_TEST_URL;
+                break;
+            case "sandbox":
+                STUDY_AGNOSTIC_URL = STUDY_AGNOSTIC_SANDBOX_URL;
+                break;
+        }
+        return STUDY_AGNOSTIC_URL;
     }
 
     public static String getEidpNhgriUrl() {
@@ -930,7 +967,6 @@ public class TestProperties {
         }
         return ACT24_PARTICIPANT_URL;
     }
-
     public static String getAAAUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
@@ -952,5 +988,28 @@ public class TestProperties {
                 break;
         }
         return MRS_URL;
+    }
+    public static String getTFMUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                TFM_URL = TFM_STAGE_PORTAL_URL;
+                break;
+            case "test":
+                TFM_URL = TFM_TEST_PORTAL_URL;
+                break;
+        }
+        return TFM_URL;
+    }
+
+    public static String getFCASVendorPortalUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                FCAS_VENDOR_PORTAL_URL = FCAS_VENDOR_PORTAL_STAGE_URL;
+                break;
+            case "test":
+                FCAS_VENDOR_PORTAL_URL = FCAS_VENDOR_PORTAL_TEST_URL;
+                break;
+        }
+        return FCAS_VENDOR_PORTAL_URL;
     }
 }

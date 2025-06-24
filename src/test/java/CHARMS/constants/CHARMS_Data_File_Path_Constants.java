@@ -20,4 +20,5 @@ public class CHARMS_Data_File_Path_Constants {
     public static final String FHQ_SCENARIO_ONE_DATA = System.getProperty("user.dir") + "/src/test/java/CHARMS/Resources/FHQScenario1.xlsx";
     public static final String FHQ_SCENARIO_TWO_DATA = System.getProperty("user.dir") + "/src/test/java/CHARMS/Resources/FHQScenario2.xlsx";
     public static final String FANCONI_SCREENER_DATA = System.getProperty("user.dir") + "/src/test/java/CHARMS/Resources/data.xlsx";
+    public static final String METFORMIN_SCREENER_DATA = System.getProperty("user.dir") + "/src/test/java/CHARMS/Resources/MetforminScreenerData.xlsx";
 }

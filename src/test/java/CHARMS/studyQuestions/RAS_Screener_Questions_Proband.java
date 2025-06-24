@@ -12,6 +12,7 @@ public class RAS_Screener_Questions_Proband {
     public static final String WHAT_WAS_YOUR_SEX_ASSIGNED_AT_BIRTH = "What was your sex assigned at birth?";
     public static final String WHAT_IS_YOUR_SEX = "What is your sex?";
     public static final String ARE_YOU_ADOPTED = "Are you adopted?";
+    public static final String DO_YOU_CURRENTLY_LIVE_IN_THE_US = "Do you currently live in the United States?";
     public static final String IN_WHICH_COUNTRY_DO_YOU_CURRENTLY_LIVE = "In which country do you currently live?";
     public static final String PLEASE_PROVIDE_THE_MAILING_ADDRESS_WHERE_STUDY_MATERIALS_CAN_BE_SENT_AS_NEEDED = "Please provide the mailing address where study materials can be sent, as needed.";
     public static final String WHAT_IS_YOUR_EMAIL_ADDRESS = "What is your email address?";
@@ -30,7 +31,7 @@ public class RAS_Screener_Questions_Proband {
     public static final String HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY = "How did you hear about this study?  If a specific health care provider referred you to this study, please include their name in the corresponding text box.";
     public static final String HAVE_YOU_OR_OTHER_FAMILY_MEMBERS_EVER_PARTICIPATED_IN_ANOTHER_STUDY_ON_RASOPATHY_AT_ANOTHER_MEDICAL_INSTITUTION_UNIVERSITY_GOVERNMENT_AGENCY_OR_OTHER_SITE = "Have you or other family members ever participated in another study on RASopathy at another medical institution, university, government agency or other site?";
     public static final String WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY = "What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox.";
-    public static final String PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_WERE_DIAGNOSED = "Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred.  If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread.";
+    public static final String PLEASE_COMPLETE_THE_BOX_BELOW_BY_SELECTING_WHICH_PRIMARY_CANCERS_WERE_DIAGNOSED = "Please complete the box below by selecting which primary cancers were diagnosed and at what age and year they occurred. If cancer spread from one place to another, please only indicate the original cancers and not the number of sites where cancer spread.";
     public static final String YOU_ARE_ALMOST_DONE = "You are almost done!";
     public static final String FOR_WHICH_SPECIFIC_RASOPATHY_HAVE_YOU_BEEN_DIAGNOSED = "For which specific RASopathy have you been diagnosed?";
     public static final String AGE_IN_YEARS_AT_DIAGNOSIS = "Age (in years) at diagnosis";

@@ -1,11 +1,14 @@
 package PLATFORM_BUSINESS.CCR_Help_Desk.steps;
 
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import com.nci.automation.utils.CucumberLogUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import java.util.regex.Pattern;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
@@ -23,6 +26,7 @@ public class CCR_OIT_HELPDESK_Steps {
         assertThat(page.locator("//a[@role='button'][normalize-space()='Services']")).containsText("Services");
         page.locator("//a[@role='button'][normalize-space()='Services']").click();
         page.locator("//a[@class='level-2-link ng-binding dropdown-toggle dropdown'][normalize-space()='CCR Services']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -34,6 +38,7 @@ public class CCR_OIT_HELPDESK_Steps {
         assertThat(page.getByText("OIT Help Desk Get assistance")).isVisible();
         assertThat(page.getByRole(AriaRole.MAIN)).containsText("OIT Help Desk");
         page.locator("//h4[normalize-space()='OIT Help Desk']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -60,5 +65,95 @@ public class CCR_OIT_HELPDESK_Steps {
         assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true))).isVisible();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit").setExact(true)).click();
         assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName("How can we help, Ellen?"))).isVisible();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Logs into the application as an authenticated user with the specified username.
+     *
+     * @param rohitPaul
+     */
+    @Given("I am an authenticated user {string} on the CCR OIT Help Desk form")
+    public void i_am_an_authenticated_user_on_the_ccr_oit_help_desk_form(String rohitPaul) {
+        Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(rohitPaul);
+        assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Services").setExact(true))).isVisible();
+        assertThat(page.locator("//a[@role='button'][normalize-space()='Services']")).containsText("Services");
+        page.locator("//a[@role='button'][normalize-space()='Services']").click();
+        page.locator("//a[@class='level-2-link ng-binding dropdown-toggle dropdown'][normalize-space()='CCR Services']").click();
+        page.locator("//h4[normalize-space()='OIT Help Desk']").waitFor();
+        assertThat(page.getByText("OIT Help Desk Get assistance")).isVisible();
+        assertThat(page.getByRole(AriaRole.MAIN)).containsText("OIT Help Desk");
+        page.locator("//h4[normalize-space()='OIT Help Desk']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Selects the "Labmatrix" option for the "Application" field in the CCR OIT Help Desk form.
+     */
+    @Given("I have selected Labmatrix for Application")
+    public void i_have_selected_labmatrix_for_application() {
+        page.locator("//span[@aria-label='Required - Application']").scrollIntoViewIfNeeded();
+        assertThat(page.getByLabel("Required - Application")).isVisible();
+        assertThat(page.getByLabel("Required - Application")).containsText("Application");
+        page.getByLabel("Required - Application").click();
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Lookup using list")).click();
+        page.locator("#s2id_autogen4_search").fill("lab");
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Labmatrix")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Selects "Protocol Build" for the Request Type.
+     */
+    @When("I select Protocol Build for Request Type")
+    public void i_select_protocol_build_for_request_type() {
+        page.locator("//span[normalize-space()='Request Type']").scrollIntoViewIfNeeded();
+        assertThat(page.locator("#u_request_type")).containsText("Request Type");
+        page.locator("a").filter(new Locator.FilterOptions().setHasText("-- None --")).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Protocol Build")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Verifies the fields: "Principal Investigator" and "Protocol Number".
+     *
+     * @param principalInvestigator The name of the principal investigator to be validated.
+     * @param protocolNumber The protocol number to be validated.
+     */
+    @Then("I will see the Required fields, {string} and {string}")
+    public void i_will_see_the_required_fields_and(String principalInvestigator, String protocolNumber) {
+        page.locator("//span[@aria-label='Principal Investigator']").scrollIntoViewIfNeeded();
+        assertThat(page.locator("#s2id_autogen5-label").getByLabel("Principal Investigator")).isVisible();
+        assertThat(page.locator("#s2id_autogen5-label")).containsText(principalInvestigator);
+        page.locator("//span[normalize-space()='Protocol Number']").scrollIntoViewIfNeeded();
+        assertThat(page.locator("#protocol_number").getByText("Protocol Number")).isVisible();
+        assertThat(page.locator("#protocol_number")).containsText(protocolNumber);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Selects "General Support" for the Request Type.
+     */
+    @When("I select General Support for Request Type")
+    public void i_select_general_support_for_request_type() {
+        page.locator("//span[normalize-space()='Request Type']").scrollIntoViewIfNeeded();
+        assertThat(page.locator("span").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^Request Type$")))).isVisible();
+        assertThat(page.locator("#u_request_type")).containsText("Request Type");
+        page.locator("a").filter(new Locator.FilterOptions().setHasText("-- None --")).click();
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("General Support")).click();
+        assertThat(page.locator("//span[@id='select2-chosen-1']")).containsText("General Support");
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Verifies the additional optional field "Protocol/Study" is displayed.
+     * @param protocolStudy
+     */
+    @Then("I will see the additional optional field being displayed {string}")
+    public void i_will_see_the_additional_optional_field_being_displayed(String protocolStudy) {
+        page.locator("//label[contains(@for,'sp_formfield_protocol_study')]").scrollIntoViewIfNeeded();
+        assertThat(page.getByText("Protocol/Study")).isVisible();
+        assertThat(page.locator("#protocol_study")).containsText(protocolStudy);
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 }

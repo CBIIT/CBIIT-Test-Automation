@@ -106,6 +106,26 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.confirmOperationalPOCApprovalIsCompleted();
     }
 
+    @And("the user is rejected from an Operational POC with a need more info")
+    public void the_user_is_rejected_from_an_operational_poc_with_a_need_more_info() {
+        ESRApprovalStepsImplementation.operationalPOCNeedMoreInfo();
+    }
+
+    @Then("the user confirms the Operational POC Approval needs more information")
+    public void the_user_confirms_the_operational_poc_approval_needs_more_information() {
+        ESRApprovalStepsImplementation.confirmOperationalPOCApprovalNeedsMoreInfo();
+    }
+
+    @And("the user is rejected from an Operational POC")
+    public void the_user_is_rejected_from_an_operational_poc() {
+        ESRApprovalStepsImplementation.operationalPOCRejection();
+    }
+
+    @Then("the user confirms the Operational POC Approval is rejected")
+    public void the_user_confirms_the_operational_poc_approval_is_rejected() {
+        ESRApprovalStepsImplementation.confirmOperationalPOCApprovalIsRejected();
+    }
+
     @And("the user is approved from a federal lead for closeout approval")
     public void the_user_is_approved_from_a_federal_lead_for_closeout_approval() {
         ESRApprovalStepsImplementation.federalLeadCloseoutApproval();
@@ -124,6 +144,16 @@ public class ESRApprovalSteps {
     @Then("the user confirms the Federal Lead Closeout Approval is completed")
     public void the_user_confirms_the_federal_lead_closeout_approval_is_completed() {
         ESRApprovalStepsImplementation.confirmFederalLeadCloseoutApprovalIsCompleted();
+    }
+
+    @And("the user is rejected from a federal lead for closeout approval for ESR-Q")
+    public void the_user_is_rejected_from_a_federal_lead_for_closeout_approval_for_esr_q() {
+        ESRApprovalStepsImplementation.federalLeadCloseoutRejectionForESRQ();
+    }
+
+    @Then("the user confirms the Federal Lead Closeout Approval was rejected for the ESR-Q ticket")
+    public void the_user_confirms_the_federal_lead_closeout_approval_was_rejected_for_the_esr_q_ticket() {
+        ESRApprovalStepsImplementation.confirmFederalLeadCloseoutApprovalWasRejectedForESRQ();
     }
 
     @And("the user is approved from a federal lead for ESR-I closeout approval")
