@@ -42,12 +42,6 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
          * EXAMPLE OF CLICKING ON TAB
          */
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("RASopathy History"));
-        /**
-         *  ----- BEGINNING Basic information SECTION VALIDATION ----- DIEGO
-         */
-        /**
-         *  ----- END Basic information SECTION VALIDATION ----- DIEGO
-         */
 
         /** ----- BEGINNING DEMOGRAPHICS SECTION VALIDATION ----- HAMID */
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Demographics"));
@@ -82,11 +76,7 @@ public class RASSurveyDataVerificationStepsImpl extends PageInitializer {
         CommonUtils.verifyingDropDownValueIsSelected(ras_survey_native_view.dropdownDidBioMotherEverLiveWorkWhereOtherUseTobacco, "Yes", "Yes value is displayed for Did the participants mother ever live/work in a place where others use tobacco dropdown");
         CommonUtils.assertEqualsWithMessage(ras_survey_native_view.fieldBioFatherOccupationWhileMotherWasPregnant.getText(), "", "No value is displayed for Biological mothers occupation while pregnant with the participant field");
         CommonUtils.assertEqualsWithMessage(ras_survey_native_view.checkboxBiologicalFathersOccupationUnknown.getAttribute("value"), "false", "Biological fathers occupation unknown checkbox is unchecked");
-        /** ----- END Birth and Gestation SECTION VALIDATION ----- ALENA
-         /**
-         *  ----- BEGINNING GROWTH SECTION VALIDATION ----- DIEGO
-         */
-        /**  ----- END GROWTH SECTION VALIDATION ----- DIEGO**/
+        /** ----- END Birth and Gestation SECTION VALIDATION ----- ALENA **/
     }
 
     /**
