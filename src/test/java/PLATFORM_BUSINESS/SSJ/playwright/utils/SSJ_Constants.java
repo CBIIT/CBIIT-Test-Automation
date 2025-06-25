@@ -388,5 +388,6 @@ public class SSJ_Constants {
         }
     };
     public static final String OKTA_APPLICANT = "Abhishek Desai";
-    public static final String SSJ_TESTER = "Maria Chaudhry";
+    public static final String SSJ_TESTER = "Alex Lear";
+    public static final String OKTA_TEMP_PWD = "Bund3$L1g@";
 }
