@@ -1,7 +1,7 @@
 Feature: Create OA Intake form
   Description: This feature file contains scenarios relating to OA Intake form
 
-  @selenium @Progression @Alena @Regression @OAIntake-708 @OAIntake-640 @OAIntake-639 @OAIntake-709 @OAIntake-538 @OAIntake-682 @OAIntake-576 @OAIntake-544 @OAIntake-575 @OAIntake-499 @OAIntake-657 @OAIntake-430 @OAIntake-408 @OAIntake-623
+  @selenium @Alena @Regression @OAIntake-708 @OAIntake-640 @OAIntake-639 @OAIntake-709 @OAIntake-538 @OAIntake-682 @OAIntake-576 @OAIntake-544 @OAIntake-575 @OAIntake-499 @OAIntake-657 @OAIntake-430 @OAIntake-408 @OAIntake-623
   Scenario: Create OA Intake form and give approvals till Accepted Status
     Given Submitter User logged in to OA Intake Portal
     When Submitter User clicks on New Request button
