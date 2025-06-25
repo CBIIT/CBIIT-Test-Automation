@@ -144,7 +144,7 @@ Feature: OWM Vacancy Manager Scenarios
     And enters Vacancy Description "THIS IS A TEST AUTOMATION TEST" - PW
     And selects "Yes" for point of contact - PW
     And User sets an "Open Date" entry as today's date
-#    And User sets a "Close Date" entry a month from the Open Date
+    And User sets a "Close Date" entry a month from the Open Date
     And selects "0" for Full Contact Details for References
     And User verifies that Number of Scoring Categories slider is set to "4" by default
     And selects "4" for Number of Scoring Categories
@@ -260,6 +260,25 @@ Feature: OWM Vacancy Manager Scenarios
     And clicks "OK"
     And clicks "Close"
     And OWM Vacancy Manager logs out
+
+  @SSJ-115 @playwright
+  Scenario: Update Equal Opportunity Employer Text - Vacancy Manager view
+    Given User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
+    When a Vacancy Manager is creating a vacancy
+    When the user goes to the Mandatory Statements section
+    And goes to the Equal Employment Opportunity Policy section
+    Then the text reads as follows "The United States government does not discriminate in employment on the basis of race, color, religion, sex, pregnancy, national origin, political affiliation, sexual orientation, marital status, disability, genetic information, age, membership in an employee organization, retaliation, parental status, military service or other non-merit factor.To learn more, please visit the U.S. Equal Employment Opportunity Commission."
+
+  Scenario: Vacancy manager
+    Given a Vacancy Manager has been assigned to vacancies in different tenants
+    When the Vacancy Manager goes to the Your Vacancies tab
+    Then the user is able to see all vacancies they have been assigned to
+
+  Scenario: Vacancy manager ten "Please select a tenant to see Vacancy Dashboard."
+    Given a Vacancy Manager has been assigned to vacancies in different tenants
+    When the Vacancy Manager goes to the Your Vacancies tab
+    Then the user is able to see all vacancies they have been assigned to
+
 
   @SSJ-310 @SSJ-158 @SSJ-71 @playwright
   Scenario: Verification of Email Templates section while creating an NCI Vacancy Positive Flow

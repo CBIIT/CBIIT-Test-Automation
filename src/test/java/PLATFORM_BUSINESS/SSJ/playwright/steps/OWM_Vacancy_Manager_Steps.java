@@ -309,4 +309,30 @@ public class OWM_Vacancy_Manager_Steps {
     public void user_can_verify_the_table_columns_are_displayed_as(String vacancyTitle, String applicants, String openDate, String closeDate, String actions) {
         OWM_Vacancy_Manager_StepsImpl.user_can_verify_the_table_columns_are_displayed_as(vacancyTitle, applicants, openDate, closeDate, actions);
     }
+
+    @Given("a Vacancy Manager is creating a vacancy")
+    public void a_vacancy_manager_is_creating_a_vacancy() {
+            page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Vacancy Dashboard")).click();
+            page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("+ Create Vacancy")).click();
+            page.getByPlaceholder("Please enter").click();
+            page.getByPlaceholder("Please enter").fill("Test title");
+            page.getByPlaceholder("Please enter").fill("LC Test title");
+            page.locator("#BasicInfo_description div").nth(2).click();
+            page.locator("#BasicInfo_description div").nth(2).fill("LC vacancy description");
+    }
+    @When("the user goes to the Mandatory Statements section")
+    public void the_user_goes_to_the_mandatory_statements_section() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
+        assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName("Mandatory Statements"))).isVisible();
+    }
+    @When("goes to the Equal Employment Opportunity Policy section")
+    public void goes_to_the_equal_employment_opportunity_policy_section() {
+        assertThat(page.getByText("Equal Employment Opportunity Policy")).isVisible();
+    }
+    @Then("the text reads as follows {string}")
+    public void the_text_reads_as_follows(String string) {
+        assertThat(page.locator("#MandatoryStatements_equalOpportunityEmployerText")).containsText("The United States government does not discriminate in employment on the basis of race, color, religion, sex, pregnancy, national origin, political affiliation, sexual orientation, marital status, disability, genetic information, age, membership in an employee organization, retaliation, parental status, military service or other non-merit factor.To learn more, please visit the U.S. Equal Employment Opportunity Commission.");
+    }
+
+
 }

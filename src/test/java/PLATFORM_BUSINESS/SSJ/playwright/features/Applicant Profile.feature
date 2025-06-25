@@ -69,25 +69,14 @@ Feature: Applicant Profile Scenarios
     And verifies that the saved business phone number displays as "<businessPhone>"
     And verifies that the saved highest education displays as "<highestEducation>"
     And verifies that the saved US Citizenship displays as "<US Citizenship>"
-    And User clicks Demographics section - PW
-    And User chooses to share demographic details - PW
-    And User edits sex choice - PW
-    And User edits ethnicity choice - PW
-    And User edits race choice - PW
-    And User edits disability choice - PW
-    And User saves the updated section - PW
-    And User clicks Edit for Demographics section - PW
-    And User chooses not to share demographic details - PW
-    Then User saves the updated section - PW
-
     Examples:
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | US Citizenship | address | aptNumber | city   | state | country | zip   |
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
 
   @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright @XAN_UPDATED @EZ_UPDATED
   Scenario Outline: Verifying applicant is able to see "Your Applications" tab and page content after applying to a Vacancy
-#    Given an Okta user "" is on the SSJ home page and logs in - PLEASE LEAVE THIS HERE! NEED TO CONNECT WITH OKTA TEAM
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
+    And selects tenant "NCI" on the tenant selection dropdown
     And clicks on "Vacancy Dashboard" - PW
     And clicks on "+ Create Vacancy" - PW
     And enters Vacancy Title name "DIEGO TEST" - PW
@@ -165,17 +154,17 @@ Feature: Applicant Profile Scenarios
     And enters Reference Two position title "<referenceTwoPositionTitle>"
     And enters Reference Two organization name "<referenceTwoOrganizationName>"
     And clicks "Next"
-    Then user is on the "Demographic Information" page
-    And user agrees to share demographic details and help improve the hiring process.
-    And selects "Male" for Sex
-    And selects "Hispanic or Latino" for Ethnicity
-    And selects "American Indian or Alaska", "Asian", "Black or African-American", "Native Hawaiian or other", "White" for Race
-    And selects "None of the conditions listed above apply to me." for Disability or Serious Health Condition
-    And clicks "Next"
+#    Then user is on the "Demographic Information" page
+#    And user agrees to share demographic details and help improve the hiring process.
+#    And selects "Male" for Sex
+#    And selects "Hispanic or Latino" for Ethnicity
+#    And selects "American Indian or Alaska", "Asian", "Black or African-American", "Native Hawaiian or other", "White" for Race
+#    And selects "None of the conditions listed above apply to me." for Disability or Serious Health Condition
+#    And clicks "Next"
     Then user is on the "Review" page
     And user verifies basic information "<firstName>", "<middleName>", "<lastName>", "<email>", "<phone>", "<businessPhone>", "<highestEducation>", and "<US Citizenship>"
     And user verifies address information "<address>", "<aptNumber>", "<city>", "<state>", "<zip>"
-    And user verifies demographics information "Yes", "Male", "Hispanic or Latino", "American Indian or Alaska Native, Asian, Black or African-American, Native Hawaiian or other Pacific Islander, White", and "None of the conditions listed above apply to me."
+#    And user verifies demographics information "Yes", "Male", "Hispanic or Latino", "American Indian or Alaska Native, Asian, Black or African-American, Native Hawaiian or other Pacific Islander, White", and "None of the conditions listed above apply to me."
     And user verifies references one information "<referenceOneFirstName>", "<referenceOneLastName>", "<referenceOneEmail>", "<referenceOnePhoneNumber>", "<referenceOneRelationship>", "<referenceOnePositionTitle>", "<referenceOneOrganizationName>"
     And user verifies references two information "<referenceTwoFirstName>", "<referenceTwoLastName>", "<referenceTwoEmail>", "<referenceTwoPhoneNumber>", "<referenceTwoRelationship>", "<referenceTwoPositionTitle>", "<referenceTwoOrganizationName>"
     And if either a Cover Letter, Qualification Statement, Curriculum Vitae (CV), or Vision Statement (or all) were uploaded then documents are displayed in the Application Documents section
@@ -550,6 +539,13 @@ Would you like to log in now or go back to the home page?
     And user clicks on Edit button
     When User is on the Phone number field will see a tool tip notifying on the proper formatting
     Then User is on the Business Phone number field will see a tool tip notifying on the proper formatting
+
+  @SSJ-115 @playwright @Progression
+  Scenario: Update Equal Opportunity Employer Text - Applicant's view
+    Given User is on SSJ Landing page and user is "OKTA_APPLICANT" - PW
+    When the user clicks the title of a vacancy
+    Then they are redirected to the Vacancy Details page
+    And there is text that reads "Equal Employment Opportunity Policy The United States government does not discriminate in employment on the basis of race, color, religion, sex, pregnancy, national origin, political affiliation, sexual orientation, marital status, disability, genetic information, age, membership in an employee organization, retaliation, parental status, military service or other non-merit factor. To learn more, please visit the U.S. Equal Employment Opportunity Commission."
 
 #APPTRACK-370 - review
 #APPTRACK-1130

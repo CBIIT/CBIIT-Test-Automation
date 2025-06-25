@@ -11,7 +11,6 @@ public class Vacancy_Committee_Page {
      * VACANCY COMMITTEE MEMBER DROP DOWN
      */
     public static String vacancyCommitteeMemberDropDown = "//tbody/tr/td[@record='[object Object]']/div/div/div/div/div/div/div/div[1]";
-//    public static String vacancyCommitteeMemberDropDown = "(//span[@title='Member'])[1]";
 
     /**
      * AT LEAST ONE COMMITTEE MEMBER MUST BE OF THE ROLE 'EXECUTIVE SECRETARY'

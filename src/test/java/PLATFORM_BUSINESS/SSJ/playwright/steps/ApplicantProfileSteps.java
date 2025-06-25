@@ -4,9 +4,13 @@ import PLATFORM_BUSINESS.SSJ.playwright.pages.*;
 import PLATFORM_BUSINESS.SSJ.playwright.stepsImplementation.ApplicantProfileStepsImpl;
 import PLATFORM_BUSINESS.SSJ.playwright.stepsImplementation.Reset_Account_StepsImpl;
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class ApplicantProfileSteps {
@@ -795,5 +799,25 @@ public class ApplicantProfileSteps {
     @When("User is on the Business Phone number field will see a tool tip notifying on the proper formatting")
     public void user_is_on_the_business_phone_number_field_will_see_a_tool_tip_notifying_on_the_proper_formatting() {
         ApplicantProfileStepsImpl.user_is_on_the_business_phone_number_field_will_see_a_tool_tip_notifying_on_the_proper_formatting();
+    }
+    @When("the user clicks the title of a vacancy")
+    public void the_user_clicks_the_title_of_a_vacancy() {
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("DIEGO TEST 20250619161742")).click();
+    }
+    @Then("they are redirected to the Vacancy Details page")
+    public void they_are_redirected_to_the_vacancy_details_page() {
+        assertThat(page.locator("#root")).containsText("DIEGO TEST 20250619161742");
+    }
+    @Then("there is text that reads {string}")
+    public void there_is_text_that_reads(String string) {
+        assertThat(page.locator("#root")).containsText("EQUAL EMPLOYMENT OPPORTUNITY POLICY");
+        assertThat(page.locator("#root")).containsText("The United States government does not discriminate in employment on the basis of race, color, religion, sex, pregnancy, national origin, political affiliation, sexual orientation, marital status, disability, genetic information, age, membership in an employee organization, retaliation, parental status, military service or other non-merit factor.");
+        assertThat(page.locator("#root")).containsText("To learn more, please visit the U.S. Equal Employment Opportunity Commission.");
+    }
+
+    @When("selects tenant {string} on the tenant selection dropdown")
+    public void selects_tenant_on_the_tenant_selection_dropdown(String tenant) {
+        page.locator("//input[@id='rc_select_0']").click();
+        page.locator("(//div[@title='" + tenant +"'])[1]").click();
     }
 }

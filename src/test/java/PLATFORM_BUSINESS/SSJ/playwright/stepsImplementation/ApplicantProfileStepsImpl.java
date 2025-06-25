@@ -84,7 +84,7 @@ public class ApplicantProfileStepsImpl {
      */
     public static void verifies_that_the_saved_address_displays_with(String address, String aptNumber, String city, String state, String country, String zipCode) {
         String actualAddressText = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.addressText).innerText();
-        String expectedAddressText = address + " " + aptNumber + "\n" +
+        String expectedAddressText = "Address" + "\n" + address + " " + aptNumber + "\n" +
                 city + "," + " " + state + " " + zipCode + "\n" +
                 country;
         Assert.assertEquals(actualAddressText, expectedAddressText);
@@ -355,7 +355,8 @@ public class ApplicantProfileStepsImpl {
      * @param option The option to be selected in the drop-down.
      */
     public static void selects_for_organizational_code_drop_down(String option) {
-        page.locator("div:nth-child(2) > .ant-form-item > .ant-row > div:nth-child(2) > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector").first().click();
+//        page.locator("div:nth-child(2) > .ant-form-item > .ant-row > div:nth-child(2) > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector").first().click();
+        page.locator("(//input[@id='BasicInfo_sacCode'])[1]").click();
         page.getByTitle(option, new Page.GetByTitleOptions().setExact(true)).locator("div").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -411,7 +412,7 @@ public class ApplicantProfileStepsImpl {
         page.locator(".css-1hwfws3").click();
         page.getByText(name, new Page.GetByTextOptions().setExact(true)).click();
         page.getByText("Member", new Page.GetByTextOptions().setExact(true)).click();
-        page.getByTitle("Executive Secretary (non-").locator("div").click();
+        page.getByTitle("Executive Secretary").locator("div").click();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("check Save")).click();
     }
 
@@ -688,9 +689,6 @@ public class ApplicantProfileStepsImpl {
                 itemPage.click();
             }
         }
-
-//        page.locator("(//a[normalize-space()='" + vacancyTitle + " " + "20241125075146" + "'])[1]").click();
-//        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
