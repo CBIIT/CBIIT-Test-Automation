@@ -12,7 +12,6 @@ import com.microsoft.playwright.options.LoadState;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.*;
 import org.testng.Assert;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -22,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import static com.nci.automation.web.PlaywrightUtils.page;
 import static com.nci.automation.web.TestProperties.getSSJUrl;
 
