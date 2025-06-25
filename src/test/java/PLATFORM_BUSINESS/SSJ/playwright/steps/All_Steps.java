@@ -1,6 +1,5 @@
 package PLATFORM_BUSINESS.SSJ.playwright.steps;
 
-import APPS_COMMON.Pages.Playwright_Common_Locators;
 import APPS_COMMON.PlaywrightUtils.Playwright_Common_Utils;
 import PLATFORM_BUSINESS.SSJ.playwright.stepsImplementation.ApplicantProfileStepsImpl;
 import PLATFORM_BUSINESS.SSJ.playwright.utils.SSJ_Constants;
@@ -8,7 +7,6 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-
 import static com.nci.automation.web.PlaywrightUtils.page;
 import static com.nci.automation.web.TestProperties.getSSJUrl;
 
