@@ -137,6 +137,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static RAS_Screener_Page rasopathyQuestionnairePage;
 	public static MyRASIIQFormPage myRASIIQFormPage;
 	public static RAS_Screener_Submissions_StepsImpl ras_screenerSubmissions_stepsImpl;
+	public static RASConsentStepsImpl rasConsentStepsImpl;
 	public static RasScenario2StepsImpl rasScenario2StepsImpl;
 	public static RasScenario3StepsImpl rasScenario3StepsImpl;
 	public static RasScenario4StepsImpl rasScenario4StepsImpl;
@@ -470,6 +471,7 @@ public class PageInitializer extends WebDriverUtils {
 		myRASLoginPage = new MyRASLoginPage();
 		myRASHomePage = new MyRASHomePage();
 		ras_screenerSubmissions_stepsImpl = new RAS_Screener_Submissions_StepsImpl();
+		rasConsentStepsImpl = new RASConsentStepsImpl();
 		rasScenario2StepsImpl = new RasScenario2StepsImpl();
 		rasScenario3StepsImpl = new RasScenario3StepsImpl();
 		rasScenario4StepsImpl = new RasScenario4StepsImpl();

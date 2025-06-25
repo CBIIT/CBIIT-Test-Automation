@@ -42,7 +42,7 @@ public class NativeViewCHARMSParticipantDetailsPage extends PageInitializer {
     /**
      * Native View Participant Consents Preview Button
      */
-    @FindBy(xpath = "//*[@id='x_naci_family_coho_family_history_details.x_naci_family_coho_fcsms_consent.family_member_table']//child::tbody//child::tr//child::td[2]//child::a")
+    @FindBy(xpath = "//tr[@record_class='x_naci_family_coho_fcsms_consent']//a[contains(@aria-label, 'Preview record:')]")
     public WebElement nativeViewPatientDetailsConsentsPreviewButton;
 
     /**
