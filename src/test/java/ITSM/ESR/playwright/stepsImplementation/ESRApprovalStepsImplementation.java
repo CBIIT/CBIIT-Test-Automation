@@ -28,6 +28,44 @@ public class ESRApprovalStepsImplementation {
     }
 
     /**
+     * This method confirms that the Federal Lead Intake Approval was rejected
+     */
+    public static void federalLeadIntakeRejectionForESRQ() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (1)").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("rejected");
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Approval was rejected");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the Federal Intake Approval was rejected and ESR-Q is cancelled
+     */
+    public static void confirmFederalIntakeApprovalWasRejectedForESRQ() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Request Cancelled");
+    }
+
+    /**
+     * This method rejects the intake approval from a Federal Lead with a rejection approval for ESR-I
+     */
+    public static void federalLeadIntakeRejectionForESRI() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (1)").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("rejected");
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Approval was rejected");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the Federal Intake Approval was rejected and ESR-I is cancelled
+     */
+    public static void confirmFederalIntakeApprovalWasRejectedForESRI() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Request Cancelled");
+    }
+
+    /**
      * This method completes the Intake Preparation task again after user receives a "Need More Info" from Federal Lead
      */
     public static void completeIntakePreparation() {
@@ -132,6 +170,25 @@ public class ESRApprovalStepsImplementation {
     }
 
     /**
+     * This method rejects the ESR Board Intake approvals with a rejection approval for ESR-I tickets
+     */
+    public static void esrBoardRejectionForESRI() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (9)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[11]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("rejected");
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Approval was rejected");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the ESR Board Intake approvals were rejected for ESR-I tickets
+     */
+    public static void confirmESRBoardIntakeApprovalWasRejectedForESRI() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Information Required for Intake");
+    }
+
+    /**
      * This method completes the required Operational POC approval
      */
     public static void operationalPOCApproval() {
@@ -146,6 +203,44 @@ public class ESRApprovalStepsImplementation {
      */
     public static void confirmOperationalPOCApprovalIsCompleted() {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Federal Lead Closeout Approval");
+    }
+
+    /**
+     * This method rejects the Operational POC approval with a need more info
+     */
+    public static void operationalPOCNeedMoreInfo() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (10)").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("more");
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Need more information");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the Operational POC Approval was rejected with a need more info
+     */
+    public static void confirmOperationalPOCApprovalNeedsMoreInfo() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Information Required for Closeout");
+    }
+
+    /**
+     * This method rejects the Operational POC Approval
+     */
+    public static void operationalPOCRejection() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (10)").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("rejected");
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Approval was rejected");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the Operational POC Approval was rejected
+     */
+    public static void confirmOperationalPOCApprovalIsRejected() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Information Required for Closeout");
     }
 
     /**
@@ -178,6 +273,25 @@ public class ESRApprovalStepsImplementation {
         Playwright_Common_Locators.iframeLocator().locator("(//tbody/tr/td/a[1])[2]").click();
         Playwright_Common_Locators.iframeLocator().getByLabel("Catalog Task form section").getByLabel("State").selectOption("3");
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the Federal Lead Closeout Approval was rejected for ESR-Q tickets
+     */
+    public static void federalLeadCloseoutRejectionForESRQ() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (10)").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("rejected");
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Approval was rejected");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the Federal Lead Closeout Approval was rejected for ESR-Q tickets
+     */
+    public static void confirmFederalLeadCloseoutApprovalWasRejectedForESRQ() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Information Required for Closeout");
     }
 
     /**
@@ -243,6 +357,37 @@ public class ESRApprovalStepsImplementation {
     }
 
     /**
+     * This method rejects the ESR Board Closeout Review approvals with a need more info for ESR-Q tickets
+     */
+    public static void esrBoardCloseoutNeedMoreInfoForESRQ() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (18)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[16]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("more");
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Need more information");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that more information is needed for the ESR-Q ticket
+     */
+    public static void esrBoardCloseoutRejectionForESRQ() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (18)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[16]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("rejected");
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Approval was rejected");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the ESR Board Closeout Approval was rejected for the ESR-Q ticket
+     */
+    public static void confirmESRBoardCloseoutApprovalWasRejectedForESRQ() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Information Required for Closeout");
+    }
+
+    /**
      * This method completes the ESR Board Closeout Review approvals for ESR-I tickets
      */
     public static void esrBoardCloseoutApprovalsForESRI() {
@@ -263,6 +408,37 @@ public class ESRApprovalStepsImplementation {
         Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[24]").click();
         Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("approved");
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method rejects the ESR Board Closeout Review approvals with a need more info for ESR-I tickets
+     */
+    public static void esrBoardCloseoutNeedMoreInfoForESRI() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (19)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[16]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("more");
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Need more information");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method completes the ESR Board Closeout Approval as rejected for the ESR-I ticket
+     */
+    public static void esrBoardCloseoutRejectionForESRI() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (19)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[16]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("rejected");
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").click();
+        Playwright_Common_Locators.iframeLocator().locator("//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']").fill("Approval was rejected");
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the ESR Board Closeout Approval was rejected for the ESR-I ticket
+     */
+    public static void confirmESRBoardCloseoutApprovalWasRejectedForESRI() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Information Required for Closeout");
     }
 
     /**

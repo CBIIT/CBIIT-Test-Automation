@@ -67,6 +67,14 @@ public class Playwright_Common_Locators {
     }
 
     /**
+     * A constant string representing the locator for an iframe element
+     * with the name attribute 'gsft_main'. This locator can be used to
+     * target the main iframe in the context of ServiceNow applications
+     * or native view pages.
+     */
+    public static String iframeLocator = "iframe[name='gsft_main']";
+
+    /**
      * Returns a dynamic XPath locator for locating a vacancy type element based on its text value.
      *
      * @param text the text value of the vacancy type element to be located

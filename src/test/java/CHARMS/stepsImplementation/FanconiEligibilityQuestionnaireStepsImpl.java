@@ -33,6 +33,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     String referralValue;
     String regex = "\\d{5}-\\d{2}-\\d{3}";
     String subjectIDValue;
+    String participantValue;
     String consentDate;
     Map<String, String> currentRow=null;
     Map<String, String> currentRowForCancerHistory;
@@ -43,10 +44,10 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * Run Reset Script for Fanconi in NativeView
      */
     public void runResetScripts() {
-        fanconiEligibilityQuestionnaireStepsImpl.loginToNativeView();
-        fanconiEligibilityQuestionnaireStepsImpl.resetTestAccountSignIn();
-        fanconiEligibilityQuestionnaireStepsImpl.resetTestAccount();
-        fanconiEligibilityQuestionnaireStepsImpl.nativeViewProfilelogOut();
+        loginToNativeView();
+        resetTestAccountSignIn();
+        resetTestAccount();
+        nativeViewProfilelogOut();
     }
 
     /**
@@ -54,6 +55,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      */
     public void loginToNativeView() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        CucumberLogUtils.logScreenshot();
     }
 
     /**
@@ -63,10 +65,12 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         if (TestProperties.ENV.equals("test")) {
             WebDriverUtils.webDriver.get(
                     "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Db1cf5c0087d0d610ad46326d3fbb3507%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D2%26sysparm_record_rows%3D1263%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
+            CucumberLogUtils.logScreenshot();
             CommonUtils.sleep(1800);
         } else if (TestProperties.ENV.equals("dev2")) {
             WebDriverUtils.webDriver.get(
                     "https://service-dev2.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Db1cf5c0087d0d610ad46326d3fbb3507%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D2%26sysparm_record_rows%3D1263%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
+            CucumberLogUtils.logScreenshot();
             CommonUtils.sleep(1800);
         }
     }
@@ -101,9 +105,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * Method to submit the Fanconi screener scenario VIA the portal
      */
     public void fanconiEligibilityQuestionnaireSubmissionScenario(int rowNumForAssertion) {
-        if(currentRow==null) {
-            currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
-        }
+        currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
         fanconiEligibilityQuestionnaireStepsImpl.eligibilityQuestionnairelinkClicked();
         fanconiEligibilityQuestionnaireStepsImpl.initialStudyRelatedPageClicked();
         fanconiEligibilityQuestionnaireStepsImpl.participantSubmission();
@@ -157,7 +159,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         Set<String> allWindowHandles = WebDriverUtils.webDriver.getWindowHandles();
         for (String currentWindow : allWindowHandles) {
             WebDriverUtils.webDriver.switchTo().window(currentWindow);
-            CommonUtils.sleep(1000);
+            CommonUtils.sleep(800);
         }
         JavascriptUtils.scrollIntoView(fanconiEligibilityQuestionnairePage.nextButton);
         CommonUtils.waitForVisibility(fanconiEligibilityQuestionnairePage.nextButton);
@@ -384,7 +386,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         if (currentRow.get("HaveYouEverParticipatedInFanconiAnemiaStudyAtAnotherMedicalInstitution").contentEquals("Yes")) {
             CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList, currentRow.get("SpecifyParticipationInOtherStudies0"));
             fanconiEligibilityQuestionnairePage.commonRBtonList.get(1).click();
-            CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.fanconiAnemiaResearcStudyAt1TextBox, currentRow.get("SpecifyParticipationInOtherStudiesDetails1"));
+            CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.fanconiAnemiaResearchStudyAt1TextBox, currentRow.get("SpecifyParticipationInOtherStudiesDetails1"));
             fanconiEligibilityQuestionnairePage.commonRBtonList.get(2).click();
             CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.fanconiAnemiaResearcStudyAt2TextBox, currentRow.get("SpecifyParticipationInOtherStudiesDetails2"));
             fanconiEligibilityQuestionnairePage.commonRBtonList.get(3).click();
@@ -902,10 +904,14 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      */
     public void participantDetailRecordClicked(int rowNumForAssertion) {
         currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
-        String participantView = currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName");
-        String participantProxyView = currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName");
+        String participantView = currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantMiddleName") + " " + currentRow.get("ParticipantLastName");
+        String participantProxyView = currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyMiddleName") + " " + currentRow.get("ProxyLastName");
         if (currentRow.get("ParticipantFirstName").isBlank()) {
-            cHARMSParticipantDetailsPage.nVParticipantSearchColumnName.click();
+            if (cHARMSParticipantDetailsPage.nVParticipantSearchColumnName.isDisplayed()) {
+            }
+            else {
+                cHARMSParticipantDetailsPage.nVParticipantSearchColumnButton.click();
+            }
             cHARMSParticipantDetailsPage.nVParticipantSearchColumnName.sendKeys(participantProxyView);
             cHARMSParticipantDetailsPage.nVParticipantSearchColumnName.sendKeys(Keys.RETURN);
             CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.dynamicPreviewButtonLocator1(participantProxyView));
@@ -915,14 +921,18 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CommonUtils.sleep(3000);
             CucumberLogUtils.logScreenshot();
         } else {
-            cHARMSParticipantDetailsPage.nVParticipantSearchColumnName.click();
+            if (cHARMSParticipantDetailsPage.nVParticipantSearchColumnName.isDisplayed()) {
+            }
+            else {
+                cHARMSParticipantDetailsPage.nVParticipantSearchColumnButton.click();
+            }
             cHARMSParticipantDetailsPage.nVParticipantSearchColumnName.sendKeys(participantView);
             cHARMSParticipantDetailsPage.nVParticipantSearchColumnName.sendKeys(Keys.RETURN);
             CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.dynamicPreviewButtonLocator1(participantView));
             CommonUtils.sleep(2000);
             CucumberLogUtils.logScreenshot();
             CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.dynamicPreviewButtonLocator("Open Record"));
-            CommonUtils.sleep(3000);
+            CommonUtils.sleep(5000);
             CucumberLogUtils.logScreenshot();
         }
     }
@@ -934,10 +944,12 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         if (currentRow == null) {
             currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
         }
-        subjectIDValue = (cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("full_family_id").getDomAttribute("value"));
+        CommonUtils.waitForVisibility(cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Subject ID"));
+        CommonUtils.sleep(500);
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Subject ID"), "Subject ID", " Subject ID Label of the General Information on Participant Details page ");
+        subjectIDValue = (cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("full_family_id").getDomAttribute("value"));
         if (subjectIDValue.isEmpty()) {
-              CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("full_family_id"), "", " Subject ID of the General Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("full_family_id"), "", " Subject ID of the General Information on Participant Details page ");
         } else {
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(subjectIDValue);
@@ -947,33 +959,35 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("full_family_id"), subjectIDValue, " Subject ID does not match the pattern of the General Information on Participant Details page ");
             }
         }
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Name"), "Name", " Name Label of the General Information on Participant Details page ");
-            if (currentRow.get("ParticipantFirstName").contentEquals("")) {
-                CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("name"), (currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName")), " Participant Name in proxy Scenario of the General Information on Participant Details page ");
-            } else {
-                CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("name"), (currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")), " Participant Name of the General Information on Participant Details page ");
-            }
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Permission to contact"), "Permission to contact", " Permission to contact Label of the General Information on Participant Details page ");
-            CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("permission_to_contact"), "Unknown", " Permission to contact of the General Information on Participant Details page ");
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("FHQ Patient"), "FHQ Patient", " FHQ Patient Label of the General Information on Participant Details page ");
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementsInParticipantDetailsPage("fhq_patient"), "", " FHQ Patient Value of the General Information on Participant Details page ");
-            if ((cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("full_family_id").getDomAttribute("value").isEmpty())) {
-                CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Eligibility Status"), "Eligibility Status", " Eligibility Status Label of the General Information on Participant Details page ");
-                CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlySelectValuesInParticipantDetailsPage("eligibility_status"), "Waiting for Eligibility", " Eligibility Status of the General Information on Participant Details page ");
-                CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Enrollment Status"), "Enrollment Status", " Enrollment Status Label of the General Information on Participant Details page ");
-                CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlySelectValuesInParticipantDetailsPage("enrollment_status"), "New Screener Received", " Enrollment Status of the General Information on Participant Details page ");
-            } else {
-                CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Eligibility Status"), "Eligibility Status", " Eligibility Status Label of the General Information on Participant Details page ");
-                CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlySelectValuesInParticipantDetailsPage("eligibility_status"), "Eligible", " Eligibility Status after the consent complete of the General Information on Participant Details page ");
-                CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Enrollment Status"), "Enrollment Status", " Enrollment Status Label of the General Information on Participant Details page ");
-                CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlySelectValuesInParticipantDetailsPage("enrollment_status"), "Awaiting Enrollment Forms", " Enrollment Status of the General Information on Participant Details page ");
-            }
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Studies"), "Studies", " Studies Label of the General Information on Participant Details page ");
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantStudies, "Fanconi", " Studies on Participant Details page ");
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("NIH MRN number"), "NIH MRN number", " NIH MRN number Label of the General Information on Participant Details page ");
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("nih_number"), "", " NIH MRN number on Participant Details page ");
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantNIHMRNnumberInfo, "NIH MRN number should include the dashes", " NIH MRN number Information Text on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Name"), "Name", " Name Label of the General Information on Participant Details page ");
+        if (currentRow.get("ParticipantFirstName").contentEquals("")) {
+            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("name"), (currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyMiddleName") + " " + currentRow.get("ProxyLastName")), " Participant Name in proxy Scenario of the General Information on Participant Details page ");
+        } else {
+            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("name"), (currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantMiddleName") + " " + currentRow.get("ParticipantLastName")), " Participant Name of the General Information on Participant Details page ");
         }
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Permission to contact"), "Permission to contact", " Permission to contact Label of the General Information on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("permission_to_contact"), "Unknown", " Permission to contact of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("FHQ Patient"), "FHQ Patient", " FHQ Patient Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementsInParticipantDetailsPage("fhq_patient"), "", " FHQ Patient Value of the General Information on Participant Details page ");
+        if ((cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("full_family_id").getDomAttribute("value").isEmpty())) {
+            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Eligibility Status"), "Eligibility Status", " Eligibility Status Label of the General Information on Participant Details page ");
+            CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlySelectValuesInParticipantDetailsPage("eligibility_status"), "Waiting for Eligibility", " Eligibility Status of the General Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Enrollment Status"), "Enrollment Status", " Enrollment Status Label of the General Information on Participant Details page ");
+            CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("enrollment_status"), "New Screener Received", " Enrollment Status of the General Information on Participant Details page ");
+        } else {
+            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Eligibility Status"), "Eligibility Status", " Eligibility Status Label of the General Information on Participant Details page ");
+            CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlySelectValuesInParticipantDetailsPage("eligibility_status"), "Eligible", " Eligibility Status after the consent complete of the General Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Enrollment Status"), "Enrollment Status", " Enrollment Status Label of the General Information on Participant Details page ");
+            CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("enrollment_status"), "Awaiting Enrollment Forms", " Enrollment Status of the General Information on Participant Details page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Studies"), "Studies", " Studies Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantStudies, "Fanconi", " Studies on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Study Subcategory"), "Study Subcategory", " Study Subcategory Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("NIH MRN number"), "NIH MRN number", " NIH MRN number Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("nih_number"), "", " NIH MRN number on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantNIHMRNnumberInfo, "NIH MRN number should include the dashes", " NIH MRN number Information Text on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Invitation Code"), "Invitation Code", " Invitation Code Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("invitation_code"), "", " Invitation Code on Participant Details page "); }
 
     /**
      * Method to assert the Personal Information on Participant Details
@@ -1028,9 +1042,15 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Vital Status"), "Vital Status", " Vital Status Label of the General Information on Participant Details page ");
         CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("person_alive"), currentRow.get("VitalStatus"), " Vital Status Value of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Date of Birth"), "Date of Birth", " Date of Birth Label of the General Information on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("date_of_birth_month_day_year"), currentRow.get("DOB"), " Date of Birth value of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("date_of_birth"), currentRow.get("DOB"), " Date of Birth value of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Date of birth is estimated"), "Date of birth is estimated", " Date of birth is estimated Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingLabel("Date of birth is estimated"), "", " Date of Birth is estimated value of the General Information on Participant Details page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElementsInPS("date_of_birth_is_estimated"), false, " Date of Birth is estimated CheckBox Value of the General Information on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Date of Death"), "Date of Death", " Date of Death Label of the General Information on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("date_of_death"), "", " Date of Death value of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("death_date"), "", " Date of death value of the Demographics on Participant Details page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElementsInPS("date_of_death_is_estimated"), false, " Date of death is estimated CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Date of death is estimated"), "Date of death is estimated", " Date of death is estimated Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingLabel("Date of death is estimated"), "", " Date of death is estimated value of the General Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("If Date of Birth is unknown, is this person 18 years old or older"), "If Date of Birth is unknown, is this person 18 years old or older", " If Date of Birth is unknown, is this person 18 years old or older Label of the General Information on Participant Details page ");
         CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("if_date_of_birth_is_unkown_is_this_person_18_years_old_or_older"), "-- None --", " If Date of Birth is unkown of the Demographics on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpaceInSpan("Age"), "Age", " Age Label of the General Information on Participant Details page ");
@@ -1050,30 +1070,28 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("What is your relationship to the participant?"), "What is your relationship to the participant?", " What is your relationship to the participant? Label of the Contact Information on Participant Details page ");
             CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("relationship"), currentRow.get("WhatIsYourRelationshipToParticipantInNV"), " What is your relationship to the participant? Value of the Contact Info on Participant Details page ");
         } else {
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("legal_representative_name"), "", " Person who filled the screener text box of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("legal_representative_name"), currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantMiddleName") + " " + currentRow.get("ParticipantLastName"), " Person who filled the screener text box of the Contact Information on Participant Details page ");
             CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("What is your relationship to the participant?"), "What is your relationship to the participant?", " What is your relationship to the participant? Label of the Contact Information on Participant Details page ");
-            CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("relationship"), "-- None --", " What is your relationship to the participant? Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("relationship"), "Self", " What is your relationship to the participant? Value of the Contact Info on Participant Details page ");
         }
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Are you the legal guardian of this person?"), "Are you the legal guardian of this person?", " Are you the legal guardian of this person? Label of the Contact Information on Participant Details page ");
         CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("legal_guardian"), currentRow.get("AreYouTheLegalGuardianOfThisPerson"), " Are you the legal guardian of this person? Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Does the participant need legal representation?"), "Does the participant need legal representation?", " Does the participant need legal representation? Label of the Contact Information on Participant Details page ");
         CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("proxy_required"), "-- None --", " Does the participant need legal representation? Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact Street Address"), "Contact Street Address", " Contact Street Address Label of the Contact Information on Participant Details page ");
-        if (currentRow.get("StreetAddress1").contentEquals("")) {
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("street_address"), currentRow.get("StreetAddress1"), " Contact Street Address Value for non USA country of the Contact Info on Participant Details page ");
-        } else {
-            CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("street_address"), currentRow.get("StreetAddress1") + " " + currentRow.get("StreetAddress2"), " Contact Street Address of the Contact Info on Participant Details page ");
-        }
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact State"), "Contact State", " Contact State Label of the Contact Information on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("state"), currentRow.get("State"), " Contact State Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("street_address"), currentRow.get("StreetAddress1"), " Contact Street Address Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact Street Address 2"), "Contact Street Address 2", " Contact Street Address2 Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("contact_street_address_2"),  currentRow.get("StreetAddress2") , " Contact Street Address 2 of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact City"), "Contact City", " Contact City Label of the Contact Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("city"), currentRow.get("City"), " Contact City Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact State"), "Contact State", " Contact State Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("state"), currentRow.get("State"), " Contact State Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact Zip Code"), "Contact Zip Code", " Contact Zip Code Label of the Contact Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("zipcode"), currentRow.get("ZipCode"), "Contact Zip Code Value of the Contact Info on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact Country"), "Contact Country", " Contact Country Label of the Contact Information on Participant Details page ");
-        CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("country"), currentRow.get("CountryLived"), "Contact Country Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorUsingSpanNormalizeSpace("Contact Country"), "Contact Country", " Contact Country Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementsInParticipantDetailsPage("contact_country"), currentRow.get("CountryLived"), "Contact Country Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Registration Email"), "Registration Email", " Registration Email Label of the Contact Information on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("user_record.email"), currentRow.get("RegistrationEmailAddress"), "Registration Email Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("user_record.email"), currentRow.get("RegistrationEmailAddress"), "Registration Email Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact Email"), "Contact Email", " Contact Email Label of the Contact Information on Participant Details page ");
         if (currentRow.get("ParticipantFirstName").contentEquals("")) {
             CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("email_address"), "", " Contact Email Value of the Contact Info on Participant Details page ");
@@ -1081,8 +1099,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         else {
             CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("email_address"), currentRow.get("EmailAddress"), " Contact Email Value of the Contact Info on Participant Details page ");
         }
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Contact Email"), "Proxy Contact Email", " Proxy Contact Email Label of the Contact Information on Participant Details page ");
-        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_email_address"), currentRow.get("ProxyEmailAddress"), " Proxy Contact Email Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact Home Phone"), "Contact Home Phone", " Contact Home Phone Label of the Contact Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("phone"), currentRow.get("HomePhoneNumber"), "Contact Home Phone Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact Cell Phone"), "Contact Cell Phone", " Contact Cell Phone Label of the Contact Information on Participant Details page ");
@@ -1091,6 +1107,45 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("work_phone"), currentRow.get("WorkPhoneNumber"), "Contact Work Phone Value of the Contact Info on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Contact Preferred phone"), "Contact Preferred phone", " Contact Preferred phone Label of the Contact Information on Participant Details page ");
         CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("preferred_phone"), currentRow.get("PreferredPhoneNumber"), "Contact Preferred phone Value of the Contact Info on Participant Details page ");
+    }
+
+    /**
+     * Method to assert the Contact Info on Participant Details page using @param rowNumForAssertion
+     */
+    public void proxyContactInformationAssertionOnParticipantDetailPage(int rowNumForAssertion) {
+        Map<String, String> currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
+        CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantProxyContactInfoTab);
+        cHARMSParticipantDetailsPage.nVParticipantProxyContactInfoTab.click();
+        CommonUtils.sleep(1000);
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy First Name"), "Proxy First Name", " Proxy First Name Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_first_name"), currentRow.get("WhatIsYourNameFirstName"), " Proxy First Name Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Middle Name"), "Proxy Middle Name", " Proxy Middle Name Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_middle_name"), currentRow.get("WhatIsYourNameMiddleName"), " Proxy Middle Name Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Last Name"), "Proxy Last Name", " Proxy Last Name Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_last_name"), currentRow.get("WhatIsYourNameLastName"), " Proxy Last Name Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Contact Street Address"), "Proxy Contact Street Address", " Proxy Contact Street Address Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_contact_street_address"), currentRow.get("ProxyStreetAddress"), " Proxy Street Address Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Contact Street Address 2 (optional)"), "Proxy Contact Street Address 2 (optional)", " Proxy Contact Street Address 2 (optional) Label of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_street_address_2"), currentRow.get("ProxyStreetAddress2"), " Proxy Contact Street Address 2 (optional) Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Contact City"), "Proxy Contact City", " Proxy Contact City Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_contact_city"), currentRow.get("ProxyCity"), " Proxy City Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Contact State"), "Proxy Contact State", " Proxy Contact State Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_state"), currentRow.get("ProxyState"), " Proxy Zip Code Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_contact_zipcode"), currentRow.get("ProxyZipCode"), " Proxy Zip Code Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Contact Zipcode"), "Proxy Contact Zipcode", " Proxy Contact Zipcode Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_contact_zipcode"), currentRow.get("ProxyZipCode"), " Proxy Zip Code Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Contact Country"), "Proxy Contact Country", " Proxy Contact Country Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementsInParticipantDetailsPage("proxy_contact_country"), currentRow.get("ProxyCountry"), " Proxy Contact Country Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Contact Email"), "Proxy Contact Email", " Proxy Contact Email Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_email_address"), currentRow.get("ProxyEmailAddress"), " Proxy Email Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Contact Home Phone"), "Proxy Contact Home Phone", " Proxy Contact Home Phone Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_phone_number"), currentRow.get("ProxyPhoneNumber"), " Proxy Home Phone Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Contact Cell Phone"), "Proxy Contact Cell Phone", " Proxy Contact Cell Phone Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_cell_phone"), currentRow.get("ProxyCellPhone"), " Proxy Cell Phone Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Contact Work Phone"), "Proxy Contact Work Phone", " Proxy Contact Work Phone Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_work_phone"), currentRow.get("ProxyWorkPhone"), " Proxy Work Phone Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorContainsText("Proxy Preferred Phone"), "Proxy Preferred Phone", " Proxy Contact Preferred phone Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_preferred_phone"), currentRow.get("ProxyPreferredPhoneNumber"), " Proxy Preferred phone Value of the Contact Info on Participant Details page ");
     }
 
     /**
@@ -1120,21 +1175,29 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         if(currentRow==null) {
             currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
         }
-         CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVParticipantStudiesTab);
+        CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVParticipantStudiesTab);
         if (currentRow.get("ParticipantFirstName").isBlank()) {
             if (subjectIDValue.isEmpty()) {
-                CharmsUtil.clickOnElement(fanconiScreenerNVPage.dynamicPreviewButtonLocator2(""));
+                CharmsUtil.labelHighlight(fanconiScreenerNVPage.nVPreviewButtonLocator);
+                JavascriptUtils.clickByJS(fanconiScreenerNVPage.nVPreviewButtonLocator);
             } else {
                 System.out.println("subjectIDValue: " + subjectIDValue);
                 CharmsUtil.clickOnElement(fanconiScreenerNVPage.dynamicLocatorForPreviewButtonLocator(subjectIDValue));
             }
         }
         else {
-            CharmsUtil.clickOnElement(fanconiScreenerNVPage.dynamicLocatorForPreviewButtonLocator(subjectIDValue));
+            if (subjectIDValue.isEmpty()) {
+                CharmsUtil.labelHighlight(fanconiScreenerNVPage.nVPreviewButtonLocator);
+                JavascriptUtils.clickByJS(fanconiScreenerNVPage.nVPreviewButtonLocator);
+            } else {
+                CharmsUtil.clickOnElement(fanconiScreenerNVPage.dynamicLocatorForPreviewButtonLocator(subjectIDValue));
+            }
         }
-        CommonUtils.sleep(300);
-        CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFamilyMembersOpenRecordButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(3000);
+        CommonUtils.waitForVisibility(fanconiScreenerNVPage.nVFamilyMembersOpenRecordButton);
+        CharmsUtil.labelHighlight(fanconiScreenerNVPage.nVFamilyMembersOpenRecordButton);
+        JavascriptUtils.clickByJS(fanconiScreenerNVPage.nVFamilyMembersOpenRecordButton);
+        CommonUtils.sleep(3000);
     }
 
     /**
@@ -1149,7 +1212,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * Method to assert data in the Fanconi Study page of nativeView
      */
     public void fanconiScreenerPageGeneralInformationAssertions(int rowNumForAssertion) {
-        String referralValue = fanconiScreenerNVPage.dynamicLocatorForInputElements("screener_ref").getDomAttribute("value");
+        String referralValue = fanconiScreenerNVPage.dynamicLocatorForInputElementsInFAScreener("number").getDomAttribute("value");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Number"), "Number", " Number label on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsInFAScreener("number"), referralValue, " Referral Number on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Does the participant need legal representation?"), "Does the participant need legal representation?", " Does the participant need legal representation? label on Fanconi Study Screener page ");
@@ -1158,23 +1221,21 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForReadOnlyInputElementsInFAScreener("age_completed"), currentRow.get("CalculatedAge"), " Age Completed Read only Value on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Study"), "Study", " Study label on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerStudy, "Fanconi", "Study of the General Information on Fanconi Study Screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Family Member Record"), "Family Member Record", " Family Member Record label on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Participant Info"), "Participant Info", " Participant Info label on Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForDisplayReadOnlyInputElementsInFAScreener("family_member_record"), subjectIDValue, " Family Member Record of the General Information on Fanconi Study Screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Participant Study"), "Participant Study", " Participant Study label on Fanconi Study Screener page ");
-        if (subjectIDValue.isEmpty()) {
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Participant Study Data"), "Participant Study Data", " Participant Study Data label on Fanconi Study Screener page ");
+        if (participantValue.isEmpty()) {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForDisplayReadOnlyInputElementsInFAScreener("participant_study"), "", " participant_study' Record of the General Information on Fanconi Study Screener page ");
         } else {
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForDisplayReadOnlyInputElementsInFAScreener("participant_study"), subjectIDValue, " participant_study' Record of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForDisplayReadOnlyInputElementsInFAScreener("participant_study"), participantValue, " participant_study' Record of the General Information on Fanconi Study Screener page ");
         }
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Vital Status"), "Vital Status", " Vital Status label on Fanconi Study Screener page ");
         CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.nVFScreenerVitalStatus, "Not answered", "Vital Status of the General Information on Fanconi Study Screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Date of Death (New)"), "Date of Death (New)", " (DONOTUSE)Date of death label on Fanconi Study Screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerDateOfDeath, "", "Date of death of the General Information on Fanconi Study Screener page ");
-        if (subjectIDValue.isEmpty()) {
+        if (participantValue.isEmpty()) {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Eligibility Status"), "Eligibility Status", " Eligibility Status label on Fanconi Study Screener page ");
-            CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.nVFScreenerEligibilityStatus, "Waiting for Eligibility", "Eligibility Status of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerEligibilityStatus, "waiting_for_eligibility", "Eligibility Status of the General Information on Fanconi Study Screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Enrollment Status"), "Enrollment Status", " Enrollment Status label on Fanconi Study Screener page ");
-            CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.nVFScreenerEnrollmentStatus, "New Screener Received", "Enrollment Status of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerEnrollmentStatus, "1", "Enrollment Status of the General Information on Fanconi Study Screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Date Consent Requested"), "Date Consent Requested", " Date Consent Requested label on Fanconi Study Screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerDateConsentRequested, "", "Date Consent Requested of the General Information on Fanconi Study Screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Consent Reminder Count"), "Consent Reminder Count", " Consent Reminder Count label on Fanconi Study Screener page ");
@@ -1203,81 +1264,91 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("middle_name"), currentRow.get("ProxyMiddleName"), " Middle Name Value of the Contact Information in Fanconi Study screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Last Name"), "Last Name", " Last Name label of the Contact Information in Fanconi Study screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("last_name"), currentRow.get("ProxyLastName"), " Last Name Value of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy First Name"), "Proxy First Name", " Proxy First Name label of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_first_name"), currentRow.get("WhatIsYourNameFirstName"), " Proxy First Name  Value of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Middle Name"), "Proxy Middle Name", " Proxy Middle Name label of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_middle_name"), currentRow.get("WhatIsYourNameMiddleName"), " Proxy Middle Name Value of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Last Name"), "Proxy Last Name", " Proxy Last Name label of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_last_name"), currentRow.get("WhatIsYourNameLastName"), " Proxy Last Name Value of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("What is your relationship to this person?"), "What is your relationship to this person?", " What is your relationship to this person? label of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementInFAScreenerPage("relationship"), currentRow.get("WhatIsYourRelationshipToParticipantInNV"), " What is your relationship to this person? Input value of the Contact Information in Fanconi Study screener page ");
-        } else {
+        }
+        else {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("First Name"), "First Name", " First Name label of the Contact Information in Fanconi Study screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("first_name"), currentRow.get("ParticipantFirstName"), " First Name Value of the Contact Information in Fanconi Study screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Middle Name"), "Middle Name", " Middle Name label of the Contact Information in Fanconi Study screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("middle_name"), currentRow.get("ParticipantMiddleName"), " Middle Name Value of the Contact Information in Fanconi Study screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Last Name"), "Last Name", " Last Name label of the Contact Information in Fanconi Study screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("last_name"), currentRow.get("ParticipantLastName"), " Last Name Value of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy First Name"), "Proxy First Name", " Proxy First Name label of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_first_name"), currentRow.get("ProxyFirstName"), " Proxy First Name Value of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Middle Name"), "Proxy Middle Name", " Proxy Middle Name label of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_middle_name"), currentRow.get("ProxyMiddleName"), " Proxy Middle Name Value of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Last Name"), "Proxy Last Name", " Proxy Last Name label of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_last_name"), currentRow.get("ProxyLastName"), " Proxy Last Name Value of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("What is your relationship to this person?"), "What is your relationship to this person?", " What is your relationship to this person? label of the Contact Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementInFAScreenerPage("relationship"), currentRow.get("WhatIsYourRelationshipToParticipant"), " What is your relationship to this person? Input value of the Contact Information in Fanconi Study screener page ");
         }
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact Street Address"), "Contact Street Address", " Contact Street Address label of the Contact Information in Fanconi Study screener page ");
-        if (currentRow.get("StreetAddress1").contentEquals("")) {
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("street_address"), currentRow.get("StreetAddress1"), " Contact Street Address Value for non USA country of the Contact Information in Fanconi Study screener page ");
-        } else {
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("street_address"), currentRow.get("StreetAddress1") + " " + currentRow.get("StreetAddress2"), " Contact Street Address of the Contact Information in Fanconi Study screener page ");
-        }
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact City"), "Contact City", " Contact City label of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("city"), currentRow.get("City"), " Contact City Value of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact State"), "Contact State", " Contact State label of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("state"), currentRow.get("State"), " Contact State Value of the Contact Information in  Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact Zip Code"), "Contact Zip Code", " Contact Zip Code label of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("zipcode"), currentRow.get("ZipCode"), " Contact Zip Code Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Street Address"), "Street Address", " Street Address label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("street_address"), currentRow.get("StreetAddress1"), " Street Address Value for non USA country of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Street 2 (optional)"), "Street 2 (optional)", " Street 2 (optional) label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("street_address2"), currentRow.get("StreetAddress2"), " Street 2 (optional) Value for non USA country of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("City"), "City", " City label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("city"), currentRow.get("City"), " City Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("State/Province"), "State/Province", " State/Province label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("state"), currentRow.get("State"), " State/Province Value of the Contact Information in  Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Zip Code"), "Zip Code", " Zip Code label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("zip_code"), currentRow.get("ZipCode"), " Contact Zip Code Value of the Contact Information in Fanconi Study screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact Country"), "Contact Country", " Contact Country label of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementsInFAScreenerPage("country"), currentRow.get("CountryLived"), " Contact Country Value of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact Email"), "Contact Email", " Contact Email label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVParticipantContactCountryInput, currentRow.get("CountryLived"), " Contact Country Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Email Address"), "Email Address", " Email Address label of the Contact Information in Fanconi Study screener page ");
         if (currentRow.get("ParticipantFirstName").contentEquals("")) {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("email_address"), "", " Contact Email Value of the Contact Information in Fanconi Study screener page ");
         }
         else {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("email_address"), currentRow.get("EmailAddress"), " Contact Email Value of the Contact Information in Fanconi Study screener page ");
         }
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact Home Phone"), "Contact Home Phone", " Contact Home Phone label of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("phone"), currentRow.get("HomePhoneNumber"), " Contact Home Phone Value of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact Cell Phone"), "Contact Cell Phone", " Contact Cell Phone label of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("cell_phone"), currentRow.get("CellPhoneNumber"), " Contact Cell Phone Value of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact Work Phone"), "Contact Work Phone", " Contact Work Phone label of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("work_phone"), currentRow.get("WorkPhoneNumber"), " Contact Work Phone Value of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Contact Preferred phone"), "Contact Preferred phone", " Contact Preferred phone label of the Contact Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("preferred_phone"), currentRow.get("PreferredPhoneNumber"), " Contact Preferred phone Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Preferred Contact"), "Preferred Contact", " Preferred Contact label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementInFAScreenerPage("preferred_contact"), currentRow.get("PreferredPhoneNumberInStudyScreener"), " Preferred Contact Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Home Phone Number"), "Home Phone Number", " Home Phone Number label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("home_phone"), currentRow.get("HomePhoneNumber"), " Contact Home Phone Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Cell Phone Number"), "Cell Phone Number", " Cell Phone Number label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("cell_phone"), currentRow.get("CellPhoneNumber"), " Cell Phone Number Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Work Phone Number"), "Work Phone Number", " Work Phone Number label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("work_phone"), currentRow.get("WorkPhoneNumber"), " Work Phone Number Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("What is your relationship to this person?"), "What is your relationship to this person?", " What is your relationship to this person? label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementInFAScreenerPage("relationship"), currentRow.get("WhatIsYourRelationshipToParticipantInNV"), " Relationship Value of the Contact Info on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy First Name"), "Proxy First Name", " Proxy First Name label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("your_first_name"), currentRow.get("WhatIsYourNameFirstName"), " Proxy First Name  Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Middle Name"), "Proxy Middle Name", " Proxy Middle Name label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("your_middle_name"), currentRow.get("WhatIsYourNameMiddleName"), " Proxy Middle Name Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Last Name"), "Proxy Last Name", " Proxy Last Name label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("your_last_name"), currentRow.get("WhatIsYourNameLastName"), " Proxy Last Name Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Street Address"), "Proxy Street Address", " Proxy Street Address label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_street_address"), currentRow.get("ProxyStreetAddress"), " Street Address Value for non USA country of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Street Address 2 (Optional)"), "Proxy Street Address 2 (Optional)", " Proxy Street Address 2 (Optional) label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_street_address_2"), currentRow.get("ProxyStreetAddress2"), " Proxy Street Address 2 (Optional) Value for non USA country of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy City"), "Proxy City", " Proxy City label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_city"), currentRow.get("ProxyCity"), " Proxy City Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy State/Province"), "Proxy State/Province", " Proxy State/Province label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_state"), currentRow.get("ProxyState"), " State/Province Value of the Contact Information in  Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Zip Code"), "Proxy Zip Code", " Proxy Zip Code label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_zip_code"), currentRow.get("ProxyZipCode"), " Proxy Zip Code Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Email Address"), "Proxy Email Address", " Proxy Email Address label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_email_address"), currentRow.get("ProxyEmailAddress"), " Proxy Email Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Home Phone"), "Proxy Home Phone", " Proxy Home Phone label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_home_phone"), currentRow.get("ProxyPhoneNumber"), " Proxy Home Phone Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Cell Phone"), "Proxy Cell Phone", " Proxy Cell Phone label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_cell_phone"), currentRow.get("ProxyCellPhone"), " Proxy Cell Phone Value of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Proxy Work Phone"), "Proxy Work Phone", " Proxy Work Phone label of the Contact Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("proxy_work_phone"), currentRow.get("ProxyWorkPhone"), " Proxy Work Phone Value of the Contact Information in Fanconi Study screener page ");
     }
+
 
     /**
      * Method to assert the Fanconi Screener: Demographics Information of the Participant in Fanconi screener Page
      */
     public void demographicsAssertionOnFanconiStudyPage(int rowNumForAssertion) {
         CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerDemographicsTab);
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Date of Birth"), "Date of Birth", " Date of Birth label of the Demographics Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("date_of_birth_month_day_year"), currentRow.get("DOB"), " Date of Birth Value of the Demographics in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Date of birth"), "Date of birth", " Date of birth label of the Demographics Information in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("date_of_birth"), currentRow.get("DOB"), " Date of birth Value of the Demographics in Fanconi Study screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Sex"), "Sex", " Biological Gender label of the Demographics Information in Fanconi Study screener page ");
-        CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementsInFAScreenerPage("biological_gender"), currentRow.get("SexAssigned"), " Biological Gender Value of the Demographics in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVParticipantBiologicalSexInput, currentRow.get("SexAssigned"), " Biological Gender Value of the Demographics in Fanconi Study screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Participant Race (Select all that apply)"), "Participant Race (Select all that apply)", " Participant Race (Select all that apply) label of the Demographics Information in Fanconi Study screener page ");
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerRace, currentRow.get("RaceList"), " Participant Race Value of the Demographics in Fanconi Study screener page ");
-        String value= fanconiScreenerNVPage.nVFScreenerRace.getText();
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerRace1, currentRow.get("RaceList"), " Participant Race Value of the Demographics in Fanconi Study screener page ");
+        String value= fanconiScreenerNVPage.nVFScreenerRace1.getText();
         if (value.contains("Other (please specify)")){
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Other"), "Other", " Other Race label of the Demographics Information in Fanconi Study screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerRaceOtherText, currentRow.get("OtherRace"), " Participant Other Race Value of the Demographics in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Other race"), "Other race", " Other Race label of the Demographics Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfFamilyInFAScreener("other_race"), currentRow.get("OtherRace"), " Participant Other Race Value of the Demographics in Fanconi Study screener page ");
         }
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Is the participant adopted?"), "Is the participant adopted?", " Is the participant adopted? label of the Demographics Information in Fanconi Study screener page ");
-        CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementsInFAScreenerPage("adopted"), currentRow.get("AreYouAdopted"), " Is the participant adopted? Value of the Demographics in Fanconi Study screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Adopted"), "Adopted", " Adopted label of the Demographics Information in Fanconi Study screener page ");
+        CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementInFAScreenerPage("u_adopted"), currentRow.get("AreYouAdopted"), " Adopted  Value of the Demographics in Fanconi Study screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Ethnicity"), "Ethnicity", " Ethnicity label of the Demographics Information in Fanconi Study screener page ");
-        CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementsInFAScreenerPage("ethnicity"), currentRow.get("Ethnicity"), " Ethnicity Value of the Demographics in Fanconi Study screener page ");
+        CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementInFAScreenerPage("race_ethnicity"), currentRow.get("Ethnicity"), " Ethnicity Value of the Demographics in Fanconi Study screener page ");
     }
 
     /**
@@ -1463,7 +1534,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Previous studies"), "Previous studies", " Previous studies label of the Final Information in Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForTextAreaElements("previous_studies"), currentRow.get("PreviousStudiesNV"), " Previous studies Value of the Final Information in Fanconi Study Screener page ");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("How did you hear about this study?"), "How did you hear about this study?", " How did you hear about this study? label of the Final Information in Fanconi Study Screener page ");
-       if (currentRow.get("HowDidYouHearAboutThisStudy").contentEquals("Physician")) {
+        if (currentRow.get("HowDidYouHearAboutThisStudy").contentEquals("Physician")) {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingNormalizeSpaceInSpan("Physician"), "Physician", " Physician label of the Final Information in Fanconi Study Screener page ");
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsInFAScreener("physician"), currentRow.get("HearAboutThisStudyText"), " Physician Value of the Final Information in Fanconi Study Screener page ");
         }
@@ -1496,6 +1567,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 currentRowForAnotherStudy = CharmsUtil.testManagerData(excelSheet, "OtherStudies", i);
                 CharmsUtil.clickOnElement(rowList.get(i));
                 CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerOpenRecordButton);
+                CommonUtils.sleep(1000);
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.IntakeParticipatesInAnotherStudyTitle, "Intake participates in another study", " Study Name in Intake participates title in another study in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Study Name"), "Study Name", " Study Name label of Intake participates title in another study in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfIntakeParticipatesInFAScreener("study_name"), currentRowForAnotherStudy.get("ParticipantStudyNameInNV") + ": " + currentRowForAnotherStudy.get("OtherStudyName"), " Study Name in Intake participates in another study in Fanconi Study Screener page ");
@@ -1507,10 +1579,14 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfIntakeParticipatesInFAScreener("start_date"), currentRowForAnotherStudy.get("OtherStudyParticipationYear1"), " Start Date in Intake participates in another study in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("End Date"), "End Date", " End Date label of Intake participates title in another study in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfIntakeParticipatesInFAScreener("end_date"), currentRowForAnotherStudy.get("OtherStudyParticipationYear2"), " End Date in Intake participates in another study in Fanconi Study Screener page ");
+                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Participant Info"), "Participant Info", " Participant Info label of Intake participates in another study in Fanconi Study Screener page ");
+                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfIntakeParticipatesDisplayInFAScreener("participant_details"), "", " Participant Info value in Intake participates in another study in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Institution"), "Institution", " Institution label of Intake participates title in another study in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfIntakeParticipatesInFAScreener("institution"), currentRowForAnotherStudy.get("OtherStudyInstitution"), " Institution in Intake participates in another study in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Currently participating"), "Currently participating", " Currently participating label of Intake participates title in another study in Fanconi Study Screener page ");
                 CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.nVFScreenerIntakeParticipatesStudyCurrentlyParticipatingDropDown, currentRowForAnotherStudy.get("OtherStudyCurrentlyParticipation"), " Currently participating in Intake participates in another study in Fanconi Study Screener page ");
+                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Intake Form ID"), "Intake Form ID", " Intake Form ID label of Intake participates title in another study in Fanconi Study Screener page ");
+                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfIntakeParticipatesDisplayInFAScreener("intake_form_id"), referralValue, " Intake Form ID value in Intake participates in another study in Fanconi Study Screener page ");
                 CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerBackButton);
                 CommonUtils.scrollIntoView(fanconiScreenerNVPage.nVFScreenerIntakeParticipatesInAnotherStudyTable);
                 CommonUtils.sleep(1800);
@@ -1528,6 +1604,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             for (int i = 0; i <= rowList.size() - 1; i++) {
                 CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerGeneticMutationvariantPreviewRecordButton);
                 CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerOpenRecordButton);
+                CommonUtils.sleep(1000);
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerGeneticMutationTitle, "Genetic Mutation/Variant", " Genetic Mutation/Variants Title in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Screener"), "Screener", " Screener label of Genetic Mutation/Variants in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerGeneticMutationScreenerTextBox, referralValue, " Screener in Genetic Mutation/Variants of Fanconi Study Screener page ");
@@ -1557,10 +1634,11 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFCancerHistoryPleaseSpecifyColumnSortsButton);
             for (int i = 0; i <= rowList.size() - 1; i++) {
                 currentRowForCancerHistory = CharmsUtil.testManagerData(excelSheet, "Cancer", i);
-                CommonUtils.sleep(800);
+                CommonUtils.sleep(1000);
                 CharmsUtil.clickOnElement(rowList.get(i));
-                CommonUtils.sleep(800);
+                CommonUtils.sleep(1000);
                 CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerOpenRecordButton);
+                CommonUtils.sleep(1000);
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerCancerHistoryTitle, "Referral Patient Cancer", " Referral Patient Cancer History Title in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Tumor Type"), "Tumor Type", " Tumor Type label of Patient Cancer History in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfCancerHistoryInFAScreener1("tumor_type"), currentRowForCancerHistory.get("TumorType"), " Tumor Type in Fanconi Study Screener page ");
@@ -1568,7 +1646,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                 CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementOfCancerHistoryInFAScreener("month_of_diagnosis"), currentRowForCancerHistory.get("TumorMonthOfDiagnosis"), " Month of diagnosis in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Year of diagnosis"), "Year of diagnosis", " Year of diagnosis label of Patient Cancer History in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfCancerHistoryInFAScreener("year_of_diagnosis"), currentRowForCancerHistory.get("TumorYearOfDiagnosis"), " Year of diagnosis in Fanconi Study Screener page ");
-                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("How old was the research participant when the cancer was diagnosed?"), "How old was the research participant when the cancer was diagnosed?", " How old was the research participant when the cancer was diagnosed? label of Patient Cancer History in Fanconi Study Screener page ");
+                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Age at Diagnosis"), "Age at Diagnosis", " Age at Diagnosis label of Patient Cancer History in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElementsOfCancerHistoryInFAScreener("age_in_years_at_diagnosis"), currentRowForCancerHistory.get("TumorAgeAtDiagnosis"), " How old was the research participant when the cancer was diagnosed?in Fanconi Study Screener page ");
                 CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingSpanNormalizeSpace("Currently being treated"), "Currently being treated", " Currently being treated label of Patient Cancer History in Fanconi Study Screener page ");
                 CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElementOfCancerHistoryInFAScreener("currently_being_treated"), currentRowForCancerHistory.get("AreYouCurrentlyReceivingTumorTreatment"), " Currently being treated in Fanconi Study Screener page ");
@@ -1602,75 +1680,76 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * Method to assert Participant data in the Fanconi Study page
      */
     public void fanconiStudyPageGeneralInformationAssertions(int rowNumForAssertion) {
-         referralValue = fanconiScreenerNVPage.dynamicLocatorForInputElements("screener_ref").getDomAttribute("value");
+        referralValue = fanconiScreenerNVPage.dynamicLocatorForInputElements("screener_ref").getDomAttribute("value");
+        participantValue = fanconiScreenerNVPage.dynamicLocatorForInputElements("participant").getDomAttribute("value");
         CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingDataNormalizeSpaceInSpan("Participant"), "Participant", "Participant label of the General Information on Fanconi Study Screener page ");
-       if (Objects.requireNonNull(fanconiScreenerNVPage.dynamicLocatorForInputElements("participant").getDomAttribute("value")).isEmpty()) {
+        if (Objects.requireNonNull(fanconiScreenerNVPage.dynamicLocatorForInputElements("participant").getDomAttribute("value")).isEmpty()) {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("participant"), "", "Participant Input Value of the General Information on Fanconi Study Screener page ");
         } else {
             CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("participant"), subjectIDValue, "Participant Input Value of the General Information on Fanconi Study Screener page ");
         }
-        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Subject ID"), "Subject ID", "Subject ID label of the General Information on Fanconi Study Screener page ");
-        if (fanconiScreenerNVPage.nVParticipantSubjectIdInput.getDomAttribute("value").isEmpty()) {
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVParticipantSubjectIdInput, "", " Subject ID Input Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingDataNormalizeSpaceInSpan("Name"), "Name", "Name label of the General Information on Fanconi Study Screener page ");
+        if (currentRow.get("ParticipantFirstName").contentEquals("")) {
+            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVParticipantNameValue, (currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyMiddleName") + " " + currentRow.get("ProxyLastName")), " Participant Name in proxy Scenario of the General Information on Participant Details page ");
         } else {
-            Pattern pattern = Pattern.compile(regex);
-            Matcher matcher = pattern.matcher(subjectIDValue);
-            if (matcher.matches()) {
-                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVParticipantSubjectIdInput, subjectIDValue, " Subject ID Input Value of the General Information on Fanconi Study Screener page ");
-            } else {
-                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVParticipantSubjectIdInput, subjectIDValue, " Subject ID Input Value of the General Information on Fanconi Study Screener page ");
-            }
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("NIH MRN number"), "NIH MRN number", " NIH MRN number label of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVParticipantNIHMRNNumberInput, "", " NIH MRN number Input value of General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Screener"), "Screener", " Screener label of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("screener_ref"), referralValue, " Referral Value of General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("IIQ"), "IIQ", " IIQ label of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("iiq_ref"), "", " IIQ Input value of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("FA Survey"), "FA Survey", " FA Survey label of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("fa_survey"), "", " FA Survey Input Value of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingDataNormalizeSpaceInSpan("Study"), "Study", " Study label of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("study"), "Fanconi", "S tudy Input Value of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Cohort"), "Cohort", " Cohort label of the General Information on Fanconi Study Screener page ");
-            if (fanconiScreenerNVPage.nVParticipantSubjectIdInput.getDomAttribute("value").isEmpty()) {
-                CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElements("cohort"), "Field", " Cohort Select Value of the General Information on Fanconi Study Screener page ");
-                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Eligibility Status"), "Eligibility Status", " Eligibility Status label of the General Information on Fanconi Study Screener page ");
-                CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElements("eligibility_status"), "Waiting for Eligibility", " Eligibility Status Value of the General Information on Fanconi Study Screener page ");
-                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Enrollment Status"), "Enrollment Status", " Enrollment Status label of the General Information on Fanconi Study Screener page ");
-                CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElements("enrollment_status"), "New Screener Received", " Enrollment Status Value of the General Information on Fanconi Study Screener page ");
-            } else {
-                CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElements("cohort"), "Clinical", " Cohort Select Value of the General Information on Fanconi Study Screener page ");
-                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Eligibility Status"), "Eligibility Status", " Eligibility Status label of the General Information on Fanconi Study Screener page ");
-                CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElements("eligibility_status"), "Eligible", " Eligibility Status Value of the General Information on Fanconi Study Screener page ");
-                CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Enrollment Status"), "Enrollment Status", " Enrollment Status label of the General Information on Fanconi Study Screener page ");
-                CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElements("enrollment_status"), "Awaiting Enrollment Forms", " Enrollment Status Value of the General Information on Fanconi Study Screener page ");
-            }
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Study Sub Categories"), "Study Sub Categories", " Study Sub Categories label of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Screener Complete"), "Screener Complete", " Screener Complete label of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements1("screener_complete"), false, " Screener Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("screener_complete"), true, " Screener Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("IIQ Complete"), "IIQ Complete", " IIQ Complete label of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements1("iiq_complete"), false, "IIQ Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("iiq_complete"), false, "IIQ Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Study Survey Complete"), "Study Survey Complete", "Study Survey Complete label of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements1("study_survey_complete"), false, "Study Survey Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("study_survey_complete"), false, "Study Survey Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Ever Consented"), "Ever Consented", "Ever Consented label of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements1("consent_signed"), false, "Ever Consented CheckBox Value of the General Information on Fanconi Study Screener page ");
-            if (fanconiScreenerNVPage.nVParticipantSubjectIdInput.getDomAttribute("value").isEmpty()) {
-                CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("consent_signed"), false, "Ever Consented CheckBox Value of the General Information on Fanconi Study Screener page ");
-            } else {
-                CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("consent_signed"), true, "Ever Consented CheckBox Value of the General Information on Fanconi Study Screener page ");
-            }
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Ever Assented"), "Ever Assented", "Ever Assented label of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements1("assent_signed"), false, "Ever Assented CheckBox Value of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("assent_signed"), false, "Ever Assented CheckBox Value of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("MRR Complete"), "MRR Complete", "MRR Complete label of the General Information on Fanconi Study Screener page ");
-            CommonUtils.sleep(800);
-            CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements1("mrr_complete"), false, "Ever Consented CheckBox Value of the General Information on Fanconi Study Screener page ");
-            CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("mrr_complete"), false, "MRR Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
-           consentDate= fanconiScreenerNVPage.nVConsentDate.getText();
-            CommonUtils.sleep(1000);
+            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVParticipantNameValue, (currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantMiddleName") + " " + currentRow.get("ParticipantLastName")), " Participant Name of the General Information on Participant Details page ");
         }
+        if (fanconiScreenerNVPage.dynamicLocatorForInputElements("participant").getDomAttribute("value").isEmpty()) {
+            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Eligibility Status"), "Eligibility Status", " Eligibility Status label of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElements("eligibility_status"), "Waiting for Eligibility", " Eligibility Status Value of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Enrollment Status"), "Enrollment Status", " Enrollment Status label of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElements("enrollment_status"), "New Screener Received", " Enrollment Status Value of the General Information on Fanconi Study Screener page ");
+        } else {
+            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Eligibility Status"), "Eligibility Status", " Eligibility Status label of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElements("eligibility_status"), "Eligible", " Eligibility Status Value of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Enrollment Status"), "Enrollment Status", " Enrollment Status label of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElements("enrollment_status"), "Awaiting Enrollment Forms", " Enrollment Status Value of the General Information on Fanconi Study Screener page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText1("Screener"), "Screener", " Screener label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("screener_ref"), referralValue, " Referral Value of General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("IIQ"), "IIQ", " IIQ label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("iiq_ref"), "", " IIQ Input value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("FA Survey"), "FA Survey", " FA Survey label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("fa_survey"), "", " FA Survey Input Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Study Sub Categories"), "Study Sub Categories", " Study Sub Categories label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorUsingDataNormalizeSpaceInSpan("Study"), "Study", " Study label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorForInputElements("study"), "Fanconi", " Study Input Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Cohort"), "Cohort", " Cohort label of the General Information on Fanconi Study Screener page ");
+        if (fanconiScreenerNVPage.dynamicLocatorForInputElements("participant").getDomAttribute("value").isEmpty()) {
+            CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElements("cohort"), "Field", " Cohort Select Value of the General Information on Fanconi Study Screener page ");
+        } else {
+            CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.dynamicLocatorForSelectElements("cohort"), "Clinical", " Cohort Select Value of the General Information on Fanconi Study Screener page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("NIH MRN number"), "NIH MRN number", " NIH MRN number label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVParticipantNIHMRNNumberInput, "", " NIH MRN number Input value of General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Screener Complete"), "Screener Complete", " Screener Complete label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements1("screener_complete"), false, " Screener Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("screener_complete"), true, " Screener Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("IIQ Complete"), "IIQ Complete", " IIQ Complete label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements1("iiq_complete"), false, " IIQ Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("iiq_complete"), false, " IIQ Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Study Survey Complete"), "Study Survey Complete", " Study Survey Complete label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements1("study_survey_complete"), false, " Study Survey Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("study_survey_complete"), false, " Study Survey Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("All Required Forms Completed"), "All Required Forms Completed", " All Required Forms Completed label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements1("forms_completed"), false, "All Required Forms Completed CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("forms_completed"), false, " All Required Forms Completed CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("MRR Complete"), "MRR Complete", " MRR Complete label of the General Information on Fanconi Study Screener page ");
+        CommonUtils.sleep(800);
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements1("mrr_complete"), false, " Ever Consented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("mrr_complete"), false, " MRR Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Ever Consented"), "Ever Consented", " Ever Consented label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements1("consent_signed"), false, " Ever Consented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        if (!Objects.requireNonNull(fanconiScreenerNVPage.dynamicLocatorForInputElements("participant").getDomAttribute("value")).isEmpty()) {
+            CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("consent_signed"), true, " Ever Consented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        } else {
+            CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("consent_signed"), false, " Ever Consented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.dynamicLocatorContainsText("Ever Assented"), "Ever Assented", " Ever Assented label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements1("assent_signed"), false, " Ever Assented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElements("assent_signed"), false, " Ever Assented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        consentDate = fanconiScreenerNVPage.nVConsentDate.getText();
+        CommonUtils.sleep(800);
     }
 
     /**
@@ -1707,8 +1786,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
             WebDriverUtils.webDriver.get(getFanconiUrl());
             System.out.println(username);
             CommonUtils.sleep(800);
-            CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton1);
-            CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton1);
+            CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton);
+            CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton);
             if (i != 1) {
                 CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.dynamicLocatorUsingNormalizeSpace("Back to sign in"));
                 oktaLoginPage.usernameTxtBox.clear();
@@ -1727,7 +1806,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     }
 
     /**
-     * Method to assert the Fanconi Study: Consent Flow
+     * Method to assert the Fanconi Study: Consent Flow using @param rowCount
      */
     public void fanconiConsentAssertionOnFanconiStudyPage(int rowCount) {
         CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus,
@@ -1799,7 +1878,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     }
 
     /**
-     * Method to assert the Participant Detail Page: Assertion of the Participant Detail page
+     * Method to assert the Participant Detail Page: Assertion of the Participant Detail page using @param rowNumForAssertion
      */
     public void participantDetailPageAssertion(int rowNumForAssertion) {
         fanconiEligibilityQuestionnaireStepsImpl.participantDetailRecordClicked(rowNumForAssertion);
@@ -1807,6 +1886,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         fanconiEligibilityQuestionnaireStepsImpl.personalInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
         fanconiEligibilityQuestionnaireStepsImpl.demographicsAssertionOnParticipantDetailPage(rowNumForAssertion);
         fanconiEligibilityQuestionnaireStepsImpl.contactInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
+        fanconiEligibilityQuestionnaireStepsImpl.proxyContactInformationAssertionOnParticipantDetailPage(rowNumForAssertion);
         softAssert.assertAll();
     }
 
@@ -1817,6 +1897,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
      * @param rowCount The row number from which the data will be retrieved for submitting consent.
      */
     public void  consent_is_submitted_with_collection_method(String collectionMethod, int rowCount) {
+        String participantView = currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantMiddleName") + " " + currentRow.get("ParticipantLastName");
+        String participantProxyView = currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyMiddleName") + " " + currentRow.get("ProxyLastName");
         currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowCount);
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sleep(4000);
@@ -1830,16 +1912,20 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         if (currentRow.get("ParticipantFirstName")!=null  && !("").equals(currentRow.get("ParticipantFirstName"))) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(participantView));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(participantView));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
             CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
             CucumberLogUtils.logScreenshot();
         }
         else {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName")));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(participantProxyView));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(participantProxyView));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName")));
             CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName")));
             CucumberLogUtils.logScreenshot();
         }
-       CommonUtils.sleep(1800);
+        CommonUtils.sleep(1800);
         if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
             CucumberLogUtils.logScreenshot();
             CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
@@ -1851,7 +1937,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
          */
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
+        CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.consentStatusText);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(800);
@@ -1960,7 +2046,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
+        CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
         CommonUtils.sleep(1800);
@@ -1975,7 +2061,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
          */
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
+        CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.consentStatusText);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(800);
@@ -2082,7 +2168,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
+        CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName")));
         CommonUtils.sleep(1800);

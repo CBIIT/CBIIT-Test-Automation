@@ -23,6 +23,11 @@ public class FanconiScreenerNVPage extends PageInitializer {
     }
 
     /* Method to dynamically locate elements in Native View */
+    public WebElement dynamicLocatorContainsText1(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//span[@class='label-text'][normalize-space()='Screener'])[1]"));
+    }
+
+    /* Method to dynamically locate elements in Native View */
     public WebElement dynamicLocatorUsingNormalizeSpace(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//*[normalize-space()='" + text + "']"));
     }
@@ -40,11 +45,6 @@ public class FanconiScreenerNVPage extends PageInitializer {
     /* Method to dynamically locate Input Value elements in Native View */
     public WebElement dynamicLocatorForPreviewButtonLocator(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record: " + text + "'])[3]"));
-    }
-
-    /* Use This Method To Dynamically Preview Record Buttons On */
-    public WebElement dynamicPreviewButtonLocator2(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record: '])[3]"));
     }
 
     /* Method to dynamically locate elements in Native View */
@@ -73,8 +73,18 @@ public class FanconiScreenerNVPage extends PageInitializer {
     }
 
     /* Method to dynamically locate Input Value elements of family member in Fanconi Study Screener in Native View */
-    public WebElement dynamicLocatorForInputElementsOfFamilyInFAScreener(String text) {
+    public WebElement dynamicLocatorForInputElementsOfFamilyInFAScreener1(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='x_naci_family_coho_fanconi_study_screener.family_member_record." + text + "'])[1]"));
+    }
+
+    /* Method to dynamically locate Input Value elements of family member in Fanconi Study Screener in Native View */
+    public WebElement dynamicLocatorForInputElementsOfFamilyInFAScreener2(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@name='x_naci_family_coho_fanconi_study_screener." + text + "'])[1]"));
+    }
+
+    /* Method to dynamically locate Input Value elements of family member in Fanconi Study Screener in Native View */
+    public WebElement dynamicLocatorForInputElementsOfFamilyInFAScreener(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@name='x_naci_family_coho_fanconi_study_screener." + text + "'])[1]"));
     }
 
     /* Method to dynamically locate Select Value elements in Fanconi Screener page in Native View */
@@ -102,6 +112,11 @@ public class FanconiScreenerNVPage extends PageInitializer {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='x_naci_family_coho_intake_participate_another_study." + text + "'])[1]"));
     }
 
+    /* Method to dynamically locate Intake participates in another study Value  in Fanconi Study Screener in Native View */
+    public WebElement dynamicLocatorForInputElementsOfIntakeParticipatesDisplayInFAScreener(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_display.x_naci_family_coho_intake_participate_another_study." + text + "'])[1]"));
+    }
+
     /* Method to dynamically locate CheckBox labels in Fanconi study page in Native View */
     public WebElement dynamicLocatorForCheckBoxElements1(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//label[@id='label.ni.x_naci_family_coho_participant_study." + text + "'])[1]"));
@@ -112,18 +127,40 @@ public class FanconiScreenerNVPage extends PageInitializer {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='ni.x_naci_family_coho_participant_study." + text + "'])[1]"));
     }
 
+    /* Method to dynamically locate CheckBox labels in Fanconi study page in Native View */
+    public WebElement dynamicLocatorForCheckBoxElementsInPS(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@name='x_naci_family_coho_family_history_details." + text + "'])[1]"));
+    }
+
     /* Method to dynamically locate CheckBox elements in Fanconi study page in Native View */
     public WebElement dynamicLocatorForCheckBoxElements(int i) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//span[@class='input-group-checkbox'])["+ i +"]"));
     }
+
+    /* NV Fanconi Screener: Preview Button value  */
+    @FindBy(xpath = "(//a[@aria-label='Preview record: '])[2]")
+    public WebElement nVPreviewButtonLocator;
+
+    /* NV Fanconi Screener: Preview Button value  */
+    @FindBy(xpath = "(//a[@title='Preview record'])[3]")
+    public WebElement nVPreviewButtonLocator1;
 
     /* NV Fanconi Screener: NIH MRN number Input value  */
     @FindBy(xpath = "(//input[@id='x_naci_family_coho_participant_study.participant.nih_number'])[1]")
     public WebElement nVParticipantNIHMRNNumberInput;
 
     /* NV Fanconi Screener: Subject Id Input value  */
-    @FindBy(xpath = "(//input[@id='sys_readonly.x_naci_family_coho_participant_study.participant.full_family_id'])[1]")
-    public WebElement nVParticipantSubjectIdInput;
+    @FindBy(xpath = "(//input[@name='sys_display.x_naci_family_coho_fanconi_study_screener.family_member_record.contact_country'])[1]")
+    public WebElement nVParticipantContactCountryInput;
+
+    /* NV Fanconi Screener: Subject Id Input value  */
+    @FindBy(xpath = " (//input[@name='sys_display.x_naci_family_coho_fanconi_study_screener.biological_sex_ref'])[1]")
+    public WebElement nVParticipantBiologicalSexInput;
+
+
+    /* NV Fanconi Screener: Subject Id Input value  */
+    @FindBy(xpath = "(//input[@id='sys_readonly.x_naci_family_coho_participant_study.participant.name'])[1]")
+    public WebElement nVParticipantNameValue;
 
     /* NV Fanconi Screener: Participant Studies tab in Navigator */
     @FindBy(xpath = "(//span[normalize-space()='Participant Studies (1)'])[1]")
@@ -153,7 +190,7 @@ public class FanconiScreenerNVPage extends PageInitializer {
     public WebElement nVFScreenerStudy;
 
     /* NV Fanconi Screener: Vital Status */
-    @FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.family_member_record.person_alive'])[1]")
+    @FindBy(xpath = "(//select[@id='x_naci_family_coho_fanconi_study_screener.person_alive'])[1]")
     public WebElement nVFScreenerVitalStatus;
 
     /* NV Fanconi Screener: Date of death */
@@ -161,11 +198,12 @@ public class FanconiScreenerNVPage extends PageInitializer {
     public WebElement nVFScreenerDateOfDeath;
 
     /* NV Fanconi Screener: Eligibility Status */
-    @FindBy(xpath = "(//select[@name='sys_readonly.x_naci_family_coho_fanconi_study_screener.family_member_record.eligibility_status'])[1]")
+    @FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.participant_study.eligibility_status'])[1]")
     public WebElement nVFScreenerEligibilityStatus;
 
+
     /* NV Fanconi Screener: Enrollment Status */
-    @FindBy(xpath = "(//select[@name='sys_readonly.x_naci_family_coho_fanconi_study_screener.family_member_record.enrollment_status'])[1]")
+    @FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.participant_study.enrollment_status'])[1]")
     public WebElement nVFScreenerEnrollmentStatus;
 
     /* NV Fanconi Screener: Date Consent Requested */
@@ -200,6 +238,10 @@ public class FanconiScreenerNVPage extends PageInitializer {
     @FindBy(xpath = "(//p[@id='x_naci_family_coho_fanconi_study_screener.family_member_record.race_nonedit'])[1]")
     public WebElement nVFScreenerRace;
 
+    /* DEMOGRAPHICS tab->Participant Race (Select all that apply) */
+    @FindBy(xpath = "(//p[contains(text(),'Caucasian (white), Black/African American, Native ')])[1]")
+    public WebElement nVFScreenerRace1;
+    
     /* DEMOGRAPHICS tab->Participant Race Other TextBox */
     @FindBy(xpath = "(//input[contains(@onchange,\"onChange('x_naci_family_coho_fanconi_study_screener.family_member_record.other_race');\")])[1]")
     public WebElement nVFScreenerRaceOtherText;

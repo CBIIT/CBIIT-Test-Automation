@@ -8,6 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 public class NativeViewCHARMSParticipantConsentPage {
 
     /**
+     * Native View Ras Study Consent Participant Info Textbox
+     */
+    @FindBy(xpath = "//input[@name='sys_display.x_naci_family_coho_fcsms_consent.family_member']")
+    public WebElement rasStudyConsentParticipantInfoTextBox;
+
+    /**
      * Native View Ras Study Consent Call Schedule Time Calendar
      */
     @FindBy(xpath = "//*[@id='element.x_naci_family_coho_fcsms_consent.consent_call_scheduled_time']//child::div[2]//child::div[2]//child::span//child::span[1]//child::button")
@@ -289,7 +295,7 @@ public class NativeViewCHARMSParticipantConsentPage {
     /**
      * Native View Ras Study Add File Button
      */
-    @FindBy(xpath = "//*[@id='add_attachment']")
+    @FindBy(xpath = "//button[@id='header_add_attachment']")
     public WebElement rasStudyConsentAddFileButton;
 
     /**

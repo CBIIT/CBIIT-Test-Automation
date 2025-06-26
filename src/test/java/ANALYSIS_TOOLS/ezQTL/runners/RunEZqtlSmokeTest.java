@@ -3,7 +3,7 @@ package ANALYSIS_TOOLS.ezQTL.runners;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(plugin = {"html:target/html-reports/cucumber-default-report",
+@CucumberOptions(plugin = {"html:target/ezQTL-smoke-reports/ezQTL-smoke-report.html",
         "json:target/cucumber.json",
         "rerun:target/failed.txt",
         "pretty",

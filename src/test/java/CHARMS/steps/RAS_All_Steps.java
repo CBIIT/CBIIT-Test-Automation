@@ -45,17 +45,21 @@ public class RAS_All_Steps extends PageInitializer {
         /**
          * BEGINNING: CONSENT FLOW PROCESS
          */
+
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
+        CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.consentStatusText);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
         CucumberLogUtils.logScreenshot();
         CucumberLogUtils.scenario.log("* * * * * CONSENT CALL SCHEDULED TIME * * * * *");
+        CommonUtils.sleep(800);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
@@ -260,33 +264,33 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         if (sheetName.contentEquals("screenerScenario1")) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
             CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
         } else if (sheetName.contentEquals("screenerScenario2")) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
             CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
         } else if (sheetName.contentEquals("screenerScenario3")) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_MI + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
             CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_MI + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
         } else if (sheetName.contentEquals("screenerScenario4")) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_MI + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
             CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_MI + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
         } else if (sheetName.contentEquals("screenerScenarioAdult")) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
             CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME));
         } else if (sheetName.contentEquals("screenerScenarioAge11-13")) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_MI + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
             CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_MI + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
         } else if (sheetName.contentEquals("screenerScenarioAge14-17")) {
-            CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+            CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_MI + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
             CucumberLogUtils.logScreenshot();
-            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME));
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_MI + " " + ras_Screener_TestDataManager.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST));
         }
         CommonUtils.sleep(1000);
         if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
@@ -430,7 +434,7 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * Study Team member submits a participant for review and marks them as eligible for further processing.
+     * Navigates to participant studies and submits the participant for review and marks them as eligible for further processing.
      * This method triggers the submission process and eligibility marking within the study team workflow.
      */
     @When("Study Team member submits participant for review and marks them eligible")
@@ -457,9 +461,9 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         if (sheetName.equals("screenerScenarioAdult")) {
-            softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.LAST_NAME + "']/following-sibling::td[4]").getText(), "New Screener Received");
+            softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + ras_Screener_TestDataManager.FIRST_NAME + " " + ras_Screener_TestDataManager.MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.LAST_NAME + "']/following-sibling::td[3]").getText(), "New Screener Received");
         } else {
-            softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME + "']/following-sibling::td[4]").getText(), "New Screener Received");
+            softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + ras_Screener_TestDataManager.PARTICIPANT_FIRST_NAME + " " + ras_Screener_TestDataManager.PARTICIPANT_MIDDLE_INITIAL + " " + ras_Screener_TestDataManager.PARTICIPANT_LAST_NAME + "']/following-sibling::td[3]").getText(), "New Screener Received");
         }
     }
 
@@ -481,7 +485,7 @@ public class RAS_All_Steps extends PageInitializer {
          */
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
+        CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.consentStatusText);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(500);
@@ -1231,50 +1235,48 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * Submits the Physical Activities Survey.
-     * This method interacts with the user interface to submit the Physical Activities Survey by selecting various options and filling out necessary information.
-     * It clicks on checkboxes, dropdowns, and radio buttons representing different physical activities and time spent on each activity in a survey form.
+     * Completes and submits the Physical Activities Survey
      */
     @Given("submits the Physical Activities Survey")
     public void submits_the_physical_activities_survey() {
         CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='In the past 12 months how often did you walk or hike for exercise?']"));
         JavascriptUtils.scrollIntoView(locateByXpath("//span[normalize-space()='In the past 12 months how often did you walk or hike for exercise?']"));
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("In the past 12 months how often did you walk or hike for exercise?", "Once a month or less");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("On the days that you walked or hiked, about how much time per day did you spend doing this activity?", "1 hour");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("Light household chores (such as cooking, tidying up, laundry, or dusting)", "Never");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("Moderate to Vigorous household chores (such as vacuuming or sweeping)", "Once a month or less");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("Caring for pets (walking dogs, feeding, playing, grooming)", "2 to 3 days per month");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("Caring for children or adults (pushing stroller or wheelchair, lifting, bathing)", "1 to 2 days per week");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("Walking while shopping or doing errands (do not count walking for exercise)", "3 to 4 days per week");
+        JavascriptUtils.scrollIntoView(MyRASPhysicalActivitiesSurvey.dynamicSectionLocator("During the past 12 months, did you do any of these exercises or recreational activities?"));
+        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("In the past 12 months how often did you walk or hike for exercise?", ras_Physical_Activities_Survey_TestDataManager.IN_THE_PAST_12_MONTHS_HOW_OFTEN_DID_YOU_WALK_OR_HIKE_FOR_EXERCISE).click();
+        MyRASPhysicalActivitiesSurvey.dropdownSelectorDuringPast12MonthsHowOften("On the days that you walked or hiked, about how much time per day did you spend doing this activity?", ras_Physical_Activities_Survey_TestDataManager.ON_THE_DAYS_THAT_YOU_WALKED_OR_HIKED_ABOUT_HOW_MUCH_TIME_PER_DAY_DID_YOU_SPEND_DOING_THIS_ACTIVITY).click();
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
-        JavascriptUtils.scrollIntoView(locateByXpath("//span[@role='heading'][normalize-space()='When you did household tasks or shopping, how much time per day did you spend doing each activity?']"));
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Light household chores (such as cooking, cleaning up, laundry, or dusting.)", "15 minutes or less");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Moderate to vigorous household chores (such as vacuuming or sweeping)", "16 to 30 minutes");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Caring for pets (walking dogs, feeding, playing, grooming)", "31 to 44 minutes");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Caring for children or adults (pushing stroller or wheelchair, lifting, bathing)", "45 to 59 minutes");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorHowMuchTimePerDay("Walking while shopping or doing errands (do not count walking for exercise)", "1 hour");
+        JavascriptUtils.scrollIntoView(MyRASPhysicalActivitiesSurvey.dynamicSectionLocator("During the past 12 months, about how often did you do each of these household or shopping activities outside of work?"));
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("During the past 12 months, about how often did you do each of these household or shopping activities outside of work?", "Light household chores (such as cooking, tidying up, laundry, or dusting)", ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_DO_EACH_OF_THESE_HOUSEHOLD_OR_SHOPPING_ACTIVITIES_OUTSIDE_OF_WORK_LIGHT_HOUSEHOLD_CHORES_SUCH_AS_COOKING_TIDYING_UP_LAUNDRY_OR_DUSTING).click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("During the past 12 months, about how often did you do each of these household or shopping activities outside of work?", "Moderate to Vigorous household chores (such as vacuuming or sweeping)", ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_DO_EACH_OF_THESE_HOUSEHOLD_OR_SHOPPING_ACTIVITIES_OUTSIDE_OF_WORK_MODERATE_TO_VIGOROUS_HOUSEHOLD_CHORES_SUCH_AS_VACUUMING_OR_SWEEPING).click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("During the past 12 months, about how often did you do each of these household or shopping activities outside of work?", "Caring for pets (walking dogs, feeding, playing, grooming)", ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_DO_EACH_OF_THESE_HOUSEHOLD_OR_SHOPPING_ACTIVITIES_OUTSIDE_OF_WORK_CARING_FOR_PETS_WALKING_DOGS_FEEDING_PLAYING_GROOMING).click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("During the past 12 months, about how often did you do each of these household or shopping activities outside of work?", "Caring for children or adults (pushing stroller or wheelchair, lifting, bathing)", ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_DO_EACH_OF_THESE_HOUSEHOLD_OR_SHOPPING_ACTIVITIES_OUTSIDE_OF_WORK_CARING_FOR_CHILDREN_OR_ADULTS_PUSHING_STROLLER_OR_WHEELCHAIR_LIFTING_BATHING).click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("During the past 12 months, about how often did you do each of these household or shopping activities outside of work?", "Walking while shopping or doing errands (do not count walking for exercise)", ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_DO_EACH_OF_THESE_HOUSEHOLD_OR_SHOPPING_ACTIVITIES_OUTSIDE_OF_WORK_WALKING_WHILE_SHOPPING_OR_DOING_ERRANDS_DO_NOT_COUNT_WALKING_FOR_EXERCISE).click();
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDidYouDoAnyOfTheseOutsideOfWork("Moderate outdoor chores (such as weeding, raking or mowing the lawn)", "Yes");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDidYouDoAnyOfTheseOutsideOfWork("Vigorous outdoor chores (such as digging, carrying lumber, or snow shoveling)", "No");
-        MyRASPhysicalActivitiesSurvey.dropdownSelectorDidYouDoAnyOfTheseOutsideOfWork("Home repair (such as painting, plumbing, or replacing carpeting)", "Yes");
-        CommonUtils.clickOnElement(locateByXpath("//div[@id='select_age_range']//span[@class='type-choice field-actual question-width']"));
-        CommonUtils.waitForClickability(locateByXpath("//ul[@aria-label='Select Age Group']//div[contains(text(), '25-34')]"));
-        locateByXpath("//ul[@aria-label='Select Age Group']//div[contains(text(), '25-34')]").click();
-        CommonUtils.clickOnElement(locateByXpath("//div[@id='frequency_stren_activities']//div[contains(@class,'form-group ng-scope ng-isolate-scope')]"));
-        CommonUtils.waitForClickability(locateByXpath("//ul[@aria-label='Average Hours per week']//div[text()='1-3 hours']"));
-        locateByXpath("//ul[@aria-label='Average Hours per week']//div[text()='1-3 hours']").click();
-        CommonUtils.clickOnElement(locateByXpath("//div[@id='select_age_group_2']//span[contains(@class,'type-choice field-actual question-width')]"));
-        CommonUtils.waitForClickability(locateByXpath("//ul[@aria-label='Select Age Group']//div[text()='25-34']"));
-        locateByXpath("//ul[@aria-label='Select Age Group']//div[text()='25-34']").click();
-        CommonUtils.clickOnElement(locateByXpath("//div[@id='average_hours_per_week_2']//div[contains(@class,'form-group ng-scope ng-isolate-scope')]"));
-        CommonUtils.waitForClickability(locateByXpath("//ul[@aria-label='Average Hours per week']//div[text()='More than 3 hours']"));
-        locateByXpath("//ul[@aria-label='Average Hours per week']//div[text()='More than 3 hours']").click();
+        JavascriptUtils.scrollIntoView(MyRASPhysicalActivitiesSurvey.dynamicSectionLocator("When you did household tasks or shopping, how much time per day did you spend doing each activity?"));
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("When you did household tasks or shopping, how much time per day did you spend doing each activity?", "Moderate to vigorous household chores (such as vacuuming or sweeping)", ras_Physical_Activities_Survey_TestDataManager.HOW_MUCH_TIME_PER_DAY_DID_YOU_SPEND_DOING_EACH_ACTIVITY_MODERATE_TO_VIGOROUS_HOUSEHOLD_CHORES_SUCH_AS_VACUUMING_OR_SWEEPING).click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("When you did household tasks or shopping, how much time per day did you spend doing each activity?", "Caring for pets (walking dogs, feeding, playing, grooming)", ras_Physical_Activities_Survey_TestDataManager.HOW_MUCH_TIME_PER_DAY_DID_YOU_SPEND_DOING_EACH_ACTIVITY_CARING_FOR_PETS_WALKING_DOGS_FEEDING_PLAYING_GROOMING).click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("When you did household tasks or shopping, how much time per day did you spend doing each activity?", "Caring for children or adults (pushing stroller or wheelchair, lifting, bathing)", ras_Physical_Activities_Survey_TestDataManager.HOW_MUCH_TIME_PER_DAY_DID_YOU_SPEND_DOING_EACH_ACTIVITY_CARING_FOR_CHILDREN_OR_ADULTS_PUSHING_STROLLER_OR_WHEELCHAIR_LIFTING_BATHING).click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("When you did household tasks or shopping, how much time per day did you spend doing each activity?", "Walking while shopping or doing errands (do not count walking for exercise)", ras_Physical_Activities_Survey_TestDataManager.HOW_MUCH_TIME_PER_DAY_DID_YOU_SPEND_DOING_EACH_ACTIVITY_WALKING_WHILE_SHOPPING_OR_DOING_ERRANDS_DO_NOT_COUNT_WALKING_FOR_EXERCISE).click();
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
-        myRASPhysicalActivitiesSurvey.submitButton.click();
+        JavascriptUtils.scrollIntoView(MyRASPhysicalActivitiesSurvey.dynamicSectionLocator("During the past 12 months, did you do any of these activities outside of work?"));
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("During the past 12 months, did you do any of these activities outside of work?","Moderate outdoor chores (such as weeding, raking or mowing the lawn)",ras_Physical_Activities_Survey_TestDataManager.DID_YOU_DO_ANY_OF_THESE_ACTIVITIES_OUTSIDE_OF_WORK_MODERATE_OUTDOOR_CHORES_SUCH_AS_WEEDING_RAKING_OR_MOWING_THE_LAWN).click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("During the past 12 months, did you do any of these activities outside of work?","Vigorous outdoor chores (such as digging, carrying lumber, or snow shoveling)",ras_Physical_Activities_Survey_TestDataManager.DID_YOU_DO_ANY_OF_THESE_ACTIVITIES_OUTSIDE_OF_WORK_VIGOROUS_OUTDOOR_CHORES_SUCH_AS_DIGGING_CARRYING_LUMBER_OR_SNOW_SHOVELING).click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("During the past 12 months, did you do any of these activities outside of work?","Home repair (such as painting, plumbing, or replacing carpeting)",ras_Physical_Activities_Survey_TestDataManager.DID_YOU_DO_ANY_OF_THESE_ACTIVITIES_OUTSIDE_OF_WORK_HOME_REPAIR_SUCH_AS_PAINTING_PLUMBING_OR_REPLACING_CARPETING).click();
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.scrollIntoView(MyRASPhysicalActivitiesSurvey.dynamicSectionLocator("How often did you participate in STRENUOUS activities or sports?"));
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("How often did you participate in STRENUOUS activities or sports?","Select Age Group",ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_PARTICIPATE_IN_STRENUOUS_ACTIVITIES_OR_SPORTS_SELECT_AGE_GROUP).click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("How often did you participate in STRENUOUS activities or sports?","Average Hours per week",ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_PARTICIPATE_IN_STRENUOUS_ACTIVITIES_OR_SPORTS_AVERAGE_HOURS_PER_WEEK).click();
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.scrollIntoView(MyRASPhysicalActivitiesSurvey.dynamicSectionLocator("How often did you participate in MODERATE activities or sports?"));
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("How often did you participate in MODERATE activities or sports?","Select Age Group",ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_PARTICIPATE_IN_MODERATE_ACTIVITIES_OR_SPORTS_SELECT_AGE_GROUP).click();
+        MyRASPhysicalActivitiesSurvey.physicalActivitiesDropdownOptionSelector("How often did you participate in MODERATE activities or sports?","Average Hours per week",ras_Physical_Activities_Survey_TestDataManager.HOW_OFTEN_DID_YOU_PARTICIPATE_IN_MODERATE_ACTIVITIES_OR_SPORTS_AVERAGE_HOURS_PER_WEEK).click();
         CommonUtils.sleep(1000);
+        myRASPhysicalActivitiesSurvey.submitButton.click();
         CucumberLogUtils.logScreenshot();
     }
 
@@ -1298,23 +1300,30 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * Study Team members logs in to Native View and verifies QBank data for a specific survey.
+     * Study Team member logs in to Native View and verifies QBank data for a specific survey.
      *
      * @param surveyName the name of the survey for which QBank data needs to be verified
      */
     @Given("Study Team members logs in to Native View and verifies {string} QBank data")
     public void study_team_members_logs_in_to_native_view_and_verifies_qbank_data(String surveyName) {
+        ras_Screener_TestDataManager.dataInitializerRasScreener("screenerScenarioAdult");
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sleep(4000);
         CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("Participant Studies");
         CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(1000);
         NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch("Participant Studies").click();
         CommonUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME));
+        nativeViewCHARMSDashboardPage.nativeViewSearchColumnLocator("First Name").sendKeys(ras_Screener_TestDataManager.FIRST_NAME);
+        nativeViewCHARMSDashboardPage.nativeViewSearchColumnLocator("Last Name").sendKeys(ras_Screener_TestDataManager.LAST_NAME);
+        nativeViewCHARMSDashboardPage.nativeViewSearchColumnLocator("Study").sendKeys("RASopathy");
+        nativeViewCHARMSDashboardPage.nativeViewSearchColumnLocator("Study").sendKeys(Keys.ENTER);
+
+        CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME));
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME));
         CommonUtils.sleep(1000);
@@ -1406,7 +1415,7 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Then("Study Team member fills out new FHQ for participant in NV")
     public void study_team_member_fills_out_new_fhq_for_participant_in_nv() {
-        String subjectID = nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubjectID.getDomAttribute("value").trim();
+        String subjectID = nativeViewCHARMSParticipantStudyPage.participantInputField.getDomAttribute("value").trim();
         CucumberLogUtils.logScreenshot();
         WebDriverUtils.webDriver.navigate().refresh();
         CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);

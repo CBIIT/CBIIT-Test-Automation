@@ -15,7 +15,6 @@ public class ServiceNow_Login_Methods extends PageInitializer {
      * USERNAME AND PASSWORD ARE SPECIFIED IN THE LOCAL ENV PROPERTIES FILE
      */
     public static void nativeViewSideDoorLogin() {
-        CommonUtils.sleep(2000);
         WebDriverUtils.webDriver.get(getNativeViewSideDoorUrl());
         NativeView_SideDoor_Login_Page.enterSideDoorUsername(SIDE_DOOR_USERNAME);
         NativeView_SideDoor_Login_Page.enterSideDoorPassword(SIDE_DOOR_PASSWORD);

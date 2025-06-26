@@ -99,13 +99,17 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewButton.click();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberTextBox);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX);
+        CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordModelTextBox);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordModelTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_MODEL_TEXT_BOX);
+        CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordCostTextBox);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordCostTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_COST_TEXT_BOX);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStockroomTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_STOCKROOM_TEXT_BOX);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordQuantityTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_QUANTITY_TEXT_BOX);
+        CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetTypeTextBox);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetTypeTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_ASSET_TYPE_TEXT_BOX);
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateTextBox);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_EXPIRATION_DATE_TEXT_BOX);
+        CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformationTextBox);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformationTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_ASSET_INFORMATION_TEXT_BOX);
         CucumberLogUtils.logScreenshot();
     }
@@ -140,7 +144,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_STATUS_DROP_DOWN);
         CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordSubmitButton);
         etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordSubmitButton.click();
-        CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown);
+        CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown);
         CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_NATIVE_VIEW_ASSETS_ALL_RECORD_SEARCH_DROP_DOWN);
         CommonUtils.sendKeysToElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, Keys.ENTER);

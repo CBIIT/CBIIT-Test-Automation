@@ -5,7 +5,7 @@ public class TestProperties {
     public static String ENV = "test";
     public static String BROWSER = "chrome";
     public static boolean HEADLESS = true;
-    public static int SET_SLOW_MO_TIME = 1000;
+    public static int SET_SLOW_MO_TIME = 600;
 
     /**
      * SIDE DOOR TEST ACCOUNT CREDENTIALS
@@ -22,10 +22,16 @@ public class TestProperties {
     /**
      * NATIVE VIEW SIDE DOOR URLS
      */
+<<<<<<< HEAD
     public static final String NATIVE_VIEW_SIDE_DOOR_STAGE_URL = "https://service-stage.nci.nih.gov/side_door.do";
     public static final String NATIVE_VIEW_SIDE_DOOR_TEST_URL = "https://service-test.nci.nih.gov/side_door.do";
     public static final String NATIVE_VIEW_SIDE_DOOR_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/side_door.do";
     public static final String NATIVE_VIEW_SIDE_DOOR_EZAPPS_TEST_URL = "https://ezapps-test.nih.gov/login.do";
+=======
+    public static final String NATIVE_VIEW_SIDE_DOOR_STAGE_URL = "https://service-stage.nci.nih.gov/login.do";
+    public static final String NATIVE_VIEW_SIDE_DOOR_TEST_URL = "https://service-test.nci.nih.gov/login.do";
+    public static final String NATIVE_VIEW_SIDE_DOOR_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/login.do";
+>>>>>>> 24712b2581eaccf0f731fa5b9502f94871f9b677
     public static String NATIVE_VIEW_SIDE_DOOR_URL;
 
     /**
@@ -69,6 +75,14 @@ public class TestProperties {
     public static String FANCONI_URL;
 
     /**
+     * STUDY AGNOSTIC URLS
+     */
+    public static final String STUDY_AGNOSTIC_TEST_URL = "https://service-test.nci.nih.gov/familystudyhub";
+    public static final String STUDY_AGNOSTIC_STAGE_URL = "https://service-test.nci.nih.gov/familystudyhub";
+    public static final String STUDY_AGNOSTIC_SANDBOX_URL = "https://service-test.nci.nih.gov/familystudyhub";
+    public static String STUDY_AGNOSTIC_URL;
+
+    /**
      * EIDP NHGRI URLS
      */
     public static final String EIDP_NHGRI_TEST_URL = "https://idp-test.nih.gov/nhgri/idp";
@@ -103,6 +117,27 @@ public class TestProperties {
     public static final String NCCR_TEST_URL = "https://service-test.nci.nih.gov/nccr";
     public static final String NCCR_STAGE_URL = "https://service-stage.nci.nih.gov/nccr";
     public static String NCCR_URL;
+
+    /**
+     * AAA
+     */
+    public static final String AAA_TEST_PORTAL_URL = "https://service-test.nci.nih.gov/ncisp";
+    public static final String AAA_STAGE_PORTAL_URL = "https://service-stage.nci.nih.gov/ncisp";
+    public static String AAA_URL;
+
+    /**
+     * TFM
+     */
+    public static final String TFM_TEST_PORTAL_URL = "https://service-test.nci.nih.gov/ncisp";
+    public static final String TFM_STAGE_PORTAL_URL = "https://service-stage.nci.nih.gov/ncisp";
+    public static String TFM_URL;
+
+    /**
+     * FCAS Vendor Portal
+     */
+    public static final String FCAS_VENDOR_PORTAL_TEST_URL = "https://fcasvendorportal-qa.cancer.gov/";
+    public static final String FCAS_VENDOR_PORTAL_STAGE_URL = "https://fcasvendorportal-stage.cancer.gov/";
+    public static String FCAS_VENDOR_PORTAL_URL;
 
     /**
      * AWARD NOMINATION
@@ -344,6 +379,13 @@ public class TestProperties {
     public static String ACT24_PARTICIPANT_STAGE_URL = "https://act24-stage.cancer.gov/act24/participant/login";
     public static String ACT24_PARTICIPANT_URL;
 
+    /**
+     * MRS URLS
+     */
+    public static String MRS_TEST_URL = "https://mrs-test.nci.nih.gov/mrs/dashboard.action";
+    public static String MRS_STAGE_URL = "https://mrs-stage.nci.nih.gov/mrs/dashboard.action";
+    public static String MRS_URL;
+
     public static String getNativeViewSideDoorUrl() {
         switch (ENV.toLowerCase()) {
             case "stage":
@@ -434,6 +476,21 @@ public class TestProperties {
                 break;
         }
         return FANCONI_URL;
+    }
+
+    public static String getStudyAgnosticUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                STUDY_AGNOSTIC_URL = STUDY_AGNOSTIC_STAGE_URL;
+                break;
+            case "test":
+                STUDY_AGNOSTIC_URL = STUDY_AGNOSTIC_TEST_URL;
+                break;
+            case "sandbox":
+                STUDY_AGNOSTIC_URL = STUDY_AGNOSTIC_SANDBOX_URL;
+                break;
+        }
+        return STUDY_AGNOSTIC_URL;
     }
 
     public static String getEidpNhgriUrl() {
@@ -926,5 +983,50 @@ public class TestProperties {
                 break;
         }
         return ACT24_PARTICIPANT_URL;
+    }
+    public static String getAAAUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                AAA_URL = AAA_STAGE_PORTAL_URL;
+                break;
+            case "test":
+                AAA_URL = AAA_TEST_PORTAL_URL;
+                break;
+        }
+        return AAA_URL;
+    }
+        public static String getMRSUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                MRS_URL = MRS_STAGE_URL;
+                break;
+            case "test":
+                MRS_URL = MRS_TEST_URL;
+                break;
+        }
+        return MRS_URL;
+    }
+    public static String getTFMUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                TFM_URL = TFM_STAGE_PORTAL_URL;
+                break;
+            case "test":
+                TFM_URL = TFM_TEST_PORTAL_URL;
+                break;
+        }
+        return TFM_URL;
+    }
+
+    public static String getFCASVendorPortalUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                FCAS_VENDOR_PORTAL_URL = FCAS_VENDOR_PORTAL_STAGE_URL;
+                break;
+            case "test":
+                FCAS_VENDOR_PORTAL_URL = FCAS_VENDOR_PORTAL_TEST_URL;
+                break;
+        }
+        return FCAS_VENDOR_PORTAL_URL;
     }
 }
