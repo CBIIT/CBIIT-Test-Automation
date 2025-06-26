@@ -96,7 +96,7 @@ Feature: RAS Native View Verification Scenarios
     And Study Team member navigates to Participant Studies
     Then Study Team member creates new Subject Flags and verifies that the audit trail history displays
 
-  @muzipovay2 @RAS_STUDY @CP2-4037 @selenium @RAS_Regression2   @Progression
+  @muzipovay2 @RAS_STUDY @CP2-4037 @selenium @RAS_Regression2
   Scenario: Verifying fields in the Participant Studies record and list view.
     Given Study Team member logs in to Native View and types "Participant Studies" into the Filter Navigator
     And clicks the link for the "Participant Studies" table
