@@ -1,10 +1,8 @@
 package com.nci.automation.services;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.JsonParser;
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
@@ -21,7 +19,7 @@ public class RestApiHelper {
 		  rest = new RestApiHelper("https://exploregwas-qa.cancer.gov/plco-atlas/api");
 		  rest.setResourceUrl("/phenotypes?q=cancer");
 		  rest.getRequestByChromeVersion86(); 
-		  System.out.println(rest.getResponseBody().asString()); 
+		  System.out.println(rest.getResponseBody().asString());
 	}
 	
 	public RestApiHelper(String baseUri) {
@@ -120,12 +118,52 @@ public class RestApiHelper {
 		response = requestSpec.request(Method.GET, resourceUrl);
 		return response;
 	}
-	
-	
+
+	/**
+	 * Sends a POST request to the specified base URI with a JSON body only.
+	 *
+	 * @param body
+	 */
 	public Response postRequestWIthBody(String body) {
 		RestAssured.baseURI = baseUri;
-		RequestSpecification requestSpec = RestAssured.given(); 
+		RequestSpecification requestSpec = RestAssured.given();
 		requestSpec.body(body);
+		response = requestSpec.post(baseUri);
+		return response;
+	}
+
+	/**
+	 * Sends a GET request to the specified base URI.
+	 */
+	public Response getRequestWithoutResourceUrl() {
+		RestAssured.baseURI = baseUri;
+		RequestSpecification requestSpec = RestAssured.given();
+		response = requestSpec.request(Method.GET);
+		return response;
+	}
+
+	/**
+	 * Sends a POST request to the specified base URI with a JSON body and custom header.
+	 *
+	 * @param body
+	 */
+	public Response postRequestWIthBodyAndHeader(String body) {
+		RestAssured.baseURI = baseUri;
+		RequestSpecification requestSpec = RestAssured.given().headers("content-type","application/json");
+		requestSpec.body(body);
+		response = requestSpec.post(baseUri);
+		return response;
+	}
+
+	/**
+	 * Sends a POST request to the specified base URI with a file attached as multipart data.
+	 *
+	 * @param file
+	 */
+	public Response postRequestWithFile(File file) {
+		RestAssured.baseURI = baseUri;
+		RequestSpecification requestSpec = RestAssured.given();
+		requestSpec.multiPart("files", file);
 		response = requestSpec.post(baseUri);
 		return response;
 	}
