@@ -48,9 +48,16 @@ public class CTRPCTRO_NV_Constants {
     /* CTRP/CTRO NATIVE VIEW CREATE NEW CASE SUBCATEGORY FIELD DROP DOWN ACCOUNT RELATED OPTION */
     public static final String CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACOUNT_RELATED_OPTION = "Account Related";
 
+    /* CTRP/CTRO NATIVE VIEW CREATE NEW CASE SUBCATEGORY FIELD DROP DOWN ACCESS ADDITIONAL NCI DCC ACCOUNT OPTION */
+    public static final String CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACCESS_ADDITIONAL_NCI_DCC_ACCOUNT_OPTION = "Access Additional NCI DCC Account";
+
     /* CTRP/CTRO NATIVE VIEW CASE SUBCATEGORY FIELD DROP DOWN ALL OPTIONs */
     public static final String CTRP_CTRO_NATIVE_VIEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ALL_OPTIONS = "-- None --\n" +
-            "Account Related\n" +
+            "Access Additional NCI DCC Account\n" +
+            "Access Initial NCI DCC Account\n" +
+            "Access NCI Account\n" +
+            "Access Troubleshooting\n" +
+            "Data Refresh Outreach\n" +
             "Data Review\n" +
             "Feedback\n" +
             "General Inquiries\n" +
