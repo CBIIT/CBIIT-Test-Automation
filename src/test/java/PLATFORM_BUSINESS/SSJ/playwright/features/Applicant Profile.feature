@@ -42,7 +42,7 @@ Feature: Applicant Profile Scenarios
       | SSJTest   | Marianna   | Mollick    | mollickja@nih.gov  | 7018211343 | 2123323454           | Masters          | Yes            | 11 Kolls | 6         | Sausalito  | CA    | USA     | 97712 |
       | SSJTest   | Elena      | Andrew     | andrewkl@nih.gov   | 8233212333 | 2202122234           | Bachelors        | Yes            | 11 Bells | 39        | Sacramento | CA    | USA     | 95512 |
 
-  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @SSJ-712 @JUAREZDS @Regression @playwright @XAN_UPDATED @EZ_UPDATED
+  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @SSJ-712 @JUAREZDS @Regression @playwright @XAN_UPDATED @EZ_UPDATED @Progression
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
@@ -181,10 +181,7 @@ Feature: Applicant Profile Scenarios
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 | Fred                  | Trout                  | Laste                | referenceOne@test.com | 7036875816              | Supervisor/Manager       | PROJECT MANAGER           | TESTING ORGANIZATION FIELD FOR REFERENCE ONE | John                  | Steven                 | Vakhutko             | referenceTwo@test.com | 7036875816              | Co-worker                | TEST AUTOMATION LEAD      | TESTING ORGANIZATION FIELD FOR REFERENCE TWO |
 
 
-<<<<<<< HEAD
   @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright @XAN_UPDATED @EZ_UPDATED
-=======
-  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright @SNOW_UPDATED
   Scenario Outline: Verifying applicant is able to see "Your Applications" tab and page content after applying to a Vacancy
 #    Given an Okta user "" is on the SSJ home page and logs in - PLEASE LEAVE THIS HERE! NEED TO CONNECT WITH OKTA TEAM
     When User is on SSJ Landing page and user is "OWM Vacancy Manager" - PW
@@ -292,7 +289,6 @@ Feature: Applicant Profile Scenarios
       | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 | Fred                  | Trout                  | Laste                | referenceOne@test.com | 7036875816              | Supervisor/Manager       | PROJECT MANAGER           | TESTING ORGANIZATION FIELD FOR REFERENCE ONE | John                  | Steven                 | Vakhutko             | referenceTwo@test.com | 7036875816              | Co-worker                | TEST AUTOMATION LEAD      | TESTING ORGANIZATION FIELD FOR REFERENCE TWO |
 
   @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright @SNOW_UPDATED @ActionsTest
->>>>>>> 24712b2581eaccf0f731fa5b9502f94871f9b677
   Scenario: Verifying applicant does not see "Your Applications" tab if applicant has not applied to a Vacancy
     Given a user who has not applied to a Vacancy before is on the SSJ home page
     Then Your Applications tab should NOT be displayed
@@ -651,7 +647,7 @@ Would you like to log in now or go back to the home page?
     When User is on the Phone number field will see a tool tip notifying on the proper formatting
     Then User is on the Business Phone number field will see a tool tip notifying on the proper formatting
 
-  @SSJ-115 @playwright @Progression
+  @SSJ-115 @playwright
   Scenario: Update Equal Opportunity Employer Text - Applicant's view
     Given User is on SSJ Landing page and user is "OKTA_APPLICANT" - PW
     When the user clicks the title of a vacancy

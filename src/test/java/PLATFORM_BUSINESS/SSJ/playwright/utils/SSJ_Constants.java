@@ -387,13 +387,8 @@ public class SSJ_Constants {
             add("HNCD55");
         }
     };
-<<<<<<< HEAD
-    public static final String OKTA_APPLICANT = "Abhishek Anand";
+    public static final String OKTA_APPLICANT = "Abhishek Desai";
     public static final String SSJ_TESTER = "Maria Chaudhry";
     public static final String SSJ_STAGE_TESTER = "Alex Lear";
-=======
-    public static final String OKTA_APPLICANT = "Abhishek Desai";
-    public static final String SSJ_TESTER = "Alex Lear";
     public static final String OKTA_TEMP_PWD = "Bund3$L1g@";
->>>>>>> 24712b2581eaccf0f731fa5b9502f94871f9b677
 }

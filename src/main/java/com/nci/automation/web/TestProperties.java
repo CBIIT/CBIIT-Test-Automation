@@ -22,16 +22,10 @@ public class TestProperties {
     /**
      * NATIVE VIEW SIDE DOOR URLS
      */
-<<<<<<< HEAD
     public static final String NATIVE_VIEW_SIDE_DOOR_STAGE_URL = "https://service-stage.nci.nih.gov/side_door.do";
     public static final String NATIVE_VIEW_SIDE_DOOR_TEST_URL = "https://service-test.nci.nih.gov/side_door.do";
     public static final String NATIVE_VIEW_SIDE_DOOR_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/side_door.do";
     public static final String NATIVE_VIEW_SIDE_DOOR_EZAPPS_TEST_URL = "https://ezapps-test.nih.gov/login.do";
-=======
-    public static final String NATIVE_VIEW_SIDE_DOOR_STAGE_URL = "https://service-stage.nci.nih.gov/login.do";
-    public static final String NATIVE_VIEW_SIDE_DOOR_TEST_URL = "https://service-test.nci.nih.gov/login.do";
-    public static final String NATIVE_VIEW_SIDE_DOOR_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/login.do";
->>>>>>> 24712b2581eaccf0f731fa5b9502f94871f9b677
     public static String NATIVE_VIEW_SIDE_DOOR_URL;
 
     /**
