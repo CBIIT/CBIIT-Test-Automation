@@ -1,7 +1,5 @@
 package com.nci.automation.web;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,8 +12,6 @@ import org.openqa.selenium.WebElement;
  * @author Sohilz2
  */
 public class JavascriptUtils extends WebDriverUtils {
-
-    private static Logger logger = LogManager.getLogger(JavascriptUtils.class);
 
     /**
      * Use this method in need of clicking on a WebElement internally. This is used
