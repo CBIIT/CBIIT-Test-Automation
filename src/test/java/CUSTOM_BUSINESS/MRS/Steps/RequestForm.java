@@ -4,8 +4,6 @@ import CUSTOM_BUSINESS.MRS.Utils.MRS_Constants;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
