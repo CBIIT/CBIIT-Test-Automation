@@ -3,9 +3,14 @@ Feature: Native View Clinic Visits and Appointments
 
   @muzipovay2 @RAS_STUDY @CP2-3871 @CP2-4392 @CP2-4159 @CP2-4821 @selenium @RAS_Regression2
   Scenario: Study Team member opens PD record, navigates to the Clinic Visits related list, and creates a new Clinic Visit.
-    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
+#    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
+#    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+#    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
+
+    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=0e9497c587161ad0ad46326d3fbb35c7" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
+    And logs in via Okta with username "ras_progression@yopmail.com" and password "Charms123$"
+
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "screenerScenario2"
     Given Study Team member logs in to Native View and navigates to participant's record "screenerScenario2"

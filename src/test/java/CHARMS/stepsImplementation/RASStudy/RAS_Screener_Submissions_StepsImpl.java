@@ -754,7 +754,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
             CucumberLogUtils.logScreenshot();
             myRASHomePage.warningAgreeButton.click();
         }
-        softAssert.assertEquals(myRASHomePage.rasopathyPortalHeader, CHARMSRASScreenerConstants.PORTAL_HEADER);
+        softAssert.assertEquals(myRASHomePage.rasopathyPortalHeader.getText(), CHARMSRASScreenerConstants.PORTAL_HEADER);
     }
 
     /***

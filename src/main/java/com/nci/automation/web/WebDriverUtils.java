@@ -3,8 +3,6 @@ package com.nci.automation.web;
 import java.time.Duration;
 import com.nci.automation.utils.FrameworkConstants;
 import io.github.sukgu.Shadow;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,7 +14,6 @@ import org.openqa.selenium.safari.SafariOptions;
 
 public class WebDriverUtils {
 
-    public static Logger log = LogManager.getLogger(WebDriverUtils.class);
     public static WebDriver webDriver;
     public static Shadow shadowDriver = new Shadow(webDriver);
 
