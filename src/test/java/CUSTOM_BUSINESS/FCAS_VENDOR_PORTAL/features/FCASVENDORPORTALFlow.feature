@@ -80,7 +80,7 @@ Feature: FCAS Vendor Portal Flow
     And User can see Choose File button
     Then User clicks Cancel button
 
-  @Alena @Regression @selenium  @OASYS-3657
+  @Alena @Regression @selenium @OASYS-3657
   Scenario: Edit contract information Submit Notification option
     Given User accepts PII Disclaimer
     And User is on Existing Contracts page

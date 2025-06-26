@@ -199,7 +199,7 @@ public class FCASVENDORPORTALSteps {
 
     @Then("User can see Version Work Order field")
     public void user_can_see_version_work_order_field() {
-        FCASVENDORPORTALStepsImplementation.verifyWorkOrderField();
+        FCASVENDORPORTALStepsImplementation.verifyVersionField();
     }
 
     @Then("User can see Work Order field")
@@ -219,7 +219,7 @@ public class FCASVENDORPORTALSteps {
 
     @Then("User can see Beneficiary Occupancy Date field")
     public void user_can_see_beneficiary_occupancy_date_field() {
-        FCASVENDORPORTALStepsImplementation.verifyBeneficiaryOccupantDateFieldField();
+        FCASVENDORPORTALStepsImplementation.verifyBeneficiaryOccupantDateField();
     }
 
     @Then("User can see Project ID field")
