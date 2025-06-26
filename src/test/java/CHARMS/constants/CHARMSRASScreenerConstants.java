@@ -2,6 +2,7 @@ package CHARMS.constants;
 
 public class CHARMSRASScreenerConstants {
 
+    public static final String PORTAL_HEADER = "NCI Family Studies Hub";
     public static final String CONSENT_FLOW_NAME = "DiegoTest JuarezTest";
     public static final String CONSENT_ADDED_TEXT = "Consent added!";
     public static final String CONSENTED_BY_USER_NAME = "Rene Aguilar";
