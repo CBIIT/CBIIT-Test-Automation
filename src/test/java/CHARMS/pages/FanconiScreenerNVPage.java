@@ -412,7 +412,7 @@ public class FanconiScreenerNVPage extends PageInitializer {
     public List<WebElement> nVFScreenerCancerHistoryTableRowsLink;
 
     /* Cancer History Tab--> Please Specify column options button */
-    @FindBy(xpath = "(//i[@aria-label='Please Specify column options'])[1]")
+    @FindBy(xpath = "(//i[@aria-label='Additional Information column options'])[1]")
     public WebElement nVFCancerHistoryPleaseSpecifyColumnOptionsButton;
 
     /* Cancer History Tab--> Please Specify column sort options button */
