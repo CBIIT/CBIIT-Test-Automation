@@ -1,7 +1,7 @@
 Feature: RAS Native View Verification Scenarios
   Description: This feature file contains scenarios which verify data in Native View.
 
-  @muzipovay2 @RAS_STUDY @CP2-3938 @CP2-3921 @selenium @RAS_Regression2   @Progression
+  @muzipovay2 @RAS_STUDY @CP2-3938 @CP2-3921 @selenium @RAS_Regression2
   Scenario Outline: Verifying FSID after adding a New Participant in Native View.
     Given Study Team member logs in to Native View and navigates to All Participant Details
     And Study Team member clicks Add New Participant and completes the form with:  FSID "<Existing FSID>", Study "<Study>", Study Subcategory "<Study Subcategory>", Relationship to Proband "<Relationship to Proband>", First Name "<First Name>", Last Name "<Last Name>"
