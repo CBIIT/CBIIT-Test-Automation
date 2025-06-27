@@ -43,7 +43,7 @@ Feature: ESR Approvals
     And the user receives a rejection from a federal lead for intake approval in ESR-Q
     Then the user confirms the Federal Intake Approval was rejected for the ESR-Q ticket
 
-  @ESR-575 @sarwarahmed1 @Progression @playwright
+  @ESR-575 @sarwarahmed1 @Regression @playwright
   Scenario: Test "Rejected Incorrect Approver" from a Federal Lead in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
