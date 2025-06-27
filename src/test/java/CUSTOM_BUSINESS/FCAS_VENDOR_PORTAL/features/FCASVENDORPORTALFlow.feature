@@ -94,3 +94,39 @@ Feature: FCAS Vendor Portal Flow
     And User can see Comments field
     And User can see Choose File button
     Then User clicks Cancel button
+
+  @Alena @Regression @selenium @OASYS-3623
+  Scenario: Existing Contracts page layout
+    Given User accepts PII Disclaimer
+    And User is on Existing Contracts page
+    And User can see Title column
+    And User can see PIID column
+    And User can see Ref PIID column
+    And User can see Severability column
+    And User can see PIID column
+    And User can see Status column
+    And User can see Est Ultimate Completion column
+
+  @Alena @Regression @selenium @OASYS-3623
+  Scenario: FCAS Vendor Portal tabs
+    Given User accepts PII Disclaimer
+    And User is on Existing Contracts page
+    And User can see Existing Contracts tab
+    When User clicks on Planning tab
+    Then User can verify Planning tab page header
+    When User clicks on Solicitations tab
+    Then User can verify Solicitation tab page header
+    When User clicks on Company Account tab
+    Then User can verify Company Account tab page header
+
+  @Alena @Regression @selenium @OASYS-3765
+  Scenario: FCAS Vendor Portal User leaves feedback
+    Given User accepts PII Disclaimer
+    When User chooses to leave feedback
+    Then User is on Leave Feedback modal
+    And User chooses Yes for The FCAS Vendor Portal application was user friendly
+    And User chooses No for was easy to upload document files to the FCAS Vendor Portal
+    And User chooses No for Is there additional information you think should be included in the FCAS Vendor Portal User Guide
+    And User chooses Yes for Is the FCAS Vendor Portal organized in a user-friendly way
+    And User inputs comments for Is there anything else you think we should know regarding the FCAS Vendor Portal Application question
+    And User clicks Submit feedback button

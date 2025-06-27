@@ -108,7 +108,7 @@ public class FCASVENDORPORTALPage {
     public WebElement associatesDropdownSubmitInvoice;
 
     /**Comments Field Submit Invoice*/
-    @FindBy(xpath = "//div[@class='mat-form-field-infix ng-tns-c133-50']")
+    @FindBy(xpath = "//div//textarea[@ng-reflect-placeholder='Comments (optional)'")
     public WebElement commentsFieldSubmitInvoice;
 
     /**Choose File Button*/
@@ -195,6 +195,90 @@ public class FCASVENDORPORTALPage {
     /** Notifications Field Submit Notification*/
     @FindBy(xpath = "//div//input[@ng-reflect-placeholder ='Notification # *']")
     public WebElement notificationFieldSubmitNotification;
+
+    /** Existing Contracts page  Title column*/
+    @FindBy(xpath = "(//div//div[.=' Title '])[1]")
+    public WebElement existingContractsPageTitleColumn;
+
+    /** Existing Contracts page PIID column*/
+    @FindBy(xpath = "(//div//div[.=' PIID '])[1]")
+    public WebElement existingContractsPagePIIDColumn;
+
+    /** Existing Contracts page Ref PIID column*/
+    @FindBy(xpath = "(//div//div[.=' Ref PIID '])[1]")
+    public WebElement existingContractsPageRefPIIDColumn;
+
+    /** Existing Contracts page Severability column*/
+    @FindBy(xpath = "(//div//div[.=' Severability '])[1]")
+    public WebElement existingContractsPageSeverabilityColumn;
+
+    /** Existing Contracts page Status column*/
+    @FindBy(xpath = "(//div//div[.=' Status '])[1]")
+    public WebElement existingContractsPageStatusColumn;
+
+    /** Existing Contracts page Est. Ultimate Completion column*/
+    @FindBy(xpath = "(//div//div[.=' Est. Ultimate Completion '])[1]")
+    public WebElement existingContractsPageEstUltimateCompletionColumn;
+
+    /** Existing Contracts tab*/
+    @FindBy(xpath = "(//div[@class='mat-list-item-content'])[1]")
+    public WebElement existingContractsTab;
+
+    /** Planning tab*/
+    @FindBy(xpath = "(//div[@class='mat-list-item-content'])[2]")
+    public WebElement planningTab;
+
+    /** Planning tab page header*/
+    @FindBy(xpath = "//h1[.='Planning']")
+    public WebElement planningTabPageHeader;
+
+    /** Solicitations tab*/
+    @FindBy(xpath = "(//div[@class='mat-list-item-content'])[3]")
+    public WebElement solicitationsTab;
+
+    /** Solicitations tab page header*/
+    @FindBy(xpath = "//h1[.='Solicitation']")
+    public WebElement solicitationsTabPageHeader;
+
+    /** Company Account tab*/
+    @FindBy(xpath = "(//div[@class='mat-list-item-content'])[4]")
+    public WebElement companyAccountTab;
+
+    /** Company Account tab page header*/
+    @FindBy(xpath = "//h1[.='LEIDOS BIOMEDICAL RESEARCH, INC.']")
+    public WebElement companyAccountTabPageHeader;
+
+    /** leave Feedback Button*/
+    @FindBy(xpath = "//button//span[.='Leave Feedback']")
+    public WebElement leaveFeedbackButton;
+
+    /** leave Feedback modal page header*/
+    @FindBy(xpath = "//h2[.='Leave Feedback']")
+    public WebElement leaveFeedbackModalPageHeader;
+
+    /** Yes radio button for question: The FCAS Vendor Portal application was user friendly*/
+    @FindBy(xpath = "//mat-radio-group[@ng-reflect-name='wasApplicationFriendly']//mat-radio-button[@ng-reflect-value='YES']")
+    public WebElement yesRadioButtonWasApplicationFriendly;
+
+    /** No radio button for  was easy to upload document files to the FCAS Vendor Portal*/
+    @FindBy(xpath = "//mat-radio-group[@ng-reflect-name='wasUploadEasy']//mat-radio-button[@ng-reflect-value='NO']")
+    public WebElement noRadioButtonWasUploadEasy;
+
+    /** No radio button for Is there additional information you think should be included in the FCAS Vendor Portal User Guide?*/
+    @FindBy(xpath = "//mat-radio-group[@ng-reflect-name='isGuideUseful']//mat-radio-button[@ng-reflect-value='NO']")
+    public WebElement noRadioButtonIsGuideUseful;
+
+    /** No radio button forIs the FCAS Vendor Portal organized in a user-friendly way?*/
+    @FindBy(xpath = "//mat-radio-group[@ng-reflect-name='isOrganized']//mat-radio-button[@ng-reflect-value='YES']")
+    public WebElement noRadioButtonIsOrganized;
+
+    /** text field for . Is there anything else you think we should know regarding the FCAS Vendor Portal Application?*/
+    @FindBy(xpath = "//input[@ng-reflect-name='additionalComments']")
+    public WebElement textFieldAdditionalComments;
+
+    /** button Submit feedabck*/
+    @FindBy(xpath = "//button//span[.=' Submit ']")
+    public WebElement buttonSubmitFeedback;
 
     public FCASVENDORPORTALPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
