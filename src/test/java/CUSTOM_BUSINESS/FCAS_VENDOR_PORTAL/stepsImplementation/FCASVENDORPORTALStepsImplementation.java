@@ -371,4 +371,11 @@ public class FCASVENDORPORTALStepsImplementation extends PageInitializer {
     public static void verifyCompanyAccountTabPageHeader() {
         softAssert.assertTrue(fCASVENDORPORTALPage.companyAccountTabPageHeader.isDisplayed());
     }
+
+    /**
+     * Verify LeaveFeedbackModal page header
+     */
+    public static void verifyLeaveFeedbackModalPageHeader() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.leaveFeedbackModalPageHeader.isDisplayed());
+    }
 }

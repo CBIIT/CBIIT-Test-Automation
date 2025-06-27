@@ -128,7 +128,7 @@ Feature: FCAS Vendor Portal Flow
     And User chooses No for was easy to upload document files to the FCAS Vendor Portal
     And User chooses No for Is there additional information you think should be included in the FCAS Vendor Portal User Guide
     And User chooses Yes for Is the FCAS Vendor Portal organized in a user-friendly way
-    And User inputs comments for  Is there anything else you think we should know regarding the FCAS Vendor Portal Application question
+    And User inputs comments for Is there anything else you think we should know regarding the FCAS Vendor Portal Application question
     And User clicks Submit feedback button
 
 

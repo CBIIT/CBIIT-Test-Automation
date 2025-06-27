@@ -1,5 +1,6 @@
 package CUSTOM_BUSINESS.FCAS_VENDOR_PORTAL.steps;
 
+import CUSTOM_BUSINESS.FCAS_VENDOR_PORTAL.pages.FCASVENDORPORTALPage;
 import CUSTOM_BUSINESS.FCAS_VENDOR_PORTAL.stepsImplementation.FCASVENDORPORTALStepsImplementation;
 import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.And;
@@ -335,51 +336,64 @@ public class FCASVENDORPORTALSteps {
         FCASVENDORPORTALStepsImplementation.verifyCompanyAccountTabPageHeader();
     }
 
+    /**
+     * Click on leave feedback
+     */
     @When("User chooses to leave feedback")
     public void user_chooses_to_leave_feedback() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+     CommonUtils.clickOnElement(fCASVENDORPORTALPage.leaveFeedbackButton);
     }
 
     @Then("User is on Leave Feedback modal")
     public void user_is_on_leave_feedback_modal() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      FCASVENDORPORTALStepsImplementation.verifyLeaveFeedbackModalPageHeader();
     }
 
+    /**
+     * Click on Yes for The FCAS Vendor Portal application was user friendly
+     */
     @Then("User chooses Yes for The FCAS Vendor Portal application was user friendly")
     public void user_chooses_yes_for_the_fcas_vendor_portal_application_was_user_friendly() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       CommonUtils.clickOnElement(fCASVENDORPORTALPage.yesRadioButtonWasApplicationFriendly);
     }
 
+    /**
+     * Click on No for was easy to upload document files to the FCAS Vendor Portal
+     */
     @Then("User chooses No for was easy to upload document files to the FCAS Vendor Portal")
     public void user_chooses_no_for_was_easy_to_upload_document_files_to_the_fcas_vendor_portal() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.noRadioButtonWasUploadEasy);
     }
 
+    /**
+     * Click on No for Is there additional information you think should be included in the FCAS Vendor Portal User Guide
+     */
     @Then("User chooses No for Is there additional information you think should be included in the FCAS Vendor Portal User Guide")
     public void user_chooses_no_for_is_there_additional_information_you_think_should_be_included_in_the_fcas_vendor_portal_user_guide() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.noRadioButtonIsGuideUseful);
     }
 
+    /**
+     * Click on Yes for Is the FCAS Vendor Portal organized in a user-friendly way
+     */
     @Then("User chooses Yes for Is the FCAS Vendor Portal organized in a user-friendly way")
     public void user_chooses_yes_for_is_the_fcas_vendor_portal_organized_in_a_user_friendly_way() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.noRadioButtonIsOrganized);
     }
 
-    @Then("User inputs comments for  Is there anything else you think we should know regarding the FCAS Vendor Portal Application question")
+    /**
+     * User inputs comments for Is there anything else you think we should know regarding the FCAS Vendor Portal Application
+     */
+    @Then("User inputs comments for Is there anything else you think we should know regarding the FCAS Vendor Portal Application question")
     public void user_inputs_comments_for_is_there_anything_else_you_think_we_should_know_regarding_the_fcas_vendor_portal_application_question() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       CommonUtils.sendKeys(fCASVENDORPORTALPage.textFieldAdditionalComments,"Comments");
     }
 
+    /**
+     * User clicks Submit feedback button
+     */
     @Then("User clicks Submit feedback button")
     public void user_clicks_submit_feedback_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage. buttonSubmitFeedback);
     }
 }

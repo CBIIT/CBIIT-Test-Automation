@@ -248,6 +248,38 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "//h1[.='LEIDOS BIOMEDICAL RESEARCH, INC.']")
     public WebElement companyAccountTabPageHeader;
 
+    /** leave Feedback Button*/
+    @FindBy(xpath = "//button//span[.='Leave Feedback']")
+    public WebElement leaveFeedbackButton;
+
+    /** leave Feedback modal page header*/
+    @FindBy(xpath = "//h2[.='Leave Feedback']")
+    public WebElement leaveFeedbackModalPageHeader;
+
+    /** Yes radio button for question: The FCAS Vendor Portal application was user friendly*/
+    @FindBy(xpath = "//mat-radio-group[@ng-reflect-name='wasApplicationFriendly']//mat-radio-button[@ng-reflect-value='YES']")
+    public WebElement yesRadioButtonWasApplicationFriendly;
+
+    /** No radio button for  was easy to upload document files to the FCAS Vendor Portal*/
+    @FindBy(xpath = "//mat-radio-group[@ng-reflect-name='wasUploadEasy']//mat-radio-button[@ng-reflect-value='NO']")
+    public WebElement noRadioButtonWasUploadEasy;
+
+    /** No radio button for Is there additional information you think should be included in the FCAS Vendor Portal User Guide?*/
+    @FindBy(xpath = "//mat-radio-group[@ng-reflect-name='isGuideUseful']//mat-radio-button[@ng-reflect-value='NO']")
+    public WebElement noRadioButtonIsGuideUseful;
+
+    /** No radio button forIs the FCAS Vendor Portal organized in a user-friendly way?*/
+    @FindBy(xpath = "//mat-radio-group[@ng-reflect-name='isOrganized']//mat-radio-button[@ng-reflect-value='YES']")
+    public WebElement noRadioButtonIsOrganized;
+
+    /** text field for . Is there anything else you think we should know regarding the FCAS Vendor Portal Application?*/
+    @FindBy(xpath = "//input[@ng-reflect-name='additionalComments']")
+    public WebElement textFieldAdditionalComments;
+
+    /** button Submit feedabck*/
+    @FindBy(xpath = "//button//span[.=' Submit ']")
+    public WebElement buttonSubmitFeedback;
+
     public FCASVENDORPORTALPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
