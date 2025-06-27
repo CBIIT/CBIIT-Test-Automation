@@ -6,6 +6,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 import static APPS_COMMON.PageInitializers.PageInitializer.fCASVENDORPORTALPage;
 import static APPS_COMMON.PageInitializers.PageInitializer.fCASVENDORPORTALStepsImplementation;
 
@@ -271,12 +272,12 @@ public class FCASVENDORPORTALSteps {
 
     @Given("User can see Title column")
     public void user_can_see_title_column() {
-    FCASVENDORPORTALStepsImplementation.verifyExistingContractsTitleColumn();
+        FCASVENDORPORTALStepsImplementation.verifyExistingContractsTitleColumn();
     }
 
     @Given("User can see PIID column")
     public void user_can_see_piid_column() {
-       FCASVENDORPORTALStepsImplementation.verifyExistingContractsPIIDColumn();
+        FCASVENDORPORTALStepsImplementation.verifyExistingContractsPIIDColumn();
     }
 
     @Given("User can see Ref PIID column")
@@ -286,7 +287,7 @@ public class FCASVENDORPORTALSteps {
 
     @Given("User can see Severability column")
     public void user_can_see_severability_column() {
-       FCASVENDORPORTALStepsImplementation.verifyExistingContractsSeverabilityColumn();
+        FCASVENDORPORTALStepsImplementation.verifyExistingContractsSeverabilityColumn();
     }
 
     @Given("User can see Status column")
@@ -321,7 +322,7 @@ public class FCASVENDORPORTALSteps {
 
     @Then("User can verify Solicitation tab page header")
     public void user_can_verify_solicitation_tab_page_header() {
-     FCASVENDORPORTALStepsImplementation.verifySolicitationTabPageHeader();
+        FCASVENDORPORTALStepsImplementation.verifySolicitationTabPageHeader();
     }
 
     @When("User clicks on Company Account tab")
@@ -331,6 +332,54 @@ public class FCASVENDORPORTALSteps {
 
     @Then("User can verify Company Account tab page header")
     public void user_can_verify_company_account_tab_page_header() {
-       FCASVENDORPORTALStepsImplementation.verifyCompanyAccountTabPageHeader();
+        FCASVENDORPORTALStepsImplementation.verifyCompanyAccountTabPageHeader();
+    }
+
+    @When("User chooses to leave feedback")
+    public void user_chooses_to_leave_feedback() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("User is on Leave Feedback modal")
+    public void user_is_on_leave_feedback_modal() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("User chooses Yes for The FCAS Vendor Portal application was user friendly")
+    public void user_chooses_yes_for_the_fcas_vendor_portal_application_was_user_friendly() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("User chooses No for was easy to upload document files to the FCAS Vendor Portal")
+    public void user_chooses_no_for_was_easy_to_upload_document_files_to_the_fcas_vendor_portal() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("User chooses No for Is there additional information you think should be included in the FCAS Vendor Portal User Guide")
+    public void user_chooses_no_for_is_there_additional_information_you_think_should_be_included_in_the_fcas_vendor_portal_user_guide() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("User chooses Yes for Is the FCAS Vendor Portal organized in a user-friendly way")
+    public void user_chooses_yes_for_is_the_fcas_vendor_portal_organized_in_a_user_friendly_way() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("User inputs comments for  Is there anything else you think we should know regarding the FCAS Vendor Portal Application question")
+    public void user_inputs_comments_for_is_there_anything_else_you_think_we_should_know_regarding_the_fcas_vendor_portal_application_question() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("User clicks Submit feedback button")
+    public void user_clicks_submit_feedback_button() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
 }
