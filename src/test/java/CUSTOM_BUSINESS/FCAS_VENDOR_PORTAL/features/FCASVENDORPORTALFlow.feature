@@ -94,3 +94,31 @@ Feature: FCAS Vendor Portal Flow
     And User can see Comments field
     And User can see Choose File button
     Then User clicks Cancel button
+
+  @Alena @Regression @selenium @OASYS-3623
+  Scenario: Existing Contracts page layout
+    Given User accepts PII Disclaimer
+    And User is on Existing Contracts page
+    And User can see Title column
+    And User can see PIID column
+    And User can see Ref PIID column
+    And User can see Severability column
+    And User can see PIID column
+    And User can see Status column
+    And User can see Est Ultimate Completion column
+
+  @Alena @Regression @selenium @OASYS-3623 @Progression
+  Scenario: FCAS Vendor Portal tabs
+    Given User accepts PII Disclaimer
+    And User is on Existing Contracts page
+    And User can see Existing Contracts tab
+    When User clicks on Planning tab
+    Then User can verify Planning tab page header
+    When User clicks on Solicitations tab
+    Then User can verify Solicitation tab page header
+    When User clicks on Company Account tab
+    Then User can verify Company Account tab page header
+
+
+
+

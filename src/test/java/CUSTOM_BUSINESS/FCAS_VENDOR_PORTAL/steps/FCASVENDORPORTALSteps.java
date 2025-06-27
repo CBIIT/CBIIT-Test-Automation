@@ -268,4 +268,69 @@ public class FCASVENDORPORTALSteps {
     public void user_can_see_notification_field() {
         FCASVENDORPORTALStepsImplementation.verifyNotificationField();
     }
+
+    @Given("User can see Title column")
+    public void user_can_see_title_column() {
+    FCASVENDORPORTALStepsImplementation.verifyExistingContractsTitleColumn();
+    }
+
+    @Given("User can see PIID column")
+    public void user_can_see_piid_column() {
+       FCASVENDORPORTALStepsImplementation.verifyExistingContractsPIIDColumn();
+    }
+
+    @Given("User can see Ref PIID column")
+    public void user_can_see_ref_piid_column() {
+        FCASVENDORPORTALStepsImplementation.verifyExistingContractsRefPIIDColumn();
+    }
+
+    @Given("User can see Severability column")
+    public void user_can_see_severability_column() {
+       FCASVENDORPORTALStepsImplementation.verifyExistingContractsSeverabilityColumn();
+    }
+
+    @Given("User can see Status column")
+    public void user_can_see_status_column() {
+        FCASVENDORPORTALStepsImplementation.verifyExistingContractsStatusColumn();
+    }
+
+    @Given("User can see Est Ultimate Completion column")
+    public void user_can_see_est_ultimate_completion_column() {
+        FCASVENDORPORTALStepsImplementation.verifyExistingEstUltimateCompletionColumn();
+    }
+
+    @Given("User can see Existing Contracts tab")
+    public void user_can_see_existing_contracts_tab() {
+        FCASVENDORPORTALStepsImplementation.verifyExistingContractsTab();
+    }
+
+    @When("User clicks on Planning tab")
+    public void user_clicks_on_planning_tab() {
+        FCASVENDORPORTALStepsImplementation.clickOnPlanningTab();
+    }
+
+    @Then("User can verify Planning tab page header")
+    public void user_can_verify_planning_tab_page_header() {
+        FCASVENDORPORTALStepsImplementation.verifyPlanningTabPageHeader();
+    }
+
+    @When("User clicks on Solicitations tab")
+    public void user_clicks_on_solicitations_tab() {
+        FCASVENDORPORTALStepsImplementation.clickOnSolicitationTab();
+    }
+
+    @Then("User can verify Solicitation tab page header")
+    public void user_can_verify_solicitation_tab_page_header() {
+     FCASVENDORPORTALStepsImplementation.verifySolicitationTabPageHeader();
+    }
+
+    @When("User clicks on Company Account tab")
+    public void user_clicks_on_company_account_tab() {
+        FCASVENDORPORTALStepsImplementation.clickOnCompanyAccountTab();
+    }
+
+    @Then("User can verify Company Account tab page header")
+    public void user_can_verify_company_account_tab_page_header() {
+       FCASVENDORPORTALStepsImplementation.verifyCompanyAccountTabPageHeader();
+    }
 }

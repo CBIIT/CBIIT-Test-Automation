@@ -280,4 +280,95 @@ public class FCASVENDORPORTALStepsImplementation extends PageInitializer {
     public static void verifySubmitNotificationHeader() {
         softAssert.assertTrue(fCASVENDORPORTALPage.submitNotificationHeader.isDisplayed());
     }
+
+    /**
+     * Verify Existing Contracts Title Column
+     */
+    public static void verifyExistingContractsTitleColumn() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.existingContractsPageTitleColumn.isDisplayed());
+    }
+
+    /**
+     * Verify Existing Contracts PIID Column
+     */
+    public static void verifyExistingContractsPIIDColumn() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.existingContractsPagePIIDColumn.isDisplayed());
+    }
+
+    /**
+     * Verify Existing Contracts Ref PIID Column
+     */
+    public static void verifyExistingContractsRefPIIDColumn() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.existingContractsPageRefPIIDColumn.isDisplayed());
+    }
+
+    /**
+     * Verify Existing Contracts Severability Column
+     */
+    public static void verifyExistingContractsSeverabilityColumn() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.existingContractsPageSeverabilityColumn.isDisplayed());
+    }
+
+    /**
+     * Verify Existing Contracts Status Column
+     */
+    public static void verifyExistingContractsStatusColumn() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.existingContractsPageStatusColumn.isDisplayed());
+    }
+
+    /**
+     * Verify Existing Contracts Est. Ultimate Completion Column
+     */
+    public static void verifyExistingEstUltimateCompletionColumn() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.existingContractsPageEstUltimateCompletionColumn.isDisplayed());
+    }
+
+    /**
+     * Verify Existing Contracts tab
+     */
+    public static void verifyExistingContractsTab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.existingContractsTab.isDisplayed());
+    }
+
+    /**
+     * Click on Planning tab
+     */
+    public static void clickOnPlanningTab() {
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.planningTab);
+    }
+
+    /**
+     * Verify Planning tab page header
+     */
+    public static void verifyPlanningTabPageHeader() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningTabPageHeader.isDisplayed());
+    }
+
+    /**
+     * Click on Solicitation tab
+     */
+    public static void clickOnSolicitationTab() {
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.solicitationsTab);
+    }
+
+    /**
+     * Verify Solicitation tab page header
+     */
+    public static void verifySolicitationTabPageHeader() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.solicitationsTabPageHeader.isDisplayed());
+    }
+
+    /**
+     * Click on Company Account tab
+     */
+    public static void clickOnCompanyAccountTab() {
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.companyAccountTab);
+    }
+
+    /**
+     * Verify Company Account tab page header
+     */
+    public static void verifyCompanyAccountTabPageHeader() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.companyAccountTabPageHeader.isDisplayed());
+    }
 }

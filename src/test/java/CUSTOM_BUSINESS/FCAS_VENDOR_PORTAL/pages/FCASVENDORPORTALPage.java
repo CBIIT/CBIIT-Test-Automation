@@ -108,7 +108,7 @@ public class FCASVENDORPORTALPage {
     public WebElement associatesDropdownSubmitInvoice;
 
     /**Comments Field Submit Invoice*/
-    @FindBy(xpath = "//div[@class='mat-form-field-infix ng-tns-c133-50']")
+    @FindBy(xpath = "//div//textarea[@ng-reflect-placeholder='Comments (optional)'")
     public WebElement commentsFieldSubmitInvoice;
 
     /**Choose File Button*/
@@ -195,6 +195,58 @@ public class FCASVENDORPORTALPage {
     /** Notifications Field Submit Notification*/
     @FindBy(xpath = "//div//input[@ng-reflect-placeholder ='Notification # *']")
     public WebElement notificationFieldSubmitNotification;
+
+    /** Existing Contracts page  Title column*/
+    @FindBy(xpath = "(//div//div[.=' Title '])[1]")
+    public WebElement existingContractsPageTitleColumn;
+
+    /** Existing Contracts page PIID column*/
+    @FindBy(xpath = "(//div//div[.=' PIID '])[1]")
+    public WebElement existingContractsPagePIIDColumn;
+
+    /** Existing Contracts page Ref PIID column*/
+    @FindBy(xpath = "(//div//div[.=' Ref PIID '])[1]")
+    public WebElement existingContractsPageRefPIIDColumn;
+
+    /** Existing Contracts page Severability column*/
+    @FindBy(xpath = "(//div//div[.=' Severability '])[1]")
+    public WebElement existingContractsPageSeverabilityColumn;
+
+    /** Existing Contracts page Status column*/
+    @FindBy(xpath = "(//div//div[.=' Status '])[1]")
+    public WebElement existingContractsPageStatusColumn;
+
+    /** Existing Contracts page Est. Ultimate Completion column*/
+    @FindBy(xpath = "(//div//div[.=' Est. Ultimate Completion '])[1]")
+    public WebElement existingContractsPageEstUltimateCompletionColumn;
+
+    /** Existing Contracts tab*/
+    @FindBy(xpath = "(//div[@class='mat-list-item-content'])[1]")
+    public WebElement existingContractsTab;
+
+    /** Planning tab*/
+    @FindBy(xpath = "(//div[@class='mat-list-item-content'])[2]")
+    public WebElement planningTab;
+
+    /** Planning tab page header*/
+    @FindBy(xpath = "//h1[.='Planning']")
+    public WebElement planningTabPageHeader;
+
+    /** Solicitations tab*/
+    @FindBy(xpath = "(//div[@class='mat-list-item-content'])[3]")
+    public WebElement solicitationsTab;
+
+    /** Solicitations tab page header*/
+    @FindBy(xpath = "//h1[.='Solicitation']")
+    public WebElement solicitationsTabPageHeader;
+
+    /** Company Account tab*/
+    @FindBy(xpath = "(//div[@class='mat-list-item-content'])[4]")
+    public WebElement companyAccountTab;
+
+    /** Company Account tab page header*/
+    @FindBy(xpath = "//h1[.='LEIDOS BIOMEDICAL RESEARCH, INC.']")
+    public WebElement companyAccountTabPageHeader;
 
     public FCASVENDORPORTALPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
