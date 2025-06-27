@@ -8,9 +8,12 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import java.nio.file.Paths;
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class RequestForm {
+
+    public static String requestNumber;
 
     /**
      * This method is used to click on Create Request button
@@ -316,6 +319,97 @@ public class RequestForm {
     @Then("User clicks on Submit for Approval button")
     public void user_clicks_on_submit_for_approval_button() {
         page.locator("#submitForApprovalRequestAlt").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to navigate to the Active Requests queue and select an existing request
+     */
+    @When("User selects an existing request")
+    public void user_selects_an_existing_request() {
+        page.getByText("View your active and/or").click();
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("View Details")).first().click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+    *  This method is used to click on Additional Approver
+    */
+    @And("User clicks on Add Additional Approver")
+    public void user_clicks_on_add_additional_approver() {
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Add Additional Approvers:")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select an additional approver from the list
+     * @param AdditionalApprover
+     */
+    @And("User selects {string} as the additional approver")
+    public void user_selects_as_the_additional_approver(String AdditionalApprover) {
+         if (page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(AdditionalApprover)).isVisible()) {
+            page.getByRole(AriaRole.ROW, new Page.GetByRoleOptions().setName(AdditionalApprover)).getByRole(AriaRole.LINK).click();
+            CucumberLogUtils.playwrightScreenshot(page);
+        }
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Add Additional Approvers:")).fill(AdditionalApprover);
+        page.getByRole(AriaRole.LISTITEM, new Page.GetByRoleOptions().setName(AdditionalApprover)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the Save button
+     */
+    @And("User clicks on Save button")
+    public void user_clicks_on_save_button() {
+        page.locator("#saveRequestAlt").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to verify that the additional approver is listed in the request details
+     * @param AdditionalApprover
+     */
+    @Then("User verifies that {string} is listed as an additional approver in the request details")
+    public void user_verifies_that_is_listed_as_an_additional_approver_in_the_request_details(String AdditionalApprover) {
+        assertThat(page.locator("#mrsUserMessage")).containsText("Request 2908 has been Saved.");
+        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(AdditionalApprover+"E"))).isVisible();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to delete a request
+     */
+    @When("the user selects the option to Delete the request")
+    public void the_user_selects_the_option_to_the_request() {
+        requestNumber = page.getByRole(AriaRole.GRIDCELL).first().textContent().trim();
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("")).first().click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to confirm the delete operation
+     */
+    @And("the user confirms the delete operation")
+    public void the_user_confirms_the_delete_operation() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Delete Request")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to verify that the request has been deleted successfully
+     */
+    @And("the system displays a success message stating the request has been deleted")
+    public void the_system_displays_a_success_message_stating_the_request_has_been_deleted() {
+        assertThat(page.getByRole(AriaRole.PARAGRAPH)).containsText("Request " + requestNumber + " has been Deleted.");
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to verify that the deleted request no longer appears in the Active Requests queue for the submitter or requestor and their delegates
+     */
+    @Then("the Active Requests queue for the submitter or requestor and their delegates no longer displays the deleted request")
+    public void the_queue_for_the_submitter_requestor_and_their_delegates_no_longer_displays_the_deleted_request() {
+        assertThat(page.getByRole(AriaRole.GRIDCELL, new Page.GetByRoleOptions().setName(requestNumber))).not().isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }

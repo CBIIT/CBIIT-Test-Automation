@@ -84,7 +84,7 @@ public class MetforminScreenerConstants {
 	public static final String THE_STUDY_TEAM_WILL_NEED_TO_REVIEW_YOUR_GENETIC_TEST_RESULTS_BEFORE_DETERMINING_ELIGIBILITY = "The study team will need to review your genetic test results before determining eligibility";
 	public static final String ACTIONS = "Actions";
 	public static final String PLEASE_SELECT_AGE_OR_DATE_FOR_REPORTING = "Please select Age or Date for reporting";
-	public static final String AGE_AT_DIAGNOSIS = "Age at Diagnosis";
+	public static final String AGE_AT_DIAGNOSIS = "Age at diagnosis";
 	public static final String MONTH_OF_DIAGNOSIS = "Month of diagnosis";
 	public static final String YEAR_OF_DIAGNOSIS = "Year of diagnosis";
 	public static final String ARE_YOU_THE_PARTICIPANT_CURRENTLY_RECEIVING_TREATMENT = "Are you/the participant currently receiving treatment?";
