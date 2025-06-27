@@ -18,7 +18,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
 import static CHARMS.pages.NativeViewCHARMSParticipantConsentPage.dynamicTabLocator;
 import static Hooks.Hooks.softAssert;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;

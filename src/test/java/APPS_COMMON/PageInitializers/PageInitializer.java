@@ -141,6 +141,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static RasScenario2StepsImpl rasScenario2StepsImpl;
 	public static RasScenario3StepsImpl rasScenario3StepsImpl;
 	public static RasScenario4StepsImpl rasScenario4StepsImpl;
+	public static RASSubjectFlagsStepsImpl rasSubjectFlagsStepsImpl;
 	public static RAS_Scenario_Five_StepsImpl ras_scenario_five_stepsImpl;
 	public static RAS_Screener_Constants ras_Screener_Constants;
 	public static RAS_Survey_Constants ras_Survey_Constants;
@@ -476,6 +477,7 @@ public class PageInitializer extends WebDriverUtils {
 		rasScenario2StepsImpl = new RasScenario2StepsImpl();
 		rasScenario3StepsImpl = new RasScenario3StepsImpl();
 		rasScenario4StepsImpl = new RasScenario4StepsImpl();
+		rasSubjectFlagsStepsImpl = new RASSubjectFlagsStepsImpl();
 		ras_scenario_five_stepsImpl = new RAS_Scenario_Five_StepsImpl();
 		rasopathyQuestionnairePage = new RAS_Screener_Page();
 		ras_Screener_Constants = new RAS_Screener_Constants();
