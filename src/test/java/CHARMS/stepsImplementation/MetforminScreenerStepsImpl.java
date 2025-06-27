@@ -347,12 +347,9 @@ public class MetforminScreenerStepsImpl extends PageInitializer {
 
     /*** THIS METHOD WILL SUBMIT METFORMIN SCREENER FROM PORTAL ***/
     public void clickSubmitButton() {
-
     }
 
     /*** THIS METHOD WILL SUBMIT AND ASSERT ALL THE SCENARIOS FOR METFORMIN SCREENER FROM PORTAL ***/
     public void submitAllScenarios() {
     }
-
-
 }
