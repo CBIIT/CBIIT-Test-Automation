@@ -4,6 +4,7 @@ import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 
 public class NativeViewCHARMSParticipantConsentPage {
 
@@ -351,6 +352,16 @@ public class NativeViewCHARMSParticipantConsentPage {
      */
     @FindBy(xpath = "//button[@id='complete_consent']")
     public WebElement rasStudyConsentCompleteConsentButton;
+
+    /**
+     * Dynamically locates a web element representing a tab using its visible text.
+     *
+     * @param tabText the visible text of the tab to be located
+     * @return the WebElement corresponding to the specified tab text
+     */
+    public static WebElement dynamicTabLocator(String tabText) {
+        return locateByXpath("//span[normalize-space()='" + tabText +"']");
+    }
 
     public NativeViewCHARMSParticipantConsentPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);

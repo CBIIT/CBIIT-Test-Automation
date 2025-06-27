@@ -141,6 +141,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static RasScenario2StepsImpl rasScenario2StepsImpl;
 	public static RasScenario3StepsImpl rasScenario3StepsImpl;
 	public static RasScenario4StepsImpl rasScenario4StepsImpl;
+	public static RASSubjectFlagsStepsImpl rasSubjectFlagsStepsImpl;
 	public static RAS_Scenario_Five_StepsImpl ras_scenario_five_stepsImpl;
 	public static RAS_Screener_Constants ras_Screener_Constants;
 	public static RAS_Survey_Constants ras_Survey_Constants;
@@ -169,6 +170,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static IIQ_TestDataManager iiq_TestDataManager;
 	public static NV_Clinic_Visits_TestDataManager nv_Clinic_Visits_TestDataManager;
 	public static NV_New_Appointment_TestDataManager nv_New_Appointment_TestDataManager;
+	public static NV_Subject_Flags_TestDataManager nv_subject_flags_testDataManager;
 	public static ReferralTablePage referralTablePage;
 	public static FanconiEligibilityQuestionnairePage fanconiEligibilityQuestionnairePage;
 	public static FanconiScreenerNVPage fanconiScreenerNVPage;
@@ -475,6 +477,7 @@ public class PageInitializer extends WebDriverUtils {
 		rasScenario2StepsImpl = new RasScenario2StepsImpl();
 		rasScenario3StepsImpl = new RasScenario3StepsImpl();
 		rasScenario4StepsImpl = new RasScenario4StepsImpl();
+		rasSubjectFlagsStepsImpl = new RASSubjectFlagsStepsImpl();
 		ras_scenario_five_stepsImpl = new RAS_Scenario_Five_StepsImpl();
 		rasopathyQuestionnairePage = new RAS_Screener_Page();
 		ras_Screener_Constants = new RAS_Screener_Constants();
@@ -493,6 +496,7 @@ public class PageInitializer extends WebDriverUtils {
 		iiq_TestDataManager = new IIQ_TestDataManager();
 		nv_Clinic_Visits_TestDataManager = new NV_Clinic_Visits_TestDataManager();
 		nv_New_Appointment_TestDataManager = new NV_New_Appointment_TestDataManager();
+		nv_subject_flags_testDataManager = new NV_Subject_Flags_TestDataManager();
 		cgbIIQPage = new CGBIIQPage();
 		cGBIIQPages = new CGBIIQPages();
 		rAS_Survey_Page = new RAS_Survey_Page();

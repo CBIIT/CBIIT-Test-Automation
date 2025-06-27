@@ -1,5 +1,6 @@
 package APPS_COMMON.Pages;
 
+import com.nci.automation.web.CommonUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -73,6 +74,7 @@ public class NativeView_SideDoor_Dashboard_Page {
 	
     /* USE THIS METHOD TO SEARCH ANY TEXT USING THE NATIVE VIEW FILTER NAVIGATOR @param text @return */
     public static WebElement dynamicFilterNavigatorTextSearch(String text) {
+        CommonUtils.sleep(1000);
         return shadow.findElementByXPath("//*[text()='" + text + "'][1]");
     }    
     public NativeView_SideDoor_Dashboard_Page() {
