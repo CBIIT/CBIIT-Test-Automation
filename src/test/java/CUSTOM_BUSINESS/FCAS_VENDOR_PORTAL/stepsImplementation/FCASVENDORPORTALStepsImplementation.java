@@ -221,7 +221,7 @@ public class FCASVENDORPORTALStepsImplementation extends PageInitializer {
     /**
      * Beneficiary Occupant Date Field Submit Work Order
      */
-    public static void verifyBeneficiaryOccupantDateFieldField() {
+    public static void verifyBeneficiaryOccupantDateField() {
         softAssert.assertTrue(fCASVENDORPORTALPage.beneficiaryOccupantDateFieldSubmitWorkOrder.isDisplayed());
     }
 
