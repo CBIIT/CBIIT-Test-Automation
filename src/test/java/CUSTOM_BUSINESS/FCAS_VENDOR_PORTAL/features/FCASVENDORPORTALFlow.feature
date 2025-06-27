@@ -119,7 +119,7 @@ Feature: FCAS Vendor Portal Flow
     When User clicks on Company Account tab
     Then User can verify Company Account tab page header
 
-  @Alena @Regression @selenium @OASYS-3765 @Progression
+  @Alena @Regression @selenium @OASYS-3765
   Scenario: FCAS Vendor Portal User leaves feedback
     Given User accepts PII Disclaimer
     When User chooses to leave feedback
@@ -130,8 +130,3 @@ Feature: FCAS Vendor Portal Flow
     And User chooses Yes for Is the FCAS Vendor Portal organized in a user-friendly way
     And User inputs comments for Is there anything else you think we should know regarding the FCAS Vendor Portal Application question
     And User clicks Submit feedback button
-
-
-
-
-
