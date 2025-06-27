@@ -159,6 +159,7 @@ public class MetforminScreenerStepsImpl extends PageInitializer {
         /***** RACE *****/
         CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.metforminParticipantRaceLabel, MetforminScreenerConstants.WHAT_IS_YOUR_THE_PARTICIPANTS_RACE_PLEASE_SELECT_ALL_THAT_APPLY, "What is your/the participant's race? Please select all that apply. Label");
         CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.metforminParticipantRaceInput, MetforminScreenerConstants.RACE, metforminScreener_TestDataManager.whatIsYourTheParticipantsRacePleaseSelectAllThatApply);
+        CommonUtils.sleep(500);
         metforminScreenerPage.metforminParticipantRaceInput.sendKeys(org.openqa.selenium.Keys.TAB);
         /***** ETHNICITY *****/
         CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanContainText(MetforminScreenerConstants.WHAT_IS_YOUR_THE_PARTICIPANTS_ETHNICITY), MetforminScreenerConstants.WHAT_IS_YOUR_THE_PARTICIPANTS_ETHNICITY, "What is your/the participant's ethnicity? Label");
@@ -344,11 +345,14 @@ public class MetforminScreenerStepsImpl extends PageInitializer {
         CharmsUtil.assertButtonLabel(softAssert, metforminScreenerPage.dynamicLocatorForButtonUsingNormalizeSpace("Submit"), "Submit", "Submit button Label");
     }
 
+    /*** THIS METHOD WILL SUBMIT METFORMIN SCREENER FROM PORTAL ***/
+    public void clickSubmitButton() {
+
+    }
+
     /*** THIS METHOD WILL SUBMIT AND ASSERT ALL THE SCENARIOS FOR METFORMIN SCREENER FROM PORTAL ***/
     public void submitAllScenarios() {
     }
 
-    /*** THIS METHOD WILL SUBMIT METFORMIN SCREENER FROM PORTAL ***/
-    public void clickSubmitButton() {
-    }
+
 }
