@@ -105,6 +105,18 @@ public class NativeViewCHARMSParticipantStudyPage {
     public WebElement reConsentButton;
 
     /**
+     * RASopathy Survey Subject Flags tab
+     */
+    @FindBy(xpath = "//span[@class='tab_caption_text' and contains(text(), 'Subject Flags')]")
+    public WebElement subjectFlagsTab;
+
+    /**
+     * RASopathy Survey Subject Flags tab
+     */
+    @FindBy(xpath = "//tr[@record_class='x_naci_family_coho_subject_flag']//a[contains(@aria-label, 'Preview record')]")
+    public WebElement subjectFlagsRecordPreviewButton;
+
+    /**
      * Finds and returns the WebElement for the current or previous consent record based on the Current/Previous status
      *
      * @param currentPreviousStatus the status text used to identify the consent record (e.g., "Current" or "Previous").

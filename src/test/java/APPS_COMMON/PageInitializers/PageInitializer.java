@@ -169,6 +169,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static IIQ_TestDataManager iiq_TestDataManager;
 	public static NV_Clinic_Visits_TestDataManager nv_Clinic_Visits_TestDataManager;
 	public static NV_New_Appointment_TestDataManager nv_New_Appointment_TestDataManager;
+	public static NV_Subject_Flags_TestDataManager nv_subject_flags_testDataManager;
 	public static ReferralTablePage referralTablePage;
 	public static FanconiEligibilityQuestionnairePage fanconiEligibilityQuestionnairePage;
 	public static FanconiScreenerNVPage fanconiScreenerNVPage;
@@ -493,6 +494,7 @@ public class PageInitializer extends WebDriverUtils {
 		iiq_TestDataManager = new IIQ_TestDataManager();
 		nv_Clinic_Visits_TestDataManager = new NV_Clinic_Visits_TestDataManager();
 		nv_New_Appointment_TestDataManager = new NV_New_Appointment_TestDataManager();
+		nv_subject_flags_testDataManager = new NV_Subject_Flags_TestDataManager();
 		cgbIIQPage = new CGBIIQPage();
 		cGBIIQPages = new CGBIIQPages();
 		rAS_Survey_Page = new RAS_Survey_Page();
