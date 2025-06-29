@@ -103,14 +103,14 @@ public class CTRPCTRO_NV_StepImpl extends PageInitializer {
      * @param accessTroubleshooting the subcategory option related to troubleshooting account-related issues
      * @param dataRefreshOutreach the subcategory option for data refresh outreach activities
      * @param dataReview the subcategory option for reviewing data entries or reports
-     * @param feedBack the subcategory option for providing feedback
+     * @param feedback the subcategory option for providing feedback
      * @param generalInquiries the subcategory option for general inquiries related to cases
      * @param policyDecision the subcategory option for matters involving policy decisions
      * @param technicalIssues the subcategory option for addressing technical problems
      * @param training the subcategory option for training and educational purposes
      */
     public static void following_options_are_available_in_the_subcategory_field_when_the_nci_dcc_accrual_report_category_is_selected(String accessAdditionalNCIDCCAccount,
-       String accessInitialNCIDCCAccount, String accessNCIAccount, String accessTroubleshooting, String dataRefreshOutreach, String dataReview, String feedBack,
+       String accessInitialNCIDCCAccount, String accessNCIAccount, String accessTroubleshooting, String dataRefreshOutreach, String dataReview, String feedback,
        String generalInquiries, String policyDecision, String technicalIssues, String training) {
         CommonUtils.selectDropDownValue(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseSubcategoryFieldDropDown, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACCESS_ADDITIONAL_NCI_DCC_ACCOUNT_OPTION);
         JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACCESS_ADDITIONAL_NCI_DCC_ACCOUNT_OPTION));
@@ -130,8 +130,8 @@ public class CTRPCTRO_NV_StepImpl extends PageInitializer {
         CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(dataReview));
         JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(dataReview));
         CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(feedBack));
-        JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(feedBack));
+        CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(feedback));
+        JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(feedback));
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(generalInquiries));
         JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(generalInquiries));
