@@ -35,9 +35,9 @@ public class CTRPCTRO_NV_StepImpl extends PageInitializer {
                 "This assertion verifies the Category field 'NCI DCC Accrual Report' on the CTRP CTRO NV Case");
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryField(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD));
-        CommonUtils.selectDropDownValue(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseSubcategoryFieldDropDown, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACOUNT_RELATED_OPTION);
-        CommonUtils.assertEqualsWithMessage(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACOUNT_RELATED_OPTION).getText(), CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACOUNT_RELATED_OPTION,
-                "This assertion verifies the Sub Category field 'Account Related' on the CTRP CTRO NV Case");
+        CommonUtils.selectDropDownValue(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseSubcategoryFieldDropDown, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACCESS_ADDITIONAL_NCI_DCC_ACCOUNT_OPTION);
+        CommonUtils.assertEqualsWithMessage(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACCESS_ADDITIONAL_NCI_DCC_ACCOUNT_OPTION).getText(), CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACCESS_ADDITIONAL_NCI_DCC_ACCOUNT_OPTION,
+                "This assertion verifies the Sub Category field 'Access Additional NCI DCC Account' on the CTRP CTRO NV Case");
         CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseAssignmentGroupFieldSearchBox);
         CommonUtils.sendKeys(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseAssignmentGroupFieldSearchBox, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_ASSIGNMENT_GROUP_FIELD_SEARCH_BOX_OPTION);
         CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseShortDescriptionFieldTextBox);
@@ -94,19 +94,44 @@ public class CTRPCTRO_NV_StepImpl extends PageInitializer {
     }
 
     /**
-     * This method verifies the Subcategory options for new added Category field for CTRP/CTRO Case in Native View
+     * This method verifies and interacts with the available subcategory options in the subcategory field
+     * when the NCI DCC Accrual Report category is selected in the CTRP/CTRO Helpdesk Case scenario.
      *
+     * @param accessAdditionalNCIDCCAccount the subcategory option for accessing additional NCI DCC accounts
+     * @param accessInitialNCIDCCAccount the subcategory option for accessing initial NCI DCC accounts
+     * @param accessNCIAccount the subcategory option for accessing NCI accounts
+     * @param accessTroubleshooting the subcategory option related to troubleshooting account-related issues
+     * @param dataRefreshOutreach the subcategory option for data refresh outreach activities
+     * @param dataReview the subcategory option for reviewing data entries or reports
+     * @param feedback the subcategory option for providing feedback
+     * @param generalInquiries the subcategory option for general inquiries related to cases
+     * @param policyDecision the subcategory option for matters involving policy decisions
+     * @param technicalIssues the subcategory option for addressing technical problems
+     * @param training the subcategory option for training and educational purposes
      */
-    public static void following_options_are_available_in_the_subcategory_field_when_the_nci_dcc_accrual_report_category_is_selected(String accountRelated,
-      String dataReview, String feedBack, String generalInquiries, String policyDecision, String technicalIssues, String training) {
-        CommonUtils.selectDropDownValue(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseSubcategoryFieldDropDown, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACOUNT_RELATED_OPTION);
-        JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACOUNT_RELATED_OPTION));
-        CommonUtils.assertTrue(accountRelated.contains(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACOUNT_RELATED_OPTION).getText()));
+    public static void following_options_are_available_in_the_subcategory_field_when_the_nci_dcc_accrual_report_category_is_selected(String accessAdditionalNCIDCCAccount,
+       String accessInitialNCIDCCAccount, String accessNCIAccount, String accessTroubleshooting, String dataRefreshOutreach, String dataReview, String feedback,
+       String generalInquiries, String policyDecision, String technicalIssues, String training) {
+        CommonUtils.selectDropDownValue(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseSubcategoryFieldDropDown, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACCESS_ADDITIONAL_NCI_DCC_ACCOUNT_OPTION);
+        JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACCESS_ADDITIONAL_NCI_DCC_ACCOUNT_OPTION));
+        CommonUtils.assertTrue(accessAdditionalNCIDCCAccount.contains(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACCESS_ADDITIONAL_NCI_DCC_ACCOUNT_OPTION).getText()));
+        CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(accessInitialNCIDCCAccount));
+        JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(accessInitialNCIDCCAccount));
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(accessNCIAccount));
+        JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(accessNCIAccount));
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(accessTroubleshooting));
+        JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(accessTroubleshooting));
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(dataRefreshOutreach));
+        JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(dataRefreshOutreach));
+        CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(dataReview));
         JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(dataReview));
         CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(feedBack));
-        JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(feedBack));
+        CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(feedback));
+        JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(feedback));
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(generalInquiries));
         JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(generalInquiries));
@@ -232,6 +257,7 @@ public class CTRPCTRO_NV_StepImpl extends PageInitializer {
        CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseShortDescriptionFieldTextBox);
        CommonUtils.sendKeys(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseShortDescriptionFieldTextBox, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SHORT_DESCRIPTION_FIELD_TEXT_BOX_OPTION);
        CucumberLogUtils.logScreenshot();
+       CommonUtils.waitForClickability(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseSubmitButton);
        CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseSubmitButton.click();
        CucumberLogUtils.logScreenshot();
        CommonUtils.selectDropDownValue(CTRPCTRO_NV_Page.ctrpCTRONVAllCasesSearchDropDown, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_ALL_CASES_SEARCH_DROP_DOWN);
