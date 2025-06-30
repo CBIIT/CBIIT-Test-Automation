@@ -396,4 +396,52 @@ public class FCASVENDORPORTALSteps {
     public void user_clicks_submit_feedback_button() {
         CommonUtils.clickOnElement(fCASVENDORPORTALPage. buttonSubmitFeedback);
     }
+
+    /**
+     * User clicks on Planning tab
+     */
+    @Given("User navigates to Planning page")
+    public void user_navigates_to_planning_page() {
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.planningTab);
+    }
+
+    @Given("User can see Planning page header")
+    public void user_can_see_planning_page_header() {
+      FCASVENDORPORTALStepsImplementation.verifyPlanningPageHeader();
+    }
+
+    @Given("User can see Search field")
+    public void user_can_see_search_field() {
+       FCASVENDORPORTALStepsImplementation.verifySearchFieldPlanningTab();
+    }
+
+    @Given("User can see All statuses dropdown")
+    public void user_can_see_all_statuses_dropdown() {
+      FCASVENDORPORTALStepsImplementation.verifyAllStatusesDropdown();
+    }
+
+    @Given("User can see Title Planning tab column")
+    public void user_can_see_title_planning_tab_column() {
+       FCASVENDORPORTALStepsImplementation.verifyTitleColumnPlanningTab();
+    }
+
+    @Given("User can see ID column")
+    public void user_can_see_id_column() {
+      FCASVENDORPORTALStepsImplementation.verifyIDColumnPlanningTab();
+    }
+
+    @Given("User can see Requested by column")
+    public void user_can_see_requested_by_column() {
+      FCASVENDORPORTALStepsImplementation.verifyRequestedByColumnPlanningTab();
+    }
+
+    @Given("User can see Est. Award Date column")
+    public void user_can_see_est_award_date_column() {
+     FCASVENDORPORTALStepsImplementation.verifyEstAwardDateColumnPlanningTab();
+    }
+
+    @Given("User can see Last Updated column")
+    public void user_can_see_last_updated_column() {
+       FCASVENDORPORTALStepsImplementation.verifyLastUpdatedColumnPlanningTab();
+    }
 }

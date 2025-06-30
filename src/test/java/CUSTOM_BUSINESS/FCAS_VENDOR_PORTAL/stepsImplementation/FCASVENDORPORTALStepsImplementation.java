@@ -378,4 +378,60 @@ public class FCASVENDORPORTALStepsImplementation extends PageInitializer {
     public static void verifyLeaveFeedbackModalPageHeader() {
         softAssert.assertTrue(fCASVENDORPORTALPage.leaveFeedbackModalPageHeader.isDisplayed());
     }
+
+    /**
+     * Verify Planning page header
+     */
+    public static void verifyPlanningPageHeader() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningPageHeader.isDisplayed());
+    }
+
+    /**
+     * Verify All Statuses dropdown Planning page
+     */
+    public static void verifyAllStatusesDropdown() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.allStatusesDropdown.isDisplayed());
+    }
+
+    /**
+     * Verify Search field Planning page
+     */
+    public static void verifySearchFieldPlanningTab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningPageSearchField.isDisplayed());
+    }
+
+    /**
+     * Verify Title column Planning page
+     */
+    public static void verifyTitleColumnPlanningTab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningPageTitleColumn.isDisplayed());
+    }
+
+    /**
+     * Verify ID column Planning page
+     */
+    public static void verifyIDColumnPlanningTab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningPageIDColumn.isDisplayed());
+    }
+
+    /**
+     * Verify Requested By column Planning page
+     */
+    public static void verifyRequestedByColumnPlanningTab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningPageRequestedByColumn.isDisplayed());
+    }
+
+    /**
+     * Verify Est. Award Date column Planning page
+     */
+    public static void verifyEstAwardDateColumnPlanningTab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningPageEstAwardDateColumn.isDisplayed());
+    }
+
+    /**
+     * Verify Last Updated column Planning page
+     */
+    public static void verifyLastUpdatedColumnPlanningTab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningPageLastUpdatedColumn.isDisplayed());
+    }
 }

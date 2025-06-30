@@ -130,3 +130,18 @@ Feature: FCAS Vendor Portal Flow
     And User chooses Yes for Is the FCAS Vendor Portal organized in a user-friendly way
     And User inputs comments for Is there anything else you think we should know regarding the FCAS Vendor Portal Application question
     And User clicks Submit feedback button
+
+  @Alena @Regression @selenium @OASYS-3623 @Progression
+  Scenario: Planning page layout
+    Given User accepts PII Disclaimer
+    And User navigates to Planning page
+    And User can see Planning page header
+    And User can see Search field
+    And User can see All statuses dropdown
+    And User can see Title Planning tab column
+    And User can see ID column
+    And User can see Requested by column
+    And User can see Severability column
+    And User can see Est. Award Date column
+    And User can see Last Updated column
+    And User can see Status column

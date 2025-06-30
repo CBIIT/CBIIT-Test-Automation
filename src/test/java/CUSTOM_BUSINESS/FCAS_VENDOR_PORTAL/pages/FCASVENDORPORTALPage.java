@@ -276,9 +276,41 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "//input[@ng-reflect-name='additionalComments']")
     public WebElement textFieldAdditionalComments;
 
-    /** button Submit feedabck*/
+    /** button Submit feedback*/
     @FindBy(xpath = "//button//span[.=' Submit ']")
     public WebElement buttonSubmitFeedback;
+
+    /** Planning page header*/
+    @FindBy(xpath = "//h1[.='Planning']")
+    public WebElement planningPageHeader;
+
+    /** All Statuses dropdown*/
+    @FindBy(xpath = "//div//span[.='All Statuses']")
+    public WebElement allStatusesDropdown;
+
+    /** Planning page Search field*/
+    @FindBy(xpath = "//input[@data-placeholder='Search this page...']")
+    public WebElement planningPageSearchField;
+
+    /** Planning page Title column*/
+    @FindBy(xpath = "(//div[.=' Title '])[1]")
+    public WebElement planningPageTitleColumn;
+
+    /** Planning page ID column*/
+    @FindBy(xpath = "(//div[.=' ID '])[1]")
+    public WebElement planningPageIDColumn;
+
+    /** Planning page Requested By column*/
+    @FindBy(xpath = "(//div[.=' Requested By '])[1]")
+    public WebElement planningPageRequestedByColumn;
+
+    /** Planning page Est. Award Date column*/
+    @FindBy(xpath = "(//div[.=' Est. Award Date '])[1]")
+    public WebElement planningPageEstAwardDateColumn;
+
+    /** Planning page Last Updated column*/
+    @FindBy(xpath = "(//div[.=' Last Updated '])[1]")
+    public WebElement planningPageLastUpdatedColumn;
 
     public FCASVENDORPORTALPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
