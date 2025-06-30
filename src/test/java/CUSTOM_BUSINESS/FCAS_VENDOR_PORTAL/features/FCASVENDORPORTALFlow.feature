@@ -131,7 +131,7 @@ Feature: FCAS Vendor Portal Flow
     And User inputs comments for Is there anything else you think we should know regarding the FCAS Vendor Portal Application question
     And User clicks Submit feedback button
 
-  @Alena @Regression @selenium @OASYS-3623 @Progression
+  @Alena @Regression @selenium @OASYS-3623
   Scenario: Planning page layout
     Given User accepts PII Disclaimer
     And User navigates to Planning page
