@@ -650,5 +650,6 @@ public class CharmsUtil {
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(oktaLoginPage.agreeBtn);
         CharmsUtil.clickOnElement(oktaLoginPage.agreeBtn);
+        CommonUtils.sleep(1000);
     }
 }

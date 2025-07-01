@@ -55,6 +55,7 @@ public class MetforminScreenerConstants {
 	public static final String REMOVE_ALL = "Remove All";
 	public static final String NO_DATA_TO_DISPLAY = "No data to display";
 	public static final String TUMOR_TYPE = "Tumor Type";
+	public static final String AGE = "Age";
 	public static final String HAVE_YOU_THE_PARTICIPANT_HAD_SURGERY_TO_REMOVE_CANCER_LAST_3_MONTHS = "Have you/the participant had surgery to remove a cancer in the last 3 months?";
 	public static final String HAVE_YOU_THE_PARTICIPANT_RECEIVED_CHEMOTHERAPY_OR_RADIATION_LAST_6_MONTHS = "Have you/the participant received chemotherapy or radiation in the last 6 months?";
 	public static final String PLEASE_PROVIDE_THE_DATE_OF_SURGERY = "Please provide the date of surgery.";
@@ -93,6 +94,14 @@ public class MetforminScreenerConstants {
 	public static final String PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_TREATED = "Please provide the name of the institution where the cancer was treated.";
 	public static final String PLEASE_PROVIDE_THE_NAME_OF_THE_TREATING_PHYSICIAN = "Please provide the name of the treating physician.";
 	public static final String ADDITIONAL_DETAILS = "Additional Details";
+	public static final String SUBMIT_SCREEN_TEXT1 = "Submit Screen Text1";
+	public static final String SUBMIT_SCREEN_TEXT2 = "Submit Screen Text2";
+	public static final String SUBMIT_SCREEN_TEXT3 = "Submit Screen Text3";
+	public static final String OK = "OK";
+	public static final String PROXY_FIRST_NAME = "Proxy First Name";
+	public static final String PROXY_MIDDLE_INITIAL = "Proxy Middle Initial";
+	public static final String PROXY_LAST_NAME = "Proxy Last Name";
+
 
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> VITAL_STATUS_LIST = new ArrayList<String>() {
