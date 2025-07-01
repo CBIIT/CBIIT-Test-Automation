@@ -100,7 +100,6 @@ Feature: FCAS Vendor Portal Flow
     Given User accepts PII Disclaimer
     And User is on Existing Contracts page
     And User can see Title column
-    And User can see PIID column
     And User can see Ref PIID column
     And User can see Severability column
     And User can see PIID column
@@ -124,11 +123,10 @@ Feature: FCAS Vendor Portal Flow
     Given User accepts PII Disclaimer
     When User chooses to leave feedback
     Then User is on Leave Feedback modal
-    And User chooses Yes for The FCAS Vendor Portal application was user friendly
-    And User chooses No for was easy to upload document files to the FCAS Vendor Portal
-    And User chooses No for Is there additional information you think should be included in the FCAS Vendor Portal User Guide
-    And User chooses Yes for Is the FCAS Vendor Portal organized in a user-friendly way
-    And User inputs comments for Is there anything else you think we should know regarding the FCAS Vendor Portal Application question
+    And User chooses No for "Was easy to upload document files to the FCAS Vendor Portal"
+    And User chooses No answer for "Is there additional information you think should be included in the FCAS Vendor Portal User Guide"
+    And User chooses Yes for "Is the FCAS Vendor Portal organized in a user-friendly way"
+    And User inputs comments for "Is there anything else you think we should know regarding the FCAS Vendor Portal Application" question
     And User clicks Submit feedback button
 
   @Alena @Regression @selenium @OASYS-3623

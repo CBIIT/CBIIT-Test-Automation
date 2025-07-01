@@ -196,7 +196,7 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "//div//input[@ng-reflect-placeholder ='Notification # *']")
     public WebElement notificationFieldSubmitNotification;
 
-    /** Existing Contracts page  Title column*/
+    /** Existing Contracts page Title column*/
     @FindBy(xpath = "(//div//div[.=' Title '])[1]")
     public WebElement existingContractsPageTitleColumn;
 
@@ -248,11 +248,11 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "//h1[.='LEIDOS BIOMEDICAL RESEARCH, INC.']")
     public WebElement companyAccountTabPageHeader;
 
-    /** leave Feedback Button*/
+    /** Leave Feedback Button*/
     @FindBy(xpath = "//button//span[.='Leave Feedback']")
     public WebElement leaveFeedbackButton;
 
-    /** leave Feedback modal page header*/
+    /** Leave Feedback modal page header*/
     @FindBy(xpath = "//h2[.='Leave Feedback']")
     public WebElement leaveFeedbackModalPageHeader;
 
@@ -268,15 +268,15 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "//mat-radio-group[@ng-reflect-name='isGuideUseful']//mat-radio-button[@ng-reflect-value='NO']")
     public WebElement noRadioButtonIsGuideUseful;
 
-    /** No radio button forIs the FCAS Vendor Portal organized in a user-friendly way?*/
+    /** Yes radio button forIs the FCAS Vendor Portal organized in a user-friendly way?*/
     @FindBy(xpath = "//mat-radio-group[@ng-reflect-name='isOrganized']//mat-radio-button[@ng-reflect-value='YES']")
-    public WebElement noRadioButtonIsOrganized;
+    public WebElement yesRadioButtonIsOrganized;
 
-    /** text field for . Is there anything else you think we should know regarding the FCAS Vendor Portal Application?*/
+    /** Text field for . Is there anything else you think we should know regarding the FCAS Vendor Portal Application?*/
     @FindBy(xpath = "//input[@ng-reflect-name='additionalComments']")
     public WebElement textFieldAdditionalComments;
 
-    /** button Submit feedback*/
+    /** Button Submit feedback*/
     @FindBy(xpath = "//button//span[.=' Submit ']")
     public WebElement buttonSubmitFeedback;
 

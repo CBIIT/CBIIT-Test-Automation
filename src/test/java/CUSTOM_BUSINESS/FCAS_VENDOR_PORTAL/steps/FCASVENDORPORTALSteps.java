@@ -1,15 +1,15 @@
 package CUSTOM_BUSINESS.FCAS_VENDOR_PORTAL.steps;
 
-import CUSTOM_BUSINESS.FCAS_VENDOR_PORTAL.pages.FCASVENDORPORTALPage;
+import CUSTOM_BUSINESS.FCAS_VENDOR_PORTAL.constants.fcasVendorPortalConstants;
 import CUSTOM_BUSINESS.FCAS_VENDOR_PORTAL.stepsImplementation.FCASVENDORPORTALStepsImplementation;
 import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import static APPS_COMMON.PageInitializers.PageInitializer.fCASVENDORPORTALPage;
-import static APPS_COMMON.PageInitializers.PageInitializer.fCASVENDORPORTALStepsImplementation;
+import static APPS_COMMON.PageInitializers.PageInitializer.fHQConstants;
+import static Hooks.Hooks.softAssert;
 
 public class FCASVENDORPORTALSteps {
 
@@ -306,34 +306,52 @@ public class FCASVENDORPORTALSteps {
         FCASVENDORPORTALStepsImplementation.verifyExistingContractsTab();
     }
 
+    /**
+     * Click on Planning tab
+     */
     @When("User clicks on Planning tab")
     public void user_clicks_on_planning_tab() {
-        FCASVENDORPORTALStepsImplementation.clickOnPlanningTab();
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.planningTab);
     }
 
+    /**
+     * Verify Planning tab page header
+     */
     @Then("User can verify Planning tab page header")
     public void user_can_verify_planning_tab_page_header() {
-        FCASVENDORPORTALStepsImplementation.verifyPlanningTabPageHeader();
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningTabPageHeader.isDisplayed());
     }
 
+    /**
+     * Click on Solicitation tab
+     */
     @When("User clicks on Solicitations tab")
     public void user_clicks_on_solicitations_tab() {
-        FCASVENDORPORTALStepsImplementation.clickOnSolicitationTab();
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.solicitationsTab);
     }
 
+    /**
+     * Verify Solicitation tab page header
+     */
     @Then("User can verify Solicitation tab page header")
     public void user_can_verify_solicitation_tab_page_header() {
-        FCASVENDORPORTALStepsImplementation.verifySolicitationTabPageHeader();
+        softAssert.assertTrue(fCASVENDORPORTALPage.solicitationsTabPageHeader.isDisplayed());
     }
 
+    /**
+     * Click on Company Account tab
+     */
     @When("User clicks on Company Account tab")
     public void user_clicks_on_company_account_tab() {
-        FCASVENDORPORTALStepsImplementation.clickOnCompanyAccountTab();
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.companyAccountTab);
     }
 
+    /**
+     * Verify Company Account tab page header
+     */
     @Then("User can verify Company Account tab page header")
     public void user_can_verify_company_account_tab_page_header() {
-        FCASVENDORPORTALStepsImplementation.verifyCompanyAccountTabPageHeader();
+        softAssert.assertTrue(fCASVENDORPORTALPage.companyAccountTabPageHeader.isDisplayed());
     }
 
     /**
@@ -344,9 +362,12 @@ public class FCASVENDORPORTALSteps {
      CommonUtils.clickOnElement(fCASVENDORPORTALPage.leaveFeedbackButton);
     }
 
+    /**
+     * Verify LeaveFeedbackModal page header
+     */
     @Then("User is on Leave Feedback modal")
     public void user_is_on_leave_feedback_modal() {
-      FCASVENDORPORTALStepsImplementation.verifyLeaveFeedbackModalPageHeader();
+        softAssert.assertTrue(fCASVENDORPORTALPage.leaveFeedbackModalPageHeader.isDisplayed());
     }
 
     /**
@@ -360,33 +381,30 @@ public class FCASVENDORPORTALSteps {
     /**
      * Click on No for was easy to upload document files to the FCAS Vendor Portal
      */
-    @Then("User chooses No for was easy to upload document files to the FCAS Vendor Portal")
-    public void user_chooses_no_for_was_easy_to_upload_document_files_to_the_fcas_vendor_portal() {
+    @Then("User chooses No for {string}")
+    public void user_chooses_no_for(String easyUpload) {
         CommonUtils.clickOnElement(fCASVENDORPORTALPage.noRadioButtonWasUploadEasy);
     }
 
-    /**
-     * Click on No for Is there additional information you think should be included in the FCAS Vendor Portal User Guide
-     */
-    @Then("User chooses No for Is there additional information you think should be included in the FCAS Vendor Portal User Guide")
-    public void user_chooses_no_for_is_there_additional_information_you_think_should_be_included_in_the_fcas_vendor_portal_user_guide() {
+    @Then("User chooses No answer for {string}")
+    public void user_chooses_no_answer_for(String additionalInfo) {
         CommonUtils.clickOnElement(fCASVENDORPORTALPage.noRadioButtonIsGuideUseful);
     }
 
     /**
      * Click on Yes for Is the FCAS Vendor Portal organized in a user-friendly way
      */
-    @Then("User chooses Yes for Is the FCAS Vendor Portal organized in a user-friendly way")
-    public void user_chooses_yes_for_is_the_fcas_vendor_portal_organized_in_a_user_friendly_way() {
-        CommonUtils.clickOnElement(fCASVENDORPORTALPage.noRadioButtonIsOrganized);
+    @Then("User chooses Yes for {string}")
+    public void user_chooses_yes_for(String userFriendlyPortal) {
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.yesRadioButtonIsOrganized);
     }
 
     /**
      * User inputs comments for Is there anything else you think we should know regarding the FCAS Vendor Portal Application
      */
-    @Then("User inputs comments for Is there anything else you think we should know regarding the FCAS Vendor Portal Application question")
-    public void user_inputs_comments_for_is_there_anything_else_you_think_we_should_know_regarding_the_fcas_vendor_portal_application_question() {
-       CommonUtils.sendKeys(fCASVENDORPORTALPage.textFieldAdditionalComments,"Comments");
+    @Then("User inputs comments for {string} question")
+    public void user_inputs_comments_for_question(String commentsQuestion) {
+        CommonUtils.sendKeys(fCASVENDORPORTALPage.textFieldAdditionalComments, fcasVendorPortalConstants.COMMENTS);
     }
 
     /**
@@ -394,7 +412,7 @@ public class FCASVENDORPORTALSteps {
      */
     @Then("User clicks Submit feedback button")
     public void user_clicks_submit_feedback_button() {
-        CommonUtils.clickOnElement(fCASVENDORPORTALPage. buttonSubmitFeedback);
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.buttonSubmitFeedback);
     }
 
     /**
@@ -405,43 +423,67 @@ public class FCASVENDORPORTALSteps {
         CommonUtils.clickOnElement(fCASVENDORPORTALPage.planningTab);
     }
 
+    /**
+     * Verify Planning page header
+     */
     @Given("User can see Planning page header")
     public void user_can_see_planning_page_header() {
-      FCASVENDORPORTALStepsImplementation.verifyPlanningPageHeader();
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningPageHeader.isDisplayed());
     }
 
+    /**
+     * Verify Search field Planning page
+     */
     @Given("User can see Search field")
     public void user_can_see_search_field() {
-       FCASVENDORPORTALStepsImplementation.verifySearchFieldPlanningTab();
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningPageSearchField.isDisplayed());
     }
 
+    /**
+     * Verify All Statuses dropdown Planning page
+     */
     @Given("User can see All statuses dropdown")
     public void user_can_see_all_statuses_dropdown() {
-      FCASVENDORPORTALStepsImplementation.verifyAllStatusesDropdown();
+        softAssert.assertTrue(fCASVENDORPORTALPage.allStatusesDropdown.isDisplayed());
     }
 
+    /**
+     * Verify Title column Planning page
+     */
     @Given("User can see Title Planning tab column")
     public void user_can_see_title_planning_tab_column() {
-       FCASVENDORPORTALStepsImplementation.verifyTitleColumnPlanningTab();
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningPageTitleColumn.isDisplayed());
     }
 
+    /**
+     * Verify ID column Planning page
+     */
     @Given("User can see ID column")
     public void user_can_see_id_column() {
-      FCASVENDORPORTALStepsImplementation.verifyIDColumnPlanningTab();
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningPageIDColumn.isDisplayed());
     }
 
+    /**
+     * Verify Requested By column Planning page
+     */
     @Given("User can see Requested by column")
     public void user_can_see_requested_by_column() {
-      FCASVENDORPORTALStepsImplementation.verifyRequestedByColumnPlanningTab();
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningPageRequestedByColumn.isDisplayed());
     }
 
+    /**
+     * Verify Est. Award Date column Planning page
+     */
     @Given("User can see Est. Award Date column")
     public void user_can_see_est_award_date_column() {
-     FCASVENDORPORTALStepsImplementation.verifyEstAwardDateColumnPlanningTab();
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningPageEstAwardDateColumn.isDisplayed());
     }
 
+    /**
+     * Verify Last Updated column Planning page
+     */
     @Given("User can see Last Updated column")
     public void user_can_see_last_updated_column() {
-       FCASVENDORPORTALStepsImplementation.verifyLastUpdatedColumnPlanningTab();
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningPageLastUpdatedColumn.isDisplayed());
     }
 }
