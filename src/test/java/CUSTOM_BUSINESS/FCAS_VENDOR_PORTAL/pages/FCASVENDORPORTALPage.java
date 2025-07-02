@@ -312,6 +312,22 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "(//div[.=' Last Updated '])[1]")
     public WebElement planningPageLastUpdatedColumn;
 
+    /** Quick filter Proposal Requested */
+    @FindBy(xpath = "//div[.='Proposal Requested']")
+    public WebElement quickFilterProposalRequested;
+
+    /** Quick filter Active */
+    @FindBy(xpath = "//div[.='Active']")
+    public WebElement quickFilterActive;
+
+    /** Quick filter Submitted */
+    @FindBy(xpath = "//div[.='Submitted']")
+    public WebElement quickFilterSubmitted;
+
+    /** Quick filter Rejected */
+    @FindBy(xpath = "//div[.='Rejected']")
+    public WebElement quickFilterRejected;
+
     public FCASVENDORPORTALPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

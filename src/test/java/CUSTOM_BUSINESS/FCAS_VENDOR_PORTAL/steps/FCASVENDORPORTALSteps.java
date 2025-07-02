@@ -614,4 +614,44 @@ public class FCASVENDORPORTALSteps {
     public void user_can_see_last_updated_column() {
         softAssert.assertTrue(fCASVENDORPORTALPage.planningPageLastUpdatedColumn.isDisplayed());
     }
+
+    /**
+     * User navigates to Solicitations page
+     */
+    @Given("User navigates to Solicitations page")
+    public void user_navigates_to_solicitations_page() {
+       CommonUtils.clickOnElement(fCASVENDORPORTALPage.solicitationsTab);
+    }
+
+    /**
+     * Verify Proposal Requested quick filter
+     */
+    @Given("User can see Proposal Requested quick filter")
+    public void user_can_see_proposal_requested_quick_filter() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.quickFilterProposalRequested.isDisplayed());
+    }
+
+    /**
+     * Verify Active quick filter
+     */
+    @Given("User can see Active quick filter")
+    public void user_can_see_active_quick_filter() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.quickFilterActive.isDisplayed());
+    }
+
+    /**
+     * Verify Submitted quick filter
+     */
+    @Given("User can see Submitted quick filter")
+    public void user_can_see_submitted_quick_filter() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.quickFilterSubmitted.isDisplayed());
+    }
+
+    /**
+     * Verify Rejected quick filter
+     */
+    @Given("User can see Rejected quick filter")
+    public void user_can_see_rejected_quick_filter() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.quickFilterRejected.isDisplayed());
+    }
 }

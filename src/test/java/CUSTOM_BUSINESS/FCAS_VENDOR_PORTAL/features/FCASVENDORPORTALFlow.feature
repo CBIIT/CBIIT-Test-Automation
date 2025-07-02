@@ -143,3 +143,12 @@ Feature: FCAS Vendor Portal Flow
     And User can see Est. Award Date column
     And User can see Last Updated column
     And User can see Status column
+
+  @Alena @Regression @selenium @OASYS-3623
+  Scenario: Solicitations page quick filters
+    Given User accepts PII Disclaimer
+    And User navigates to Solicitations page
+    And User can see Proposal Requested quick filter
+    And User can see Active quick filter
+    And User can see Submitted quick filter
+    And User can see Rejected quick filter
