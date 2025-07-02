@@ -1,6 +1,8 @@
 package ITSM.ESR.playwright.stepsImplementation;
 
 import APPS_COMMON.Pages.Playwright_Common_Locators;
+import com.microsoft.playwright.FrameLocator;
+import com.microsoft.playwright.options.AriaRole;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class ESRApprovalStepsImplementation {
@@ -43,6 +45,26 @@ public class ESRApprovalStepsImplementation {
      * This method confirms that the Federal Intake Approval was rejected and ESR-Q is cancelled
      */
     public static void confirmFederalIntakeApprovalWasRejectedForESRQ() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Request Cancelled");
+    }
+
+    /**
+     * This method finalizes the Federal Lead Intake Approval when the user encounters a 'Rejected Incorrect Approver' response
+     */
+    public static void federalLeadIntakeRejectionForIncorrectApproverInESRQ() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (1)").click();
+        Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("reject_incorrect_approver");
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Comments")).click();
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Comments")).fill("Approval was rejected due to incorrect approver");
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Post")).click();
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the Federal Intake Approval was rejected for ESR-Q tickets due to incorrect approver
+     */
+    public static void confirmFederalIntakeApprovalWasRejectedForIncorrectApproverInESRQ() {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Request Cancelled");
     }
 
