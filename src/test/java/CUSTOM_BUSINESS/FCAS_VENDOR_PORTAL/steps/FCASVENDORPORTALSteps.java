@@ -8,7 +8,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static APPS_COMMON.PageInitializers.PageInitializer.fCASVENDORPORTALPage;
-import static APPS_COMMON.PageInitializers.PageInitializer.fHQConstants;
 import static Hooks.Hooks.softAssert;
 
 public class FCASVENDORPORTALSteps {
@@ -26,9 +25,12 @@ public class FCASVENDORPORTALSteps {
         CommonUtils.clickOnElement(fCASVENDORPORTALPage.acceptWelcomeScreen);
     }
 
+    /**
+     * Verify Existing Contracts Page title
+     */
     @And("User is on Existing Contracts page")
     public void user_is_on_existing_contracts_page() {
-        FCASVENDORPORTALStepsImplementation.verifyExistingContractsPageTitle();
+        softAssert.assertTrue(fCASVENDORPORTALPage.existingContractsPageHeader.isDisplayed());
     }
 
     /**
@@ -44,14 +46,20 @@ public class FCASVENDORPORTALSteps {
         FCASVENDORPORTALStepsImplementation.verifyAllMyContractsOptions();
     }
 
+    /**
+     * Verify show closed contracts options
+     */
     @And("User can see Show Closed Contracts option")
     public void user_can_see_show_closed_contracts_option() {
-        FCASVENDORPORTALStepsImplementation.verifyShowClosedContractsOption();
+        softAssert.assertTrue(fCASVENDORPORTALPage.showClosedContractsOption.isDisplayed());
     }
 
+    /**
+     * Verify text Search Field Option
+     */
     @And("User can see a search page text field")
     public void user_can_see_a_search_page_text_field() {
-        FCASVENDORPORTALStepsImplementation.textSearchFieldOption();
+        softAssert.assertTrue(fCASVENDORPORTALPage.textSearchField.isDisplayed());
     }
 
     /**
@@ -64,61 +72,98 @@ public class FCASVENDORPORTALSteps {
         CommonUtils.clickOnElement(fCASVENDORPORTALPage.submitInvoiceOption);
     }
 
+    /**
+     * Verify Submit Invoice page header
+     */
     @Then("User can see Submit Invoice page header")
     public void user_can_see_submit_invoice_page_header() {
-        FCASVENDORPORTALStepsImplementation.verifySubmitInvoiceHeader();
+        softAssert.assertTrue(fCASVENDORPORTALPage.submitInvoiceHeader.isDisplayed());
     }
 
+    /**
+     * Verify Invoice field
+     */
     @Then("User can see Invoice field")
     public void user_can_see_invoice_field() {
-        FCASVENDORPORTALStepsImplementation.verifyInvoiceField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.invoiceFieldSubmitInvoice.isDisplayed());
     }
 
+    /**
+     * Verify Invoice Date field
+     */
     @Then("User can see Invoice date field")
     public void user_can_see_invoice_date_field() {
-        FCASVENDORPORTALStepsImplementation.verifyInvoiceDateField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.invoiceDateFieldSubmitInvoice.isDisplayed());
+        ;
     }
 
+    /**
+     * Verify Start Date field
+     */
     @Then("User can see Start date field")
     public void user_can_see_start_date_field() {
-        FCASVENDORPORTALStepsImplementation.verifyStartDateField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.startDateFieldSubmitInvoice.isDisplayed());
     }
 
+    /**
+     * Verify End Date field
+     */
     @Then("User can see End date field")
     public void user_can_see_end_date_field() {
-        FCASVENDORPORTALStepsImplementation.verifyEndDateField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.endDateFieldSubmitInvoice.isDisplayed());
     }
 
+    /**
+     * Verify Amount field
+     */
     @Then("User can see Amount field")
     public void user_can_see_amount_field() {
-        FCASVENDORPORTALStepsImplementation.verifyAmountField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.amountFieldSubmitInvoice.isDisplayed());
     }
 
+    /**
+     * Verify Submission Type Dropdown
+     */
     @Then("User can see Submission Type dropdown")
     public void user_can_see_submission_type_dropdown() {
-        FCASVENDORPORTALStepsImplementation.verifySubmissionTypeDropdown();
+        softAssert.assertTrue(fCASVENDORPORTALPage.submissionTypeDropdownSubmitInvoice.isDisplayed());
     }
 
+    /**
+     * Verify Primary Contact Dropdown
+     */
     @Then("User can see Primary Contact dropdown")
     public void user_can_see_primary_contact_dropdown() {
-        FCASVENDORPORTALStepsImplementation.verifyPrimaryContactDropdown();
+        softAssert.assertTrue(fCASVENDORPORTALPage.primaryContactDropdownSubmitInvoice.isDisplayed());
     }
 
+    /**
+     * Verify Associates Contact Dropdown
+     */
     @Then("User can see Associates dropdown")
     public void user_can_see_associates_dropdown() {
-        FCASVENDORPORTALStepsImplementation.verifyAssociatesDropdown();
+        softAssert.assertTrue(fCASVENDORPORTALPage.associatesDropdownSubmitInvoice.isDisplayed());
     }
 
+    /**
+     * Verify Comments Field
+     */
     @Then("User can see Comments field")
     public void user_can_see_comments_field() {
-        FCASVENDORPORTALStepsImplementation.verifyCommentsField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.commentsFieldSubmitInvoice.isDisplayed());
     }
 
+    /**
+     * Verify Choose File button
+     */
     @Then("User can see Choose File button")
     public void user_can_see_choose_file_button() {
-        FCASVENDORPORTALStepsImplementation.verifyChooseFileButton();
+        softAssert.assertTrue(fCASVENDORPORTALPage.chooseFileButton.isDisplayed());
     }
 
+    /**
+     * User clicks Cancel button
+     */
     @Then("User clicks Cancel button")
     public void user_clicks_cancel_button() {
         CommonUtils.clickOnElement(fCASVENDORPORTALPage.cancelButton);
@@ -134,24 +179,36 @@ public class FCASVENDORPORTALSteps {
         CommonUtils.clickOnElement(fCASVENDORPORTALPage.submitDeliverableOption);
     }
 
+    /**
+     * Verify Submit Deliverable Page Header
+     */
     @Then("User can see Submit Deliverable page header")
     public void user_can_see_submit_deliverable_page_header() {
-        FCASVENDORPORTALStepsImplementation.verifySubmitDeliverablesPageHeader();
+        softAssert.assertTrue(fCASVENDORPORTALPage.submitDeliverableHeader.isDisplayed());
     }
 
+    /**
+     * Verify Submit Status Filter Dropdown
+     */
     @Then("User can see Status Filter dropdown")
     public void user_can_see_status_filter_dropdown() {
-        FCASVENDORPORTALStepsImplementation.verifyStatusFilterDropdown();
+        softAssert.assertTrue(fCASVENDORPORTALPage.statusFilterDropdownSubmitDeliverable.isDisplayed());
     }
 
+    /**
+     * Verify Scheduled Field
+     */
     @Then("User can see Scheduled field")
     public void user_can_see_scheduled_field() {
-        FCASVENDORPORTALStepsImplementation.verifyScheduledField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.scheduledFieldSubmitDeliverable.isDisplayed());
     }
 
+    /**
+     * Verify Unscheduled Field
+     */
     @Then("User can see Unscheduled field")
     public void user_can_see_unscheduled_field() {
-        FCASVENDORPORTALStepsImplementation.verifyUnscheduledField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.unscheduledFieldSubmitDeliverable.isDisplayed());
     }
 
     /**
@@ -164,89 +221,130 @@ public class FCASVENDORPORTALSteps {
         CommonUtils.clickOnElement(fCASVENDORPORTALPage.submitCOAOption);
     }
 
+    /**
+     * Verify Submit COA Page Header
+     */
     @Then("User can see Submit COA page header")
     public void user_can_see_submit_coa_page_header() {
-        FCASVENDORPORTALStepsImplementation.verifySubmitCOAPageHeader();
-    }
-
-    @Then("User can see COA Requirement dropdown")
-    public void user_can_see_coa_requirement_dropdown() {
-        FCASVENDORPORTALStepsImplementation.coaRequirementDropdown();
-    }
-
-    @Then("User can see COA field")
-    public void user_can_see_coa_field() {
-        FCASVENDORPORTALStepsImplementation.verifyCOAField();
-    }
-
-    @Then("User can see Title field")
-    public void user_can_see_title_field() {
-        FCASVENDORPORTALStepsImplementation.verifyTitleField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.submitCOAHeader.isDisplayed());
     }
 
     /**
-     * User chooses Existing Contracts Submit Work Order option
+     * Verify COA Requirement Dropdown
      */
+    @Then("User can see COA Requirement dropdown")
+    public void user_can_see_coa_requirement_dropdown() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.coaRequirementDropdownSubmitCOA.isDisplayed());
+    }
+
+    /**
+     * Verify COA Field
+     */
+    @Then("User can see COA field")
+    public void user_can_see_coa_field() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.coaFieldSubmitCOA.isDisplayed());
+    }
+
+    /**
+     * Verify title Field
+     */
+    @Then("User can see Title field")
+    public void user_can_see_title_field() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.titleFieldSubmitCOA.isDisplayed());
+    }
+
+
     @Given("User chooses Existing Contracts Submit Work Order option")
     public void user_chooses_existing_contracts_submit_work_order_option() {
-        CommonUtils.clickOnElement(fCASVENDORPORTALPage.existingContractsRecordMenu);
-        CommonUtils.waitForClickability(fCASVENDORPORTALPage.submitWorkOrderOption);
-        CommonUtils.clickOnElement(fCASVENDORPORTALPage.submitWorkOrderOption);
+        FCASVENDORPORTALStepsImplementation.chooseExistingContractsSubmitWorkOrderOption();
     }
 
+    /**
+     * Verify Submit Work Order Page Header
+     */
     @Then("User can see Submit Work Order page header")
     public void user_can_see_submit_work_order_page_header() {
-        FCASVENDORPORTALStepsImplementation.verifySubmitWorkOrderPageHeader();
+        softAssert.assertTrue(fCASVENDORPORTALPage.submitWorkOrderHeader.isDisplayed());
     }
 
+    /**
+     * Verify Version field Submit Work Order
+     */
     @Then("User can see Version Work Order field")
     public void user_can_see_version_work_order_field() {
-        FCASVENDORPORTALStepsImplementation.verifyVersionField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.versionFieldSubmitWorkOrder.isDisplayed());
     }
 
+    /**
+     * Verify Work Order field Submit Work Order
+     */
     @Then("User can see Work Order field")
     public void user_can_see_work_order_field() {
-        FCASVENDORPORTALStepsImplementation.verifyWorkOrderField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.workOrderFieldSubmitWorkOrder.isDisplayed());
     }
 
+    /**
+     * Verify Package Type dropdown Submit Work Order
+     */
     @Then("User can see Package Type dropdown")
     public void user_can_see_package_type_dropdown() {
-        FCASVENDORPORTALStepsImplementation.verifyPackageTypeDropdown();
+        softAssert.assertTrue(fCASVENDORPORTALPage.packageTypeDropdownSubmitWorkOrder.isDisplayed());
     }
 
+    /**
+     * Verify Estimate field Submit Work Order
+     */
     @Then("User can see Estimate field")
     public void user_can_see_estimate_field() {
-        FCASVENDORPORTALStepsImplementation.verifyEstimateField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.estimateFieldSubmitWorkOrder.isDisplayed());
     }
 
+    /**
+     * Verify Beneficiary Occupant Date Field Submit Work Order
+     */
     @Then("User can see Beneficiary Occupancy Date field")
     public void user_can_see_beneficiary_occupancy_date_field() {
-        FCASVENDORPORTALStepsImplementation.verifyBeneficiaryOccupantDateField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.beneficiaryOccupantDateFieldSubmitWorkOrder.isDisplayed());
     }
 
+    /**
+     * Verify Project ID Field Submit Work Order
+     */
     @Then("User can see Project ID field")
     public void user_can_see_project_id_field() {
-        FCASVENDORPORTALStepsImplementation.verifyProjectIdField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.projectIDFieldSubmitWorkOrder.isDisplayed());
     }
 
+    /**
+     * Verify Directorate Customer Field Submit Work Order
+     */
     @Then("User can see Directorate Customer field")
     public void user_can_see_directorate_customer_field() {
-        FCASVENDORPORTALStepsImplementation.verifyDirectorateCustomerIDField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.directorateCustomerFieldSubmitWorkOrder.isDisplayed());
     }
 
+    /**
+     * Verify Directorate Field Submit Work Order
+     */
     @Then("User can see Directorate field")
     public void user_can_see_directorate_field() {
-        FCASVENDORPORTALStepsImplementation.verifyDirectorateIDField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.directorateFieldSubmitWorkOrder.isDisplayed());
     }
 
+    /**
+     * Verify Building Field Submit Work Order
+     */
     @Then("User can see Building field")
     public void user_can_see_building_field() {
-        FCASVENDORPORTALStepsImplementation.verifyBuildingIDField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.buildingFieldSubmitWorkOrder.isDisplayed());
     }
 
+    /**
+     * Verify Room Field Submit Work Order
+     */
     @Then("User can see Room field")
     public void user_can_see_room_field() {
-        FCASVENDORPORTALStepsImplementation.verifyRoomIDField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.roomFieldSubmitWorkOrder.isDisplayed());
     }
 
     @Given("User chooses Existing Contracts Submit Notification option")
@@ -256,54 +354,84 @@ public class FCASVENDORPORTALSteps {
         CommonUtils.clickOnElement(fCASVENDORPORTALPage.submitNotificationOption);
     }
 
+    /**
+     * Verify User can see Submit Notification page header
+     */
     @Then("User can see Submit Notification page header")
     public void user_can_see_submit_notification_page_header() {
-        FCASVENDORPORTALStepsImplementation.verifySubmitNotificationHeader();
+        softAssert.assertTrue(fCASVENDORPORTALPage.submitNotificationHeader.isDisplayed());
     }
 
+    /**
+     * Verify Notifications Dropdown Submit Notification
+     */
     @Then("User can see Notification Type dropdown")
     public void user_can_see_notification_type_dropdown() {
-        FCASVENDORPORTALStepsImplementation.verifyNotificationsDropdown();
+        softAssert.assertTrue(fCASVENDORPORTALPage.notificationsDropdownSubmitNotification.isDisplayed());
     }
 
+    /**
+     * Verify User can see Notification Field
+     */
     @Then("User can see Notification field")
     public void user_can_see_notification_field() {
-        FCASVENDORPORTALStepsImplementation.verifyNotificationField();
+        softAssert.assertTrue(fCASVENDORPORTALPage.notificationFieldSubmitNotification.isDisplayed());
     }
 
+    /**
+     * Verify Existing Contracts Title Column
+     */
     @Given("User can see Title column")
     public void user_can_see_title_column() {
-        FCASVENDORPORTALStepsImplementation.verifyExistingContractsTitleColumn();
+        softAssert.assertTrue(fCASVENDORPORTALPage.existingContractsPageTitleColumn.isDisplayed());
     }
 
+    /**
+     * Verify Existing Contracts PIID Column
+     */
     @Given("User can see PIID column")
     public void user_can_see_piid_column() {
-        FCASVENDORPORTALStepsImplementation.verifyExistingContractsPIIDColumn();
+        softAssert.assertTrue(fCASVENDORPORTALPage.existingContractsPagePIIDColumn.isDisplayed());
     }
 
+    /**
+     * Verify Existing Contracts Ref PIID Column
+     */
     @Given("User can see Ref PIID column")
     public void user_can_see_ref_piid_column() {
-        FCASVENDORPORTALStepsImplementation.verifyExistingContractsRefPIIDColumn();
+        softAssert.assertTrue(fCASVENDORPORTALPage.existingContractsPageRefPIIDColumn.isDisplayed());
     }
 
+    /**
+     * Verify Existing Contracts Severability Column
+     */
     @Given("User can see Severability column")
     public void user_can_see_severability_column() {
-        FCASVENDORPORTALStepsImplementation.verifyExistingContractsSeverabilityColumn();
+        softAssert.assertTrue(fCASVENDORPORTALPage.existingContractsPageSeverabilityColumn.isDisplayed());
     }
 
+    /**
+     * Verify Existing Contracts Status Column
+     */
     @Given("User can see Status column")
     public void user_can_see_status_column() {
-        FCASVENDORPORTALStepsImplementation.verifyExistingContractsStatusColumn();
+        softAssert.assertTrue(fCASVENDORPORTALPage.existingContractsPageStatusColumn.isDisplayed());
     }
 
+    /**
+     * Verify Existing Contracts Est. Ultimate Completion Column
+     */
     @Given("User can see Est Ultimate Completion column")
     public void user_can_see_est_ultimate_completion_column() {
-        FCASVENDORPORTALStepsImplementation.verifyExistingEstUltimateCompletionColumn();
+        softAssert.assertTrue(fCASVENDORPORTALPage.existingContractsPageEstUltimateCompletionColumn.isDisplayed());
     }
 
+    /**
+     * Verify Existing Contracts tab
+     */
     @Given("User can see Existing Contracts tab")
     public void user_can_see_existing_contracts_tab() {
-        FCASVENDORPORTALStepsImplementation.verifyExistingContractsTab();
+        softAssert.assertTrue(fCASVENDORPORTALPage.existingContractsTab.isDisplayed());
     }
 
     /**
@@ -359,7 +487,7 @@ public class FCASVENDORPORTALSteps {
      */
     @When("User chooses to leave feedback")
     public void user_chooses_to_leave_feedback() {
-     CommonUtils.clickOnElement(fCASVENDORPORTALPage.leaveFeedbackButton);
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.leaveFeedbackButton);
     }
 
     /**
@@ -375,7 +503,7 @@ public class FCASVENDORPORTALSteps {
      */
     @Then("User chooses Yes for The FCAS Vendor Portal application was user friendly")
     public void user_chooses_yes_for_the_fcas_vendor_portal_application_was_user_friendly() {
-       CommonUtils.clickOnElement(fCASVENDORPORTALPage.yesRadioButtonWasApplicationFriendly);
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.yesRadioButtonWasApplicationFriendly);
     }
 
     /**
