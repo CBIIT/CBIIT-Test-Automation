@@ -19,6 +19,17 @@ Feature: Metformin Screener on Online enrollment in NCI Family Studies Hub Porta
     And clicks the Metformin Eligibility Questionnaire widget
     Then fills the Metformin Eligibility Questionnaire form for scenario "<MetforminScreenerScenario>"
     Then click the submit button
+
     Examples:
       | Email                       | Password          | MetforminScreenerScenario  |
       | Metformin1Test1@yopmail.com | CharmsStudies123$ | MetforminScreenerScenario1 |
+
+  @jains @MetforminSubmission @CP2-1949 @Metformin_Regression1 @selenium @Smoke
+  Scenario Outline: Participant fills the Metformin screener by the Proband for scenario
+    Given the study nurse logs in Native View
+    Then data submitted for Metformin participant is verified in NativeView from excel sheet "<MetforminScreenerScenario>"
+
+    Examples:
+      | MetforminScreenerScenario  |
+      | MetforminScreenerScenario1 |
+

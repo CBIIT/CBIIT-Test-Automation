@@ -1,6 +1,7 @@
 package CHARMS.steps;
 
 import APPS_COMMON.PageInitializers.PageInitializer;
+import APPS_COMMON.Utils.ServiceNow_Login_Methods;
 import CHARMS.utils.CharmsUtil;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.And;
@@ -22,9 +23,8 @@ public class MetforminScreenerSteps extends PageInitializer {
 
     @And("clicks the Metformin Eligibility Questionnaire widget")
     public void clicks_the_metformin_eligibility_questionnaire_widget() {
-        metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace("Metformin Study").click();
-        metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace("Metformin Eligibility Questionnaire").click();
-    }
+        metforminScreenerStepsImpl.metforminEligibilityQuestionnaireWidgetClick();
+         }
 
     @Then("fills the Metformin Eligibility Questionnaire form for scenario {string}")
     public void fills_eligibility_questionnaire_form_scenario(String metforminScreenerScenario) {
@@ -36,6 +36,12 @@ public class MetforminScreenerSteps extends PageInitializer {
         metforminScreenerStepsImpl.clickSubmitButton();
     }
 
+    @Given("the study nurse logs in Native View")
+    public void the_study_nurse_logs_in_Native_View() {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        metforminScreenerStepsImpl.navigateToParticipantDetailsPageInNativeView();
+    }
+
     @Given("run the Metformin reset script to reset the accounts")
     public void run_reset_script() {
         metforminScreenerStepsImpl.runResetScripts();
@@ -44,5 +50,10 @@ public class MetforminScreenerSteps extends PageInitializer {
     @Given("All Metformin scenarios are submitted")
     public void all_metformin_scenarios_are_submitted() {
         metforminScreenerStepsImpl.submitAllScenarios();
+    }
+
+    @Then("data submitted for Metformin participant is verified in NativeView from excel sheet {string}")
+    public void data_submitted_for_metformin_participant_is_verified_in_native_view_from_excel_sheet(String sheetName)  {
+        metforminScreenerStepsImpl.scenarioAssertionForMetforminScreener(sheetName);
     }
 }

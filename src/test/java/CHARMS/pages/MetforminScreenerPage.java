@@ -12,9 +12,9 @@ public class MetforminScreenerPage extends CommonUtils {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
 
-    /* Method to dynamically locate elements */
-    public WebElement dynamicLocatorUsingLabelContainsText(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath(" (//label[contains(text(),'" + text + "')])[1]"));
+    /* Method to dynamically locate elements  e.g (//label[contains(text(),'Please provide the mailing address where study mat')])[1] */
+    public WebElement dynamicLocatorUsingLabelContainText(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//label[contains(text(),'" + text + "')])[1]"));
     }
 
     /* Method to dynamically locate elements  For e.g (//span[normalize-space()='Are you/the participant currently pregnant?'])[1] */
@@ -22,14 +22,19 @@ public class MetforminScreenerPage extends CommonUtils {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//span[normalize-space()='" + text + "'])[1]"));
     }
 
+    /* Method to dynamically locate elements e.g //span[normalize-space()="Do we have your/the participant's?"] */
+    public WebElement dynamicLocatorUsingNormalizeSpaceSpan(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//span[normalize-space()=\"" + text + "\"]"));
+    }
+
     /* Method to dynamically locate elements e.g (//span[contains(text(),"Please list your/the participant's phone numbers b")])[1] */
     public WebElement dynamicLocatorUsingSpanContainText(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//span[contains(text(),\"" + text + "\")])[1]"));
     }
 
-    /* Method to dynamically locate elements e.g //span[normalize-space()="Do we have your/the participant's?"] */
-    public WebElement dynamicLocatorUsingNormalizeSpaceSpan(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//span[normalize-space()=\"" + text + "\"]"));
+    /* Method to dynamically locate elements e.g (//p[contains(text(),'Please feel free to call at any time if you have a')])[1] */
+    public WebElement dynamicLocatorUsingPContainText(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//p[contains(text(),'" + text + "')])[1]"));
     }
 
     /* Method to dynamically locate elements e.g (//th[normalize-space()='Actions'])[1] */
@@ -37,9 +42,9 @@ public class MetforminScreenerPage extends CommonUtils {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//th[normalize-space()='" + text + "'])[1]"));
     }
 
-    /* Method to dynamically locate elements  e.g (//label[contains(text(),'Please provide the mailing address where study mat')])[1] */
-    public WebElement dynamicLocatorUsingLabelContainText(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//label[contains(text(),'" + text + "')])[1]"));
+    /* Method to dynamically locate TextBoxes  e.g  (//td[normalize-space()='No data to display'])[1] */
+    public WebElement dynamicLocatorUsingTDTag(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//td[normalize-space()= '" + text +"'])[1]"));
     }
 
     /* Method to dynamically locate elements e.g (//span[@aria-label="Are you/the participant adopted?"])[1]*/
@@ -50,6 +55,11 @@ public class MetforminScreenerPage extends CommonUtils {
     /* Method to dynamically locate elements e.g (//span[@id='select2-chosen-44'])[1]*/
     public WebElement dynamicLocatorUsingSpanId(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath(String.format("(//span[@id='select2-chosen-%s'])[1]",text)));
+    }
+
+    /* Method to dynamically locate elements e.g (//span[@class='select2-chosen'])[2]*/
+    public WebElement dynamicLocatorUsingSpanId1(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath(String.format("(//span[@class='select2-chosen'])[%s]",text)));
     }
 
     /* Method to dynamically locate elements  e.g (//span[contains(@class,'select2-chosen')][normalize-space()='-- None --'])[3]*/
@@ -65,6 +75,11 @@ public class MetforminScreenerPage extends CommonUtils {
     /* Method to dynamically locate elements  e.g (//span[contains(@title,'e.g. at another medical institution')])[1] */
     public WebElement dynamicLocatorUsingSpanContainTitleAndIndex(String text,int index) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//span[contains(@title,'" + text + "')])[" + index + "]"));
+    }
+
+    /* Method to dynamically locate elements e.g (//span[@title='Type Unknown/Unsure if you are not sure.'])[1] */
+    public WebElement dynamicLocatorUsingSpanTitle(String text, int i) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//span[@title='" + text + "'])["+i+"]"));
     }
 
     /* Method to dynamically locate Input Values e.g (//input[@aria-label='Work Phone Number'])[1]  */
@@ -107,30 +122,6 @@ public class MetforminScreenerPage extends CommonUtils {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//button[normalize-space()='" + text + "'])[1]"));
     }
 
-    /* Method to dynamically locate elements */
-    public WebElement dynamicLocatorUsingContainsNormalizeSpace(String text, int i) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//*[normalize-space()='" + text + "'])["+i+"]"));
-    }
-
-    /* Method to dynamically locate elements e.g (//span[@title='Type Unknown/Unsure if you are not sure.'])[1] */
-    public WebElement dynamicLocatorUsingSpanTitle(String text, int i) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//span[@title='" + text + "'])["+i+"]"));
-    }
-
-    /* Method to dynamically locate titles using contains */
-    public WebElement dynamicLocatorUsingTitle(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(@title,'" + text + "')]"));
-    }
-
-    /* Method to dynamically locate TextBoxes */
-    public WebElement dynamicLocatorTextBox(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//*[@name='" + text + "']"));
-    }
-
-    /* Method to dynamically locate TextBoxes  e.g (//a[contains(@class,'select2-choice select2-default form-control')])[1]*/
-    public WebElement dynamicLocatorUsingATag(String index) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//a[contains(@class,'select2-choice select2-default form-control')])[" + index + "]"));
-    }
 
     @FindBy(css = "span[ng-if=\"$last\"]")
     public WebElement metforminScreenerTitle;
@@ -201,11 +192,17 @@ public class MetforminScreenerPage extends CommonUtils {
     @FindBy(xpath = "(//span[contains(text(),'You are almost done! To submit your responses, you')])[1]")
     public WebElement metforminParticipantSubmitInfoLabel;
 
-    @FindBy(xpath = "(//span[@id='sp_formfield_reference_tumor_type'])[1]")
+    @FindBy(xpath = "(//a[@class='select2-choice select2-default form-control'])[1]")
     public WebElement metforminParticipantTumorTypeInput;
 
-    @FindBy(xpath = "(//span[@id='select2-chosen-42'])[1]")
-    public WebElement metforminParticipantTumorTypeInput1;
+   @FindBy(xpath = "(//input[@role='combobox'])[66]")
+    public WebElement metforminParticipantTumorDetailsInput1;
+
+    @FindBy(xpath = "(//td[@class='ng-binding ng-scope'])[4]")
+    public WebElement metforminParticipantTumorTypeMonthOfDiagnosisInput;
+
+    @FindBy(xpath = "(//td[@class='ng-binding ng-scope'])[5]")
+    public WebElement  metforminParticipantTumorTypeYearfDiagnosisInput;
 
     @FindBy(xpath = "(//span[@title=\"Select Unknown/Unsure if you don't know the date or age of cancer diagnosis\"])[1]")
     public WebElement metforminParticipantTumorDateOrAgeLabel;
