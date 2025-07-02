@@ -328,6 +328,38 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "//div[.='Rejected']")
     public WebElement quickFilterRejected;
 
+    /** Solicitation page header */
+    @FindBy(xpath = "//h1[.='Solicitation']")
+    public WebElement solicitationPageHeader;
+
+    /** Solicitation page Title column */
+    @FindBy(xpath = "(//div[.=' Title '])[1]")
+    public WebElement solicitationPageTitleColumn;
+
+    /** Solicitation column */
+    @FindBy(xpath = "(//div[.=' Solicitation # '])[1]")
+    public WebElement solicitationPageSolicitationColumn;
+
+    /** Division column */
+    @FindBy(xpath = "(//div[.=' Division '])[1]")
+    public WebElement solicitationPageDivisionColumn;
+
+    /** Amendments column */
+    @FindBy(xpath = "(//div[.=' Amendments '])[1]")
+    public WebElement solicitationPageAmendmentsColumn;
+
+    /** Price Type column */
+    @FindBy(xpath = "(//div[.=' Price Type '])[1]")
+    public WebElement solicitationPagePriceTypeColumn;
+
+    /** Q&A End Date column */
+    @FindBy(xpath = "(//div[.=' Q&A End Date '])[1]")
+    public WebElement solicitationPageQADateColumn;
+
+    /**  Proposal Due Date column */
+    @FindBy(xpath = "(//div[.=' Proposal Due Date '])[1]")
+    public WebElement solicitationPageProposalDueDateColumn;
+
     public FCASVENDORPORTALPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

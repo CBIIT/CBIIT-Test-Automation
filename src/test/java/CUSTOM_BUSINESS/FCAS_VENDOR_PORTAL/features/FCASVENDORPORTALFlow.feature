@@ -152,3 +152,22 @@ Feature: FCAS Vendor Portal Flow
     And User can see Active quick filter
     And User can see Submitted quick filter
     And User can see Rejected quick filter
+
+  @Alena @Regression @selenium @OASYS-3623
+  Scenario: Solicitations page layout
+    Given User accepts PII Disclaimer
+    And User navigates to Solicitations page
+    And User can verify Solicitations page header
+    And User can see Search field
+    And User can see Title Solicitation tab column
+    And User can see Solicitation column
+    And User can see Division column
+    And User can see Amendments column
+    And User can see Price Type column
+    And User can see Q&A End Date column
+    And User can see Proposal Due Date column
+    And User can see Last Updated column
+    And User can see Status column
+
+
+

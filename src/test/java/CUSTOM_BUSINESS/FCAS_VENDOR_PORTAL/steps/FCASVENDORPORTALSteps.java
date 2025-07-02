@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 import static APPS_COMMON.PageInitializers.PageInitializer.fCASVENDORPORTALPage;
 import static Hooks.Hooks.softAssert;
 
@@ -616,11 +617,11 @@ public class FCASVENDORPORTALSteps {
     }
 
     /**
-     * User navigates to Solicitations page
+     * User can verify Solicitations page header
      */
-    @Given("User navigates to Solicitations page")
-    public void user_navigates_to_solicitations_page() {
-       CommonUtils.clickOnElement(fCASVENDORPORTALPage.solicitationsTab);
+    @Given("User can verify Solicitations page header")
+    public void user_can_verify_solicitations_page_header() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.solicitationPageHeader.isDisplayed());
     }
 
     /**
@@ -653,5 +654,69 @@ public class FCASVENDORPORTALSteps {
     @Given("User can see Rejected quick filter")
     public void user_can_see_rejected_quick_filter() {
         softAssert.assertTrue(fCASVENDORPORTALPage.quickFilterRejected.isDisplayed());
+    }
+
+    /**
+     * User navigates to Solicitations page
+     */
+    @Given("User navigates to Solicitations page")
+    public void user_navigates_to_solicitations_page() {
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.solicitationsTab);
+    }
+
+    /**
+     * Verify Title Solicitation tab column
+     */
+    @Given("User can see Title Solicitation tab column")
+    public void user_can_see_title_solicitation_tab_column() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.solicitationPageTitleColumn.isDisplayed());
+    }
+
+    /**
+     * Verify Solicitation column
+     */
+    @Given("User can see Solicitation column")
+    public void user_can_see_solicitation_column() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.solicitationPageSolicitationColumn.isDisplayed());
+    }
+
+    /**
+     * Verify Division column
+     */
+    @Given("User can see Division column")
+    public void user_can_see_division_column() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.solicitationPageDivisionColumn.isDisplayed());
+    }
+
+    /**
+     * Verify Amendments column
+     */
+    @Given("User can see Amendments column")
+    public void user_can_see_amendments_column() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.solicitationPageAmendmentsColumn.isDisplayed());
+    }
+
+    /**
+     * Verify Price Type column
+     */
+    @Given("User can see Price Type column")
+    public void user_can_see_price_type_column() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.solicitationPagePriceTypeColumn.isDisplayed());
+    }
+
+    /**
+     * Verify Q&A End Date column
+     */
+    @Given("User can see Q&A End Date column")
+    public void user_can_see_q_a_end_date_column() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.solicitationPageQADateColumn.isDisplayed());
+    }
+
+    /**
+     * Verify Proposal Due Date column
+     */
+    @Given("User can see Proposal Due Date column")
+    public void user_can_see_proposal_due_date_column() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.solicitationPageProposalDueDateColumn.isDisplayed());
     }
 }
