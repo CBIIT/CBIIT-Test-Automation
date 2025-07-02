@@ -159,6 +159,18 @@ public class NativeViewCHARMSSubjectFlagsPage {
     @FindBy(xpath = "//span[@class='outputmsg_text']")
     public WebElement IBMFSAffectedStatusNotFilledInErrorText;
 
+    /**
+     * Subject Comments textbox
+     */
+    @FindBy(xpath = "//div[@aria-label='Subject Flag form section']//textarea[@name='x_naci_family_coho_subject_flag.subject_comments']")
+    public WebElement subjectCommentsTextbox;
+
+    /**
+     * "Changes to Family Genetic Status are automatically synced at the family level." text
+     */
+    @FindBy(xpath = "//div[@class='fieldmsg notification notification-info']")
+    public WebElement familyGeneticStatusMessageText;
+
     public NativeViewCHARMSSubjectFlagsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

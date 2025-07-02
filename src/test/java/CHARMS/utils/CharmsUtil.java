@@ -16,6 +16,7 @@ import com.nci.automation.web.TestProperties;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -650,5 +651,21 @@ public class CharmsUtil {
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(oktaLoginPage.agreeBtn);
         CharmsUtil.clickOnElement(oktaLoginPage.agreeBtn);
+    }
+
+    /**
+     * Use this method to verify that a text label is present in Native View records.
+     *
+     * @param labelText The exact visible text of the label to be located.
+     */
+    public static void verifyLabel(String labelText) {
+        try {
+            WebElement element = locateByXpath("//span[@class='label-text' and normalize-space()='" + labelText + "']");
+            CharmsUtil.labelHighlight(element);
+            softAssert.assertTrue(element.isDisplayed());
+
+        } catch (NoSuchElementException e) {
+            softAssert.fail("----- LABEL TEXT: '" + labelText + "' NOT FOUND ON PAGE -----");
+        }
     }
 }

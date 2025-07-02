@@ -119,7 +119,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         } else if (ras_Screener_TestDataManager.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_YOURSELF.contentEquals("I am completing this form for someone else")) {
             CucumberLogUtils.scenario.log("* * * THIS IS A PROXY SCREENER SUBMISSION * * *");
         }
-        for (int i = 0; i < 75; i++) {
+        for (int i = 0; i < 95; i++) {
             try {
                 /**
                  * * * * * ARE YOU COMPLETING THIS FORM FOR SOMEONE ELSE OR FOR YOURSELF? * * * *
@@ -366,7 +366,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * HAVE YOU EVER BEEN DIAGNOSED WITH THE FOLLOWING CONDITIONS?  SELECT ALL THAT APPLY.  IF YOU DO NOT SEE THE EXACT CONDITION DIAGNOSED, PLEASE SELECT THE CLOSEST ANSWER.   * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && (rasopathyQuestionnairePage.question.getText().contentEquals(HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS) || rasopathyQuestionnairePage.question.getText().contentEquals(formatRASQuestionForProxy(HAS_PARTICIPANT_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS)))) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && (rasopathyQuestionnairePage.question.getText().trim().contentEquals(HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS) || rasopathyQuestionnairePage.question.getText().trim().contentEquals(formatRASQuestionForProxy(HAS_PARTICIPANT_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS)))) {
                     CucumberLogUtils.scenario.log("* * * * * HAVE YOU EVER BEEN DIAGNOSED WITH THE FOLLOWING CONDITIONS?  SELECT ALL THAT APPLY.  IF YOU DO NOT SEE THE EXACT CONDITION DIAGNOSED, PLEASE SELECT THE CLOSEST ANSWER.   * * * * *");
                     if (sheetName.contentEquals("screenerScenario1") || sheetName.contentEquals("screenerScenarioAdult") || sheetName.contentEquals("screenerScenarioAdult-NeedsLAR") || sheetName.contentEquals("screenerScenarioAgeUnder7") || sheetName.contentEquals("screenerScenarioAge7-10") || sheetName.contentEquals("screenerScenarioAge11-13") || sheetName.contentEquals("screenerScenarioAge14-17")) {
                         dynamicLocator(ras_Screener_TestDataManager.HAVE_YOU_BEEN_DIAGNOSED_WITH_FOLLOWING_CONDITIONS).click();

@@ -9,6 +9,7 @@ import APPS_COMMON.PageInitializers.PageInitializer;
 import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
+import CHARMS.utils.CharmsUtil;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -1145,7 +1146,7 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Then("Study Team member verifies the columns displayed in the list view of the Participant Studies table")
     public void study_team_member_verifies_the_columns_displayed_in_the_list_view_of_the_participant_studies_table() {
-        softAssert.assertEquals(RAS_Common_Methods.getTableListViewColumns(), Native_View_Constants.participantStudiesListViewColumns, "---- TABLE LIST VIEW COLUMNS DO NOT MATCH ----");
+        softAssert.assertEquals(RAS_Common_Methods.getTableListViewColumns(), Native_View_Constants.participantStudiesListViewColumns, "---- PARTICIPANT STUDIES TABLE LIST VIEW COLUMNS DO NOT MATCH ----");
         CucumberLogUtils.logScreenshot();
     }
 
@@ -1164,32 +1165,27 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
     /**
-     * Verifies the presence and visibility of various fields in the Participant Studies record.
-     * Checks if specific elements such as labels and dropdown options are displayed on the page.
+     * Verifies the presence and visibility of various fields in a Participant's Participant Study record.
      */
     @Then("verifies fields in the Participant Studies record")
     public void verifies_fields_in_the_participant_studies_record() {
-        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Participant']").isDisplayed());
-        softAssert.assertTrue(locateByXpath("//span[normalize-space()='Subject ID']").isDisplayed());
-        softAssert.assertTrue(locateByXpath("//span[normalize-space()='NIH MRN number']").isDisplayed());
-        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Screener']").isDisplayed());
-        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='IIQ']").isDisplayed());
-        if (locateByXpath("//input[@id='sys_display.x_naci_family_coho_participant_study.study']").getDomAttribute("value").equalsIgnoreCase("Fanconi")) {
-            softAssert.assertTrue(locateByXpath("//span[contains(text(),'FA Survey')]").isDisplayed());
-        }
-        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Available Questionnaires']").isDisplayed());
-        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Study']").isDisplayed());
-        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Cohort']").isDisplayed());
-        RAS_Common_Methods.softAssertDropdownOptions(locateByXpath("//select[@id='x_naci_family_coho_participant_study.cohort']"), Native_View_Constants.consentRecordCohortDropdownOptions, "---- VERIFYING COHORT OPTIONS IN PARTICIPANT STUDIES RECORD ----");
-        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Study Sub Categories']").isDisplayed());
-        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Eligibility Status']").isDisplayed());
-        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Enrollment Status']").isDisplayed());
-        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Screener Complete']").isDisplayed());
-        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='IIQ Complete']").isDisplayed());
-        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Study Survey Complete']").isDisplayed());
-        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Ever Consented']").isDisplayed());
-        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='Ever Assented']").isDisplayed());
-        softAssert.assertTrue(locateByXpath("//span[@class='label-text'][normalize-space()='MRR Complete']").isDisplayed());
+        CharmsUtil.verifyLabel("Participant");
+        CharmsUtil.verifyLabel("Name");
+        CharmsUtil.verifyLabel("Eligibility Status");
+        CharmsUtil.verifyLabel("Enrollment Status");
+        CharmsUtil.verifyLabel("Screener");
+        CharmsUtil.verifyLabel("IIQ");
+        CharmsUtil.verifyLabel("Study Sub Categories");
+        CharmsUtil.verifyLabel("Study");
+        CharmsUtil.verifyLabel("Cohort");
+        CharmsUtil.verifyLabel("NIH MRN number");
+        CharmsUtil.verifyLabel("Screener Complete");
+        CharmsUtil.verifyLabel("IIQ Complete");
+        CharmsUtil.verifyLabel("Study Survey Complete");
+        CharmsUtil.verifyLabel("All Required Forms Completed");
+        CharmsUtil.verifyLabel("MRR Complete");
+        CharmsUtil.verifyLabel("Ever Consented");
+        CharmsUtil.verifyLabel("Ever Assented");
         CucumberLogUtils.logScreenshot();
     }
 

@@ -63,6 +63,16 @@ public class NativeViewCHARMSDashboardPage {
         return locateByXpath("//input[@aria-label='Search column: " + columnName.toLowerCase() +"']");
     }
 
+    /**
+     * Use this method to locate related list tabs in Native View.
+     *
+     * @param tabName the name of the tab to locate
+     * @return the WebElement corresponding to the specified tab
+     */
+    public static WebElement nativeViewDynamicTabLocator(String tabName) {
+        return locateByXpath("//span[@class='tab_caption_text' and contains(text(), '" + tabName + "')]");
+    }
+
     public NativeViewCHARMSDashboardPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
