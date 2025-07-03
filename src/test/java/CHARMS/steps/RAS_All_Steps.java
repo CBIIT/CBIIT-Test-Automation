@@ -20,13 +20,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-
 import static CHARMS.pages.NativeViewCHARMSParticipantConsentPage.dynamicTabLocator;
 import static Hooks.Hooks.softAssert;
 import static CHARMS.pages.MyRASHomePage.dynamicModuleLocator;
@@ -482,7 +480,7 @@ public class RAS_All_Steps extends PageInitializer {
         navigateToParticipantRecordInNativeView(sheetName);
         submitParticipantForReviewAndEligibility();
         openConsentRecord();
-        consentFlowProcess(sheetName);
+        consentFlowProcess();
     }
 
     /**
@@ -513,7 +511,7 @@ public class RAS_All_Steps extends PageInitializer {
     }
 
 
-    public static void consentFlowProcess(String sheetname) {
+    public static void consentFlowProcess() {
         /**
          * BEGINNING: CONSENT FLOW PROCESS
          */
@@ -527,7 +525,6 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, CHARMSRASScreenerConstants.CONSENTED_BY_USER_NAME);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
-
         dynamicTabLocator("Consent Call").click();
         CucumberLogUtils.scenario.log("* * * * CONSENT CALL - CONSENT CALL SCHEDULED TIME * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
@@ -623,29 +620,16 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.sleep(2000);
-//        if (ras_NV_Consent_Record_TestDataManager.COLLECTION_METHOD.equalsIgnoreCase("CHARMS e-consent")) {
-//            CucumberLogUtils.scenario.log("* * * * * * * * * * SIGN AND COMPLETE * * * * * * * * * * ");
-//            CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentSignAndCompleteButton);
-//            CommonUtils.sleep(500);
-//            CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentRASoPathyCompletionStatusRecordsCreatedMessage);
-//            softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentRASoPathyCompletionStatusRecordsCreatedMessage.getText(), CHARMSRASScreenerConstants.RASOPATHY_COMPLETION_STATUS_RECORDS_TEXT, "---- VERIFYING RASOPATHY COMPLETION STATUS RECORDS CREATED MESSAGE ----");
-//            softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage.getText(), CHARMSRASScreenerConstants.PARTICIPANT_READY_TO_PROGRESS_TEXT, "---- VERIFYING PARTICIPANT RECORD READY TO PROGRESS MESSAGE ----");
-//            CucumberLogUtils.logScreenshot();
-//            RAS_All_Steps.nativeViewStudyTeamMemberLogsOut();
-//        }
         if (!ras_NV_Consent_Record_TestDataManager.COLLECTION_METHOD.equalsIgnoreCase("CHARMS e-consent")) {
             CucumberLogUtils.scenario.log("* * * * * * * * * * CONSENT COMPLETE * * * * * * * * * * ");
             CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
             CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage);
             softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage.getText(), CHARMSRASScreenerConstants.PARTICIPANT_READY_TO_PROGRESS_TEXT, "---- VERIFYING PARTICIPANT RECORD READY TO PROGRESS MESSAGE ----");
             softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage.getText(), CHARMSRASScreenerConstants.CONSENT_RECORD_COMPLETED_TEXT, "---- VERIFYING CONSENT RECORD COMPLETED AND FAMILY RECORD IS NOW ACTIVE! MESSAGE ----");
-//            CommonUtils.sleep(500);
-//            CucumberLogUtils.logScreenshot();
-//            RAS_All_Steps.nativeViewStudyTeamMemberLogsOut();
         }
-            CommonUtils.sleep(500);
-            CucumberLogUtils.logScreenshot();
-            RAS_All_Steps.nativeViewStudyTeamMemberLogsOut();
+        CommonUtils.sleep(500);
+        CucumberLogUtils.logScreenshot();
+        RAS_All_Steps.nativeViewStudyTeamMemberLogsOut();
     }
 
     /**

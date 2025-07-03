@@ -50,5 +50,5 @@ Feature: RAS Screener Scenarios
     And RAS Survey Data for Scenario Two is verified
     Examples:
       | Email                           | Password   | ScreenerScenario  | SurveyScenario     |
-#      | consent_participant@yopmail.com | Charms123$ | screenerScenario2 | RASSurveyScenario2 |
+      | consent_participant@yopmail.com | Charms123$ | screenerScenario2 | RASSurveyScenario2 |
       | ras_progression@yopmail.com| Charms123$ | screenerScenario2 | RASSurveyScenario2 |

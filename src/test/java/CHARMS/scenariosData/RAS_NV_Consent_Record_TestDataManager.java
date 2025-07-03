@@ -17,37 +17,28 @@ public class RAS_NV_Consent_Record_TestDataManager extends PageInitializer {
     public String CONSENT_BY;
     public String ASSIGNED_TO;
     public String CURRENT_PREVIOUS;
-
-
     public String CONSENT_CALL_SCHEDULED_TIME;
     public String CONSENT_CALL_DATE;
     public String SHORT_FORM_CONSENT;
-
     public String INTERPRETER_USED;
     public String INTERPRETER_NAME_OR_ID;
     public String INTERPRETER_LANGUAGE;
     public String INTERPRETER_WITNESS;
     public String INTERPRETER_SIGNED;
-
     public String COPY_OF_CONSENT_ASSENT_PROVIDED_BEFORE_SIGNING;
     public String PROTOCOL_DISCUSSED_IN_PRIVATE_SETTING;
     public String PARTICIPANT_VERBALIZED_UNDERSTANDING_OF_STUDY_CONDITIONS_AND_PARTICIPATION;
     public String QUESTIONS_ADDRESSED_BEFORE_SIGNING;
     public String CONSENT_ASSENT_OBTAINED_BEFORE_STUDY_PROCEDURES;
     public String COPY_OF_SIGNED_DATED_CONSENT_ASSENT_GIVEN_TO_PARTICIPANT;
-
-
     public String COHORT;
     public String CONSENT_FORM;
     public String COLLECTION_METHOD;
     public String CONSENT_VERSION;
     public String NOT_DEVELOPMENTALLY_ABLE_TO_GIVE_ASSENT;
     public String LEGAL_DOCUMENTATION_RECEIVED;
-
     public String CONSENT_ASSENT_STATUS;
     public String CONSENT_ASSENT_CATEGORY;
-
-
     public String PARENT_GUARDIAN_STATUS;
     public String NUMBER_OF_GUARDIAN_SIGNATURES_REQUIRED;
     public String PARENT_GUARDIAN_1_SIGNED;
@@ -59,9 +50,6 @@ public class RAS_NV_Consent_Record_TestDataManager extends PageInitializer {
     public String LAR_1_NAME;
     public String LAR_2_SIGNED;
     public String LAR_2_NAME;
-
-
-
     public String FUTURE_USE_OF_SPECIMENS_AND_DATA_BY_NIH;
     public String FUTURE_USE_BY_COLLABORATORS;
     public String FUTURE_IDENTIFIABLE_USE_BY_COLLABORATORS;

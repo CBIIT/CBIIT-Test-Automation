@@ -22,6 +22,6 @@ public class RASConsentStepsImpl extends PageInitializer {
         nativeViewCHARMSParticipantStudyPage.reConsentButton.click();
         CommonUtils.sleep(800);
         openConsentRecord();
-        consentFlowProcess(sheetName);
+        consentFlowProcess();
     }
 }
