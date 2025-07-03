@@ -33,10 +33,16 @@ public class NativeViewCHARMSParticipantDetailsPage extends PageInitializer {
     @FindBy(xpath = "//*[@id='output_messages']/div/div/div")
     public WebElement nativeViewPatientDetailsConsentAddedText;
 
+//    /**
+//     * Native View Participant Consents Button
+//     */
+//    @FindBy(xpath = "//span[normalize-space()='Consents (1)']")
+//    public WebElement nativeViewPatientDetailsConsentsTab;
+//
     /**
      * Native View Participant Consents Button
      */
-    @FindBy(xpath = "//span[normalize-space()='Consents (1)']")
+    @FindBy(xpath = "//span[@class='tab_header']//span[contains(text(), 'Consents')]")
     public WebElement nativeViewPatientDetailsConsentsTab;
 
     /**
