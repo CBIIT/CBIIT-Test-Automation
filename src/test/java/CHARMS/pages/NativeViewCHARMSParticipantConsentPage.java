@@ -336,6 +336,12 @@ public class NativeViewCHARMSParticipantConsentPage {
     public WebElement rasStudyConsentParticipantRecordsReadyToProgressMessage;
 
     /**
+     * Native View Ras Study RASopathy Completion Status records created Message
+     */
+    @FindBy(xpath = "//div[normalize-space()='RASopathy Completion Status records created.']")
+    public WebElement rasStudyConsentRASoPathyCompletionStatusRecordsCreatedMessage;
+
+    /**
      * Native View Ras Sign And Complete Button
      */
     @FindBy(xpath = "//button[@id='sign_and_complete_client']")

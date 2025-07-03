@@ -8,4 +8,5 @@ public class CHARMSRASScreenerConstants {
     public static final String CONSENTED_BY_USER_NAME = "Rene Aguilar";
     public static final String PARTICIPANT_READY_TO_PROGRESS_TEXT = "Participant record ready to progress.";
     public static final String CONSENT_RECORD_COMPLETED_TEXT = "Consent record completed and Family record is now active!";
+    public static final String RASOPATHY_COMPLETION_STATUS_RECORDS_TEXT = "RASopathy Completion Status records created.";
 }

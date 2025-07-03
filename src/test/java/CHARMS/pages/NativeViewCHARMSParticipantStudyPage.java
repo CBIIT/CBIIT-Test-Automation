@@ -117,6 +117,12 @@ public class NativeViewCHARMSParticipantStudyPage {
     public WebElement subjectFlagsRecordPreviewButton;
 
     /**
+     * Current reconsent record preview button
+     */
+    @FindBy(xpath = "//a[normalize-space()='Current']/parent::td/parent::tr//a[contains(@aria-label,'Preview record')]")
+    public WebElement currentReconsentRecordPreviewButton;
+
+    /**
      * Finds and returns the WebElement for the current or previous consent record based on the Current/Previous status
      *
      * @param currentPreviousStatus the status text used to identify the consent record (e.g., "Current" or "Previous").
