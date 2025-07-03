@@ -168,6 +168,3 @@ Feature: FCAS Vendor Portal Flow
     And User can see Proposal Due Date column
     And User can see Last Updated column
     And User can see Status column
-
-
-
