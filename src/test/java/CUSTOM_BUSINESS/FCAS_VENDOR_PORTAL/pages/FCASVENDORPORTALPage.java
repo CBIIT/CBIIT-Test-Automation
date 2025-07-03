@@ -268,7 +268,7 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "//mat-radio-group[@ng-reflect-name='isGuideUseful']//mat-radio-button[@ng-reflect-value='NO']")
     public WebElement noRadioButtonIsGuideUseful;
 
-    /** Yes radio button forIs the FCAS Vendor Portal organized in a user-friendly way? */
+    /** Yes radio button for Is the FCAS Vendor Portal organized in a user-friendly way? */
     @FindBy(xpath = "//mat-radio-group[@ng-reflect-name='isOrganized']//mat-radio-button[@ng-reflect-value='YES']")
     public WebElement yesRadioButtonIsOrganized;
 
