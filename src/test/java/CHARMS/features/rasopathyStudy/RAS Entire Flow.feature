@@ -23,17 +23,14 @@ Feature: RAS Screener Scenarios
     When the participant submits a RAS Survey from excel sheet "<SurveyScenario>"
     Examples:
       | Email                | Password          | ScreenerScenario  | IIQScenario  | SurveyScenario     |
-#      | charmsras1@yahoo.com | CharmsStudies123$ | screenerScenario1 | IIQScenario1 | RASSurveyScenario1 |
+      | charmsras1@yahoo.com | CharmsStudies123$ | screenerScenario1 | IIQScenario1 | RASSurveyScenario1 |
       | charmsras1@yahoo.com | CharmsStudies123$ | screenerScenario2 | IIQScenario2 | RASSurveyScenario2 |
 #      | charmsras3@yahoo.com | RASTest2023$$     | screenerScenario3 | IIQScenario3 | RASSurveyScenario3 |
 #      | charmsras5@yahoo.com | RASTest2023$$     | screenerScenario4 | IIQScenario4 | RASSurveyScenario4 |
 
   @muzipovay2 @RAS_STUDY @2CP2-2332 @CP2-3908 @CP2-3909 @selenium @RAS_Regression1
   Scenario Outline: This scenario outline is completing the myRAS Screeners, Consent Flows, IIQ Forms and the RAS Surveys
-#    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
-
-    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=0e9497c587161ad0ad46326d3fbb35c7" has been reset
-
+    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
     And clicks on "Eligibility Questionnaire" to begin survey
@@ -51,4 +48,3 @@ Feature: RAS Screener Scenarios
     Examples:
       | Email                           | Password   | ScreenerScenario  | SurveyScenario     |
       | consent_participant@yopmail.com | Charms123$ | screenerScenario2 | RASSurveyScenario2 |
-      | ras_progression@yopmail.com| Charms123$ | screenerScenario2 | RASSurveyScenario2 |
