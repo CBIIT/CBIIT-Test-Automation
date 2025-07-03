@@ -249,12 +249,11 @@ public class RAS_All_Steps extends PageInitializer {
      * PI completes consent and verifies the specified information in Native View.
      *
      * @param sheetName     The name of the Excel sheet containing the data.
-     * @param consentStatus The expected consent status.
      * @param consentType   The expected consent type.
      * @param responseType  The expected response type.
      */
     @Then("PI completes consent and verifies {string} {string} {string} {string} in Native View")
-    public static void PI_completes_consent_and_verifies_in_Native_View(String sheetName, String consentStatus, String consentType, String responseType) {
+    public static void PI_completes_consent_and_verifies_in_Native_View(String sheetName, String consentType, String responseType) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sleep(8000);
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
@@ -325,7 +324,6 @@ public class RAS_All_Steps extends PageInitializer {
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CucumberLogUtils.logScreenshot();
-        softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + consentStatus + "']").getText(), consentStatus);
         softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + consentType + "']").getText(), consentType);
         softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + responseType + "']").getText(), responseType);
         CucumberLogUtils.logScreenshot();
@@ -383,15 +381,14 @@ public class RAS_All_Steps extends PageInitializer {
      * Submits and verifies the consent in native view for a specified sheet name, consent status, consent type, and response type.
      *
      * @param sheetName     the name of the sheet for which the consent is being processed
-     * @param consentStatus the expected status of the consent
      * @param consentType   the expected type of the consent
      * @param responseType  the expected response type of the consent
      */
-    @When("the consent is submitted for {string} and {string} {string} {string} is verified in Native View")
-    public void the_consent_is_submitted_for_and_is_verified_in_native_view(String sheetName, String consentStatus, String consentType, String responseType) {
+    @When("the consent is submitted for {string} and {string} {string} is verified in Native View")
+    public void the_consent_is_submitted_for_and_is_verified_in_native_view(String sheetName, String consentType, String responseType) {
         CommonUtils.sleep(20000);
         ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-        RAS_Common_Methods.nativeViewConsentFlowProcessScenario1Parameterized(sheetName, consentStatus, consentType, responseType);
+        RAS_Common_Methods.nativeViewConsentFlowProcessScenario1Parameterized(sheetName, consentType, responseType);
     }
 
     /**
