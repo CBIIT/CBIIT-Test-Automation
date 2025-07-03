@@ -481,13 +481,14 @@ public class RAS_All_Steps extends PageInitializer {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         navigateToParticipantRecordInNativeView(sheetName);
         submitParticipantForReviewAndEligibility();
-//        openParticipantStudyRecord();
         openConsentRecord();
         consentFlowProcess(sheetName);
     }
 
+    /**
+     * Opens Participant Study record in Participant Details in Native View
+     */
     public static void openParticipantStudyRecord() {
-//        CommonUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.participantStudiesTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.participantStudiesTab);
         CommonUtils.sleep(500);
@@ -497,10 +498,12 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.sleep(500);
     }
 
+    /**
+     * Opens the Participant Study record in Native View within Participant Record.
+     */
     public static void openConsentRecord() {
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-//        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantStudyPage.currentReconsentRecordPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(500);
@@ -514,20 +517,8 @@ public class RAS_All_Steps extends PageInitializer {
         /**
          * BEGINNING: CONSENT FLOW PROCESS
          */
-//        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-//        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-//        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
-//        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-//        CommonUtils.sleep(500);
-//        CucumberLogUtils.logScreenshot();
-//        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-
-//        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-//        CommonUtils.sleep(800);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
         CucumberLogUtils.logScreenshot();
-//        CucumberLogUtils.scenario.log("* * * * CONSENT INFORMATION - CURRENT/PREVIOUS * * * *");
-//        CommonUtils.selectDropDownValue(ras_NV_Consent_Record_TestDataManager.CURRENT_PREVIOUS, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCurrentDropDown);
         CucumberLogUtils.scenario.log("* * * * CONSENT DATE * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
@@ -547,10 +538,8 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleDateCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-
         CucumberLogUtils.scenario.log("* * * * CONSENT CALL - COLLECTION METHOD * * * *");
         CommonUtils.selectDropDownValue(ras_NV_Consent_Record_TestDataManager.COLLECTION_METHOD, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown);
-
         if (!ras_NV_Consent_Record_TestDataManager.COLLECTION_METHOD.equalsIgnoreCase("iMed")) {
             dynamicTabLocator("Consent Call").click();
             CucumberLogUtils.scenario.log("* * * * CONSENT CALL - COPY OF CONSENT/ASSENT PROVIDED PROVIDED BEFORE SIGNING * * * *");
@@ -564,7 +553,6 @@ public class RAS_All_Steps extends PageInitializer {
             CommonUtils.selectDropDownValue(ras_NV_Consent_Record_TestDataManager.QUESTIONS_ADDRESSED_BEFORE_SIGNING, nativeViewCHARMSParticipantConsentPage.rasStudyConsentQuestionsAddressedBeforeSigningDropDown);
             CucumberLogUtils.logScreenshot();
         }
-
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         dynamicTabLocator("Consent Information").click();
@@ -576,7 +564,6 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.sleep(500);
-
         if (ras_NV_Consent_Record_TestDataManager.CONSENT_ASSENT_CATEGORY.equalsIgnoreCase("Under 7") || ras_NV_Consent_Record_TestDataManager.CONSENT_ASSENT_CATEGORY.equalsIgnoreCase("Aged 7 - 10, verbal assent required") || ras_NV_Consent_Record_TestDataManager.CONSENT_ASSENT_CATEGORY.equalsIgnoreCase("Aged 14 - 17, signed consent required")) {
             CucumberLogUtils.scenario.log("* * * * CONSENT INFORMATION - PARENT/GUARDIAN STATUS * * * *");
             CommonUtils.selectDropDownValue(ras_NV_Consent_Record_TestDataManager.PARENT_GUARDIAN_STATUS, nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardianStatusDropDown);
@@ -601,8 +588,6 @@ public class RAS_All_Steps extends PageInitializer {
                 CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2NameTextField, ras_NV_Consent_Record_TestDataManager.PARENT_GUARDIAN_2_NAME);
             }
         }
-
-
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         dynamicTabLocator("Consent Signed").click();

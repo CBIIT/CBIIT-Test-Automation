@@ -8,11 +8,7 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "<Email>" and password "<Password>"
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "<ScreenerScenario>"
-#    And the consent is submitted for "<ScreenerScenario>" and "<ConsentType>" "<ResponseType>" is verified in Native View
-#    And the consent is submitted for "<ScreenerScenario>"
-
     And Study Team member logs in to Native View and completes consent call "<ScreenerScenario>"
-
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
     And participant clicks on Study Consent and completes form with "<Password>"
@@ -22,8 +18,7 @@ Feature: RAS Consent Scenarios
     And "Download Study Consent" text shows on participant portal and when clicked downloads "Consent Record"
     Examples:
       | Email                           | Password   | ScreenerScenario      | ConsentStatus | ConsentType | ResponseType     | AccountResetScriptURL                                                                                    |
-#      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | Complete      | Adult       | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
-      | ras_progression@yopmail.com | Charms123$ | screenerScenarioAdult | Complete      | Adult       | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=0e9497c587161ad0ad46326d3fbb35c7 |
+      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | Complete      | Adult       | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
   @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3680 @selenium @RAS_Regression1
   Scenario Outline: Verifying consent workflows for an adult participant, and then verifying that a Download Study Consent widget shows on portal and when clicked downloads the most recent Consent Record
@@ -365,12 +360,9 @@ Feature: RAS Consent Scenarios
     And participant logs out of RAS portal
     And Study Team members logs in to Native View and verifies "Patient Smoking History" QBank data
 
-  @muzipovay2 @RAS_STUDY @selenium @@RAS_Regression2
+  @muzipovay2 @RAS_STUDY @CP2-3821 @CP2-5153 @selenium @@RAS_Regression2
   Scenario Outline: Completing the re-consent process
-#    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
-#
-    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=0e9497c587161ad0ad46326d3fbb35c7" has been reset
-
+    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
     And clicks on "Eligibility Questionnaire" to begin survey
@@ -379,5 +371,4 @@ Feature: RAS Consent Scenarios
     And Study Team member completes re-consent for "<ScreenerScenario>"
     Examples:
       | Email                           | Password   | ScreenerScenario  | SurveyScenario     |
-#      | consent_participant@yopmail.com | Charms123$ | screenerScenario2 | RASSurveyScenario2 |
       | ras_progression@yopmail.com| Charms123$ | screenerScenario2 | RASSurveyScenario2 |
