@@ -7,7 +7,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import static APPS_COMMON.PageInitializers.PageInitializer.fCASVENDORPORTALPage;
 import static Hooks.Hooks.softAssert;
 
@@ -507,32 +506,30 @@ public class FCASVENDORPORTALSteps {
         CommonUtils.clickOnElement(fCASVENDORPORTALPage.yesRadioButtonWasApplicationFriendly);
     }
 
-    /**
-     * Click on No for was easy to upload document files to the FCAS Vendor Portal
-     */
     @Then("User chooses No for {string}")
-    public void user_chooses_no_for(String easyUpload) {
-        CommonUtils.clickOnElement(fCASVENDORPORTALPage.noRadioButtonWasUploadEasy);
+    public void user_chooses_no_for(String options) {
+        FCASVENDORPORTALStepsImplementation.chooseNoAnswerLeaveFeedbackQuestions(options);
     }
 
     @Then("User chooses No answer for {string}")
-    public void user_chooses_no_answer_for(String additionalInfo) {
-        CommonUtils.clickOnElement(fCASVENDORPORTALPage.noRadioButtonIsGuideUseful);
+    public void user_chooses_no_answer_for(String options) {
+        FCASVENDORPORTALStepsImplementation.chooseNoAnswerLeaveFeedbackQuestions(options);
     }
 
     /**
      * Click on Yes for Is the FCAS Vendor Portal organized in a user-friendly way
      */
-    @Then("User chooses Yes for {string}")
-    public void user_chooses_yes_for(String userFriendlyPortal) {
+
+    @Then("User chooses Yes for portal being organized in a user-friendly way")
+    public void user_chooses_yes_for_portal_being_organized_in_a_user_friendly_way() {
         CommonUtils.clickOnElement(fCASVENDORPORTALPage.yesRadioButtonIsOrganized);
     }
 
     /**
      * User inputs comments for Is there anything else you think we should know regarding the FCAS Vendor Portal Application
      */
-    @Then("User inputs comments for {string} question")
-    public void user_inputs_comments_for_question(String commentsQuestion) {
+    @Then("User inputs comments for anything else field")
+    public void user_inputs_comments_for_anything_else_field() {
         CommonUtils.sendKeys(fCASVENDORPORTALPage.textFieldAdditionalComments, fcasVendorPortalConstants.COMMENTS);
     }
 

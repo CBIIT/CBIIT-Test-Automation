@@ -32,9 +32,24 @@ public class FCASVENDORPORTALStepsImplementation extends PageInitializer {
     /**
      * User chooses Existing Contracts Submit Work Order option
      */
-    public static void chooseExistingContractsSubmitWorkOrderOption(){
+    public static void chooseExistingContractsSubmitWorkOrderOption() {
         CommonUtils.clickOnElement(fCASVENDORPORTALPage.existingContractsRecordMenu);
         CommonUtils.waitForClickability(fCASVENDORPORTALPage.submitWorkOrderOption);
         CommonUtils.clickOnElement(fCASVENDORPORTALPage.submitWorkOrderOption);
- }
+    }
+
+    /**
+     * User chooses No answer for leave feedback questions
+     * @param options
+     */
+    public static void chooseNoAnswerLeaveFeedbackQuestions(String options) {
+        switch (options) {
+            case "Was easy to upload document files to the FCAS Vendor Portal":
+                CommonUtils.clickOnElement(fCASVENDORPORTALPage.noRadioButtonWasUploadEasy);
+                break;
+                case "Is there additional information you think should be included in the FCAS Vendor Portal User Guide":
+                CommonUtils.clickOnElement(fCASVENDORPORTALPage.noRadioButtonIsGuideUseful);
+                break;
+        }
+    }
 }
