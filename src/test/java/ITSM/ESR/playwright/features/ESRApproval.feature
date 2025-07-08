@@ -75,6 +75,16 @@ Feature: ESR Approvals
     And the user receives a rejection from a federal lead for intake approval in ESR-I
     Then the user confirms the Federal Intake Approval was rejected for the ESR-I ticket
 
+  @ESR-576 @sarwarahmed1 @Regression @playwright
+  Scenario: Test "Rejected Incorrect Approver" from a Federal Lead in an ESR-I ticket
+    Given a user logs into Native View on the NCI at your service page
+    And navigates to create ESR
+    And fills out all required information for ESR-I and clicks submit
+    And user clicks on Intake Preparation catalog task
+    And user fills out all required information for ESR-I Intake Preparation
+    And the user receives a rejection for incorrect approver from a federal lead for intake approval in ESR-I
+    Then the user confirms the Federal Intake Approval was rejected for an incorrect approver in the ESR-I ticket
+
   @ESR-578 @sarwarahmed1 @Regression @playwright
   Scenario: Test the ESR Board Intake Review approvals in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
