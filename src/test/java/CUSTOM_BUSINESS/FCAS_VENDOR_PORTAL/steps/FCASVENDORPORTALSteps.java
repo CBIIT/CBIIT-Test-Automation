@@ -716,4 +716,60 @@ public class FCASVENDORPORTALSteps {
     public void user_can_see_proposal_due_date_column() {
         softAssert.assertTrue(fCASVENDORPORTALPage.solicitationPageProposalDueDateColumn.isDisplayed());
     }
+
+    /**
+     * User navigates to Company account page
+     */
+    @Given("User navigates to Company account page")
+    public void user_navigates_to_company_account_page() {
+       CommonUtils.clickOnElement(fCASVENDORPORTALPage.companyAccountTab);
+    }
+
+    /**
+     * User clicks Edit button for Company Details
+     */
+    @When("User clicks Edit button for Company Details")
+    public void user_clicks_edit_button_for_company_details() {
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.editButtonBusinessSummary);
+    }
+
+    /**
+     * Verify User is on Edit Company Details modal
+     */
+    @Then("User is on Edit Company Details modal")
+    public void user_is_on_edit_company_details_modal() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.editCompanyDetailsModalHeader.isDisplayed());
+    }
+
+    /**
+     * Verify User can see name Edit Company Details field
+     */
+    @Then("User can see name Edit Company Details field")
+    public void user_can_see_name_edit_company_details_field() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.nameFieldEditCompanyDetails.isDisplayed());
+    }
+
+    /**
+     * Verify User can see email Edit Company Details field
+     */
+    @Then("User can see email Edit Company Details field")
+    public void user_can_see_email_edit_company_details_field() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.emailFieldEditCompanyDetails.isDisplayed());
+    }
+
+    /**
+     * Verify User can see DUNS Edit Company Details field
+     */
+    @Then("User can see DUNS Edit Company Details field")
+    public void user_can_see_duns_edit_company_details_field() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.dUNSFieldEditCompanyDetails.isDisplayed());;
+    }
+
+    /**
+     * Verify User can see DUNS Edit Company Details field
+     */
+    @Then("User can see mailing address Edit Company Details field")
+    public void user_can_see_mailing_address_edit_company_details_field() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.mailingAddressFieldEditCompanyDetails.isDisplayed());;
+    }
 }

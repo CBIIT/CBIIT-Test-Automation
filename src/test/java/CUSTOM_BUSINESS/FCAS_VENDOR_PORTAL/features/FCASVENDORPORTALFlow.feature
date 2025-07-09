@@ -168,3 +168,34 @@ Feature: FCAS Vendor Portal Flow
     And User can see Proposal Due Date column
     And User can see Last Updated column
     And User can see Status column
+
+  @Alena @Regression @selenium @OASYS-3622
+  Scenario: Company account page Details tab
+    Given User accepts PII Disclaimer
+    And User navigates to Company account page
+    And User can verify Company Account tab page header
+    When User clicks Edit button for Company Details
+    Then User is on Edit Company Details modal
+    And User can see name Edit Company Details field
+    And User can see email Edit Company Details field
+    And User can see DUNS Edit Company Details field
+    And User can see mailing address Edit Company Details field
+    Then User clicks Cancel button
+
+  @Alena @Regression @selenium @OASYS-3622 @Progression
+  Scenario: Company account page Users tab
+    Given User accepts PII Disclaimer
+    And User navigates to Company account page
+    And User clicks on Users tab
+    And User can see Add User button
+    And User can see Show Inactive Users option
+    And User can see Search field
+    And User can see name column of Users tab
+    And User can see job title column of Users tab
+    And User can see email column of Users tab
+    And User can see phone column of Users tab
+    And User can see access to view column of Users tab
+    And User can see admin column of Users tab
+    And User can see account active column of Users tab
+
+

@@ -360,6 +360,30 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "(//div[.=' Proposal Due Date '])[1]")
     public WebElement solicitationPageProposalDueDateColumn;
 
+    /** Edit button Business Summary*/
+    @FindBy(xpath = "//button[@class='mat-focus-indicator mat-button mat-button-base mat-primary ng-star-inserted']")
+    public WebElement editButtonBusinessSummary;
+
+    /** Edit Company Details modal header*/
+    @FindBy(xpath = "//h2[.='Edit Company Details']")
+    public WebElement editCompanyDetailsModalHeader;
+
+    /** Name field Edit Company Details*/
+    @FindBy(xpath = "//input[@ng-reflect-placeholder='Name *']")
+    public WebElement nameFieldEditCompanyDetails;
+
+    /** Email field Edit Company Details*/
+    @FindBy(xpath = "//input[@ng-reflect-placeholder='Email *']")
+    public WebElement emailFieldEditCompanyDetails;
+
+    /** DUNS field Edit Company Details*/
+    @FindBy(xpath = "//input[@ng-reflect-placeholder='DUNS']")
+    public WebElement dUNSFieldEditCompanyDetails;
+
+    /** mailing address field Edit Company Details*/
+    @FindBy(xpath = "//textarea[@ng-reflect-placeholder='Mailing Address *']")
+    public WebElement mailingAddressFieldEditCompanyDetails;
+
     public FCASVENDORPORTALPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
