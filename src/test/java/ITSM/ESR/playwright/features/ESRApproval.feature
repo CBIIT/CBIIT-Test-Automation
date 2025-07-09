@@ -122,7 +122,7 @@ Feature: ESR Approvals
     Then the user confirms the ESR Board Intake Approval was rejected for the ESR-Q ticket
 
   @ESR-680 @sarwarahmed1 @Regression @playwright
-  Scenario: Test the "Rejected" from ESR Board Intake Review approvals in an ESR-Q ticket
+  Scenario: Test the "Rejected Incorrect Approver" from ESR Board Intake Review approvals in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
     And fills out all required information for ESR-Q and clicks submit
