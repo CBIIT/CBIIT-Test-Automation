@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 		, features = "src/test/java/ITSM/ESR/playwright/features"
 		, glue = {"ITSM.ESR.playwright.steps", "Hooks"}
 		, tags = "@Progression"
-		, dryRun = true
+		, dryRun = false
 )
 public class RunESRProgressionTest extends AbstractTestNGCucumberTests{
 }
