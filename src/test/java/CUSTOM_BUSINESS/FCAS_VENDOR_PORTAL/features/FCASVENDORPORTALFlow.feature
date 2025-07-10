@@ -182,7 +182,7 @@ Feature: FCAS Vendor Portal Flow
     And User can see mailing address Edit Company Details field
     Then User clicks Cancel button
 
-  @Alena @Regression @selenium @OASYS-3622 @Progression
+  @Alena @Regression @selenium @OASYS-3622
   Scenario: Company account page Users tab
     Given User accepts PII Disclaimer
     And User navigates to Company account page
@@ -197,5 +197,3 @@ Feature: FCAS Vendor Portal Flow
     And User can see access to view column of Users tab
     And User can see admin column of Users tab
     And User can see account active column of Users tab
-
-

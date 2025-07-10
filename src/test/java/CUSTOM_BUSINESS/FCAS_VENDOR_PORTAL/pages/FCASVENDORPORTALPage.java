@@ -380,9 +380,49 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "//input[@ng-reflect-placeholder='DUNS']")
     public WebElement dUNSFieldEditCompanyDetails;
 
-    /** mailing address field Edit Company Details*/
+    /** Mailing address field Edit Company Details*/
     @FindBy(xpath = "//textarea[@ng-reflect-placeholder='Mailing Address *']")
     public WebElement mailingAddressFieldEditCompanyDetails;
+
+    /** Users tab*/
+    @FindBy(xpath = "//a[.='Users ']")
+    public WebElement usersTab;
+
+    /** Add User button*/
+    @FindBy(xpath = "//span[.='Add User']")
+    public WebElement addUserButton;
+
+    /** Show Inactive Users option*/
+    @FindBy(xpath = "//*[@id='mat-checkbox-2']/label/span[2]")
+    public WebElement showInactiveUsersOption;
+
+    /** Name column Users tab*/
+    @FindBy(xpath = "(//div[.=' Name '])[1]")
+    public WebElement nameColumnUsersTab;
+
+    /** Job Title column Users tab*/
+    @FindBy(xpath = "(//div[.=' Job Title '])[1]")
+    public WebElement jobTitleColumnUsersTab;
+
+    /** Email column Users tab*/
+    @FindBy(xpath = "(//div[.=' Email '])[1]")
+    public WebElement emailColumnUsersTab;
+
+    /** Phone column Users tab*/
+    @FindBy(xpath = "(//div[.=' Phone # '])[1]")
+    public WebElement phoneColumnUsersTab;
+
+    /** Access to View column Users tab*/
+    @FindBy(xpath = "(//div[.=' Access to View '])[1]")
+    public WebElement accessToViewColumnUsersTab;
+
+    /** Admin column Users tab*/
+    @FindBy(xpath = "(//div[.=' Admin '])[1]")
+    public WebElement adminToViewColumnUsersTab;
+
+    /** Account Active column Users tab*/
+    @FindBy(xpath = "(//div[.=' Account Active '])[1]")
+    public WebElement accountActiveColumnUsersTab;
 
     public FCASVENDORPORTALPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
