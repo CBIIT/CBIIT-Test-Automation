@@ -11,7 +11,6 @@ public class RAS_NV_Consent_Record_TestDataManager extends PageInitializer {
      * NATIVE VIEW CONSENT RECORD VARIABLES
      */
     public Map<String, String> TEST_DATA_FOR_NV_CONSENT_RECORD;
-
     public String STUDY;
     public String CONSENT_DATE;
     public String CONSENT_BY;
