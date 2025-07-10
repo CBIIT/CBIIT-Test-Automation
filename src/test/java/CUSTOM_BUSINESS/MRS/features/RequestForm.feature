@@ -53,3 +53,18 @@ Scenario: Submit a request form on behalf of another person
     And User clicks on Choose File button to upload a document
     And User selects "Parallel" as Approval Type
     Then User clicks on Submit for Approval button
+
+  @AddAdditionalApprover @NESARH2 @playwright @Regression
+  Scenario: Add an additional approver to a request
+    When User selects an existing request
+    And User clicks on Add Additional Approver
+    And User selects "Ellison, Gary" as the additional approver
+    And User clicks on Save button
+    Then User verifies that "Ellison, Gary" is listed as an additional approver in the request details
+
+  @DeleteRequest @NESARH2 @playwright @Regression
+  Scenario: Verify that a user can delete a request and it is no longer accessible in the MRS application
+    When the user selects the option to Delete the request
+    And the user confirms the delete operation
+    Then the system displays a success message stating the request has been deleted
+    And the Active Requests queue for the submitter or requestor and their delegates no longer displays the deleted request

@@ -22,11 +22,13 @@ public class CTRPCTRO_NV_Steps {
     CTRPCTRO_NV_StepImpl.a_new_category_called_is_added(nciDCCAccrualReport);
     }
 
-    @Then("following options are available in the Subcategory field when the NCI DCC Accrual Report Category is selected: {string}, {string}, {string}, {string}, {string}, {string}, {string}")
-    public void following_options_are_available_in_the_subcategory_field_when_the_nci_dcc_accrual_report_category_is_selected(String accountRelated,
-    String dataReview, String feedBack, String generalInquiries, String policyDecision, String technicalIssues, String training) {
-    CTRPCTRO_NV_StepImpl.following_options_are_available_in_the_subcategory_field_when_the_nci_dcc_accrual_report_category_is_selected(
-    accountRelated, dataReview, feedBack,generalInquiries, policyDecision, technicalIssues, training);
+    @Then("following options are available in the Subcategory field when the NCI DCC Accrual Report Category is selected: {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void following_options_are_available_in_the_subcategory_field_when_the_nci_dcc_accrual_report_category_is_selected(String accessAdditionalNCIDCCAccount,
+    String accessInitialNCIDCCAccount, String accessNCIAccount, String accessTroubleshooting, String dataRefreshOutreach, String dataReview, String feedback,
+    String generalInquiries, String policyDecision, String technicalIssues, String training) {
+        CTRPCTRO_NV_StepImpl.following_options_are_available_in_the_subcategory_field_when_the_nci_dcc_accrual_report_category_is_selected(
+        accessAdditionalNCIDCCAccount, accessInitialNCIDCCAccount, accessNCIAccount, accessTroubleshooting, dataRefreshOutreach, dataReview,
+        feedback, generalInquiries, policyDecision, technicalIssues, training);
     }
 
     @Given("a user is on the CTRP CTRO Helpdesk Case form")

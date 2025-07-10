@@ -1,6 +1,6 @@
 Feature: CTRP/CTRO Native View Test Case Scenarios
 
-  @CTRPSNOW-132 @chaudhryma @playwright @Regression @Progression
+  @CTRPSNOW-132 @chaudhryma @playwright @Regression
   Scenario: Test Add User Role to CTRP Cloud One Group
     Given the CTRP-Cloud One user group
     When defining which user roles it has
