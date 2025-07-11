@@ -372,6 +372,12 @@ public class NativeViewCHARMSParticipantConsentPage {
     @FindBy(xpath = "//span[contains(text(),'Please mark whether the Consent/Assent was Obtained')]")
     public WebElement pleaseMarkWhetherTheCopyOfSignedDatedConsentAssentWasGivenToParticipantErrorMessage;
 
+    /**
+     * Save button
+     */
+    @FindBy(xpath = "//span[contains(@class,'navbar_ui_actions')]//button[contains(@name,'not_important')][normalize-space()='Save']\n")
+    public WebElement saveButton;
+
     public NativeViewCHARMSParticipantConsentPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

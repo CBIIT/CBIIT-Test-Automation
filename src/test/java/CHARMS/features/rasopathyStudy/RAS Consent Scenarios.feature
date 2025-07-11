@@ -186,7 +186,7 @@ Feature: RAS Consent Scenarios
     And verifies that Consent Assent category auto-populated to "Adult"
     And presses the Call Complete button
 
-#  @muzipovay2 @RAS_STUDY @CP2-3794 @selenium @RAS_Regression1       @Progression
+  @muzipovay2 @RAS_STUDY @CP2-3794 @selenium @RAS_Regression1
   Scenario: Verifying that Parent/Guardian 1 Signed, Parent/Guardian 2 Signed fields for Adult consent type are disabled.
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -216,7 +216,7 @@ Feature: RAS Consent Scenarios
     And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAdult"
     And PI verifies that the fields ConsentAssent Obtained Before Study Procedures and Copy of SignedDated ConsentAssent Given to Participant must be answered before clicking Sign and Complete
 
-  @muzipovay2 @RAS_STUDY @CP2-3982 @selenium @RAS_Regression1 @Progression
+  @muzipovay2 @RAS_STUDY @CP2-3982 @selenium @RAS_Regression1
   Scenario: Verifying that when Consent/Assent category is "Aged 7 - 10, verbal assent required", then a new field "Was verbal assent obtained?" displays on the Consent Form in Native View.
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     And a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -257,7 +257,7 @@ Feature: RAS Consent Scenarios
     And selects "Yes" for Age-appropriate assent obtained
     Then Study Team member presses Sign and Complete
 
-#  @muzipovay2 @RAS_STUDY @CP2-3794 @selenium @RAS_Regression2 @Progression
+  @muzipovay2 @RAS_STUDY @CP2-3794 @selenium @RAS_Regression2 @Progression
   Scenario: Verifying consent workflow for Consent/Assent Category "Adult-Needs LAR".
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
@@ -286,11 +286,7 @@ Feature: RAS Consent Scenarios
     And presses the Call Complete button
     Then Study Team member logs out of Native View
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-#    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
-
-    And logs in via Okta with username "ras_progression@yopmail.com" and password "Charms123$"
-
-
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And proxy clicks on Study Consent and completes form with "Charms123$" "screenerScenarioAdult-NeedsLAR"
     Then participant logs out of RAS portal
     And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAdult-NeedsLAR"
@@ -310,13 +306,15 @@ Feature: RAS Consent Scenarios
     And Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
-    And selects "CHARMS e-consent" as the Collection Method
+    And clicks the "Consent Call" tab
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
+    And selects "CHARMS e-consent" as the Collection Method
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
     And selects "Yes" for Protocol Discussed in Private Setting
     And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
     And selects "Yes" for Questions Addressed Before Signing
+    And clicks the "Consent Information" tab
     And verifies that Consent Assent category auto-populated to "Adult"
     And presses the Call Complete button
     Then Study Team member logs out of Native View
@@ -350,9 +348,10 @@ Feature: RAS Consent Scenarios
     And Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
-    And selects "CHARMS e-consent" as the Collection Method
+    And clicks the "Consent Call" tab
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
+    And selects "CHARMS e-consent" as the Collection Method
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
     And selects "Yes" for Protocol Discussed in Private Setting
     And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
@@ -390,5 +389,14 @@ Feature: RAS Consent Scenarios
     And the consent is submitted for "<ScreenerScenario>"
     And Study Team member completes re-consent for "<ScreenerScenario>" with Collection Method "<CollectionMethod>"
     Examples:
-      | Email                       | Password   | ScreenerScenario  | CollectionMethod |
-      | ras_progression@yopmail.com | Charms123$ | screenerScenario2 | iMed             |
+      | Email                           | Password   | ScreenerScenario  | CollectionMethod |
+      | consent_participant@yopmail.com | Charms123$ | screenerScenario2 | iMed             |
+
+  @muzipovay2 @RAS_STUDY @CP2-5154 @CP2-5155 @selenium @@RAS_Regression2
+  Scenario: Verifying that Preview Study Consent tile displays on Portal when the Collection Method is CHARMS e-consent
+    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
+    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
+    And clicks on "Eligibility Questionnaire" to begin survey
+    When the participant submits a screener from excel sheet "screenerScenarioAdult"
+    Then Consent Call is completed for "screenerScenarioAdult" and Participant verifies logs in to portal with username "consent_participant@yopmail.com" and password "Charms123$" and the Preview Study Consent tile displays

@@ -8,7 +8,6 @@ import APPS_COMMON.Utils.Dynamic_Locators;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
 import APPS_COMMON.PageInitializers.PageInitializer;
-import CHARMS.steps.RAS_Common_Methods;
 import CHARMS.utils.CharmsUtil;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
@@ -23,9 +22,20 @@ import static CHARMS.pages.RAS_Screener_Page.*;
 import static CHARMS.studyQuestions.RAS_Screener_Questions_Proband.*;
 import static CHARMS.studyQuestions.RAS_Screener_Questions_Proxy.*;
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
+import static com.nci.automation.web.TestProperties.getRasLoginUrl;
 
 public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
     public static String FSID;
+
+    /**
+     * USE THIS METHOD TO NAVIGATE TO THE RASOPATHIES LONGITUDINAL COHORT STUDY LOGIN PAGE.
+     *
+     * @param applicationID The identifier for the application related to the login page.
+     */
+    public void navigateToRASopathiesLongitudinalCohortStudyLoginPage(String applicationID) {
+        WebDriverUtils.webDriver.get(getRasLoginUrl());
+        CucumberLogUtils.logScreenshot();
+    }
 
     /***
      * USE THIS METHOD TO CLICK ON SCREENER NEXT BUTTON
@@ -654,9 +664,10 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
     }
 
     /**
-     * When Study Team member logs in to Native View and completes consent call with provided sheet names.
+     * Study Team member to logs in to the Native View and completes consent call.
      *
-     * @param sheetName The name of the sheet containing participant record details.
+     * @param sheetName        The name of the sheet containing the relevant data for the consent call.
+     * @param collectionMethod The method used to collect consent, such as manual or automated processes.
      */
     public void study_team_member_logs_in_to_Native_View_and_completes_consent_call(String sheetName, String collectionMethod) {
         ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
