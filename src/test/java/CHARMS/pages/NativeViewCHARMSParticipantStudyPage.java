@@ -1,6 +1,7 @@
 package CHARMS.pages;
 
 import com.nci.automation.web.WebDriverUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -113,6 +114,58 @@ public class NativeViewCHARMSParticipantStudyPage {
     public static WebElement findCurrentOrPreviousConsentRecord(String currentPreviousStatus) {
         return locateByXpath("//a[contains(@aria-label, '" + currentPreviousStatus + " - Open record')]/parent::td/parent::tr//a[contains(@aria-label,'Preview record')]");
     }
+
+    /* Method to dynamically locate Input Value elements in Native View */
+    public WebElement dynamicLocatorForInputElements(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_display.x_naci_family_coho_participant_study." + text + "'])[1]"));
+    }
+
+    /* Method to dynamically locate elements in Native View */
+    public WebElement dynamicLocatorUsingDataNormalizeSpaceInSpan(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//span[@data-html='false'][normalize-space()='" + text + "'])[1]"));
+    }
+
+    /* Method to dynamically locate Select Value elements in Native View */
+    public WebElement dynamicLocatorForSelectElements(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='x_naci_family_coho_participant_study." + text + "'])[1]"));
+    }
+
+    /* Method to dynamically locate elements in Native View */
+    public WebElement dynamicLocatorContainsText1(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//span[@class='label-text'][normalize-space()='Screener'])[1]"));
+    }
+
+    /* Method to dynamically locate elements in Native View */
+    public WebElement dynamicLocatorContainsText(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'" + text + "')]"));
+    }
+
+    /* Method to dynamically locate CheckBox labels in Fanconi study page in Native View */
+    public WebElement dynamicLocatorForCheckBoxElements1(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//label[@id='label.ni.x_naci_family_coho_participant_study." + text + "'])[1]"));
+    }
+
+    /* Method to dynamically locate CheckBox labels in Fanconi study page in Native View */
+    public WebElement dynamicLocatorForCheckBoxElements(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='ni.x_naci_family_coho_participant_study." + text + "'])[1]"));
+    }
+
+    /* NV Study Page: Subject Id Input value  */
+    @FindBy(xpath = "(//input[@id='sys_readonly.x_naci_family_coho_participant_study.participant.name'])[1]")
+    public WebElement nVParticipantNameValue;
+
+    /* NV Study Page: NIH MRN number Input value  */
+    @FindBy(xpath = "(//input[@id='x_naci_family_coho_participant_study.participant.nih_number'])[1]")
+    public WebElement nVParticipantNIHMRNNumberInput;
+
+    /*NV Screener Referral Preview button */
+    @FindBy(xpath = "(//button[@id='viewr.x_naci_family_coho_participant_study.screener_ref'])[1]")
+    public WebElement nVFScreenerRefPreviewRecordButton;
+
+    /* NV Screener: Open Record button */
+    @FindBy(xpath = "(//a[normalize-space()='Open Record'])[1]")
+    public WebElement nVFScreenerOpenRecordButton;
+
 
     public NativeViewCHARMSParticipantStudyPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
