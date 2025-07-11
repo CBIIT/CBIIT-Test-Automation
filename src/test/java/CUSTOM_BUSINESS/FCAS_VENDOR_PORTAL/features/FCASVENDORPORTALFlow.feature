@@ -94,3 +94,77 @@ Feature: FCAS Vendor Portal Flow
     And User can see Comments field
     And User can see Choose File button
     Then User clicks Cancel button
+
+  @Alena @Regression @selenium @OASYS-3623
+  Scenario: Existing Contracts page layout
+    Given User accepts PII Disclaimer
+    And User is on Existing Contracts page
+    And User can see Title column
+    And User can see Ref PIID column
+    And User can see Severability column
+    And User can see PIID column
+    And User can see Status column
+    And User can see Est Ultimate Completion column
+
+  @Alena @Regression @selenium @OASYS-3623
+  Scenario: FCAS Vendor Portal tabs
+    Given User accepts PII Disclaimer
+    And User is on Existing Contracts page
+    And User can see Existing Contracts tab
+    When User clicks on Planning tab
+    Then User can verify Planning tab page header
+    When User clicks on Solicitations tab
+    Then User can verify Solicitation tab page header
+    When User clicks on Company Account tab
+    Then User can verify Company Account tab page header
+
+  @Alena @Regression @selenium @OASYS-3765
+  Scenario: FCAS Vendor Portal User leaves feedback
+    Given User accepts PII Disclaimer
+    When User chooses to leave feedback
+    Then User is on Leave Feedback modal
+    And User chooses No for "Was easy to upload document files to the FCAS Vendor Portal"
+    And User chooses No answer for "Is there additional information you think should be included in the FCAS Vendor Portal User Guide"
+    And User chooses Yes for portal being organized in a user-friendly way
+    And User inputs comments for anything else field
+    And User clicks Submit feedback button
+
+  @Alena @Regression @selenium @OASYS-3623
+  Scenario: Planning page layout
+    Given User accepts PII Disclaimer
+    And User navigates to Planning page
+    And User can see Planning page header
+    And User can see Search field
+    And User can see All statuses dropdown
+    And User can see Title Planning tab column
+    And User can see ID column
+    And User can see Requested by column
+    And User can see Severability column
+    And User can see Est. Award Date column
+    And User can see Last Updated column
+    And User can see Status column
+
+  @Alena @Regression @selenium @OASYS-3623
+  Scenario: Solicitations page quick filters
+    Given User accepts PII Disclaimer
+    And User navigates to Solicitations page
+    And User can see Proposal Requested quick filter
+    And User can see Active quick filter
+    And User can see Submitted quick filter
+    And User can see Rejected quick filter
+
+  @Alena @Regression @selenium @OASYS-3623
+  Scenario: Solicitations page layout
+    Given User accepts PII Disclaimer
+    And User navigates to Solicitations page
+    And User can verify Solicitations page header
+    And User can see Search field
+    And User can see Title Solicitation tab column
+    And User can see Solicitation column
+    And User can see Division column
+    And User can see Amendments column
+    And User can see Price Type column
+    And User can see Q&A End Date column
+    And User can see Proposal Due Date column
+    And User can see Last Updated column
+    And User can see Status column

@@ -36,7 +36,7 @@ public class NativeViewCHARMSParticipantDetailsPage extends PageInitializer {
     /**
      * Native View Participant Consents Button
      */
-    @FindBy(xpath = "//span[normalize-space()='Consents (1)']")
+    @FindBy(xpath = "//span[@class='tab_header']//span[contains(text(), 'Consents')]")
     public WebElement nativeViewPatientDetailsConsentsTab;
 
     /**

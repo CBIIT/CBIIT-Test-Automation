@@ -592,8 +592,13 @@ public class RAS_Consent_Call_Steps {
         CucumberLogUtils.logScreenshot();
     }
 
-    @Then("Study Team member completes re-consent with {string} as the collection method")
-    public void study_team_member_completes_re_consent_with_as_the_collection_method(String collectionMethod) {
-        rasConsentStepsImpl.study_team_member_completes_re_consent_with_as_the_collection_method(collectionMethod);
+    /**
+     * Study Team member completes the re-consent.
+     *
+     * @param sheetName the name of the Excel sheet used for reconsent
+     */
+    @Then("Study Team member completes re-consent for {string}")
+    public void study_team_member_completes_re_consent_with_as_the_collection_method(String sheetName) {
+        rasConsentStepsImpl.study_team_member_completes_re_consent_with_as_the_collection_method(sheetName);
     }
 }
