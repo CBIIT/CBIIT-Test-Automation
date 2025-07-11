@@ -5,8 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
-
 public class NativeViewCHARMSParticipantConsentPage {
 
     /**
