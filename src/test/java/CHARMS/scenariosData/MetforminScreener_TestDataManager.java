@@ -6,10 +6,9 @@ import CHARMS.constants.MetforminScreenerConstants;
 import com.nci.automation.utils.ExcelReader;
 import java.util.Map;
 
+/*** Metformin Screener Data **/
 public class MetforminScreener_TestDataManager extends PageInitializer {
-    /* Metformin Screener Data */
     public Map<String, String> testDataForMetforminScreener;
-
     public String areYouCompletingThisQuestionnaireForSomeoneElse;
     public String whatIsYourName;
     public String firstName;
@@ -71,6 +70,7 @@ public class MetforminScreener_TestDataManager extends PageInitializer {
     public String howWouldYouLikeToProvideYourGeneticTestResults;
     public String deliveryHelpText;
     public String tumorType;
+    public String age;
     public String pleaseProvideTheDateOfSurgery;
     public String listAllMedicationsAndSeparateWithASemicolon;
     public String pleaseSelectAgeOrDateForReporting;
@@ -80,14 +80,38 @@ public class MetforminScreener_TestDataManager extends PageInitializer {
     public String pleaseProvideTheNameOfTheInstitutionWhereTheCancerWasTreated;
     public String pleaseProvideTheNameOfTheTreatingPhysician;
     public String additionalDetails;
-
+    public String monthOfDiagnosis;
+    public String yearOfDiagnosis;
+    public String submit_Screen_text1;
+    public String submit_Screen_text2;
+    public String submit_Screen_text3;
+    public String oK;
+    public String proxyFirstName;
+    public String proxyMiddleName;
+    public String proxyLastName;
+    public String vitalStatus;
+    public String calculatedAge;
+    public String whatIsYourRelationshipToParticipant;
+    public String areYouTheLegalGuardianOfThisPerson;
+    public String registrationEmail;
+    public String proxyContactStreetAddress;
+    public String proxyContactStreetAddress2Optional;
+    public String proxyContactCity;
+    public String proxyContactState;
+    public String proxyContactZipcode;
+    public String proxyContactCountry;
+    public String proxyContactEmail;
+    public String proxyContactHomePhone;
+    public String proxyContactCellPhone;
+    public String proxyContactWorkPhone;
+    public String proxyPreferredPhone;
+    public String preferredContact;
 
     /* FETCHING DATA FROM EXCEL BEFORE SUBMITTING METFORMIN SCREENER FORM */
     public void dataInitializerMetforminScreener(String sheetName) {
         /* ****** METFORMIN SCREENER FORM ***** */
         if (sheetName.equals("MetforminScreenerScenario1")) {
             testDataForMetforminScreener = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.METFORMIN_SCREENER_DATA, sheetName);
-            System.out.println("HELLO");
             areYouCompletingThisQuestionnaireForSomeoneElse = testDataForMetforminScreener.get(MetforminScreenerConstants.ARE_YOU_COMPLETING_THIS_QUESTIONNAIRE_FOR_SOMEONE_ELSE);
             whatIsYourName = testDataForMetforminScreener.get(MetforminScreenerConstants.WHAT_IS_YOUR_NAME);
             firstName = testDataForMetforminScreener.get(MetforminScreenerConstants.FIRST_NAME);
@@ -133,8 +157,11 @@ public class MetforminScreener_TestDataManager extends PageInitializer {
             wereYouTheParticipantDiagnosedWithCongenitalLacticAcidosis = testDataForMetforminScreener.get(MetforminScreenerConstants.WERE_YOU_THE_PARTICIPANT_DIAGNOSED_WITH_CONGENITAL_LACTIC_ACIDOSIS);
             haveYouTheParticipantEverBeenDiagnosedWithCancer = testDataForMetforminScreener.get(MetforminScreenerConstants.HAVE_YOU_THE_PARTICIPANT_EVER_BEEN_DIAGNOSED_WITH_CANCER);
             tumorType = testDataForMetforminScreener.get(MetforminScreenerConstants.TUMOR_TYPE);
+            age = testDataForMetforminScreener.get(MetforminScreenerConstants.AGE);
             pleaseSelectAgeOrDateForReporting = testDataForMetforminScreener.get(MetforminScreenerConstants.PLEASE_SELECT_AGE_OR_DATE_FOR_REPORTING);
             ageAtDiagnosis = testDataForMetforminScreener.get(MetforminScreenerConstants.AGE_AT_DIAGNOSIS);
+            monthOfDiagnosis = testDataForMetforminScreener.get(MetforminScreenerConstants.MONTH_OF_DIAGNOSIS);
+            yearOfDiagnosis = testDataForMetforminScreener.get(MetforminScreenerConstants.YEAR_OF_DIAGNOSIS);
             areYouTheParticipantCurrentlyReceivingTreatment = testDataForMetforminScreener.get(MetforminScreenerConstants.ARE_YOU_THE_PARTICIPANT_CURRENTLY_RECEIVING_TREATMENT);
             pleaseProvideTheNameOfTheInstitutionWhereTheCancerWasDiagnosed = testDataForMetforminScreener.get(MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_DIAGNOSED);
             pleaseProvideTheNameOfTheInstitutionWhereTheCancerWasTreated = testDataForMetforminScreener.get(MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_TREATED);
@@ -158,6 +185,30 @@ public class MetforminScreener_TestDataManager extends PageInitializer {
             doWeHaveYourTheParticipantsPermissionToCallThisIndividualToSeekMoreInformation = testDataForMetforminScreener.get(MetforminScreenerConstants.DO_WE_HAVE_YOUR_THE_PARTICIPANTS_PERMISSION_TO_CALL_THIS_INDIVIDUAL_TO_SEEK_MORE_INFORMATION);
             whatAreTheMainReasonsForParticipatingInThisStudySelectAllThatApply = testDataForMetforminScreener.get(MetforminScreenerConstants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY_SELECT_ALL_THAT_APPLY);
             receiveGeneticTesting = testDataForMetforminScreener.get(MetforminScreenerConstants.RECEIVE_GENETIC_TESTING);
+            submit_Screen_text1 = testDataForMetforminScreener.get(MetforminScreenerConstants.SUBMIT_SCREEN_TEXT1);
+            submit_Screen_text2 = testDataForMetforminScreener.get(MetforminScreenerConstants.SUBMIT_SCREEN_TEXT2);
+            submit_Screen_text3 = testDataForMetforminScreener.get(MetforminScreenerConstants.SUBMIT_SCREEN_TEXT3);
+            oK = testDataForMetforminScreener.get(MetforminScreenerConstants.OK);
+            proxyFirstName = testDataForMetforminScreener.get(MetforminScreenerConstants.PROXY_FIRST_NAME);
+            proxyMiddleName = testDataForMetforminScreener.get(MetforminScreenerConstants.PROXY_MIDDLE_NAME);
+            proxyLastName = testDataForMetforminScreener.get(MetforminScreenerConstants.PROXY_LAST_NAME);
+            vitalStatus = testDataForMetforminScreener.get(MetforminScreenerConstants.VITAL_STATUS);
+            calculatedAge = testDataForMetforminScreener.get(MetforminScreenerConstants.CALCULATED_AGE);
+            whatIsYourRelationshipToParticipant = testDataForMetforminScreener.get(MetforminScreenerConstants.WHAT_IS_YOUR_RELATIONSHIP_TO_PARTICIPANT);
+            areYouTheLegalGuardianOfThisPerson = testDataForMetforminScreener.get(MetforminScreenerConstants.ARE_YOU_THE_LEGAL_GUARDIAN_OF_THIS_PERSON);
+            registrationEmail = testDataForMetforminScreener.get(MetforminScreenerConstants.REGISTRATION_EMAIL);
+            proxyContactStreetAddress = testDataForMetforminScreener.get(MetforminScreenerConstants.PROXY_CONTACT_STREET_ADDRESS);
+            proxyContactStreetAddress2Optional = testDataForMetforminScreener.get(MetforminScreenerConstants.PROXY_CONTACT_STREET_ADDRESS_2_OPTIONAL);
+            proxyContactCity = testDataForMetforminScreener.get(MetforminScreenerConstants.PROXY_CONTACT_CITY);
+            proxyContactState = testDataForMetforminScreener.get(MetforminScreenerConstants.PROXY_CONTACT_STATE);
+            proxyContactZipcode = testDataForMetforminScreener.get(MetforminScreenerConstants.PROXY_CONTACT_ZIPCODE);
+            proxyContactCountry = testDataForMetforminScreener.get(MetforminScreenerConstants.PROXY_CONTACT_COUNTRY);
+            proxyContactEmail = testDataForMetforminScreener.get(MetforminScreenerConstants.PROXY_CONTACT_EMAIL);
+            proxyContactHomePhone = testDataForMetforminScreener.get(MetforminScreenerConstants.PROXY_CONTACT_HOME_PHONE);
+            proxyContactCellPhone = testDataForMetforminScreener.get(MetforminScreenerConstants.PROXY_CONTACT_CELL_PHONE);
+            proxyContactWorkPhone = testDataForMetforminScreener.get(MetforminScreenerConstants.PROXY_CONTACT_WORK_PHONE);
+            proxyPreferredPhone = testDataForMetforminScreener.get(MetforminScreenerConstants.PROXY_PREFERRED_PHONE);
+            preferredContact = testDataForMetforminScreener.get(MetforminScreenerConstants.PREFERRED_CONTACT);
         }
     }
 }
