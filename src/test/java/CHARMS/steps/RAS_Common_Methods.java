@@ -123,15 +123,7 @@ public class RAS_Common_Methods extends PageInitializer {
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantStudyPage.closeButton);
         CommonUtils.sleep(800);
-//        CucumberLogUtils.logScreenshot();
-//        CommonUtils.waitForClickability(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
-//        CucumberLogUtils.logScreenshot();
-//        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
-//        CommonUtils.sleep(4000);
-
         nativeViewCHARMSParticipantStudyPage.saveButton.click();
-        CommonUtils.sleep(800);
-//        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), CHARMSRASScreenerConstants.CONSENT_ADDED_TEXT, "---- VERIFYING CONSENT WAS ADDED ----");
         CommonUtils.sleep(2000);
     }
 
