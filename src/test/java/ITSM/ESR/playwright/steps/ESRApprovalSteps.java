@@ -56,6 +56,16 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.confirmFederalIntakeApprovalWasRejectedForESRI();
     }
 
+    @And("the user receives a rejection for incorrect approver from a federal lead for intake approval in ESR-I")
+    public void the_user_receives_a_rejection_for_incorrect_approver_from_a_federal_lead_for_intake_approval_in_esr_i() {
+        ESRApprovalStepsImplementation.federalLeadIntakeRejectionForIncorrectApproverInESRI();
+    }
+
+    @Then("the user confirms the Federal Intake Approval was rejected for an incorrect approver in the ESR-I ticket")
+    public void the_user_confirms_the_federal_intake_approval_was_rejected_for_an_incorrect_approver_in_the_esr_i_ticket() {
+        ESRApprovalStepsImplementation.confirmFederalIntakeApprovalWasRejectedForIncorrectApproverInESRI();
+    }
+
     @And("the user is approved from the ESR Board approvers")
     public void the_user_is_approved_from_the_esr_board_approvers() {
         ESRApprovalStepsImplementation.esrBoardIntakeApprovals();
@@ -84,6 +94,16 @@ public class ESRApprovalSteps {
     @Then("the user confirms the ESR Board Intake Approval was rejected for the ESR-Q ticket")
     public void the_user_confirms_the_esr_board_intake_approval_was_rejected_for_the_esr_q_ticket() {
         ESRApprovalStepsImplementation.confirmESRBoardIntakeApprovalWasRejectedForESRQ();
+    }
+
+    @And("the user is rejected from the ESR Board approvers due to incorrect approver for ESR-Q")
+    public void the_user_is_rejected_from_the_esr_board_approvers_due_to_incorrect_approver_for_esr_q() {
+        ESRApprovalStepsImplementation.esrBoardRejectionForIncorrectApproverInESRQ();
+    }
+
+    @Then("the user confirms the ESR Board Intake Approval was rejected for an incorrect approver in the ESR-Q ticket")
+    public void the_user_confirms_the_esr_board_intake_approval_was_rejected_for_an_incorrect_approver_in_the_esr_q_ticket() {
+        ESRApprovalStepsImplementation.confirmESRBoardIntakeApprovalWasRejectedForIncorrectApproverInESRQ();
     }
 
     @And("the user is rejected from the ESR Board approvers with a need more info for ESR-I")
