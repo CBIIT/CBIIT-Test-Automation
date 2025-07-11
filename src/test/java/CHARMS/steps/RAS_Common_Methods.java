@@ -11,6 +11,7 @@ import CHARMS.utils.CharmsUtil;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -18,10 +19,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import static CHARMS.pages.NativeViewCHARMSParticipantConsentPage.dynamicTabLocator;
+
+import static APPS_COMMON.Pages.Selenium_Common_Locators.*;
+import static CHARMS.constants.Native_View_Constants.A_NEW_SUBJECT_ID_HAS_BEEN_GENERATED;
 import static Hooks.Hooks.softAssert;
-import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
-import static APPS_COMMON.Pages.Selenium_Common_Locators.locateElementsByXpath;
 
 public class RAS_Common_Methods extends PageInitializer {
 
@@ -93,6 +94,7 @@ public class RAS_Common_Methods extends PageInitializer {
 
     /**
      * Navigates to Participant Study and submits the participant for review and eligibility.
+     * Does not add an existing FSID for the participant.
      */
     public static void submitParticipantForReviewAndEligibility() {
         CommonUtils.sleep(2000);
@@ -110,25 +112,41 @@ public class RAS_Common_Methods extends PageInitializer {
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
-        CommonUtils.sleep(800);
+        CommonUtils.sleep(4000);
+        CommonUtils.switchToFrame(locateByCssSelector(".gb_iframe"));
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantStudyPage.noButton);
+        JavascriptUtils.clickByJS(nativeViewCHARMSParticipantStudyPage.noButton);
+        CommonUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
-        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), CHARMSRASScreenerConstants.CONSENT_ADDED_TEXT, "---- VERIFYING CONSENT WAS ADDED ----");
+        softAssert.assertTrue(nativeViewCHARMSParticipantStudyPage.aNewSubjectIDHasBeenGeneratedText.getText().contains(A_NEW_SUBJECT_ID_HAS_BEEN_GENERATED), "---- VERIFYING SUBMIT FOR REVIEW BUTTON IS VISIBLE ----");
+        CommonUtils.switchToDefaultContent();
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantStudyPage.closeButton);
+        CommonUtils.sleep(800);
+//        CucumberLogUtils.logScreenshot();
+//        CommonUtils.waitForClickability(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
+//        CucumberLogUtils.logScreenshot();
+//        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
+//        CommonUtils.sleep(4000);
+
+        nativeViewCHARMSParticipantStudyPage.saveButton.click();
+        CommonUtils.sleep(800);
+//        softAssert.assertEquals(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), CHARMSRASScreenerConstants.CONSENT_ADDED_TEXT, "---- VERIFYING CONSENT WAS ADDED ----");
         CommonUtils.sleep(2000);
     }
 
     /**
      * Performs the consent flow process for a given scenario (iMed, Participant upload to portal, Mail/Fax/Email/Other)
      *
-     * @param sheetName     The name of the sheet containing the scenario data.
-     * @param consentAssentCategory   The consent type data.
-     * @param responseType  The response type data.
+     * @param sheetName             The name of the sheet containing the scenario data.
+     * @param consentAssentCategory The consent type data.
+     * @param collectionMethod      The response type data.
      */
-    public static void nativeViewConsentFlowProcessScenario1Parameterized(String sheetName, String consentAssentCategory, String responseType) {
+    public static void nativeViewConsentFlowProcessScenario1Parameterized(String sheetName, String consentAssentCategory, String collectionMethod) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         navigateToParticipantRecordInNativeView(sheetName);
         submitParticipantForReviewAndEligibility();
-        ras_NV_Consent_Record_TestDataManager.dataInitializerRasConsentRecord(sheetName);
-
+        ras_NV_Consent_Record_TestDataManager.dataInitializerRasConsentRecord(sheetName, collectionMethod);
         /**
          * BEGINNING: CONSENT FLOW PROCESS
          */
@@ -141,7 +159,6 @@ public class RAS_Common_Methods extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
         CucumberLogUtils.logScreenshot();
-
         CucumberLogUtils.scenario.log("* * * * CONSENT DATE * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateCalendar);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
@@ -150,7 +167,6 @@ public class RAS_Common_Methods extends PageInitializer {
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, CHARMSRASScreenerConstants.CONSENTED_BY_USER_NAME);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
-
         dynamicTabLocator("Consent Call").click();
         CucumberLogUtils.scenario.log("* * * * CONSENT CALL - CONSENT CALL SCHEDULED TIME * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
@@ -166,7 +182,7 @@ public class RAS_Common_Methods extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         dynamicTabLocator("Consent Information").click();
         CucumberLogUtils.scenario.log("* * * * CONSENT INFORMATION - RESPONSE TYPE * * * *");
-        CommonUtils.selectDropDownValue(responseType, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown);
+        CommonUtils.selectDropDownValue(collectionMethod, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown);
         CucumberLogUtils.scenario.log("* * * * CONSENT INFORMATION - CONSENT CALL VERSION * * * *");
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
@@ -176,9 +192,7 @@ public class RAS_Common_Methods extends PageInitializer {
         CucumberLogUtils.scenario.log("* * * * CONSENT INFORMATION - CURRENT/PREVIOUS * * * *");
         CommonUtils.selectDropDownValue("Current", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCurrentDropDown);
         CommonUtils.sleep(500);
-
-
-        if (!responseType.equalsIgnoreCase("iMed")) {
+        if (!collectionMethod.equalsIgnoreCase("iMed")) {
             dynamicTabLocator("Consent Call").click();
             CucumberLogUtils.scenario.log("* * * * CONSENT CALL - COPY OF CONSENT/ASSENT PROVIDED PROVIDED BEFORE SIGNING * * * *");
             CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown);
@@ -191,7 +205,6 @@ public class RAS_Common_Methods extends PageInitializer {
             CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentQuestionsAddressedBeforeSigningDropDown);
             CucumberLogUtils.logScreenshot();
         }
-
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         dynamicTabLocator("Consent Signed").click();
@@ -205,7 +218,7 @@ public class RAS_Common_Methods extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallCompleteButton);
         CommonUtils.sleep(1000);
-        if (!responseType.equalsIgnoreCase("iMed")) {
+        if (!collectionMethod.equalsIgnoreCase("iMed")) {
             dynamicTabLocator("Consent Call").click();
             CucumberLogUtils.scenario.log("* * * * CONSENT CALL - CONSENT/ASSENT OBTAINED BEFORE STUDY PROCEDURES * * * *");
             CommonUtils.selectDropDownValue("Yes", nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentObtainedBeforeStudyProceduresDropDown);
@@ -240,7 +253,7 @@ public class RAS_Common_Methods extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CucumberLogUtils.logScreenshot();
         softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + consentAssentCategory + "']").getText(), consentAssentCategory);
-        softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + responseType + "']").getText(), responseType);
+        softAssert.assertEquals(locateByXpath("//td[normalize-space()='" + collectionMethod + "']").getText(), collectionMethod);
         CucumberLogUtils.logScreenshot();
         RAS_All_Steps.nativeViewStudyTeamMemberLogsOut();
     }
@@ -329,5 +342,15 @@ public class RAS_Common_Methods extends PageInitializer {
         List<String> tableListText = new ArrayList<>();
         columns.forEach(column -> tableListText.add(column.getText()));
         return tableListText;
+    }
+
+    /**
+     * Dynamically locates a web element representing a tab using its visible text.
+     *
+     * @param tabCaptionText the visible text of the tab to be located
+     * @return the WebElement corresponding to the specified tab text
+     */
+    public static WebElement dynamicTabLocator(String tabCaptionText) {
+        return locateByXpath("//span[contains(@class, 'tab_caption_text') and normalize-space()='" + tabCaptionText + "']");
     }
 }

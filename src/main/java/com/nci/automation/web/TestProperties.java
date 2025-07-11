@@ -4,8 +4,8 @@ public class TestProperties {
 
     public static String ENV = "test";
     public static String BROWSER = "chrome";
-    public static boolean HEADLESS = true;
-    public static int SET_SLOW_MO_TIME = 600;
+    public static boolean HEADLESS = false;
+    public static int SET_SLOW_MO_TIME = 2000;
 
     /**
      * SIDE DOOR TEST ACCOUNT CREDENTIALS

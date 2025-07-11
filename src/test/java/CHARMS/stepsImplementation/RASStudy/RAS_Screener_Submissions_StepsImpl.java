@@ -8,13 +8,15 @@ import APPS_COMMON.Utils.Dynamic_Locators;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
 import APPS_COMMON.PageInitializers.PageInitializer;
+import CHARMS.steps.RAS_Common_Methods;
 import CHARMS.utils.CharmsUtil;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.*;
-import static CHARMS.pages.NativeViewCHARMSParticipantConsentPage.dynamicTabLocator;
+import static CHARMS.steps.RAS_All_Steps.*;
+import static CHARMS.steps.RAS_Common_Methods.*;
 import static CHARMS.utils.CharmsUtil.convertDOBToMMddyyyyFormat;
 import static Hooks.Hooks.softAssert;
 import static CHARMS.pages.RAS_Screener_Page.*;
@@ -120,7 +122,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         } else if (ras_Screener_TestDataManager.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_YOURSELF.contentEquals("I am completing this form for someone else")) {
             CucumberLogUtils.scenario.log("* * * THIS IS A PROXY SCREENER SUBMISSION * * *");
         }
-        for (int i = 0; i < 95; i++) {
+        for (int i = 0; i < 295; i++) {
             try {
                 /**
                  * * * * * ARE YOU COMPLETING THIS FORM FOR SOMEONE ELSE OR FOR YOURSELF? * * * *
@@ -649,6 +651,21 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CommonUtils.sleep(20000);
         ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
         ras_screenerSubmissions_stepsImpl.nativeViewConsentFlowProcessScenario1(sheetName);
+    }
+
+    /**
+     * When Study Team member logs in to Native View and completes consent call with provided sheet names.
+     *
+     * @param sheetName The name of the sheet containing participant record details.
+     */
+    public void study_team_member_logs_in_to_Native_View_and_completes_consent_call(String sheetName, String collectionMethod) {
+        ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+        ras_NV_Consent_Record_TestDataManager.dataInitializerRasConsentRecord(sheetName, collectionMethod);
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        navigateToParticipantRecordInNativeView(sheetName);
+        submitParticipantForReviewAndEligibility();
+        openConsentRecord();
+        consentFlowProcess();
     }
 
     /***

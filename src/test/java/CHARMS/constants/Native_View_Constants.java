@@ -456,6 +456,8 @@ public class Native_View_Constants {
      *                                                                               *
      *********************************************************************************/
 
+    public static final String A_NEW_SUBJECT_ID_HAS_BEEN_GENERATED = "A new Subject ID has been generated, enrollment status updated to 'Awaiting Consent', and the participant is now eligible.";
+
     /**
      * Participant Studies table list view columns
      */

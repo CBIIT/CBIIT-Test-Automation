@@ -597,8 +597,23 @@ public class RAS_Consent_Call_Steps {
      *
      * @param sheetName the name of the Excel sheet used for reconsent
      */
-    @Then("Study Team member completes re-consent for {string}")
-    public void study_team_member_completes_re_consent_with_as_the_collection_method(String sheetName) {
-        rasConsentStepsImpl.study_team_member_completes_re_consent_with_as_the_collection_method(sheetName);
+    @Then("Study Team member completes re-consent for {string} with Collection Method {string}")
+    public void study_team_member_completes_re_consent_with_as_the_collection_method(String sheetName, String collectionMethod) {
+        rasConsentStepsImpl.study_team_member_completes_re_consent_with_as_the_collection_method(sheetName, collectionMethod);
+    }
+
+    @When("Study Team member logs in to Native View and completes consent call {string} with Collection Method {string}")
+    public void study_team_member_logs_in_to_Native_View_and_completes_consent_call(String sheetName, String collectionMethod) {
+        ras_screenerSubmissions_stepsImpl.study_team_member_logs_in_to_Native_View_and_completes_consent_call(sheetName, collectionMethod);
+    }
+
+    /**
+     * THIS METHOD WILL CLICK ON TABS LOCATED IN NATIVE VIEW RECORDS.
+     *
+     * @param tabCaptionText the text of the tab to be clicked
+     */
+    @Given("clicks the {string} tab")
+    public void clicksTab(String tabCaptionText) {
+        rasConsentStepsImpl.clicksTab(tabCaptionText);
     }
 }
