@@ -132,7 +132,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         } else if (ras_Screener_TestDataManager.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_YOURSELF.contentEquals("I am completing this form for someone else")) {
             CucumberLogUtils.scenario.log("* * * THIS IS A PROXY SCREENER SUBMISSION * * *");
         }
-        for (int i = 0; i < 295; i++) {
+        for (int i = 0; i < 95; i++) {
             try {
                 /**
                  * * * * * ARE YOU COMPLETING THIS FORM FOR SOMEONE ELSE OR FOR YOURSELF? * * * *
