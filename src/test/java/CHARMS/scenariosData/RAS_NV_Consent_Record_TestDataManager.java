@@ -57,7 +57,7 @@ public class RAS_NV_Consent_Record_TestDataManager extends PageInitializer {
     public String SENT_TO_MEDIDATA;
     public String ASSENT_SIGNED;
 
-    public void dataInitializerRasConsentRecord(String sheetName) {
+    public void dataInitializerRasConsentRecord(String sheetName, String collectionMethod) {
 
         /**
          * FETCHING DATA FROM EXCEL SHEET BEFORE SUBMITTING CONSENT CALL
@@ -87,7 +87,7 @@ public class RAS_NV_Consent_Record_TestDataManager extends PageInitializer {
         CONSENT_CALL_DATE = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Consent Call Date");
         COHORT = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Cohort");
         CONSENT_FORM = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Consent Form");
-        COLLECTION_METHOD = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Collection Method");
+        COLLECTION_METHOD = collectionMethod;
         CONSENT_VERSION = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Consent Version");
         CONSENT_ASSENT_STATUS = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Consent/Assent Status");
         CONSENT_ASSENT_CATEGORY = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Consent/Assent Category");

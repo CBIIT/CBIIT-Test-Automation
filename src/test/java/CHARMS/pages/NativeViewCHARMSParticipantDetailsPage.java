@@ -18,7 +18,7 @@ public class NativeViewCHARMSParticipantDetailsPage extends PageInitializer {
     /**
      * Native View Participant Details Mark As Eligible Button
      */
-    @FindBy(xpath = "//*[@id='mark_eligible']")
+    @FindBy(xpath = "//*[contains(@id,'mark_eligible')]")
     public WebElement nativeViewPatientDetailsMarkEligibleButton;
 
     /**

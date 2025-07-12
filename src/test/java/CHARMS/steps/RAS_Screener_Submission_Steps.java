@@ -1,6 +1,5 @@
 package CHARMS.steps;
 
-import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.WebDriverUtils;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
@@ -12,8 +11,7 @@ public class RAS_Screener_Submission_Steps extends PageInitializer {
 
     @Given("a participant is on the RASopathies Longitudinal Cohort Study login page {string}")
     public void a_participant_is_on_the_RASopathies_Longitudinal_Cohort_Study_login_page(String applicationID) {
-        WebDriverUtils.webDriver.get(getRasLoginUrl());
-        CucumberLogUtils.logScreenshot();
+        ras_screenerSubmissions_stepsImpl.navigateToRASopathiesLongitudinalCohortStudyLoginPage(applicationID);
     }
 
     @When("the participant submits a screener from excel sheet {string}")

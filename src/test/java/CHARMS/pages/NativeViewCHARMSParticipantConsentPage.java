@@ -4,7 +4,6 @@ import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 
 public class NativeViewCHARMSParticipantConsentPage {
 
@@ -360,14 +359,22 @@ public class NativeViewCHARMSParticipantConsentPage {
     public WebElement rasStudyConsentCompleteConsentButton;
 
     /**
-     * Dynamically locates a web element representing a tab using its visible text.
-     *
-     * @param tabText the visible text of the tab to be located
-     * @return the WebElement corresponding to the specified tab text
+     * Please mark whether the Consent/Assent was Obtained Before Study Procedures. Error Message
      */
-    public static WebElement dynamicTabLocator(String tabText) {
-        return locateByXpath("//span[normalize-space()='" + tabText +"']");
-    }
+    @FindBy(xpath = "//span[contains(text(),'Please mark whether the Consent/Assent was Obtained')]")
+    public WebElement pleaseMarkWhetherTheConsentAssentWasObtainedErrorMessage;
+
+    /**
+     * Please mark whether the Copy of Signed/Dated Consent/Assent was Given to Participant. Error Message
+     */
+    @FindBy(xpath = "//span[contains(text(),'Please mark whether the Consent/Assent was Obtained')]")
+    public WebElement pleaseMarkWhetherTheCopyOfSignedDatedConsentAssentWasGivenToParticipantErrorMessage;
+
+    /**
+     * Save button
+     */
+    @FindBy(xpath = "//span[contains(@class,'navbar_ui_actions')]//button[contains(@name,'not_important')][normalize-space()='Save']\n")
+    public WebElement saveButton;
 
     public NativeViewCHARMSParticipantConsentPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
