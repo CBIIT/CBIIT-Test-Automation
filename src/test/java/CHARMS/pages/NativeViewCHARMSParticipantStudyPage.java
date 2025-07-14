@@ -9,8 +9,7 @@ import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 
 public class NativeViewCHARMSParticipantStudyPage {
 
-    /**
-     * Participant input field
+    /*** Participant input field
      */
     @FindBy(xpath = "//input[@name='sys_display.x_naci_family_coho_participant_study.participant']")
     public WebElement participantInputField;
@@ -184,6 +183,251 @@ public class NativeViewCHARMSParticipantStudyPage {
     @FindBy(xpath = "(//a[normalize-space()='Open Record'])[1]")
     public WebElement nVFScreenerOpenRecordButton;
 
+    @FindBy(xpath = "(//span[normalize-space()='Proxy Contact Info'])[1]")
+    public WebElement nVParticipantProxyContactInfoTab;
+
+    /* USE THIS METHOD TO DYNAMICALLY LOCATE RECORD BUTTONS ON */
+    public static WebElement dynamicPreviewButtonLocator1(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::tr/td[2]"));
+    }
+
+    public static WebElement dynamicPreviewButtonLocator(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//a[normalize-space()='" + text + "'])[1]"));
+    }
+
+    public static WebElement dynamicPreviewButtonLocators(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record:’” +text+”'])[1]"));
+    }
+
+    /* Method to dynamically locate elements in Native View */
+    public WebElement dynamicLocatorUsingLabel(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//label[@aria-label='" + text + "']"));
+    }
+
+    /* Method to dynamically locate elements in Native View */
+    public WebElement dynamicLocatorUsingNormalizeSpace(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[normalize-space()='" + text + "']"));
+    }
+
+    /* Method to dynamically locate elements in Native View */
+    public WebElement dynamicLocatorUsingSpanNormalizeSpace(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//span[normalize-space()='" + text + "'])[1]"));
+    }
+
+    /* Method to dynamically locate text elements in Native View */
+    public WebElement dynamicLocatorUsingNormalizeSpaceInSpan(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//span[@class='label-text'][normalize-space()='" + text + "']"));
+    }
+
+    /* Method to dynamically locate Read Only Input Values in Participant Details page for Fanconi Native View */
+    public WebElement dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_readonly.x_naci_family_coho_family_history_details." + text + "'])[1]"));
+    }
+
+    /* Method to dynamically locate Display only Input Values in Participant Details page for Fanconi Native View */
+    public WebElement dynamicLocatorForInputElementsInParticipantDetailsPage(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_display.x_naci_family_coho_family_history_details." + text + "'])[1]"));
+    }
+
+    /* Method to dynamically locate Input Values added by the user in Participant Details page for Fanconi Native View */
+    public WebElement dynamicLocatorForInputElementInParticipantDetailsPage(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='x_naci_family_coho_family_history_details." + text + "'])[1]"));
+    }
+
+    /* Method to dynamically locate Read Only select Values by the user in Participant Details page for Fanconi Native View */
+    public WebElement dynamicLocatorForReadOnlySelectValuesInParticipantDetailsPage(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='sys_readonly.x_naci_family_coho_family_history_details." + text + "'])[1]"));
+    }
+
+    /* Method to dynamically locate editable select Values by the user in Participant Details page for Fanconi Native View */
+    public WebElement dynamicLocatorForSelectElementsInParticipantDetailsPage(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='x_naci_family_coho_family_history_details." + text + "'])[1]"));
+    }
+
+    /* CHARMS Navigation-> All Participant Details Back Button */
+    @FindBy(xpath = "(//button[@aria-label='Back'])[1]")
+    public static WebElement nVAllParticipantDetailsBackButton;
+
+    /* Participant--> Search column: button*/
+    @FindBy(xpath = "(//button[@class='list_header_search_toggle icon-search btn btn-icon table-btn-lg'])[1]")
+    public WebElement nVParticipantSearchColumnButton;
+
+    /* Participant--> Search column: name TextBox */
+    @FindBy(xpath = "(//input[@aria-label='Search column: name'])[1]")
+    public WebElement nVParticipantSearchColumnName;
+
+    /* Participant--> Enrollment Status */
+    @FindBy(xpath = "(//select[@id='sys_readonly.x_naci_family_coho_family_history_details.enrollment_status'])[1]")
+    public WebElement nVParticipantEnrollmentStatus;
+
+    /* Participant--> Studies */
+    @FindBy(xpath = "(//span[@id='x_naci_family_coho_family_history_details.studies_edit'] | //p[@id='x_naci_family_coho_family_history_details.studies_nonedit'])[2]")
+    public WebElement nVParticipantStudies;
+
+    /* Participant--> NIH MRN number Info =NIH MRN number should include the dashes */
+    @FindBy(xpath = "(//div[@class='fieldmsg notification notification-info'])[1]")
+    public WebElement nVParticipantNIHMRNnumberInfo;
+
+    /* PERSONAL INFORMATION tab */
+    @FindBy(xpath = "(//span[normalize-space()='Personal Information'])[1]")
+    public WebElement nVParticipantPersonalInformationTab;
+
+    /* DEMOGRAPHICS tab */
+    @FindBy(xpath = "(//span[normalize-space()='Demographics'])[1]")
+    public WebElement nVParticipantDemographicsTab;
+
+    /* DEMOGRAPHICS tab-> Participant Race details (Select all that apply) */
+    @FindBy(xpath = "(//p[@id='x_naci_family_coho_family_history_details.race_nonedit'])[1]")
+    public WebElement nVParticipantDemographicsTabRaceDetails;
+
+    /* CONTACT INFO tab */
+    @FindBy(xpath = "(//span[normalize-space()='Contact Info'])[1]")
+    public WebElement nVParticipantContactInfoTab;
+
+    @FindBy(xpath = "(//button[@id='study_panel_review'])[1]")
+    public WebElement nVParticipantSubmitForEligibilityReviewButton;
+
+    @FindBy(xpath = "(//button[@id='mark_eligible'])[1]")
+    public WebElement nVParticipantMarkEligibleButton;
+
+    // Hold/Non-Participant Date Text Box
+    @FindBy(xpath = "(//input[@id='x_naci_family_coho_family_history_details.u_participantdate'])[1]")
+    public WebElement nVParticipantHoldDateTextBox;
+
+    // Hold/Non-Participant Date Button
+    @FindBy(xpath = "(//span[@class='icon icon-calendar'])[3]")
+    public WebElement nVParticipantHoldDateButton;
+
+    // Hold/Non-Participant Date Button
+    @FindBy(xpath = "(//td[@aria-label='Go to Today'])[1]")
+    public WebElement nVParticipantHoldGoToTodayButton;
+
+    @FindBy(xpath = "(//span[normalize-space()='Consents (1)'])[1]")
+    public WebElement nVParticipantConsentTableTab;
+
+    @FindBy(xpath = "(//tbody[@class='list2_body']//tr/td[2])[1]")
+    public WebElement nVParticipantConsentTablePreviewLink;
+
+    @FindBy(xpath = "(//a[normalize-space()='Open Record'])[1]")
+    public WebElement nVParticipantOpenRecordButton;
+
+    @FindBy(xpath = "(//input[@id='sys_display.x_naci_family_coho_fcsms_consent.family_member'])[1]")
+    public WebElement nVParticipantFamilyMemberTextBox;
+
+    // Consent call scheduled time
+    @FindBy(xpath = "(//input[@id='x_naci_family_coho_fcsms_consent.consent_call_scheduled_time'])[1]")
+    public WebElement nVParticipantConsentCallScheduledTimeTextBox;
+
+    // Consent call Date time Icon
+    @FindBy(xpath = "(//span[@class='icon-calendar icon'])[1]")
+    public WebElement nVParticipantTimeIcon;
+
+    // Consent call scheduled time-->Go to today Date link
+    @FindBy(xpath = "(//td[@aria-label='Go to Today'])[1]")
+    public WebElement nVParticipantGoToToday;
+
+    // Consent call Date time Icon Close Button
+    @FindBy(xpath = "(//button[@id='GwtDateTimePicker_ok'])[1]")
+    public WebElement nVParticipantTimeIconOkButton;
+
+    // Consent Call Date
+    @FindBy(xpath = "(//input[@id='x_naci_family_coho_fcsms_consent.consent_call_date'])[1]")
+    public WebElement nVParticipantConsentCallDatesTextBox;
+
+    // Consent call Date time Icon
+    @FindBy(xpath = "(//span[contains(@class,'icon icon-calendar')])[2]")
+    public WebElement nVParticipantTimeIcon1;
+
+    // Cohort
+    @FindBy(xpath = "(//select[@id='x_naci_family_coho_fcsms_consent.family_member.cohort'])[1]")
+    public WebElement nVParticipantCohortTextBox;
+
+    // Consent Form
+    @FindBy(xpath = "(//select[@id='x_naci_family_coho_fcsms_consent.consent_form'])[1]")
+    public WebElement nVParticipantConsentFormDropDown;
+
+    // Consent Version
+    @FindBy(xpath = "(//input[@id='x_naci_family_coho_fcsms_consent.consent_version'])[1]")
+    public WebElement nVParticipantConsentVersionTextBox;
+
+    // Consent Type
+    @FindBy(xpath = "(//select[@id='x_naci_family_coho_fcsms_consent.consent_type'])[1]")
+    public WebElement nVParticipantConsentTypeDropDown;
+
+    // Consent call Date time Icon
+    @FindBy(xpath = "(//span[@class='icon icon-calendar'])[3]")
+    public WebElement nVParticipantTimeIcon3;
+
+    // Response Type
+    @FindBy(xpath = "(//select[@id='x_naci_family_coho_fcsms_consent.response_type'])[1]")
+    public WebElement nVParticipantResponseTypeDropDown;
+
+    // Consent Status
+    @FindBy(xpath = "(//select[@id='x_naci_family_coho_fcsms_consent.status'])[1]")
+    public WebElement nVParticipantConsentStatusTextBox;
+
+    // Consent Date
+    @FindBy(xpath = "(//input[@id='x_naci_family_coho_fcsms_consent.consent_date'])[1]")
+    public WebElement nVParticipantConsentDateTextBox;
+
+    // Consent Date time Icon
+    @FindBy(xpath = "(//span[@class='icon icon-calendar'])[4]")
+    public WebElement nVParticipantTimeIcon4;
+
+    // Current/Previous
+    @FindBy(xpath = "(//select[@id='x_naci_family_coho_fcsms_consent.current_previous'])[1]")
+    public WebElement nVParticipantCurrentPreviousDropDown;
+
+    // Study
+    @FindBy(xpath = "(//input[@id='sys_display.x_naci_family_coho_fcsms_consent.study'])[1]")
+    public WebElement nVParticipantStudyTextBox;
+
+    // Consent/Assent Status
+    @FindBy(xpath = "(//select[@id='x_naci_family_coho_fcsms_consent.participant_response'])[1]")
+    public WebElement nVParticipantConsentAssentStatusDropDown;
+
+    // Interpreter used?
+    @FindBy(xpath = "(//select[@id='x_naci_family_coho_fcsms_consent.interpreter_used'])[1]")
+    public WebElement nVParticipantInterpreterUsedDropDown;
+
+    // Future Use of Specimens and Data by NIH
+    @FindBy(xpath = "(//select[@id='x_naci_family_coho_fcsms_consent.future_use_of_specimens_and_data_by_nih'])[1]")
+    public WebElement nVParticipantFutureUseOfSpecimensAndDataByNIHDropDown;
+
+    // Future Use by Collaborators
+    @FindBy(xpath = "(//select[@id='x_naci_family_coho_fcsms_consent.future_use_by_collaborators'])[1]")
+    public WebElement nVParticipantFutureUseByCollaboratorsDropDown;
+
+    // Future Identifiable Use by Collaborators
+    @FindBy(xpath = "(//select[@id='x_naci_family_coho_fcsms_consent.future_identifiable_use_by_collaborators'])[1]")
+    public WebElement nVParticipantFutureIdentifiableUseByCollaboratorsDropDown;
+
+    // Return of Genetic Findings
+    @FindBy(xpath = "(//select[@id='x_naci_family_coho_fcsms_consent.return_of_genetic_findings'])[1]")
+    public WebElement nVParticipantReturnOfGeneticFindingsDropDown;
+
+    // Participant Assent
+    @FindBy(xpath = "(//select[@id='x_naci_family_coho_fcsms_consent.participant_assent'])[1]")
+    public WebElement nVParticipantParticipantAssentDropDown;
+
+    // Participant Consent
+    @FindBy(xpath = "(//select[@id='x_naci_family_coho_fcsms_consent.participant_consent'])[1]")
+    public WebElement nVParticipantParticipantConsentDropDown;
+
+    // Call Complete Button
+    @FindBy(xpath = "(//button[@id='call_complete'])[1]")
+    public WebElement nVParticipantCallCompleteButton;
+
+    // Attachment button
+    @FindBy(xpath = "(//button[@id='header_add_attachment'])[1]")
+    public WebElement nVParticipantAttachmentButton;
+
+    // Choose File
+    @FindBy(xpath = "(//input[@id='loadFileXml'])[1]")
+    public WebElement nVParticipantChooseFileButton;
+
+    @FindBy(xpath = "(//button[@id='hard_consent_received'])[1]")
+    public WebElement nVParticipantHardCopyOfConsentReceivedButton;
 
     public NativeViewCHARMSParticipantStudyPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
