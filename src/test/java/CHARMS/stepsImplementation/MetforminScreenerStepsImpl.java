@@ -11,7 +11,6 @@ import com.nci.automation.web.CommonUtils;
 import org.openqa.selenium.Keys;
 import org.testng.asserts.SoftAssert;
 
-
 public class MetforminScreenerStepsImpl extends PageInitializer {
     static SoftAssert softAssert = new SoftAssert();
     String metforminScreenerData = CHARMS_Data_File_Path_Constants.METFORMIN_SCREENER_DATA;
