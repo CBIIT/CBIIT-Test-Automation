@@ -11,7 +11,6 @@ import CHARMS.utils.CharmsUtil;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -19,9 +18,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
 import static APPS_COMMON.Pages.Selenium_Common_Locators.*;
-import static CHARMS.constants.Native_View_Constants.A_NEW_SUBJECT_ID_HAS_BEEN_GENERATED;
+import static CHARMS.constants.CHARMSRASScreenerConstants.A_NEW_SUBJECT_ID_HAS_BEEN_GENERATED;
 import static Hooks.Hooks.softAssert;
 
 public class RAS_Common_Methods extends PageInitializer {
