@@ -9,8 +9,7 @@ import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 
 public class NativeViewCHARMSParticipantStudyPage {
 
-    /**
-     * Participant input field
+    /*** Participant input field
      */
     @FindBy(xpath = "//input[@name='sys_display.x_naci_family_coho_participant_study.participant']")
     public WebElement participantInputField;

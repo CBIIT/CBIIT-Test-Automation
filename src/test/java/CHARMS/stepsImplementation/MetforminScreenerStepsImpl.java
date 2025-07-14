@@ -8,13 +8,9 @@ import CHARMS.constants.MetforminScreenerConstants;
 import CHARMS.utils.CharmsUtil;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.JavascriptUtils;
 import org.openqa.selenium.Keys;
 import org.testng.asserts.SoftAssert;
-import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import static CHARMS.stepsImplementation.FHQSubmissionStepsImpl.regex;
+
 
 public class MetforminScreenerStepsImpl extends PageInitializer {
     static SoftAssert softAssert = new SoftAssert();
