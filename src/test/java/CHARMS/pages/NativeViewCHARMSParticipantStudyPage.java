@@ -223,15 +223,15 @@ public class NativeViewCHARMSParticipantStudyPage {
     public WebElement nVParticipantProxyContactInfoTab;
 
     /* USE THIS METHOD TO DYNAMICALLY LOCATE RECORD BUTTONS ON */
-    public static WebElement dynamicPreviewButtonLocator1(String text) {
+    public WebElement dynamicPreviewButtonLocator1(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::tr/td[2]"));
     }
 
-    public static WebElement dynamicPreviewButtonLocator(String text) {
+    public WebElement dynamicPreviewButtonLocator(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//a[normalize-space()='" + text + "'])[1]"));
     }
 
-    public static WebElement dynamicPreviewButtonLocators(String text) {
+    public WebElement dynamicPreviewButtonLocators(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record:’” +text+”'])[1]"));
     }
 
