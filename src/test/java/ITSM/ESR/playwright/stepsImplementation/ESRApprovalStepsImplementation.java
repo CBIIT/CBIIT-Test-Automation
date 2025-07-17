@@ -250,6 +250,27 @@ public class ESRApprovalStepsImplementation {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Information Required for Intake");
     }
 
+
+    /**
+     * This method finalizes the ESR Board Intake approvals when the user encounters a 'Rejected Incorrect Approver' response for ESR-I
+     */
+    public static void esrBoardRejectionForIncorrectApproverInESRI() {
+        Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (9)").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//td[@class='vt']/a)[11]").click();
+        Playwright_Common_Locators.iframeLocator().locator("(//select[@aria-required='false'])[1]").selectOption("reject_incorrect_approver");
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Comments")).click();
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.TEXTBOX, new FrameLocator.GetByRoleOptions().setName("Comments")).fill("Approval was rejected due to incorrect approver");
+        Playwright_Common_Locators.iframeLocator().getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("Post")).click();
+        Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
+    }
+
+    /**
+     * This method confirms that the ESR Board Intake Approval was rejected for ESR-I tickets due to incorrect approver
+     */
+    public static void confirmESRBoardIntakeApprovalWasRejectedForIncorrectApproverInESRI() {
+        assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Information Required for Intake");
+    }
+
     /**
      * This method completes the required Operational POC approval
      */
