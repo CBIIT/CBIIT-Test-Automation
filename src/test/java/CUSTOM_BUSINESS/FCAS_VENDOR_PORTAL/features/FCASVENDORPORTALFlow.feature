@@ -197,3 +197,52 @@ Feature: FCAS Vendor Portal Flow
     And User can see access to view column of Users tab
     And User can see admin column of Users tab
     And User can see account active column of Users tab
+
+
+  @Alena @Regression @selenium @OASYS-3792
+  Scenario: Company account page Users tab Add User fillable fields
+    Given User accepts PII Disclaimer
+    And User navigates to Company account page
+    And User clicks on Users tab
+    And User clicks Add User button
+    And User can see First Name field to fill in
+    And User can see Last Name field to fill in
+    And User can see First Name field to fill in
+    And User can see Email field to fill in
+    And User can see Phone field to fill in
+    And User can see Job Title field to fill in
+    And User can see Resend Vendor Portal Invite button
+    And User clicks Cancel button for Add User modal
+
+  @Alena @Regression @selenium @OASYS-3792
+  Scenario: Company account page Users tab Add User fillable fields
+    Given User accepts PII Disclaimer
+    And User navigates to Company account page
+    And User clicks on Users tab
+    And User clicks Add User button
+    And User can see Grant access to view Admin option
+    And User can see Grant access to view Business Representative option
+    And User can see Grant access to view Invoices option
+    And User can see Grant access to view Deliverables option
+    And User can see Grant access to view COAs option
+    And User can see Grant access to view Notifications option
+    And User can see Grant access to view Planning option
+    And User can see Grant access to view Solicitation option
+    And User can see Grant access to view Work Orders option
+    And User clicks Cancel button for Add User modal
+
+  @Alena @Regression @selenium @OASYS-3792 @Progression
+  Scenario: Company account page Users tab Add User Coordinator Assignments:
+    Given User accepts PII Disclaimer
+    And User navigates to Company account page
+    And User clicks on Users tab
+    And User clicks Add User button
+    And User can see Planning Coordinator option
+    And User can see Planning Coordinator description
+    And User can see Solicitation Coordinator option
+    And User can see Solicitation Coordinator description
+    And User clicks Cancel button for Add User modal
+
+
+
+

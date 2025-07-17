@@ -424,6 +424,87 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "(//div[.=' Account Active '])[1]")
     public WebElement accountActiveColumnUsersTab;
 
+
+    /** Last Name Add User modal*/
+    @FindBy(xpath = "//input[@ng-reflect-name='LastName']")
+    public WebElement firstNameAddUserModal;
+
+    /** Last Name Add User modal*/
+    @FindBy(xpath = "//input[@ng-reflect-name='FirstName']")
+    public WebElement lastNameAddUserModal;
+
+    /** Email Add User modal*/
+    @FindBy(xpath = "//input[@ng-reflect-name='Email']")
+    public WebElement emailAddUserModal;
+
+    /** Job Title Add User modal*/
+    @FindBy(xpath = "//input[@ng-reflect-name='JobTitle']")
+    public WebElement jobTitleAddUserModal;
+
+    /** Phone Number Add User modal*/
+    @FindBy(xpath = "//input[@ng-reflect-name='PhoneNumber']")
+    public WebElement phoneNumberAddUserModal;
+
+    /** Resend Vendor Portal Button*/
+    @FindBy(xpath = "//span[.=' Resend Vendor Portal Invite ']")
+    public WebElement resendVendorPortalButton;
+
+    /** Cancel Button Add User modal*/
+    @FindBy(xpath = "//span[.='Cancel']")
+    public WebElement cancelButtonAddUserModal;
+
+    /** Grant access  to view Admin option*/
+    @FindBy(xpath = "//span[contains(text(),'Admin')]")
+    public WebElement adminOptionGrantAccess;
+
+    /** Grant access  to view Business Representative option*/
+    @FindBy(xpath = "//span[contains(text(),'Business Representative ')]")
+    public WebElement businessRepresentativeOptionGrantAccess;
+
+    /** Grant access  to view Invoices option*/
+    @FindBy(xpath = "//span[contains(text(),'Invoices ')]")
+    public WebElement invoicesOptionGrantAccess;
+
+    /** Grant access  to view Deliverables option*/
+    @FindBy(xpath = "//span[contains(text(),'Deliverables ')]")
+    public WebElement deliverablesOptionGrantAccess;
+
+    /** Grant access  to view COAs option*/
+    @FindBy(xpath = "//span[contains(text(),'COAs ')]")
+    public WebElement cOAsOptionGrantAccess;
+
+    /** Grant access  to view Notifications option*/
+    @FindBy(xpath = "//span[contains(text(),'Notifications ')]")
+    public WebElement notificationsOptionGrantAccess;
+
+    /** Grant access  to view Planning option*/
+    @FindBy(xpath = "(//span[contains(text(),'Planning ')])[1]")
+    public WebElement planningOptionGrantAccess;
+
+    /** Grant access  to view Solicitation option*/
+    @FindBy(xpath = "(//span[contains(text(),'Solicitation ')])[1]")
+    public WebElement solicitationOptionGrantAccess;
+
+    /** Grant access  to view Work Order option*/
+    @FindBy(xpath = "//span[contains(text(),'Work Orders ')]")
+    public WebElement workOrderOptionGrantAccess;
+
+    /** Planning Coordinator option*/
+    @FindBy(xpath = "//span[contains(text(),'Planning Coordinator ')]")
+    public WebElement planningCoordinatorOption;
+
+    /** Planning Coordinator description*/
+    @FindBy(xpath = "//mat-hint[contains(text(),'Will be assigned to all Requirements shared with your company')]")
+    public WebElement planningCoordinatorDescription;
+
+    /** Solicitation Coordinator option*/
+    @FindBy(xpath = "//span[contains(text(),'Solicitation Coordinator ')]")
+    public WebElement solicitationCoordinatorOption;
+
+    /** Solicitation Coordinator description*/
+    @FindBy(xpath = "//mat-hint[contains(text(),'Will be assigned to all Solicitations shared with your company.')]")
+    public WebElement solicitationCoordinatorDescription;
+
     public FCASVENDORPORTALPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
