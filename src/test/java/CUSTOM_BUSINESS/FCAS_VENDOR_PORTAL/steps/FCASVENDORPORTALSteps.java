@@ -762,11 +762,11 @@ public class FCASVENDORPORTALSteps {
      */
     @Then("User can see DUNS Edit Company Details field")
     public void user_can_see_duns_edit_company_details_field() {
-        softAssert.assertTrue(fCASVENDORPORTALPage.dUNSFieldEditCompanyDetails.isDisplayed());;
+        softAssert.assertTrue(fCASVENDORPORTALPage.dUNSFieldEditCompanyDetails.isDisplayed());
     }
 
     /**
-     * Verify User can see DUNS Edit Company Details field
+     * Verify User can see mailing address Edit Company Details field
      */
     @Then("User can see mailing address Edit Company Details field")
     public void user_can_see_mailing_address_edit_company_details_field() {
