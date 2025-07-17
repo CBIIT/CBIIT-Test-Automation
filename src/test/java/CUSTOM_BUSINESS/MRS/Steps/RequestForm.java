@@ -494,4 +494,33 @@ public class RequestForm {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Process Action")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
+
+    /**
+     * This method is used to log in as a second approver with an Admin role
+     */
+    @When("a second approver with Admin role is logged in")
+    public void a_second_approver_with_admin_role_is_logged_in() {
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(" Change User")).click();
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Enter First or Last Name")).fill(MRS_Constants.SECOND_APPROVER);
+        page.getByText(MRS_Constants.SECOND_APPROVER).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select Return for Revision action from the dropdown
+     */
+    @And("User selects Return for Revision action from the dropdown")
+    public void user_selects_return_for_revision_action_from_the_dropdown() {
+        page.locator("//select[@id='selectAction']").selectOption(new SelectOption().setLabel("Return for Revision"));
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to confirm the Return for Revision action
+     */
+    @Then("User confirms the Return for Revision")
+    public void user_confirms_the_return_for_revision() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Return for Revision")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
 }

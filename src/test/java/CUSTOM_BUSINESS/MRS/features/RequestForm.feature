@@ -78,6 +78,23 @@ Scenario: Submit a request form on behalf of another person
     And User enters "Approved by first approver" in the comments field
     Then User clicks on Process Action button
 
+  @ApproveRequest @NESARH2 @playwright @Regression
+  Scenario: Approve a request as a second approver
+    When a second approver with Admin role is logged in
+    And User selects a request from the Approval Queue
+    And User selects Approve action from the dropdown
+    And User enters "Approved by second approver" in the comments field
+    Then User clicks on Process Action button
+
+  @ReturnForRevision @NESARH2 @playwright @Regression
+  Scenario: Return a request for revision
+    When a user with "Admin" role is logged in
+    And User selects a request from the Approval Queue
+    And User selects Return for Revision action from the dropdown
+    And User enters "Needs more information" in the comments field
+    Then User clicks on Process Action button
+    And User confirms the Return for Revision
+
   @DeleteRequest @NESARH2 @playwright @Regression
   Scenario: Verify that a user can delete a request and it is no longer accessible in the MRS application
     When the user selects the option to Delete the request
