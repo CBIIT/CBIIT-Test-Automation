@@ -3,6 +3,7 @@ package CUSTOM_BUSINESS.MRS.Steps;
 import CUSTOM_BUSINESS.MRS.Utils.MRS_Constants;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import com.microsoft.playwright.options.SelectOption;
 import com.nci.automation.utils.CucumberLogUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -410,6 +411,87 @@ public class RequestForm {
     @Then("the Active Requests queue for the submitter or requestor and their delegates no longer displays the deleted request")
     public void the_queue_for_the_submitter_requestor_and_their_delegates_no_longer_displays_the_deleted_request() {
         assertThat(page.getByRole(AriaRole.GRIDCELL, new Page.GetByRoleOptions().setName(requestNumber))).not().isVisible();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to log in as a requestor
+     */
+    @When("a requestor is logged in")
+    public void a_requestor_is_logged_in() {
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(" Change User")).click();
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Enter First or Last Name")).fill(MRS_Constants.DELEGATE_OF);
+        page.getByText(MRS_Constants.DELEGATE_OF).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select an existing request from the My Queue
+     */
+    @And("User selects an existing request from My Queue")
+    public void user_selects_an_existing_request_from_my_queue() {
+        page.getByText("View your active and/or").click();
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("View Details")).first().click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to verify the request status prior to submission
+     * @param RequestStatusPriorSubmission
+     */
+    @And("User verifies that the request status is {string}")
+    public void user_verifies_that_the_request_status_is(String RequestStatusPriorSubmission) {
+        assertThat(page.locator("#requestForm")).containsText(RequestStatusPriorSubmission);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to verify the request status after submission
+     * @param RequestStatusAfterSubmission
+     */
+    @And("User verifies the status is updated to {string}")
+    public void user_verifies_the_status_is_updated_to(String RequestStatusAfterSubmission) {
+        assertThat(page.locator("#panel10")).containsText(RequestStatusAfterSubmission);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select a request from the Approval Queue
+     */
+    @When("User selects a request from the Approval Queue")
+    public void user_selects_a_request_from_the_approval_queue() {
+        page.getByText("View your active and/or").click();
+        page.getByRole(AriaRole.TAB, new Page.GetByRoleOptions().setName("APPROVAL QUEUE")).click();
+        page.locator("//tr[@class='odd']//img[@alt='Process Request']").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select the Approve action from the dropdown
+     */
+    @And("User selects Approve action from the dropdown")
+    public void user_selects_approve_action_from_the_dropdown() {
+        page.locator("//select[@id='selectAction']").selectOption(new SelectOption().setLabel("Approve"));
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to enter comments in the comment field
+     * @param Comments
+     */
+    @And("User enters {string} in the comments field")
+    public void user_enters_in_the_comments_field(String Comments) {
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Enter Comments. Max length =")).click();
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Enter Comments. Max length =")).fill(Comments);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the Process Action button
+     */
+    @Then("User clicks on Process Action button")
+    public void user_clicks_on_process_action_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Process Action")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }
