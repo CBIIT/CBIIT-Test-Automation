@@ -123,6 +123,42 @@ public class NativeViewCHARMSParticipantStudyPage {
     public WebElement currentReconsentRecordPreviewButton;
 
     /**
+     * "Do you have a FSID for this participant? If you do, please enter it here." Heading
+     */
+    @FindBy(xpath = "//input[@placeholder='Enter Subject ID']")
+    public WebElement doYouHaveAFSIDForThisParticipantHeading;
+
+    /**
+     * Enter Subject ID field for pop up "Do you have a FSID for this participant? If you do, please enter it here."
+     */
+    @FindBy(xpath = "//input[@placeholder='Enter Subject ID']")
+    public WebElement enterSubjectIDField;
+
+    /**
+     * "Confirm" button for pop up "Do you have a FSID for this participant? If you do, please enter it here."
+     */
+    @FindBy(xpath = "//button[normalize-space()='Confirm']")
+    public WebElement confirmButton;
+
+    /**
+     * "A new Subject ID has been generated, enrollment status updated to 'Awaiting Consent', and the participant is now eligible." Text
+     */
+    @FindBy(xpath = "//div[@ng-show='c.data.update']//p[@class='ng-binding'][contains(text(),'A new Subject ID has been generated')]")
+    public WebElement aNewSubjectIDHasBeenGeneratedText;
+
+    /**
+     * "No" button for pop up "Do you have a FSID for this participant? If you do, please enter it here."
+     */
+    @FindBy(xpath = "//button[normalize-space()='No']")
+    public WebElement noButton;
+
+    /**
+     * "Close" button for pop up "Do you have a FSID for this participant? If you do, please enter it here."
+     */
+    @FindBy(css = ".gb_close.icon-cross-circle.i12.i12_close")
+    public WebElement closeButton;
+
+    /**
      * Finds and returns the WebElement for the current or previous consent record based on the Current/Previous status
      *
      * @param currentPreviousStatus the status text used to identify the consent record (e.g., "Current" or "Previous").
