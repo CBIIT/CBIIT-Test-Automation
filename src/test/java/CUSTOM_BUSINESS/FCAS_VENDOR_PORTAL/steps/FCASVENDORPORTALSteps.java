@@ -716,4 +716,140 @@ public class FCASVENDORPORTALSteps {
     public void user_can_see_proposal_due_date_column() {
         softAssert.assertTrue(fCASVENDORPORTALPage.solicitationPageProposalDueDateColumn.isDisplayed());
     }
+
+    /**
+     * User navigates to Company account page
+     */
+    @Given("User navigates to Company account page")
+    public void user_navigates_to_company_account_page() {
+       CommonUtils.clickOnElement(fCASVENDORPORTALPage.companyAccountTab);
+    }
+
+    /**
+     * User clicks Edit button for Company Details
+     */
+    @When("User clicks Edit button for Company Details")
+    public void user_clicks_edit_button_for_company_details() {
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.editButtonBusinessSummary);
+    }
+
+    /**
+     * Verify User is on Edit Company Details modal
+     */
+    @Then("User is on Edit Company Details modal")
+    public void user_is_on_edit_company_details_modal() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.editCompanyDetailsModalHeader.isDisplayed());
+    }
+
+    /**
+     * Verify User can see name Edit Company Details field
+     */
+    @Then("User can see name Edit Company Details field")
+    public void user_can_see_name_edit_company_details_field() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.nameFieldEditCompanyDetails.isDisplayed());
+    }
+
+    /**
+     * Verify User can see email Edit Company Details field
+     */
+    @Then("User can see email Edit Company Details field")
+    public void user_can_see_email_edit_company_details_field() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.emailFieldEditCompanyDetails.isDisplayed());
+    }
+
+    /**
+     * Verify User can see DUNS Edit Company Details field
+     */
+    @Then("User can see DUNS Edit Company Details field")
+    public void user_can_see_duns_edit_company_details_field() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.dUNSFieldEditCompanyDetails.isDisplayed());
+    }
+
+    /**
+     * Verify User can see mailing address Edit Company Details field
+     */
+    @Then("User can see mailing address Edit Company Details field")
+    public void user_can_see_mailing_address_edit_company_details_field() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.mailingAddressFieldEditCompanyDetails.isDisplayed());
+    }
+
+    /**
+     * User clicks on Users tab
+     */
+    @Given("User clicks on Users tab")
+    public void user_clicks_on_users_tab() {
+       CommonUtils.clickOnElement(fCASVENDORPORTALPage.usersTab);
+    }
+
+    /**
+     * Verify User can see Add User button
+     */
+    @Given("User can see Add User button")
+    public void user_can_see_add_user_button() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.addUserButton.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Show Inactive Users option
+     */
+    @Given("User can see Show Inactive Users option")
+    public void user_can_see_show_inactive_users_option() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.showInactiveUsersOption.isDisplayed());
+    }
+
+    /**
+     * Verify User can see name column of Users tab
+     */
+    @Given("User can see name column of Users tab")
+    public void user_can_see_name_column_of_users_tab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.nameColumnUsersTab.isDisplayed());
+    }
+
+    /**
+     * Verify User can see job title column of Users tab
+     */
+    @Given("User can see job title column of Users tab")
+    public void user_can_see_job_title_column_of_users_tab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.jobTitleColumnUsersTab.isDisplayed());
+    }
+
+    /**
+     * Verify User can see email column of Users tab
+     */
+    @Given("User can see email column of Users tab")
+    public void user_can_see_email_column_of_users_tab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.emailColumnUsersTab.isDisplayed());
+    }
+
+    /**
+     * Verify User can see phone column of Users tab
+     */
+    @Given("User can see phone column of Users tab")
+    public void user_can_see_phone_column_of_users_tab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.phoneColumnUsersTab.isDisplayed());
+    }
+
+    /**
+     * Verify User can see access to view column of Users tab
+     */
+    @Given("User can see access to view column of Users tab")
+    public void user_can_see_access_to_view_column_of_users_tab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.accessToViewColumnUsersTab.isDisplayed());
+    }
+
+    /**
+     * Verify User can see admin column of Users tab
+     */
+    @Given("User can see admin column of Users tab")
+    public void user_can_see_admin_column_of_users_tab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.adminToViewColumnUsersTab.isDisplayed());
+    }
+
+    /**
+     * Verify User can see account active column of Users tab
+     */
+    @Given("User can see account active column of Users tab")
+    public void user_can_see_account_active_column_of_users_tab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.accountActiveColumnUsersTab.isDisplayed());
+    }
 }
