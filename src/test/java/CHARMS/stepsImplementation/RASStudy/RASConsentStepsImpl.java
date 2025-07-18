@@ -7,11 +7,9 @@ import CHARMS.pages.MyRASHomePage;
 import CHARMS.steps.RAS_All_Steps;
 import CHARMS.steps.RAS_Common_Methods;
 import CHARMS.utils.CharmsUtil;
-import CUSTOM_BUSINESS.EIDP.utils.CommonUtil;
 import Hooks.Hooks;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 
@@ -162,8 +160,8 @@ public class RASConsentStepsImpl extends PageInitializer {
      * Verifies that the consent record initialization process is performed correctly
      * using the specified collection method and sheet name.
      *
-     * @param collectionMethod the method used to collect consent data (e.g., electronic, paper-based)
      * @param sheetName        the name of the data sheet containing test data for initializing the consent record
+     * @param collectionMethod the method used to collect consent data (e.g., electronic, paper-based)
      */
     public void verifyConsentRecord(String sheetName, String collectionMethod) {
         ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
