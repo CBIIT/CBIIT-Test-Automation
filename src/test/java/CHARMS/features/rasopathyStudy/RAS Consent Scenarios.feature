@@ -19,8 +19,7 @@ Feature: RAS Consent Scenarios
     And consent record data is verified for scenario "<ScreenerScenario>" and collection method "<CollectionMethod>"
     Examples:
       | Email                           | Password   | ScreenerScenario      | CollectionMethod | AccountResetScriptURL                                                                                    |
-#      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
-      | ras_progression@yopmail.com | Charms123$ | screenerScenarioAdult  | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=0e9497c587161ad0ad46326d3fbb35c7 |
+      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
   @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3680 @selenium @RAS_Regression1
   Scenario Outline: Verifying consent workflows for an adult participant, and then verifying that a Download Study Consent widget shows on portal and when clicked downloads the most recent Consent Record
@@ -60,9 +59,9 @@ Feature: RAS Consent Scenarios
     And clicks the "Consent Information" tab
     And selects "Other Guardian - 2" for Parent Guardian Status
     And selects "Yes" for Parent Guardian 1 Signed
-    And enters "Parent One" as the Parent Guardian 1 name
+    And enters "Guardian One" as the Parent Guardian 1 name
     And selects "Yes" for Parent Guardian 2 Signed
-    And enters "Parent Two" as the Parent Guardian 2 name
+    And enters "Guardian Two" as the Parent Guardian 2 name
     And verifies that Consent Assent category auto-populated to "Aged 11 - 13, signed assent required"
     And presses the Call Complete button
     Then Study Team member logs out of Native View
@@ -78,6 +77,7 @@ Feature: RAS Consent Scenarios
     And "Download Study Assent" text shows on participant portal and when clicked downloads "Assent Record"
     And participant logs out of RAS portal
     Then data submitted for scenario is verified in native from the excel sheet "<ScreenerScenario>"
+    And consent record data is verified for scenario "<ScreenerScenario>" and collection method "<CollectionMethod>"
     Examples:
       | Email                           | Password   | ScreenerScenario         | CollectionMethod | AccountResetScriptURL                                                                                    |
       | consent_participant@yopmail.com | Charms123$ | screenerScenarioAge11-13 | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
@@ -300,13 +300,9 @@ Feature: RAS Consent Scenarios
 
   @muzipovay2 @RAS_STUDY @CP2-4088 @CP2-4198 @selenium @RAS_Regression2
   Scenario: Completing Physical Activities Survey
-#    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
-#    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-#    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
-
-    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=0e9497c587161ad0ad46326d3fbb35c7" has been reset
+    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-    And logs in via Okta with username "ras_progression@yopmail.com" and password "Charms123$"
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "screenerScenarioAdult"
     And Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
@@ -316,7 +312,6 @@ Feature: RAS Consent Scenarios
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
     And selects "CHARMS e-consent" as the Collection Method
-
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
     And selects "Yes" for Protocol Discussed in Private Setting
     And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
@@ -326,11 +321,7 @@ Feature: RAS Consent Scenarios
     And presses the Call Complete button
     Then Study Team member logs out of Native View
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-
-#    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
-
-    And logs in via Okta with username "ras_progression@yopmail.com" and password "Charms123$"
-
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And participant clicks on Study Consent and completes form with "Charms123$"
     And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAdult"
     And verifies Consent Assent status is "Consented only"
@@ -344,11 +335,7 @@ Feature: RAS Consent Scenarios
     And Study Team member publishes questionnaires
     Then Study Team member logs out of Native View
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-
-#    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
-
-    And logs in via Okta with username "ras_progression@yopmail.com" and password "Charms123$"
-
+    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And clicks on "Physical Activities Survey" to begin survey
     And submits the Physical Activities Survey
     And participant logs out of RAS portal

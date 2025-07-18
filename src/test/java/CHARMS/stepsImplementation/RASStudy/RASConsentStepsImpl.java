@@ -74,8 +74,8 @@ public class RASConsentStepsImpl extends PageInitializer {
      * Verifies that the Preview Study Consent tile is displayed in the portal after a consent call is completed.
      *
      * @param sheetName the name of the sheet containing test data for the consent call
-     * @param username the participant's username for logging into the portal
-     * @param password the participant's password for logging into the portal
+     * @param username  the participant's username for logging into the portal
+     * @param password  the participant's password for logging into the portal
      */
     public void completes_consent_call_and_verifies_consent_preview_tile(String sheetName, String username, String password) {
         ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
@@ -163,7 +163,7 @@ public class RASConsentStepsImpl extends PageInitializer {
      * using the specified collection method and sheet name.
      *
      * @param collectionMethod the method used to collect consent data (e.g., electronic, paper-based)
-     * @param sheetName the name of the data sheet containing test data for initializing the consent record
+     * @param sheetName        the name of the data sheet containing test data for initializing the consent record
      */
     public void verifyConsentRecord(String sheetName, String collectionMethod) {
         ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
@@ -196,7 +196,7 @@ public class RASConsentStepsImpl extends PageInitializer {
         CharmsUtil.assertTextBoxData(Hooks.softAssert, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallDateInputField, "0" + CommonUtils.getCurrentDateIn_MM_DD_YYYY_format(), "---- CONSENT CALL: CONSENT CALL DATE FIELD MISMATCH ----");
         CharmsUtil.verifyLabel("Collection Method");
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown, ras_NV_Consent_Record_TestDataManager.COLLECTION_METHOD, "---- CONSENT CALL: COLLECTION METHOD DROPDOWN MISMATCH ----");
-        if(!collectionMethod.equalsIgnoreCase("iMed")) {
+        if (!collectionMethod.equalsIgnoreCase("iMed")) {
             CharmsUtil.verifyLabel("Copy of Consent/Assent Provided Before Signing");
             RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCopyOfConsentAssentProvidedDropDown, ras_NV_Consent_Record_TestDataManager.COPY_OF_CONSENT_ASSENT_PROVIDED_BEFORE_SIGNING, "---- CONSENT CALL: COPY OF CONSENT/ASSENT PROVIDED BEFORE SIGNING DROPDOWN MISMATCH ----");
             CharmsUtil.verifyLabel("Protocol Discussed in Private Setting");
@@ -213,11 +213,52 @@ public class RASConsentStepsImpl extends PageInitializer {
         CharmsUtil.verifyLabel("Cohort");
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCohortDropDown, ras_NV_Consent_Record_TestDataManager.COHORT, "---- CONSENT INFORMATION: COHORT DROPDOWN MISMATCH ----");
         CharmsUtil.verifyLabel("Consent Version");
-        CharmsUtil.assertTextBoxData(Hooks.softAssert, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendarInputField, "0" + CommonUtils.getCurrentDateIn_MM_DD_YYYY_format(), "---- CONSENT INFORMATION: CONSENT CALL VERSION FIELD MISMATCH ----");
+        CharmsUtil.assertTextBoxData(Hooks.softAssert, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendarInputField, "0" + CommonUtils.getCurrentDateIn_MM_DD_YYYY_format(), "---- CONSENT INFORMATION: CONSENT VERSION FIELD MISMATCH ----");
         CharmsUtil.verifyLabel("Consent/Assent Status");
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown, ras_NV_Consent_Record_TestDataManager.CONSENT_ASSENT_STATUS, "---- CONSENT INFORMATION: CONSENT/ASSENT STATUS DROPDOWN MISMATCH ----");
         CharmsUtil.verifyLabel("Consent/Assent Category");
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAssentCategoryDropDown, ras_NV_Consent_Record_TestDataManager.CONSENT_ASSENT_CATEGORY, "---- CONSENT INFORMATION: CONSENT/ASSENT CATEGORY DROPDOWN MISMATCH ----");
+        if (!ras_NV_Consent_Record_TestDataManager.COLLECTION_METHOD.equalsIgnoreCase("iMed")) {
+            if (ras_NV_Consent_Record_TestDataManager.NUMBER_OF_GUARDIAN_SIGNATURES_REQUIRED.equals("2")) {
+                CharmsUtil.verifyLabel("Number of Guardian Signatures required");
+                RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentNumberOfParentGuardianSignaturesRequiredDropDown, ras_NV_Consent_Record_TestDataManager.NUMBER_OF_GUARDIAN_SIGNATURES_REQUIRED, "---- CONSENT INFORMATION: NUMBER OF PARENT/GUARDIAN SIGNATURES REQUIRED DROPDOWN MISMATCH ----");
+                CharmsUtil.verifyLabel("Parent/Guardian 1 Signed");
+                RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown, ras_NV_Consent_Record_TestDataManager.PARENT_GUARDIAN_1_SIGNED, "---- CONSENT INFORMATION: PARENT/GUARDIAN 1 SIGNED DROPDOWN MISMATCH ----");
+                CharmsUtil.verifyLabel("Parent/Guardian 1 Name");
+                CharmsUtil.assertTextBoxData(Hooks.softAssert, nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField, ras_NV_Consent_Record_TestDataManager.PARENT_GUARDIAN_1_NAME, "---- CONSENT INFORMATION: PARENT/GUARDIAN 1 NAME FIELD MISMATCH ----");
+                CharmsUtil.verifyLabel("Parent/Guardian 2 Signed");
+                RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2SignedDropDown, ras_NV_Consent_Record_TestDataManager.PARENT_GUARDIAN_2_SIGNED, "---- CONSENT INFORMATION: PARENT/GUARDIAN 2 SIGNED DROPDOWN MISMATCH ----");
+                CharmsUtil.verifyLabel("Parent/Guardian 2 Name");
+                CharmsUtil.assertTextBoxData(Hooks.softAssert, nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian2NameTextField, ras_NV_Consent_Record_TestDataManager.PARENT_GUARDIAN_2_NAME, "---- CONSENT INFORMATION: PARENT/GUARDIAN 2 NAME FIELD MISMATCH ----");
+            } else if (ras_NV_Consent_Record_TestDataManager.NUMBER_OF_GUARDIAN_SIGNATURES_REQUIRED.equals("1")) {
+                CharmsUtil.verifyLabel("Number of Guardian Signatures required");
+                RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentNumberOfParentGuardianSignaturesRequiredDropDown, ras_NV_Consent_Record_TestDataManager.NUMBER_OF_GUARDIAN_SIGNATURES_REQUIRED, "---- CONSENT INFORMATION: NUMBER OF PARENT/GUARDIAN SIGNATURES REQUIRED DROPDOWN MISMATCH ----");
+                CharmsUtil.verifyLabel("Parent/Guardian 1 Signed");
+                RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown, ras_NV_Consent_Record_TestDataManager.PARENT_GUARDIAN_1_SIGNED, "---- CONSENT INFORMATION: PARENT/GUARDIAN 1 SIGNED DROPDOWN MISMATCH ----");
+                CharmsUtil.verifyLabel("Parent/Guardian 1 Name");
+                CharmsUtil.assertTextBoxData(Hooks.softAssert, nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1NameTextField, ras_NV_Consent_Record_TestDataManager.PARENT_GUARDIAN_1_NAME, "---- CONSENT INFORMATION: PARENT/GUARDIAN 1 NAME FIELD MISMATCH ----");
+            }
+            if (ras_NV_Consent_Record_TestDataManager.NUMBER_OF_GUARDIAN_SIGNATURES_REQUIRED.equals("2")) {
+                CharmsUtil.verifyLabel("Number of LARs");
+                RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.numberOfLARsDropDown, ras_NV_Consent_Record_TestDataManager.NUMBER_OF_LARS, "---- CONSENT INFORMATION: NUMBER OF LARS DROPDOWN MISMATCH ----");
+                CharmsUtil.verifyLabel("LAR 1 Signed");
+                RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.lar1SignedDropDown, ras_NV_Consent_Record_TestDataManager.LAR_1_SIGNED, "---- CONSENT INFORMATION: LAR 1 SIGNED DROPDOWN MISMATCH ----");
+                CharmsUtil.verifyLabel("LAR 1 Name");
+                CharmsUtil.assertTextBoxData(Hooks.softAssert, nativeViewCHARMSParticipantConsentPage.lar1NameTextField, ras_NV_Consent_Record_TestDataManager.LAR_1_NAME, "---- CONSENT INFORMATION: LAR 1 NAME FIELD MISMATCH ----");
+                CharmsUtil.verifyLabel("LAR 2 Signed");
+                RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.lar2SignedDropDown, ras_NV_Consent_Record_TestDataManager.LAR_2_SIGNED, "---- CONSENT INFORMATION: LAR 2 SIGNED DROPDOWN MISMATCH ----");
+                CharmsUtil.verifyLabel("LAR 2 Name");
+                CharmsUtil.assertTextBoxData(Hooks.softAssert, nativeViewCHARMSParticipantConsentPage.lar2NameTextField, ras_NV_Consent_Record_TestDataManager.LAR_2_NAME, "---- CONSENT INFORMATION: LAR 2 NAME FIELD MISMATCH ----");
+
+            } else if (ras_NV_Consent_Record_TestDataManager.NUMBER_OF_GUARDIAN_SIGNATURES_REQUIRED.equals("1")) {
+                CharmsUtil.verifyLabel("Number of LARs");
+                RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.numberOfLARsDropDown, ras_NV_Consent_Record_TestDataManager.NUMBER_OF_LARS, "---- CONSENT INFORMATION: NUMBER OF LARS DROPDOWN MISMATCH ----");
+                CharmsUtil.verifyLabel("LAR 1 Signed");
+                RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.lar1SignedDropDown, ras_NV_Consent_Record_TestDataManager.LAR_1_SIGNED, "---- CONSENT INFORMATION: LAR 1 SIGNED DROPDOWN MISMATCH ----");
+                CharmsUtil.verifyLabel("LAR 1 Name");
+                CharmsUtil.assertTextBoxData(Hooks.softAssert, nativeViewCHARMSParticipantConsentPage.lar1NameTextField, ras_NV_Consent_Record_TestDataManager.LAR_1_NAME, "---- CONSENT INFORMATION: LAR 1 NAME FIELD MISMATCH ----");
+            }
+        }
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         CucumberLogUtils.scenario.log("---- VERIFYING PARTICIPANT CONSENT RECORD DATA: CONSENT SIGNED TAB ----");

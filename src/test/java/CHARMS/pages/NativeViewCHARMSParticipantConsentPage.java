@@ -206,7 +206,7 @@ public class NativeViewCHARMSParticipantConsentPage {
     public WebElement rasStudyConsentParentGuardianStatusDropDown;
 
     /**
-     * Native View Ras Study Number of Parent/Guardian Signatures Required Drop Down
+//     * Native View Ras Study Number of Parent/Guardian Signatures Required Drop Down
      */
     @FindBy(xpath = "//select[@id='x_naci_family_coho_fcsms_consent.number_of_guardian']")
     public WebElement rasStudyConsentNumberOfParentGuardianSignaturesRequiredDropDown;
