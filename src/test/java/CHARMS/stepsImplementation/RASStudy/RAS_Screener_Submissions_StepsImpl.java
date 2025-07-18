@@ -351,7 +351,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * ARE YOU A PARTICIPANT IN ANY OTHER RESEARCH STUDY OR REGISTRY GROUP?  PLEASE SPECIFY.  * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && (rasopathyQuestionnairePage.question.getText().contentEquals(ARE_YOU_A_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP_PLEASE_SPECIFY) || rasopathyQuestionnairePage.question.getText().contentEquals(formatRASQuestionForProxy(IS_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP)))) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && (rasopathyQuestionnairePage.question.getText().trim().contentEquals(ARE_YOU_A_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP_PLEASE_SPECIFY) || rasopathyQuestionnairePage.question.getText().contentEquals(formatRASQuestionForProxy(IS_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP)))) {
                     CucumberLogUtils.scenario.log("* * * * * ARE YOU A PARTICIPANT IN ANY OTHER RESEARCH STUDY OR REGISTRY GROUP?  PLEASE SPECIFY.  * * * * *");
                     if (sheetName.contentEquals("screenerScenario1") || sheetName.contentEquals("screenerScenarioAdult") || sheetName.contentEquals("screenerScenarioAdult-NeedsLAR") || sheetName.contentEquals("screenerScenarioAgeUnder7") || sheetName.contentEquals("screenerScenarioAge7-10") || sheetName.contentEquals("screenerScenarioAge11-13") || sheetName.contentEquals("screenerScenarioAge14-17")) {
                         dynamicLocator(ras_Screener_TestDataManager.ARE_YOU_A_PARTICIPANT_IN_OTHER_STUDY_GROUP).click();
@@ -674,7 +674,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         ras_NV_Consent_Record_TestDataManager.dataInitializerRasConsentRecord(sheetName, collectionMethod);
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         navigateToParticipantRecordInNativeView(sheetName);
-        submitParticipantForReviewAndEligibility();
+//        submitParticipantForReviewAndEligibility();
         openConsentRecord();
         consentFlowProcess();
     }
@@ -933,10 +933,10 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         JavascriptUtils.clickByJS(nativeViewCHARMSParticipantDetailsPage.participantStudiesPreviewButton);
         CommonUtils.waitForClickability(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-        CommonUtils.sleep(2000);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
+//        CommonUtils.sleep(2000);
+//        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
+//        CucumberLogUtils.logScreenshot();
+//        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
         CommonUtils.sleep(1500);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
         CucumberLogUtils.logScreenshot();
@@ -970,9 +970,9 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
         CucumberLogUtils.scenario.log("* * * * RESPONSE TYPE * * * *");
         CommonUtils.selectDropDownValue("Participant upload to portal", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown);
         CucumberLogUtils.scenario.log("* * * * CONSENT CALL VERSION * * * *");
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendarButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendarButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendarButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CucumberLogUtils.scenario.log("* * * * CONSENT DATE * * * *");
