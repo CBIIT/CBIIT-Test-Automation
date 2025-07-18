@@ -95,6 +95,7 @@ public class RAS_Consent_Call_Steps {
         CHARMS.steps.RAS_Common_Methods.softAssertDropdownOptions(nativeViewCHARMSParticipantConsentPage.rasStudyConsentWasVerbalAssentObtainedDropDown, Native_View_Constants.consentRecordWasVerbalAssentObtainedDropdownOptions, "---- VERIFYING WAS VERBAL ASSENT OBTAINED? DROPDOWN OPTIONS ----");
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentWasVerbalAssentObtainedDropDown);
         CommonUtils.selectDropDownValue(selectOption, nativeViewCHARMSParticipantConsentPage.rasStudyConsentWasVerbalAssentObtainedDropDown);
+        CucumberLogUtils.logScreenshot();
     }
 
     /**
@@ -496,9 +497,9 @@ public class RAS_Consent_Call_Steps {
     @Given("selects Today as the Consent Version")
     public void selects_today_as_the_consent_version() {
         CucumberLogUtils.scenario.log("* * * * * CONSENT CALL VERSION * * * * *");
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendarButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendarButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendarButton);
     }
 
     /**
@@ -604,5 +605,10 @@ public class RAS_Consent_Call_Steps {
     @Then("Consent Call is completed for {string} and Participant verifies logs in to portal with username {string} and password {string} and the Preview Study Consent tile displays")
     public void verifyPreviewStudyConsentTileInPortal(String sheetName, String username, String password) {
         rasConsentStepsImpl.completes_consent_call_and_verifies_consent_preview_tile(sheetName,username,password);
+    }
+
+    @Then("consent record data is verified for scenario {string} and collection method {string}")
+    public void consent_record_data_is_verified_for_scenario_and_collection_method(String sheetName, String collectionMethod) {
+        rasConsentStepsImpl.verifyConsentRecord(sheetName, collectionMethod);
     }
 }

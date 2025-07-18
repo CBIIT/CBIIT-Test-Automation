@@ -14,16 +14,52 @@ public class NativeViewCHARMSParticipantConsentPage {
     public WebElement rasStudyConsentParticipantInfoTextBox;
 
     /**
+     * Native View Ras Study Input Field
+     */
+    @FindBy(xpath = "//input[@name='sys_display.x_naci_family_coho_fcsms_consent.study']")
+    public WebElement rasStudyConsentInputField;
+
+    /**
+     * Native View Ras Study Current/Previous Dropdown
+     */
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_fcsms_consent.current_previous']")
+    public WebElement rasStudyCurrentPreviousDropDown;
+
+    /**
+     * Native View Ras Study Created Input Field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_fcsms_consent.sys_created_on']")
+    public WebElement rasStudyCreatedInputField;
+
+    /**
+     * Native View Ras Study Consent Date Input Field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_fcsms_consent.consent_date']")
+    public WebElement rasStudyConsentDateInputField;
+
+    /**
      * Native View Ras Study Consent Call Schedule Time Calendar
      */
     @FindBy(xpath = "//*[@id='element.x_naci_family_coho_fcsms_consent.consent_call_scheduled_time']//child::div[2]//child::div[2]//child::span//child::span[1]//child::button")
     public WebElement rasStudyConsentCallScheduleTimeCalendar;
 
     /**
+     * Native View Ras Study Consent Call Schedule Time Calendar Input Field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_fcsms_consent.consent_call_scheduled_time']")
+    public WebElement rasStudyConsentCallScheduleTimeCalendarInputField;
+
+    /**
      * Native View Ras Study Consent Call Date Calendar
      */
     @FindBy(xpath = "//*[@id='element.x_naci_family_coho_fcsms_consent.consent_call_date']//child::div[2]//child::span[1]//child::span[1]//child::a")
     public WebElement rasStudyConsentCallScheduleDateCalendar;
+
+    /**
+     * Native View Ras Study Consent Call Date Calendar Input Field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_fcsms_consent.consent_call_date']")
+    public WebElement rasStudyConsentCallDateInputField;
 
     /**
      * Native View Ras Study Consent Date Calendar
@@ -50,10 +86,16 @@ public class NativeViewCHARMSParticipantConsentPage {
     public WebElement rasStudyConsentDateTextBox;
 
     /**
-     * Native View Ras Study Consent version Calendar
+     * Native View Ras Study Consent Version Calendar Button
      */
     @FindBy(xpath = "//*[@id='element.x_naci_family_coho_fcsms_consent.consent_version']//child::div[2]//child::span[1]//child::span[1]//child::a")
-    public WebElement rasStudyConsentCallScheduleVersionCalendar;
+    public WebElement rasStudyConsentCallScheduleVersionCalendarButton;
+
+    /**
+     * Native View Ras Study Consent Version Calendar Input Field
+     */
+    @FindBy(xpath = "//input[@name='x_naci_family_coho_fcsms_consent.consent_version']")
+    public WebElement rasStudyConsentCallScheduleVersionCalendarInputField;
 
     /**
      * Native View Ras Study Consent Call Schedule Time Go To Today Button
@@ -279,6 +321,12 @@ public class NativeViewCHARMSParticipantConsentPage {
      */
     @FindBy(xpath = "//*[@id='x_naci_family_coho_fcsms_consent.future_identifiable_use_by_collaborators']")
     public WebElement rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown;
+
+    /**
+     * Native View Ras Return of Genetic Findings Drop Down
+     */
+    @FindBy(xpath = "//select[@name='x_naci_family_coho_fcsms_consent.return_of_genetic_findings']")
+    public WebElement rasStudyReturnOfGeneticFindingsDropDown;
 
     /**
      * Native View Ras Study Comments Text Area

@@ -16,6 +16,7 @@ public class RAS_NV_Consent_Record_TestDataManager extends PageInitializer {
     public String CONSENT_BY;
     public String ASSIGNED_TO;
     public String CURRENT_PREVIOUS;
+    public String CONSENT_STATUS;
     public String CONSENT_CALL_SCHEDULED_TIME;
     public String CONSENT_CALL_DATE;
     public String SHORT_FORM_CONSENT;
@@ -62,25 +63,34 @@ public class RAS_NV_Consent_Record_TestDataManager extends PageInitializer {
         /**
          * FETCHING DATA FROM EXCEL SHEET BEFORE SUBMITTING CONSENT CALL
          */
-        if (sheetName.equals("screenerScenarioAdult")) {
+        if (sheetName.equals("screenerScenarioAdult") && collectionMethod.equals("CHARMS e-consent")) {
+            TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ADULT, "CHARMS e-consent");
+        }
+        else if (sheetName.equals("screenerScenarioAdult") && collectionMethod.equals("iMed")) {
+            TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ADULT, "iMed");
+        }
+        else if (sheetName.equals("screenerScenarioAdult")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ADULT, "Consent");
         }
-        if (sheetName.equals("screenerScenario2")) {
+        else if (sheetName.equals("screenerScenario2")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_TWO_DATA, "Consent");
         }
-        if (sheetName.equals("screenerScenarioAdult-NeedsLAR")) {
+        else if (sheetName.equals("screenerScenarioAdult-NeedsLAR") && collectionMethod.equals("CHARMS e-consent")) {
+            TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ADULT, "CHARMS e-consent");
+        }
+        else if (sheetName.equals("screenerScenarioAdult-NeedsLAR")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ADULT_NEEDS_LAR, "Consent");
         }
-        if (sheetName.equals("screenerScenarioAgeUnder7")) {
+        else if (sheetName.equals("screenerScenarioAgeUnder7")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_UNDER_7, "Consent");
         }
-        if (sheetName.equals("screenerScenarioAge7-10")) {
+        else if (sheetName.equals("screenerScenarioAge7-10")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_7_10_DATA, "Consent");
         }
-        if (sheetName.equals("screenerScenarioAge11-13")) {
+        else if (sheetName.equals("screenerScenarioAge11-13")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_11_13_DATA, "Consent");
         }
-        if (sheetName.equals("screenerScenarioAge14-17")) {
+        else if (sheetName.equals("screenerScenarioAge14-17")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_14_17_DATA, "Consent");
         }
         CONSENT_CALL_SCHEDULED_TIME = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Consent call scheduled time");
@@ -108,6 +118,7 @@ public class RAS_NV_Consent_Record_TestDataManager extends PageInitializer {
         CONSENT_DATE = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Consent Date");
         CONSENT_BY = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Consent By");
         CURRENT_PREVIOUS = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Current/Previous");
+        CONSENT_STATUS = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Consent Status");
         STUDY = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Study");
         COPY_OF_CONSENT_ASSENT_PROVIDED_BEFORE_SIGNING = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Copy of Consent/Assent Provided Before Signing");
         PROTOCOL_DISCUSSED_IN_PRIVATE_SETTING = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Protocol Discussed in Private Setting");
