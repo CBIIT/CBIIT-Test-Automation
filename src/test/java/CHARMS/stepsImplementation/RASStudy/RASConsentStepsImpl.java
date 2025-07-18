@@ -12,7 +12,6 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
-
 import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 import static CHARMS.steps.RAS_All_Steps.*;
 import static CHARMS.steps.RAS_Common_Methods.navigateToParticipantRecordInNativeView;
