@@ -231,7 +231,7 @@ Feature: FCAS Vendor Portal Flow
     And User can see Grant access to view Work Orders option
     And User clicks Cancel button for Add User modal
 
-  @Alena @Regression @selenium @OASYS-3792 @Progression
+  @Alena @Regression @selenium @OASYS-3792
   Scenario: Company account page Users tab Add User Coordinator Assignments:
     Given User accepts PII Disclaimer
     And User navigates to Company account page
@@ -242,7 +242,3 @@ Feature: FCAS Vendor Portal Flow
     And User can see Solicitation Coordinator option
     And User can see Solicitation Coordinator description
     And User clicks Cancel button for Add User modal
-
-
-
-
