@@ -424,7 +424,6 @@ public class FCASVENDORPORTALPage {
     @FindBy(xpath = "(//div[.=' Account Active '])[1]")
     public WebElement accountActiveColumnUsersTab;
 
-
     /** Last Name Add User modal*/
     @FindBy(xpath = "//input[@ng-reflect-name='LastName']")
     public WebElement firstNameAddUserModal;

@@ -853,7 +853,6 @@ public class FCASVENDORPORTALSteps {
         softAssert.assertTrue(fCASVENDORPORTALPage.accountActiveColumnUsersTab.isDisplayed());
     }
 
-
     /**
      * Verify User can see account active column of Users tab
      */
