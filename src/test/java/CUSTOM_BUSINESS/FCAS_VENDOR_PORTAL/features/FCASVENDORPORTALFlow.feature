@@ -198,7 +198,6 @@ Feature: FCAS Vendor Portal Flow
     And User can see admin column of Users tab
     And User can see account active column of Users tab
 
-
   @Alena @Regression @selenium @OASYS-3792
   Scenario: Company account page Users tab Add User fillable fields
     Given User accepts PII Disclaimer
