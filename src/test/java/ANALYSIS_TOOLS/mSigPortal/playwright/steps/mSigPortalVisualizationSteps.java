@@ -7,7 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import ANALYSIS_TOOLS.mSigPortal.playwright.stepsImplementations.mSigPortalVisualizationStepsImpl;
 
-public class mSigPortalVisualization_Steps {
+public class mSigPortalVisualizationSteps {
 
     /**
      * CLICKS ON THE SUBMIT BUTTON
