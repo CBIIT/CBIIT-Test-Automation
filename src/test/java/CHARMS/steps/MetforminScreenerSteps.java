@@ -65,6 +65,6 @@ public class MetforminScreenerSteps extends PageInitializer {
 
     @Then("data submitted for Metformin participant is verified in Metformin Screener page in NativeView from excel sheet {string}")
     public void data_submitted_for_metformin_participant_is_verified_in_metformin_screener_page_in_native_view_from_excel_sheet(String sheetName) {
-        metforminScreenerStepsImpl.metforminStudyScreenerPageAssertionForMetforminScreener(sheetName);
+        metforminScreenerStepsImpl.participantReferralPageAssertionForMetforminScreener(sheetName);
     }
 }
