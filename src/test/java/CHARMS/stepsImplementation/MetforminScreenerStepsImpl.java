@@ -10,7 +10,7 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import org.openqa.selenium.Keys;
 import org.testng.asserts.SoftAssert;
-
+import java.util.Objects;
 
 public class MetforminScreenerStepsImpl extends PageInitializer {
     static SoftAssert softAssert = new SoftAssert();
@@ -441,7 +441,28 @@ public class MetforminScreenerStepsImpl extends PageInitializer {
     public void metforminStudyScreenerPageAssertionForMetforminScreener(String sheetName) {
         if (sheetName.contentEquals("MetforminScreenerScenario1")) {
             metforminScreener_TestDataManager.dataInitializerMetforminScreener(sheetName);
+            metforminScreenerPagePreviewRecordClicked();
+            metforminScreenerPageGeneralInformationAssertions();
+            metforminScreenerPageContactInformationAssertion();
+            metforminScreenerPageDemographicsAssertion();
+            metforminScreenerPageMedicalQuestionsQuestions();
+            metforminScreenerPageFinalQuestionsAssertion();
+            metforminScreenerPagePatientsCancerAssertion();
+            logoutOfNativeViewPage();
+            softAssert.assertAll();
         }
+    }
+
+    private void metforminScreenerPagePatientsCancerAssertion() {
+    }
+
+    private void metforminScreenerPageFinalQuestionsAssertion() {
+    }
+
+    private void metforminScreenerPageMedicalQuestionsQuestions() {
+    }
+
+    private void metforminScreenerPageDemographicsAssertion() {
     }
 
     /*** Method to click the Metformin screener Page Preview button */
@@ -449,6 +470,77 @@ public class MetforminScreenerStepsImpl extends PageInitializer {
         CharmsUtil.clickOnElement(nativeViewCHARMSParticipantStudyPage.nVFScreenerRefPreviewRecordButton);
         CommonUtils.sleep(1000);
         CharmsUtil.clickOnElement(nativeViewCHARMSParticipantStudyPage.nVFScreenerOpenRecordButton);
+    }
+
+    /*** Method to assert data in the Metformin Study page of nativeView */
+    public void metforminScreenerPageGeneralInformationAssertions() {
+        String referralValue = metforminScreenerPage.dynamicLocatorForInputElementsInFAScreener("number").getDomAttribute("value");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Number"), "Number", " Number label on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsInFAScreener("number"), referralValue, " Referral Number on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Does the participant need legal representation?"), "Does the participant need legal representation?", " Does the participant need legal representation? label on Fanconi Study Screener page ");
+        CharmsUtil.assertDropDownData(softAssert, metforminScreenerPage.dynamicLocatorForSelectElementsInFAScreenerPage("proxy_required"), "-- None --", " Does the participant need legal representation Input value on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Age Completed"), "Age Completed", " Age Completed label on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForReadOnlyInputElementsInFAScreener("age_completed"), metforminScreener_TestDataManager.calculatedAge, " Age Completed Read only Value on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Study"), "Study", " Study label on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.nVFScreenerStudy, "Metformin", "Study of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Participant Info"), "Participant Info", " Participant Info label on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForDisplayReadOnlyInputElementsInFAScreener("family_member_record"), subjectIDValue, " Family Member Record of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanTitle1("Participant Info Name", 1), "Name", " Participant Info label on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForReadOnlyInputElementsInFAScreener("family_member_record.name"), participantName, " participant Name value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Participant Study Data"), "Participant Study Data", " Participant Study Data label on Fanconi Study Screener page ");
+        if (participantValue.isEmpty()) {
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForDisplayReadOnlyInputElementsInFAScreener("participant_study"), "", " participant_study' Record of the General Information on Fanconi Study Screener page ");
+        } else {
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForDisplayReadOnlyInputElementsInFAScreener("participant_study"), participantValue, " participant_study' Record of the General Information on Fanconi Study Screener page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Vital Status"), "Vital Status", " Vital Status label on Fanconi Study Screener page ");
+        CharmsUtil.assertDropDownData(softAssert, metforminScreenerPage.nVMetforminScreenerVitalStatus, "Not answered", "Vital Status of the General Information on Fanconi Study Screener page ");
+        if (participantValue.isEmpty()) {
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Eligibility Status"), "Eligibility Status", " Eligibility Status label on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.nVFScreenerEligibilityStatus, "waiting_for_eligibility", "Eligibility Status of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Enrollment Status"), "Enrollment Status", " Enrollment Status label on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.nVFScreenerEnrollmentStatus, "1", "Enrollment Status of the General Information on Fanconi Study Screener page ");
+        } else {
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Eligibility Status"), "Eligibility Status", " Eligibility Status label on Fanconi Study Screener page ");
+            CharmsUtil.assertDropDownData(softAssert, metforminScreenerPage.nVFScreenerEligibilityStatus, "Eligible", "Eligibility Status of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Enrollment Status"), "Enrollment Status", " Enrollment Status label on Fanconi Study Screener page ");
+            CharmsUtil.assertDropDownData(softAssert, metforminScreenerPage.nVFScreenerEnrollmentStatus, "Awaiting Enrollment Forms", "Enrollment Status of the General Information on Fanconi Study Screener page ");
+        }
+    }
+
+    /*** Method to assert the Fanconi Screener: Contact Information */
+    public void metforminScreenerPageContactInformationAssertion() {
+        CharmsUtil.clickOnElement(metforminScreenerPage.nVFScreenerContactInfoTab);
+        if (metforminScreener_TestDataManager.proxyFirstName.contentEquals("")) {
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.FIRST_NAME), MetforminScreenerConstants.FIRST_NAME, " First Name label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("first_name"), metforminScreener_TestDataManager.firstName, " First Name Value of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.MIDDLE_NAME), MetforminScreenerConstants.MIDDLE_NAME, " Middle Name label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("middle_name"), metforminScreener_TestDataManager.middleInitial, " Middle Name Value of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.LAST_NAME), MetforminScreenerConstants.LAST_NAME, " Last Name label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("last_name"), metforminScreener_TestDataManager.lastName, " Last Name Value of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.IN_WHICH_COUNTRY_DO_YOU_THE_PARTICIPANT_CURRENTLY_LIVE), MetforminScreenerConstants.IN_WHICH_COUNTRY_DO_YOU_THE_PARTICIPANT_CURRENTLY_LIVE, " Contact Country label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForDisplayReadOnlyInputElementsInFAScreener("country"), metforminScreener_TestDataManager.inWhichCountryDoYouTheParticipantCurrentlyLive, " Contact Country Value of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Street Address"), "Street Address", " Street Address label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("street_address"), metforminScreener_TestDataManager.street, " Street Address Value for non USA country of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Street 2 (optional)"), "Street 2 (optional)", " Street 2 (optional) label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("street_address2"), metforminScreener_TestDataManager.street2Optional, " Street 2 (optional) Value for non USA country of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("City"), "City", " City label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("city"), metforminScreener_TestDataManager.city, " City Value of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("State/Province"), "State/Province", " State/Province label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("state"), metforminScreener_TestDataManager.stateAbbreviation, " State/Province Value of the Contact Information in  Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Zip Code"), "Zip Code", " Zip Code label of the Contact Information in Fanconi Study screener page ");
+        } else {
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.FIRST_NAME), MetforminScreenerConstants.FIRST_NAME, " First Name label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("first_name"), metforminScreener_TestDataManager.firstName, " First Name of the Contact Information Value in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.MIDDLE_NAME), MetforminScreenerConstants.MIDDLE_NAME, " Middle Name label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("middle_name"), metforminScreener_TestDataManager.middleInitial, " Middle Name Value of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.LAST_NAME), MetforminScreenerConstants.LAST_NAME, " Last Name label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("last_name"), metforminScreener_TestDataManager.lastName, " Last Name Value of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Street Address"), "Street Address", " Street Address label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("street_address"), "", " Street Address Value for non USA country of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Street 2 (optional)"), "Street 2 (optional)", " Street 2 (optional) label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("street_address2"), "", " Street 2 (optional) Value for non USA country of the Contact Information in Fanconi Study screener page ");
+        }
     }
 
     /*** Method to click the participant detail record in list view page */
@@ -690,6 +782,67 @@ public class MetforminScreenerStepsImpl extends PageInitializer {
         participantName = (metforminScreener_TestDataManager.firstName + " " + metforminScreener_TestDataManager.middleInitial + " " + metforminScreener_TestDataManager.lastName);
         referralValue = nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("screener_ref").getDomAttribute("value");
         participantValue = nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("participant").getDomAttribute("value");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingDataNormalizeSpaceInSpan("Participant"), "Participant", "Participant label of the General Information on Fanconi Study Screener page ");
+        if (Objects.requireNonNull(nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("participant").getDomAttribute("value")).isEmpty()) {
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("participant"), "", "Participant Input Value of the General Information on Fanconi Study Screener page ");
+        } else {
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("participant"), subjectIDValue, "Participant Input Value of the General Information on Fanconi Study Screener page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingDataNormalizeSpaceInSpan("Name"), "Name", "Name label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.nVParticipantNameValue, participantName, " Participant Name of the General Information on Participant Details page ");
+        if (Objects.requireNonNull(nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("participant").getDomAttribute("value")).isEmpty()) {
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Eligibility Status"), "Eligibility Status", " Eligibility Status label of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElements("eligibility_status"), "Waiting for Eligibility", " Eligibility Status Value of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Enrollment Status"), "Enrollment Status", " Enrollment Status label of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElements("enrollment_status"), "New Screener Received", " Enrollment Status Value of the General Information on Fanconi Study Screener page ");
+        } else {
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Eligibility Status"), "Eligibility Status", " Eligibility Status label of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElements("eligibility_status"), "Eligible", " Eligibility Status Value of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Enrollment Status"), "Enrollment Status", " Enrollment Status label of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElements("enrollment_status"), "Awaiting Enrollment Forms", " Enrollment Status Value of the General Information on Fanconi Study Screener page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText1("Screener"), "Screener", " Screener label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("screener_ref"), referralValue, " Referral Value of General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("IIQ"), "IIQ", " IIQ label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("iiq_ref"), "", " IIQ Input value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Study Sub Categories"), "Study Sub Categories", " Study Sub Categories label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingDataNormalizeSpaceInSpan("Study"), "Study", " Study label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("study"), "Metformin", " Study Input Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Cohort"), "Cohort", " Cohort label of the General Information on Fanconi Study Screener page ");
+        if (Objects.requireNonNull(nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("participant").getDomAttribute("value")).isEmpty()) {
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElements("cohort"), "Field", " Cohort Select Value of the General Information on Fanconi Study Screener page ");
+        } else {
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElements("cohort"), "Clinical", " Cohort Select Value of the General Information on Fanconi Study Screener page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("NIH MRN number"), "NIH MRN number", " NIH MRN number label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.nVParticipantNIHMRNNumberInput, "", " NIH MRN number Input value of General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Screener Complete"), "Screener Complete", " Screener Complete label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements1("screener_complete"), false, " Screener Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements("screener_complete"), true, " Screener Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("IIQ Complete"), "IIQ Complete", " IIQ Complete label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements1("iiq_complete"), false, " IIQ Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements("iiq_complete"), false, " IIQ Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Study Survey Complete"), "Study Survey Complete", " Study Survey Complete label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements1("study_survey_complete"), false, " Study Survey Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements("study_survey_complete"), false, " Study Survey Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("All Required Forms Completed"), "All Required Forms Completed", " All Required Forms Completed label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements1("forms_completed"), false, "All Required Forms Completed CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements("forms_completed"), false, " All Required Forms Completed CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("MRR Complete"), "MRR Complete", " MRR Complete label of the General Information on Fanconi Study Screener page ");
+        CommonUtils.sleep(800);
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements1("mrr_complete"), false, " Ever Consented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements("mrr_complete"), false, " MRR Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Ever Consented"), "Ever Consented", " Ever Consented label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements1("consent_signed"), false, " Ever Consented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        if (!Objects.requireNonNull(nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("participant").getDomAttribute("value")).isEmpty()) {
+            CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements("consent_signed"), true, " Ever Consented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        } else {
+            CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements("consent_signed"), false, " Ever Consented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Ever Assented"), "Ever Assented", " Ever Assented label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements1("assent_signed"), false, " Ever Assented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements("assent_signed"), false, " Ever Assented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CommonUtils.sleep(800);
     }
 
     /*** Method to logout of native view */
