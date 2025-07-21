@@ -11,7 +11,6 @@ import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import APPS_COMMON.Utils.ServiceNow_Login_Methods;
 import CHARMS.utils.CharmsUtil;
-import CUSTOM_BUSINESS.EIDP.utils.CommonUtil;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;

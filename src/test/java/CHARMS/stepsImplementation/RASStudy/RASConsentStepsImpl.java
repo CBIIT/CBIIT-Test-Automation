@@ -16,6 +16,7 @@ import static APPS_COMMON.Pages.Selenium_Common_Locators.locateByXpath;
 import static CHARMS.steps.RAS_All_Steps.*;
 import static CHARMS.steps.RAS_Common_Methods.navigateToParticipantRecordInNativeView;
 import static CHARMS.steps.RAS_Common_Methods.submitParticipantForReviewAndEligibility;
+import static CHARMS.utils.CharmsUtil.getCurrentDateIn_MM_DD_YYYY_format;
 import static Hooks.Hooks.softAssert;
 
 public class RASConsentStepsImpl extends PageInitializer {
@@ -159,7 +160,7 @@ public class RASConsentStepsImpl extends PageInitializer {
      * Verifies that the consent record initialization process is performed correctly
      * using the specified collection method and sheet name.
      *
-     * @param sheetName        the name of the data sheet containing test data for initializing the consent record
+     * @param sheetName the name of the data sheet containing test data for initializing the consent record
      * @param collectionMethod the method used to collect consent data (e.g., electronic, paper-based)
      */
     public void verifyConsentRecord(String sheetName, String collectionMethod) {
@@ -174,11 +175,11 @@ public class RASConsentStepsImpl extends PageInitializer {
         CharmsUtil.verifyLabel("Current/Previous");
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyCurrentPreviousDropDown, ras_NV_Consent_Record_TestDataManager.CURRENT_PREVIOUS, "---- PARTICIPANT CONSENT RECORD: CURRENT/PREVIOUS DROPDOWN MISMATCH ----");
         CharmsUtil.verifyLabel("Created");
-        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyCreatedInputField.getDomAttribute("value").contains("0" + CommonUtils.getCurrentDateIn_MM_DD_YYYY_format()), "---- PARTICIPANT CONSENT RECORD: CREATED FIELD MISMATCH ----");
+        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyCreatedInputField.getDomAttribute("value").contains(getCurrentDateIn_MM_DD_YYYY_format()), "---- PARTICIPANT CONSENT RECORD: CREATED FIELD MISMATCH ----");
         CharmsUtil.verifyLabel("Consent Status");
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentStatusTextBox, ras_NV_Consent_Record_TestDataManager.CONSENT_STATUS, "---- PARTICIPANT CONSENT RECORD: CONSENT STATUS FIELD MISMATCH ----");
         CharmsUtil.verifyLabel("Consent Date");
-        CharmsUtil.assertTextBoxData(Hooks.softAssert, nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateInputField, "0" + CommonUtils.getCurrentDateIn_MM_DD_YYYY_format(), "---- PARTICIPANT CONSENT RECORD: CONSENT STATUS FIELD MISMATCH ----");
+        CharmsUtil.assertTextBoxData(Hooks.softAssert, nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateInputField, getCurrentDateIn_MM_DD_YYYY_format(), "---- PARTICIPANT CONSENT RECORD: CONSENT STATUS FIELD MISMATCH ----");
         CharmsUtil.verifyLabel("Consent By");
         CharmsUtil.assertTextBoxData(Hooks.softAssert, nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, ras_NV_Consent_Record_TestDataManager.CONSENT_BY, "---- PARTICIPANT CONSENT RECORD: CONSENT BY FIELD MISMATCH ----");
         CharmsUtil.verifyLabel("Assigned to");
@@ -188,9 +189,9 @@ public class RASConsentStepsImpl extends PageInitializer {
         CucumberLogUtils.scenario.log("---- VERIFYING PARTICIPANT CONSENT RECORD DATA: CONSENT CALL TAB ----");
         clicksTab("Consent Call");
         CharmsUtil.verifyLabel("Consent call scheduled time");
-        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendarInputField.getDomAttribute("value").contains("0" + CommonUtils.getCurrentDateIn_MM_DD_YYYY_format()), "---- CONSENT CALL: CONSENT CALL SCHEDULED TIME FIELD MISMATCH ----");
+        softAssert.assertTrue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendarInputField.getDomAttribute("value").contains(getCurrentDateIn_MM_DD_YYYY_format()), "---- CONSENT CALL: CONSENT CALL SCHEDULED TIME FIELD MISMATCH ----");
         CharmsUtil.verifyLabel("Consent Call Date");
-        CharmsUtil.assertTextBoxData(Hooks.softAssert, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallDateInputField, "0" + CommonUtils.getCurrentDateIn_MM_DD_YYYY_format(), "---- CONSENT CALL: CONSENT CALL DATE FIELD MISMATCH ----");
+        CharmsUtil.assertTextBoxData(Hooks.softAssert, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallDateInputField, getCurrentDateIn_MM_DD_YYYY_format(), "---- CONSENT CALL: CONSENT CALL DATE FIELD MISMATCH ----");
         CharmsUtil.verifyLabel("Collection Method");
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown, ras_NV_Consent_Record_TestDataManager.COLLECTION_METHOD, "---- CONSENT CALL: COLLECTION METHOD DROPDOWN MISMATCH ----");
         if (!collectionMethod.equalsIgnoreCase("iMed")) {
@@ -210,7 +211,7 @@ public class RASConsentStepsImpl extends PageInitializer {
         CharmsUtil.verifyLabel("Cohort");
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCohortDropDown, ras_NV_Consent_Record_TestDataManager.COHORT, "---- CONSENT INFORMATION: COHORT DROPDOWN MISMATCH ----");
         CharmsUtil.verifyLabel("Consent Version");
-        CharmsUtil.assertTextBoxData(Hooks.softAssert, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendarInputField, "0" + CommonUtils.getCurrentDateIn_MM_DD_YYYY_format(), "---- CONSENT INFORMATION: CONSENT VERSION FIELD MISMATCH ----");
+        CharmsUtil.assertTextBoxData(Hooks.softAssert, nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendarInputField, getCurrentDateIn_MM_DD_YYYY_format(), "---- CONSENT INFORMATION: CONSENT VERSION FIELD MISMATCH ----");
         CharmsUtil.verifyLabel("Consent/Assent Status");
         RAS_Common_Methods.softAssertDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown, ras_NV_Consent_Record_TestDataManager.CONSENT_ASSENT_STATUS, "---- CONSENT INFORMATION: CONSENT/ASSENT STATUS DROPDOWN MISMATCH ----");
         CharmsUtil.verifyLabel("Consent/Assent Category");
