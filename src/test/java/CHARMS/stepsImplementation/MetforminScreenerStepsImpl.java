@@ -5,13 +5,11 @@ import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
 import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import CHARMS.constants.CHARMS_Data_File_Path_Constants;
 import CHARMS.constants.MetforminScreenerConstants;
-import CHARMS.pages.NativeViewCHARMSParticipantStudyPage;
 import CHARMS.utils.CharmsUtil;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import org.openqa.selenium.Keys;
 import org.testng.asserts.SoftAssert;
-
 import java.util.Objects;
 
 public class MetforminScreenerStepsImpl extends PageInitializer {
