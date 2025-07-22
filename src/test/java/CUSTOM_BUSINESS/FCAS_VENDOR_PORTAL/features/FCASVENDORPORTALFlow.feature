@@ -206,7 +206,6 @@ Feature: FCAS Vendor Portal Flow
     And User clicks Add User button
     And User can see First Name field to fill in
     And User can see Last Name field to fill in
-    And User can see First Name field to fill in
     And User can see Email field to fill in
     And User can see Phone field to fill in
     And User can see Job Title field to fill in
