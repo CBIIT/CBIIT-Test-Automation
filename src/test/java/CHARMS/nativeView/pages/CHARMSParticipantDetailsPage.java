@@ -9,6 +9,11 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class CHARMSParticipantDetailsPage extends CommonUtils {
 
+	/* VERIFIES DATA In Participant Details Page */
+	public CHARMSParticipantDetailsPage() {
+		PageFactory.initElements(WebDriverUtils.webDriver, this);
+	}
+
 	@FindBy(xpath = "(//span[normalize-space()='Proxy Contact Info'])[1]")
 	public WebElement nVParticipantProxyContactInfoTab;
 
@@ -23,11 +28,6 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 
 	public static WebElement dynamicPreviewButtonLocators(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//a[@aria-label='Preview record:’” +text+”'])[1]"));
-	}
-
-	/* VERIFIES DATA In Participant Details Page */
-	public CHARMSParticipantDetailsPage() {
-		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
 	/* Method to dynamically locate elements in Native View */

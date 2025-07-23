@@ -8,17 +8,17 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "<Email>" and password "<Password>"
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "<ScreenerScenario>"
-    And the e-consent is submitted for "<ScreenerScenario>"
+    And Study Team member logs in to Native View and completes consent call "<ScreenerScenario>" with Collection Method "<CollectionMethod>"
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
     And participant clicks on Study Consent and completes form with "<Password>"
-    Then PI completes consent and verifies "<ScreenerScenario>" "<ConsentStatus>" "<ConsentType>" "<ResponseType>" in Native View
+    Then PI completes consent and verifies "<ScreenerScenario>" "<CollectionMethod>" in Native View
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
     And "Download Study Consent" text shows on participant portal and when clicked downloads "Consent Record"
     Examples:
-      | Email                           | Password   | ScreenerScenario      | ConsentStatus | ConsentType | ResponseType     | AccountResetScriptURL                                                                                    |
-      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | Complete      | Adult       | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
+      | Email                           | Password   | ScreenerScenario      | CollectionMethod | AccountResetScriptURL                                                                                    |
+      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
   @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3680 @selenium @RAS_Regression1
   Scenario Outline: Verifying consent workflows for an adult participant, and then verifying that a Download Study Consent widget shows on portal and when clicked downloads the most recent Consent Record
@@ -27,15 +27,15 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "<Email>" and password "<Password>"
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "<ScreenerScenario>"
-    And the consent is submitted for "<ScreenerScenario>" and "<ConsentStatus>" "<ConsentType>" "<ResponseType>" is verified in Native View
+    And Study Team member logs in to Native View and completes consent call "<ScreenerScenario>" with Collection Method "<CollectionMethod>"
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
     And "Download Study Consent" text shows on participant portal and when clicked downloads "Consent Record"
     Examples:
-      | Email                           | Password   | ScreenerScenario      | ConsentStatus | ConsentType | ResponseType                 | AccountResetScriptURL                                                                                    |
-      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | Complete      | Adult       | Participant upload to portal | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
-      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | Complete      | Adult       | iMed                         | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
-      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | Complete      | Adult       | Mail/Fax/Email/Other         | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
+      | Email                           | Password   | ScreenerScenario      | CollectionMethod             | AccountResetScriptURL                                                                                    |
+      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | Participant upload to portal | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
+      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | iMed                         | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
+      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | Mail/Fax/Email/Other         | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
   @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3637 @CP2-3738 @CP2-3751 @CP2-3738 @CP2-3808 @CP2-3758 @selenium @RAS_Regression1
   Scenario Outline: Verifying e-consent workflow for minors aged 11-13, and then verifying that Download Study Consent/Assent widgets show on portal and when clicked download the most recent Consent/Assent Record
@@ -47,13 +47,15 @@ Feature: RAS Consent Scenarios
     Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAge11-13"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
-    And selects "CHARMS e-consent" as the Collection Method
+    And clicks the "Consent Call" tab
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
+    And selects "CHARMS e-consent" as the Collection Method
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
     And selects "Yes" for Protocol Discussed in Private Setting
     And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
     And selects "Yes" for Questions Addressed Before Signing
+    And clicks the "Consent Information" tab
     And selects "Other Guardian - 2" for Parent Guardian Status
     And selects "Yes" for Parent Guardian 1 Signed
     And enters "Parent One" as the Parent Guardian 1 name
@@ -67,7 +69,7 @@ Feature: RAS Consent Scenarios
     And participant clicks on Study Assent and completes form with "<Password>"
     And proxy clicks on Study Consent and completes form with "<Password>" "<ScreenerScenario>"
     And participant logs out of RAS portal
-    Then PI completes consent and verifies "<ScreenerScenario>" "<ConsentStatus>" "<ConsentType>" "<ResponseType>" in Native View
+    Then PI completes consent and verifies "<ScreenerScenario>" "<CollectionMethod>" in Native View
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
     And "Download Study Consent" text shows on participant portal and when clicked downloads "Consent Record"
@@ -75,8 +77,8 @@ Feature: RAS Consent Scenarios
     And participant logs out of RAS portal
     Then data submitted for scenario is verified in native from the excel sheet "<ScreenerScenario>"
     Examples:
-      | Email                           | Password   | ScreenerScenario         | ConsentStatus | ConsentType                          | ResponseType     | AccountResetScriptURL                                                                                    |
-      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAge11-13 | Complete      | Aged 11 - 13, signed assent required | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
+      | Email                           | Password   | ScreenerScenario         | CollectionMethod | AccountResetScriptURL                                                                                    |
+      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAge11-13 | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
   @muzipovay2 @RAS_STUDY @CP2-3730 @CP2-3746 @CP2-3747 @selenium @RAS_Regression1
   Scenario: Verifying that when a minor aged 11-13 has completed Assent, the field Assent signed is true in their Native View Consent Record
@@ -88,13 +90,15 @@ Feature: RAS Consent Scenarios
     Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAge11-13"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
-    And selects "CHARMS e-consent" as the Collection Method
+    And clicks the "Consent Call" tab
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
+    And selects "CHARMS e-consent" as the Collection Method
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
     And selects "Yes" for Protocol Discussed in Private Setting
     And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
     And selects "Yes" for Questions Addressed Before Signing
+    And clicks the "Consent Information" tab
     And selects "Parents, Married" for Parent Guardian Status
     And selects "Yes" for Parent Guardian 1 Signed
     And enters "Parent One" as the Parent Guardian 1 name
@@ -135,13 +139,15 @@ Feature: RAS Consent Scenarios
     Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAge14-17"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
-    And selects "CHARMS e-consent" as the Collection Method
+    And clicks the "Consent Call" tab
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
+    And selects "CHARMS e-consent" as the Collection Method
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
     And selects "Yes" for Protocol Discussed in Private Setting
     And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
     And selects "Yes" for Questions Addressed Before Signing
+    And clicks the "Consent Information" tab
     And selects "Parent, Separated or Widowed - Single Custody" for Parent Guardian Status
     And selects "Yes" for Parent Guardian 1 Signed
     And enters "Parent One" as the Parent Guardian 1 name
@@ -162,6 +168,9 @@ Feature: RAS Consent Scenarios
     Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
+    And clicks the "Consent Call" tab
+    And selects Today as the Consent Call Scheduled Time
+    And selects Today as the Consent Call Date
     And selects "CHARMS e-consent" as the Collection Method
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
@@ -184,7 +193,7 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "screenerScenarioAdult"
-    And Study Team member logs in to Native View and completes consent call "screenerScenarioAdult" "rasE-ConsentAdult"
+    And Study Team member logs in to Native View and completes consent call "screenerScenarioAdult" with Collection Method "CHARMS e-consent"
     And Study Team member logs out of Native View
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
@@ -199,7 +208,7 @@ Feature: RAS Consent Scenarios
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "screenerScenarioAdult"
-    And Study Team member logs in to Native View and completes consent call "screenerScenarioAdult" "rasE-ConsentAdult"
+    And Study Team member logs in to Native View and completes consent call "screenerScenarioAdult" with Collection Method "CHARMS e-consent"
     And Study Team member logs out of Native View
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
@@ -217,14 +226,16 @@ Feature: RAS Consent Scenarios
     Given Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAge7-10"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
-    And selects "CHARMS e-consent" as the Collection Method
+    And clicks the "Consent Call" tab
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
+    And selects "CHARMS e-consent" as the Collection Method
     And selects "Yes" for Was verbal assent obtained
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
     And selects "Yes" for Protocol Discussed in Private Setting
     And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
     And selects "Yes" for Questions Addressed Before Signing
+    And clicks the "Consent Information" tab
     And selects "Parents, Separated - Joint Custody" for Parent Guardian Status
     And selects "Yes" for Parent Guardian 1 Signed
     And enters "Parent One" as the Parent Guardian 1 name
@@ -238,7 +249,9 @@ Feature: RAS Consent Scenarios
     And proxy clicks on Study Consent and completes form with "Charms123$" "screenerScenarioAge7-10"
     Then participant logs out of RAS portal
     And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAge7-10"
+    And clicks the "Consent Information" tab
     And verifies Consent Assent status is "Consented and Assented"
+    And clicks the "Consent Signed" tab
     And selects "Yes" for Consent Assent Obtained Before Study Procedures
     And selects "Yes" for Copy of Signed Dated Consent Assent Given to Participant
     And selects "Yes" for Age-appropriate assent obtained
@@ -255,13 +268,15 @@ Feature: RAS Consent Scenarios
     And selects "Yes, adult needing LAR" for does participant does need legal representation
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
-    And selects "CHARMS e-consent" as the Collection Method
+    And clicks the "Consent Call" tab
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
+    And selects "CHARMS e-consent" as the Collection Method
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
     And selects "Yes" for Protocol Discussed in Private Setting
     And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
     And selects "Yes" for Questions Addressed Before Signing
+    And clicks the "Consent Information" tab
     And selects "2" for the Number of LARs
     And selects "Yes" for LAR 1 Signed
     And enters "LAR One" as the LAR 1 Name
@@ -272,10 +287,11 @@ Feature: RAS Consent Scenarios
     Then Study Team member logs out of Native View
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
-    And proxy clicks on Study Consent and completes form with "Charms123$" "screenerScenarioAge7-10"
+    And proxy clicks on Study Consent and completes form with "Charms123$" "screenerScenarioAdult-NeedsLAR"
     Then participant logs out of RAS portal
     And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAdult-NeedsLAR"
     And verifies Consent Assent status is "Consented only"
+    And clicks the "Consent Signed" tab
     And selects "Yes" for Consent Assent Obtained Before Study Procedures
     And selects "Yes" for Copy of Signed Dated Consent Assent Given to Participant
     Then Study Team member presses Sign and Complete
@@ -290,13 +306,15 @@ Feature: RAS Consent Scenarios
     And Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
-    And selects "CHARMS e-consent" as the Collection Method
+    And clicks the "Consent Call" tab
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
+    And selects "CHARMS e-consent" as the Collection Method
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
     And selects "Yes" for Protocol Discussed in Private Setting
     And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
     And selects "Yes" for Questions Addressed Before Signing
+    And clicks the "Consent Information" tab
     And verifies that Consent Assent category auto-populated to "Adult"
     And presses the Call Complete button
     Then Study Team member logs out of Native View
@@ -330,9 +348,10 @@ Feature: RAS Consent Scenarios
     And Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
     And Study Team member submits participant for review and marks them eligible
     And navigates to participant Consent Record
-    And selects "CHARMS e-consent" as the Collection Method
+    And clicks the "Consent Call" tab
     And selects Today as the Consent Call Scheduled Time
     And selects Today as the Consent Call Date
+    And selects "CHARMS e-consent" as the Collection Method
     And selects "Yes" for Copy of ConsentAssent Provided Before Signing
     And selects "Yes" for Protocol Discussed in Private Setting
     And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
@@ -360,33 +379,24 @@ Feature: RAS Consent Scenarios
     And participant logs out of RAS portal
     And Study Team members logs in to Native View and verifies "Patient Smoking History" QBank data
 
-  @muzipovay2 @RAS_STUDY @selenium @in-progress
-  Scenario: Completing the re-consent process
+  @muzipovay2 @RAS_STUDY @CP2-3821 @CP2-5153 @selenium @@RAS_Regression2
+  Scenario Outline: Completing the re-consent process
+    Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
+    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+    And logs in via Okta with username "<Email>" and password "<Password>"
+    And clicks on "Eligibility Questionnaire" to begin survey
+    When the participant submits a screener from excel sheet "<ScreenerScenario>"
+    And the consent is submitted for "<ScreenerScenario>"
+    And Study Team member completes re-consent for "<ScreenerScenario>" with Collection Method "<CollectionMethod>"
+    Examples:
+      | Email                           | Password   | ScreenerScenario  | CollectionMethod |
+      | consent_participant@yopmail.com | Charms123$ | screenerScenario2 | iMed             |
+
+  @muzipovay2 @RAS_STUDY @CP2-5154 @CP2-5155 @selenium @@RAS_Regression2
+  Scenario: Verifying that Preview Study Consent tile displays on Portal when the Collection Method is CHARMS e-consent
     Given test automation account "https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597" has been reset
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
     And clicks on "Eligibility Questionnaire" to begin survey
     When the participant submits a screener from excel sheet "screenerScenarioAdult"
-    And Study Team member logs in to Native View and navigates to participant's record "screenerScenarioAdult"
-    And Study Team member submits participant for review and marks them eligible
-    And navigates to participant Consent Record
-    And selects "CHARMS e-consent" as the Collection Method
-    And selects Today as the Consent Call Scheduled Time
-    And selects Today as the Consent Call Date
-    And selects "Yes" for Copy of ConsentAssent Provided Before Signing
-    And selects "Yes" for Protocol Discussed in Private Setting
-    And selects "Yes" for Participant Verbalized Understanding of Study Conditions and Participation
-    And selects "Yes" for Questions Addressed Before Signing
-    And verifies that Consent Assent category auto-populated to "Adult"
-    And presses the Call Complete button
-    Then Study Team member logs out of Native View
-    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-    And logs in via Okta with username "consent_participant@yopmail.com" and password "Charms123$"
-    And participant clicks on Study Consent and completes form with "Charms123$"
-    And Study Team member logs in to Native View and navigates to Participant Consent record "screenerScenarioAdult"
-    And verifies Consent Assent status is "Consented only"
-    And selects "Yes" for Consent Assent Obtained Before Study Procedures
-    And selects "Yes" for Copy of Signed Dated Consent Assent Given to Participant
-    Then Study Team member presses Sign and Complete
-    And clicks the Back button
-    And Study Team member completes re-consent with "iMed" as the collection method
+    Then Consent Call is completed for "screenerScenarioAdult" and Participant verifies logs in to portal with username "consent_participant@yopmail.com" and password "Charms123$" and the Preview Study Consent tile displays

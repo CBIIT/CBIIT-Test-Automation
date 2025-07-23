@@ -96,6 +96,16 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.confirmESRBoardIntakeApprovalWasRejectedForESRQ();
     }
 
+    @And("the user is rejected from the ESR Board approvers due to incorrect approver for ESR-Q")
+    public void the_user_is_rejected_from_the_esr_board_approvers_due_to_incorrect_approver_for_esr_q() {
+        ESRApprovalStepsImplementation.esrBoardRejectionForIncorrectApproverInESRQ();
+    }
+
+    @Then("the user confirms the ESR Board Intake Approval was rejected for an incorrect approver in the ESR-Q ticket")
+    public void the_user_confirms_the_esr_board_intake_approval_was_rejected_for_an_incorrect_approver_in_the_esr_q_ticket() {
+        ESRApprovalStepsImplementation.confirmESRBoardIntakeApprovalWasRejectedForIncorrectApproverInESRQ();
+    }
+
     @And("the user is rejected from the ESR Board approvers with a need more info for ESR-I")
     public void the_user_is_rejected_from_the_esr_board_approvers_with_a_need_more_info_for_esr_i() {
         ESRApprovalStepsImplementation.esrBoardNeedMoreInfoForESRI();
@@ -114,6 +124,16 @@ public class ESRApprovalSteps {
     @Then("the user confirms the ESR Board Intake Approval was rejected for the ESR-I ticket")
     public void the_user_confirms_the_esr_board_intake_approval_was_rejected_for_the_esr_i_ticket() {
         ESRApprovalStepsImplementation.confirmESRBoardIntakeApprovalWasRejectedForESRI();
+    }
+
+    @And("the user is rejected from the ESR Board approvers due to incorrect approver for ESR-I")
+    public void the_user_is_rejected_from_the_esr_board_approvers_due_to_incorrect_approver_for_esr_i() {
+        ESRApprovalStepsImplementation.esrBoardRejectionForIncorrectApproverInESRI();
+    }
+
+    @Then("the user confirms the ESR Board Intake Approval was rejected for an incorrect approver in the ESR-I ticket")
+    public void the_user_confirms_the_esr_board_intake_approval_was_rejected_for_an_incorrect_approver_in_the_esr_i_ticket() {
+        ESRApprovalStepsImplementation.confirmESRBoardIntakeApprovalWasRejectedForIncorrectApproverInESRI();
     }
 
     @And("the user is approved from the Operational POC")

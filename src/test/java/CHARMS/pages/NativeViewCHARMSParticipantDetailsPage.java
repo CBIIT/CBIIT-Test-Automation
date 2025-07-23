@@ -18,7 +18,7 @@ public class NativeViewCHARMSParticipantDetailsPage extends PageInitializer {
     /**
      * Native View Participant Details Mark As Eligible Button
      */
-    @FindBy(xpath = "//*[@id='mark_eligible']")
+    @FindBy(xpath = "//*[contains(@id,'mark_eligible')]")
     public WebElement nativeViewPatientDetailsMarkEligibleButton;
 
     /**
@@ -36,7 +36,7 @@ public class NativeViewCHARMSParticipantDetailsPage extends PageInitializer {
     /**
      * Native View Participant Consents Button
      */
-    @FindBy(xpath = "//span[normalize-space()='Consents (1)']")
+    @FindBy(xpath = "//span[@class='tab_header']//span[contains(text(), 'Consents')]")
     public WebElement nativeViewPatientDetailsConsentsTab;
 
     /**

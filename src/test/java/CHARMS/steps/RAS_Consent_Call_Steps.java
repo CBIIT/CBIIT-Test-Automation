@@ -2,6 +2,7 @@ package CHARMS.steps;
 
 import CHARMS.constants.CHARMS_Data_File_Path_Constants;
 import CHARMS.constants.Native_View_Constants;
+import CHARMS.stepsImplementation.RASStudy.RASConsentStepsImpl;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -580,20 +581,28 @@ public class RAS_Consent_Call_Steps {
         CucumberLogUtils.logScreenshot();
     }
 
-    /**
-     * This method presses the Sign and Complete button in the Consent form.
-     */
     @Then("Study Team member presses the Sign and Complete button")
     public void study_team_member_presses_the_sign_and_complete_button() {
-        CucumberLogUtils.scenario.log("* * * * * COMPLETE CONSENT * * * * *");
-        nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompleteConsentButton.click();
-        CommonUtils.sleep(2000);
-        CommonUtils.waitForVisibility(locateByXpath("//div[@class='outputmsg_text']"));
-        CucumberLogUtils.logScreenshot();
+        rasConsentStepsImpl.study_team_member_presses_the_sign_and_complete_button();
     }
 
-    @Then("Study Team member completes re-consent with {string} as the collection method")
-    public void study_team_member_completes_re_consent_with_as_the_collection_method(String collectionMethod) {
-        rasConsentStepsImpl.study_team_member_completes_re_consent_with_as_the_collection_method(collectionMethod);
+    @Then("Study Team member completes re-consent for {string} with Collection Method {string}")
+    public void study_team_member_completes_re_consent_with_as_the_collection_method(String sheetName, String collectionMethod) {
+        rasConsentStepsImpl.study_team_member_completes_re_consent_with_as_the_collection_method(sheetName, collectionMethod);
+    }
+
+    @When("Study Team member logs in to Native View and completes consent call {string} with Collection Method {string}")
+    public void study_team_member_logs_in_to_Native_View_and_completes_consent_call(String sheetName, String collectionMethod) {
+        ras_screenerSubmissions_stepsImpl.study_team_member_logs_in_to_Native_View_and_completes_consent_call(sheetName, collectionMethod);
+    }
+
+    @Given("clicks the {string} tab")
+    public void clicksTab(String tabCaptionText) {
+        RASConsentStepsImpl.clicksTab(tabCaptionText);
+    }
+
+    @Then("Consent Call is completed for {string} and Participant verifies logs in to portal with username {string} and password {string} and the Preview Study Consent tile displays")
+    public void verifyPreviewStudyConsentTileInPortal(String sheetName, String username, String password) {
+        rasConsentStepsImpl.completes_consent_call_and_verifies_consent_preview_tile(sheetName,username,password);
     }
 }
