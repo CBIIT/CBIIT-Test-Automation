@@ -377,6 +377,9 @@ public class ESRApprovalStepsImplementation {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Information Required for Closeout");
     }
 
+    /**
+     * This method finalizes the Federal Lead Closeout Approval when the user encounters a 'Rejected Incorrect Approver' response
+     */
     public static void federalLeadCloseoutRejectionForIncorrectApproverInESRQ() {
         Playwright_Common_Locators.iframeLocator().locator("#tabs2_list").getByText("Approvers (10)").click();
         Playwright_Common_Locators.iframeLocator().getByLabel("Requested - Open record:").click();
@@ -387,6 +390,9 @@ public class ESRApprovalStepsImplementation {
         Playwright_Common_Locators.iframeLocator().locator("#sysverb_update").click();
     }
 
+    /**
+     * This method confirms that the Federal Lead Closeout Approval was rejected for ESR-Q tickets due to incorrect approver
+     */
     public static void confirmFederalLeadCloseoutApprovalWasRejectedForIncorrectApproverInESRQ() {
         assertThat(Playwright_Common_Locators.iframeLocator().locator("//select[@aria-label='Stage']")).containsText("Information Required for Closeout");
     }
