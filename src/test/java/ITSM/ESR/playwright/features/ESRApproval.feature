@@ -228,7 +228,7 @@ Feature: ESR Approvals
     And the user is rejected from a federal lead for closeout approval for ESR-Q
     Then the user confirms the Federal Lead Closeout Approval was rejected for the ESR-Q ticket
 
-  @ESR-723 @sarwarahmed1 @Progression @playwright
+  @ESR-723 @sarwarahmed1 @Regression @playwright
   Scenario: Test the "Rejected Incorrect Approver" for Federal Lead Closeout in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
