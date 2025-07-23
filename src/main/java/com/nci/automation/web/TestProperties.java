@@ -2,9 +2,9 @@ package com.nci.automation.web;
 
 public class TestProperties {
 
-    public static String ENV = "test";
+    public static String ENV = "stage";
     public static String BROWSER = "chrome";
-    public static boolean HEADLESS = true;
+    public static boolean HEADLESS = false;
     public static int SET_SLOW_MO_TIME = 600;
 
     /**
@@ -34,6 +34,11 @@ public class TestProperties {
     public static final String SSJ_TEST_URL = "https://service-test.nci.nih.gov/nih-ssj.do";
     public static final String SSJ_SANDBOX_URL = "https://service-sandbox.nci.nih.gov/nih-ssj.do";
     public static String SSJ_URL;
+
+    public static final String SSJ_EZ_APPS_STAGE_URL = "https://ezapps-stage.nih.gov/nih-ssj.do";
+    public static final String SSJ_EZ_APPS_TEST_URL = "";
+    public static final String SSJ_EZ_APPS_SANDBOX_URL = "";
+    public static String SSJ_EZ_APPS_URL;
 
     /**
      * SERVICENOW NCISP URLS
@@ -405,6 +410,21 @@ public class TestProperties {
                 break;
         }
         return SSJ_URL;
+    }
+
+    public static String getSSJEzAppsUrl() {
+        switch (ENV.toLowerCase()) {
+            case "stage":
+                SSJ_EZ_APPS_URL = SSJ_EZ_APPS_STAGE_URL;
+                break;
+            case "test":
+                SSJ_EZ_APPS_URL = SSJ_EZ_APPS_TEST_URL;
+                break;
+            case "sandbox":
+                SSJ_EZ_APPS_URL = SSJ_EZ_APPS_SANDBOX_URL;
+                break;
+        }
+        return SSJ_EZ_APPS_URL;
     }
 
     public static String getNCISPUrl() {

@@ -2,12 +2,19 @@ package PLATFORM_BUSINESS.SSJ.playwright.steps;
 
 import APPS_COMMON.PlaywrightUtils.Playwright_Common_Utils;
 import PLATFORM_BUSINESS.SSJ.playwright.stepsImplementation.ApplicantProfileStepsImpl;
+import PLATFORM_BUSINESS.SSJ.playwright.utils.RandomSelector;
 import PLATFORM_BUSINESS.SSJ.playwright.utils.SSJ_Constants;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.options.ElementState;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+
+import java.util.List;
+
 import static com.nci.automation.web.PlaywrightUtils.page;
+import static com.nci.automation.web.TestProperties.getSSJEzAppsUrl;
 import static com.nci.automation.web.TestProperties.getSSJUrl;
 
 public class All_Steps {
@@ -15,7 +22,7 @@ public class All_Steps {
 
     @Given("a registered Okta SSJ user is on the SSJ Landing page")
     public void a_registered_okta_ssj_user_is_on_the_ssj_landing_page() {
-        page.navigate(getSSJUrl());
+        page.navigate(getSSJEzAppsUrl());
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -41,10 +48,77 @@ public class All_Steps {
 
     @Then("selects two focus areas")
     public void selects_two_focus_areas() {
+        // Instantiate the RandomSelector object
+        RandomSelector randomSelector = new RandomSelector();
+
+        // Get two random focus areas
+        List<String> randomFocusAreas = randomSelector.getRandomValues();
+        String focusAreaOne = randomFocusAreas.get(0);
+        String focusAreaTwo = randomFocusAreas.get(1);
+
+        // Perform actions with the randomly selected focus areas
+        page.waitForLoadState(); // Wait for page to fully load
+        page.locator("//div[@class='ant-select-selection-overflow']").click(); // Open dropdown
+
+        // Navigate through dropdown and select the first focus area
+        for (int i = 0; i < 20; i++) { // Limit to prevent infinite looping
+            Locator focusedOption = page.locator("//div[@class='ant-select-item-option-content' and text()='" + focusAreaOne + "']");
+            if (focusedOption.isVisible()) { // Check if option is visible
+                focusedOption.click(); // Click the first focus area
+                break; // Exit the loop once selected
+            }
+            page.keyboard().press("ArrowDown"); // Navigate to the next item using the keyboard
+        }
+
+        // Reopen dropdown to select the second focus area if it closes after the first selection
+        page.locator("//div[@class='ant-select-selection-overflow']").click();
+
+        // Navigate through dropdown and select the second focus area
+        for (int i = 0; i < 20; i++) { // Limit to prevent infinite looping
+            Locator focusedOption = page.locator("//div[@class='ant-select-item-option-content' and text()='" + focusAreaTwo + "']");
+            if (focusedOption.isVisible()) { // Check if option is visible
+                focusedOption.click(); // Click the second focus area
+                break; // Exit the loop once selected
+            }
+            page.keyboard().press("ArrowDown"); // Navigate to the next item using the keyboard
+        }
+
+        // Close the dropdown to finalize selection (optional, if required to close).
+        page.locator("//div[@class='ant-select-selection-overflow']").click();
+    }
+
+    @Then("selects one focus area")
+    public void selects_one_focus_area() {
+        // Instantiate the RandomSelector object
+        RandomSelector randomSelector = new RandomSelector();
+
+        // Get two random focus areas
+        List<String> randomFocusAreas = randomSelector.getRandomValues();
+        String focusAreaOne = randomFocusAreas.get(0);
+
+        // Perform actions with the randomly selected focus areas
+        page.waitForLoadState(); // Wait for page to fully load
+        page.locator("//div[@class='ant-select-selection-overflow']").click(); // Open dropdown
+
+        // Navigate through dropdown and select the first focus area
+        for (int i = 0; i < 20; i++) { // Limit to prevent infinite looping
+            Locator focusedOption = page.locator("//div[@class='ant-select-item-option-content' and text()='" + focusAreaOne + "']");
+            if (focusedOption.isVisible()) { // Check if option is visible
+                focusedOption.click(); // Click the first focus area
+                break; // Exit the loop once selected
+            }
+            page.keyboard().press("ArrowDown"); // Navigate to the next item using the keyboard
+        }
+        // Close the dropdown to finalize selection (optional, if required to close).
+        page.locator("//div[@class='ant-select-selection-overflow']").click();
+    }
+
+    @Then("selects two focus areas {string}, {string}")
+    public void selects_two_focus_areas(String focusAreaOne, String focusAreaTwo) {
         page.waitForLoadState();
         page.locator("//div[@class='ant-select-selection-overflow']").click();
-        page.locator("//div[@class='ant-select-item-option-content' and text()='Cancer Biology']").click();
-        page.locator("//div[@class='ant-select-item-option-content' and text()='Cell Biology']").click();
+        page.locator("//div[@class='ant-select-item-option-content' and text()='" + focusAreaOne + "']").click();
+        page.locator("//div[@class='ant-select-item-option-content' and text()='" + focusAreaTwo + "']").click();
         page.locator("//div[@class='ant-select-selection-overflow']").click();
     }
 
