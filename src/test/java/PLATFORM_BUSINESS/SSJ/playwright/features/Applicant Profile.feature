@@ -42,7 +42,7 @@ Feature: Applicant Profile Scenarios
       | SSJTest   | Marianna   | Mollick    | mollickja@nih.gov  | 7018211343 | 2123323454           | Masters          | Yes            | 11 Kolls | 6         | Sausalito  | CA    | USA     | 97712 |
       | SSJTest   | Elena      | Andrew     | andrewkl@nih.gov   | 8233212333 | 2202122234           | Bachelors        | Yes            | 11 Bells | 39        | Sacramento | CA    | USA     | 95512 |
 
-  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @SSJ-712 @JUAREZDS @Regression @playwright @XAN_UPDATED @EZ_UPDATED @Progression
+  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @SSJ-712 @JUAREZDS @Regression @playwright @XAN_UPDATED @EZ_UPDATED
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     When User is on SSJ Landing page and user is "Maria Chaudhry" - PW
@@ -653,6 +653,12 @@ Would you like to log in now or go back to the home page?
     When the user clicks the title of a vacancy
     Then they are redirected to the Vacancy Details page
     And there is text that reads "Equal Employment Opportunity Policy The United States government does not discriminate in employment on the basis of race, color, religion, sex, pregnancy, national origin, political affiliation, sexual orientation, marital status, disability, genetic information, age, membership in an employee organization, retaliation, parental status, military service or other non-merit factor. To learn more, please visit the U.S. Equal Employment Opportunity Commission."
+
+  @SSJ-437 @TC_SSJ-438 @playwright
+  Scenario: Test Fix hyperlinks on SSJ homepage
+    Given a NCI user is not logged into ServiceNow is on the SSJ home page
+    When the user clicks "The NIH Hiring Experience" tab
+    Then they are redirected to the following link: "https://hr.nih.gov/jobs"
 
 #APPTRACK-370 - review
 #APPTRACK-1130

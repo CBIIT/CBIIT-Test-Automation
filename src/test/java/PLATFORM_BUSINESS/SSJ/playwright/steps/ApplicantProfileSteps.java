@@ -6,12 +6,15 @@ import PLATFORM_BUSINESS.SSJ.playwright.stepsImplementation.Reset_Account_StepsI
 import APPS_COMMON.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+import static com.nci.automation.web.PlaywrightUtils.context;
 import static com.nci.automation.web.PlaywrightUtils.page;
+import static com.nci.automation.web.TestProperties.getSSJUrl;
 
 public class ApplicantProfileSteps {
 
@@ -820,4 +823,30 @@ public class ApplicantProfileSteps {
         page.locator("//input[@id='rc_select_0']").click();
         page.locator("(//div[@title='" + tenant +"'])[1]").click();
     }
+
+    @Given("a NCI user is not logged into ServiceNow is on the SSJ home page")
+    public void a_nci_user_is_not_logged_into_service_now_is_on_the_ssj_home_page() {
+        page.navigate(getSSJUrl());
+
+    }
+    @Given("the user goes to the SSJ home page")
+    public void the_user_goes_to_the_ssj_home_page() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @When("the user clicks {string} tab")
+    public void the_user_clicks_tab(String theNIHHiringExperienceTab) {
+//        page.getByText(theNIHHiringExperienceTab).click();
+        Page newPage = context.waitForPage(() -> {
+            page.getByText(theNIHHiringExperienceTab).click();
+        });
+        String newURL = newPage.url();
+        System.out.println("newURL = " + newURL);
+    }
+
+    @Then("they are redirected to the following link: {string}")
+    public void they_are_redirected_to_the_following_link(String newURL) {
+
+    }
+
 }

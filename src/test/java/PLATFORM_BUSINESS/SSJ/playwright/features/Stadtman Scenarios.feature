@@ -1,6 +1,6 @@
 Feature: Stadtman Scenarios
 
-  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @Regression @playwright @SNOW_UPDATED
+  @US_APPTRACK-342 @TC_APPTRACK-385 @JUAREZDS @playwright @SNOW_UPDATED @Progression
   Scenario Outline: Verifying applicant is able to see "Your Applications" tab and page content after applying to a Vacancy
     Given a registered Okta SSJ user is on the SSJ Landing page
     And logs in with Okta account username "<Okta Username>"
