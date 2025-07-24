@@ -59,12 +59,15 @@ public class All_Steps {
         // Perform actions with the randomly selected focus areas
         page.waitForLoadState(); // Wait for page to fully load
         page.locator("//div[@class='ant-select-selection-overflow']").click(); // Open dropdown
+        CommonUtils.sleep(1000);
 
         // Navigate through dropdown and select the first focus area
         for (int i = 0; i < 20; i++) { // Limit to prevent infinite looping
             Locator focusedOption = page.locator("//div[@class='ant-select-item-option-content' and text()='" + focusAreaOne + "']");
-            if (focusedOption.isVisible()) { // Check if option is visible
+            if (focusedOption.isVisible()) {// Check if option is visible
+                CommonUtils.sleep(1000);
                 focusedOption.click(); // Click the first focus area
+                CommonUtils.sleep(1000);
                 break; // Exit the loop once selected
             }
             page.keyboard().press("ArrowDown"); // Navigate to the next item using the keyboard
@@ -72,12 +75,15 @@ public class All_Steps {
 
         // Reopen dropdown to select the second focus area if it closes after the first selection
         page.locator("//div[@class='ant-select-selection-overflow']").click();
+        CommonUtils.sleep(1000);
 
         // Navigate through dropdown and select the second focus area
         for (int i = 0; i < 20; i++) { // Limit to prevent infinite looping
             Locator focusedOption = page.locator("//div[@class='ant-select-item-option-content' and text()='" + focusAreaTwo + "']");
             if (focusedOption.isVisible()) { // Check if option is visible
+                CommonUtils.sleep(1000);
                 focusedOption.click(); // Click the second focus area
+                CommonUtils.sleep(1000);
                 break; // Exit the loop once selected
             }
             page.keyboard().press("ArrowDown"); // Navigate to the next item using the keyboard
