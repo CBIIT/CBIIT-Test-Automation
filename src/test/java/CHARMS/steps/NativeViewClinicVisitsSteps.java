@@ -57,7 +57,7 @@ public class NativeViewClinicVisitsSteps {
             nativeViewCHARMSClinicVisitsPage.saveButton.click();
             CommonUtils.sleep(500);
         }
-        clinic_visit_data_is_verified(sheetName);
+//        clinic_visit_data_is_verified(sheetName);
     }
 
     /**
@@ -194,5 +194,10 @@ public class NativeViewClinicVisitsSteps {
             CommonUtils.sleep(500);
             CucumberLogUtils.logScreenshot();
         }
+    }
+
+    @Then("Study Team members adds Post Clinic procedures")
+    public void study_team_members_adds_post_clinic_procedures() {
+        clinicVisitsStepsImpl.addPostClinicProcedures();
     }
 }

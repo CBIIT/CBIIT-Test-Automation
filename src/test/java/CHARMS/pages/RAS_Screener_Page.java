@@ -33,7 +33,8 @@ public class RAS_Screener_Page extends PageInitializer {
     public WebElement haveYouEverHadGeneticTestingNoRadioButton;
 
     /* I am completing this form for myself option */
-    @FindBy(xpath = "//span[contains(text(),'I am completing this form for myself')]")
+//    @FindBy(xpath = "//span[contains(text(),'I am completing this form for myself')]")
+    @FindBy(xpath = "//li[contains(@class,'Selection reg')]//span[contains(@class,'LabelWrapper')]//span[1]")
     public WebElement iAmCompletingThisFormForMyselfOption;
 
     /* First Name of the participant text box */
@@ -100,6 +101,16 @@ public class RAS_Screener_Page extends PageInitializer {
      */
     public static WebElement dynamicLocator(String text) {
         return webDriver.findElement(By.xpath("//*[text()='" + text + "']"));
+    }
+
+    /**
+     * Dynamically locates a web element based on the provided text.
+     *
+     * @param text The nested text used contained within the web element.
+     * @return The WebElement representing the located element.
+     */
+    public static WebElement dynamicLocatorNested(String text) {
+        return webDriver.findElement(By.xpath("//label[contains(., '" + text + "')]"));
     }
 
     /**

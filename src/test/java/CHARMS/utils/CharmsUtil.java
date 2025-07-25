@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -668,5 +670,22 @@ public class CharmsUtil {
         } catch (NoSuchElementException e) {
             softAssert.fail("----- LABEL TEXT: '" + labelText + "' NOT FOUND ON PAGE -----");
         }
+    }
+
+    /**
+     * Retrieves the current system date formatted as MM/dd/yyyy with leading zeroes.
+     *
+     * @return A string representing the current date in MM/dd/yyyy format with leading zeroes for single-digit months and days (e.g., "07/01/2024", "12/25/2024")
+     */
+    public static String getCurrentDateIn_MM_DD_YYYY_format() {
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .appendValue(ChronoField.MONTH_OF_YEAR, 2)  // Added width parameter for leading zero
+                .appendLiteral('/')
+                .appendValue(ChronoField.DAY_OF_MONTH, 2)
+                .appendLiteral('/')
+                .appendValue(ChronoField.YEAR, 4)
+                .toFormatter();
+        LocalDate today = LocalDate.now();
+        return today.format(formatter);
     }
 }
