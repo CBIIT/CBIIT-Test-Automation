@@ -196,6 +196,16 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.confirmFederalLeadCloseoutApprovalWasRejectedForESRQ();
     }
 
+    @And("the user is rejected from a federal lead closeout due to incorrect approver for ESR-Q")
+    public void the_user_is_rejected_from_a_federal_lead_closeout_due_to_incorrect_approver_for_esr_q() {
+        ESRApprovalStepsImplementation.federalLeadCloseoutRejectionForIncorrectApproverInESRQ();
+    }
+
+    @Then("the user confirms the Federal Lead Closeout Approval was rejected for incorrect approver in the ESR-Q ticket")
+    public void the_user_confirms_the_federal_lead_closeout_approval_was_rejected_for_incorrect_approver_in_the_esr_q_ticket() {
+        ESRApprovalStepsImplementation.confirmFederalLeadCloseoutApprovalWasRejectedForIncorrectApproverInESRQ();
+    }
+
     @And("the user is approved from a federal lead for ESR-I closeout approval")
     public void the_user_is_approved_from_a_federal_lead_for_esr_i_closeout_approval() {
         ESRApprovalStepsImplementation.federalLeadESRIApproval();
