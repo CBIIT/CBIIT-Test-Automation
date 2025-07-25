@@ -13,7 +13,6 @@ public class MyRASSurveyPage {
     public WebElement rasSurveyText;
 
     /* THIS IS THE COPY FOR LOWER ENVIRONMENTS ONLY */
-//    @FindBy(xpath = "//div[@role='main']//child::div[2]//child::div[3]//child::div//child::div//child::p//child::span//child::b//child::span")
     @FindBy(xpath = "//span//b[contains(text(), 'THIS IS THE COPY FOR LOWER ENVIRONMENTS ONLY!!!')]")
     public WebElement rasSurveyThisCopyText;
 
