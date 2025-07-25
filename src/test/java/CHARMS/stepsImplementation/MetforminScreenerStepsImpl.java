@@ -1,16 +1,24 @@
 package CHARMS.stepsImplementation;
 
 import APPS_COMMON.PageInitializers.PageInitializer;
+import APPS_COMMON.Pages.NativeView_SideDoor_Dashboard_Page;
+import APPS_COMMON.Utils.ServiceNow_Common_Methods;
 import CHARMS.constants.CHARMS_Data_File_Path_Constants;
 import CHARMS.constants.MetforminScreenerConstants;
 import CHARMS.utils.CharmsUtil;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
+import org.openqa.selenium.Keys;
 import org.testng.asserts.SoftAssert;
+import java.util.Objects;
 
 public class MetforminScreenerStepsImpl extends PageInitializer {
     static SoftAssert softAssert = new SoftAssert();
     String metforminScreenerData = CHARMS_Data_File_Path_Constants.METFORMIN_SCREENER_DATA;
+    String participantName;
+    String subjectIDValue;
+    String referralValue;
+    String participantValue;
 
     /*** THIS METHOD WILL RUN RESET SCRIPT TO RESET THE TEST ACCOUNTS ***/
     public void runResetScripts() {
@@ -27,6 +35,15 @@ public class MetforminScreenerStepsImpl extends PageInitializer {
     public void metforminScreenerScenarioSubmission(String metforminScreenerScenario) {
         metforminScreener_TestDataManager.dataInitializerMetforminScreener(metforminScreenerScenario);
         metforminScreenerSubmission(metforminScreenerScenario);
+    }
+
+    /*** THIS METHOD WILL CLICK THE METFORMIN SCREENER WIDGET ON THE PORTAL **/
+    public void metforminEligibilityQuestionnaireWidgetClick() {
+        CommonUtils.sleep(1000);
+        metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace("Metformin Study").click();
+        CommonUtils.sleep(1000);
+        metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace("Metformin Eligibility Questionnaire").click();
+        CommonUtils.sleep(1000);
     }
 
     /*** THIS METHOD WILL SUBMIT AND ASSERT THE METFORMIN SCREENER FROM PORTAL ***/
@@ -89,7 +106,7 @@ public class MetforminScreenerStepsImpl extends PageInitializer {
         CharmsUtil.sendKeysToElement(metforminScreenerPage.dynamicLocatorForInputElementInMetforminScreener(MetforminScreenerConstants.MIDDLE_INITIAL, 2), metforminScreener_TestDataManager.middleInitial);
         CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanContainTextAndIndex(MetforminScreenerConstants.LAST_NAME, 2), MetforminScreenerConstants.LAST_NAME, " First Name Label ");
         CharmsUtil.sendKeysToElement(metforminScreenerPage.dynamicLocatorForInputElementInMetforminScreener(MetforminScreenerConstants.LAST_NAME, 2), metforminScreener_TestDataManager.lastName);
-        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingLabelContainsText(MetforminScreenerConstants.THE_NEXT_SET_OF_QUESTIONS_WILL_COLLECT_BASIC_INFORMATION_ABOUT_YOU_THE_PARTICIPANT), MetforminScreenerConstants.THE_NEXT_SET_OF_QUESTIONS_WILL_COLLECT_BASIC_INFORMATION_ABOUT_YOU_THE_PARTICIPANT, " The next set of questions will collect basic information about you/the participant. Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingLabelContainText(MetforminScreenerConstants.THE_NEXT_SET_OF_QUESTIONS_WILL_COLLECT_BASIC_INFORMATION_ABOUT_YOU_THE_PARTICIPANT), MetforminScreenerConstants.THE_NEXT_SET_OF_QUESTIONS_WILL_COLLECT_BASIC_INFORMATION_ABOUT_YOU_THE_PARTICIPANT, " The next set of questions will collect basic information about you/the participant. Label");
     }
 
     /*** THIS METHOD WILL SUBMIT AND ASSERT THE PARTICIPANT BASIC INFORMATION IN METFORMIN SCREENER FROM PORTAL ***/
@@ -113,6 +130,7 @@ public class MetforminScreenerStepsImpl extends PageInitializer {
         CommonUtils.sleep(500);
         CharmsUtil.sendKeysToElement(metforminScreenerPage.metforminParticipantCountryInput1, metforminScreener_TestDataManager.inWhichCountryDoYouTheParticipantCurrentlyLive);
         metforminScreenerPage.metforminParticipantCountryInput1.sendKeys(org.openqa.selenium.Keys.TAB);
+        CommonUtils.sleep(500);
         /***** ADDRESS *****/
         CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingLabelContainText(MetforminScreenerConstants.PLEASE_PROVIDE_THE_MAILING_ADDRESS_WHERE_STUDY_MATERIALS_CAN_BE_SENT_AS_NEEDED), MetforminScreenerConstants.PLEASE_PROVIDE_THE_MAILING_ADDRESS_WHERE_STUDY_MATERIALS_CAN_BE_SENT_AS_NEEDED, " Please provide the mailing address where study materials can be sent, as needed. Label");
         CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.STREET), MetforminScreenerConstants.STREET, " Street Label");
@@ -242,32 +260,52 @@ public class MetforminScreenerStepsImpl extends PageInitializer {
         CharmsUtil.clickOnElement(metforminScreenerPage.dynamicLocatorForButtonUsingNormalizeSpace(MetforminScreenerConstants.ADD));
         CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.TUMOR_TYPE), MetforminScreenerConstants.TUMOR_TYPE, " Tumor Type Label");
         CharmsUtil.clickOnElement(metforminScreenerPage.metforminParticipantTumorTypeInput);
+        CommonUtils.sleep(800);
+        CharmsUtil.clickOnElement(metforminScreenerPage.metforminParticipantTumorDetailsInput1);
         CommonUtils.sleep(500);
-        CharmsUtil.clickOnElement(metforminScreenerPage.metforminParticipantTumorTypeInput1);
-        CharmsUtil.sendKeysToElement(metforminScreenerPage.metforminParticipantTumorTypeInput, metforminScreener_TestDataManager.tumorType);
-        metforminScreenerPage.metforminParticipantTumorTypeInput.sendKeys(org.openqa.selenium.Keys.TAB);
+        CharmsUtil.sendKeysToElement(metforminScreenerPage.metforminParticipantTumorDetailsInput1, metforminScreener_TestDataManager.tumorType);
+        metforminScreenerPage.metforminParticipantTumorDetailsInput1.sendKeys(org.openqa.selenium.Keys.TAB);
         CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.PLEASE_SELECT_AGE_OR_DATE_FOR_REPORTING), MetforminScreenerConstants.PLEASE_SELECT_AGE_OR_DATE_FOR_REPORTING, "Please select Age or Date for reporting Label");
         CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.metforminParticipantTumorDateOrAgeLabel, "Select Unknown/Unsure if you don't know the date or age of cancer diagnosis", "Select Unknown/Unsure help text Label");
-        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId("37"), MetforminScreenerConstants.YEAR_OR_AGE_OF_DIAGNOSIS, metforminScreener_TestDataManager.pleaseSelectAgeOrDateForReporting);
+        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId1("2"), MetforminScreenerConstants.YEAR_OR_AGE_OF_DIAGNOSIS, metforminScreener_TestDataManager.pleaseSelectAgeOrDateForReporting);
         CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceSpan(MetforminScreenerConstants.AGE_AT_DIAGNOSIS), MetforminScreenerConstants.AGE_AT_DIAGNOSIS, "Age at Diagnosis Label");
         CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceSpan("Select 0 if diagnosis occurred before age 1."), "Select 0 if diagnosis occurred before age 1.", "Select 0 if diagnosis occurred before age 1. Label");
-        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId("44"), MetforminScreenerConstants.ageOfDiagnosis(), metforminScreener_TestDataManager.ageAtDiagnosis);
+        CharmsUtil.clickOnElement(metforminScreenerPage.dynamicLocatorUsingSpanId1("3"));
+        CommonUtils.sleep(500);
+        CharmsUtil.clickOnElement(metforminScreenerPage.metforminParticipantTumorDetailsInput1);
+        CharmsUtil.sendKeysToElement(metforminScreenerPage.metforminParticipantTumorDetailsInput1, metforminScreener_TestDataManager.ageAtDiagnosis);
+        metforminScreenerPage.metforminParticipantTumorDetailsInput1.sendKeys(org.openqa.selenium.Keys.TAB);
         CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceSpan(MetforminScreenerConstants.ARE_YOU_THE_PARTICIPANT_CURRENTLY_RECEIVING_TREATMENT), MetforminScreenerConstants.ARE_YOU_THE_PARTICIPANT_CURRENTLY_RECEIVING_TREATMENT, "Are you/the participant currently receiving treatment? Label");
-        CharmsUtil.SelectValueFromDropDown(metforminScreenerPage.dynamicLocatorUsingSpanId("47"), MetforminScreenerConstants.YES_NO_UNKNOWN_UNSURE, metforminScreener_TestDataManager.areYouTheParticipantCurrentlyReceivingTreatment);
+        CharmsUtil.clickOnElement(metforminScreenerPage.dynamicLocatorUsingSpanId1("6"));
+        CommonUtils.sleep(500);
+        CharmsUtil.clickOnElement(metforminScreenerPage.metforminParticipantTumorDetailsInput1);
+        CharmsUtil.sendKeysToElement(metforminScreenerPage.metforminParticipantTumorDetailsInput1, metforminScreener_TestDataManager.areYouTheParticipantCurrentlyReceivingTreatment);
+        metforminScreenerPage.metforminParticipantTumorDetailsInput1.sendKeys(org.openqa.selenium.Keys.TAB);
         CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceSpan(MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_DIAGNOSED), MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_DIAGNOSED, "Please provide the name of the institution where the cancer was diagnosed. Label");
-        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanTitle(MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE,1), MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE, "Type Unknown/Unsure if you are not sure. Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanTitle(MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE, 1), MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE, "Type Unknown/Unsure if you are not sure. Label");
         CharmsUtil.sendKeysToElement(metforminScreenerPage.metforminParticipantInstitutionDiagnosedInput, metforminScreener_TestDataManager.pleaseProvideTheNameOfTheInstitutionWhereTheCancerWasDiagnosed);
         CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceSpan(MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_TREATED), MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_TREATED, "Please provide the name of the institution where the cancer was treated. Label");
-        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanTitle(MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE,1), MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE, "Type Unknown/Unsure if you are not sure. Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanTitle(MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE, 2), MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE, "Type Unknown/Unsure if you are not sure. Label");
         CharmsUtil.sendKeysToElement(metforminScreenerPage.metforminParticipantInstitutionTreatedInput, metforminScreener_TestDataManager.pleaseProvideTheNameOfTheInstitutionWhereTheCancerWasTreated);
         CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceSpan(MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_TREATING_PHYSICIAN), MetforminScreenerConstants.PLEASE_PROVIDE_THE_NAME_OF_THE_TREATING_PHYSICIAN, "Please provide the name of the treating physician. Label");
-        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanTitle(MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE,1), MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE, "Type Unknown/Unsure if you are not sure. Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanTitle(MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE, 3), MetforminScreenerConstants.TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE, "Type Unknown/Unsure if you are not sure. Label");
         CharmsUtil.sendKeysToElement(metforminScreenerPage.metforminParticipantTreatingPhysicianInput, metforminScreener_TestDataManager.pleaseProvideTheNameOfTheTreatingPhysician);
         CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanNormalizeSpace(MetforminScreenerConstants.ADDITIONAL_DETAILS), MetforminScreenerConstants.ADDITIONAL_DETAILS, " Additional Details Label");
         CharmsUtil.sendKeysToElement(metforminScreenerPage.metforminParticipantCancerAdditionalDetailsInput, metforminScreener_TestDataManager.additionalDetails);
         CharmsUtil.assertButtonLabel(softAssert, metforminScreenerPage.dynamicLocatorForButtonUsingNormalizeSpace("Cancel"), "Cancel", "Cancel button Label");
         CharmsUtil.assertButtonLabel(softAssert, metforminScreenerPage.dynamicLocatorForButtonUsingNormalizeSpace("Add"), "Add", "Add button Label");
         CucumberLogUtils.logScreenshot();
+        CharmsUtil.clickOnElement(metforminScreenerPage.dynamicLocatorForButtonUsingNormalizeSpace("Add"));
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTDTag(metforminScreener_TestDataManager.tumorType), metforminScreener_TestDataManager.tumorType, " Tumor Type value in the Cancer details MRVS table ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTDTag(MetforminScreenerConstants.AGE), metforminScreener_TestDataManager.age, " Tumor Type value in the Cancer details MRVS table ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTDTag(metforminScreener_TestDataManager.ageAtDiagnosis), metforminScreener_TestDataManager.ageAtDiagnosis, " Age at Diagnosis value in the Cancer details MRVS table ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.metforminParticipantTumorTypeMonthOfDiagnosisInput, metforminScreener_TestDataManager.monthOfDiagnosis, " Month of diagnosis value in the Cancer details MRVS table ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.metforminParticipantTumorTypeYearfDiagnosisInput, metforminScreener_TestDataManager.yearOfDiagnosis, " Year of diagnosis value in the Cancer details MRVS table ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTDTag(metforminScreener_TestDataManager.areYouTheParticipantCurrentlyReceivingTreatment), metforminScreener_TestDataManager.areYouTheParticipantCurrentlyReceivingTreatment, " Are you/the participant currently receiving treatment? value in the Cancer details MRVS table ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTDTag(metforminScreener_TestDataManager.pleaseProvideTheNameOfTheInstitutionWhereTheCancerWasDiagnosed), metforminScreener_TestDataManager.pleaseProvideTheNameOfTheInstitutionWhereTheCancerWasDiagnosed, " Please provide the name of the institution where the cancer was diagnosed. value in the Cancer details MRVS table ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTDTag(metforminScreener_TestDataManager.pleaseProvideTheNameOfTheInstitutionWhereTheCancerWasTreated), metforminScreener_TestDataManager.pleaseProvideTheNameOfTheInstitutionWhereTheCancerWasTreated, " Please provide the name of the institution where the cancer was treated. value in the Cancer details MRVS table ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTDTag(metforminScreener_TestDataManager.pleaseProvideTheNameOfTheTreatingPhysician), metforminScreener_TestDataManager.pleaseProvideTheNameOfTheTreatingPhysician, " Please provide the name of the institution where the cancer was treated. value in the Cancer details MRVS table ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingTDTag(metforminScreener_TestDataManager.additionalDetails), metforminScreener_TestDataManager.additionalDetails, " Additional Details value in the Cancer details MRVS table ");
     }
 
     /*** THIS METHOD WILL SUBMIT AND ASSERT THE PARTICIPANT CANCER TREATMENT DETAILS INFORMATION IN METFORMIN SCREENER FROM PORTAL ***/
@@ -342,14 +380,474 @@ public class MetforminScreenerStepsImpl extends PageInitializer {
         metforminScreenerPage.metforminParticipantGeneticTestInput.sendKeys(org.openqa.selenium.Keys.TAB);
         /***** Assertion for "Please provide any additional information you would like to share with the study team." and Submit button *****/
         CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.metforminParticipantSubmitInfoLabel, MetforminScreenerConstants.SUBMIT_INFORMATION, "Submit Information Label");
-        CharmsUtil.assertButtonLabel(softAssert, metforminScreenerPage.dynamicLocatorForButtonUsingNormalizeSpace("Submit"), "Submit", "Submit button Label");
     }
 
     /*** THIS METHOD WILL SUBMIT METFORMIN SCREENER FROM PORTAL ***/
     public void clickSubmitButton() {
+        CharmsUtil.assertButtonLabel(softAssert, metforminScreenerPage.dynamicLocatorForButtonUsingNormalizeSpace("Submit"), "Submit", "Submit button Label");
+        CharmsUtil.clickOnElement(metforminScreenerPage.dynamicLocatorForButtonUsingNormalizeSpace("Submit"));
+        CommonUtils.sleep(1000);
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingPContainText("Thank you very much. The information you have prov"), metforminScreener_TestDataManager.submit_Screen_text1, "Thank you for completing the Metformin Screener text 1. Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingPContainText("Please feel free to call at any time if you have a"), metforminScreener_TestDataManager.submit_Screen_text2, "Thank you for completing the Metformin Screener text 2. Label");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingPContainText("Thank you for your willingness to consider joining"), metforminScreener_TestDataManager.submit_Screen_text3, "Thank you for completing the Metformin Screener text 3. Label");
+        CharmsUtil.assertButtonLabel(softAssert, metforminScreenerPage.dynamicLocatorForButtonUsingNormalizeSpace(MetforminScreenerConstants.OK), MetforminScreenerConstants.OK, "Ok button Label");
+        CharmsUtil.clickOnElement(metforminScreenerPage.dynamicLocatorForButtonUsingNormalizeSpace(metforminScreener_TestDataManager.oK));
+        CommonUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
     }
 
     /*** THIS METHOD WILL SUBMIT AND ASSERT ALL THE SCENARIOS FOR METFORMIN SCREENER FROM PORTAL ***/
     public void submitAllScenarios() {
+        clickSubmitButton();
+    }
+
+    /*** Method to Log in to the Participant details page in Native View */
+    public void navigateToParticipantDetailsPageInNativeView() {
+        CommonUtils.sleep(2000);
+        CommonUtils.waitForVisibility(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox);
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("All Participant Details");
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.sleep(1800);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allParticipantDetailsLink);
+        CommonUtils.sleep(1800);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        CommonUtils.sleep(1800);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /*** Method to Assert the Metformin participant detail page in NativeView */
+    public void participantDetailsPageAssertionForMetforminScreener(String sheetName) {
+        if (sheetName.contentEquals("MetforminScreenerScenario1")) {
+            metforminScreener_TestDataManager.dataInitializerMetforminScreener(sheetName);
+            metforminOpenParticipantDetailPageInNV();
+            metforminGeneralInformationAssertionOnParticipantDetailPageInNV();
+            metforminPersonalInformationAssertionOnParticipantDetailPageInNV();
+            metforminDemographicsAssertionOnParticipantDetailPageInNV();
+            metforminContactInformationAssertionOnParticipantDetailPageInNV();
+            metforminProxyContactInformationAssertionOnParticipantDetailPageInNV();
+        }
+    }
+
+    /*** Method to Assert the Metformin participant Study Screener page in NativeView */
+    public void participantStudyScreenerPageAssertionForMetforminScreener(String sheetName) {
+        if (sheetName.contentEquals("MetforminScreenerScenario1")) {
+            metforminScreener_TestDataManager.dataInitializerMetforminScreener(sheetName);
+            metforminStudyPreviewRecordClicked();
+            metforminStudyPageGeneralInformationAssertions();
+        }
+    }
+
+    /*** Method to Assert the Metformin participant Study Screener page in NativeView */
+    public void metforminStudyScreenerPageAssertionForMetforminScreener(String sheetName) {
+        if (sheetName.contentEquals("MetforminScreenerScenario1")) {
+            metforminScreener_TestDataManager.dataInitializerMetforminScreener(sheetName);
+            metforminScreenerPagePreviewRecordClicked();
+            metforminScreenerPageGeneralInformationAssertions();
+            metforminScreenerPageContactInformationAssertion();
+            metforminScreenerPageDemographicsAssertion();
+            metforminScreenerPageMedicalQuestionsQuestions();
+            metforminScreenerPageFinalQuestionsAssertion();
+            metforminScreenerPagePatientsCancerAssertion();
+            logoutOfNativeViewPage();
+            softAssert.assertAll();
+        }
+    }
+
+    private void metforminScreenerPagePatientsCancerAssertion() {
+    }
+
+    private void metforminScreenerPageFinalQuestionsAssertion() {
+    }
+
+    private void metforminScreenerPageMedicalQuestionsQuestions() {
+    }
+
+    private void metforminScreenerPageDemographicsAssertion() {
+    }
+
+    /*** Method to click the Metformin screener Page Preview button */
+    public void metforminScreenerPagePreviewRecordClicked() {
+        CharmsUtil.clickOnElement(nativeViewCHARMSParticipantStudyPage.nVFScreenerRefPreviewRecordButton);
+        CommonUtils.sleep(1000);
+        CharmsUtil.clickOnElement(nativeViewCHARMSParticipantStudyPage.nVFScreenerOpenRecordButton);
+    }
+
+    /*** Method to assert data in the Metformin Study page of nativeView */
+    public void metforminScreenerPageGeneralInformationAssertions() {
+        String referralValue = metforminScreenerPage.dynamicLocatorForInputElementsInFAScreener("number").getDomAttribute("value");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Number"), "Number", " Number label on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsInFAScreener("number"), referralValue, " Referral Number on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Does the participant need legal representation?"), "Does the participant need legal representation?", " Does the participant need legal representation? label on Fanconi Study Screener page ");
+        CharmsUtil.assertDropDownData(softAssert, metforminScreenerPage.dynamicLocatorForSelectElementsInFAScreenerPage("proxy_required"), "-- None --", " Does the participant need legal representation Input value on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Age Completed"), "Age Completed", " Age Completed label on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForReadOnlyInputElementsInFAScreener("age_completed"), metforminScreener_TestDataManager.calculatedAge, " Age Completed Read only Value on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Study"), "Study", " Study label on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.nVFScreenerStudy, "Metformin", "Study of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Participant Info"), "Participant Info", " Participant Info label on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForDisplayReadOnlyInputElementsInFAScreener("family_member_record"), subjectIDValue, " Family Member Record of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingSpanTitle1("Participant Info Name", 1), "Name", " Participant Info label on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForReadOnlyInputElementsInFAScreener("family_member_record.name"), participantName, " participant Name value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Participant Study Data"), "Participant Study Data", " Participant Study Data label on Fanconi Study Screener page ");
+        if (participantValue.isEmpty()) {
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForDisplayReadOnlyInputElementsInFAScreener("participant_study"), "", " participant_study' Record of the General Information on Fanconi Study Screener page ");
+        } else {
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForDisplayReadOnlyInputElementsInFAScreener("participant_study"), participantValue, " participant_study' Record of the General Information on Fanconi Study Screener page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Vital Status"), "Vital Status", " Vital Status label on Fanconi Study Screener page ");
+        CharmsUtil.assertDropDownData(softAssert, metforminScreenerPage.nVMetforminScreenerVitalStatus, "Not answered", "Vital Status of the General Information on Fanconi Study Screener page ");
+        if (participantValue.isEmpty()) {
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Eligibility Status"), "Eligibility Status", " Eligibility Status label on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.nVFScreenerEligibilityStatus, "waiting_for_eligibility", "Eligibility Status of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Enrollment Status"), "Enrollment Status", " Enrollment Status label on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.nVFScreenerEnrollmentStatus, "1", "Enrollment Status of the General Information on Fanconi Study Screener page ");
+        } else {
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Eligibility Status"), "Eligibility Status", " Eligibility Status label on Fanconi Study Screener page ");
+            CharmsUtil.assertDropDownData(softAssert, metforminScreenerPage.nVFScreenerEligibilityStatus, "Eligible", "Eligibility Status of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Enrollment Status"), "Enrollment Status", " Enrollment Status label on Fanconi Study Screener page ");
+            CharmsUtil.assertDropDownData(softAssert, metforminScreenerPage.nVFScreenerEnrollmentStatus, "Awaiting Enrollment Forms", "Enrollment Status of the General Information on Fanconi Study Screener page ");
+        }
+    }
+
+    /*** Method to assert the Fanconi Screener: Contact Information */
+    public void metforminScreenerPageContactInformationAssertion() {
+        CharmsUtil.clickOnElement(metforminScreenerPage.nVFScreenerContactInfoTab);
+        if (metforminScreener_TestDataManager.proxyFirstName.contentEquals("")) {
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.FIRST_NAME), MetforminScreenerConstants.FIRST_NAME, " First Name label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("first_name"), metforminScreener_TestDataManager.firstName, " First Name Value of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.MIDDLE_NAME), MetforminScreenerConstants.MIDDLE_NAME, " Middle Name label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("middle_name"), metforminScreener_TestDataManager.middleInitial, " Middle Name Value of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.LAST_NAME), MetforminScreenerConstants.LAST_NAME, " Last Name label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("last_name"), metforminScreener_TestDataManager.lastName, " Last Name Value of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.IN_WHICH_COUNTRY_DO_YOU_THE_PARTICIPANT_CURRENTLY_LIVE), MetforminScreenerConstants.IN_WHICH_COUNTRY_DO_YOU_THE_PARTICIPANT_CURRENTLY_LIVE, " Contact Country label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForDisplayReadOnlyInputElementsInFAScreener("country"), metforminScreener_TestDataManager.inWhichCountryDoYouTheParticipantCurrentlyLive, " Contact Country Value of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Street Address"), "Street Address", " Street Address label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("street_address"), metforminScreener_TestDataManager.street, " Street Address Value for non USA country of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Street 2 (optional)"), "Street 2 (optional)", " Street 2 (optional) label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("street_address2"), metforminScreener_TestDataManager.street2Optional, " Street 2 (optional) Value for non USA country of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("City"), "City", " City label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("city"), metforminScreener_TestDataManager.city, " City Value of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("State/Province"), "State/Province", " State/Province label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("state"), metforminScreener_TestDataManager.stateAbbreviation, " State/Province Value of the Contact Information in  Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Zip Code"), "Zip Code", " Zip Code label of the Contact Information in Fanconi Study screener page ");
+        } else {
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.FIRST_NAME), MetforminScreenerConstants.FIRST_NAME, " First Name label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("first_name"), metforminScreener_TestDataManager.firstName, " First Name of the Contact Information Value in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.MIDDLE_NAME), MetforminScreenerConstants.MIDDLE_NAME, " Middle Name label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("middle_name"), metforminScreener_TestDataManager.middleInitial, " Middle Name Value of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.LAST_NAME), MetforminScreenerConstants.LAST_NAME, " Last Name label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("last_name"), metforminScreener_TestDataManager.lastName, " Last Name Value of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Street Address"), "Street Address", " Street Address label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("street_address"), "", " Street Address Value for non USA country of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorUsingNormalizeSpaceInSpan("Street 2 (optional)"), "Street 2 (optional)", " Street 2 (optional) label of the Contact Information in Fanconi Study screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, metforminScreenerPage.dynamicLocatorForInputElementsOfFamilyInMetforminScreener("street_address2"), "", " Street 2 (optional) Value for non USA country of the Contact Information in Fanconi Study screener page ");
+        }
+    }
+
+    /*** Method to click the participant detail record in list view page */
+    private void metforminOpenParticipantDetailPageInNV() {
+        String participantView = (metforminScreener_TestDataManager.firstName + " " + metforminScreener_TestDataManager.middleInitial + " " + metforminScreener_TestDataManager.lastName);
+        String participantProxyView = (metforminScreener_TestDataManager.proxyFirstName + " " + metforminScreener_TestDataManager.proxyMiddleName + " " + metforminScreener_TestDataManager.proxyLastName);
+        if (participantView.isBlank()) {
+            if (nativeViewCHARMSParticipantStudyPage.nVParticipantSearchColumnName.isDisplayed()) {
+            } else {
+                nativeViewCHARMSParticipantStudyPage.nVParticipantSearchColumnButton.click();
+            }
+            nativeViewCHARMSParticipantStudyPage.nVParticipantSearchColumnName.sendKeys(participantProxyView);
+            nativeViewCHARMSParticipantStudyPage.nVParticipantSearchColumnName.sendKeys(Keys.RETURN);
+            CharmsUtil.clickOnElement(nativeViewCHARMSParticipantStudyPage.dynamicPreviewButtonLocator1(participantProxyView));
+            CommonUtils.sleep(1800);
+            CucumberLogUtils.logScreenshot();
+            CharmsUtil.clickOnElement(nativeViewCHARMSParticipantStudyPage.dynamicPreviewButtonLocator("Open Record"));
+            CommonUtils.sleep(3000);
+            CucumberLogUtils.logScreenshot();
+        } else {
+            if (nativeViewCHARMSParticipantStudyPage.nVParticipantSearchColumnName.isDisplayed()) {
+            } else {
+                nativeViewCHARMSParticipantStudyPage.nVParticipantSearchColumnButton.click();
+            }
+            nativeViewCHARMSParticipantStudyPage.nVParticipantSearchColumnName.sendKeys(participantView);
+            nativeViewCHARMSParticipantStudyPage.nVParticipantSearchColumnName.sendKeys(Keys.RETURN);
+            CharmsUtil.clickOnElement(nativeViewCHARMSParticipantStudyPage.dynamicPreviewButtonLocator1(participantView));
+            CommonUtils.sleep(2000);
+            CucumberLogUtils.logScreenshot();
+            CharmsUtil.clickOnElement(nativeViewCHARMSParticipantStudyPage.dynamicPreviewButtonLocator("Open Record"));
+            CommonUtils.sleep(5000);
+            CucumberLogUtils.logScreenshot();
+        }
+    }
+
+    /*** Method to assert the General Information on Participant Details page */
+    public void metforminGeneralInformationAssertionOnParticipantDetailPageInNV() {
+        String participantView = (metforminScreener_TestDataManager.firstName + " " + metforminScreener_TestDataManager.middleInitial + " " + metforminScreener_TestDataManager.lastName);
+        String participantProxyView = (metforminScreener_TestDataManager.proxyFirstName + " " + metforminScreener_TestDataManager.proxyMiddleName + " " + metforminScreener_TestDataManager.proxyLastName);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Subject ID"));
+        CommonUtils.sleep(500);
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Subject ID"), "Subject ID", " Subject ID Label of the General Information on Participant Details page ");
+        subjectIDValue = (nativeViewCHARMSParticipantStudyPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("full_family_id").getDomAttribute("value"));
+        if (subjectIDValue != null && subjectIDValue.isEmpty()) {
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("full_family_id"), "", " Subject ID of the General Information on Participant Details page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingNormalizeSpaceInSpan("Name"), "Name", " Name Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("name"), participantView, " Participant Name of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingNormalizeSpaceInSpan("Permission to contact"), "Permission to contact", " Permission to contact Label of the General Information on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("permission_to_contact"), "Unknown", " Permission to contact of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingNormalizeSpaceInSpan("FHQ Patient"), "FHQ Patient", " FHQ Patient Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementsInParticipantDetailsPage("fhq_patient"), "", " FHQ Patient Value of the General Information on Participant Details page ");
+        if ((nativeViewCHARMSParticipantStudyPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("full_family_id").getDomAttribute("value").isEmpty())) {
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingNormalizeSpaceInSpan("Eligibility Status"), "Eligibility Status", " Eligibility Status Label of the General Information on Participant Details page ");
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForReadOnlySelectValuesInParticipantDetailsPage("eligibility_status"), "Waiting for Eligibility", " Eligibility Status of the General Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingNormalizeSpaceInSpan("Enrollment Status"), "Enrollment Status", " Enrollment Status Label of the General Information on Participant Details page ");
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("enrollment_status"), "New Screener Received", " Enrollment Status of the General Information on Participant Details page ");
+        } else {
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingNormalizeSpaceInSpan("Eligibility Status"), "Eligibility Status", " Eligibility Status Label of the General Information on Participant Details page ");
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForReadOnlySelectValuesInParticipantDetailsPage("eligibility_status"), "Eligible", " Eligibility Status after the consent complete of the General Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingNormalizeSpaceInSpan("Enrollment Status"), "Enrollment Status", " Enrollment Status Label of the General Information on Participant Details page ");
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("enrollment_status"), "Awaiting Enrollment Forms", " Enrollment Status of the General Information on Participant Details page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingNormalizeSpaceInSpan("Studies"), "Studies", " Studies Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.nVParticipantStudies, "Metformin", " Studies on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingNormalizeSpaceInSpan("Study Subcategory"), "Study Subcategory", " Study Subcategory Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingNormalizeSpaceInSpan("NIH MRN number"), "NIH MRN number", " NIH MRN number Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("nih_number"), "", " NIH MRN number on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.nVParticipantNIHMRNnumberInfo, "NIH MRN number should include the dashes", " NIH MRN number Information Text on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingNormalizeSpaceInSpan("Invitation Code"), "Invitation Code", " Invitation Code Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("invitation_code"), "", " Invitation Code on Participant Details page ");
+    }
+
+    /*** Method to assert the Personal Information on Participant Details */
+    public void metforminPersonalInformationAssertionOnParticipantDetailPageInNV() {
+        CharmsUtil.labelHighlight(nativeViewCHARMSParticipantStudyPage.nVParticipantPersonalInformationTab);
+        nativeViewCHARMSParticipantStudyPage.nVParticipantPersonalInformationTab.click();
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingNormalizeSpaceInSpan("Relationship to Proband"), "Relationship to Proband", " Relationship to Proband Label of the Personal Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("relationship_to_you"), "proband", " Relationship to You of the Personal Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.FIRST_NAME), "First Name", " First Name Label of the Personal Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("first_name"), metforminScreener_TestDataManager.firstName, " First Name Value of the Personal Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.MIDDLE_NAME), MetforminScreenerConstants.MIDDLE_NAME, " Middle Name Label of the Personal Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("middle_name"), metforminScreener_TestDataManager.middleInitial, " Middle Name Value of the Personal Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingNormalizeSpaceInSpan(MetforminScreenerConstants.LAST_NAME), MetforminScreenerConstants.LAST_NAME, " Last Name Label of the Personal Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("last_name"), metforminScreener_TestDataManager.lastName, " Last Name Value of the Personal Information on Participant Details page ");
+    }
+
+    /*** Method to assert the Demographic Information on Participant Details */
+    public void metforminDemographicsAssertionOnParticipantDetailPageInNV() {
+        CharmsUtil.labelHighlight(nativeViewCHARMSParticipantStudyPage.nVParticipantDemographicsTab);
+        nativeViewCHARMSParticipantStudyPage.nVParticipantDemographicsTab.click();
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Sex"), "Sex", " Sex Label of the General Information on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("biological_gender"), metforminScreener_TestDataManager.whatIsYouTheParticipantsSex, " Biological Gender Value of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Participant Race (Select all that apply)"), "Participant Race (Select all that apply)", " Participant Race (Select all that apply) Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.nVParticipantDemographicsTabRaceDetails, metforminScreener_TestDataManager.whatIsYourTheParticipantsRacePleaseSelectAllThatApply, " Participant Race link Value of the Demographics on Participant Details page ");
+        String value = nativeViewCHARMSParticipantStudyPage.nVParticipantDemographicsTabRaceDetails.getText();
+        if (value.contains("Other (please specify)")) {
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingSpanNormalizeSpace("Other"), "Other", " Other Label of the General Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("other_race"), metforminScreener_TestDataManager.whatIsYourTheParticipantsRacePleaseSelectAllThatApply, " Participant Other Race Value of the Demographics on Participant Details page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Ethnicity"), "Ethnicity", " Ethnicity Label of the General Information on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("ethnicity"), metforminScreener_TestDataManager.whatIsYourTheParticipantsEthnicity, " Ethnicity Value of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Is the participant adopted?"), "Is the participant adopted?", " Is the participant adopted? Label of the General Information on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("adopted"), metforminScreener_TestDataManager.areYouTheParticipantAdopted, " Is the participant adopted of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Vital Status"), "Vital Status", " Vital Status Label of the General Information on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("person_alive"), metforminScreener_TestDataManager.vitalStatus, " Vital Status Value of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Date of Birth"), "Date of Birth", " Date of Birth Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("date_of_birth"), metforminScreener_TestDataManager.whatIsYourTheParticipantsDateOfBirth, " Date of Birth value of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Date of birth is estimated"), "Date of birth is estimated", " Date of birth is estimated Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingLabel("Date of birth is estimated"), "", " Date of Birth is estimated value of the General Information on Participant Details page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElementsInPS("date_of_birth_is_estimated"), false, " Date of Birth is estimated CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Date of Death"), "Date of Death", " Date of Death Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("death_date"), "", " Date of death value of the Demographics on Participant Details page ");
+        CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.dynamicLocatorForCheckBoxElementsInPS("date_of_death_is_estimated"), false, " Date of death is estimated CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Date of death is estimated"), "Date of death is estimated", " Date of death is estimated Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingLabel("Date of death is estimated"), "", " Date of death is estimated value of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("If Date of Birth is unknown, is this person 18 years old or older"), "If Date of Birth is unknown, is this person 18 years old or older", " If Date of Birth is unknown, is this person 18 years old or older Label of the General Information on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("if_date_of_birth_is_unkown_is_this_person_18_years_old_or_older"), "-- None --", " If Date of Birth is unkown of the Demographics on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingNormalizeSpaceInSpan("Age"), "Age", " Age Label of the General Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForReadOnlyInputValuesInParticipantDetailsPage("age"), metforminScreener_TestDataManager.calculatedAge, " Age of the Demographics on Participant Details page ");
+    }
+
+    /*** Method to assert the Contact Info on Participant Details page*/
+    public void metforminContactInformationAssertionOnParticipantDetailPageInNV() {
+        CharmsUtil.labelHighlight(nativeViewCHARMSParticipantStudyPage.nVParticipantContactInfoTab);
+        nativeViewCHARMSParticipantStudyPage.nVParticipantContactInfoTab.click();
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Person who filled the screener"), "Person who filled the screener", " Person who filled the screener Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("legal_representative_name"), (metforminScreener_TestDataManager.firstName + " " + metforminScreener_TestDataManager.middleInitial + " " + metforminScreener_TestDataManager.lastName), " Person who filled the screener text box of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.WHAT_IS_YOUR_RELATIONSHIP_TO_PARTICIPANT), MetforminScreenerConstants.WHAT_IS_YOUR_RELATIONSHIP_TO_PARTICIPANT, " What is your relationship to the participant? Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("relationship"), metforminScreener_TestDataManager.whatIsYourRelationshipToParticipant, " What is your relationship to the participant? Value of the Contact Info on Participant Details page ");
+        if (metforminScreener_TestDataManager.proxyFirstName.contentEquals("")) {
+            /** Contact Info **/
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.ARE_YOU_THE_LEGAL_GUARDIAN_OF_THIS_PERSON), MetforminScreenerConstants.ARE_YOU_THE_LEGAL_GUARDIAN_OF_THIS_PERSON, " Are you the legal guardian of this person? Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("legal_guardian"), metforminScreener_TestDataManager.areYouTheLegalGuardianOfThisPerson, " Are you the legal guardian of this person? Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Does the participant need legal representation?"), "Does the participant need legal representation?", " Does the participant need legal representation? Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("proxy_required"), "-- None --", " Does the participant need legal representation? Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact Street Address"), "Contact Street Address", " Contact Street Address Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("street_address"), metforminScreener_TestDataManager.street, " Contact Street Address Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact Street Address 2"), "Contact Street Address 2", " Contact Street Address2 Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("contact_street_address_2"), metforminScreener_TestDataManager.street2Optional, " Contact Street Address 2 of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact City"), "Contact City", " Contact City Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("city"), metforminScreener_TestDataManager.city, " Contact City Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact State"), "Contact State", " Contact State Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("state"), metforminScreener_TestDataManager.stateAbbreviation, " Contact State Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact Zip Code"), "Contact Zip Code", " Contact Zip Code Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("zipcode"), metforminScreener_TestDataManager.zipCode, " Contact Zip Code Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingSpanNormalizeSpace("Contact Country"), "Contact Country", " Contact Country Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementsInParticipantDetailsPage("contact_country"), metforminScreener_TestDataManager.inWhichCountryDoYouTheParticipantCurrentlyLive, " Contact Country Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.REGISTRATION_EMAIL), MetforminScreenerConstants.REGISTRATION_EMAIL, " Registration Email Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("user_record.email"), metforminScreener_TestDataManager.registrationEmail, " Registration Email Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact Email"), "Contact Email", " Contact Email Label of the Contact Information on Participant Details page ");
+        } else {
+            /** Contact Info **/
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.ARE_YOU_THE_LEGAL_GUARDIAN_OF_THIS_PERSON), MetforminScreenerConstants.ARE_YOU_THE_LEGAL_GUARDIAN_OF_THIS_PERSON, " Are you the legal guardian of this person? Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("legal_guardian"), metforminScreener_TestDataManager.areYouTheLegalGuardianOfThisPerson, " Are you the legal guardian of this person? Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Does the participant need legal representation?"), "Does the participant need legal representation?", " Does the participant need legal representation? Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElementsInParticipantDetailsPage("proxy_required"), "-- None --", " Does the participant need legal representation? Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact Street Address"), "Contact Street Address", " Contact Street Address Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("street_address"), "", " Contact Street Address Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact Street Address 2"), "Contact Street Address 2", " Contact Street Address2 Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("contact_street_address_2"), "", " Contact Street Address 2 of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact City"), "Contact City", " Contact City Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("city"), "", " Contact City Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact State"), "Contact State", " Contact State Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("state"), "", " Contact State Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact Zip Code"), "Contact Zip Code", " Contact Zip Code Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("zipcode"), "", " Contact Zip Code Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingSpanNormalizeSpace("Contact Country"), "Contact Country", " Contact Country Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementsInParticipantDetailsPage("contact_country"), "", " Contact Country Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Registration Email"), "Registration Email", " Registration Email Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("user_record.email"), metforminScreener_TestDataManager.registrationEmail, " Registration Email Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact Email"), "Contact Email", " Contact Email Label of the Contact Information on Participant Details page ");
+        }
+        if (metforminScreener_TestDataManager.firstName.contentEquals("")) {
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("email_address"), "", " Contact Email Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact Home Phone"), "Contact Home Phone", " Contact Home Phone Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("phone"), "", " Contact Home Phone Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact Cell Phone"), "Contact Cell Phone", " Contact Cell Phone Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("cell_phone"), "", " Contact Cell Phone Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact Work Phone"), "Contact Work Phone", " Contact Work Phone Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("work_phone"), "", " Contact Work Phone Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact Preferred phone"), "Contact Preferred phone", " Contact Preferred phone Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("preferred_phone"), "", " Contact Preferred phone Value of the Contact Info on Participant Details page ");
+        } else {
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("email_address"), metforminScreener_TestDataManager.pleaseConfirmYourTheParticipantsEmailAddress, " Contact Email Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact Home Phone"), "Contact Home Phone", " Contact Home Phone Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("phone"), metforminScreener_TestDataManager.homePhoneNumber, " Contact Home Phone Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact Cell Phone"), "Contact Cell Phone", " Contact Cell Phone Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("cell_phone"), metforminScreener_TestDataManager.cellPhoneNumber, " Contact Cell Phone Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact Work Phone"), "Contact Work Phone", " Contact Work Phone Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("work_phone"), metforminScreener_TestDataManager.workPhoneNumber, " Contact Work Phone Value of the Contact Info on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Contact Preferred phone"), "Contact Preferred phone", " Contact Preferred phone Label of the Contact Information on Participant Details page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("preferred_phone"), metforminScreener_TestDataManager.preferred, " Contact Preferred phone Value of the Contact Info on Participant Details page ");
+        }
+    }
+
+    /*** Method to assert the Proxy Contact Info on Participant Details page */
+    public void metforminProxyContactInformationAssertionOnParticipantDetailPageInNV() {
+        CharmsUtil.labelHighlight(nativeViewCHARMSParticipantStudyPage.nVParticipantProxyContactInfoTab);
+        nativeViewCHARMSParticipantStudyPage.nVParticipantProxyContactInfoTab.click();
+        CommonUtils.sleep(1000);
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.PROXY_FIRST_NAME), MetforminScreenerConstants.PROXY_FIRST_NAME, " Proxy First Name Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_first_name"), metforminScreener_TestDataManager.proxyFirstName, " Proxy First Name Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.PROXY_MIDDLE_NAME), MetforminScreenerConstants.PROXY_MIDDLE_NAME, " Proxy Middle Name Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_middle_name"), metforminScreener_TestDataManager.proxyMiddleName, " Proxy Middle Name Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.PROXY_LAST_NAME), MetforminScreenerConstants.PROXY_LAST_NAME, " Proxy Last Name Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_last_name"), metforminScreener_TestDataManager.proxyLastName, " Proxy Last Name Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.PROXY_CONTACT_STREET_ADDRESS), MetforminScreenerConstants.PROXY_CONTACT_STREET_ADDRESS, " Proxy Contact Street Address Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_contact_street_address"), metforminScreener_TestDataManager.proxyContactStreetAddress, " Proxy Street Address Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.PROXY_CONTACT_STREET_ADDRESS_2_OPTIONAL), MetforminScreenerConstants.PROXY_CONTACT_STREET_ADDRESS_2_OPTIONAL, " Proxy Contact Street Address 2 (optional) Label of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_street_address_2"), metforminScreener_TestDataManager.proxyContactStreetAddress2Optional, " Proxy Contact Street Address 2 (optional) Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.PROXY_CONTACT_CITY), MetforminScreenerConstants.PROXY_CONTACT_CITY, " Proxy Contact City Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_contact_city"), metforminScreener_TestDataManager.proxyContactCity, " Proxy City Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.PROXY_CONTACT_STATE), MetforminScreenerConstants.PROXY_CONTACT_STATE, " Proxy Contact State Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_state"), metforminScreener_TestDataManager.proxyContactState, " Proxy Zip Code Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.PROXY_CONTACT_ZIPCODE), MetforminScreenerConstants.PROXY_CONTACT_ZIPCODE, " Proxy Contact Zipcode Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_contact_zipcode"), metforminScreener_TestDataManager.proxyContactZipcode, " Proxy Zip Code Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.PROXY_CONTACT_COUNTRY), MetforminScreenerConstants.PROXY_CONTACT_COUNTRY, " Proxy Contact Country Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementsInParticipantDetailsPage("proxy_contact_country"), metforminScreener_TestDataManager.proxyContactCountry, " Proxy Contact Country Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.PROXY_CONTACT_EMAIL), MetforminScreenerConstants.PROXY_CONTACT_EMAIL, " Proxy Contact Email Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_email_address"), metforminScreener_TestDataManager.proxyContactEmail, " Proxy Email Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.PROXY_CONTACT_HOME_PHONE), MetforminScreenerConstants.PROXY_CONTACT_HOME_PHONE, " Proxy Contact Home Phone Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_phone_number"), metforminScreener_TestDataManager.proxyContactHomePhone, " Proxy Home Phone Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.PROXY_CONTACT_CELL_PHONE), MetforminScreenerConstants.PROXY_CONTACT_CELL_PHONE, " Proxy Contact Cell Phone Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_cell_phone"), metforminScreener_TestDataManager.proxyContactCellPhone, " Proxy Cell Phone Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.PROXY_CONTACT_WORK_PHONE), MetforminScreenerConstants.PROXY_CONTACT_WORK_PHONE, " Proxy Contact Work Phone Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_work_phone"), metforminScreener_TestDataManager.proxyContactWorkPhone, " Proxy Work Phone Value of the Contact Info on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText(MetforminScreenerConstants.PROXY_PREFERRED_PHONE), MetforminScreenerConstants.PROXY_PREFERRED_PHONE, " Proxy Contact Preferred phone Label of the Contact Information on Participant Details page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElementInParticipantDetailsPage("proxy_preferred_phone"), metforminScreener_TestDataManager.proxyPreferredPhone, " Proxy Preferred phone Value of the Contact Info on Participant Details page ");
+    }
+
+    /*** Method to click Fanconi Preview button on Referral list view page */
+    public void metforminStudyPreviewRecordClicked() {
+        CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVParticipantStudiesTab);
+    }
+
+    /*** Method to assert Participant data in the Metformin Study page*/
+    public void metforminStudyPageGeneralInformationAssertions() {
+        participantName = (metforminScreener_TestDataManager.firstName + " " + metforminScreener_TestDataManager.middleInitial + " " + metforminScreener_TestDataManager.lastName);
+        referralValue = nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("screener_ref").getDomAttribute("value");
+        participantValue = nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("participant").getDomAttribute("value");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingDataNormalizeSpaceInSpan("Participant"), "Participant", "Participant label of the General Information on Fanconi Study Screener page ");
+        if (Objects.requireNonNull(nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("participant").getDomAttribute("value")).isEmpty()) {
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("participant"), "", "Participant Input Value of the General Information on Fanconi Study Screener page ");
+        } else {
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("participant"), subjectIDValue, "Participant Input Value of the General Information on Fanconi Study Screener page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingDataNormalizeSpaceInSpan("Name"), "Name", "Name label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.nVParticipantNameValue, participantName, " Participant Name of the General Information on Participant Details page ");
+        if (Objects.requireNonNull(nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("participant").getDomAttribute("value")).isEmpty()) {
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Eligibility Status"), "Eligibility Status", " Eligibility Status label of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElements("eligibility_status"), "Waiting for Eligibility", " Eligibility Status Value of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Enrollment Status"), "Enrollment Status", " Enrollment Status label of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElements("enrollment_status"), "New Screener Received", " Enrollment Status Value of the General Information on Fanconi Study Screener page ");
+        } else {
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Eligibility Status"), "Eligibility Status", " Eligibility Status label of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElements("eligibility_status"), "Eligible", " Eligibility Status Value of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Enrollment Status"), "Enrollment Status", " Enrollment Status label of the General Information on Fanconi Study Screener page ");
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElements("enrollment_status"), "Awaiting Enrollment Forms", " Enrollment Status Value of the General Information on Fanconi Study Screener page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText1("Screener"), "Screener", " Screener label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("screener_ref"), referralValue, " Referral Value of General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("IIQ"), "IIQ", " IIQ label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("iiq_ref"), "", " IIQ Input value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Study Sub Categories"), "Study Sub Categories", " Study Sub Categories label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorUsingDataNormalizeSpaceInSpan("Study"), "Study", " Study label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("study"), "Metformin", " Study Input Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Cohort"), "Cohort", " Cohort label of the General Information on Fanconi Study Screener page ");
+        if (Objects.requireNonNull(nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("participant").getDomAttribute("value")).isEmpty()) {
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElements("cohort"), "Field", " Cohort Select Value of the General Information on Fanconi Study Screener page ");
+        } else {
+            CharmsUtil.assertDropDownData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForSelectElements("cohort"), "Clinical", " Cohort Select Value of the General Information on Fanconi Study Screener page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("NIH MRN number"), "NIH MRN number", " NIH MRN number label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.nVParticipantNIHMRNNumberInput, "", " NIH MRN number Input value of General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Screener Complete"), "Screener Complete", " Screener Complete label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements1("screener_complete"), false, " Screener Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements("screener_complete"), true, " Screener Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("IIQ Complete"), "IIQ Complete", " IIQ Complete label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements1("iiq_complete"), false, " IIQ Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements("iiq_complete"), false, " IIQ Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Study Survey Complete"), "Study Survey Complete", " Study Survey Complete label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements1("study_survey_complete"), false, " Study Survey Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements("study_survey_complete"), false, " Study Survey Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("All Required Forms Completed"), "All Required Forms Completed", " All Required Forms Completed label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements1("forms_completed"), false, "All Required Forms Completed CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements("forms_completed"), false, " All Required Forms Completed CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("MRR Complete"), "MRR Complete", " MRR Complete label of the General Information on Fanconi Study Screener page ");
+        CommonUtils.sleep(800);
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements1("mrr_complete"), false, " Ever Consented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements("mrr_complete"), false, " MRR Complete CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Ever Consented"), "Ever Consented", " Ever Consented label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements1("consent_signed"), false, " Ever Consented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        if (!Objects.requireNonNull(nativeViewCHARMSParticipantStudyPage.dynamicLocatorForInputElements("participant").getDomAttribute("value")).isEmpty()) {
+            CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements("consent_signed"), true, " Ever Consented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        } else {
+            CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements("consent_signed"), false, " Ever Consented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        }
+        CharmsUtil.assertTextBoxData(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorContainsText("Ever Assented"), "Ever Assented", " Ever Assented label of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements1("assent_signed"), false, " Ever Assented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CharmsUtil.assertCheckBox(softAssert, nativeViewCHARMSParticipantStudyPage.dynamicLocatorForCheckBoxElements("assent_signed"), false, " Ever Assented CheckBox Value of the General Information on Fanconi Study Screener page ");
+        CommonUtils.sleep(800);
+    }
+
+    /*** Method to logout of native view */
+    public void logoutOfNativeViewPage() {
+        CommonUtils.sleep(800);
+        ServiceNow_Common_Methods.logOutOfNativeView();
     }
 }

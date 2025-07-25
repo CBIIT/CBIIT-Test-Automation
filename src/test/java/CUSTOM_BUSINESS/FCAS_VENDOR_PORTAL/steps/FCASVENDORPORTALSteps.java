@@ -716,4 +716,308 @@ public class FCASVENDORPORTALSteps {
     public void user_can_see_proposal_due_date_column() {
         softAssert.assertTrue(fCASVENDORPORTALPage.solicitationPageProposalDueDateColumn.isDisplayed());
     }
+
+    /**
+     * User navigates to Company account page
+     */
+    @Given("User navigates to Company account page")
+    public void user_navigates_to_company_account_page() {
+       CommonUtils.clickOnElement(fCASVENDORPORTALPage.companyAccountTab);
+    }
+
+    /**
+     * User clicks Edit button for Company Details
+     */
+    @When("User clicks Edit button for Company Details")
+    public void user_clicks_edit_button_for_company_details() {
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.editButtonBusinessSummary);
+    }
+
+    /**
+     * Verify User is on Edit Company Details modal
+     */
+    @Then("User is on Edit Company Details modal")
+    public void user_is_on_edit_company_details_modal() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.editCompanyDetailsModalHeader.isDisplayed());
+    }
+
+    /**
+     * Verify User can see name Edit Company Details field
+     */
+    @Then("User can see name Edit Company Details field")
+    public void user_can_see_name_edit_company_details_field() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.nameFieldEditCompanyDetails.isDisplayed());
+    }
+
+    /**
+     * Verify User can see email Edit Company Details field
+     */
+    @Then("User can see email Edit Company Details field")
+    public void user_can_see_email_edit_company_details_field() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.emailFieldEditCompanyDetails.isDisplayed());
+    }
+
+    /**
+     * Verify User can see DUNS Edit Company Details field
+     */
+    @Then("User can see DUNS Edit Company Details field")
+    public void user_can_see_duns_edit_company_details_field() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.dUNSFieldEditCompanyDetails.isDisplayed());
+    }
+
+    /**
+     * Verify User can see mailing address Edit Company Details field
+     */
+    @Then("User can see mailing address Edit Company Details field")
+    public void user_can_see_mailing_address_edit_company_details_field() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.mailingAddressFieldEditCompanyDetails.isDisplayed());
+    }
+
+    /**
+     * User clicks on Users tab
+     */
+    @Given("User clicks on Users tab")
+    public void user_clicks_on_users_tab() {
+       CommonUtils.clickOnElement(fCASVENDORPORTALPage.usersTab);
+    }
+
+    /**
+     * Verify User can see Add User button
+     */
+    @Given("User can see Add User button")
+    public void user_can_see_add_user_button() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.addUserButton.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Show Inactive Users option
+     */
+    @Given("User can see Show Inactive Users option")
+    public void user_can_see_show_inactive_users_option() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.showInactiveUsersOption.isDisplayed());
+    }
+
+    /**
+     * Verify User can see name column of Users tab
+     */
+    @Given("User can see name column of Users tab")
+    public void user_can_see_name_column_of_users_tab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.nameColumnUsersTab.isDisplayed());
+    }
+
+    /**
+     * Verify User can see job title column of Users tab
+     */
+    @Given("User can see job title column of Users tab")
+    public void user_can_see_job_title_column_of_users_tab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.jobTitleColumnUsersTab.isDisplayed());
+    }
+
+    /**
+     * Verify User can see email column of Users tab
+     */
+    @Given("User can see email column of Users tab")
+    public void user_can_see_email_column_of_users_tab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.emailColumnUsersTab.isDisplayed());
+    }
+
+    /**
+     * Verify User can see phone column of Users tab
+     */
+    @Given("User can see phone column of Users tab")
+    public void user_can_see_phone_column_of_users_tab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.phoneColumnUsersTab.isDisplayed());
+    }
+
+    /**
+     * Verify User can see access to view column of Users tab
+     */
+    @Given("User can see access to view column of Users tab")
+    public void user_can_see_access_to_view_column_of_users_tab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.accessToViewColumnUsersTab.isDisplayed());
+    }
+
+    /**
+     * Verify User can see admin column of Users tab
+     */
+    @Given("User can see admin column of Users tab")
+    public void user_can_see_admin_column_of_users_tab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.adminToViewColumnUsersTab.isDisplayed());
+    }
+
+    /**
+     * Verify User can see account active column of Users tab
+     */
+    @Given("User can see account active column of Users tab")
+    public void user_can_see_account_active_column_of_users_tab() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.accountActiveColumnUsersTab.isDisplayed());
+    }
+
+    /**
+     * Verify User can see account active column of Users tab
+     */
+    @Given("User clicks Add User button")
+    public void user_clicks_add_user_button() {
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.addUserButton);
+    }
+
+    /**
+     * Verify User can see First Name field to fill in
+     */
+    @Given("User can see First Name field to fill in")
+    public void user_can_see_first_name_field_to_fill_in() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.firstNameAddUserModal.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Last Name field to fill in
+     */
+    @Given("User can see Last Name field to fill in")
+    public void user_can_see_last_name_field_to_fill_in() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.lastNameAddUserModal.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Email field to fill in
+     */
+    @Given("User can see Email field to fill in")
+    public void user_can_see_email_field_to_fill_in() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.emailAddUserModal.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Phone field to fill in
+     */
+    @Given("User can see Phone field to fill in")
+    public void user_can_see_phone_field_to_fill_in() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.phoneNumberAddUserModal.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Job Title field to fill in
+     */
+    @Given("User can see Job Title field to fill in")
+    public void user_can_see_job_title_field_to_fill_in() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.jobTitleAddUserModal.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Resend Vendor Portal Invite button
+     */
+    @Given("User can see Resend Vendor Portal Invite button")
+    public void user_can_see_resend_vendor_portal_invite_button() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.resendVendorPortalButton.isDisplayed());
+    }
+
+    /**
+     * User clicks Cancel button for Add User modal
+     */
+    @Given("User clicks Cancel button for Add User modal")
+    public void user_clicks_cancel_button_for_add_user_modal() {
+        CommonUtils.clickOnElement(fCASVENDORPORTALPage.cancelButtonAddUserModal);
+    }
+
+    /**
+     * Verify User can see Grant access to view Admin option
+     */
+    @Given("User can see Grant access to view Admin option")
+    public void user_can_see_grant_access_to_view_admin_option() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.adminOptionGrantAccess.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Grant access to view Business Representative option
+     */
+    @Given("User can see Grant access to view Business Representative option")
+    public void user_can_see_grant_access_to_view_business_representative_option() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.businessRepresentativeOptionGrantAccess.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Grant access to view Invoices option
+     */
+    @Given("User can see Grant access to view Invoices option")
+    public void user_can_see_grant_access_to_view_invoices_option() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.invoicesOptionGrantAccess.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Grant access to view Deliverables option
+     */
+    @Given("User can see Grant access to view Deliverables option")
+    public void user_can_see_grant_access_to_view_deliverables_option() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.deliverablesOptionGrantAccess.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Grant access to view COAs option
+     */
+    @Given("User can see Grant access to view COAs option")
+    public void user_can_see_grant_access_to_view_co_as_option() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.cOAsOptionGrantAccess.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Grant access to view Notifications option
+     */
+    @Given("User can see Grant access to view Notifications option")
+    public void user_can_see_grant_access_to_view_notifications_option() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.notificationsOptionGrantAccess.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Grant access to view Planning option
+     */
+    @Given("User can see Grant access to view Planning option")
+    public void user_can_see_grant_access_to_view_planning_option() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningOptionGrantAccess.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Grant access to view Solicitation option
+     */
+    @Given("User can see Grant access to view Solicitation option")
+    public void user_can_see_grant_access_to_view_solicitation_option() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.solicitationOptionGrantAccess.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Grant access to view Work Orders option
+     */
+    @Given("User can see Grant access to view Work Orders option")
+    public void user_can_see_grant_access_to_view_work_orders_option() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.workOrderOptionGrantAccess.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Planning Coordinator option
+     */
+    @Given("User can see Planning Coordinator option")
+    public void user_can_see_planning_coordinator_option() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningCoordinatorOption.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Planning Coordinator description
+     */
+    @Given("User can see Planning Coordinator description")
+    public void user_can_see_planning_coordinator_description() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.planningCoordinatorDescription.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Solicitation Coordinator option
+     */
+    @Given("User can see Solicitation Coordinator option")
+    public void user_can_see_solicitation_coordinator_option() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.solicitationCoordinatorOption.isDisplayed());
+    }
+
+    /**
+     * Verify User can see Solicitation Coordinator description
+     */
+    @Given("User can see Solicitation Coordinator description")
+    public void user_can_see_solicitation_coordinator_description() {
+        softAssert.assertTrue(fCASVENDORPORTALPage.solicitationCoordinatorDescription.isDisplayed());
+    }
 }
