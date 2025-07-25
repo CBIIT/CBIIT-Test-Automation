@@ -176,6 +176,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static FanconiScreenerNVPage fanconiScreenerNVPage;
 	public static FanconiLoginPage fanconiLoginPage;
 	public static CHARMSParticipantDetailsPage cHARMSParticipantDetailsPage;
+	public static ClinicVisitsStepsImpl clinicVisitsStepsImpl;
 	public static FanconiEligibilityQuestionnaireStepsImpl fanconiEligibilityQuestionnaireStepsImpl;
 	public static NativeViewCHARMSScreenerRecordTablePage nativeViewCHARMSScreenerRecordTablePage;
 	public static MyRASSurveyPage myRASSurveyPage;
@@ -513,6 +514,7 @@ public class PageInitializer extends WebDriverUtils {
 		fanconiEligibilityQuestionnairePage = new FanconiEligibilityQuestionnairePage();
 		fanconiScreenerNVPage = new FanconiScreenerNVPage();
 		cHARMSParticipantDetailsPage = new CHARMSParticipantDetailsPage();
+		clinicVisitsStepsImpl = new ClinicVisitsStepsImpl();
 		fanconiEligibilityQuestionnaireStepsImpl = new FanconiEligibilityQuestionnaireStepsImpl();
 		nativeViewCHARMSScreenerRecordTablePage = new NativeViewCHARMSScreenerRecordTablePage();
 		myRASIIQFormPage = new MyRASIIQFormPage();

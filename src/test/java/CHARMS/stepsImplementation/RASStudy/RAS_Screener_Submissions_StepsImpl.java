@@ -139,7 +139,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                  */
                 if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().trim().contentEquals(ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_FOR_YOURSELF)) {
                     CucumberLogUtils.scenario.log("* * * * ARE YOU COMPLETING THIS FORM FOR SOMEONE ELSE OR FOR YOURSELF? * * * *");
-                    dynamicLocator(ras_Screener_TestDataManager.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_YOURSELF).click();
+                    dynamicLocatorNested(ras_Screener_TestDataManager.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE_OR_YOURSELF).click();
                     CommonUtils.sleep(200);
                     CucumberLogUtils.logScreenshot();
                     ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
@@ -147,7 +147,7 @@ public class RAS_Screener_Submissions_StepsImpl extends PageInitializer {
                 /**
                  * * * * * WHAT IS YOUR NAME? * * * *
                  */
-                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().contentEquals(WHAT_IS_YOUR_NAME)) {
+                else if (rasopathyQuestionnairePage.question.isDisplayed() && rasopathyQuestionnairePage.question.getText().trim().contentEquals(WHAT_IS_YOUR_NAME)) {
                     CucumberLogUtils.scenario.log("* * * * * ENTERING FIRST NAME, MIDDLE INITIAL, LAST NAME * * * * *");
                     rasopathyQuestionnairePage.dynamicTextBoxLocator("First name").sendKeys(ras_Screener_TestDataManager.FIRST_NAME);
                     rasopathyQuestionnairePage.dynamicTextBoxLocator("Middle Initial").sendKeys(ras_Screener_TestDataManager.MIDDLE_INITIAL);
