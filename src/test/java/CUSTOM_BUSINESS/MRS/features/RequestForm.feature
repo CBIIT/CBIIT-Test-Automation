@@ -15,7 +15,7 @@ Scenario: Submit a request form on behalf of another person
   And User enters "Test Journal" in Journal or Book Name
   And User selects "Yes" for any associated fees
   And User enters "100" in the Amount field
-  And User selects "Ellison, Gary" as NIH Authors
+  And User selects "Klein, William" as NIH Authors
   And User enters "QA Team Members" as Non NIH Authors
   And User selects "NCI Researchers" as the Author Type
   And User selects No for the BIAS question
@@ -58,9 +58,9 @@ Scenario: Submit a request form on behalf of another person
   Scenario: Add an additional approver to a request
     When User selects an existing request
     And User clicks on Add Additional Approver
-    And User selects "Ellison, Gary" as the additional approver
+    And User selects "ELLISON, GARY" as the additional approver
     And User clicks on Save button
-    Then User verifies that "Ellison, Gary" is listed as an additional approver in the request details
+    Then User verifies that "ELLISON, GARY" is listed as an additional approver in the request details
 
   @SubmitForApproval @NESARH2 @playwright @Regression
   Scenario: Submit a request for approval as a requestor
@@ -101,3 +101,19 @@ Scenario: Submit a request form on behalf of another person
     And the user confirms the delete operation
     Then the system displays a success message stating the request has been deleted
     And the Active Requests queue for the submitter or requestor and their delegates no longer displays the deleted request
+
+  @DisapproveRequest @NESARH2 @playwright @Regression
+  Scenario: Disapprove a request as a first approver
+    When a user with "Admin" role is logged in
+    And User selects a request from the Approval Queue
+    And User selects Disapprove action from the dropdown
+    And User enters "Disapproved by first approver" in the comments field
+    Then User clicks on Process Action button
+
+  @WithdrawRequest @NESARH2 @playwright @Regression
+  Scenario: Withdraw a submitted request
+    When a requestor is logged in
+    And User selects an existing request from My Queue
+    And User clicks on Withdraw button
+    And User provides a reason for withdrawal
+    Then User clicks on Withdraw Request button

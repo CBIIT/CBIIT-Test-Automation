@@ -8,4 +8,5 @@ public class MRS_Constants {
     public static final String SECOND_APPROVER = "GODDARD, KATRINA";
     public static final String APPROVER_TITLE = "OD TEAM MEMBER";
     public static final String HIERARCHY_APPROVAL_SUCCESS_MESSAGE = "Approval Hierarchy definition saved successfully.";
+    public static final String COMMENTS = "This is a test comment.";
 }
