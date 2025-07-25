@@ -74,9 +74,9 @@ public class RAS_All_Steps extends PageInitializer {
         CucumberLogUtils.scenario.log("* * * * * RESPONSE TYPE * * * * *");
         CommonUtils.selectDropDownValue("CHARMS e-consent", nativeViewCHARMSParticipantConsentPage.rasStudyConsentCollectionMethodDropDown);
         CucumberLogUtils.scenario.log("* * * * * CONSENT CALL VERSION * * * * *");
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendarButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendarButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendarButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CucumberLogUtils.scenario.log("* * * * * CONSENT DATE * * * * *");
@@ -447,7 +447,7 @@ public class RAS_All_Steps extends PageInitializer {
     public static void openConsentRecord() {
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantStudyPage.currentReconsentRecordPreviewButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantStudyPage.consentRecordPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
@@ -460,7 +460,8 @@ public class RAS_All_Steps extends PageInitializer {
         /**
          * BEGINNING: CONSENT FLOW PROCESS
          */
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
+        CommonUtils.sleep(1000);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
         CucumberLogUtils.logScreenshot();
         CucumberLogUtils.scenario.log("* * * * CONSENT DATE * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateCalendar);
@@ -470,6 +471,10 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, CHARMSRASScreenerConstants.CONSENTED_BY_USER_NAME);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
+        CucumberLogUtils.scenario.log("* * * * ASSIGNED TO * * * *");
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAssignedToTextBox);
+        CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAssignedToTextBox, CHARMSRASScreenerConstants.ASSIGNED_TO_USER_NAME);
+        CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAssignedToTextBox, Keys.ENTER);
         clicksTab("Consent Call");
         CucumberLogUtils.scenario.log("* * * * CONSENT CALL - CONSENT CALL SCHEDULED TIME * * * *");
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
@@ -501,9 +506,9 @@ public class RAS_All_Steps extends PageInitializer {
         clicksTab("Consent Information");
         CommonUtils.sleep(500);
         CucumberLogUtils.scenario.log("* * * * CONSENT INFORMATION - CONSENT CALL VERSION * * * *");
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendarButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendarButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVersionCalendarButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.sleep(500);
@@ -719,6 +724,7 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Given("Study Team member verifies that Consent Status equals {string}, Consent Type equals {string}, and that Parent Guardian fields are disabled")
     public void study_team_member_verifies_consent_status_consent_type_guardian_and_that_parent_guardian_fields_are_disabled(String consentStatus, String consentType) {
+        clicksTab("Consent Information");
         CommonUtils.verifyingDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentStatusTextBox, consentStatus, "* * * * * CONSENT STATUS MISMATCH * * * * *");
         CommonUtils.verifyingDropDownValueIsSelected(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAssentCategoryDropDown, consentType, "* * * * * CONSENT TYPE MISMATCH * * * * *");
         softAssert.assertEquals(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParentGuardian1SignedDropDown.getAttribute("mandatory"), "false");
@@ -1142,6 +1148,7 @@ public class RAS_All_Steps extends PageInitializer {
      */
     @Given("submits the Physical Activities Survey")
     public void submits_the_physical_activities_survey() {
+        ras_Physical_Activities_Survey_TestDataManager.dataInitializerPhysicalActivitiesSurvey("RASPhysicalActivitiesSurvey");
         CommonUtils.waitForVisibility(locateByXpath("//span[normalize-space()='In the past 12 months how often did you walk or hike for exercise?']"));
         JavascriptUtils.scrollIntoView(locateByXpath("//span[normalize-space()='In the past 12 months how often did you walk or hike for exercise?']"));
         JavascriptUtils.scrollIntoView(MyRASPhysicalActivitiesSurvey.dynamicSectionLocator("During the past 12 months, did you do any of these exercises or recreational activities?"));
@@ -1225,7 +1232,6 @@ public class RAS_All_Steps extends PageInitializer {
         nativeViewCHARMSDashboardPage.nativeViewSearchColumnLocator("Last Name").sendKeys(ras_Screener_TestDataManager.LAST_NAME);
         nativeViewCHARMSDashboardPage.nativeViewSearchColumnLocator("Study").sendKeys("RASopathy");
         nativeViewCHARMSDashboardPage.nativeViewSearchColumnLocator("Study").sendKeys(Keys.ENTER);
-
         CommonUtils.hoverOverElement(nativeViewCHARMSParticipantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.FIRST_NAME));
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.FIRST_NAME));
