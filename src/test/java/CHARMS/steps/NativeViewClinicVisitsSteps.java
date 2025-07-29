@@ -195,4 +195,9 @@ public class NativeViewClinicVisitsSteps {
             CucumberLogUtils.logScreenshot();
         }
     }
+
+    @Then("Study Team members adds Post Clinic procedures")
+    public void study_team_members_adds_post_clinic_procedures() {
+        clinicVisitsStepsImpl.addPostClinicProcedures();
+    }
 }
