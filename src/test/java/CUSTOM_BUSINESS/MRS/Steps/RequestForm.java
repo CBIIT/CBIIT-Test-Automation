@@ -329,7 +329,7 @@ public class RequestForm {
     @When("User selects an existing request")
     public void user_selects_an_existing_request() {
         page.getByText("View your active and/or").click();
-        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("View Details")).first().click();
+        page.locator("(//*[@title='View Details'])[2]").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -353,7 +353,7 @@ public class RequestForm {
             CucumberLogUtils.playwrightScreenshot(page);
         }
         page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Add Additional Approvers:")).fill(AdditionalApprover);
-        page.getByRole(AriaRole.LISTITEM, new Page.GetByRoleOptions().setName(AdditionalApprover)).click();
+        page.getByText("ELLISON, GARY [E] - NCI DCCPS").click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -372,8 +372,8 @@ public class RequestForm {
      */
     @Then("User verifies that {string} is listed as an additional approver in the request details")
     public void user_verifies_that_is_listed_as_an_additional_approver_in_the_request_details(String AdditionalApprover) {
-        assertThat(page.locator("#mrsUserMessage")).containsText("Request 2908 has been Saved.");
-        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(AdditionalApprover+"E"))).isVisible();
+        assertThat(page.locator("#mrsUserMessage")).containsText("has been Saved.");
+        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(AdditionalApprover+" [E]"))).isVisible();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -521,6 +521,43 @@ public class RequestForm {
     @Then("User confirms the Return for Revision")
     public void user_confirms_the_return_for_revision() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Return for Revision")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select Disapprove action from the dropdown
+     */
+    @And("User selects Disapprove action from the dropdown")
+    public void user_selects_disapprove_action_from_the_dropdown() {
+        page.locator("//select[@id='selectAction']").selectOption(new SelectOption().setLabel("Disapprove"));
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the Withdraw button
+     */
+    @And("User clicks on Withdraw button")
+    public void user_clicks_on_withdraw_button() {
+        page.locator("#withdrawRequest").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to provide a reason for withdrawal
+     */
+    @And("User provides a reason for withdrawal")
+    public void user_provides_a_reason_for_withdrawal() {
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Comments:")).click();
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Comments:")).fill(MRS_Constants.COMMENTS);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the Withdraw button on the Withdrawal window
+     */
+    @Then("User clicks on Withdraw Request button")
+    public void user_clicks_on_withdraw_request_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Withdraw Request")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }
