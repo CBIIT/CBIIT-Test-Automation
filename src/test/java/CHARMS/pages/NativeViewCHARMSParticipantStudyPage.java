@@ -59,7 +59,7 @@ public class NativeViewCHARMSParticipantStudyPage {
     /**
      * Question Banks Tab
      */
-    @FindBy(xpath = "//span[@class ='tab_caption_text' and contains(text(), 'Question Banks')]")
+    @FindBy(xpath = "//span[@class ='tab_caption_text' and contains(text(), 'Questionnaire Banks')]")
     public WebElement questionBanksTab;
 
     /**
@@ -71,13 +71,13 @@ public class NativeViewCHARMSParticipantStudyPage {
     /**
      * Survey Type Physical Activities Survey Text
      */
-    @FindBy(xpath = "//tr[@record_class='x_naci_family_coho_question_bank']//td[normalize-space()='Physical Activities Survey']")
+    @FindBy(xpath = "//td[normalize-space()='Physical Activities Survey']")
     public WebElement physicalActivitiesSurveyText;
 
     /**
      * Question Banks Preview Button
      */
-    @FindBy(xpath = "//*[@data-list_id='x_naci_family_coho_participant_study.x_naci_family_coho_question_bank.participant_study']//child::tbody//child::tr//child::td[2]//child::a")
+    @FindBy(xpath = "//tr[contains(@id, 'x_naci_family_coho_questionnaire_bank')]//a[contains(@aria-label, 'Preview record')]")
     public WebElement questionBanksPreviewButton;
 
     /**
@@ -123,6 +123,12 @@ public class NativeViewCHARMSParticipantStudyPage {
     public WebElement currentReconsentRecordPreviewButton;
 
     /**
+     * Consent record preview button
+     */
+    @FindBy(xpath = "//tr[contains(@id, 'consent')]//a[contains(@aria-label,'Preview record')]")
+    public WebElement consentRecordPreviewButton;
+
+    /**
      * "Do you have a FSID for this participant? If you do, please enter it here." Heading
      */
     @FindBy(xpath = "//input[@placeholder='Enter Subject ID']")
@@ -157,6 +163,12 @@ public class NativeViewCHARMSParticipantStudyPage {
      */
     @FindBy(css = ".gb_close.icon-cross-circle.i12.i12_close")
     public WebElement closeButton;
+
+    /**
+     * "Close" button for pop up "Do you have a FSID for this participant? If you do, please enter it here."
+     */
+    @FindBy(xpath = "//div[@aria-label='Consents, filtering toolbar']//button[@value='sysverb_new'][normalize-space()='New']")
+    public WebElement newConsentButton;
 
     /**
      * Finds and returns the WebElement for the current or previous consent record based on the Current/Previous status

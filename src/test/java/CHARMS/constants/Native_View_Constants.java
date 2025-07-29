@@ -351,6 +351,7 @@ public class Native_View_Constants {
      */
     public static final List<String> consentRecordWasVerbalAssentObtainedDropdownOptions = new ArrayList<>() {
         {
+            add("-- None --");
             add("No");
             add("Yes");
         }
