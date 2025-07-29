@@ -7,7 +7,6 @@ import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-
 import static com.nci.automation.web.TestProperties.getStudyAgnosticUrl;
 
 public class MetforminScreenerSteps extends PageInitializer {
@@ -66,5 +65,10 @@ public class MetforminScreenerSteps extends PageInitializer {
     @Then("data submitted for Metformin participant is verified in Metformin Screener page in NativeView from excel sheet {string}")
     public void data_submitted_for_metformin_participant_is_verified_in_metformin_screener_page_in_native_view_from_excel_sheet(String sheetName) {
         metforminScreenerStepsImpl.participantReferralPageAssertionForMetforminScreener(sheetName);
+    }
+
+    @Then("logout from Native View")
+    public void logout_from_native_view() {
+        metforminScreenerStepsImpl.logoutOfNativeViewPage();;
     }
 }
