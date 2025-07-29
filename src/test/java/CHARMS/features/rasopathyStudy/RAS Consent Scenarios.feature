@@ -19,7 +19,7 @@ Feature: RAS Consent Scenarios
     And consent record data is verified for scenario "<ScreenerScenario>" and collection method "<CollectionMethod>"
     Examples:
       | Email                           | Password   | ScreenerScenario      | CollectionMethod | AccountResetScriptURL                                                                                    |
-      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
+      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult screenerScenarioAdult| CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
   @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3680 @selenium @RAS_Regression1
   Scenario Outline: Verifying consent workflows for an adult participant, and then verifying that a Download Study Consent widget shows on portal and when clicked downloads the most recent Consent Record
@@ -79,8 +79,9 @@ Feature: RAS Consent Scenarios
     Then data submitted for scenario is verified in native from the excel sheet "<ScreenerScenario>"
     And consent record data is verified for scenario "<ScreenerScenario>" and collection method "<CollectionMethod>"
     Examples:
-      | Email                           | Password   | ScreenerScenario         | CollectionMethod | AccountResetScriptURL                                                                                    |
-      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAge11-13 | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
+      | Email                       | Password   | ScreenerScenario         | CollectionMethod | AccountResetScriptURL                                                                                    |
+#      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAge11-13 | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
+      | ras_progression@yopmail.com | Charms123$ | screenerScenarioAge11-13 | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=0e9497c587161ad0ad46326d3fbb35c7 |
 
   @muzipovay2 @RAS_STUDY @CP2-3730 @CP2-3746 @CP2-3747 @selenium @RAS_Regression1
   Scenario: Verifying that when a minor aged 11-13 has completed Assent, the field Assent signed is true in their Native View Consent Record
