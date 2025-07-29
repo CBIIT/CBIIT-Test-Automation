@@ -11,6 +11,18 @@ import static Hooks.Hooks.softAssert;
 
 public class ClinicVisitsStepsImpl extends PageInitializer {
 
+    /**
+     * Adds the following Post Clinic procedures and verifies the data.
+     * - CDs to PPB Registry
+     * - Discharge Summary
+     * - Post-Clinic Collaboration
+     * - Records to PPB Registry
+     * - Reports to Patient
+     * - Summary Letter
+     * - Thank You Letter
+     * - Wrap Up
+     * - Telehealth
+     */
     public void addPostClinicProcedures() {
         RAS_Common_Methods.dynamicTabLocator("Post Clinic").click();
         CommonUtils.sleep(600);

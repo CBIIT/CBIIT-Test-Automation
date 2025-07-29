@@ -33,7 +33,6 @@ public class RAS_Screener_Page extends PageInitializer {
     public WebElement haveYouEverHadGeneticTestingNoRadioButton;
 
     /* I am completing this form for myself option */
-//    @FindBy(xpath = "//span[contains(text(),'I am completing this form for myself')]")
     @FindBy(xpath = "//li[contains(@class,'Selection reg')]//span[contains(@class,'LabelWrapper')]//span[1]")
     public WebElement iAmCompletingThisFormForMyselfOption;
 

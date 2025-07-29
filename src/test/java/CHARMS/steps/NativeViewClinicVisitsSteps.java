@@ -57,7 +57,7 @@ public class NativeViewClinicVisitsSteps {
             nativeViewCHARMSClinicVisitsPage.saveButton.click();
             CommonUtils.sleep(500);
         }
-//        clinic_visit_data_is_verified(sheetName);
+        clinic_visit_data_is_verified(sheetName);
     }
 
     /**
