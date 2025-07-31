@@ -216,6 +216,16 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.federalLeadCloseoutNeedMoreInfoForESRI();
     }
 
+    @And("the user is rejected from a federal lead for closeout approval for ESR-I")
+    public void the_user_is_rejected_from_a_federal_lead_for_closeout_approval_for_esr_i() {
+        ESRApprovalStepsImplementation.federalLeadCloseoutRejectionForESRI();
+    }
+
+    @Then("the user confirms the Federal Lead Closeout Approval was rejected for the ESR-I ticket")
+    public void the_user_confirms_the_federal_lead_closeout_approval_was_rejected_for_the_esr_i_ticket() {
+        ESRApprovalStepsImplementation.confirmFederalLeadCloseoutApprovalWasRejectedForESRI();
+    }
+
     @And("user clicks on Closeout Preparation catalog task and completes it again for ESR-I")
     public void user_clicks_on_closeout_preparation_catalog_task_and_completes_it_again_for_esr_i() {
         ESRApprovalStepsImplementation.completeCloseoutPreparationForESRI();
