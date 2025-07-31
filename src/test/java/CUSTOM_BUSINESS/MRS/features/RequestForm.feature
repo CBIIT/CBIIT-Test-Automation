@@ -3,7 +3,7 @@ Feature: Request Form Flow
 Background: common steps
 Given User is logged in MRS application
 
-@SubmitRequestForm @NESARH2 @playwright @Regression
+@SubmitRequestForm @NESARH2 @playwright @Regression12
 Scenario: Submit a request form on behalf of another person
   When User clicks on Create Request button
   And User enters the "Creating a request through automated test" as Request Title
