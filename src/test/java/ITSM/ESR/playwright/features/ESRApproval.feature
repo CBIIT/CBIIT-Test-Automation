@@ -322,7 +322,7 @@ Feature: ESR Approvals
     And the user is approved from a federal lead for ESR-I closeout approval
     Then the user confirms the Federal Lead Closeout Approval is completed
 
-  @ESR-708 @sarwarahmed1 @Progression @playwright
+  @ESR-708 @sarwarahmed1 @Regression @playwright
   Scenario: Test the "Rejected" approval for Federal Lead Closeout in an ESR-I ticket
     Given a user logs into Native View on the NCI at your service page
     And navigates to create ESR
