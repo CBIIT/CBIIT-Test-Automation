@@ -55,6 +55,7 @@ public class MetforminScreenerConstants {
 	public static final String REMOVE_ALL = "Remove All";
 	public static final String NO_DATA_TO_DISPLAY = "No data to display";
 	public static final String TUMOR_TYPE = "Tumor Type";
+	public static final String ADDITIONAL_INFORMATION = "Additional Information";
 	public static final String AGE = "Age";
 	public static final String HAVE_YOU_THE_PARTICIPANT_HAD_SURGERY_TO_REMOVE_CANCER_LAST_3_MONTHS = "Have you/the participant had surgery to remove a cancer in the last 3 months?";
 	public static final String HAVE_YOU_THE_PARTICIPANT_RECEIVED_CHEMOTHERAPY_OR_RADIATION_LAST_6_MONTHS = "Have you/the participant received chemotherapy or radiation in the last 6 months?";
@@ -89,10 +90,13 @@ public class MetforminScreenerConstants {
 	public static final String MONTH_OF_DIAGNOSIS = "Month of diagnosis";
 	public static final String YEAR_OF_DIAGNOSIS = "Year of diagnosis";
 	public static final String ARE_YOU_THE_PARTICIPANT_CURRENTLY_RECEIVING_TREATMENT = "Are you/the participant currently receiving treatment?";
+	public static final String CURRENTLY_BEING_TREATED = "Currently being treated";
 	public static final String TYPE_UNKNOWN_UNSURE_IF_YOU_ARE_NOT_SURE = "Type Unknown/Unsure if you are not sure.";
 	public static final String PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_DIAGNOSED = "Please provide the name of the institution where the cancer was diagnosed.";
 	public static final String PLEASE_PROVIDE_THE_NAME_OF_THE_INSTITUTION_WHERE_THE_CANCER_WAS_TREATED = "Please provide the name of the institution where the cancer was treated.";
 	public static final String PLEASE_PROVIDE_THE_NAME_OF_THE_TREATING_PHYSICIAN = "Please provide the name of the treating physician.";
+	public static final String TREATMENT_INSTITUTION = "Treatment Institution";
+	public static final String TREATING_PHYSICIAN = "Treating Physician";
 	public static final String ADDITIONAL_DETAILS = "Additional Details";
 	public static final String SUBMIT_SCREEN_TEXT1 = "Submit Screen Text1";
 	public static final String SUBMIT_SCREEN_TEXT2 = "Submit Screen Text2";
@@ -119,6 +123,7 @@ public class MetforminScreenerConstants {
 	public static final String PROXY_PREFERRED_PHONE = "Proxy Preferred Phone";
 	public static final String MIDDLE_NAME = "Middle Name";
 	public static final String PREFERRED_CONTACT = "Preferred Contact";
+	public static final String WHEN_DID_YOU_THE_PARTICIPANT_STOP_TAKING_METFORMIN = "When did you/the participant stop taking Metformin?";
 
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> VITAL_STATUS_LIST = new ArrayList<String>() {
@@ -137,6 +142,15 @@ public class MetforminScreenerConstants {
 			add("-- None --");
 			add("Yes, I am completing this form for someone else");
 			add("No, I am completing this form for myself");
+		}
+	};
+
+	@SuppressWarnings("serial")
+	public static final ArrayList<String> YES_NO_UNSURE_UNKNOWN = new ArrayList<String>() {
+		{
+			add("Yes");
+			add("No");
+			add("Unknown/Unsure");
 		}
 	};
 

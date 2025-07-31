@@ -17,19 +17,44 @@ public class MetforminScreenerPage extends CommonUtils {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//label[contains(text(),'" + text + "')])[1]"));
     }
 
-    /*** Method to dynamically locate elements e.g //span[normalize-space()="Do we have your/the participant's?"] */
-    public WebElement dynamicLocatorUsingNormalizeSpaceSpan(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//span[normalize-space()=\"" + text + "\"]"));
+    /*** Method to dynamically locate elements */
+    public WebElement dynamicLocatorUsingNormalizeSpace(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//*[normalize-space()='" + text + "'])[1]"));
     }
 
-    /*** Method to dynamically locate elements e.g (//span[contains(text(),"Please list your/the participant's phone numbers b")])[1] */
-    public WebElement dynamicLocatorUsingSpanContainText(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//span[contains(text(),\"" + text + "\")])[1]"));
+    /*** Method to dynamically locate elements */
+    public WebElement dynamicLocatorForButtonUsingNormalizeSpace(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//button[normalize-space()='" + text + "'])[1]"));
+    }
+
+    /*** Method to dynamically locate Text Boxes */
+    public WebElement dynamicLocatorTextBoxUsingP(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//p[normalize-space()='" + text + "']"));
     }
 
     /*** Method to dynamically locate elements e.g (//p[contains(text(),'Please feel free to call at any time if you have a')])[1] */
     public WebElement dynamicLocatorUsingPContainText(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//p[contains(text(),'" + text + "')])[1]"));
+    }
+
+    /*** Method to dynamically locate elements in Native View */
+    public WebElement dynamicLocatorContainsText(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'" + text + "')]"));
+    }
+
+    /*** Method to dynamically locate Text Boxes */
+    public WebElement dynamicLocatorTextBoxUsingH2(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//h2[normalize-space()='" + text + "']"));
+    }
+
+    /*** Method to dynamically locate Text Boxes */
+    public WebElement dynamicLocatorTextBoxUsingH(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//h3[normalize-space()='" + text + "']"));
+    }
+
+    /*** Method to dynamically locate elements */
+    public WebElement dynamicLocatorWithAUsingNormalizeSpace(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//a[normalize-space()='" + text + "'])[1]"));
     }
 
     /*** Method to dynamically locate elements e.g (//th[normalize-space()='Actions'])[1] */
@@ -40,6 +65,16 @@ public class MetforminScreenerPage extends CommonUtils {
     /*** Method to dynamically locate TextBoxes  e.g  (//td[normalize-space()='No data to display'])[1] */
     public WebElement dynamicLocatorUsingTDTag(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//td[normalize-space()= '" + text + "'])[1]"));
+    }
+
+    /*** Method to dynamically locate elements e.g //span[normalize-space()="Do we have your/the participant's?"] */
+    public WebElement dynamicLocatorUsingNormalizeSpaceSpan(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//span[normalize-space()=\"" + text + "\"]"));
+    }
+
+    /*** Method to dynamically locate elements e.g (//span[contains(text(),"Please list your/the participant's phone numbers b")])[1] */
+    public WebElement dynamicLocatorUsingSpanContainText(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//span[contains(text(),\"" + text + "\")])[1]"));
     }
 
     /*** Method to dynamically locate elements e.g (//span[@aria-label="Are you/the participant adopted?"])[1] */
@@ -83,51 +118,6 @@ public class MetforminScreenerPage extends CommonUtils {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//span[@title='[" + text + "]'])[" + i + "]"));
     }
 
-    /*** Method to dynamically locate Input Values e.g (//input[@aria-label='Work Phone Number'])[1] */
-    public WebElement dynamicLocatorForInputElementInMetforminScreener(String text, int index) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@aria-label='" + text + "'])[" + index + "]"));
-    }
-
-    /*** Method to dynamically locate Input Values e.g (//input[@name='email_address'])[1] */
-    public WebElement dynamicLocatorForInputElementUsingNameInMetforminScreener(String text, int index) {
-        return WebDriverUtils.webDriver.findElement(By.xpath(" (//input[@name='" + text + "'])[" + index + "]"));
-    }
-
-    /*** Method to dynamically locate Text Boxes */
-    public WebElement dynamicLocatorTextBoxUsingP(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//p[normalize-space()='" + text + "']"));
-    }
-
-    /*** Method to dynamically locate Text Boxes */
-    public WebElement dynamicLocatorTextBoxUsingH(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//h3[normalize-space()='" + text + "']"));
-    }
-
-    /*** Method to dynamically locate Text Boxes */
-    public WebElement dynamicLocatorTextBoxUsingH2(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//h2[normalize-space()='" + text + "']"));
-    }
-
-    /*** Method to dynamically locate elements */
-    public WebElement dynamicLocatorWithAUsingNormalizeSpace(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//a[normalize-space()='" + text + "'])[1]"));
-    }
-
-    /*** Method to dynamically locate elements */
-    public WebElement dynamicLocatorUsingNormalizeSpace(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//*[normalize-space()='" + text + "'])[1]"));
-    }
-
-    /*** Method to dynamically locate elements */
-    public WebElement dynamicLocatorForButtonUsingNormalizeSpace(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//button[normalize-space()='" + text + "'])[1]"));
-    }
-
-    /*** Method to dynamically locate Input Value elements in Native View */
-    public WebElement dynamicLocatorForInputElements(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_display.x_naci_family_coho_participant_study." + text + "'])[1]"));
-    }
-
     /*** Method to dynamically locate elements in Native View */
     public WebElement dynamicLocatorUsingSpanNormalizeSpace(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//span[normalize-space()='" + text + "'])[1]"));
@@ -138,39 +128,69 @@ public class MetforminScreenerPage extends CommonUtils {
         return WebDriverUtils.webDriver.findElement(By.xpath("//span[@class='label-text'][normalize-space()='" + text + "']"));
     }
 
-    /*** Method to dynamically locate Input Display Read Value elements in metformin Study Screener in Native View */
-    public WebElement dynamicLocatorForDisplayReadOnlyInputElementsInFAScreener(String text) {
+    /*** Method to dynamically locate elements in Native View  E.g  (//span[@class='label-text'][contains(text(),'Are you/the participant currently undergoing treat')])[1]*/
+    public WebElement dynamicLocatorUsingContainsText(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//span[@class='label-text'][contains(text(),'" + text + "')])[1]"));
+    }
+
+    /*** Method to dynamically locate Input Values e.g (//input[@aria-label='Work Phone Number'])[1] */
+    public WebElement dynamicLocatorForInputElementInMetforminScreener(String text, int index) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@aria-label='" + text + "'])[" + index + "]"));
+    }
+
+    /*** Method to dynamically locate Input Values e.g (//input[@name='email_address'])[1] */
+    public WebElement dynamicLocatorForInputElementUsingNameInMetforminScreener(String text, int index) {
+        return WebDriverUtils.webDriver.findElement(By.xpath(" (//input[@name='" + text + "'])[" + index + "]"));
+    }
+
+    /*** Method to dynamically locate Input Value elements in Native View */
+    public WebElement dynamicLocatorForInputElements(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_display.x_naci_family_coho_participant_study." + text + "'])[1]"));
+    }
+
+    /*** Method to dynamically locate Input Display Read Value elements in metformin Study Screener in Native View  For eg (//input[@id='sys_display.x_naci_family_coho_metformin_study_screener.biological_sex_ref'])[1]*/
+    public WebElement dynamicLocatorForDisplayReadOnlyInputElements(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_display.x_naci_family_coho_metformin_study_screener." + text + "'])[1]"));
     }
 
     /*** Method to dynamically locate Input Read Value elements in metformin Study Screener in Native View */
-    public WebElement dynamicLocatorForReadOnlyInputElementsInFAScreener(String text) {
+    public WebElement dynamicLocatorForReadOnlyInputElements(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='sys_readonly.x_naci_family_coho_metformin_study_screener." + text + "'])[1]"));
     }
 
     /*** Method to dynamically locate Input Value elements in metformin Study Screener in Native View  for eg (//input[@id='x_naci_family_coho_metformin_study_screener.number'])[1] */
-    public WebElement dynamicLocatorForInputElementsInFAScreener(String text) {
+    public WebElement dynamicLocatorForInputElement(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='x_naci_family_coho_metformin_study_screener." + text + "'])[1]"));
     }
 
     /*** Method to dynamically locate Input Value elements of family member in metformin Study Screener in Native View */
-    public WebElement dynamicLocatorForInputElementsOfFamilyInMetforminScreener(String text) {
+    public WebElement dynamicLocatorForInputElementsOfFamily(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@name='x_naci_family_coho_metformin_study_screener." + text + "'])[1]"));
     }
 
+    /*** Method to dynamically locate Input Value elements  E.g (//input[@id='x_naci_family_coho_mock_up_intake_patient_cancer.age_in_years_at_diagnosis'])[1] */
+    public WebElement dynamicLocatorForCancerInputElements(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@id='x_naci_family_coho_mock_up_intake_patient_cancer." + text + "'])[1]"));
+    }
+
+    /*** Method to dynamically locate Input Value elements  E.g   (//select[@id='x_naci_family_coho_mock_up_intake_patient_cancer.month_of_diagnosis'])[1] */
+    public WebElement dynamicLocatorForCancerSelectElements(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='x_naci_family_coho_mock_up_intake_patient_cancer." + text + "'])[1]"));
+    }
+
     /*** Method to dynamically locate Select Value elements in metformin Screener page in Native View */
-    public WebElement dynamicLocatorForSelectElementsInFAScreenerPage(String text) {
+    public WebElement dynamicLocatorForSelectElements(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@name='x_naci_family_coho_metformin_study_screener.family_member_record." + text + "'])[1]"));
     }
 
-    /*** Method to dynamically locate Select Value elements in metformin Screener page in Native View */
-    public WebElement dynamicLocatorForSelectElementInFAScreenerPage(String text) {
+    /*** Method to dynamically locate Select Value elements in metformin Screener page in Native View  eg (//select[@id='x_naci_family_coho_metformin_study_screener.participated_li_fraumeni'])[1]*/
+    public WebElement dynamicLocatorForSelectElement(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@id='x_naci_family_coho_metformin_study_screener." + text + "'])[1]"));
     }
 
-    /*** Method to dynamically locate elements in Native View */
-    public WebElement dynamicLocatorContainsText(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'" + text + "')]"));
+    /*** Method to dynamically locate Select Value elements in metformin Screener page in Native View  eg (//textarea[@id='x_naci_family_coho_metformin_study_screener.health_care_prov_address'])[1] */
+    public WebElement dynamicLocatorForTextArea(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//textarea[@id='x_naci_family_coho_metformin_study_screener." + text + "'])[1]"));
     }
 
     @FindBy(css = "span[ng-if=\"$last\"]")
@@ -287,12 +307,18 @@ public class MetforminScreenerPage extends CommonUtils {
     @FindBy(xpath = "(//select[@name='x_naci_family_coho_metformin_study_screener.participant_study.enrollment_status'])[1]")
     public WebElement nVFScreenerEnrollmentStatus;
 
-    @FindBy(xpath = "(//a[@aria-label='Preview record: '])[2]")
-    public WebElement nVPreviewButtonLocator;
+    @FindBy(xpath = "(//p[@id='x_naci_family_coho_metformin_study_screener.main_reasons_for_participating_nonedit'])[1]")
+    public WebElement nVMetforminScreenerMainReasonsForParticipating;
 
-    @FindBy(xpath = "(//a[@title='Preview record'])[3]")
-    public WebElement nVPreviewButtonLocator1;
+    @FindBy(xpath = "(//a[@aria-label='Preview record: null'])[1]")
+    public WebElement nVMetforminScreenerCancerPreviewRecord;
 
-    @FindBy(xpath = "(//a[normalize-space()='Open Record'])[1]")
-    public WebElement nVFamilyMembersOpenRecordButton;
+    @FindBy(xpath = "(//input[@id='sys_display.x_naci_family_coho_mock_up_intake_patient_cancer.tumor_type'])[1]")
+    public WebElement nVMetforminScreenerTumorTypeInput;
+
+    @FindBy(xpath = " (//textarea[@id='x_naci_family_coho_mock_up_intake_patient_cancer.additional_details'])[1]")
+    public WebElement nVMetforminScreenerAdditionalDetailsInput;
+
+    @FindBy(xpath = "(//p[@id='x_naci_family_coho_metformin_study_screener.participate_race_nonedit'])[1]")
+    public WebElement nVScreenerRace;
 }

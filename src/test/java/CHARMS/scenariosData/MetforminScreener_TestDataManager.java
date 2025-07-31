@@ -70,6 +70,7 @@ public class MetforminScreener_TestDataManager extends PageInitializer {
     public String howWouldYouLikeToProvideYourGeneticTestResults;
     public String deliveryHelpText;
     public String tumorType;
+    public String additionalInformation;
     public String age;
     public String pleaseProvideTheDateOfSurgery;
     public String listAllMedicationsAndSeparateWithASemicolon;
@@ -106,6 +107,7 @@ public class MetforminScreener_TestDataManager extends PageInitializer {
     public String proxyContactWorkPhone;
     public String proxyPreferredPhone;
     public String preferredContact;
+    public String whenDidYouTheParticipantStopTakingMetformin;
 
     /* FETCHING DATA FROM EXCEL BEFORE SUBMITTING METFORMIN SCREENER FORM */
     public void dataInitializerMetforminScreener(String sheetName) {
@@ -157,6 +159,7 @@ public class MetforminScreener_TestDataManager extends PageInitializer {
             wereYouTheParticipantDiagnosedWithCongenitalLacticAcidosis = testDataForMetforminScreener.get(MetforminScreenerConstants.WERE_YOU_THE_PARTICIPANT_DIAGNOSED_WITH_CONGENITAL_LACTIC_ACIDOSIS);
             haveYouTheParticipantEverBeenDiagnosedWithCancer = testDataForMetforminScreener.get(MetforminScreenerConstants.HAVE_YOU_THE_PARTICIPANT_EVER_BEEN_DIAGNOSED_WITH_CANCER);
             tumorType = testDataForMetforminScreener.get(MetforminScreenerConstants.TUMOR_TYPE);
+            additionalInformation = testDataForMetforminScreener.get(MetforminScreenerConstants.ADDITIONAL_INFORMATION);
             age = testDataForMetforminScreener.get(MetforminScreenerConstants.AGE);
             pleaseSelectAgeOrDateForReporting = testDataForMetforminScreener.get(MetforminScreenerConstants.PLEASE_SELECT_AGE_OR_DATE_FOR_REPORTING);
             ageAtDiagnosis = testDataForMetforminScreener.get(MetforminScreenerConstants.AGE_AT_DIAGNOSIS);
@@ -177,6 +180,7 @@ public class MetforminScreener_TestDataManager extends PageInitializer {
             haveYouTheParticipantTakenMetforminForMoreThan3MonthsInTotal = testDataForMetforminScreener.get(MetforminScreenerConstants.HAVE_YOU_THE_PARTICIPANT_TAKEN_METFORMIN_FOR_MORE_THAN_3_MONTHS_IN_TOTAL);
             haveYouTheParticipantEverTakenMetformin = testDataForMetforminScreener.get(MetforminScreenerConstants.HAVE_YOU_THE_PARTICIPANT_EVER_TAKEN_METFORMIN);
             areYouTheParticipantCurrentlyTakingMetformin = testDataForMetforminScreener.get(MetforminScreenerConstants.ARE_YOU_THE_PARTICIPANT_CURRENTLY_TAKING_METFORMIN);
+            whenDidYouTheParticipantStopTakingMetformin= testDataForMetforminScreener.get(MetforminScreenerConstants.WHEN_DID_YOU_THE_PARTICIPANT_STOP_TAKING_METFORMIN);
             howDidYouTheParticipantHearAboutThisStudy = testDataForMetforminScreener.get(MetforminScreenerConstants.HOW_DID_YOU_THE_PARTICIPANT_HEAR_ABOUT_THIS_STUDY);
             hereAreAFewRemainingQuestionsRegardingThisStudy = testDataForMetforminScreener.get(MetforminScreenerConstants.HERE_ARE_A_FEW_REMAINING_QUESTIONS_REGARDING_THIS_STUDY);
             name = testDataForMetforminScreener.get(MetforminScreenerConstants.NAME);
