@@ -177,7 +177,7 @@ public class ManageDelegationAndApprovalHierarchy {
     }
 
     /**
-     * This method is used to select a new Delegate and delete if it exists
+     * This method is used to select a new Delegate and delete the existing if any
      */
     @And("User selects a Delegate")
     public void user_selects_a_delegate() {

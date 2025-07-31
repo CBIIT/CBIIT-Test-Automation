@@ -24,7 +24,7 @@ Scenario: Setup Approval Hierarchy as an Admin - Manage Approval Hierarchy
   And User clicks on Add button
   Then User clicks on Save button and verifies the success message
 
-@AssignMyDelegate @NESARH2 @playwright @Regression1
+@AssignMyDelegate @NESARH2 @playwright @Regression
 Scenario: Assign My Delegate as a user
   When a user clicks on My Delegation
   And User selects Temporary as Delegation Type
