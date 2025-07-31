@@ -322,6 +322,22 @@ Feature: ESR Approvals
     And the user is approved from a federal lead for ESR-I closeout approval
     Then the user confirms the Federal Lead Closeout Approval is completed
 
+  @ESR-708 @sarwarahmed1 @Progression @playwright
+  Scenario: Test the "Rejected" approval for Federal Lead Closeout in an ESR-I ticket
+    Given a user logs into Native View on the NCI at your service page
+    And navigates to create ESR
+    And fills out all required information for ESR-I and clicks submit
+    And user clicks on Intake Preparation catalog task
+    And user fills out all required information for ESR-I Intake Preparation
+    And the user is approved from a federal lead
+    And ESR Board Intake Review catalog task is completed
+    And the user is approved from the ESR Board approvers
+    And the Engineering Project Execution catalog task is completed
+    And the Closeout Preparation catalog task for ESR-I is completed
+    And the user is approved from the Operational POC
+    And the user is rejected from a federal lead for closeout approval for ESR-I
+    Then the user confirms the Federal Lead Closeout Approval was rejected for the ESR-I ticket
+
   @ESR-712 @sarwarahmed1 @Regression @playwright
   Scenario: Test the ESR Board Closeout Review approvals in an ESR-Q ticket
     Given a user logs into Native View on the NCI at your service page
