@@ -226,7 +226,6 @@ public class ESRApprovalSteps {
         ESRApprovalStepsImplementation.confirmFederalLeadCloseoutApprovalWasRejectedForESRI();
     }
 
-
     @And("user clicks on Closeout Preparation catalog task and completes it again for ESR-I")
     public void user_clicks_on_closeout_preparation_catalog_task_and_completes_it_again_for_esr_i() {
         ESRApprovalStepsImplementation.completeCloseoutPreparationForESRI();
