@@ -390,6 +390,7 @@ public class CharmsUtil {
      * @param errorMessage  the error message to throw in case of assertion failure
      */
     public static void verifyInputField(WebElement inputFieldElm, String expectedValue, String errorMessage) {
+        CharmsUtil.labelHighlight(inputFieldElm);
         softAssert.assertEquals(CommonUtils.getAttributeValueOfValueAttribute(inputFieldElm), expectedValue, errorMessage);
     }
 

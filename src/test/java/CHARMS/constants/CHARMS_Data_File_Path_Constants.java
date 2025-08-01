@@ -13,7 +13,7 @@ public class CHARMS_Data_File_Path_Constants {
     public static final String RAS_SCENARIO_AGE_11_13_DATA = System.getProperty("user.dir") + "/src/test/java/CHARMS/Resources/RASScenario_Consent_Age_11-13.xlsx";
     public static final String RAS_SCENARIO_AGE_14_17_DATA = System.getProperty("user.dir") + "/src/test/java/CHARMS/Resources/RASScenario_Consent_Age_14-17.xlsx";
     public static final String RAS_SCENARIO_ADULT_NEEDS_LAR = System.getProperty("user.dir") + "/src/test/java/CHARMS/Resources/RASScenario_Consent_Adult_Needs_LAR.xlsx";
-    public static final String RAS_SCENARIO_ADULT = System.getProperty("user.dir") + "/src/test/java/CHARMS/Resources/RASScenario_Consent_Adult.xlsx";
+    public static final String RAS_SCENARIO_ADULT = System.getProperty("user.dir") + "/src/test/java/CHARMS/resources/RASScenario_Consent_Adult.xlsx";
     public static final String QBANK_SURVEYS = System.getProperty("user.dir") + "/src/test/java/CHARMS/resources/QBankSurveys.xlsx";
     public static final String FAMILY_COHORT_STUDY_PDF_PATH = System.getProperty("user.dir")+"/src/test/java/CHARMS/Resources/Family Cohort Study Consent.pdf";
     public static final String IIQ_SAMPLE_FORM = "https://ncidccpssurveys.gov1.qualtrics.com/jfe/form/SV_37PVCadeAqdT6Ki?family_member_id=5671bd521bafa1106daea681f54bcb68&study=RASopathies";

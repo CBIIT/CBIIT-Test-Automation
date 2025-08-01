@@ -7,6 +7,7 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
+import static Hooks.Hooks.softAssert;
 
 public class RasScenario2StepsImpl extends PageInitializer {
 
@@ -19,6 +20,9 @@ public class RasScenario2StepsImpl extends PageInitializer {
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(16));
         CommonUtils.assertEqualsWithMessage(iiq_TestDataManager.someOfThisInformationText, myRASSurveyPage.dynamicTopText(16).getText(), "-- VERIFYING SOME OF THIS INFORMATION TEXT --");
+        ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(187));
+        softAssert.assertEquals(iiq_TestDataManager.thisQuestionnaireShouldTakeYouApproximately30MinutesText, myRASSurveyPage.dynamicTopText(187).getText(), "-- THIS QUESTIONNAIRE SHOULD TAKE APPROXIMATELY 30 MINUTES TO COMPLETE TEXT --");
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(35));
         CommonUtils.assertEqualsWithMessage(iiq_TestDataManager.thisFirstSectionOfTheQuestionnaireText, myRASSurveyPage.dynamicTopText(35).getText(), "-- VERIFYING THIS FIRST QUESTION OF THE QUESTIONNAIRE TEXT --");
@@ -43,10 +47,8 @@ public class RasScenario2StepsImpl extends PageInitializer {
             CucumberLogUtils.logScreenshot();
         }
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(92));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(18));
         CommonUtils.sleep(2000);
-        rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.forWhichSexDoYouIdentifyRadioButton).click();
-        CucumberLogUtils.logScreenshot();
         ras_screenerSubmissions_stepsImpl.clickOnScreenerNextButton();
         try {
             CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.doYouConsiderYourselfToBeRadioButton));

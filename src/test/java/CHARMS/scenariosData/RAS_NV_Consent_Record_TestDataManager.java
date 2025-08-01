@@ -65,32 +65,25 @@ public class RAS_NV_Consent_Record_TestDataManager extends PageInitializer {
          */
         if (sheetName.equals("screenerScenarioAdult") && collectionMethod.equals("CHARMS e-consent")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ADULT, "CHARMS e-consent");
-        }
-        else if (sheetName.equals("screenerScenarioAdult") && collectionMethod.equals("iMed")) {
+        } else if (sheetName.equals("screenerScenarioAdult") && collectionMethod.equals("iMed")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ADULT, "iMed");
-        }
-        else if (sheetName.equals("screenerScenarioAdult")) {
+        } else if (sheetName.equals("screenerScenarioAdult") && collectionMethod.equals("Participant upload to portal")) {
+            TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ADULT, "Participant upload to portal");
+        } else if (sheetName.equals("screenerScenarioAdult")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ADULT, "Consent");
-        }
-        else if (sheetName.equals("screenerScenario2")) {
+        } else if (sheetName.equals("screenerScenario2")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_TWO_DATA, "Consent");
-        }
-        else if (sheetName.equals("screenerScenarioAdult-NeedsLAR") && collectionMethod.equals("CHARMS e-consent")) {
+        } else if (sheetName.equals("screenerScenarioAdult-NeedsLAR") && collectionMethod.equals("CHARMS e-consent")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ADULT, "CHARMS e-consent");
-        }
-        else if (sheetName.equals("screenerScenarioAdult-NeedsLAR")) {
+        } else if (sheetName.equals("screenerScenarioAdult-NeedsLAR")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ADULT_NEEDS_LAR, "Consent");
-        }
-        else if (sheetName.equals("screenerScenarioAgeUnder7")) {
+        } else if (sheetName.equals("screenerScenarioAgeUnder7")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_UNDER_7, "Consent");
-        }
-        else if (sheetName.equals("screenerScenarioAge7-10")) {
+        } else if (sheetName.equals("screenerScenarioAge7-10")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_7_10_DATA, "Consent");
-        }
-        else if (sheetName.equals("screenerScenarioAge11-13")) {
+        } else if (sheetName.equals("screenerScenarioAge11-13")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_11_13_DATA, "Consent");
-        }
-        else if (sheetName.equals("screenerScenarioAge14-17")) {
+        } else if (sheetName.equals("screenerScenarioAge14-17")) {
             TEST_DATA_FOR_NV_CONSENT_RECORD = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_AGE_14_17_DATA, "Consent");
         }
         CONSENT_CALL_SCHEDULED_TIME = TEST_DATA_FOR_NV_CONSENT_RECORD.get("Consent call scheduled time");
