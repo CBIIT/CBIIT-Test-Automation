@@ -176,7 +176,6 @@ public class ManageDelegationAndApprovalHierarchy {
     }
 
     /**
-     * This method is used to select a new Delegate and delete the existing if any
      * This method checks if the second approver is already present,
      * if so, it deletes the existing delegate and then selects a new delegate.
      * If the second approver is not present, it simply selects the new delegate.
