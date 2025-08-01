@@ -171,12 +171,14 @@ public class PageInitializer extends WebDriverUtils {
 	public static NV_Clinic_Visits_TestDataManager nv_Clinic_Visits_TestDataManager;
 	public static NV_New_Appointment_TestDataManager nv_New_Appointment_TestDataManager;
 	public static NV_Subject_Flags_TestDataManager nv_subject_flags_testDataManager;
+	public static NV_Screening_Follow_Up_TestDataManager nv_screening_follow_up_testDataManager;
 	public static ReferralTablePage referralTablePage;
 	public static FanconiEligibilityQuestionnairePage fanconiEligibilityQuestionnairePage;
 	public static FanconiScreenerNVPage fanconiScreenerNVPage;
 	public static FanconiLoginPage fanconiLoginPage;
 	public static CHARMSParticipantDetailsPage cHARMSParticipantDetailsPage;
 	public static ClinicVisitsStepsImpl clinicVisitsStepsImpl;
+	public static NativeViewScreeningFollowUpStepsImpl nativeViewScreeningFollowUpStepsImpl;
 	public static FanconiEligibilityQuestionnaireStepsImpl fanconiEligibilityQuestionnaireStepsImpl;
 	public static NativeViewCHARMSScreenerRecordTablePage nativeViewCHARMSScreenerRecordTablePage;
 	public static MyRASSurveyPage myRASSurveyPage;
@@ -400,6 +402,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSPhysicalActivitiesSurveyPage nativeViewCHARMSPhysicalActivitiesSurveyPage;
 	public static NativeViewCHARMSAddNewParticipantPage nativeViewCHARMSAddNewParticipantPage;
 	public static NativeViewCHARMSSubjectFlagsPage nativeViewCHARMSSubjectFlagsPage;
+	public static NativeViewScreeningFollowUpPage nativeViewScreeningFollowUpPage;
 	public static NativeViewCGBIIQPage nativeViewCGBIIQPage;
 
 	/** --------------- EGRANTS INSTANCES --------------- */
@@ -498,6 +501,7 @@ public class PageInitializer extends WebDriverUtils {
 		nv_Clinic_Visits_TestDataManager = new NV_Clinic_Visits_TestDataManager();
 		nv_New_Appointment_TestDataManager = new NV_New_Appointment_TestDataManager();
 		nv_subject_flags_testDataManager = new NV_Subject_Flags_TestDataManager();
+		nv_screening_follow_up_testDataManager = new NV_Screening_Follow_Up_TestDataManager();
 		cgbIIQPage = new CGBIIQPage();
 		cGBIIQPages = new CGBIIQPages();
 		rAS_Survey_Page = new RAS_Survey_Page();
@@ -515,6 +519,7 @@ public class PageInitializer extends WebDriverUtils {
 		fanconiScreenerNVPage = new FanconiScreenerNVPage();
 		cHARMSParticipantDetailsPage = new CHARMSParticipantDetailsPage();
 		clinicVisitsStepsImpl = new ClinicVisitsStepsImpl();
+		nativeViewScreeningFollowUpStepsImpl = new NativeViewScreeningFollowUpStepsImpl();
 		fanconiEligibilityQuestionnaireStepsImpl = new FanconiEligibilityQuestionnaireStepsImpl();
 		nativeViewCHARMSScreenerRecordTablePage = new NativeViewCHARMSScreenerRecordTablePage();
 		myRASIIQFormPage = new MyRASIIQFormPage();
@@ -707,6 +712,7 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSPhysicalActivitiesSurveyPage = new NativeViewCHARMSPhysicalActivitiesSurveyPage();
 		nativeViewSSJReportsPage = new NativeViewSSJReportsPage();
 		nativeViewCHARMSSubjectFlagsPage = new NativeViewCHARMSSubjectFlagsPage();
+		nativeViewScreeningFollowUpPage = new NativeViewScreeningFollowUpPage();
 		nativeViewCGBIIQPage = new NativeViewCGBIIQPage();
 
 		/****** GRANTS INSTANCES *******/

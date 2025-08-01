@@ -20,11 +20,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+
 import static CHARMS.stepsImplementation.RASStudy.RASConsentStepsImpl.clicksTab;
 import static Hooks.Hooks.softAssert;
 import static CHARMS.pages.MyRASHomePage.dynamicModuleLocator;
@@ -1377,5 +1379,13 @@ public class RAS_All_Steps extends PageInitializer {
         CommonUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+    }
+
+    /**
+     * Method for logging out of Native View.
+     */
+    @When("logs out of Native View")
+    public static void logOutOfNativeView() {
+        ServiceNow_Common_Methods.logOutOfNativeView();
     }
 }

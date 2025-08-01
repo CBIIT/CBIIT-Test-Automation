@@ -18,8 +18,8 @@ Feature: RAS Consent Scenarios
     And "Download Study Consent" text shows on participant portal and when clicked downloads "Consent Record"
     And consent record data is verified for scenario "<ScreenerScenario>" and collection method "<CollectionMethod>"
     Examples:
-      | Email                           | Password   | ScreenerScenario      | CollectionMethod | AccountResetScriptURL                                                                                    |
-      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult screenerScenarioAdult| CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
+      | Email                           | Password   | ScreenerScenario                            | CollectionMethod | AccountResetScriptURL                                                                                    |
+      | consent_participant@yopmail.com | Charms123$ | screenerScenarioAdult screenerScenarioAdult | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
   @muzipovay2 @RAS_STUDY @CP2-3603 @CP2-3680 @selenium @RAS_Regression1
   Scenario Outline: Verifying consent workflows for an adult participant, and then verifying that a Download Study Consent widget shows on portal and when clicked downloads the most recent Consent Record
@@ -79,7 +79,7 @@ Feature: RAS Consent Scenarios
     Then data submitted for scenario is verified in native from the excel sheet "<ScreenerScenario>"
     And consent record data is verified for scenario "<ScreenerScenario>" and collection method "<CollectionMethod>"
     Examples:
-      | Email                       | Password   | ScreenerScenario         | CollectionMethod | AccountResetScriptURL                                                                                    |
+      | Email                           | Password   | ScreenerScenario         | CollectionMethod | AccountResetScriptURL                                                                                    |
       | consent_participant@yopmail.com | Charms123$ | screenerScenarioAge11-13 | CHARMS e-consent | https://service-test.nci.nih.gov/nav_to.do?uri=sys_script_fix.do?sys_id=b8daf9fa872096107e87a8a60cbb3597 |
 
   @muzipovay2 @RAS_STUDY @CP2-3730 @CP2-3746 @CP2-3747 @selenium @RAS_Regression1

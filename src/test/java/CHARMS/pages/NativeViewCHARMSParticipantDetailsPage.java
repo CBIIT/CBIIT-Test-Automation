@@ -237,8 +237,8 @@ public class NativeViewCHARMSParticipantDetailsPage extends PageInitializer {
     public WebElement contactZipCode;
 
     /* CONTACT COUNTRY DROP DOWN */
-    @FindBy(xpath = "//select[@id='x_naci_family_coho_family_history_details.country']")
-    public WebElement contactCountryDropDown;
+    @FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_family_history_details.contact_country']")
+    public WebElement contactCountryInputField;
 
     /* CONTACT EMAIL */
     @FindBy(xpath = "//input[@id='x_naci_family_coho_family_history_details.email_address']")
@@ -337,6 +337,10 @@ public class NativeViewCHARMSParticipantDetailsPage extends PageInitializer {
     /* PARTICIPANT STUDIES INFO BUTTON */
     @FindBy(xpath = "//tr[@record_class='x_naci_family_coho_participant_study']//td/a[contains(@data-list_id, 'x_naci_family_coho_family_history_details')]")
     public WebElement participantStudiesInfoButton;
+
+    /* SCREENING/FOLLOW-UPS NEW BUTTON */
+    @FindBy(xpath = "//div[@id='list_nav_x_naci_family_coho_family_history_details.x_naci_family_coho_screening_follow_up.participant']//button[@id='sysverb_new']")
+    public WebElement screeningFollowUpsNewButton;
 
     /***
      * MEDICAL INFORMATION SECTION
