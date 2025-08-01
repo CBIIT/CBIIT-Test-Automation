@@ -27,12 +27,11 @@ public class RequestForm {
 
     /**
      * This method is used to enter the Request Title
-     * @param RequestTitle
      */
-    @And("User enters the {string} as Request Title")
-    public void user_enters_the_as_request_title(String RequestTitle) {
+    @And("User enters a Request Title")
+    public void user_enters_a_request_title() {
         page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("  Request Title:")).click();
-        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("  Request Title:")).fill(RequestTitle);
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("  Request Title:")).fill(MRS_Constants.REQUEST_TITLE);
         CucumberLogUtils.playwrightScreenshot(page);
     }
 

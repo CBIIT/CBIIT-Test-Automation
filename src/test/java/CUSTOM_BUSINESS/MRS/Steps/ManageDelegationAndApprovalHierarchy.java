@@ -165,4 +165,172 @@ public class ManageDelegationAndApprovalHierarchy {
         assertThat(page.locator("#messageId")).containsText(MRS_Constants.HIERARCHY_APPROVAL_SUCCESS_MESSAGE);
         CucumberLogUtils.playwrightScreenshot(page);
     }
+
+    /**
+     * This method is used to click on My Delegation
+     */
+    @When("a user clicks on My Delegation")
+    public void a_user_clicks_on_my_delegation() {
+        page.getByText("View or update your").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method checks if the second approver is already present,
+     * if so, it deletes the existing delegate and then selects a new delegate.
+     * If the second approver is not present, it simply selects the new delegate.
+     */
+    @And("User selects a Delegate")
+    public void user_selects_a_delegate() {
+        if (page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(MRS_Constants.SECOND_APPROVER + " [E]")).isVisible()) {
+            page.locator("//tr[td[contains(text(), '" + MRS_Constants.SECOND_APPROVER + "')]]//a[@title='Delete']").click();
+            page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Delete")).click();
+            page.locator("#addDelegateForm_delegateTableBean_delegateTypeTemporary").check();
+        }
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Name")).click();
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Name")).fill(MRS_Constants.SECOND_APPROVER);
+        page.getByText(MRS_Constants.SECOND_APPROVER).click();
+    }
+
+    /**
+     * This method is used to click on the Add button and verify the Delegate is added
+     */
+    @Then("User clicks on Add button and verifies the delegate is added")
+    public void user_clicks_on_add_button_and_verifies_the_delegate_is_added() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add")).click();
+        assertThat(page.locator("#delegateTable")).containsText(MRS_Constants.SECOND_APPROVER+" [E]");
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on Search Requests
+     */
+    @And("User clicks on Search Requests section")
+    public void user_clicks_on_search_requests_section() {
+        page.getByText("Search for relevant Requests").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to enter a value in the Requestor field
+     * @param Requestor
+     */
+    @And("User enters {string} in the Requestor field")
+    public void user_enters_in_the_requestor_field(String Requestor) {
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Requestor Name")).click();
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Requestor Name")).fill(Requestor);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to enter a value in the Approver field
+     * @param Approver
+     */
+    @And("User enters {string} in the Approver field")
+    public void user_enters_in_the_approver_field(String Approver) {
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Approver Name")).click();
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Approver Name")).fill(Approver);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to enter a value in the Author field
+     * @param Author
+     */
+    @And("User enters {string} in Author field")
+    public void user_enters_in_author_field(String Author) {
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Author Name")).click();
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Author Name")).fill(Author);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select an Organization from the Organization field
+     * @param Organization
+     */
+    @And("User selects {string} from the Organization field")
+    public void user_selects_from_the_organization_field(String Organization) {
+        page.locator(".select2-selection").first().click();
+        page.getByPlaceholder("Select organization").fill(Organization);
+        page.getByRole(AriaRole.TREEITEM, new Page.GetByRoleOptions().setName("☐    "+Organization+" (")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select the Publication Type from the Publication Type field
+     * @param PubType
+     */
+    @And("User selects {string} from the Publication Type field")
+    public void user_selects_from_the_publication_type_field(String PubType) {
+        page.getByPlaceholder("Select one or more publication types").click();
+        page.getByPlaceholder("Select one or more publication types").fill(PubType);
+        page.getByRole(AriaRole.TREEITEM, new Page.GetByRoleOptions().setName("☐"+PubType)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select the High Profile Request option
+     * @param HighProfile
+     */
+    @And("User Selects {string} for High Profile Request")
+    public void user_selects_for_high_profile_request(String HighProfile) {
+        page.locator("#criteriaHighProfile"+HighProfile).check();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select the Covid Information option
+     * @param CovidInfo
+     */
+    @And("User selects {string} for Includes Covid Information")
+    public void user_selects_for_includes_covid_information(String CovidInfo) {
+        page.locator("#covid19Flag"+CovidInfo).check();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select the Clinical Trial Information option
+     * @param ClinicalTrialInfo
+     */
+    @And("User selects {string} for Includes Clinical Trial Information")
+    public void user_selects_for_includes_clinical_trial_information(String ClinicalTrialInfo) {
+        page.locator("#clinicalTrialInfoFlag"+ClinicalTrialInfo).check();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to select the Extramural Co-Authors option
+     * @param ExtramuralCoAuthors
+     */
+    @And("User selects {string} for Includes Extramural Co-Authors")
+    public void user_selects_for_includes_extramural_co_authors(String ExtramuralCoAuthors) {
+        page.locator("#extraMuralCoAuthorsFlag"+ExtramuralCoAuthors).check();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the Search button and verify the search results
+     * The search results should contain the Delegate of, Request Title, and at least one row
+     * with the expected text.
+     * If no rows are found, an assertion error is thrown.
+     */
+    @Then("User clicks on Search button")
+    public void user_clicks_on_search_button() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Search").setExact(true)).click();
+        assertThat(page.locator("tbody")).isVisible();
+        assertThat(page.locator("tbody")).containsText(MRS_Constants.DELEGATE_OF+" [E]");
+        assertThat(page.locator("tbody")).containsText(MRS_Constants.REQUEST_TITLE);
+        int rowCount = page.locator("tbody tr").count();
+        assert rowCount > 0 : "NO ROWS FOUND IN SEARCH RESULTS";
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method is used to click on the Export button to export the search results
+     */
+    @And("User clicks on Export button to export the search results")
+    public void user_clicks_on_export_button_to_export_the_search_results() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Export")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
 }

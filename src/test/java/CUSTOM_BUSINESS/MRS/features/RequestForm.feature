@@ -6,7 +6,7 @@ Given User is logged in MRS application
 @SubmitRequestForm @NESARH2 @playwright @Regression
 Scenario: Submit a request form on behalf of another person
   When User clicks on Create Request button
-  And User enters the "Creating a request through automated test" as Request Title
+  And User enters a Request Title
   And User enters "Lam, Tram" in Requestor field
   And User enters "Team Member" as the requestor title
   And User selects "Yes" for Do you want to submit On Behalf Of another NCI Division?
