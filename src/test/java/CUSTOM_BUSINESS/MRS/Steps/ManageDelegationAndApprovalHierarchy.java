@@ -3,7 +3,6 @@ package CUSTOM_BUSINESS.MRS.Steps;
 import CUSTOM_BUSINESS.MRS.StepsImplementation.MRS_Steps_Implementation;
 import CUSTOM_BUSINESS.MRS.Utils.MRS_CommonUtils;
 import CUSTOM_BUSINESS.MRS.Utils.MRS_Constants;
-import com.microsoft.playwright.Download;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -308,11 +307,19 @@ public class ManageDelegationAndApprovalHierarchy {
     }
 
     /**
-     * This method is used to click on the Search button
+     * This method is used to click on the Search button and verify the search results
+     * The search results should contain the Delegate of, Request Title, and at least one row
+     * with the expected text.
+     * If no rows are found, an assertion error is thrown.
      */
     @Then("User clicks on Search button")
     public void user_clicks_on_search_button() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Search").setExact(true)).click();
+        assertThat(page.locator("tbody")).isVisible();
+        assertThat(page.locator("tbody")).containsText(MRS_Constants.DELEGATE_OF+" [E]");
+        assertThat(page.locator("tbody")).containsText(MRS_Constants.REQUEST_TITLE);
+        int rowCount = page.locator("tbody tr").count();
+        assert rowCount > 0 : "NO ROWS FOUND IN SEARCH RESULTS";
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -321,8 +328,7 @@ public class ManageDelegationAndApprovalHierarchy {
      */
     @And("User clicks on Export button to export the search results")
     public void user_clicks_on_export_button_to_export_the_search_results() {
-        Download download = page.waitForDownload(() ->{
-            page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Export")).click();
-        });
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Export")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 }
