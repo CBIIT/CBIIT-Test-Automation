@@ -30,6 +30,7 @@ Feature: Metformin Screener on Online enrollment in NCI Family Studies Hub Porta
     Then data submitted for Metformin participant is verified in Participant Details page in NativeView from excel sheet "<MetforminScreenerScenario>"
     Then data submitted for Metformin participant is verified in Study Screener page in NativeView from excel sheet "<MetforminScreenerScenario>"
     Then data submitted for Metformin participant is verified in Metformin Screener page in NativeView from excel sheet "<MetforminScreenerScenario>"
+    Then logout from Native View
 
     Examples:
       | MetforminScreenerScenario  |
