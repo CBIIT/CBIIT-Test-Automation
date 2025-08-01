@@ -176,17 +176,10 @@ public class ManageDelegationAndApprovalHierarchy {
     }
 
     /**
-     * This method is used to click on the Add button and verify the Delegate is added
-     */
-    @Then("User clicks on Add button and verifies the delegate is added")
-    public void user_clicks_on_add_button_and_verifies_the_delegate_is_added() {
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add")).click();
-        assertThat(page.locator("#delegateTable")).containsText(MRS_Constants.SECOND_APPROVER+" [E]");
-        CucumberLogUtils.playwrightScreenshot(page);
-    }
-
-    /**
      * This method is used to select a new Delegate and delete the existing if any
+     * This method checks if the second approver is already present,
+     * if so, it deletes the existing delegate and then selects a new delegate.
+     * If the second approver is not present, it simply selects the new delegate.
      */
     @And("User selects a Delegate")
     public void user_selects_a_delegate() {
@@ -198,6 +191,16 @@ public class ManageDelegationAndApprovalHierarchy {
         page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Name")).click();
         page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Name")).fill(MRS_Constants.SECOND_APPROVER);
         page.getByText(MRS_Constants.SECOND_APPROVER).click();
+    }
+
+    /**
+     * This method is used to click on the Add button and verify the Delegate is added
+     */
+    @Then("User clicks on Add button and verifies the delegate is added")
+    public void user_clicks_on_add_button_and_verifies_the_delegate_is_added() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add")).click();
+        assertThat(page.locator("#delegateTable")).containsText(MRS_Constants.SECOND_APPROVER+" [E]");
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
