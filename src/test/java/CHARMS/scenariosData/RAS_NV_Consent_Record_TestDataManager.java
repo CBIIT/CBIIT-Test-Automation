@@ -3,7 +3,6 @@ package CHARMS.scenariosData;
 import CHARMS.constants.CHARMS_Data_File_Path_Constants;
 import APPS_COMMON.PageInitializers.PageInitializer;
 import com.nci.automation.utils.ExcelReader;
-
 import java.util.Map;
 
 public class RAS_NV_Consent_Record_TestDataManager extends PageInitializer {

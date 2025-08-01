@@ -1,7 +1,6 @@
 package CHARMS.steps;
 
 import io.cucumber.java.en.Given;
-
 import static APPS_COMMON.PageInitializers.PageInitializer.nativeViewScreeningFollowUpStepsImpl;
 
 public class NativeViewScreeningFollowUpSteps {

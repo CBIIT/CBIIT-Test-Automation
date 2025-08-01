@@ -20,7 +20,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
