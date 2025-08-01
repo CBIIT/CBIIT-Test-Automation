@@ -13,7 +13,7 @@ public class mSigPortalHomePage {
     public static String learnMoreMsigButton = "//div[@class='homepage-title-right']//div[@class='msigportal-home-title-right'][normalize-space()='Learn more about mSigportal >']";
 
     /***
-     * CATALOGUE CARD
+     * CATALOG CARD
      */
     public static String catalogueCard = "//div[contains(@class,'d-none d-lg-block')]//div[@id='Catalog']//div[contains(@class,'mb-3')]//span[1]";
 

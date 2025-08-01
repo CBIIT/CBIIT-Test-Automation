@@ -11,7 +11,7 @@ import static com.nci.automation.web.TestProperties.getMsigPortalUrl;
 import ANALYSIS_TOOLS.mSigPortal.playwright.stepsImplementations.mSigPortalHomeStepsImpl;
 import io.cucumber.java.en.When;
 
-public class mSigPortalHome_Steps {
+public class mSigPortalHomeSteps {
 
     @Given("User navigates to the mSigPortal Website")
     public void user_navigates_to_the_m_sig_portal_website() {
