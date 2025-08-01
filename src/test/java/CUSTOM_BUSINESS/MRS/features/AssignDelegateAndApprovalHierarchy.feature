@@ -39,7 +39,7 @@ Scenario: Search and Export requests in the MRS application
   And User enters "LAM" in the Requestor field
   And User enters "BUCKLEY" in the Approver field
   And User enters "ELLISON" in Author field
-  And User selects "EGRP EEB" from the Organization field
+  And User selects "NCI DCCPS EGRP EEB" from the Organization field
   And User selects "Original Journal Article" from the Publication Type field
   And User Selects "No" for High Profile Request
   And User selects "No" for Includes Covid Information

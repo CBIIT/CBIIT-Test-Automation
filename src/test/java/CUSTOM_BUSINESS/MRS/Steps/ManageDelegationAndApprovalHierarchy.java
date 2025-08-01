@@ -237,7 +237,7 @@ public class ManageDelegationAndApprovalHierarchy {
      */
     @And("User enters {string} in Author field")
     public void user_enters_in_author_field(String Author) {
-        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Approver Name")).press("Tab");
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Author Name")).click();
         page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Author Name")).fill(Author);
         CucumberLogUtils.playwrightScreenshot(page);
     }
@@ -250,7 +250,7 @@ public class ManageDelegationAndApprovalHierarchy {
     public void user_selects_from_the_organization_field(String Organization) {
         page.locator(".select2-selection").first().click();
         page.getByPlaceholder("Select organization").fill(Organization);
-        page.getByRole(AriaRole.TREEITEM, new Page.GetByRoleOptions().setName("☐    NCI DCCPS EGRP EEB (")).click();
+        page.getByRole(AriaRole.TREEITEM, new Page.GetByRoleOptions().setName("☐    "+Organization+" (")).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -262,7 +262,7 @@ public class ManageDelegationAndApprovalHierarchy {
     public void user_selects_from_the_publication_type_field(String PubType) {
         page.getByPlaceholder("Select one or more publication types").click();
         page.getByPlaceholder("Select one or more publication types").fill(PubType);
-        page.getByRole(AriaRole.TREEITEM, new Page.GetByRoleOptions().setName("☐Original Journal Article")).click();
+        page.getByRole(AriaRole.TREEITEM, new Page.GetByRoleOptions().setName("☐"+PubType)).click();
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
