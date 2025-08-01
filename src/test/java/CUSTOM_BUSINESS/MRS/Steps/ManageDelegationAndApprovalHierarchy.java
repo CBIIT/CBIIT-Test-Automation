@@ -177,6 +177,16 @@ public class ManageDelegationAndApprovalHierarchy {
     }
 
     /**
+     * This method is used to click on the Add button and verify the Delegate is added
+     */
+    @Then("User clicks on Add button and verifies the delegate is added")
+    public void user_clicks_on_add_button_and_verifies_the_delegate_is_added() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add")).click();
+        assertThat(page.locator("#delegateTable")).containsText(MRS_Constants.SECOND_APPROVER+" [E]");
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
      * This method is used to select a new Delegate and delete the existing if any
      */
     @And("User selects a Delegate")
@@ -311,7 +321,7 @@ public class ManageDelegationAndApprovalHierarchy {
      */
     @And("User clicks on Export button to export the search results")
     public void user_clicks_on_export_button_to_export_the_search_results() {
-        Download download = page.waitForDownload(() -> {
+        Download download = page.waitForDownload(() ->{
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Export")).click();
         });
     }

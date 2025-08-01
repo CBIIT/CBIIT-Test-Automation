@@ -30,7 +30,7 @@ Scenario: Assign My Delegate as a user
   And User selects Temporary as Delegation Type
   And User selects a Delegate
   And User enters Start and End Dates for the temporary delegate
-  Then User clicks on Add button
+  Then User clicks on Add button and verifies the delegate is added
 
 @SearchRequests @NESARH2 @playwright @Regression
 Scenario: Search and Export requests in the MRS application
